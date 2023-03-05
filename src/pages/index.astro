@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Landing from '../sections/landing.astro';
+import Capsules from '../sections/capsules.astro';
+import Lions from '../sections/lions.astro';
+import Lore from '../sections/lore.mdx';
+import Team from '../sections/team.astro';
+import Service from '../sections/service.astro';
+import Join from '../sections/join.astro';
+import Contact from '../sections/contact.astro';
+---
+
+<Layout title="Home | Degenerous">
+	<main>
+		<Landing />
+		<Capsules />
+		<Lions />
+		<Lore />
+		<Service />
+		<Team />
+		<Join />
+		<Contact />
+	</main>
+</Layout>
+
+<style lang="scss">
+	:global(#lore > p) {
+		margin-bottom: 1rem;
+	}
+
+	:global(#lore > h2) {
+		margin-block: 3rem 1.5rem;
+	}
+</style>

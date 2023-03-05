@@ -1,0 +1,84 @@
+---
+import Section from "../components/Section.astro";
+---
+
+<Section>
+    <h2>Take control of your own destiny and unlock your true potential.</h2>
+    <h1>Genesis Capsules</h1>
+
+    <ul class="capsules">
+        {Array.from({length: 5}, (_, i) => i + 1).map( (i: number) => (
+            <li>
+                <img src={`/images/capsule${i}.jpg`} alt="capsule" />
+            </li>
+        ))}
+    </ul>
+</Section>
+
+<style lang="scss">
+	section {
+		padding: 1rem;
+	}
+
+	section h1 {
+		margin-block: 0 2rem;
+	}
+
+    .capsules {
+		max-width: 100vw;
+		display: flex;
+		list-style: none;
+		max-width: 125rem;
+		margin-inline: auto;
+		padding-inline: none;
+		gap: 1rem;
+		margin-bottom: 3rem;
+		overflow-x: auto;
+		overflow-y: hidden;
+
+		img {
+			width: 100%;
+			min-width: 10rem;
+		}
+
+		li {
+			transition: opacity 0.2s;
+			cursor: pointer;
+			position: relative;
+			--border-size: 3vmin;
+			clip-path: polygon(
+				0 0, 
+				calc(100% - var(--border-size)) 0, 
+				100% var(--border-size), 
+				100% 100%, 
+				var(--border-size) 100%, 
+				0 calc(100% - var(--border-size))
+			);
+
+			&::after {
+				transition: translate 0.2s .1s;
+				content: "Capsule";
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+				padding-right: 5%;
+				position: absolute;
+				height: 3rem;
+				inset-inline: 0;
+				bottom: 0;
+				translate: 0 100%;
+				background: var(--accent-color);
+			}
+
+			&:hover::after {
+				translate: 0;
+			}
+		}
+
+		&:hover {
+			li:not(:hover) {
+				opacity: 0.3;
+			}
+		}
+	}
+</style>

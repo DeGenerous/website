@@ -1,0 +1,81 @@
+<section class="landing">
+    <img src="https://static.wixstatic.com/media/11062b_cacb6249b6024b61b2d8a8594b7dbb4c~mv2.jpg/v1/fill/w_1000,h_652,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_cacb6249b6024b61b2d8a8594b7dbb4c~mv2.jpg" alt="Charity image">
+    <div class="cover" />
+    <span class="title">
+        <h1>DEGENEROUS</h1>
+        <h2>The potentials collection</h2>
+        <p>
+            take control of your own destiny and unlock your true potential. <strong>#builtdifferent</strong>
+        </p>
+    </span>
+</section>
+
+<style lang="scss">
+	.landing {
+		position: relative;
+		height: 100vh;
+		width: 100%;
+		overflow-x: clip;
+		display: flex;
+		align-items: center;
+		padding-inline: 2rem;
+		padding-bottom: 5rem;
+		margin-bottom: 15rem;
+		
+		&::before, &::after {
+			content: "";
+			position: absolute;
+			inset-inline: -5%;
+			bottom: 0rem;
+			height: 10rem;
+			transform: rotate(-5deg);
+			background: var(--accent-gradient-reverse);
+			z-index: 100;
+		}
+
+		&::after {
+			bottom: -7rem;
+			background: var(--card-border-color);
+		}
+	}
+
+    .title {
+        z-index: 2;
+        color: white;
+    }
+
+    h1 {
+        font-size: min(12vw, 10rem);
+        line-height: 1;
+    }
+
+    h2 {
+        font-size: clamp(1rem, 3vw, 3rem);
+        opacity: 0.85;
+    }
+
+    p {
+        margin-top: 2rem;
+        font-size: 1.75rem;
+    }
+
+    strong {
+        text-decoration: underline 3px solid var(--card-hover-color);
+        text-underline-offset: .5rem;
+    }
+
+    img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        object-fit: cover;
+        height: 100%;
+        z-index: 0;
+    }
+
+    .cover {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to right, rgba(0,0,0,1), rgba(0,0,0,.4));
+    }
+</style>

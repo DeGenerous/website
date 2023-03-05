@@ -1,0 +1,83 @@
+---
+export interface Props {
+	page: string;
+}
+
+const { page } = Astro.props;
+
+const pages: {name: string, url: string, pretty: string}[] = [
+	{
+		name: "index",
+		url: "#",
+		pretty: "Home"
+	},
+	{
+		name: "lore",
+		url: "#lore",
+		pretty: "Lore"
+	},
+	{
+		name: "join",
+		url: "#join",
+		pretty: "Join"
+	}
+]
+---
+
+<header>
+    <nav>
+        <ul>
+            {pages.map( p => (
+                <li data-selected={p.name == page}>
+					<a href={p.url}>
+						{p.pretty}
+					</a>
+				</li>
+            ))}
+        </ul>
+    </nav>
+</header>
+
+<style lang="scss">
+	html {
+		scroll-behavior: smooth;
+		scroll-padding-top: 4rem;
+	}
+
+	header {
+		position: sticky;
+		top: 0;
+		inset-inline: 0;
+		background: var(--accent-gradient);
+		color: var(--on-accent-color);
+		z-index: 1000;
+		padding-inline: 3rem;
+		height: 4rem;
+	}
+
+	ul {
+		display: flex;
+		justify-content: flex-end;
+		list-style: none;
+		padding-inline: 0;
+	}
+
+	ul, nav, li {
+		height: 100%;
+	}
+
+	a {
+		display: flex;
+		align-items: center;
+		height: 100%;
+		text-decoration: underline 2px solid var(--on-accent-color);
+		text-underline-offset: .5rem;
+		color: var(--on-accent-color);
+		padding-inline: 1.5rem;
+
+		&:hover {
+			background-color: var(--card-hover-color);
+			text-decoration: underline 2px solid hsla(0, 0%, 100%, .6);
+		}
+	}
+</style>

@@ -1,0 +1,19 @@
+{
+	"name": "scam",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev --host",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/mdx": "^0.17.2",
+		"astro": "^2.0.16"
+	},
+	"devDependencies": {
+		"sass": "^1.58.3"
+	}
+}

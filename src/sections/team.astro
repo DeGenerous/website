@@ -1,0 +1,78 @@
+---
+import Member from "../components/Member.astro";
+import Section from "../components/Section.astro";
+---
+
+<Section>
+    <h1>Core team</h1>
+    <ul class="team">
+        <li class="founder">
+            <Member name="Panopticus" title="Founder" img="https://images.unsplash.com/photo-1564564244660-5d73c057f2d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80">
+                <ul>
+                    <li>Lions clubs international district governor.</li>
+                    <li>Experienced writer.</li>
+                    <li>Book publisher.</li>
+                    <li>International service trip coordinator.</li>
+                    <li>Community leader.</li>
+                </ul>
+            </Member>
+        </li>
+        <li class="founder">
+            <Member name="Kusama Maxi" title="Founder" img="https://images.unsplash.com/photo-1564564244660-5d73c057f2d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80">
+                <ul>
+                    <li>Experienced in marketing, growth, and writing as an ex-founder of a news platform with over 1M monthly viewers.</li>
+                    <li>Manager of over 900k followers across facebook, instagram, and twitter. </li>
+                    <li>Domains vary from sports to crypto.</li>
+                </ul>
+            </Member>
+        </li>
+        <li>
+            <Member name="Vani" title="Developer" img="https://images.unsplash.com/photo-1564564244660-5d73c057f2d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80" />
+        </li>
+        <li>
+            <Member name="Vani's grandma" title="Developer" img="https://images.unsplash.com/photo-1564564244660-5d73c057f2d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80" />
+        </li>
+        <li>
+            <Member name="King Cryptok" title="Videographer" img="https://images.unsplash.com/photo-1564564244660-5d73c057f2d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80" />
+        </li>
+        <li>
+            <Member name="Danica" title="Community manager" img="https://images.unsplash.com/photo-1564564244660-5d73c057f2d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80">
+                Counter Strike lover, DDR queen, turned corporate volleyball player
+            </Member>
+        </li>
+    </ul>
+</Section>
+
+<style lang="scss">
+    .team {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 2rem;
+        align-content: stretch;
+
+        & > li {
+            grid-column: span 1;
+            display: flex;
+
+            ul {
+                margin-top: 1rem;
+                list-style: disc;
+                margin-inline: 2rem;
+            }
+            
+            li::marker {
+                color: var(--card-border-color);
+                font-weight: 900;
+            }
+        }
+
+        @media screen and (min-width:50rem) {
+            grid-template-columns: repeat(4, 1fr);
+         
+            .founder {
+                grid-column: span 2;
+            }
+        }
+    }
+</style>

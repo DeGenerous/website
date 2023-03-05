@@ -1,0 +1,78 @@
+---
+export interface Props {
+	name: string;
+	title: string
+	img: string;
+}
+
+const { name, title, img } = Astro.props;
+---
+
+<section aria-label={`${name} - ${title}`}>
+	<img src={img} alt={`${name}'s picture`}>
+	<div class="grow" />
+	<div class="details">
+		<h2>{name}</h2>
+		<h3>{title}</h3>
+		<p><slot /></p>
+	</div>
+</section>
+
+<style lang="scss">
+	section img {
+		width: 100%;
+	}
+
+	@keyframes glare {
+		from {
+    		background-position: top right;
+		}
+		to {
+			background-position: bottom left;
+		}
+	}
+
+	section {
+		position: relative;
+		background-color: var(--card-color);
+		color: var(--card-text-color);
+		border-radius: var(--corner-size);
+		border: solid 2px var(--card-border-color);
+
+		display: block;
+
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		transition: scale .1s;
+		
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			transition: background-position 0s;
+			background: linear-gradient(45deg, transparent 40%, hsl(0, 0%, 100%, .2) 60%, transparent 65%);
+			background-position: 0% 0%;
+  			background-size: 300% 300%;
+    		background-position: top right;
+		}
+
+		&:hover {
+			scale: 1.05;
+			z-index: 100;
+
+			&::after {
+				animation: glare 1s .25s forwards;
+			}
+		}
+	}
+
+	.grow {
+		flex-grow: 1;
+	}
+
+	.details {
+		padding: 1rem;
+	}
+</style>

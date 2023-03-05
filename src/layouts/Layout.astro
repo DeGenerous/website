@@ -1,0 +1,102 @@
+---
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+
+
+import Header from '../components/Header.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Righteous&display=swap" rel="stylesheet">
+
+		<title>{title}</title>
+	</head>
+	<body>
+		<Header page="index" />
+		<slot />
+	</body>
+	<footer>
+		<span class="logo">DEGENEROUS</span>
+		<a href="mailto:info@degenerousdao.com">info@degenerousdao.com</a>
+		<span>©2023 by DeGenerousDao</span>
+	</footer>
+</html>
+
+<style is:global lang="scss">
+
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
+	:root {
+		--bg-color: black;
+		--fg-color: white;
+
+		--accent-color: hsl(254, 33%, 30%);
+		--accent-color-transparent: hsla(254, 33%, 30%, .7);
+		--on-accent-color: white;
+		--accent-gradient: linear-gradient(to right, var(--accent-color), black);
+		--accent-gradient-reverse: linear-gradient(to left, var(--accent-color), black);
+
+
+		--card-color: black;
+		--card-text-color: white;
+		--card-hover-color: hsl(254, 33%, 35%);
+		--card-hover-text-color: white;
+		--card-border-color: hsl(254, 33%, 40%);
+
+		--corner-size: .35rem;
+	}
+	
+	html {
+		font-family: 'Poppins', sans-serif;
+		background-color: var(--bg-color);
+		color: var(--fg-color);
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	::selection {
+		background-color: var(--card-border-color);
+	}
+
+	h1, h2, h3, strong {
+		font-family: 'Righteous', cursive;
+	}
+
+	footer {
+		background-color: var(--accent-color);
+		color: var(--fg-color);
+		display: flex;
+		flex-direction: column;
+		padding: 2rem;
+		gap: .25rem;
+		align-items: flex-start;
+
+		.logo {
+			font-family: 'Righteous', cursive;
+			font-size: 2rem;
+		}
+
+		a {
+			color: var(--fg-color);
+			text-decoration: none;
+
+			&:hover {
+				opacity: 0.6;
+			}
+		}
+	}
+</style>
