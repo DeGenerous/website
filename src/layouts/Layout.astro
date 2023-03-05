@@ -21,6 +21,13 @@ import Header from '../components/Header.astro';
 		<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Righteous&display=swap" rel="stylesheet">
 
 		<title>{title}</title>
+
+		<!-- <script defer>
+			document.addEventListener("mousemove", e => {
+				document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
+				document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
+			}) 
+		</script> -->
 	</head>
 	<body>
 		<Header page="index" />
@@ -47,6 +54,7 @@ import Header from '../components/Header.astro';
 
 		--accent-color: hsl(254, 33%, 30%);
 		--accent-color-transparent: hsla(254, 33%, 30%, .7);
+		--accent-color-fully-transparent: hsla(254, 33%, 30%, 0);
 		--on-accent-color: white;
 		--accent-gradient: linear-gradient(to right, var(--accent-color), black);
 		--accent-gradient-reverse: linear-gradient(to left, var(--accent-color), black);
@@ -99,4 +107,18 @@ import Header from '../components/Header.astro';
 			}
 		}
 	}
+
+	// body::before {
+	// 	--size: 8rem;
+	// 	content: "";
+	// 	width: var(--size);
+	// 	aspect-ratio: 1;
+	// 	border-radius: 50%;
+	// 	position: fixed;
+	// 	translate: var(--mouse-x) var(--mouse-y);
+	// 	background: radial-gradient(hsla(254, 33%, 30%, .2), hsla(254, 33%, 30%, 0));
+	// 	top: calc(var(--size) * -.5);
+	// 	left: calc(var(--size) * -.5);
+	// 	z-index: -1;
+	// }
 </style>
