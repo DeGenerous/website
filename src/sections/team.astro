@@ -8,7 +8,7 @@ import Section from "../components/Section.astro";
     <ul class="team">
         <li class="founder">
             <Member name="Panopticus" title="Founder" img="/images/pano.jpg">
-                <ul>
+                <ul class="hide">
                     <li>Lions clubs international district governor.</li>
                     <li>Experienced writer.</li>
                     <li>Book publisher.</li>
@@ -19,7 +19,7 @@ import Section from "../components/Section.astro";
         </li>
         <li class="founder">
             <Member name="Kusama Maxi" title="Founder" img="https://images.unsplash.com/photo-1564564244660-5d73c057f2d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80">
-                <ul>
+                <ul class="hide">
                     <li>Experienced in marketing, growth, and writing as an ex-founder of a news platform with over 1M monthly viewers.</li>
                     <li>Manager of over 900k followers across facebook, instagram, and twitter. </li>
                     <li>Domains vary from sports to crypto.</li>
@@ -37,7 +37,7 @@ import Section from "../components/Section.astro";
         </li>
         <li>
             <Member name="Danica" title="Community manager" img="https://images.unsplash.com/photo-1564564244660-5d73c057f2d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80">
-                Counter Strike lover, DDR queen, turned corporate volleyball player
+                <span class="hide">Counter Strike lover, DDR queen, turned corporate volleyball player</span>
             </Member>
         </li>
     </ul>
@@ -47,7 +47,7 @@ import Section from "../components/Section.astro";
     .team {
         list-style: none;
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
         align-content: stretch;
 
@@ -64,6 +64,13 @@ import Section from "../components/Section.astro";
             li::marker {
                 color: var(--card-border-color);
                 font-weight: 900;
+            }
+        }
+
+
+        @media screen and (max-width:50rem) {
+            li :global(.hide) {
+                display: none;
             }
         }
 
