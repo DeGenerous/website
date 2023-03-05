@@ -93,20 +93,9 @@ import Section from "../components/Section.astro";
             grid-column: span 1;
             display: flex;
 
-            &:first-of-type {
-                grid-column: 2 / 4;
-            }
-            
             li::marker {
                 color: var(--card-border-color);
                 font-weight: 900;
-            }
-        }
-
-
-        @media screen and (max-width:50rem) {
-            li :global(.hide) {
-                display: none;
             }
         }
 
@@ -115,6 +104,10 @@ import Section from "../components/Section.astro";
          
             & > li {
                 grid-column: span 2;
+
+                &:first-of-type {
+                    grid-column: 2 / 4;
+                }
             }
         }
     }
