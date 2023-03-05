@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Lore from '../sections/lore.mdx';
+---
+
+<Layout title="Home | Degenerous">
+	<main>
+        <Lore />
+	</main>
+</Layout>
+
+<style lang="scss">
+	:global(#lore > p) {
+		margin-bottom: 1rem;
+	}
+
+	:global(#lore > h2) {
+		margin-block: 3rem 1.5rem;
+	}
+</style>
