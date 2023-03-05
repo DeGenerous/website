@@ -10,7 +10,6 @@ import Section from "../components/Section.astro";
             <Member name="Panopticus" title="Founder" img="/images/pano.jpg">
                 <ul class="hide">
                     <li>Lions clubs international district governor.</li>
-                    <li>Experienced writer.</li>
                     <li>Book publisher.</li>
                     <li>International service trip coordinator.</li>
                     <li>Community leader.</li>
@@ -21,8 +20,7 @@ import Section from "../components/Section.astro";
             <Member name="Kusama Maxi" title="Founder" img="https://images.unsplash.com/photo-1564564244660-5d73c057f2d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80">
                 <ul class="hide">
                     <li>Experienced in marketing, growth, and writing as an ex-founder of a news platform with over 1M monthly viewers.</li>
-                    <li>Manager of over 900k followers across facebook, instagram, and twitter. </li>
-                    <li>Domains vary from sports to crypto.</li>
+                    <li>Managed over 900k followers across facebook, instagram, and twitter. </li>
                 </ul>
             </Member>
         </li>
@@ -36,9 +34,10 @@ import Section from "../components/Section.astro";
             <Member name="King Cryptok" title="Videographer" img="https://images.unsplash.com/photo-1564564244660-5d73c057f2d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80" />
         </li>
         <li>
-            <Member name="Danica" title="Community manager" img="https://images.unsplash.com/photo-1564564244660-5d73c057f2d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80">
-                <span class="hide">Counter Strike lover, DDR queen, turned corporate volleyball player</span>
-            </Member>
+            <Member name="Eve" title="Community manager" img="https://images.unsplash.com/photo-1564564244660-5d73c057f2d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80" />
+        </li>
+        <li>
+            <Member name="Kit" title="Designer" img="https://images.unsplash.com/photo-1564564244660-5d73c057f2d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80" />
         </li>
     </ul>
 </Section>
@@ -75,9 +74,13 @@ import Section from "../components/Section.astro";
         }
 
         @media screen and (min-width:50rem) {
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(10, 1fr);
          
             .founder {
+                grid-column: span 5;
+            }
+
+            & > li {
                 grid-column: span 2;
             }
         }
