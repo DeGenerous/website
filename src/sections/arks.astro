@@ -4,11 +4,11 @@ import Section from "../components/Section.astro";
 
 <Section id="capsules">
 	<h2>Take control of your own destiny and unlock your true potential. <strong>#builtdifferent</strong></h2>
-	<h1>Inception arks</h1>
+	<h1>Inception Arks</h1>
 
 	<ul class="capsules">
 		{Array.from({length: 6}, (_, i) => i + 1).map( (i: number) => (
-			<li data-details={`Arc ${i}`}>
+			<li data-details={`Ark`}>
 				<img src={`/images/ark${i}.jpg`} alt="Arc" />
 			</li>
 		))}
@@ -33,7 +33,7 @@ import Section from "../components/Section.astro";
 	strong {
 		text-decoration: underline 3px solid var(--card-hover-color);
 		text-underline-offset: .5rem;
-}
+	}
 
 	.capsules {
 		max-width: 100vw;
