@@ -25,17 +25,17 @@ const pages: {name: string, url: string, pretty: string}[] = [
 ---
 
 <header>
-    <nav>
-        <ul>
-            {pages.map( p => (
-                <li data-selected={p.name == page}>
+	<nav>
+		<ul>
+			{pages.map( p => (
+				<li data-selected={p.name == page}>
 					<a href={p.url}>
 						{p.pretty}
 					</a>
 				</li>
-            ))}
-        </ul>
-    </nav>
+			))}
+		</ul>
+	</nav>
 </header>
 
 <style lang="scss">

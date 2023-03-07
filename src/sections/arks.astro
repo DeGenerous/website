@@ -3,16 +3,22 @@ import Section from "../components/Section.astro";
 ---
 
 <Section id="capsules">
-    <h2>Take control of your own destiny and unlock your true potential. <strong>#builtdifferent</strong></h2>
-    <h1>Inception arks</h1>
+	<h2>Take control of your own destiny and unlock your true potential. <strong>#builtdifferent</strong></h2>
+	<h1>Inception arks</h1>
 
-    <ul class="capsules">
-        {Array.from({length: 6}, (_, i) => i + 1).map( (i: number) => (
-            <li data-details={`Arc ${i}`}>
-                <img src={`/images/ark${i}.jpg`} alt="Arc" />
-            </li>
-        ))}
-    </ul>
+	<ul class="capsules">
+		{Array.from({length: 6}, (_, i) => i + 1).map( (i: number) => (
+			<li data-details={`Arc ${i}`}>
+				<img src={`/images/ark${i}.jpg`} alt="Arc" />
+			</li>
+		))}
+	</ul>
+
+	<p>DeGenerous DAO is launching the Potentials collection. Beginning as an Inception Ark, Potentials will evolve based on decisions you make as a part of the Dischordian Saga, a multiverse-spanning story that the community controls. </p>
+	<p>Once the Inception Arks have been minted, the Dischordian Saga will begin. Each week, a new chapter of the Dischordian Saga will be released and delivered in the form of Narrative Governance Story Modes. As the Dischordian Saga progresses, Inception Ark holders will make decisions that will influence the development of the Potential contained within their Arks.</p>
+	<p>Over time, the Arks will Unlock to reveal the Potentials - NFTs that possess a diverse set of traits. The Unlocking will reveal the Art of each Potential. Each Potential’s appearance and abilities evolve in connection to the variable choices the holders will make during the Saga.</p>
+	<p>The choices you make will shape the reality of the world in which the Potentials exist.</p>
+	<p>This is only the beginning.</p>
 </Section>
 
 <style lang="scss">
@@ -24,12 +30,12 @@ import Section from "../components/Section.astro";
 		padding-block: 1rem 2rem;
 	}
 
-    strong {
-        text-decoration: underline 3px solid var(--card-hover-color);
-        text-underline-offset: .5rem;
-    }
+	strong {
+		text-decoration: underline 3px solid var(--card-hover-color);
+		text-underline-offset: .5rem;
+}
 
-    .capsules {
+	.capsules {
 		max-width: 100vw;
 		display: flex;
 		list-style: none;
@@ -84,5 +90,10 @@ import Section from "../components/Section.astro";
 				opacity: 0.3;
 			}
 		}
+	}
+
+	p {
+		padding-inline: max(1rem, calc(50vw - 60ch));
+		margin-bottom: 1rem;
 	}
 </style>

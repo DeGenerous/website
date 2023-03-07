@@ -3,133 +3,139 @@ import Section from "../components/Section.astro";
 ---
 
 <Section class="contact">
-    <div>
-        <h1>Contact us</h1>
-        <p>You can contact us here or tag us on our social media</p>
-        <ul>
-            <li>
-                <a href="https://t.me/degenerous">
-                    <img src="/icons/telegram.svg" alt="Telegram">
-                    <strong>DEGENEROUS</strong> group chat
-                </a>
-            </li>
-            <li>
-                <a href="https://twitter.com">
-                    <img src="/icons/twitter.svg" alt="Twitter">
-                    <strong>DEGENEROUS</strong> news
-                </a>
-            </li>
-            <li>
-                <a href="https://instagram.com">
-                    <img src="/icons/instagram.svg" alt="Instagram">
-                    <strong>DEGENEROUS</strong> pictures
-                </a>
-            </li>
-        </ul>
-    </div>
-    <form action="">
-        <label for="name">Name</label>
-        <input type="text" id="name" placeholder="John Doe" />
+	<div>
+		<h1>Contact us</h1>
+		<p>You can contact us here or tag us on our social media</p>
+		<ul>
+			<li>
+				<a href="https://t.me/degenerous">
+					<img src="/icons/telegram.svg" alt="Telegram">
+					<strong>DEGENEROUS</strong> group chat
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/degenerousdao">
+					<img src="/icons/twitter.svg" alt="Twitter">
+					<strong>DEGENEROUS</strong> news
+				</a>
+			</li>
+			<li>
+				<a href="https://instagram.com">
+					<img src="/icons/instagram.svg" alt="Instagram">
+					<strong>DEGENEROUS</strong> pictures
+				</a>
+			</li>
+			<li>
+				<a href="https://www.youtube.com/@degenerous">
+					<img src="/icons/youtube.svg" alt="Youtube">
+					<strong>DEGENEROUS</strong> videos
+				</a>
+			</li>
+		</ul>
+	</div>
+	<form action="">
+		<label for="name">Name</label>
+		<input type="text" id="name" placeholder="John Doe" />
 
-        <label for="email">E-mail</label>
-        <input type="text" id="email" placeholder="john.doe@email.com" />
+		<label for="email">E-mail</label>
+		<input type="text" id="email" placeholder="john.doe@email.com" />
 
-        <label for="subject">Subject</label>
-        <input type="text" id="subject" placeholder="Bussines inquiry" />
+		<label for="subject">Subject</label>
+		<input type="text" id="subject" placeholder="Bussines inquiry" />
 
-        <label for="message">Message</label>
-        <textarea rows="5" id="message" placeholder="Hi, friends,\n..." />
-        <button type="submit">Send</button>
-    </form>
+		<label for="message">Message</label>
+		<textarea rows="5" id="message" placeholder="Hi, friends,\n..." />
+		<button type="submit">Send</button>
+	</form>
 </Section>
 
 <style lang="scss">
-    .contact {
-        padding: 2rem;
-        display: grid;
-        place-content: center;
-        grid-auto-flow: column;
-        gap: 2rem;
+	.contact {
+		padding: 2rem;
+		display: grid;
+		place-content: center;
+		grid-auto-flow: column;
+		gap: 2rem;
 
 
-        @media screen and (max-width: 65rem) {
-            grid-auto-flow: row;
-        }
-    }
+		@media screen and (max-width: 65rem) {
+			grid-auto-flow: row;
+		}
+	}
 
-    ul {
-        display: flex;
-        gap: .5rem;
-        flex-direction: column;
-        padding: 2rem 1rem;
-        grid-template-columns: repeat(3, auto);
-        list-style: none;
+	ul {
+		display: flex;
+		gap: .5rem;
+		flex-direction: column;
+		padding: 2rem 1rem;
+		grid-template-columns: repeat(3, auto);
+		list-style: none;
 
-        img {
-            height: 2.5rem;
-        }
+		img {
+			height: 2.5rem;
+		}
 
-        a {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            color: var(--fg-color);
-            text-decoration: none;
+		a {
+			display: flex;
+			gap: 1rem;
+			align-items: center;
+			color: var(--fg-color);
+			text-decoration: none;
 
-            &:hover {
-                opacity: 0.7;
-            }
-        }
-    }
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+	}
 
-    h1 {
-        line-height: 1.1;
-        padding-block: 3rem 0rem;
-    }
+	h1 {
+		line-height: 1.1;
+		padding-block: 3rem 0rem;
+	}
 
-    div, form {
-        width: 30rem;
-        max-width: calc(100vw - 2rem);
-    }
+	div, form {
+		width: 30rem;
+		max-width: calc(100vw - 2rem);
+	}
 
-    form {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
+	form {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
 
-    input, textarea {
-        font-size: 1.2rem;
-        outline: none;
-        width: 100%;
-        background: var(--bg-color);
-        color: var(--fg-color);
-        border: 2px solid hsl(0, 0%, 90%);
-        padding: .5rem 1rem;
-        margin-block: .3rem 1rem;
-        border-radius: .3rem;
+	input, textarea {
+		font-size: 1.2rem;
+		outline: none;
+		width: 100%;
+		background: var(--bg-color);
+		color: var(--fg-color);
+		border: 2px solid hsl(0, 0%, 90%);
+		padding: .5rem 1rem;
+		margin-block: .3rem 1rem;
+		border-radius: .3rem;
 
-        &:hover {
-            border: 2px solid hsl(0, 0%, 40%);
-        }
+		&:hover {
+			border: 2px solid hsl(0, 0%, 40%);
+		}
 
-        &:focus {
-            border: 2px solid var(--card-border-color);
-        }
-    }
+		&:focus {
+			border: 2px solid var(--card-border-color);
+		}
+	}
 
 
-    button {
-        all: unset;
-        font-size: 1.2rem;
-        align-self: flex-end;
-        background-color: var(--accent-color);
-        padding: .75rem 1.5rem;
-        cursor: pointer;
-        border-radius: .3rem;
+	button {
+		all: unset;
+		font-size: 1.2rem;
+		align-self: flex-end;
+		background-color: var(--accent-color);
+		padding: .75rem 1.5rem;
+		cursor: pointer;
+		border-radius: .3rem;
 
-        &:hover, &:focus {
-            opacity: 0.7;
-        }
-    }
+		&:hover, &:focus {
+			opacity: 0.7;
+		}
+	}
 </style>
