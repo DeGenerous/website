@@ -4,4 +4,20 @@ import Section from "../components/Section.astro";
 
 <Section id="join">
 	<h1>Join us</h1>
+	// TODO: make this flashy
+	<p>Like what you see? Join us on <a href="https://t.me/degenerous">Telegram</a></p>
 </Section>
+
+<style lang="scss">
+	a {
+		color: var(--fg-color);
+		text-decoration: none;
+		background-color: var(--accent-color);
+		padding: 0.5rem;
+		margin-inline: 0.25rem;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+</style>
