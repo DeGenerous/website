@@ -3,21 +3,52 @@ import Section from "../components/Section.astro";
 ---
 
 <Section id="join">
-	<h1>Join us</h1>
-	// TODO: make this flashy
-	<p>Like what you see? Join us on <a href="https://t.me/degenerous">Telegram</a></p>
+	<img src="/images/bg.png" alt="">
+	<div>
+		<a href="https://raresama.com/governance/cleuayjsy04iyfq0jo9vsdtog">Join us &rarr;</a>
+	</div>
 </Section>
 
 <style lang="scss">
+	section {
+		padding-inline: 0;
+		position: relative;
+	}
+
 	a {
+		font-family: 'Righteous', cursive;
 		color: var(--fg-color);
 		text-decoration: none;
 		background-color: var(--accent-color);
-		padding: 0.5rem;
+		padding: 2rem 3rem;
 		margin-inline: 0.25rem;
+		font-size: min(5rem, 10vw);
+
+		--border-size: 3vmin;
+		clip-path: polygon(
+			0 0, 
+			calc(100% - var(--border-size)) 0, 
+			100% var(--border-size), 
+			100% 100%, 
+			var(--border-size) 100%, 
+			0 calc(100% - var(--border-size))
+		);
 
 		&:hover {
-			opacity: 0.7;
+			filter: brightness(0.7);
 		}
+	}
+
+	img {
+		width: 100%;
+	}
+
+	div {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 	}
 </style>

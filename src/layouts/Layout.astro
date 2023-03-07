@@ -21,8 +21,8 @@ import Header from '../components/Header.astro';
 		<link href="https://fonts.googleapis.com/css2?family=Poppins&family=Righteous&display=swap" rel="stylesheet">
 
 		<title>{title}</title>
-
 		<script defer data-domain="degenerousdao.com" src="https://plausible.io/js/script.js"></script>
+		<script defer src="https://smtpjs.com/v3/smtp.js"></script>
 		<!-- <script defer>
 			document.addEventListener("mousemove", e => {
 				document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
@@ -58,7 +58,7 @@ import Header from '../components/Header.astro';
 		--on-accent-color: white;
 		--accent-gradient: linear-gradient(to right, var(--accent-color), black);
 		--accent-gradient-reverse: linear-gradient(to left, var(--accent-color), black);
-
+		--link-color: hsl(254, 50%, 70%);
 
 		--card-color: black;
 		--card-text-color: white;
@@ -105,6 +105,15 @@ import Header from '../components/Header.astro';
 			&:hover {
 				opacity: 0.6;
 			}
+		}
+	}
+
+	a {
+		text-decoration: none;
+		color: var(--link-color);
+
+		&:hover {
+			filter: brightness(0.7);
 		}
 	}
 

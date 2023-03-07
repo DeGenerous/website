@@ -2,7 +2,7 @@
 import Section from "../components/Section.astro";
 ---
 
-<Section class="contact">
+<Section class="contact" id="contact">
 	<div>
 		<h1>Contact us</h1>
 		<p>You can contact us here or tag us on our social media</p>
@@ -33,7 +33,7 @@ import Section from "../components/Section.astro";
 			</li>
 		</ul>
 	</div>
-	<form action="">
+	<form id="mail_form">
 		<label for="name">Name</label>
 		<input type="text" id="name" placeholder="John Doe" />
 
@@ -51,8 +51,42 @@ import Section from "../components/Section.astro";
 
 <script>
 	const TOKEN = "bc9bde2f-36c3-4f82-afd2-f1f9a8a99a8f";
+	const FROM = "info@degenerousdao.com";
+	const TO = "msckwevctvwxprhmdz@tcwlx.com";
 
-	
+	declare namespace Email {
+		interface EmailData {
+			SecureToken: string;
+			To: string | string[];
+			From: string;
+			Subject: string;
+			Body: string;
+		}
+
+		function send(email: EmailData): Promise<string>;
+	}
+
+	const send = document.getElementById("mail_form")
+	if (send instanceof HTMLElement) {
+		send.onsubmit = async (e: SubmitEvent) => {
+			e.preventDefault();
+
+			try {
+				const message = await Email.send({
+					SecureToken : TOKEN,
+					To : TO,
+					From : FROM,
+					Subject : "This is the subject",
+					Body : "And this is the body"
+				})
+
+				alert(message);
+			} catch (e) {
+				alert("Error sendig message");
+				console.error(e)
+			}
+		}	
+	}
 </script>
 
 <style lang="scss">

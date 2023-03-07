@@ -12,14 +12,34 @@ const pages: {name: string, url: string, pretty: string}[] = [
 		pretty: "Home"
 	},
 	{
+		name: "join",
+		url: "/#join",
+		pretty: "Join"
+	},
+	{
+		name: "team",
+		url: "/#team",
+		pretty: "Team"
+	},
+	{
+		name: "contact",
+		url: "/#contact",
+		pretty: "Contact"
+	},
+	{
 		name: "lore",
 		url: "/lore",
 		pretty: "Lore"
 	},
 	{
-		name: "join",
-		url: "/",
-		pretty: "Join"
+		name: "roadmap",
+		url: "/roadmap",
+		pretty: "Roadmap"
+	},
+	{
+		name: "motivation",
+		url: "/motivation",
+		pretty: "Motivation"
 	}
 ]
 ---
@@ -66,18 +86,19 @@ const pages: {name: string, url: string, pretty: string}[] = [
 		height: 100%;
 	}
 
-	a {
+	header a {
 		display: flex;
 		align-items: center;
 		height: 100%;
-		text-decoration: underline 2px solid var(--on-accent-color);
 		text-underline-offset: .5rem;
 		color: var(--on-accent-color);
 		padding-inline: 1.5rem;
 
 		&:hover {
 			background-color: var(--card-hover-color);
-			text-decoration: underline 2px solid hsla(0, 0%, 100%, .6);
+			color: var(--fg-color);
+			text-decoration: underline 2px solid var(--fg-color);
+			filter: none;
 		}
 	}
 </style>

@@ -4,12 +4,31 @@ import Section from "../components/Section.astro";
 ---
 
 <Section>
-	<!-- <h1>Our goal</h1> -->
-	<h2>Using Web3 technology to sustain charity and change the world for the better with the help of decentralization systems, dynamic NFTs, narrative governance, and the largest service organization in the world.</h2>
+    <h2>Using Web3 technology to sustain charity and change the world for the better with the help of decentralization systems, dynamic NFTs, narrative governance, and the largest service organization in the world.</h2>
 </Section>
 
 <style>
+    section {
+        padding-top: 0;
+        display: grid;
+        place-content: center;
+    }
+
     h2 {
         padding-block: 5rem 10rem;
+		background-color: var(--accent-color);
+        padding-inline: 3rem;
+        padding-block: 1rem;
+        margin-bottom: 2rem;
+        
+        --border-size: 3vmin;
+		clip-path: polygon(
+			0 0, 
+			calc(100% - var(--border-size)) 0, 
+			100% var(--border-size), 
+			100% 100%, 
+			var(--border-size) 100%, 
+			0 calc(100% - var(--border-size))
+		);
     }
 </style>
