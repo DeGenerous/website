@@ -3,13 +3,13 @@ import Section from "../components/Section.astro";
 ---
 
 <Section id="capsules">
-    <h2>Take control of your own destiny and unlock your true potential.</h2>
-    <h1>Genesis Capsules</h1>
+    <h2>Take control of your own destiny and unlock your true potential. <strong>#builtdifferent</strong></h2>
+    <h1>Inception arks</h1>
 
     <ul class="capsules">
-        {Array.from({length: 5}, (_, i) => i + 1).map( (i: number) => (
-            <li>
-                <img src={`/images/capsule${i}.jpg`} alt="capsule" />
+        {Array.from({length: 6}, (_, i) => i + 1).map( (i: number) => (
+            <li data-details={`Arc ${i}`}>
+                <img src={`/images/ark${i}.jpg`} alt="Arc" />
             </li>
         ))}
     </ul>
@@ -23,6 +23,11 @@ import Section from "../components/Section.astro";
 	#capsules h1 {
 		padding-block: 1rem 2rem;
 	}
+
+    strong {
+        text-decoration: underline 3px solid var(--card-hover-color);
+        text-underline-offset: .5rem;
+    }
 
     .capsules {
 		max-width: 100vw;
@@ -56,7 +61,7 @@ import Section from "../components/Section.astro";
 
 			&::after {
 				transition: translate 0.2s .1s;
-				content: "Capsule";
+				content: attr(data-details);
 				display: flex;
 				align-items: center;
 				justify-content: flex-end;

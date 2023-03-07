@@ -1,12 +1,12 @@
 <section class="landing">
-    <img src="https://static.wixstatic.com/media/11062b_cacb6249b6024b61b2d8a8594b7dbb4c~mv2.jpg/v1/fill/w_1000,h_652,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_cacb6249b6024b61b2d8a8594b7dbb4c~mv2.jpg" alt="Charity image">
+    <img  class="bg" src="https://static.wixstatic.com/media/11062b_cacb6249b6024b61b2d8a8594b7dbb4c~mv2.jpg/v1/fill/w_1000,h_652,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_cacb6249b6024b61b2d8a8594b7dbb4c~mv2.jpg" alt="Charity image">
     <div class="cover" />
     <span class="title">
-        <h1>DEGENEROUS</h1>
-        <h2>The potentials collection</h2>
-        <p>
-            take control of your own destiny and unlock your true potential. <strong>#builtdifferent</strong>
-        </p>
+        <img class="logo" src="/images/logo.png" alt="Degenerous logo">
+        <div>
+            <h1>DEGENEROUS</h1>
+            <h2>The potentials collection</h2>
+        </div>
     </span>
 </section>
 
@@ -21,6 +21,10 @@
 		padding-inline: 2rem;
 		padding-bottom: 5rem;
 		margin-bottom: 15rem;
+
+        @media screen and (max-width:75rem) {
+            justify-content: center;
+        }
 		
 		&::before, &::after {
 			content: "";
@@ -42,11 +46,28 @@
     .title {
         z-index: 2;
         color: white;
+        display: flex;
+        gap: 2rem;
+
+        @media screen and (max-width:75rem) {
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10rem;
+        }
+    }
+
+    .logo {
+        height: 20rem;
+        margin: -50px;
     }
 
     h1 {
-        font-size: min(12vw, 10rem);
+        font-size: min(10vw, 10rem);
         line-height: 1;
+
+        @media screen and (max-width:75rem) {
+            font-size: 12vw;
+        }
     }
 
     h2 {
@@ -59,12 +80,7 @@
         font-size: 1.75rem;
     }
 
-    strong {
-        text-decoration: underline 3px solid var(--card-hover-color);
-        text-underline-offset: .5rem;
-    }
-
-    img {
+    .bg {
         position: absolute;
         inset: 0;
         width: 100%;
