@@ -49,15 +49,15 @@ import Header from '../components/Header.astro';
 	}
 
 	:root {
-		--bg-color: black;
+		--bg-color: hsl(254, 33%, 12.5%);
 		--fg-color: white;
 
 		--accent-color: hsl(254, 33%, 30%);
 		--accent-color-transparent: hsla(254, 33%, 30%, .7);
 		--accent-color-fully-transparent: hsla(254, 33%, 30%, 0);
 		--on-accent-color: white;
-		--accent-gradient: linear-gradient(to right, var(--accent-color), black);
-		--accent-gradient-reverse: linear-gradient(to left, var(--accent-color), black);
+		--accent-gradient: linear-gradient(to right, var(--accent-color), var(--bg-color));
+		--accent-gradient-reverse: linear-gradient(to left, var(--accent-color), var(--bg-color));
 		--link-color: hsl(254, 50%, 70%);
 
 		--card-color: black;
