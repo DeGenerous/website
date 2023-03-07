@@ -163,6 +163,9 @@ const { name, title, img } = Astro.props;
 		transition: translate .2s, opacity .2s;
 		translate: 0 2rem;
 		opacity: 0;
+
+		max-height: 90vh;
+		overflow-y: auto;
 	}
 
 	[data-open] {
