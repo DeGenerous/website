@@ -23,12 +23,6 @@ import Header from '../components/Header.astro';
 		<title>{title}</title>
 		<script defer data-domain="degenerousdao.com" src="https://plausible.io/js/script.js"></script>
 		<script defer src="https://smtpjs.com/v3/smtp.js"></script>
-		<!-- <script defer>
-			document.addEventListener("mousemove", e => {
-				document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
-				document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
-			}) 
-		</script> -->
 	</head>
 	<body>
 		<Header page="index" />
@@ -120,18 +114,4 @@ import Header from '../components/Header.astro';
 	main {
 		min-height: 100vh;
 	}
-
-	// body::before {
-	// 	--size: 8rem;
-	// 	content: "";
-	// 	width: var(--size);
-	// 	aspect-ratio: 1;
-	// 	border-radius: 50%;
-	// 	position: fixed;
-	// 	translate: var(--mouse-x) var(--mouse-y);
-	// 	background: radial-gradient(hsla(254, 33%, 30%, .2), hsla(254, 33%, 30%, 0));
-	// 	top: calc(var(--size) * -.5);
-	// 	left: calc(var(--size) * -.5);
-	// 	z-index: -1;
-	// }
 </style>
