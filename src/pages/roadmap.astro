@@ -26,3 +26,52 @@ import Layout from '../layouts/Layout.astro';
         </Section>
     </main>
 </Layout>
+
+<style lang="scss">
+    ul {
+        position: relative;
+        list-style: none;
+        margin-left: 2rem;
+
+        li{
+            position: relative;
+            margin-bottom: 1.5rem;
+
+            margin-left: -3px;
+            padding-left: 2rem;
+
+            &::before, &::after {
+                content: "";
+                position: absolute;
+                left: -.2rem;
+                top: 50%;
+                translate: 0 -50%;
+
+                height: 1rem;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+
+                background-color: white;
+            }
+
+            &:after {
+                background-color: var(--bg-color);
+
+                left: -0.05rem;
+                height: .75rem;
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset-block: -1rem;
+            width: .2rem;
+            background: white;
+        }
+    }
+
+    p {
+        margin-top: 4rem;
+    }
+</style>

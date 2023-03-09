@@ -44,19 +44,69 @@ const pages: {name: string, url: string, pretty: string}[] = [
 ]
 ---
 
-<header>
-	<nav>
-		<ul>
-			{pages.map( p => (
-				<li data-selected={p.name == page}>
-					<a href={p.url}>
-						{p.pretty}
-					</a>
-				</li>
-			))}
-		</ul>
-	</nav>
-</header>
+<custom-header>
+	<header>
+		<div class="close" />
+		<nav>
+			<ul>
+				{pages.map( p => (
+					<li data-selected={p.name == page}>
+						<a href={p.url}>
+							{p.pretty}
+						</a>
+					</li>
+				))}
+			</ul>
+		</nav>
+		<button class="open">
+			<img src="/icons/menu.svg" alt="Open menu">
+		</button>
+	</header>
+</custom-header>
+
+<script>
+	class CustomHeader extends HTMLElement {
+		constructor() {
+			super();
+
+			const open_button = this.querySelector("button");
+			if (!(open_button instanceof HTMLElement)) { return; }
+
+			const nav = this.querySelector("nav");
+			if (!(nav instanceof HTMLElement)) { return; }
+
+
+			const ul = this.querySelector("ul");
+			if (!(ul instanceof HTMLElement)) { return; }
+
+			const _close = this.querySelector(".close");
+			if (!(_close instanceof HTMLElement)) { return; }
+
+			const element = this;
+			const open = () => { element.dataset.open = "true"; }
+			const close = () => {
+				element.dataset.open = "closing";
+				setTimeout(() => {
+					delete element.dataset.open;
+				}, 200)
+			}
+
+			open_button.addEventListener("click", open);
+			_close.addEventListener("click", close);
+			ul.addEventListener("click", close);
+
+			nav.addEventListener("click", (e: MouseEvent) => {
+				e.stopPropagation();
+			})
+
+			window.addEventListener('keydown', (e: KeyboardEvent) => {
+				if (e.key === 'Escape') { close(); }
+			})
+		}
+	}
+
+	customElements.define('custom-header', CustomHeader);
+</script>
 
 <style lang="scss">
 	html {
@@ -99,6 +149,78 @@ const pages: {name: string, url: string, pretty: string}[] = [
 			color: var(--fg-color);
 			text-decoration: underline 2px solid var(--fg-color);
 			filter: none;
+		}
+	}
+
+	button {
+		all: unset;
+		cursor: pointer;
+		position: absolute;
+		right: 1rem;
+		top: 0;
+		height: 100%;
+		display: grid;
+		place-content: center;
+		aspect-ratio: 1/1;
+
+		display: none;
+		pointer-events: none;
+
+		img {
+			width: 100%;
+			aspect-ratio: 1/1;
+		}
+	}
+
+	@media screen and (max-width: 50rem) {
+		ul {
+			height: initial;
+			position: fixed;
+			top: 0;
+			left: 0;
+			flex-direction: column;
+			translate: 0 -100%;
+			z-index: 100;
+			width: 100%;
+			background: var(--accent-gradient);
+			text-align: center;
+			padding-block: 2rem;
+			transition: translate .2s;
+
+			a {
+				padding-block: .5rem;
+				width: 100%;
+				flex-direction: column;
+			}
+		
+		}
+
+		button {
+			display: grid;
+			pointer-events: initial;
+		}
+
+		.close {
+			transition: opacity .1s;
+			position: fixed;
+			inset: 0;
+			background-color: hsla(0, 0%, 0%, 0.8);
+			opacity: 0;
+			pointer-events: none;
+			display: grid;
+			place-content: center;
+			z-index: 50;
+		}
+
+		[data-open] {
+			.close {
+				opacity: 1;
+				pointer-events: initial;
+			}
+
+			ul {
+				translate: 0;
+			}
 		}
 	}
 </style>
