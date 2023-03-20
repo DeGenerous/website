@@ -1,0 +1,114 @@
+---
+import EtherProvider from "../components/EtherProvider.astro";
+import Layout from "../layouts/Layout.astro"
+
+---
+
+<Layout title="Claim | Degenerous">
+    <main id="claim">
+        <EtherProvider>
+            <Fragment slot="missing">
+                You're missing metamask, please install it from <a href="https://metamask.io/download/">their website</a>
+            </Fragment>
+            <claim-page data-locked>
+                <div class="locked">
+                    Please unlock your wallet
+                </div>
+                <div class="unlocked">
+                    <span class="claimed">0</span> claimed, <span class="available">0</span> yet to be minted.
+                    Price: <span class="price">0</span>
+                    <input type="number" name="number" class="number" value="1">
+                    <button class="claim" data-state="waiting">Claim</button>
+                </div>
+            </claim-page>
+        </EtherProvider>
+    </main>
+</Layout>
+
+<script>
+    import { with_signer, get_data, approve_claim, claim } from "../lib/ether";
+
+	class ClaimPage extends HTMLElement {
+        #claimed:   Nullable<HTMLSpanElement>;
+        #available: Nullable<HTMLSpanElement>;
+        #price:     Nullable<HTMLSpanElement>;
+        #number:    Nullable<HTMLInputElement>;
+        #button:    Nullable<HTMLButtonElement>;
+
+        async #set_data() {
+            const [claimed, available, price] = await get_data();
+
+            if(this.#claimed === null || this.#available === null || this.#price === null) { return; }
+            this.#claimed.innerText = `${claimed}`;
+            this.#available.innerText = `${available}`;
+            this.#price.innerText = `${price}`;
+        }
+
+        async #initialize() {
+            await with_signer();
+            await this.#set_data();
+            delete this.dataset.locked;
+        }
+
+        async #button_handler() {
+            if(this.#button === null) { return; }
+
+            switch (this.#button.dataset.state) {
+                case "waiting": case "claimed": {
+                    this.#button.dataset.state = "pending";
+                    await approve_claim();
+                    this.#button.dataset.state = "approved";
+                    this.#button.innerText = "mint";
+
+                    break;
+                }
+
+                case "approved": {
+                    if(this.#number === null) { return; }
+
+                    this.#button.dataset.state = "pending";
+                    await claim(parseInt(this.#number.value));
+                    await this.#set_data();
+
+                    this.#button.dataset.state = "claimed";
+                    this.#button.innerText = "claimed";
+                    break;
+                }
+
+                case "pending": {
+                    console.error("Please wait for the transaction to finish!");
+                    break;
+                }
+
+                default: {
+                    return;
+                }
+            }
+        }
+
+		constructor() {
+			super();
+
+            this.#claimed =  document.querySelector(".claimed") as HTMLSpanElement;
+            this.#available =  document.querySelector(".available") as HTMLSpanElement;
+            this.#price =  document.querySelector(".price") as HTMLSpanElement;
+            this.#number =  document.querySelector(".number") as HTMLInputElement;
+            this.#button =  document.querySelector(".claim") as HTMLButtonElement;
+
+            if(this.#button === null) { return; }
+
+            this.#button.addEventListener("click", () => this.#button_handler());
+            this.#initialize();
+		}
+	}
+
+	customElements.define('claim-page', ClaimPage);
+</script>
+<style>
+    [data-locked] :not(.locked) { display: none; }
+    :not([data-locked]) .locked { display: none; }
+
+    #claim {
+        min-height: 100vh;
+    }
+</style>

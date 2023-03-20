@@ -1,0 +1,41 @@
+<ether-provider>
+    <div class="missing">
+        <slot name="missing" />
+    </div>
+    <div class="exists">
+        <slot />
+    </div>
+</ether-provider>
+
+<script>
+    import { get_contracts } from "../lib/ether";
+
+	class EtherProvider extends HTMLElement {
+        async #initialize() {
+            const contracts = await get_contracts();
+            this.dataset.provider = (contracts === null? "missing": "exists");
+        }
+
+		constructor() {
+			super();
+            this.#initialize();
+		}
+	}
+
+	customElements.define('ether-provider', EtherProvider);
+</script>
+
+<style lang="scss">
+    ether-provider:not([data-provider]) {
+        display: none;
+    }
+
+    $options: "missing", "exists";
+
+
+    @each $option in $options {
+        [data-provider=#{$option}] :not(.#{$option}) {
+            display: none;
+        }
+    }
+</style>

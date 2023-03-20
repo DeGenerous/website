@@ -23,6 +23,7 @@ const { name, title, img } = Astro.props;
 			<img src={img} alt={`${name}'s picture`}>
 			<div class="grow" />
 			<div class="details">
+				<span class="exit">x</span>
 				<h2>{name}</h2>
 				<h3>{title}</h3>
 				<span class="description">
@@ -35,18 +36,16 @@ const { name, title, img } = Astro.props;
 
 <script>
 	class MemberCard extends HTMLElement {
+		#card:    Nullable<HTMLDivElement>;
+		#close:   Nullable<HTMLDivElement>;
+		#details: Nullable<HTMLDivElement>;
+
 		constructor() {
 			super();
 
-			const card = this.querySelector(".card");
-			if (!(card instanceof HTMLElement)) { return; }
-
-			const _close = this.querySelector(".close");
-			if (!(_close instanceof HTMLElement)) { return; }
-
-
-			const details = this.querySelector(".opened");
-			if (!(details instanceof HTMLElement)) { return; }
+            this.#card    = this.querySelector(".card") as HTMLDivElement;
+            this.#close   = this.querySelector(".close") as HTMLDivElement;
+            this.#details = this.querySelector(".opened") as HTMLDivElement;
 
 			const element = this;
 			const open = () => { element.dataset.open = "true"; }
@@ -54,14 +53,13 @@ const { name, title, img } = Astro.props;
 				element.dataset.open = "closing";
 				setTimeout(() => {
 					delete element.dataset.open;
-				}, 200)
-				
+				}, 200);
 			}
 
-			card.addEventListener("click", open);
-			_close.addEventListener("click", close);
+			this.#card?.addEventListener("click", open);
+			this.#close?.addEventListener("click", close);
 
-			details.addEventListener("click", (e: MouseEvent) => {
+			this.#details?.addEventListener("click", (e: MouseEvent) => {
 				e.stopPropagation();
 			})
 
@@ -101,6 +99,7 @@ const { name, title, img } = Astro.props;
 		color: var(--card-text-color);
 		border-radius: var(--corner-size);
 		border: solid 2px var(--card-border-color);
+		overflow: hidden;
 
 		display: block;
 
