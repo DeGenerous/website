@@ -43,7 +43,7 @@ import Header from '../components/Header.astro';
 	}
 
 	:root {
-		--bg-color: hsl(254, 33%, 12.5%);
+		--bg-color: 254, 33%, 12.5%;
 		--bg-color-transparent: hsl(254, 33%, 12.5%, 0.7);
 		--fg-color: white;
 
@@ -51,8 +51,8 @@ import Header from '../components/Header.astro';
 		--accent-color-transparent: hsla(254, 33%, 30%, .7);
 		--accent-color-fully-transparent: hsla(254, 33%, 30%, 0);
 		--on-accent-color: white;
-		--accent-gradient: linear-gradient(to right, var(--accent-color), var(--bg-color));
-		--accent-gradient-reverse: linear-gradient(to left, var(--accent-color), var(--bg-color));
+		--accent-gradient: linear-gradient(to right, var(--accent-color), hsl(var(--bg-color)));
+		--accent-gradient-reverse: linear-gradient(to left, var(--accent-color), hsl(var(--bg-color)));
 		--link-color: hsl(254, 50%, 70%);
 
 		--card-color: var(--bg-color);
@@ -63,13 +63,11 @@ import Header from '../components/Header.astro';
 
 		--corner-size: .35rem;
         --border-size: 2rem;
-
-		--box-clip: polygon(0 0,calc(100% - var(--border-size)) 0,100% var(--border-size),100% 100%,var(--border-size) 100%,0 calc(100% - var(--border-size)));
 	}
 	
 	html {
 		font-family: 'Poppins', sans-serif;
-		background-color: var(--bg-color);
+		background-color: hsl(var(--bg-color));
 		color: var(--fg-color);
 		-webkit-tap-highlight-color: transparent;
 	}
@@ -112,7 +110,11 @@ import Header from '../components/Header.astro';
 		color: var(--link-color);
 
 		&:hover {
-			filter: brightness(0.7);
+			filter: brightness(.7);
+		}
+
+		&:active {
+			filter: brightness(.5);
 		}
 	}
 

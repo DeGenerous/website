@@ -20,10 +20,10 @@ const { name, title, img } = Astro.props;
 	
 	<div class="close">
 		<div class="opened">
+			<button class="exit" />
 			<img src={img} alt={`${name}'s picture`}>
 			<div class="grow" />
 			<div class="details">
-				<span class="exit">x</span>
 				<h2>{name}</h2>
 				<h3>{title}</h3>
 				<span class="description">
@@ -39,6 +39,7 @@ const { name, title, img } = Astro.props;
 		#card:    Nullable<HTMLDivElement>;
 		#close:   Nullable<HTMLDivElement>;
 		#details: Nullable<HTMLDivElement>;
+		#exit:    Nullable<HTMLDivElement>;
 
 		constructor() {
 			super();
@@ -46,6 +47,7 @@ const { name, title, img } = Astro.props;
             this.#card    = this.querySelector(".card") as HTMLDivElement;
             this.#close   = this.querySelector(".close") as HTMLDivElement;
             this.#details = this.querySelector(".opened") as HTMLDivElement;
+            this.#exit    = this.querySelector(".exit") as HTMLDivElement;
 
 			const element = this;
 			const open = () => { element.dataset.open = "true"; }
@@ -58,6 +60,7 @@ const { name, title, img } = Astro.props;
 
 			this.#card?.addEventListener("click", open);
 			this.#close?.addEventListener("click", close);
+			this.#exit?.addEventListener("click", close);
 
 			this.#details?.addEventListener("click", (e: MouseEvent) => {
 				e.stopPropagation();
@@ -154,7 +157,7 @@ const { name, title, img } = Astro.props;
 		display: block;
 		width: calc(100vw - 2rem);
 		max-width: 40rem;
-		background-color: var(--bg-color);
+		background-color: hsl(var(--bg-color));
 
 		border-radius: var(--corner-size);
 		border: solid 4px var(--card-border-color);
@@ -167,7 +170,51 @@ const { name, title, img } = Astro.props;
 		overflow-y: auto;
 	}
 
+	.exit {
+		cursor: pointer;
+		position: absolute;
+		display: grid;
+		place-content: center;
+		color: var(--fg-color);
+		border: none;
+		aspect-ratio: 1/1;
+		border-radius: 50%;
+		width: 2rem;
+		top: 1rem;
+		right: 1rem;
+		background-color: hsl(var(--bg-color));
+
+		&::before, &::after {
+			position: absolute;
+			content: "";
+			height: .75rem;
+			width: .15rem;
+			left: 50%;
+			top: 50%;
+			translate: -50% -50%;
+			background-color: white;
+		}
+
+		&::before {
+			rotate: -45deg;
+		}
+
+		&::after {
+			rotate: 45deg;
+		}
+
+		&:hover {
+			filter: brightness(.7);
+		}
+
+		&:active {
+			filter: brightness(.5);
+		}
+	}
+
 	[data-open] {
+		cursor: initial;
+
 		.close {
 			opacity: 1;
 			pointer-events: initial;

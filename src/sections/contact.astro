@@ -35,58 +35,71 @@ import Section from "../components/Section.astro";
 	</div>
 	<form id="mail_form">
 		<label for="name">Name</label>
-		<input type="text" id="name" placeholder="John Doe" />
+		<input required type="text" id="name" placeholder="John Doe" />
 
 		<label for="email">E-mail</label>
-		<input type="text" id="email" placeholder="john.doe@email.com" />
+		<input required type="text" id="email" placeholder="john.doe@email.com" />
 
 		<label for="subject">Subject</label>
-		<input type="text" id="subject" placeholder="Bussines inquiry" />
+		<input required type="text" id="subject" placeholder="Bussines inquiry" />
 
 		<label for="message">Message</label>
-		<textarea rows="5" id="message" placeholder="Hi, friends,\n..." />
+		<textarea required rows="5" id="message" placeholder="Hi, friends,\n..." />
 		<button type="submit">Send</button>
 	</form>
 </Section>
 
 <script>
-	const TOKEN = "bc9bde2f-36c3-4f82-afd2-f1f9a8a99a8f";
-	const FROM = "info@degenerousdao.com";
-	const TO = "msckwevctvwxprhmdz@tcwlx.com";
+    const TOKEN = "5770bbc8-8e2b-4cc0-a31c-6107e2330a23";
+    const FROM = "website@degenerousdao.com";
+    const TO = "degenerousdao@gmail.com";
 
-	declare namespace Email {
-		interface EmailData {
-			SecureToken: string;
-			To: string | string[];
-			From: string;
-			Subject: string;
-			Body: string;
-		}
+    declare namespace Email {
+        interface EmailData {
+            SecureToken: string;
+            To: string | string[];
+            From: string;
+            Subject: string;
+            Body: string;
+        }
 
-		function send(email: EmailData): Promise<string>;
-	}
+        function send(email: EmailData): Promise<string>;
+    }
 
-	const send = document.getElementById("mail_form")
-	if (send instanceof HTMLElement) {
-		send.onsubmit = async (e: SubmitEvent) => {
-			e.preventDefault();
+    const send = document.getElementById("mail_form")
+    if (send instanceof HTMLElement) {
+        send.onsubmit = async (e: SubmitEvent) => {
+            e.preventDefault();
 
-			try {
-				const message = await Email.send({
-					SecureToken : TOKEN,
-					To : TO,
-					From : FROM,
-					Subject : "This is the subject",
-					Body : "And this is the body"
-				})
+            try {
+                const name = (document.getElementById("name") as HTMLInputElement).value;
+                const email = (document.getElementById("email") as HTMLInputElement).value;
+                const subject = (document.getElementById("subject") as HTMLInputElement).value;
+                const message = (document.getElementById("message") as HTMLInputElement).value;
 
-				alert(message);
-			} catch (e) {
-				alert("Error sendig message");
-				console.error(e)
-			}
-		}	
-	}
+                console.log(`From: ${name} &lt;${email}&gt;` + "\n" + message);
+
+                const response = await Email.send({
+                    SecureToken : TOKEN,
+                    To : TO,
+                    From : FROM,
+                    Subject : subject,
+                    Body : `From: ${name} &lt;${email}&gt;<br><br>Message: <br>${message.replaceAll("\n", "<br>")}`,
+                });
+
+				if (response === "OK") {
+					alert("Email sent!");
+				} else {
+					alert("Error sendig message");
+					console.error(response)
+				}
+
+            } catch (e) {
+                alert("Error sendig message");
+                console.error(e)
+            }
+        }    
+    }
 </script>
 
 <style lang="scss">
@@ -149,7 +162,7 @@ import Section from "../components/Section.astro";
 		font-size: 1.2rem;
 		outline: none;
 		width: 100%;
-		background: var(--bg-color);
+		background: hsl(var(--bg-color));
 		color: var(--fg-color);
 		border: 2px solid hsl(0, 0%, 90%);
 		padding: .5rem 1rem;

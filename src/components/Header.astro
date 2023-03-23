@@ -180,10 +180,10 @@ const pages: {name: string, url: string, pretty: string}[] = [
 		ul {
 			height: initial;
 			position: fixed;
-			top: 0;
+			bottom: 100%;
 			left: 0;
 			flex-direction: column;
-			translate: 0 -100%;
+			translate: 0 0;
 			z-index: 100;
 			width: 100%;
 			background: var(--accent-gradient);
@@ -223,7 +223,7 @@ const pages: {name: string, url: string, pretty: string}[] = [
 			}
 
 			ul {
-				translate: 0;
+				translate: 0 100%;
 			}
 		}
 	}

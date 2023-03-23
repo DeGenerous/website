@@ -8,9 +8,14 @@ import Section from "../components/Section.astro";
 	<ul class="team">
 		<li class="founder">
 			<Member name="Panopticus" title="Founder" img="/images/pano.png">
-				<a href="https://twitter.com/PanopticusV">
-					<img src="/icons/twitter.svg" alt="Twitter"> @PanopticusV
-				</a>
+				<div class="contact">
+					<a href="https://twitter.com/PanopticusV">
+						<img src="/icons/twitter.svg" alt="Twitter"> @PanopticusV
+					</a>
+					<a href="mailto:pano@degenerousdao.com">
+						<img src="/icons/email.svg" alt="Twitter"> pano@degenerousdao.com
+					</a>
+				</div>
 				<ul>
 					<li>Lions clubs international district governor.</li>
 					<li>Book publisher.</li>
@@ -21,9 +26,14 @@ import Section from "../components/Section.astro";
 		</li>
 		<li class="founder">
 			<Member name="Maxi" title="Founder" img="/images/maxi.jpg">
-				<a href="https://twitter.com/Kusamaximalist">
-					<img src="/icons/twitter.svg" alt="Twitter"> @Kusamaximalist
-				</a>
+				<div class="contact">
+					<a href="https://twitter.com/Kusamaximalist">
+						<img src="/icons/twitter.svg" alt="Twitter"> @Kusamaximalist
+					</a>
+					<a href="mailto:maxi@degenerousdao.com">
+						<img src="/icons/email.svg" alt="Twitter"> maxi@degenerousdao.com
+					</a>
+				</div>
 				<ul>
 					<li>Experienced in marketing, growth, and writing as an ex-founder of a news platform with over 1M monthly viewers.</li>
 					<li>Managed over 900k followers across facebook, instagram, and twitter. </li>
@@ -32,9 +42,11 @@ import Section from "../components/Section.astro";
 		</li>
 		<li>
 			<Member name="Vani" title="Developer" img="/images/vani.jpg">
-				<a href="https://twitter.com/vaniiSAMA">
-					<img src="/icons/twitter.svg" alt="Twitter"> @vaniiSAMA
-				</a>
+				<div class="contact">
+					<a href="https://twitter.com/vaniiSAMA">
+						<img src="/icons/twitter.svg" alt="Twitter"> @vaniiSAMA
+					</a>
+				</div>
 				<ul>
 					<li>Hardware engineer experienced with javascript & solidity</li>
 				</ul>
@@ -42,9 +54,11 @@ import Section from "../components/Section.astro";
 		</li>
 		<li>
 			<Member name="Vani's grandma" title="Developer" img="/images/grandma.jpg">
-				<a href="https://twitter.com/_cryptograndma">
-					<img src="/icons/twitter.svg" alt="Twitter"> @_cryptograndma
-				</a>
+				<div class="contact">
+					<a href="https://twitter.com/_cryptograndma">
+						<img src="/icons/twitter.svg" alt="Twitter"> @_cryptograndma
+					</a>
+				</div>
 				<ul>
 					<li>Years of web development experience</li>
 				</ul>
@@ -52,9 +66,11 @@ import Section from "../components/Section.astro";
 		</li>
 		<li>
 			<Member name="Kit" title="Art Director" img="/images/kit.jpg">
-				<a href="https://twitter.com/ohayokeithy">
-					<img src="/icons/twitter.svg" alt="Twitter"> @ohayokeithy
-				</a>
+				<div class="contact">
+					<a href="https://twitter.com/ohayokeithy">
+						<img src="/icons/twitter.svg" alt="Twitter"> @ohayokeithy
+					</a>
+				</div>
 				<ul>
 					<li>More than 10 years of experience as a global freelance illustrator</li>
 					<li>Over 2 years of experience with NFTs</li>
@@ -64,9 +80,11 @@ import Section from "../components/Section.astro";
 		</li>
 		<li>
 			<Member name="King Cryptok" title="Videographer" img="/images/cryptok.jpg">
-				<a href="https://twitter.com/King_Cryptok">
-					<img src="/icons/twitter.svg" alt="Twitter"> @King_Cryptok	
-				</a>
+				<div class="contact">
+					<a href="https://twitter.com/King_Cryptok">
+						<img src="/icons/twitter.svg" alt="Twitter"> @King_Cryptok
+					</a>
+				</div>
 				Experienced in commercial field photography, film experience, as well as a video editor for:
 				<ul>
 					<li>Lions clubs international multi-million dollar fundraisers.</li>
@@ -85,9 +103,11 @@ import Section from "../components/Section.astro";
 		</li>
 		<li>
 			<Member name="Shek" title="Business development" img="/images/shek.png">
-				<a href="https://twitter.com/sheklemec">
-					<img src="/icons/twitter.svg" alt="Twitter"> @sheklemec
-				</a>
+				<div class="contact">
+					<a href="https://twitter.com/sheklemec">
+						<img src="/icons/twitter.svg" alt="Twitter"> @sheklemec
+					</a>
+				</div>
 				<ul>
 					<li>Director of sales at BitGo</li>
 					<li>ex-banker with 15 years of Capital Market and Sales & Trading experience</li>
@@ -115,20 +135,26 @@ import Section from "../components/Section.astro";
 			grid-column: span 1;
 			display: flex;
 
-			a {
+			.contact {
 				display: flex;
+				flex-direction: column;
 				gap: 0.5rem;
-				align-items: center;
-				color: var(--fg-color);
-				text-decoration: none;
 				margin: 1rem;
 
-				&:hover {
-					opacity: 0.7;
+				a {
+					display: flex;
+					align-items: center;
+					color: var(--fg-color);
+					text-decoration: none;
+					gap: 0.5rem;
+
+					&:hover {
+						opacity: 0.7;
+					}
 				}
 
 				img {
-					height: 2.5rem;
+					height: 2rem;
 				}
 			}
 

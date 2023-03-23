@@ -1,48 +1,36 @@
 ---
 import EtherProvider from "../components/EtherProvider.astro";
 import Layout from "../layouts/Layout.astro"
-
 ---
 
 <Layout title="Claim | Degenerous">
     <main id="claim">
-        <EtherProvider>            
+        <EtherProvider>
             <Fragment slot="missing">
                 You're missing metamask, please install it from <a href="https://metamask.io/download/">their website</a>
             </Fragment>
-            <claim-page data-locked>                
+            <claim-page data-locked>
                 <h1>Claim Your Inception <span class="total-text">Ark</span></h1>
                 <div class="locked">
                     Please unlock your wallet
                 </div>
-                <div class="unlocked claim-container">                                        
+                <div class="unlocked claim-card">
                     <div class="claim-info">
-                        <table>
-                            <tr>
-                                <td class="info-label">Total allocation:</td>
-                                <td><span class="total">0</span></td>
-                            </tr>
-                            <tr>
-                                <td>Claimed:</td>
-                                <td><span class="claimed">0</span></td>
-                            </tr>
-                            <tr>
-                                <td>Yet to be minted:</td>
-                                <td><span class="available">0</span></td>
-                            </tr>
-                            <tr>
-                                <td>Mint price:</td>
-                                <td><span class="price">0</span> $USDC</td>
-                            </tr>
-                        </table>
+                        <div class="claim-data">
+                                Total allocation:
+                                <span class="total">0</span>
+                                Claimed:
+                                <span class="claimed">0</span>
+                                Yet to be minted:
+                                <span class="available">0</span>
+                                Mint price:
+                                <span class="price">0 USDC</span>
+                        </div>
                         <div class="mint-form">
-                            <input type="number" name="number" class="number claim-quantity" value="1"><br>
+                            <input required type="number" name="number" class="quantity" value="1">
                             <button class="claim claim-btn" data-state="waiting">CLAIM</button>
                         </div>
                     </div>
-                </div>
-                <div>
-                    
                 </div>
             </claim-page>
         </EtherProvider>
@@ -75,7 +63,7 @@ import Layout from "../layouts/Layout.astro"
             this.#totalText.innerText = total > 1 ? 'Arks' : 'Ark';
             this.#claimed.innerText = `${claimed}`;
             this.#available.innerText = `${available}`;
-            this.#price.innerText = `${price}`;
+            this.#price.innerText = `${price} USDC`;
         }
 
         async #initialize() {
@@ -128,7 +116,7 @@ import Layout from "../layouts/Layout.astro"
             this.#claimed =  document.querySelector(".claimed") as HTMLSpanElement;
             this.#available =  document.querySelector(".available") as HTMLSpanElement;
             this.#price =  document.querySelector(".price") as HTMLSpanElement;
-            this.#number =  document.querySelector(".number") as HTMLInputElement;
+            this.#number =  document.querySelector(".quantity") as HTMLInputElement;
             this.#button =  document.querySelector(".claim") as HTMLButtonElement;
 
             if(this.#button === null) { return; }
@@ -148,9 +136,9 @@ import Layout from "../layouts/Layout.astro"
         position: relative;
         min-height: 100vh;
         margin-bottom: -5rem;
-        &:after {
+
+        &:before {
             content: "";
-            z-index: -1;
             position: absolute;
             top: 0;
             height: 100%;
@@ -164,80 +152,98 @@ import Layout from "../layouts/Layout.astro"
             padding-top: 50px;
             font-size: 4rem;
             text-align: center;
-            filter: drop-shadow(10px 10px 10px var(--bg-color));
+            filter: drop-shadow(.5rem .5rem 1rem hsla(var(--bg-color), .5));
         }
 
-        .claim-container {
-            left: 0;
-            right: 0;
-            margin-top: 80px;
-            text-align: center;
+        .claim-card {
+            display: grid;
+            place-content: center;
         }
 
         .claim-info {
-            position: relative;
-            display: inline-block;
-            width: 630px;            
-            margin-bottom: 40px;
-            padding: 40px;
-            font-size: 20px;
-            text-align: left;
+            display: flex;
+            gap: 4rem;
+            margin-top: 5rem;
+            padding: 3rem;
+            font-size: 1.2rem;
             background: var(--bg-color-transparent);
-            clip-path: var(--box-clip);
+            clip-path: polygon(
+                0 0, 
+                calc(100% - var(--border-size)) 0,
+                100% var(--border-size),
+                100% 100%,
+                var(--border-size) 100%,
+                0 calc(100% - var(--border-size))
+            );
+        }
 
-            .info-label {
-                padding-right: 20px;
-            }
+        .claim-data {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            column-gap: 1.5rem;
         }
 
         .mint-form {
-            position: absolute;
-            right: 40px;
-            bottom: 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
         }
 
-        .claim-quantity {
-            display: inline-block;
-            width: 80px;
-            margin-bottom: 15px;
-            padding: 10px;
-            padding-left: 20px;
-            font-size: 16px;
+        .quantity {
+            width: 7.5rem;
+            padding: .5rem;
+            padding-left: 1rem;
+            font-size: 1.5rem;
             text-align: center;
             border: 0;
-            border-top-right-radius: 0.375rem;
-            border-bottom-left-radius: 0.375rem;
+
+            --border-size: .5rem;
+            clip-path: polygon(
+                0 0, 
+                calc(100% - var(--border-size)) 0,
+                100% var(--border-size),
+                100% 100%,
+                var(--border-size) 100%,
+                0 calc(100% - var(--border-size))
+            );
         }
 
-        .claim-btn {            
+        .claim {            
             padding: 7px 50px;
             font-family: 'Righteous', cursive;
             font-size: 2rem;
             color: var(--accent-color);
             background-color: #fff;
             cursor: pointer;
-            transition: filter 0.4s, color 0.4s, border-color 0.4s, box-shadow 0.4s;
-            clip-path: var(--box-clip);
+            transition: filter 0.2s;
+
+            --border-size: 1rem;
+            clip-path: polygon(
+                0 0, 
+                calc(100% - var(--border-size)) 0,
+                100% var(--border-size),
+                100% 100%,
+                var(--border-size) 100%,
+                0 calc(100% - var(--border-size))
+            );
+
             &:hover {
                 filter: brightness(.7);
             }
+
+            &:active {
+                filter: brightness(.5);
+            }
         }
 
-        @media screen and (max-width: 50rem) {		
-            .claim-container {
-                margin-top: 40px;
-            }
+        @media screen and (max-width: 50rem) {
 			.claim-info {
-                max-width: 90%;
-                padding: 20px;
-                font-size: 18px;
-                .mint-form {
-                    position: static;
-                    margin-top: 20px;
-                }
+                flex-direction: column;
+                gap: 1rem;
             }
-            .claim-btn {
-                font-size: 1.5rem;
+
+            .mint-form {
+                gap: .5rem;
             }
 		}	
     }
