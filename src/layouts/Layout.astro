@@ -44,6 +44,7 @@ import Header from '../components/Header.astro';
 
 	:root {
 		--bg-color: hsl(254, 33%, 12.5%);
+		--bg-color-transparent: hsl(254, 33%, 12.5%, 0.7);
 		--fg-color: white;
 
 		--accent-color: hsl(254, 33%, 30%);
@@ -62,6 +63,8 @@ import Header from '../components/Header.astro';
 
 		--corner-size: .35rem;
         --border-size: 2rem;
+
+		--box-clip: polygon(0 0,calc(100% - var(--border-size)) 0,100% var(--border-size),100% 100%,var(--border-size) 100%,0 calc(100% - var(--border-size)));
 	}
 	
 	html {
