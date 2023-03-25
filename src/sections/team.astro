@@ -109,7 +109,7 @@ import Section from "../components/Section.astro";
 			<Member name="You?" title="Join us" img="/images/pfp.jpg">
 				<p style="margin-top: 10px">Looking to join our team?</p>
 				<ul>
-					<li>We are always on the lookout for talented people, especially UI/UX designers, game devs, and ambassadors</li>
+					<li>We are always on the lookout for talented people, especially UI/UX designers, game devs, and <a class="link-inline" href="https://docs.google.com/document/d/1VjeupgsKvM3f-Igqu4cf0Gxtr8u2rzn1BX1o8r5kBes/edit?usp=sharing" target="_blank">ambassadors</a></li>
 					<li>Find our contact info just below</li>
 				</ul>
 			</Member>
@@ -152,6 +152,12 @@ import Section from "../components/Section.astro";
 				color: var(--fg-color);
 				text-decoration: none;
 				margin: 1rem;
+				&.link-inline {
+					display: inline;
+					margin: 0;
+					color: var(--link-color);
+					text-decoration: underline;
+				}
 
 				&:hover {
 					opacity: 0.7;
