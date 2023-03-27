@@ -4,10 +4,20 @@ import Layout from "../layouts/Layout.astro"
 ---
 
 <Layout title="Claim | Degenerous">
+    
     <main id="claim">
+        <div class="wrong-network">
+            <h1>Wrong network</h1>
+            <p>Please change your network to Exosama Network</p>
+        </div>
         <EtherProvider>
             <Fragment slot="missing">
-                You're missing metamask, please install it from <a href="https://metamask.io/download/">their website</a>
+                <h1 style='margin-bottom: 10px;'>
+                    Metamask not installed
+                </h1>                
+                <p style='font-size: 1.2rem;'>
+                    You're missing metamask, please install it from <a href="https://metamask.io/download/" style='text-decoration: underline'>their website</a>
+                </p>
             </Fragment>
             <claim-page data-locked>
                 <h1>Claim Your Inception <span class="total-text">Ark</span></h1>
@@ -236,6 +246,32 @@ import Layout from "../layouts/Layout.astro"
             }
         }
 
+        .missing-wrapper {
+            p {
+                font-size: 14rem;
+            }
+        
+            a {
+                text-decoration: underline !important;
+            }
+        }
+
+        .wrong-network {
+            position: relative;
+            z-index: 1;
+            padding: 0 20% 3rem;
+            text-align: center;
+            background: hsl(var(--bg-color));
+
+            h1 {
+                margin-bottom: 10px;
+            }
+            
+            p {
+                font-size: 1.5rem;
+            }
+        }
+
         @media screen and (max-width: 50rem) {
 			.claim-info {
                 flex-direction: column;
@@ -244,6 +280,16 @@ import Layout from "../layouts/Layout.astro"
 
             .mint-form {
                 gap: .5rem;
+            }
+
+            .wrong-network {
+                padding: 20px;
+                h1 {
+                    font-size: 3rem;
+                }
+                p {
+                    font-size: 1.5rem;
+                }
             }
 		}	
     }

@@ -32,10 +32,17 @@
 
     $options: "missing", "exists";
 
-
     @each $option in $options {
         [data-provider=#{$option}] :not(.#{$option}) {
             display: none;
         }
+    }
+
+    .missing {
+        position: relative;
+        z-index: 1;
+        padding: 0 20% 3rem;
+        text-align: center;
+        background: hsl(var(--bg-color));
     }
 </style>
