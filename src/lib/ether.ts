@@ -22,7 +22,7 @@ const USDC_ABI = Object.freeze([
     "function decimals() view returns (uint8)"
 ]);
 
-const CLAIM_ADDRESS = "0x0F6A493A50A75dFEB9AE12c7e34691D65BB5Dc41";
+const CLAIM_ADDRESS = "0xdA64f2EEb2d15D7e515f5F467E4dd74EfcB2B634";
 
 const EXOSAMA = Object.freeze({
     chainName: "Exosama",
