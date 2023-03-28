@@ -7,7 +7,7 @@ import Section from "../components/Section.astro";
 	<h1>Core team</h1>
 	<ul class="team">
 		<li class="founder">
-			<Member name="Panopticus" title="Founder" img="/images/pano.png">
+			<Member name="Panopticus" title="Founder" img="/images/pano.jpg">
 				<div class="contact">
 					<a href="https://twitter.com/PanopticusV">
 						<img src="/icons/twitter.svg" alt="Twitter"> @PanopticusV
@@ -41,6 +41,40 @@ import Section from "../components/Section.astro";
 			</Member>
 		</li>
 		<li>
+			<Member name="Eve" title="Community manager" img="/images/eve.jpg">
+				<ul>
+					<li>Member of numerous clubs, varying from sports to non-profit</li>
+					<li>Participated in and organized global events</li>
+				</ul>
+			</Member>
+		</li>
+		<li>
+			<Member name="Shek" title="Business development" img="/images/shek.jpg">
+				<div class="contact">
+					<a href="https://twitter.com/sheklemec">
+						<img src="/icons/twitter.svg" alt="Twitter"> @sheklemec
+					</a>
+				</div>
+				<ul>
+					<li>Director of sales at BitGo</li>
+					<li>ex-banker with 15 years of Capital Market and Sales & Trading experience</li>
+				</ul>
+			</Member>
+		</li>
+		<li>
+			<Member name="Kyt" title="Lead Ambassador" img="/images/kyt.jpg">
+				<div class="contact">
+					<a href="https://twitter.com/fraydikyt">
+						<img src="/icons/twitter.svg" alt="Twitter"> @fraydikyt
+					</a>
+				</div>
+				<ul>
+					<li>Passionate web3 community and creative advocate who strives to empower both.</li>
+					<li>Over two decades of experience in team and community building, content production, strategy and management.</li>
+				</ul>
+			</Member>
+		</li>		
+		<li>
 			<Member name="Vani" title="Developer" img="/images/vani.jpg">
 				<div class="contact">
 					<a href="https://twitter.com/vaniiSAMA">
@@ -49,18 +83,6 @@ import Section from "../components/Section.astro";
 				</div>
 				<ul>
 					<li>Hardware engineer experienced with javascript & solidity</li>
-				</ul>
-			</Member>
-		</li>
-		<li>
-			<Member name="Vani's grandma" title="Developer" img="/images/grandma.jpg">
-				<div class="contact">
-					<a href="https://twitter.com/_cryptograndma">
-						<img src="/icons/twitter.svg" alt="Twitter"> @_cryptograndma
-					</a>
-				</div>
-				<ul>
-					<li>Years of web development experience</li>
 				</ul>
 			</Member>
 		</li>
@@ -79,6 +101,18 @@ import Section from "../components/Section.astro";
 			</Member>
 		</li>
 		<li>
+			<Member name="Vani's grandma" title="Developer" img="/images/grandma.jpg">
+				<div class="contact">
+					<a href="https://twitter.com/_cryptograndma">
+						<img src="/icons/twitter.svg" alt="Twitter"> @_cryptograndma
+					</a>
+				</div>
+				<ul>
+					<li>Years of web development experience</li>
+				</ul>
+			</Member>
+		</li>		
+		<li>
 			<Member name="King Cryptok" title="Videographer" img="/images/cryptok.jpg">
 				<div class="contact">
 					<a href="https://twitter.com/King_Cryptok">
@@ -94,23 +128,23 @@ import Section from "../components/Section.astro";
 			</Member>
 		</li>
 		<li>
-			<Member name="Eve" title="Community manager" img="/images/eve.jpg">
+			<Member name="You?" title="Join us" img="/images/pfp.jpg">
+				<p style="margin-top: 10px">Looking to join our team?</p>
 				<ul>
-					<li>Member of numerous clubs, varying from sports to non-profit</li>
-					<li>Participated in and organized global events</li>
+					<li>We are always on the lookout for talented people, especially UI/UX designers, game devs, and <a class="link-inline" href="https://docs.google.com/document/d/1VjeupgsKvM3f-Igqu4cf0Gxtr8u2rzn1BX1o8r5kBes/edit?usp=sharing" target="_blank">ambassadors</a></li>
+					<li>Find our contact info just below</li>
 				</ul>
 			</Member>
 		</li>
 		<li>
-			<Member name="Shek" title="Business development" img="/images/shek.png">
+			<Member name="Sniff" title="Developer" img="/images/sniff.jpg">
 				<div class="contact">
-					<a href="https://twitter.com/sheklemec">
-						<img src="/icons/twitter.svg" alt="Twitter"> @sheklemec
+					<a href="https://twitter.com/sniffdk_2">
+						<img src="/icons/twitter.svg" alt="Twitter"> @sniffdk_2
 					</a>
 				</div>
 				<ul>
-					<li>Director of sales at BitGo</li>
-					<li>ex-banker with 15 years of Capital Market and Sales & Trading experience</li>
+					<li>Years of web development experience</li>
 				</ul>
 			</Member>
 		</li>
@@ -140,6 +174,12 @@ import Section from "../components/Section.astro";
 				flex-direction: column;
 				gap: 0.5rem;
 				margin: 1rem;
+				&.link-inline {
+					display: inline;
+					margin: 0;
+					color: var(--link-color);
+					text-decoration: underline;
+				}
 
 				a {
 					display: flex;
