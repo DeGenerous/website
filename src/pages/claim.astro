@@ -48,7 +48,7 @@ import Layout from "../layouts/Layout.astro"
                         </div>
                         <div class="mint-form">
                             <input required type="number" name="number" class="quantity" value="1">
-                            <button class="claim claim-btn" data-state="waiting">CLAIM</button>
+                            <button class="claim claim-btn" data-state="waiting">APPROVE</button>
                         </div>
                     </div>
                 </div>
@@ -91,10 +91,13 @@ import Layout from "../layouts/Layout.astro"
             switch (this.#button.dataset.state) {
                 case "waiting": case "claimed": {
                     this.#button.dataset.state = "pending";
+                    this.#button.disabled = true;
+
                     await approve_claim();
 
+                    this.#button.disabled = false;
                     this.#button.dataset.state = "approved";
-                    this.#button.innerText = "mint";
+                    this.#button.innerText = "PURCHASE";
 
                     break;
                 }
@@ -103,11 +106,14 @@ import Layout from "../layouts/Layout.astro"
                     if(this.#number === null) { return; }
 
                     this.#button.dataset.state = "pending";
+                    this.#button.disabled = true;
+
                     await claim(parseInt(this.#number.value));
                     await this.#set_data();
 
+                    this.#button.disabled = false;
                     this.#button.dataset.state = "claimed";
-                    this.#button.innerText = "claimed";
+                    this.#button.innerText = "PURCHASED";
 
                     break;
                 }
@@ -242,7 +248,6 @@ import Layout from "../layouts/Layout.astro"
             font-size: 2rem;
             color: var(--accent-color);
             background-color: #fff;
-            cursor: pointer;
             transition: filter 0.2s;
 
             border: 0;
@@ -256,12 +261,20 @@ import Layout from "../layouts/Layout.astro"
                 0 calc(100% - var(--border-size))
             );
 
-            &:hover {
-                filter: brightness(.7);
+            &:not(:disabled) {
+                cursor: pointer;
+
+                &:hover {
+                    filter: brightness(.7);
+                }
+
+                &:active {
+                    filter: brightness(.5);
+                }
             }
 
-            &:active {
-                filter: brightness(.5);
+            &:disabled {
+                filter: brightness(.7);
             }
         }
 
