@@ -169,11 +169,6 @@ export const change_listener = (callback: () => void) => {
     const provider = get_provider();
     if (provider === null) { return }
 
-    window.ethereum.on("accountsChanged", () => {
-        callback()
-    })
-
-    provider.on("network", () => {
-        callback()
-    });
+    window.ethereum.on("accountsChanged", callback)
+    provider.on("network", callback);
 }

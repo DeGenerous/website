@@ -20,6 +20,7 @@ import Layout from "../layouts/Layout.astro"
                     <div class="warning">
                         <h1>Account locked</h1>
                         <p>Please unlock your wallet</p>
+                        <button class="unlock">Unlock</button>
                     </div>
                 </Fragment>
                 <Fragment slot="wrong-network">
@@ -57,7 +58,7 @@ import Layout from "../layouts/Layout.astro"
 </Layout>
 
 <script>
-    import { change_listener, get_data, approve_claim, claim, get_state, state, add_network } from "../lib/ether";
+    import { change_listener, get_data, approve_claim, claim, get_state, state, add_network, with_signer } from "../lib/ether";
 
 	class ClaimPage extends HTMLElement {
         #total:     Nullable<HTMLSpanElement>;
@@ -67,7 +68,6 @@ import Layout from "../layouts/Layout.astro"
         #price:     Nullable<HTMLSpanElement>;
         #number:    Nullable<HTMLInputElement>;
         #button:    Nullable<HTMLButtonElement>;
-        #network:   Nullable<HTMLButtonElement>;
 
         async #set_data() {
             const [claimed, available, price] = await get_data();
@@ -133,8 +133,9 @@ import Layout from "../layouts/Layout.astro"
             this.#price =  document.querySelector(".price") as HTMLSpanElement;
             this.#number =  document.querySelector(".quantity") as HTMLInputElement;
             this.#button =  document.querySelector(".claim") as HTMLButtonElement;
-            this.#network =  document.querySelector(".network") as HTMLButtonElement;
-            this.#network.addEventListener("click", add_network)
+            
+            (document.querySelector(".network") as HTMLButtonElement).addEventListener("click", add_network);
+            (document.querySelector(".unlock") as HTMLButtonElement).addEventListener("click", with_signer);
 
             change_listener(async () => { 
                 if(this.#button === null) { return; }
@@ -235,7 +236,7 @@ import Layout from "../layouts/Layout.astro"
             );
         }
 
-        .claim {            
+        .claim {
             padding: 7px 50px;
             font-family: 'Righteous', cursive;
             font-size: 2rem;
@@ -283,6 +284,35 @@ import Layout from "../layouts/Layout.astro"
         a {
             text-underline-offset: 6px;
             text-decoration: underline;
+        }
+
+        button {
+            padding: 7px 50px;
+            font-family: 'Righteous', cursive;
+            font-size: 2rem;
+            color: var(--accent-color);
+            background-color: #fff;
+            margin-top: 1rem;
+            cursor: pointer;
+            transition: filter 0.2s;
+
+            --border-size: 1rem;
+            clip-path: polygon(
+                0 0, 
+                calc(100% - var(--border-size)) 0,
+                100% var(--border-size),
+                100% 100%,
+                var(--border-size) 100%,
+                0 calc(100% - var(--border-size))
+            );
+
+            &:hover {
+                filter: brightness(.7);
+            }
+
+            &:active {
+                filter: brightness(.5);
+            }
         }
     }
 </style>
