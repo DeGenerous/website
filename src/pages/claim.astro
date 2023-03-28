@@ -18,16 +18,16 @@ import Layout from "../layouts/Layout.astro"
                 </Fragment>
                 <Fragment slot="locked">
                     <div class="warning">
-                        <h1>Account locked</h1>
-                        <p>Please unlock your wallet</p>
-                        <button class="unlock">Unlock</button>
+                        <h1>Metamask not connected</h1>
+                        <p>Please connect your wallet</p>
+                        <button class="unlock">Connect</button>
                     </div>
                 </Fragment>
                 <Fragment slot="wrong-network">
                     <div class="warning">
                         <h1>Wrong network</h1>
                         <p>Please change your network to Exosama Network</p>
-                        <button class="network">Add network</button>
+                        <button class="network">Change network</button>
                     </div>
                 </Fragment>
                 <h1>Purchase Your Inception <span class="total-text">Ark</span></h1>
@@ -245,6 +245,7 @@ import Layout from "../layouts/Layout.astro"
             cursor: pointer;
             transition: filter 0.2s;
 
+            border: 0;
             --border-size: 1rem;
             clip-path: polygon(
                 0 0, 
@@ -265,9 +266,15 @@ import Layout from "../layouts/Layout.astro"
         }
 
         @media screen and (max-width: 50rem) {
+			h1 {
+                font-size: 3rem;
+            }
+
 			.claim-info {
                 flex-direction: column;
                 gap: 1rem;
+                margin-top: 2rem;
+                padding: 1rem;
             }
 
             .mint-form {
@@ -280,6 +287,10 @@ import Layout from "../layouts/Layout.astro"
         background: hsl(var(--bg-color));
         text-align: center; 
         padding: 2rem;
+
+        p {
+            font-size: 1.2rem;
+        }
 
         a {
             text-underline-offset: 6px;
@@ -296,6 +307,7 @@ import Layout from "../layouts/Layout.astro"
             cursor: pointer;
             transition: filter 0.2s;
 
+            border: 0;
             --border-size: 1rem;
             clip-path: polygon(
                 0 0, 
@@ -314,5 +326,20 @@ import Layout from "../layouts/Layout.astro"
                 filter: brightness(.5);
             }
         }
+
+        @media screen and (max-width: 50rem) {
+            h1 {
+                padding-top: 0 !important;
+                font-size: 2.5rem !important;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+			button {
+                font-size: 1.5rem;
+            }
+		}
     }
 </style>
