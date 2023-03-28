@@ -24,6 +24,18 @@ const USDC_ABI = Object.freeze([
 
 const CLAIM_ADDRESS = "0x0F6A493A50A75dFEB9AE12c7e34691D65BB5Dc41";
 
+const EXOSAMA = Object.freeze({
+    chainName: "Exosama",
+    rpcUrls: ["https://rpc.exosama.com"],
+    chainId: "0x83d",
+    nativeCurrency: {
+        name: "SAMA",
+        symbol: "SAMA",
+        decimals: 18
+    },
+    blockExplorerUrls: ["https://explorer.exosama.com"]
+})
+
 interface Contracts {
     provider: ethers.providers.Web3Provider,
     claim: ethers.Contract,
@@ -38,23 +50,31 @@ interface Contracts {
 
 let contracts: Nullable<Contracts> = null;
 
-export const get_contracts = async () => {
-    if (contracts !== null) { return contracts; }
-
+export const get_provider = (): Nullable<ethers.providers.Web3Provider> => {
     if (typeof window.ethereum === "undefined") {
-        console.log("Please install Metamask");
-
         return null;
     }
 
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    if (contracts != null) {
+        return contracts.provider;
+    }
+
+    return new ethers.providers.Web3Provider(window.ethereum, "any");
+}
+
+export const get_contracts = async (): Promise<Nullable<Contracts>> => {
+    if (contracts !== null) { return contracts; }
+
+    const provider = get_provider();
+    if (provider === null) { return null }
+
     const claim = new ethers.Contract(CLAIM_ADDRESS, CLAIM_ABI, provider);
     const usdc = new ethers.Contract(await claim.USDC(), USDC_ABI, provider);
 
     return contracts = { provider, claim, usdc, with_signer: null };
 }
 
-export const with_signer = async () => {
+export const with_signer = async (): Promise<Nullable<Contracts>> => {
     contracts = await get_contracts();
 
     if (contracts === null) { return null; }
@@ -85,16 +105,75 @@ export const get_data = async () : Promise<[number, number, string]> => {
     return [claimed, sum - claimed, price];
 }
 
-export const approve_claim = async () => {
+export const check_network = async (): Promise<boolean> => {
+    const provider = get_provider();
+    if (provider === null) { return false; }
+
+    const hex = (await provider.getNetwork()).chainId.toString(16);
+    return `0x${hex}` === EXOSAMA.chainId;
+}
+
+export const add_network = async ():Promise<void> => {
+    window.ethereum.request({
+        method: "wallet_addEthereumChain",
+        params: [EXOSAMA]
+    });
+}
+
+export const approve_claim = async (): Promise<void> => {
     if (contracts === null || contracts.with_signer === null) { return; }
 
     const { claim, with_signer } = contracts;
     await with_signer.usdc.approve(CLAIM_ADDRESS, await claim.PRICE());
 }
 
-export const claim = async (number: number) => {
+export const claim = async (number: number): Promise<void> => {
     if (contracts === null || contracts.with_signer === null) { return; }
 
     const { claim, with_signer } = contracts;
     await with_signer.claim.claim(number, number * (await claim.PRICE()));
+}
+
+export enum state {
+    MISSING = "missing",
+    WRONG_NETWORK = "wrong-network",
+    LOCKED = "locked",
+    READY = "ready",
+}
+
+export const get_state = async (): Promise<state> => {
+    const provider = get_provider();
+    if (provider === null) {
+        return state.MISSING
+    }
+
+    const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+    if (! (await check_network())) {
+        return state.WRONG_NETWORK;
+    }
+
+    const contracts = accounts.length > 0 ? await with_signer() : await get_contracts();
+
+    if (contracts === null) {
+        return state.MISSING;
+    }
+
+    if (accounts.length === 0) {
+        return state.LOCKED;
+    }
+
+    return state.READY;
+}
+
+export const change_listener = (callback: () => void) => {
+    const provider = get_provider();
+    if (provider === null) { return }
+
+    window.ethereum.on("accountsChanged", () => {
+        callback()
+    })
+
+    provider.on("network", () => {
+        callback()
+    });
 }

@@ -2,18 +2,28 @@
     <div class="missing">
         <slot name="missing" />
     </div>
-    <div class="exists">
+    <div class="wrong-network">
+        <slot name="wrong-network" />
+    </div>
+    <div class="locked">
+        <slot name="locked" />
+    </div>
+    <div class="ready">
         <slot />
     </div>
 </ether-provider>
 
 <script>
-    import { get_contracts } from "../lib/ether";
+    import { get_state, change_listener } from "../lib/ether";
 
 	class EtherProvider extends HTMLElement {
+        async #update() {
+            this.dataset.provider = await get_state();
+        }
+
         async #initialize() {
-            const contracts = await get_contracts();
-            this.dataset.provider = (contracts === null? "missing": "exists");
+            change_listener(() => { this.#update(); });
+            this.#update();
         }
 
 		constructor() {
@@ -30,19 +40,11 @@
         display: none;
     }
 
-    $options: "missing", "exists";
+    $options: "missing", "wrong-network", "locked", "ready";
 
     @each $option in $options {
         [data-provider=#{$option}] :not(.#{$option}) {
             display: none;
         }
-    }
-
-    .missing {
-        position: relative;
-        z-index: 1;
-        padding: 0 20% 3rem;
-        text-align: center;
-        background: hsl(var(--bg-color));
     }
 </style>

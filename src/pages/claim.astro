@@ -4,37 +4,46 @@ import Layout from "../layouts/Layout.astro"
 ---
 
 <Layout title="Claim | Degenerous">
-    
     <main id="claim">
-        <div class="wrong-network">
-            <h1>Wrong network</h1>
-            <p>Please change your network to Exosama Network</p>
-        </div>
-        <EtherProvider>
-            <Fragment slot="missing">
-                <h1 style='margin-bottom: 10px;'>
-                    Metamask not installed
-                </h1>                
-                <p style='font-size: 1.2rem;'>
-                    You're missing metamask, please install it from <a href="https://metamask.io/download/" style='text-decoration: underline'>their website</a>
-                </p>
-            </Fragment>
-            <claim-page data-locked>
+        <claim-page>
+            <EtherProvider>
+                <Fragment slot="missing">
+                    <div class="warning">
+                        <h1>Metamask not installed</h1>
+                        <p>
+                            You're missing metamask, please install it from
+                            <a href="https://metamask.io/download/">their website</a>
+                        </p>
+                    </div>
+                </Fragment>
+                <Fragment slot="locked">
+                    <div class="warning">
+                        <h1>Account locked</h1>
+                        <p>Please unlock your wallet</p>
+                    </div>
+                </Fragment>
+                <Fragment slot="wrong-network">
+                    <div class="warning">
+                        <h1>Wrong network</h1>
+                        <p>Please change your network to Exosama Network</p>
+                        <button class="network">Add network</button>
+                    </div>
+                </Fragment>
                 <h1>Claim Your Inception <span class="total-text">Ark</span></h1>
-                <div class="locked">
-                    Please unlock your wallet
-                </div>
-                <div class="unlocked claim-card">
+                <div class="claim-card">
                     <div class="claim-info">
                         <div class="claim-data">
-                                Total allocation:
-                                <span class="total">0</span>
-                                Claimed:
-                                <span class="claimed">0</span>
-                                Yet to be minted:
-                                <span class="available">0</span>
-                                Mint price:
-                                <span class="price">0 USDC</span>
+                            Total allocation:
+                            <span class="total">0</span>
+                            Claimed:
+                            <span class="claimed">0</span>
+                            Yet to be minted:
+                            <span class="available">0</span>
+                            Mint price:
+                            <span class="price">
+                                <img src="/icons/usdc-logo.svg" class="usdc-logo" alt="">
+                                USDC
+                            </span>
                         </div>
                         <div class="mint-form">
                             <input required type="number" name="number" class="quantity" value="1">
@@ -42,13 +51,13 @@ import Layout from "../layouts/Layout.astro"
                         </div>
                     </div>
                 </div>
-            </claim-page>
-        </EtherProvider>
+            </EtherProvider>
+        </claim-page>
     </main>
 </Layout>
 
 <script>
-    import { with_signer, get_data, approve_claim, claim } from "../lib/ether";
+    import { change_listener, get_data, approve_claim, claim, get_state, state, add_network } from "../lib/ether";
 
 	class ClaimPage extends HTMLElement {
         #total:     Nullable<HTMLSpanElement>;
@@ -58,12 +67,12 @@ import Layout from "../layouts/Layout.astro"
         #price:     Nullable<HTMLSpanElement>;
         #number:    Nullable<HTMLInputElement>;
         #button:    Nullable<HTMLButtonElement>;
+        #network:   Nullable<HTMLButtonElement>;
 
         async #set_data() {
-            console.log(await get_data());
             const [claimed, available, price] = await get_data();
 
-            if(this.#claimed === null || this.#available === null || this.#price === null) { 
+            if(this.#claimed === null || this.#available === null || this.#price === null || this.#total === null || this.#totalText === null) { 
                 return; 
             }
 
@@ -73,13 +82,7 @@ import Layout from "../layouts/Layout.astro"
             this.#totalText.innerText = total > 1 ? 'Arks' : 'Ark';
             this.#claimed.innerText = `${claimed}`;
             this.#available.innerText = `${available}`;
-            this.#price.innerText = `${price} USDC`;
-        }
-
-        async #initialize() {
-            await with_signer();
-            await this.#set_data();
-            delete this.dataset.locked;
+            this.#price.dataset.price = `${price}`;
         }
 
         async #button_handler() {
@@ -89,6 +92,7 @@ import Layout from "../layouts/Layout.astro"
                 case "waiting": case "claimed": {
                     this.#button.dataset.state = "pending";
                     await approve_claim();
+
                     this.#button.dataset.state = "approved";
                     this.#button.innerText = "mint";
 
@@ -104,6 +108,7 @@ import Layout from "../layouts/Layout.astro"
 
                     this.#button.dataset.state = "claimed";
                     this.#button.innerText = "claimed";
+
                     break;
                 }
 
@@ -128,35 +133,33 @@ import Layout from "../layouts/Layout.astro"
             this.#price =  document.querySelector(".price") as HTMLSpanElement;
             this.#number =  document.querySelector(".quantity") as HTMLInputElement;
             this.#button =  document.querySelector(".claim") as HTMLButtonElement;
+            this.#network =  document.querySelector(".network") as HTMLButtonElement;
+            this.#network.addEventListener("click", add_network)
 
-            if(this.#button === null) { return; }
+            change_listener(async () => { 
+                if(this.#button === null) { return; }
+                const handler = () => this.#button_handler();
 
-            this.#button.addEventListener("click", () => this.#button_handler());
-            this.#initialize();
+                if (await get_state() === state.READY) {
+                    this.#set_data(); 
+
+                    this.#button.addEventListener("click", handler);
+                } else {
+                    this.#button.removeEventListener("click", handler);
+                }
+            });
 		}
 	}
 
 	customElements.define('claim-page', ClaimPage);
 </script>
 <style lang="scss">
-    [data-locked] :not(.locked) { display: none; }
-    :not([data-locked]) .locked { display: none; }
-
     #claim {
         position: relative;
         min-height: 100vh;
-        margin-bottom: -5rem;
-
-        &:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            height: 100%;
-            width: 100%;
-            background: url("/images/Web-BG-2a-1.jpg") no-repeat center center;
-            background-size: cover;
-            background-attachment: fixed;
-        }
+        background: url("/images/Web-BG-2a-1.jpg") no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed;
 
         h1 {
             padding-top: 50px;
@@ -197,6 +200,20 @@ import Layout from "../layouts/Layout.astro"
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
+        }
+
+        .price {
+            display: flex;
+            align-items: center;
+
+            &::before {
+                content: attr(data-price);
+                margin-right: .5ch;
+            }
+
+            .usdc-logo {
+                height: 2rem;
+            }   
         }
 
         .quantity {
@@ -246,32 +263,6 @@ import Layout from "../layouts/Layout.astro"
             }
         }
 
-        .missing-wrapper {
-            p {
-                font-size: 14rem;
-            }
-        
-            a {
-                text-decoration: underline !important;
-            }
-        }
-
-        .wrong-network {
-            position: relative;
-            z-index: 1;
-            padding: 0 20% 3rem;
-            text-align: center;
-            background: hsl(var(--bg-color));
-
-            h1 {
-                margin-bottom: 10px;
-            }
-            
-            p {
-                font-size: 1.5rem;
-            }
-        }
-
         @media screen and (max-width: 50rem) {
 			.claim-info {
                 flex-direction: column;
@@ -281,16 +272,17 @@ import Layout from "../layouts/Layout.astro"
             .mint-form {
                 gap: .5rem;
             }
-
-            .wrong-network {
-                padding: 20px;
-                h1 {
-                    font-size: 3rem;
-                }
-                p {
-                    font-size: 1.5rem;
-                }
-            }
 		}	
+    }
+
+    .warning {
+        background: hsl(var(--bg-color));
+        text-align: center; 
+        padding: 2rem;
+
+        a {
+            text-underline-offset: 6px;
+            text-decoration: underline;
+        }
     }
 </style>
