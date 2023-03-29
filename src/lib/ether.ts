@@ -5,15 +5,14 @@ declare global {
 }
 
 const CLAIM_ABI = Object.freeze([
-    "function claim(uint256, uint256)",
-    "function DECIMALS() view returns (uint256)",
-    "function owner() view returns (address)",
+    "function claim(uint256)",
+    "function transferOwnership(address)",
+    "function claimed(address) view returns (uint256)",
+    "function decimals() view returns (uint256)",
     "function PreSaleIsActive() view returns (bool)",
-    "function PRICE() view returns (uint256)",
-    "function teamWallet() view returns (address)",
-    "function USDC() view returns (address)",
-    "function whitelist(address) view returns (uint256)",
-    "function claimed(address) view returns (uint256)"
+    "function price() view returns (uint256)",
+    "function USDCAddress() view returns (address)",
+    "function whitelist(address) view returns (uint256)"
 ])
 
 const USDC_ABI = Object.freeze([
@@ -69,7 +68,7 @@ export const get_contracts = async (): Promise<Nullable<Contracts>> => {
     if (provider === null) { return null }
 
     const claim = new ethers.Contract(CLAIM_ADDRESS, CLAIM_ABI, provider);
-    const usdc = new ethers.Contract(await claim.USDC(), USDC_ABI, provider);
+    const usdc = new ethers.Contract(await claim.USDCAddress(), USDC_ABI, provider);
 
     return contracts = { provider, claim, usdc, with_signer: null };
 }
@@ -100,7 +99,7 @@ export const get_data = async () : Promise<[number, number, string]> => {
 
     const claimed = (await claim.claimed(address)).toNumber();
     const sum = (await claim.whitelist(address)).toNumber();
-    const price = ethers.utils.formatUnits(await claim.PRICE(), await usdc.decimals());
+    const price = ethers.utils.formatUnits(await claim.price(), await usdc.decimals());
 
     return [claimed, sum - claimed, price];
 }
@@ -124,7 +123,7 @@ export const approve_claim = async (): Promise<void> => {
     if (contracts === null || contracts.with_signer === null) { return; }
 
     const { claim, with_signer } = contracts;
-    await with_signer.usdc.approve(CLAIM_ADDRESS, await claim.PRICE());
+    await with_signer.usdc.approve(CLAIM_ADDRESS, await claim.price());
 }
 
 export const claim = async (number: number): Promise<void> => {
@@ -132,7 +131,7 @@ export const claim = async (number: number): Promise<void> => {
 
     const { claim, with_signer } = contracts;
 
-    await with_signer.claim.claim(number, (await claim.PRICE()).mul(number));
+    await with_signer.claim.claim(number, (await claim.price()).mul(number));
 }
 
 export enum state {
