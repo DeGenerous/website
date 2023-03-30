@@ -72,7 +72,7 @@ import Layout from "../layouts/Layout.astro"
         async #set_data() {
             const [claimed, available, price] = await get_data();
 
-            if(this.#claimed === null || this.#available === null || this.#price === null || this.#total === null || this.#totalText === null || this.#number === null) { 
+            if(this.#claimed === null || this.#available === null || this.#price === null || this.#total === null || this.#totalText === null || this.#number === null || this.#button === null) { 
                 return; 
             }
 
@@ -84,6 +84,12 @@ import Layout from "../layouts/Layout.astro"
             this.#available.innerText = `${available}`;
             this.#price.dataset.price = `${price}`;
             this.#number.max = `${available}`;
+
+            if (claimed === available) {
+                this.#button.dataset.state = "done";
+                this.#button.disabled = true;
+                this.#button.innerText = "DONE";
+            }
         }
 
         async #button_handler() {
