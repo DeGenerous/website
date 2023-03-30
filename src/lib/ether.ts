@@ -131,7 +131,7 @@ export const claim = async (number: number): Promise<void> => {
 
     const { claim, with_signer } = contracts;
 
-    await with_signer.claim.claim(number, (await claim.price()).mul(number));
+    await with_signer.claim.claim(number);
 }
 
 export enum state {
