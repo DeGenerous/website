@@ -85,7 +85,7 @@ import Layout from "../layouts/Layout.astro"
             this.#price.dataset.price = `${price}`;
             this.#number.max = `${available}`;
 
-            if (claimed === available) {
+            if (available === 0) {
                 this.#button.dataset.state = "done";
                 this.#button.disabled = true;
                 this.#button.innerText = "DONE";
@@ -118,7 +118,6 @@ import Layout from "../layouts/Layout.astro"
                     await claim(parseInt(this.#number.value));
                     await this.#set_data();
 
-                    this.#button.disabled = false;
                     this.#button.dataset.state = "claimed";
                     this.#button.innerText = "PURCHASED";
 
