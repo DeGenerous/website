@@ -16,8 +16,8 @@ const CLAIM_ABI = Object.freeze([
 ])
 
 const USDC_ABI = Object.freeze([
-    "function name() view returns (string)",
     "function approve(address,uint256) returns (bool)",
+    "function allowance(address,address) view returns (uint256)",
     "function decimals() view returns (uint8)"
 ]);
 
@@ -119,19 +119,31 @@ export const add_network = async ():Promise<void> => {
     });
 }
 
-export const approve_claim = async (): Promise<void> => {
+export const approve_claim = async (number: number): Promise<void> => {
     if (contracts === null || contracts.with_signer === null) { return; }
 
     const { claim, with_signer } = contracts;
-    await with_signer.usdc.approve(CLAIM_ADDRESS, await claim.price());
+
+    const tx: ethers.ContractTransaction = await with_signer.usdc.approve(CLAIM_ADDRESS, (await claim.price()).mul(number));
+    await tx.wait()
+}
+
+export const get_allowence = async (): Promise<number> => {
+    if (contracts === null || contracts.with_signer === null) { return 0; }
+
+    const { claim, with_signer } = contracts;
+
+    const address = with_signer.signer.getAddress();
+    return (await with_signer.usdc.allowance(address, CLAIM_ADDRESS)).div(await claim.price()).toNumber();
 }
 
 export const claim = async (number: number): Promise<void> => {
     if (contracts === null || contracts.with_signer === null) { return; }
 
-    const { claim, with_signer } = contracts;
+    const { with_signer } = contracts;
 
-    await with_signer.claim.claim(number);
+    const tx: ethers.ContractTransaction = await with_signer.claim.claim(number);
+    await tx.wait();
 }
 
 export enum state {

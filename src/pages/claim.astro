@@ -58,7 +58,7 @@ import Layout from "../layouts/Layout.astro"
 </Layout>
 
 <script>
-    import { change_listener, get_data, approve_claim, claim, get_state, state, add_network, with_signer } from "../lib/ether";
+    import { change_listener, get_data, approve_claim, claim, get_state, state, add_network, with_signer, get_allowence } from "../lib/ether";
 
 	class ClaimPage extends HTMLElement {
         #total:     Nullable<HTMLSpanElement>;
@@ -71,6 +71,10 @@ import Layout from "../layouts/Layout.astro"
 
         async #set_data() {
             const [claimed, available, price] = await get_data();
+
+
+            const allowence = await get_allowence();
+            console.log(allowence);
 
             if(this.#claimed === null || this.#available === null || this.#price === null || this.#total === null || this.#totalText === null || this.#number === null || this.#button === null) { 
                 return; 
@@ -92,15 +96,59 @@ import Layout from "../layouts/Layout.astro"
             }
         }
 
+        async #check_input(): Promise<boolean> {
+            if(this.#number === null) { return false; }
+
+            try {
+                const requested = parseInt(this.#number.value);
+                const min = parseInt(this.#number.min);
+                const max = parseInt(this.#number.max);
+
+                if (requested >= min && requested <= max) { return true; }
+            } catch {
+                return false;
+            }
+
+            return false;
+        }
+
         async #button_handler() {
             if(this.#button === null) { return; }
 
             switch (this.#button.dataset.state) {
                 case "waiting": case "claimed": {
+                    if(this.#number === null) { return; }
+
+                    if (!await this.#check_input()) {
+                        alert(`You can't purchase ${this.#number.value} tokens`)
+                        return;
+                    }
+
                     this.#button.dataset.state = "pending";
                     this.#button.disabled = true;
 
-                    await approve_claim();
+                    const requested = parseInt(this.#number.value);
+
+                    try {
+                        await approve_claim(requested);
+                    } catch (e) {
+                        console.error(e);
+                        window.alert("Error approving transaction, please try again.");
+
+                        this.#button.disabled = false;
+                        this.#button.dataset.state = "waiting";
+                        this.#button.innerText = "APPROVE";
+
+                        return;
+                    }
+
+                    if (await get_allowence() < requested) {
+                        alert("Not enough money approved, please try again!");
+                        this.#button.disabled = false;
+                        this.#button.dataset.state = "waiting";
+
+                        return;
+                    }
 
                     this.#button.disabled = false;
                     this.#button.dataset.state = "approved";
@@ -112,16 +160,43 @@ import Layout from "../layouts/Layout.astro"
                 case "approved": {
                     if(this.#number === null) { return; }
 
+                    if (!await this.#check_input()) {
+                        alert(`You can't purchase ${this.#number.value} tokens`);
+                        return;
+                    }
+
                     this.#button.dataset.state = "pending";
                     this.#button.disabled = true;
 
-                    await claim(parseInt(this.#number.value));
+                    const requested = parseInt(this.#number.value);
+
+                    if (await get_allowence() < requested) {
+                        alert("Not enough money approved, please try again!");
+                        this.#button.disabled = false;
+                        this.#button.dataset.state = "waiting";
+                        this.#button.innerText = "APPROVE";
+
+                        return;
+                    }
+
+                    try {
+                        await claim(requested);
+                    } catch (e) {
+                        console.error(e);
+                        window.alert("Error approving transaction, please try again.");
+
+                        this.#button.disabled = false;
+                        this.#button.dataset.state = "approved";
+                        this.#button.innerText = "PURCHASE";
+
+                        return;
+                    }
+
                     await this.#set_data();
 
                     this.#button.dataset.state = "claimed";
                     this.#button.innerText = "PURCHASED";
-
-                    this.#set_data(); 
+                    this.#button.disabled = false;
 
                     break;
                 }
@@ -149,7 +224,7 @@ import Layout from "../layouts/Layout.astro"
             this.#button =  document.querySelector(".claim") as HTMLButtonElement;
             
             (document.querySelector(".network") as HTMLButtonElement).addEventListener("click", add_network);
-            (document.querySelector(".unlock") as HTMLButtonElement).addEventListener("click", with_signer);
+            (document.querySelector(".unlock")  as HTMLButtonElement).addEventListener("click", with_signer);
 
             change_listener(async () => { 
                 if(this.#button === null) { return; }
