@@ -192,11 +192,11 @@ import Layout from "../layouts/Layout.astro"
                         return;
                     }
 
-                    await this.#set_data();
-
                     this.#button.dataset.state = "claimed";
                     this.#button.innerText = "PURCHASED";
                     this.#button.disabled = false;
+                    
+                    await this.#set_data();
 
                     break;
                 }
