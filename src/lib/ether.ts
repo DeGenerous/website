@@ -105,7 +105,7 @@ export const get_allowence = async (): Promise<number> => {
     const { claim, with_signer } = contracts;
 
     const address = with_signer.signer.getAddress();
-    return (await with_signer.usdc.allowance(address, CLAIM.ABI)).div(await claim.price()).toNumber();
+    return (await with_signer.usdc.allowance(address, CLAIM.address)).div(await claim.price()).toNumber();
 }
 
 export const claim = async (number: number): Promise<void> => {
