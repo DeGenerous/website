@@ -1,0 +1,25 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Section from '@components/Section.astro';
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('blog')).sort(
+	(a, b) => a.data.publish_date.valueOf() - b.data.publish_date.valueOf()
+);
+---
+
+<Layout title="Blog | Degenerous">
+    <main id="blog">
+        <Section title="DeGenerous Blog" gap>
+            <h2>Work in progress. Please come again later</h2>
+            <ul>
+                {
+                    posts.map((post) => (
+                        <li>
+                            <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </Section>
+    </main>
+</Layout>

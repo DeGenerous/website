@@ -3,9 +3,9 @@
 	"type": "module",
 	"version": "1.0.1",
 	"scripts": {
-		"dev": "astro dev --host",
+		"dev": " tinacms dev -c \"astro dev --host\"",
 		"start": "astro dev",
-		"build": "astro build",
+		"build": "tinacms build && astro build",
 		"preview": "astro preview",
 		"astro": "astro"
 	},
@@ -14,6 +14,11 @@
 		"ethers": "^5.7.2"
 	},
 	"devDependencies": {
-		"sass": "^1.60.0"
+		"@astrojs/mdx": "^0.18.2",
+		"@astrojs/rss": "^2.3.2",
+		"@astrojs/sitemap": "^1.2.1",
+		"@tinacms/cli": "^1.5.3",
+		"sass": "^1.60.0",
+		"tinacms": "^1.4.3"
 	}
 }

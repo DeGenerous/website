@@ -3,50 +3,52 @@ import Section from "../components/Section.astro";
 ---
 
 <Section class="contact" id="contact">
-	<div>
-		<h1>Contact us</h1>
-		<p>You can contact us here or tag us on our social media</p>
-		<ul>
-			<li>
-				<a href="https://t.me/degenerous">
-					<img src="/icons/telegram.svg" alt="Telegram">
-					<strong>DEGENEROUS</strong> group chat
-				</a>
-			</li>
-			<li>
-				<a href="https://twitter.com/degenerousdao">
-					<img src="/icons/twitter.svg" alt="Twitter">
-					<strong>DEGENEROUS</strong> news
-				</a>
-			</li>
-			<li>
-				<a href="https://www.instagram.com/degenerousdao">
-					<img src="/icons/instagram.svg" alt="Instagram">
-					<strong>DEGENEROUS</strong> pictures
-				</a>
-			</li>
-			<li>
-				<a href="https://www.youtube.com/@degenerous">
-					<img src="/icons/youtube.svg" alt="Youtube">
-					<strong>DEGENEROUS</strong> videos
-				</a>
-			</li>
-		</ul>
+	<div class="wrapper">
+		<div class="socials">
+			<h1>Contact us</h1>
+			<p>You can contact us here or tag us on our social media</p>
+			<ul>
+				<li>
+					<a href="https://t.me/degenerous">
+						<img src="/icons/telegram.svg" alt="Telegram">
+						<strong>DEGENEROUS</strong> group chat
+					</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/degenerousdao">
+						<img src="/icons/twitter.svg" alt="Twitter">
+						<strong>DEGENEROUS</strong> news
+					</a>
+				</li>
+				<li>
+					<a href="https://www.instagram.com/degenerousdao">
+						<img src="/icons/instagram.svg" alt="Instagram">
+						<strong>DEGENEROUS</strong> pictures
+					</a>
+				</li>
+				<li>
+					<a href="https://www.youtube.com/@degenerous">
+						<img src="/icons/youtube.svg" alt="Youtube">
+						<strong>DEGENEROUS</strong> videos
+					</a>
+				</li>
+			</ul>
+		</div>
+		<form id="mail_form">
+			<label for="name">Name</label>
+			<input required type="text" id="name" placeholder="John Doe" />
+
+			<label for="email">E-mail</label>
+			<input required type="text" id="email" placeholder="john.doe@email.com" />
+
+			<label for="subject">Subject</label>
+			<input required type="text" id="subject" placeholder="Bussines inquiry" />
+
+			<label for="message">Message</label>
+			<textarea required rows="5" id="message" placeholder="Hi, friends,\n..." />
+			<button type="submit">Send</button>
+		</form>
 	</div>
-	<form id="mail_form">
-		<label for="name">Name</label>
-		<input required type="text" id="name" placeholder="John Doe" />
-
-		<label for="email">E-mail</label>
-		<input required type="text" id="email" placeholder="john.doe@email.com" />
-
-		<label for="subject">Subject</label>
-		<input required type="text" id="subject" placeholder="Bussines inquiry" />
-
-		<label for="message">Message</label>
-		<textarea required rows="5" id="message" placeholder="Hi, friends,\n..." />
-		<button type="submit">Send</button>
-	</form>
 </Section>
 
 <script>
@@ -103,14 +105,13 @@ import Section from "../components/Section.astro";
 </script>
 
 <style lang="scss">
-	.contact {
+	.wrapper {
 		padding: 2rem;
-		margin-top: 10rem;
+		margin-top: 5rem;
 		display: grid;
 		place-content: center;
 		grid-auto-flow: column;
 		gap: 2rem;
-
 
 		@media screen and (max-width: 65rem) {
 			grid-auto-flow: row;
@@ -147,7 +148,7 @@ import Section from "../components/Section.astro";
 		padding-block: 3rem 0rem;
 	}
 
-	div, form {
+	.socials, form {
 		width: 30rem;
 		max-width: calc(100vw - 2rem);
 	}

@@ -36,11 +36,11 @@ import Layout from "../layouts/Layout.astro"
                         <div class="claim-data">
                             Total allocation:
                             <span class="total">0</span>
-                            Claimed:
+                            Purchased:
                             <span class="claimed">0</span>
-                            Yet to be minted:
+                            Yet to be purchased:
                             <span class="available">0</span>
-                            Mint price:
+                            Price:
                             <span class="price">
                                 <img src="/icons/usdc-logo.svg" class="usdc-logo" alt="">
                                 USDC
@@ -76,7 +76,7 @@ import Layout from "../layouts/Layout.astro"
             const allowence = await get_allowence();
             console.log(allowence);
 
-            if(this.#claimed === null || this.#available === null || this.#price === null || this.#total === null || this.#totalText === null || this.#number === null || this.#button === null) { 
+            if(this.#claimed === null || this.#available === null || this.#price === null || this.#total === null || this.#totalText === null || this.#number === null || this.#button === null) {
                 return; 
             }
 
@@ -195,7 +195,7 @@ import Layout from "../layouts/Layout.astro"
                     this.#button.dataset.state = "claimed";
                     this.#button.innerText = "PURCHASED";
                     this.#button.disabled = false;
-                    
+
                     await this.#set_data();
 
                     break;

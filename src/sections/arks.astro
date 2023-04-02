@@ -2,7 +2,7 @@
 import Section from "../components/Section.astro";
 ---
 
-<Section id="arks">
+<Section id="arks" width="full">
 	<h2>Take control of your own destiny and unlock your true potential. <strong>#builtdifferent</strong></h2>
 	<h1>Inception Arks</h1>
 
@@ -25,12 +25,12 @@ import Section from "../components/Section.astro";
 </Section>
 
 <style lang="scss">
-	#arks {
+	:global(#arks) {
 		padding: 1rem;
+	}
 
-		h1 {
-			padding-block: 1rem 2rem;
-		}
+	h1 {
+		padding-block: 1rem 2rem;
 	}
 
 	strong {
