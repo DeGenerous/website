@@ -130,25 +130,12 @@ import Layout from "../layouts/Layout.astro"
                     } catch (e) {
                         console.error(e);
                         window.alert("Error approving transaction, please try again.");
-
-                        this.#button.disabled = false;
-                        this.#button.dataset.state = "waiting";
-                        this.#button.innerText = "APPROVE";
+                        this.#number_changed();
 
                         return;
                     }
 
-                    if (await get_allowence() < requested) {
-                        alert("Not enough money approved, please try again!");
-                        this.#button.disabled = false;
-                        this.#button.dataset.state = "waiting";
-
-                        return;
-                    }
-
-                    this.#button.disabled = false;
-                    this.#button.dataset.state = "approved";
-                    this.#button.innerText = "PURCHASE";
+                    this.#number_changed();
 
                     break;
                 }
@@ -168,9 +155,7 @@ import Layout from "../layouts/Layout.astro"
 
                     if (await get_allowence() < requested) {
                         alert("Not enough money approved, please try again!");
-                        this.#button.disabled = false;
-                        this.#button.dataset.state = "waiting";
-                        this.#button.innerText = "APPROVE";
+                        this.#number_changed();
 
                         return;
                     }
@@ -180,20 +165,12 @@ import Layout from "../layouts/Layout.astro"
                     } catch (e) {
                         console.error(e);
                         window.alert("Error approving transaction, please try again.");
-
-                        this.#button.disabled = false;
-                        this.#button.dataset.state = "approved";
-                        this.#button.innerText = "PURCHASE";
+                        this.#number_changed();
 
                         return;
                     }
 
-                    this.#button.dataset.state = "claimed";
-                    this.#button.innerText = "PURCHASED";
-                    this.#button.disabled = false;
-
                     await this.#set_data();
-
                     break;
                 }
 
