@@ -18,11 +18,18 @@ export const USDC = Object.freeze({
 });
 
 export const GOVERNANCE = Object.freeze({
-    address: "0xa61d685Edb4d32c2718903956A8b433E474f5c74",
+    address: "0xB2664fE5Cc77199D4d957C7Dc53BC85554559835",
     ABI: [
         "function ChooseYourDestiny(uint256,uint256,uint256)",
         "function decisions(uint256,uint256) view returns (string)",
         "function getStoryNodes() view returns (tuple(uint256,string[],string)[])"
+    ]
+});
+
+export const NFT = Object.freeze({
+    address: "0xc88f77CFf23e3ed2630bb894012FA5b1fA2851CD",
+    ABI: [
+        "function tokensOfOwner(address) view returns (uint256[])"
     ]
 });
 

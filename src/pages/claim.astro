@@ -23,7 +23,7 @@ import Layout from "../layouts/Layout.astro"
                         <button class="unlock">Connect</button>
                     </div>
                 </Fragment>
-                <Fragment slot="wrong-network">
+                <Fragment slot="wrong-network"> 
                     <div class="warning">
                         <h1>Wrong network</h1>
                         <p>Please change your network to Exosama Network</p>
@@ -58,29 +58,24 @@ import Layout from "../layouts/Layout.astro"
 </Layout>
 
 <script>
-    import { change_listener, get_data, approve_claim, claim, get_state, state, add_network, with_signer, get_allowence } from "../lib/ether";
+    import { change_listener, get_data, approve_claim, claim, get_state, state, add_network, with_signer, get_allowence } from "@lib/ether";
 
 	class ClaimPage extends HTMLElement {
-        #total:     Nullable<HTMLSpanElement>;
-        #totalText: Nullable<HTMLSpanElement>;
-        #claimed:   Nullable<HTMLSpanElement>;
-        #available: Nullable<HTMLSpanElement>;
-        #price:     Nullable<HTMLSpanElement>;
-        #number:    Nullable<HTMLInputElement>;
-        #button:    Nullable<HTMLButtonElement>;
+        #total:     HTMLSpanElement;
+        #totalText: HTMLSpanElement;
+        #claimed:   HTMLSpanElement;
+        #available: HTMLSpanElement;
+        #price:     HTMLSpanElement;
+        #number:    HTMLInputElement;
+        #button:    HTMLButtonElement;
+
+        #allowence: number;
 
         async #set_data() {
             const [claimed, available, price] = await get_data();
+            const total = claimed + available;
 
-
-            const allowence = await get_allowence();
-            console.log(allowence);
-
-            if(this.#claimed === null || this.#available === null || this.#price === null || this.#total === null || this.#totalText === null || this.#number === null || this.#button === null) {
-                return; 
-            }
-
-            var total = claimed + available;
+            this.#allowence = await get_allowence();
 
             this.#total.innerText = `${total}`;
             this.#totalText.innerText = total > 1 ? 'Arks' : 'Ark';
@@ -88,6 +83,7 @@ import Layout from "../layouts/Layout.astro"
             this.#available.innerText = `${available}`;
             this.#price.dataset.price = `${price}`;
             this.#number.max = `${available}`;
+            this.#number_changed();
 
             if (available === 0) {
                 this.#button.dataset.state = "done";
@@ -206,25 +202,36 @@ import Layout from "../layouts/Layout.astro"
                     break;
                 }
 
-                default: {
-                    return;
-                }
+                default: { return; }
+            }
+        }
+
+        #number_changed() {
+            const selected = parseInt(this.#number.value);
+            if (selected <= this.#allowence) {
+                this.#button.dataset.state = "approved";
+                this.#button.innerText = "PURCHASE";
+            } else {
+                this.#button.dataset.state = "waiting";
+                this.#button.innerText = "APPROVE";
             }
         }
 
 		constructor() {
 			super();
 
-            this.#total =  document.querySelector(".total") as HTMLSpanElement;
-            this.#totalText =  document.querySelector(".total-text") as HTMLSpanElement;
-            this.#claimed =  document.querySelector(".claimed") as HTMLSpanElement;
-            this.#available =  document.querySelector(".available") as HTMLSpanElement;
-            this.#price =  document.querySelector(".price") as HTMLSpanElement;
-            this.#number =  document.querySelector(".quantity") as HTMLInputElement;
-            this.#button =  document.querySelector(".claim") as HTMLButtonElement;
-            
+            this.#total     = document.querySelector(".total")      as HTMLSpanElement;
+            this.#totalText = document.querySelector(".total-text") as HTMLSpanElement;
+            this.#claimed   = document.querySelector(".claimed")    as HTMLSpanElement;
+            this.#available = document.querySelector(".available")  as HTMLSpanElement;
+            this.#price     = document.querySelector(".price")      as HTMLSpanElement;
+            this.#number    = document.querySelector(".quantity")   as HTMLInputElement;
+            this.#button    = document.querySelector(".claim")      as HTMLButtonElement;
+
             (document.querySelector(".network") as HTMLButtonElement).addEventListener("click", add_network);
             (document.querySelector(".unlock")  as HTMLButtonElement).addEventListener("click", with_signer);
+
+            this.#number.addEventListener("change", () => this.#number_changed());
 
             change_listener(async () => { 
                 if(this.#button === null) { return; }
@@ -232,7 +239,6 @@ import Layout from "../layouts/Layout.astro"
 
                 if (await get_state() === state.READY) {
                     this.#set_data(); 
-
                     this.#button.addEventListener("click", handler);
                 } else {
                     this.#button.removeEventListener("click", handler);
@@ -243,6 +249,7 @@ import Layout from "../layouts/Layout.astro"
 
 	customElements.define('claim-page', ClaimPage);
 </script>
+
 <style lang="scss">
     #claim {
         position: relative;

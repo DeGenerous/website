@@ -3,7 +3,7 @@
 	"type": "module",
 	"version": "1.0.1",
 	"scripts": {
-		"dev": " tinacms dev -c \"astro dev --host\"",
+		"dev": "tinacms dev -c \"astro dev --host\"",
 		"start": "astro dev",
 		"build": "tinacms build && astro build",
 		"preview": "astro preview",
@@ -11,16 +11,15 @@
 	},
 	"dependencies": {
 		"astro": "^2.1.9",
-		"ethers": "^5.7.2",
-		"markdown-it": "^13.0.1",
-		"sanitize-html": "^2.10.0"
+		"ethers": "^5.7.2"
 	},
 	"devDependencies": {
-		"@astrojs/mdx": "^0.18.2",
 		"@astrojs/rss": "^2.3.2",
 		"@astrojs/sitemap": "^1.2.1",
 		"@tinacms/cli": "^1.5.3",
 		"sass": "^1.60.0",
-		"tinacms": "^1.4.3"
+		"tinacms": "^1.4.3",
+		"markdown-it": "^13.0.1",
+		"sanitize-html": "^2.10.0"
 	}
 }

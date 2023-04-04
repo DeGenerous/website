@@ -1,25 +1,27 @@
-import { ethers } from "ethers";
-import { CLAIM, USDC, EXOSAMA, GOVERNANCE } from "./constants";
+import { BigNumber, ethers } from "ethers";
+import { CLAIM, USDC, EXOSAMA, NFT, GOVERNANCE } from "./constants";
 
 declare global {
     interface Window { ethereum: any; }
 }
 
-interface Contracts {
-    provider: ethers.providers.Web3Provider,
+type ContractList = {
     claim: ethers.Contract,
     usdc: ethers.Contract,
     governance: ethers.Contract,
-
-    with_signer: Nullable<{
-        signer: ethers.providers.JsonRpcSigner,
-        claim: ethers.Contract,
-        usdc: ethers.Contract,
-        governance: ethers.Contract,
-    }>
+    nft: ethers.Contract,
 }
 
+type Contracts = {
+    provider: ethers.providers.Web3Provider,
+
+    with_signer: Nullable< {
+        signer: ethers.providers.JsonRpcSigner,
+    } & ContractList >
+} & ContractList
+
 let contracts: Nullable<Contracts> = null;
+let selected_token: BigNumber;
 
 export const get_provider = (): Nullable<ethers.providers.Web3Provider> => {
     if (typeof window.ethereum === "undefined") { return null; }
@@ -35,10 +37,14 @@ export const get_contracts = async (): Promise<Nullable<Contracts>> => {
     if (provider === null) { return null }
 
     const claim = new ethers.Contract(CLAIM.address, CLAIM.ABI, provider);
-    const usdc = new ethers.Contract(await claim.USDCAddress(), USDC.ABI, provider);
-    const governance = new ethers.Contract(GOVERNANCE.address, GOVERNANCE.ABI, provider);
-
-    return contracts = { provider, claim, usdc, governance, with_signer: null };
+    return contracts = { 
+        provider,
+        claim,
+        usdc: new ethers.Contract(await claim.USDCAddress(), USDC.ABI, provider),
+        governance: new ethers.Contract(GOVERNANCE.address, GOVERNANCE.ABI, provider),
+        nft: new ethers.Contract(NFT.address, NFT.ABI, provider),
+        with_signer: null
+    };
 }
 
 export const with_signer = async (): Promise<Nullable<Contracts>> => {
@@ -54,7 +60,8 @@ export const with_signer = async (): Promise<Nullable<Contracts>> => {
         signer,
         claim: contracts.claim.connect(signer),
         usdc: contracts.usdc.connect(signer),
-        governance: contracts.governance.connect(signer)
+        governance: contracts.governance.connect(signer),
+        nft: contracts.nft.connect(signer)
     };
 
     return contracts;
@@ -145,4 +152,30 @@ export const change_listener = (callback: () => void) => {
 
     window.ethereum.on("accountsChanged", callback)
     provider.on("network", callback);
+}
+
+type StroyNode = {
+    end_date: Date,
+    options: string[],
+    description: string,
+    vote: string
+}
+
+export const get_nodes = async (): Promise<StroyNode[]> => {
+    if (contracts === null || contracts.with_signer === null) { return []; }
+
+    const address = contracts.with_signer.signer.getAddress();
+    selected_token = (await contracts.nft.tokensOfOwner(address))[0];
+
+    return await Promise.all((await contracts.with_signer.governance.getStoryNodes())
+        .map(async ([end_timestamp, options, description] : [BigNumber, string[], string], index: number): Promise<StroyNode> => {
+            if (contracts === null || contracts.with_signer === null) { throw new Error("Error getting contracts") }
+
+            return {
+                end_date: new Date(end_timestamp.toNumber() * 1000),
+                options,
+                description,
+                vote: await contracts.with_signer.governance.decisions(index, selected_token)
+            }
+        }));
 }
