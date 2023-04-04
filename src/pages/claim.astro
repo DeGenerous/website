@@ -130,15 +130,18 @@ import Layout from "../layouts/Layout.astro"
 
                     try {
                         await approve_claim(requested);
+                        this.#allowence = await get_allowence();
                     } catch (e) {
                         console.error(e);
                         window.alert("Error approving transaction, please try again.");
                         this.#number_changed();
+                        this.#button.disabled = false;
 
                         return;
                     }
 
                     this.#number_changed();
+                    this.#button.disabled = false;
 
                     break;
                 }
@@ -159,22 +162,26 @@ import Layout from "../layouts/Layout.astro"
                     if (await get_allowence() < requested) {
                         alert("Not enough money approved, please try again!");
                         this.#number_changed();
+                        this.#button.disabled = false;
 
                         return;
                     }
 
                     try {
                         await claim(requested);
+                        this.#allowence = await get_allowence();
                     } catch (e) {
                         console.error(e);
                         window.alert("Error approving transaction, please try again.");
                         this.#number_changed();
+                        this.#button.disabled = false;
 
                         return;
                     }
 
                     this.#button.dataset.state = "claimed";
                     this.#button.innerText = "PURCHASED";
+                    this.#button.disabled = false;
 
                     await this.#set_data();
                     break;
