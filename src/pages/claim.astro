@@ -83,7 +83,10 @@ import Layout from "../layouts/Layout.astro"
             this.#available.innerText = `${available}`;
             this.#price.dataset.price = `${price}`;
             this.#number.max = `${available}`;
-            this.#number_changed();
+
+            if (this.#button.dataset.state !== "claimed") {
+                this.#number_changed();
+            }
 
             if (available === 0) {
                 this.#button.dataset.state = "done";
@@ -169,6 +172,9 @@ import Layout from "../layouts/Layout.astro"
 
                         return;
                     }
+
+                    this.#button.dataset.state = "claimed";
+                    this.#button.innerText = "PURCHASED";
 
                     await this.#set_data();
                     break;
