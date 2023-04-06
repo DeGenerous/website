@@ -21,7 +21,7 @@ type Contracts = {
 } & ContractList
 
 let contracts: Nullable<Contracts> = null;
-let selected_token: BigNumber;
+let selected_token: Nullable<BigNumber> = null;
 
 export const get_provider = (): Nullable<ethers.providers.Web3Provider> => {
     if (typeof window.ethereum === "undefined") { return null; }
@@ -158,24 +158,38 @@ type StroyNode = {
     end_date: Date,
     options: string[],
     description: string,
-    vote: string
+    vote: Nullable<number>
 }
 
-export const get_nodes = async (): Promise<StroyNode[]> => {
+export const get_tokens = async (): Promise<BigNumber[]> => {
     if (contracts === null || contracts.with_signer === null) { return []; }
 
     const address = contracts.with_signer.signer.getAddress();
-    selected_token = (await contracts.nft.tokensOfOwner(address))[0];
+    return await contracts.nft.tokensOfOwner(address)
+}
 
-    return await Promise.all((await contracts.with_signer.governance.getStoryNodes())
-        .map(async ([end_timestamp, options, description] : [BigNumber, string[], string], index: number): Promise<StroyNode> => {
-            if (contracts === null || contracts.with_signer === null) { throw new Error("Error getting contracts") }
+export const set_selected_token = (token: Nullable<BigNumber>) => { selected_token = token; }
+export const get_selected_token = (): Nullable<BigNumber> => { return selected_token; }
 
-            return {
-                end_date: new Date(end_timestamp.toNumber() * 1000),
-                options,
-                description,
-                vote: await contracts.with_signer.governance.decisions(index, selected_token)
-            }
-        }));
+const get_decision = async (story: number): Promise<Nullable<number>> => {
+    if (contracts === null || contracts.with_signer === null || selected_token === null) { return null; }
+    const { with_signer } = contracts;
+
+    const decision = (await with_signer.governance.decisions(story, get_selected_token())).toNumber()
+    return (decision > 0)? decision - 1 : null;
+}
+
+export const get_nodes = async (): Promise<StroyNode[]> => {
+    if (contracts === null || contracts.with_signer === null || selected_token === null) { return []; }
+
+    const { with_signer } = contracts;
+
+    return await Promise.all((await with_signer.governance.getStoryNodes())
+        .map(async ([end_timestamp, options, description] : [BigNumber, string[], string], index: number): Promise<StroyNode> => ({
+            end_date: new Date(end_timestamp.toNumber() * 1000),
+            options,
+            description,
+            vote: await get_decision(index)
+        }))
+    );
 }

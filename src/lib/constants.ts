@@ -1,5 +1,5 @@
 export const CLAIM = Object.freeze({
-    address: "0x533C98bDbd1511c3521F8b46f63E99C4902D66cA",
+    address: "0xbd88B0Dc121A5BcD1f8b9e6EED3Cf04EC2CB162C",
     ABI: [
         "function claim(uint256)",
         "function claimed(address) view returns (uint256)",
@@ -21,7 +21,7 @@ export const GOVERNANCE = Object.freeze({
     address: "0xB2664fE5Cc77199D4d957C7Dc53BC85554559835",
     ABI: [
         "function ChooseYourDestiny(uint256,uint256,uint256)",
-        "function decisions(uint256,uint256) view returns (string)",
+        "function decisions(uint256,uint256) view returns (uint256)",
         "function getStoryNodes() view returns (tuple(uint256,string[],string)[])"
     ]
 });
