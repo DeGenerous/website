@@ -48,11 +48,28 @@ import Layout from "@layouts/Layout.astro"
                         </div>
                         <div class="mint-form">
                             <input required type="number" name="number" class="quantity" value="1" min="1" max="1">
-                            <button class="claim claim-btn" data-state="waiting">APPROVE</button>
+                            <button class="claim claim-btn" data-state="disclaimer">APPROVE</button>
                         </div>
                     </div>
+                    <span class="airdrop">
+                        NFTs will be airdropped to your whitelisted address once the public sale period begins
+                    </span>
                 </div>
             </EtherProvider>
+            <div class="disclaimer">
+                <div>
+                    By proceeding with this sale, you as the buyer accept the following terms:
+                    <br>
+                    <li>You have done your own research and you would like to purchase Inception Arks NFT(s)*</li>
+                    <li>You are familiar with the risks involved with cryptocurrencies and NFTs</li>
+                    <li>You do not expect any financial returns nor do you consider this transaction as an investment opportunity</li>
+                    <li>The sale is subject to any applicable laws and regulations, including those related to securities and consumer protection </li>
+                    <li>You have verified that the wallet address you are using for this transaction is owned by you and that you have full access to it</li>
+                    <li>You have verified that you are eligible for the purchase and that the amount, timing, and process related to the purchase have been fully respected.</li>
+                    <br>
+                    *The DeGenerous Inception Arks NFTs are sold on an 'as is' and 'as available' basis, without any warranties or representations of any kind, whether express, implied, or statutory. The seller does not guarantee their quality, value, or authenticity.
+                </div>
+            </div>
         </claim-page>
     </main>
 </Layout>
@@ -61,15 +78,17 @@ import Layout from "@layouts/Layout.astro"
     import { change_listener, get_data, approve_claim, claim, get_state, state, add_network, with_signer, get_allowence } from "@lib/ether";
 
 	class ClaimPage extends HTMLElement {
-        #total:     HTMLSpanElement;
-        #totalText: HTMLSpanElement;
-        #claimed:   HTMLSpanElement;
-        #available: HTMLSpanElement;
-        #price:     HTMLSpanElement;
-        #number:    HTMLInputElement;
-        #button:    HTMLButtonElement;
+        #disclaimer: HTMLDivElement;
+        #total:      HTMLSpanElement;
+        #totalText:  HTMLSpanElement;
+        #claimed:    HTMLSpanElement;
+        #available:  HTMLSpanElement;
+        #price:      HTMLSpanElement;
+        #number:     HTMLInputElement;
+        #button:     HTMLButtonElement;
 
         #allowence: number;
+        #allowed: boolean;
 
         async #set_data() {
             const [claimed, available, price] = await get_data();
@@ -113,6 +132,12 @@ import Layout from "@layouts/Layout.astro"
 
         async #button_handler() {
             if(this.#button === null) { return; }
+
+            if (!this.#allowed) {
+                this.#disclaimer.dataset.shown = "true";
+                this.#allowed = true;
+                return;
+            }
 
             switch (this.#button.dataset.state) {
                 case "waiting": case "claimed": {
@@ -210,18 +235,22 @@ import Layout from "@layouts/Layout.astro"
 		constructor() {
 			super();
 
-            this.#total     = document.querySelector(".total")      as HTMLSpanElement;
-            this.#totalText = document.querySelector(".total-text") as HTMLSpanElement;
-            this.#claimed   = document.querySelector(".claimed")    as HTMLSpanElement;
-            this.#available = document.querySelector(".available")  as HTMLSpanElement;
-            this.#price     = document.querySelector(".price")      as HTMLSpanElement;
-            this.#number    = document.querySelector(".quantity")   as HTMLInputElement;
-            this.#button    = document.querySelector(".claim")      as HTMLButtonElement;
+            this.#disclaimer = document.querySelector(".disclaimer") as HTMLDivElement;
+            this.#total      = document.querySelector(".total")      as HTMLSpanElement;
+            this.#totalText  = document.querySelector(".total-text") as HTMLSpanElement;
+            this.#claimed    = document.querySelector(".claimed")    as HTMLSpanElement;
+            this.#available  = document.querySelector(".available")  as HTMLSpanElement;
+            this.#price      = document.querySelector(".price")      as HTMLSpanElement;
+            this.#number     = document.querySelector(".quantity")   as HTMLInputElement;
+            this.#button     = document.querySelector(".claim")      as HTMLButtonElement;
 
             (document.querySelector(".network") as HTMLButtonElement).addEventListener("click", add_network);
             (document.querySelector(".unlock")  as HTMLButtonElement).addEventListener("click", with_signer);
 
             this.#number.addEventListener("change", () => this.#number_changed());
+            this.#disclaimer.addEventListener("click", () => { delete this.#disclaimer.dataset.shown; })
+
+            this.#allowed = false;
 
             change_listener(async () => { 
                 if(this.#button === null) { return; }
@@ -376,6 +405,13 @@ import Layout from "@layouts/Layout.astro"
 		}	
     }
 
+    .airdrop {
+        text-align: center;
+        background: var(--bg-color-transparent);
+        margin-top: 1rem;
+        padding: .5rem 1rem
+    }
+
     .warning {
         background: hsl(var(--bg-color));
         text-align: center; 
@@ -434,5 +470,32 @@ import Layout from "@layouts/Layout.astro"
                 font-size: 1.5rem;
             }
 		}
+    }
+
+    .disclaimer {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: grid;
+        place-content: center;
+        background-color: hsla(0 0% 0% / 50%);
+
+        div {
+            background: hsl(var(--bg-color));
+            padding: 3rem;
+            max-width: 50rem;
+            clip-path: polygon(
+                0 0, 
+                calc(100% - var(--border-size)) 0,
+                100% var(--border-size),
+                100% 100%,
+                var(--border-size) 100%,
+                0 calc(100% - var(--border-size))
+            );
+        }
+    }
+
+    .disclaimer:not([data-shown]) {
+        display: none;
     }
 </style>
