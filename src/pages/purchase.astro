@@ -68,6 +68,8 @@ import Layout from "@layouts/Layout.astro"
                     <li>You have verified that you are eligible for the purchase and that the amount, timing, and process related to the purchase have been fully respected.</li>
                     <br>
                     *The DeGenerous Inception Arks NFTs are sold on an 'as is' and 'as available' basis, without any warranties or representations of any kind, whether express, implied, or statutory. The seller does not guarantee their quality, value, or authenticity.
+                    <br>
+                    <button class="accept">Accept</button>
                 </div>
             </div>
         </claim-page>
@@ -109,7 +111,7 @@ import Layout from "@layouts/Layout.astro"
 
             if (available === 0) {
                 this.#button.dataset.state = "done";
-                this.#button.disabled = true;
+                // this.#button.disabled = true;
                 this.#button.innerText = "DONE";
             }
         }
@@ -248,7 +250,7 @@ import Layout from "@layouts/Layout.astro"
             (document.querySelector(".unlock")  as HTMLButtonElement).addEventListener("click", with_signer);
 
             this.#number.addEventListener("change", () => this.#number_changed());
-            this.#disclaimer.addEventListener("click", () => { delete this.#disclaimer.dataset.shown; })
+            (document.querySelector(".accept") as HTMLButtonElement).addEventListener("click", () => { delete this.#disclaimer.dataset.shown; })
 
             this.#allowed = false;
 
@@ -287,6 +289,7 @@ import Layout from "@layouts/Layout.astro"
         .claim-card {
             display: grid;
             place-content: center;
+            padding-inline: 1rem;
         }
 
         .claim-info {
@@ -483,7 +486,9 @@ import Layout from "@layouts/Layout.astro"
         div {
             background: hsl(var(--bg-color));
             padding: 3rem;
-            max-width: 50rem;
+            max-width: min(50rem, calc(100vw - 2rem));
+            max-height: calc(100vh - 2rem);
+            overflow-y: auto;
             clip-path: polygon(
                 0 0, 
                 calc(100% - var(--border-size)) 0,
@@ -492,6 +497,39 @@ import Layout from "@layouts/Layout.astro"
                 var(--border-size) 100%,
                 0 calc(100% - var(--border-size))
             );
+        }
+
+        .accept {
+            padding: 7px 50px;
+            font-family: 'Righteous', cursive;
+            font-size: 2rem;
+            color: var(--accent-color);
+            background-color: #fff;
+            transition: filter 0.2s;
+            margin-top: 1rem;
+
+            border: 0;
+            --border-size: 1rem;
+            clip-path: polygon(
+                0 0, 
+                calc(100% - var(--border-size)) 0,
+                100% var(--border-size),
+                100% 100%,
+                var(--border-size) 100%,
+                0 calc(100% - var(--border-size))
+            );
+
+            &:not(:disabled) {
+                cursor: pointer;
+
+                &:hover {
+                    filter: brightness(.7);
+                }
+
+                &:active {
+                    filter: brightness(.5);
+                }
+            }
         }
     }
 

@@ -10,7 +10,7 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"astro": "^2.2.0",
+		"astro": "^2.2.3",
 		"ethers": "^5.7.2"
 	},
 	"devDependencies": {
@@ -19,7 +19,8 @@
 		"@tinacms/cli": "^1.5.5",
 		"markdown-it": "^13.0.1",
 		"sanitize-html": "^2.10.0",
-		"sass": "^1.61.0",
-		"tinacms": "^1.4.5"
+		"sass": "^1.62.0",
+		"tinacms": "^1.4.5",
+		"typescript": "^5.0.4"
 	}
 }
