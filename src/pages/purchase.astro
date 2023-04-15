@@ -3,7 +3,7 @@ import EtherProvider from "@components/EtherProvider.astro";
 import Layout from "@layouts/Layout.astro"
 ---
 
-<Layout title="Purchase | Degenerous">
+<Layout title="Purchase | Degenerous" page="Purchase">
     <main id="claim">
         <claim-page>
             <EtherProvider>
@@ -111,7 +111,7 @@ import Layout from "@layouts/Layout.astro"
 
             if (available === 0) {
                 this.#button.dataset.state = "done";
-                // this.#button.disabled = true;
+                this.#button.disabled = true;
                 this.#button.innerText = "DONE";
             }
         }

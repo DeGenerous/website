@@ -5,66 +5,92 @@ export interface Props {
 
 const { page } = Astro.props;
 
-const pages: {name: string, url: string, pretty: string}[] = [
+type HeaderLink = {
+	title: string;
+	link: string;
+};
+
+type HeaderDropwdown = {
+	title: string;
+	links: HeaderLink[];
+};
+
+const links: (HeaderLink | HeaderDropwdown)[] = [
 	{
-		name: "index",
-		url: "/#",
-		pretty: "Home"
+		title: "Pages",
+		links: [
+			{
+				title: "Home",
+				link: "/",
+			},
+			{
+				title: "Lore",
+				link: "/lore",
+			},
+			{
+				title: "Roadmap",
+				link: "/roadmap",
+			},
+			{
+				title: "Motivation",
+				link: "/motivation",
+			},
+		],
 	},
 	{
-		name: "join",
-		url: "/#join",
-		pretty: "Join"
+		title: "Blog",
+		link: "/blog",
 	},
 	{
-		name: "team",
-		url: "/#team",
-		pretty: "Team"
+		title: "Purchase",
+		link: "/purchase",
 	},
-	{
-		name: "contact",
-		url: "/#contact",
-		pretty: "Contact"
-	},
-	{
-		name: "lore",
-		url: "/lore",
-		pretty: "Lore"
-	},
-	{
-		name: "roadmap",
-		url: "/roadmap",
-		pretty: "Roadmap"
-	},
-	{
-		name: "motivation",
-		url: "/motivation",
-		pretty: "Motivation"
-	},
-	{
-		name: "purchase",
-		url: "/purchase",
-		pretty: "Purchase"
-	}
 ];
+
+function isLink(object: any): object is HeaderLink {
+	return "link" in object;
+}
 ---
 
 <custom-header>
 	<header>
-		<div class="close" />
+		<div class="close"></div>
 		<nav>
-			<ul>
-				{pages.map( p => (
-					<li data-selected={p.name == page}>
-						<a href={p.url}>
-							{p.pretty}
-						</a>
-					</li>
-				))}
+			<ul class="outer">
+				{
+					links.map((l) => {
+						if (isLink(l)) {
+							return (
+								<li data-selected={l.title == page}>
+									<a class="c" href={l.link}>{l.title}</a>
+								</li>
+							);
+						}
+
+						return (
+							<li class="sublist">
+								<span>
+									{l.title}
+									<img src="/icons/arrow_drop_down.svg" alt="" />
+								</span>
+								<ul class="inner">
+									{l.links.map((link, i) => (
+										<li data-selected={link.title == page} style={`--nth:${i}`}>
+											<a class="c" href={link.link}>{link.title}</a>
+										</li>
+									))}
+								</ul>
+							</li>
+						);
+					})
+				}
+				<li class="connect">
+					<button>Connect</button>
+				</li>
 			</ul>
 		</nav>
 		<button class="open">
-			<img src="/icons/menu.svg" alt="Open menu">
+			<img src="/icons/menu.svg" alt="Open menu" />
 		</button>
 	</header>
 </custom-header>
@@ -74,26 +100,21 @@ const pages: {name: string, url: string, pretty: string}[] = [
 		constructor() {
 			super();
 
-			const open_button = this.querySelector("button");
-			if (!(open_button instanceof HTMLElement)) { return; }
-
-			const nav = this.querySelector("nav");
-			if (!(nav instanceof HTMLElement)) { return; }
-
-			const ul = this.querySelector("ul");
-			if (!(ul instanceof HTMLElement)) { return; }
-
-			const _close = this.querySelector(".close");
-			if (!(_close instanceof HTMLElement)) { return; }
+			const open_button = this.querySelector("button") as HTMLButtonElement;
+			const nav = this.querySelector("nav")            as HTMLElement;
+			const ul = this.querySelector("ul")              as HTMLUListElement;
+			const _close = this.querySelector(".close")      as HTMLDivElement;
 
 			const element = this;
-			const open = () => { element.dataset.open = "true"; }
+			const open = () => {
+				element.dataset.open = "true";
+			};
 			const close = () => {
 				element.dataset.open = "closing";
 				setTimeout(() => {
 					delete element.dataset.open;
-				}, 200)
-			}
+				}, 200);
+			};
 
 			open_button.addEventListener("click", open);
 			_close.addEventListener("click", close);
@@ -101,18 +122,22 @@ const pages: {name: string, url: string, pretty: string}[] = [
 
 			nav.addEventListener("click", (e: MouseEvent) => {
 				e.stopPropagation();
-			})
+			});
 
-			window.addEventListener('keydown', (e: KeyboardEvent) => {
-				if (e.key === 'Escape') { close(); }
-			})
+			window.addEventListener("keydown", (e: KeyboardEvent) => {
+				if (e.key === "Escape") {
+					close();
+				}
+			});
 		}
 	}
 
-	customElements.define('custom-header', CustomHeader);
+	customElements.define("custom-header", CustomHeader);
 </script>
 
 <style lang="scss">
+	$header-height: 4rem;
+
 	html {
 		scroll-behavior: smooth;
 		scroll-padding-top: 4rem;
@@ -126,105 +151,145 @@ const pages: {name: string, url: string, pretty: string}[] = [
 		color: var(--on-accent-color);
 		z-index: 1000;
 		padding-inline: 3rem;
-		height: 4rem;
+		height: $header-height;
 	}
 
 	ul {
-		display: flex;
-		justify-content: flex-end;
 		list-style: none;
 		padding-inline: 0;
 	}
 
-	ul, nav, li {
-		height: 100%;
+	.outer {
+		display: flex;
+		justify-content: flex-end;
 	}
 
-	header a {
+	.inner {
+		transition: translate 0s 0.4s;
+		translate: 0 calc(-100% - $header-height);
+
+		li {
+			background-color: hsl(var(--bg-color));
+			transition: 
+				translate 0.2s calc(0.1s * var(--nth)) cubic-bezier(0.34, 1.56, 0.64, 1),
+				opacity   0.2s calc(0.1s * var(--nth)) cubic-bezier(0.34, 1.56, 0.64, 1);
+			translate: -2rem 0;
+			opacity: 0;
+		}
+	}
+
+	li {
+		height: $header-height;
+		display: flex;
+		flex-direction: column;
+	}
+
+	header :where(a, span) {
 		display: flex;
 		align-items: center;
-		height: 100%;
-		text-underline-offset: .5rem;
+		min-height: 100%;
+		text-underline-offset: 0.5rem;
 		color: var(--on-accent-color);
 		padding-inline: 1.5rem;
+	}
 
-		&:hover {
-			background-color: var(--card-hover-color);
-			color: var(--fg-color);
-			text-decoration: underline 2px solid var(--fg-color);
-			filter: none;
+	header a:where(:hover, :focus-within) {
+		outline: none;
+		background-color: var(--card-hover-color);
+		color: var(--fg-color);
+		text-decoration: underline 2px solid var(--fg-color);
+		filter: none;
+	}
+
+	.sublist img {
+		height: 2rem;
+		aspect-ratio: 1/1;
+	}
+
+	.sublist:where(:hover, :focus-within) {
+		.inner {
+			transition: translate 0s 0s;
+			translate: 0 -1 * $header-height;
+
+			li {
+				translate: 0 0;
+				opacity: 1;
+			}
 		}
 	}
 
-	button {
-		all: unset;
-		cursor: pointer;
-		position: absolute;
-		right: 1rem;
-		top: 0;
-		height: 100%;
-		display: grid;
-		place-content: center;
-		aspect-ratio: 1/1;
+	.connect {
+		justify-content: center;
+		margin-left: 1rem;
+	}
+
+	.open {
+	// 	all: unset;
+	// 	cursor: pointer;
+	// 	position: absolute;
+	// 	right: 1rem;
+	// 	top: 0;
+	// 	height: 100%;
+	// 	place-content: center;
+	// 	aspect-ratio: 1/1;
 
 		display: none;
-		pointer-events: none;
+	// 	pointer-events: none;
 
-		img {
-			width: 100%;
-			aspect-ratio: 1/1;
-		}
+	// 	img {
+	// 		width: 100%;
+	// 		aspect-ratio: 1/1;
+	// 	}
 	}
 
-	@media screen and (max-width: 50rem) {
-		ul {
-			height: initial;
-			position: fixed;
-			bottom: 100%;
-			left: 0;
-			flex-direction: column;
-			translate: 0 0;
-			z-index: 100;
-			width: 100%;
-			background: var(--accent-gradient);
-			text-align: center;
-			padding-block: 2rem;
-			transition: translate .2s;
+	// @media screen and (max-width: 50rem) {
+	// 	ul {
+	// 		height: initial;
+	// 		position: fixed;
+	// 		bottom: 100%;
+	// 		left: 0;
+	// 		flex-direction: column;
+	// 		translate: 0 0;
+	// 		z-index: 100;
+	// 		width: 100%;
+	// 		background: var(--accent-gradient);
+	// 		text-align: center;
+	// 		padding-block: 2rem;
+	// 		transition: translate 0.2s;
 
-			a {
-				padding-block: .5rem;
-				width: 100%;
-				flex-direction: column;
-			}
-		
-		}
+	// 		a {
+	// 			padding-block: 0.5rem;
+	// 			width: 100%;
+	// 			flex-direction: column;
+	// 		}
+	// 	}
 
-		button {
-			display: grid;
-			pointer-events: initial;
-		}
+	// 	button {
+	// 		display: grid;
+	// 		pointer-events: initial;
+	// 	}
 
-		.close {
-			transition: opacity .1s;
-			position: fixed;
-			inset: 0;
-			background-color: hsla(0, 0%, 0%, 0.8);
-			opacity: 0;
-			pointer-events: none;
-			display: grid;
-			place-content: center;
-			z-index: 50;
-		}
+	// 	.close {
+	// 		transition: opacity 0.1s;
+	// 		position: fixed;
+	// 		inset: 0;
+	// 		background-color: hsla(0, 0%, 0%, 0.8);
+	// 		opacity: 0;
+	// 		pointer-events: none;
+	// 		display: grid;
+	// 		place-content: center;
+	// 		z-index: 50;
+	// 	}
 
-		[data-open] {
-			.close {
-				opacity: 1;
-				pointer-events: initial;
-			}
+	// 	[data-open] {
+	// 		.close {
+	// 			opacity: 1;
+	// 			pointer-events: initial;
+	// 		}
 
-			ul {
-				translate: 0 100%;
-			}
-		}
-	}
+	// 		ul {
+	// 			translate: 0 100%;
+	// 		}
+	// 	}
+	// }
 </style>

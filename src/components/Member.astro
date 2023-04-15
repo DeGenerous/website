@@ -36,10 +36,10 @@ const { name, title, img } = Astro.props;
 
 <script>
 	class MemberCard extends HTMLElement {
-		#card:    Nullable<HTMLDivElement>;
-		#close:   Nullable<HTMLDivElement>;
-		#details: Nullable<HTMLDivElement>;
-		#exit:    Nullable<HTMLDivElement>;
+		#card:    HTMLDivElement;
+		#close:   HTMLDivElement;
+		#details: HTMLDivElement;
+		#exit:    HTMLDivElement;
 
 		constructor() {
 			super();
@@ -58,11 +58,11 @@ const { name, title, img } = Astro.props;
 				}, 200);
 			}
 
-			this.#card?.addEventListener("click", open);
-			this.#close?.addEventListener("click", close);
-			this.#exit?.addEventListener("click", close);
+			this.#card.addEventListener("click", open);
+			this.#close.addEventListener("click", close);
+			this.#exit.addEventListener("click", close);
 
-			this.#details?.addEventListener("click", (e: MouseEvent) => {
+			this.#details.addEventListener("click", (e: MouseEvent) => {
 				e.stopPropagation();
 			})
 
@@ -128,7 +128,7 @@ const { name, title, img } = Astro.props;
 			z-index: 100;
 
 			&::after {
-				animation: glare 1s .25s forwards;
+				animation: glare 1s forwards;
 			}
 		}
 	}
@@ -171,15 +171,10 @@ const { name, title, img } = Astro.props;
 	}
 
 	.exit {
-		cursor: pointer;
+		padding: 1.5rem;
 		position: absolute;
-		display: grid;
-		place-content: center;
 		color: var(--fg-color);
-		border: none;
 		aspect-ratio: 1/1;
-		border-radius: 50%;
-		width: 2rem;
 		top: 1rem;
 		right: 1rem;
 		background-color: hsl(var(--bg-color));
@@ -195,21 +190,8 @@ const { name, title, img } = Astro.props;
 			background-color: white;
 		}
 
-		&::before {
-			rotate: -45deg;
-		}
-
-		&::after {
-			rotate: 45deg;
-		}
-
-		&:hover {
-			filter: brightness(.7);
-		}
-
-		&:active {
-			filter: brightness(.5);
-		}
+		&::before { rotate: -45deg; }
+		&::after  { rotate: 45deg;  }
 	}
 
 	[data-open] {

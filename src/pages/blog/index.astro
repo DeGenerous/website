@@ -7,15 +7,18 @@ const posts = (await getCollection('blog')).sort(
 );
 ---
 
-<Layout title="Blog | Degenerous">
+<Layout title="Blog | Degenerous" page="Blog">
     <main id="blog">
         <Section title="DeGenerous Blog" gap>
-            <h2>Work in progress. Please come again later</h2>
             <ul>
                 {
                     posts.map((post) => (
                         <li>
-                            <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+                            <a href={`/blog/${post.slug}/`}>
+                                <h2>{post.data.title}</h2>
+                                <h3>{post.data.description}</h3>
+                                <span>{post.data.publish_date.toLocaleString()}</span>
+                            </a>
                         </li>
                     ))
                 }
@@ -23,3 +26,43 @@ const posts = (await getCollection('blog')).sort(
         </Section>
     </main>
 </Layout>
+
+<style lang="scss">
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    li {
+        width: 100%;
+        border: 1px var(--fg-color) solid;
+        border-radius: 0.5rem;
+        display: flex;
+    }
+
+    li:is(:hover, :focus-within) {
+        border: 1px var(--link-color) solid;
+
+        a {
+            outline: none;
+            filter: none;
+        }
+
+        h2 {
+            color: var(--link-color);
+        }
+    }
+
+    a {
+        padding: 1rem;
+        color: var(--fg-color);
+        flex-grow: 1;
+
+        h3 {
+            margin-bottom: 1rem;
+            filter: brightness(70%);
+        }
+    }
+</style>

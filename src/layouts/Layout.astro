@@ -1,9 +1,10 @@
 ---
 export interface Props {
 	title: string;
+	page: string;
 }
 
-const { title } = Astro.props;
+const { title, page } = Astro.props;
 
 import Header from '@components/Header.astro';
 import "@styles/index.scss"
@@ -25,7 +26,7 @@ import "@styles/index.scss"
 		<script defer src="https://smtpjs.com/v3/smtp.js"></script>
 	</head>
 	<body>
-		<Header page="index" />
+		<Header page={page} />
 		<slot />
 		<footer>
 			<span class="logo">DEGENEROUS</span>

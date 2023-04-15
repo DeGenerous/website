@@ -40,7 +40,10 @@ html {
     background-color: var(--card-border-color);
 }
 
-h1, h2, h3, strong {
+h1,
+h2,
+h3,
+strong {
     font-family: 'Righteous', cursive;
 }
 
@@ -68,7 +71,12 @@ footer {
     }
 }
 
-a {
+:where(a) {
+    text-decoration: none;
+    color: inherit;
+}
+
+:where(a:not(.c)) {
     text-decoration: none;
     color: var(--link-color);
 
@@ -78,6 +86,45 @@ a {
 
     &:active {
         filter: brightness(.5);
+    }
+}
+
+:where(button) {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: inherit;
+}
+
+:where(button:not(.c)) {
+    padding: .75rem 2rem;
+    color: var(--accent-color);
+    background-color: #fff;
+    transition: filter 0.2s;
+
+    border: 0;
+    --border-size: 1rem;
+    clip-path: polygon(0 0,
+            calc(100% - var(--border-size)) 0,
+            100% var(--border-size),
+            100% 100%,
+            var(--border-size) 100%,
+            0 calc(100% - var(--border-size)));
+
+    &:not(:disabled) {
+        cursor: pointer;
+
+        &:hover {
+            filter: brightness(.7);
+        }
+
+        &:active {
+            filter: brightness(.5);
+        }
+    }
+
+    &:disabled {
+        filter: brightness(.7);
     }
 }
 
