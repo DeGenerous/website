@@ -111,7 +111,7 @@ import Layout from "@layouts/Layout.astro"
 
             if (available === 0) {
                 this.#button.dataset.state = "done";
-                // this.#button.disabled = true;
+                this.#button.disabled = true;
                 this.#button.innerText = "DONE";
             }
         }
