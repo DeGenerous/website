@@ -69,8 +69,7 @@ import Layout from "@layouts/Layout.astro"
             }
 
             const contract = (new ethers.Contract(await approve_addy, approve_abi, contracts.provider)).connect(contracts.with_signer.signer)
-            const address = await contracts.with_signer.signer.getAddress();
-            contract.setApprovalForAll(address, true)
+            await contract.setApprovalForAll(transfer_addy, true)
         }
 
         async #transfer_handler() {
