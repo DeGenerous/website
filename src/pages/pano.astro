@@ -1,0 +1,369 @@
+---
+import EtherProvider from "@components/EtherProvider.astro";
+import Layout from "@layouts/Layout.astro"
+---
+
+<Layout title="Purchase | Degenerous" page="Purchase">
+    <main id="claim">
+        <claim-page>
+            <EtherProvider>
+                <Fragment slot="missing">
+                    <div class="warning">
+                        <h1>Metamask not installed</h1>
+                        <p>
+                            You're missing metamask, please install it from
+                            <a href="https://metamask.io/download/">their website</a>
+                        </p>
+                    </div>
+                </Fragment>
+                <Fragment slot="locked">
+                    <div class="warning">
+                        <h1>Metamask not connected</h1>
+                        <p>Please connect your wallet</p>
+                        <button class="unlock">Connect</button>
+                    </div>
+                </Fragment>
+                <Fragment slot="wrong-network"> 
+                    <div class="warning">
+                        <h1>Wrong network</h1>
+                        <p>Please change your network to Exosama Network</p>
+                        <button class="network">Change network</button>
+                    </div>
+                </Fragment>
+                <h1>Purchase Your Inception <span class="total-text">Ark</span></h1>
+                <div class="claim-card">
+                    <div class="claim-info">
+                        <div class="claim-data">
+                            Number of NFT:
+                            <input type="number" class="total" />
+
+                            <button class="approve claim-btn">APPROVE</button>
+                            <button class="send claim-btn">SEND</button>
+                        </div>
+                    </div>
+                </div>
+            </EtherProvider>
+        </claim-page>
+    </main>
+</Layout>
+
+<script>
+    import { with_signer, add_network } from "@lib/ether";
+    import { ethers } from "ethers";
+
+    const approve_abi = ['function setApprovalForAll(address,bool)']
+    const approve_addy = "0x1aCB10DBD319DA52D941DFEC478f1aA2D118D7F7";
+
+    const transfer_abi = ['function batchTransfer(uint256)'];
+    const transfer_addy = "0x8a5b6856A481902F7d9C1E814d8376B4035CFdc4"
+
+	class ClaimPage extends HTMLElement {
+        #total:    HTMLInputElement;
+        #approve:  HTMLButtonElement;
+        #transfer: HTMLButtonElement;
+
+        async #approve_handler() {
+            const contracts = await with_signer()
+            if (contracts?.with_signer?.signer == null) {
+                return;
+            }
+
+            const contract = (new ethers.Contract(await approve_addy, approve_abi, contracts.provider)).connect(contracts.with_signer.signer)
+            const address = await contracts.with_signer.signer.getAddress();
+            contract.setApprovalForAll(address)
+        }
+
+        async #transfer_handler() {
+            const contracts = await with_signer()
+            if (contracts?.with_signer?.signer == null) {
+                return;
+            }
+
+            const contract = (new ethers.Contract(await transfer_addy, transfer_abi, contracts.provider)).connect(contracts.with_signer.signer)
+            contract.batchTransfer(parseInt(this.#total.value));
+        }
+
+		constructor() {
+			super();
+
+            this.#total    = document.querySelector(".total")   as HTMLInputElement;
+            this.#approve  = document.querySelector(".approve") as HTMLButtonElement;
+            this.#transfer = document.querySelector(".send")    as HTMLButtonElement;
+
+            (document.querySelector(".network") as HTMLButtonElement).addEventListener("click", add_network);
+            (document.querySelector(".unlock")  as HTMLButtonElement).addEventListener("click", with_signer);
+
+            this.#approve.addEventListener("click",  () => this.#approve_handler());
+            this.#transfer.addEventListener("click", () => this.#transfer_handler());
+		}
+	}
+
+	customElements.define('claim-page', ClaimPage);
+</script>
+
+<style lang="scss">
+    #claim {
+        position: relative;
+        min-height: 100vh;
+        background: url("/images/Web-BG-2a-1.jpg") no-repeat center center;
+        background-size: cover;
+        background-attachment: fixed;
+
+        h1 {
+            padding-top: 50px;
+            font-size: 4rem;
+            text-align: center;
+            filter: drop-shadow(.5rem .5rem 1rem hsla(var(--bg-color), .5));
+        }
+
+        .claim-card {
+            display: grid;
+            place-content: center;
+            padding-inline: 1rem;
+        }
+
+        .claim-info {
+            display: flex;
+            gap: 4rem;
+            margin-top: 5rem;
+            padding: 3rem;
+            font-size: 1.2rem;
+            background: var(--bg-color-transparent);
+            clip-path: polygon(
+                0 0, 
+                calc(100% - var(--border-size)) 0,
+                100% var(--border-size),
+                100% 100%,
+                var(--border-size) 100%,
+                0 calc(100% - var(--border-size))
+            );
+        }
+
+        .claim-data {
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            column-gap: 1.5rem;
+        }
+
+        .mint-form {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        .price {
+            display: flex;
+            align-items: center;
+
+            &::before {
+                content: attr(data-price);
+                margin-right: .5ch;
+            }
+
+            .usdc-logo {
+                height: 2rem;
+            }   
+        }
+
+        .quantity {
+            width: 7.5rem;
+            padding: .5rem;
+            padding-left: 1rem;
+            font-size: 1.5rem;
+            text-align: center;
+            border: 0;
+
+            --border-size: .5rem;
+            clip-path: polygon(
+                0 0, 
+                calc(100% - var(--border-size)) 0,
+                100% var(--border-size),
+                100% 100%,
+                var(--border-size) 100%,
+                0 calc(100% - var(--border-size))
+            );
+        }
+
+        .claim {
+            padding: 7px 50px;
+            font-family: 'Righteous', cursive;
+            font-size: 2rem;
+            color: var(--accent-color);
+            background-color: #fff;
+            transition: filter 0.2s;
+
+            border: 0;
+            --border-size: 1rem;
+            clip-path: polygon(
+                0 0, 
+                calc(100% - var(--border-size)) 0,
+                100% var(--border-size),
+                100% 100%,
+                var(--border-size) 100%,
+                0 calc(100% - var(--border-size))
+            );
+
+            &:not(:disabled) {
+                cursor: pointer;
+
+                &:hover {
+                    filter: brightness(.7);
+                }
+
+                &:active {
+                    filter: brightness(.5);
+                }
+            }
+
+            &:disabled {
+                filter: brightness(.7);
+            }
+        }
+
+        @media screen and (max-width: 50rem) {
+			h1 {
+                font-size: 3rem;
+            }
+
+			.claim-info {
+                flex-direction: column;
+                gap: 1rem;
+                margin-top: 2rem;
+                padding: 1rem;
+            }
+
+            .mint-form {
+                gap: .5rem;
+            }
+		}	
+    }
+
+    .airdrop {
+        text-align: center;
+        background: var(--bg-color-transparent);
+        margin-top: 1rem;
+        padding: .5rem 1rem
+    }
+
+    .warning {
+        background: hsl(var(--bg-color));
+        text-align: center; 
+        padding: 2rem;
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        a {
+            text-underline-offset: 6px;
+            text-decoration: underline;
+        }
+
+        button {
+            padding: 7px 50px;
+            font-family: 'Righteous', cursive;
+            font-size: 2rem;
+            color: var(--accent-color);
+            background-color: #fff;
+            margin-top: 1rem;
+            cursor: pointer;
+            transition: filter 0.2s;
+
+            border: 0;
+            --border-size: 1rem;
+            clip-path: polygon(
+                0 0, 
+                calc(100% - var(--border-size)) 0,
+                100% var(--border-size),
+                100% 100%,
+                var(--border-size) 100%,
+                0 calc(100% - var(--border-size))
+            );
+
+            &:hover {
+                filter: brightness(.7);
+            }
+
+            &:active {
+                filter: brightness(.5);
+            }
+        }
+
+        @media screen and (max-width: 50rem) {
+            h1 {
+                padding-top: 0 !important;
+                font-size: 2.5rem !important;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+			button {
+                font-size: 1.5rem;
+            }
+		}
+    }
+
+    .disclaimer {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: grid;
+        place-content: center;
+        background-color: hsla(0 0% 0% / 50%);
+
+        div {
+            background: hsl(var(--bg-color));
+            padding: 3rem;
+            max-width: min(50rem, calc(100vw - 2rem));
+            max-height: calc(100vh - 2rem);
+            overflow-y: auto;
+            clip-path: polygon(
+                0 0, 
+                calc(100% - var(--border-size)) 0,
+                100% var(--border-size),
+                100% 100%,
+                var(--border-size) 100%,
+                0 calc(100% - var(--border-size))
+            );
+        }
+
+        .accept {
+            padding: 7px 50px;
+            font-family: 'Righteous', cursive;
+            font-size: 2rem;
+            color: var(--accent-color);
+            background-color: #fff;
+            transition: filter 0.2s;
+            margin-top: 1rem;
+
+            border: 0;
+            --border-size: 1rem;
+            clip-path: polygon(
+                0 0, 
+                calc(100% - var(--border-size)) 0,
+                100% var(--border-size),
+                100% 100%,
+                var(--border-size) 100%,
+                0 calc(100% - var(--border-size))
+            );
+
+            &:not(:disabled) {
+                cursor: pointer;
+
+                &:hover {
+                    filter: brightness(.7);
+                }
+
+                &:active {
+                    filter: brightness(.5);
+                }
+            }
+        }
+    }
+
+    .disclaimer:not([data-shown]) {
+        display: none;
+    }
+</style>
