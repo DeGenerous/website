@@ -40,10 +40,7 @@ html {
     background-color: var(--card-border-color);
 }
 
-h1,
-h2,
-h3,
-strong {
+:where(h1, h2, h3, strong) {
     font-family: 'Righteous', cursive;
 }
 
@@ -128,21 +125,21 @@ footer {
     }
 }
 
-iframe {
+:where(iframe) {
     width: 100%;
     aspect-ratio: 16/9;
 }
 
-main {
+:where(main) {
     min-height: 100vh;
 }
 
-h1 {
+:where(h1) {
     font-size: 4rem;
     padding-bottom: 3rem;
     line-height: 1;
 }
 
-p {
+:where(p) {
     margin-bottom: 1rem;
 }
