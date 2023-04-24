@@ -1,5 +1,6 @@
 import { BigNumber, ethers } from "ethers";
 import { CLAIM, USDC, EXOSAMA, NFT, GOVERNANCE } from "./constants";
+import additional from "./additional.json";
 
 declare global {
     interface Window { ethereum: any; }
@@ -72,10 +73,10 @@ export const get_data = async () : Promise<[number, number, string]> => {
 
     const { claim, with_signer, usdc } = contracts;
 
-    const address = with_signer.signer.getAddress();
+    const address = await with_signer.signer.getAddress();
 
-    const claimed = (await claim.claimed(address)).toNumber();
-    const sum = (await claim.whitelist(address)).toNumber();
+    const claimed = (await claim.claimed(address)).toNumber() +( additional[address] ?? 0);
+    const sum = (await claim.whitelist(address)).toNumber() + (additional[address] ?? 0);
     const price = ethers.utils.formatUnits(await claim.price(), await usdc.decimals());
 
     return [claimed, sum - claimed, price];
@@ -111,7 +112,7 @@ export const get_allowence = async (): Promise<number> => {
 
     const { claim, with_signer } = contracts;
 
-    const address = with_signer.signer.getAddress();
+    const address = await with_signer.signer.getAddress();
     return (await with_signer.usdc.allowance(address, CLAIM.address)).div(await claim.price()).toNumber();
 }
 
@@ -164,7 +165,7 @@ type StroyNode = {
 export const get_tokens = async (): Promise<BigNumber[]> => {
     if (contracts === null || contracts.with_signer === null) { return []; }
 
-    const address = contracts.with_signer.signer.getAddress();
+    const address = await contracts.with_signer.signer.getAddress();
     return await contracts.nft.tokensOfOwner(address)
 }
 

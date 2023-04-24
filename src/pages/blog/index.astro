@@ -2,9 +2,8 @@
 import Layout from '@layouts/Layout.astro';
 import Section from '@components/Section.astro';
 import { getCollection } from 'astro:content';
-const posts = (await getCollection('blog')).sort(
-	(a, b) => a.data.publish_date.valueOf() - b.data.publish_date.valueOf()
-);
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+    .sort((a, b) => a.data.publish_date.valueOf() - b.data.publish_date.valueOf());
 ---
 
 <Layout title="Blog | Degenerous" page="Blog">
@@ -15,9 +14,13 @@ const posts = (await getCollection('blog')).sort(
                     posts.map((post) => (
                         <li>
                             <a href={`/blog/${post.slug}/`}>
-                                <h2>{post.data.title}</h2>
-                                <h3>{post.data.description}</h3>
-                                <span>{post.data.publish_date.toLocaleString()}</span>
+                                <div class="title">
+                                    <h2>{post.data.title}</h2>
+                                    <h3>{post.data.description}</h3>
+                                    <div class="grow"></div>
+                                    <span>{post.data.publish_date.toLocaleString()}</span>
+                                </div>
+                                <img src={post.data.banner} alt="">
                             </a>
                         </li>
                     ))
@@ -56,7 +59,31 @@ const posts = (await getCollection('blog')).sort(
     }
 
     a {
-        padding: 1rem;
+        display: flex;
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        flex-grow: 1;
+    }
+
+    img {
+        aspect-ratio: 3/2;
+        object-fit: cover;
+        border-radius: 0.5rem;
+        // position: absolute;
+        height: 12rem;
+        z-index: -1;
+    }
+
+    .grow {
+        flex-grow: 1;
+    }
+
+    .title {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        // padding-block: 2rem;
         color: var(--fg-color);
         flex-grow: 1;
 

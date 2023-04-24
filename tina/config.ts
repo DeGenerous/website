@@ -38,6 +38,12 @@ export default defineConfig({
         },
         fields: [
           {
+            type: "boolean",
+            name: "draft",
+            label: "Draft",
+            required: true,
+          },
+          {
             type: "string",
             name: "title",
             label: "Title",
@@ -58,6 +64,12 @@ export default defineConfig({
             ui: {
               timeFormat: "HH:mm",
             },
+          },
+          {
+            type: "image",
+            name: "banner",
+            label: "Banner image",
+            required: true,
           },
           {
             type: "rich-text",

@@ -3,8 +3,9 @@ import type { HTMLAttributes } from 'astro/types';
 
 export interface Props extends HTMLAttributes<'section'> {
 	width?: "full" | "main";
-	title?: strig;
+	title?: string;
 	gap?: boolean;
+	id?: string;
 }
 
 const { width = "main", gap, class : className, title, ...rest } = Astro.props;
