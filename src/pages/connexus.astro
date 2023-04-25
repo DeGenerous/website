@@ -1,0 +1,102 @@
+---
+import Section from '@components/Section.astro';
+import Layout from '@layouts/Layout.astro';
+---
+
+<Layout title="Connexus | Degenerous" page="Connexus">
+	<main>
+		<Section title="Connexus" gap>
+            <connexus-component>
+                <span class="story">Press start!</span>
+                <div class="options">
+                    <button class="start">Start</button>
+                </div>
+            </connexus-component>
+        </Section>
+    </main>
+</Layout>
+
+<script>
+    type Node = {
+        jwt: string,
+        message: string,
+        options: string[],
+    }
+
+    const url = "https://backend-3osd.onrender.com"
+
+	class Connexus extends HTMLElement {
+        #story:        HTMLSpanElement;
+        #options:      HTMLDivElement;
+        #start_button: HTMLButtonElement;
+
+        #jwt: string;
+
+        async #start() {
+            const response = await fetch(`${url}/start`, {
+                method: "POST",
+                mode: "no-cors"
+            });
+
+            if (!response.ok) {
+                console.error(`Status: ${response.status}`)
+                return
+            }
+
+            try {
+                this.#set_data(await response.json());
+            } catch (e) {
+                console.error(e)
+            }
+        }
+
+        async #respond(index: number) {
+            const response = await fetch(`${url}/respond`, {
+                method: "POST",
+                mode: "no-cors",
+                body: JSON.stringify({
+                    jwt: this.#jwt,
+                    opttion: index
+                })
+            });
+
+            if (!response.ok) {
+                console.error(`Status: ${response.status}`)
+                return
+            }
+
+            try {
+                this.#set_data(await response.json());
+            } catch (e) {
+                console.error(e)
+            }
+        }
+
+        #set_data(node: Node) {
+            this.#story.innerText = node.message;
+            this.#jwt = node.jwt;
+
+            this.#options.replaceChildren();
+            for (const [i, option] of node.options.entries()) {
+                const button = document.createElement("button");
+
+                button.innerText = option;
+                button.onclick = () => this.#respond(i);
+
+                this.#options.appendChild(button);
+            }
+        }
+
+		constructor() {
+			super();
+
+            this.#story        = document.querySelector(".story")   as HTMLSpanElement;
+            this.#options      = document.querySelector(".options") as HTMLDivElement;
+            this.#start_button = document.querySelector(".start")   as HTMLButtonElement;
+
+            this.#start_button.onclick = () => this.#start()
+		}
+	}
+
+	customElements.define("connexus-component", Connexus);
+</script>
