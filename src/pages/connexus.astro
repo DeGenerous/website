@@ -79,7 +79,7 @@ import Layout from '@layouts/Layout.astro';
                 const button = document.createElement("button");
 
                 button.innerText = option;
-                button.onclick = () => this.#respond(i);
+                button.onclick = () => this.#respond(i + 1);
 
                 this.#options.appendChild(button);
             }
