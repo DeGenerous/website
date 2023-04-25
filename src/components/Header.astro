@@ -17,15 +17,15 @@ type HeaderDropwdown = {
 
 const links: (HeaderLink | HeaderDropwdown)[] = [
 	{
-		title: "Main",
+		title: "Home",
+		link: "/#",
+	},
+	{
+		title: "Join",
 		links: [
 			{
-				title: "Join",
-				link: "/#join",
-			},
-			{
-				title: "Team",
-				link: "/#team",
+				title: "Collection",
+				link: "https://raresama.com/collections/2109/0x1acb10dbd319da52d941dfec478f1aa2d118d7f7",
 			},
 			{
 				title: "Contact",
@@ -34,11 +34,11 @@ const links: (HeaderLink | HeaderDropwdown)[] = [
 		],
 	},
 	{
-		title: "Pages",
+		title: "About",
 		links: [
 			{
-				title: "Home",
-				link: "/",
+				title: "Team",
+				link: "/#team",
 			},
 			{
 				title: "Lore",
@@ -52,12 +52,12 @@ const links: (HeaderLink | HeaderDropwdown)[] = [
 				title: "Motivation",
 				link: "/motivation",
 			},
+			// {
+			// 	title: "Blog",
+			// 	link: "/blog",
+			// },
 		],
 	},
-	{
-		title: "Blog",
-		link: "/blog",
-	}
 ];
 
 function isLink(object: any): object is HeaderLink {
@@ -97,9 +97,9 @@ function isLink(object: any): object is HeaderLink {
 						);
 					})
 				}
-				<li class="connect">
+				<!-- <li class="connect">
 					<button>Connect</button>
-				</li>
+				</li> -->
 			</ul>
 		</nav>
 		<button class="open">
@@ -113,10 +113,10 @@ function isLink(object: any): object is HeaderLink {
 		constructor() {
 			super();
 
-			const open_button = this.querySelector("button") as HTMLButtonElement;
-			const nav = this.querySelector("nav")            as HTMLElement;
-			const ul = this.querySelector("ul")              as HTMLUListElement;
-			const _close = this.querySelector(".close")      as HTMLDivElement;
+			const open_button = this.querySelector(".open") as HTMLButtonElement;
+			const nav = this.querySelector("nav")           as HTMLElement;
+			const ul = this.querySelector("ul")             as HTMLUListElement;
+			const _close = this.querySelector(".close")     as HTMLDivElement;
 
 			const element = this;
 			const open = () => {
@@ -177,29 +177,7 @@ function isLink(object: any): object is HeaderLink {
 		justify-content: flex-end;
 	}
 
-	.inner {
-		transition: translate 0s 0.4s;
-		translate: 0 calc(-100% - $header-height);
-		pointer-events: none;
-
-		li {
-			background-color: var(--accent-color);
-			transition: 
-				translate 0.2s calc(0.1s * var(--nth)) cubic-bezier(0.34, 1.56, 0.64, 1),
-				opacity   0.2s calc(0.1s * var(--nth)) cubic-bezier(0.34, 1.56, 0.64, 1);
-			translate: -2rem 0;
-			opacity: 0;
-
-			overflow: hidden;
-		}
-
-		li:last-child {
-			border-radius: 0 0 0.5rem 0.5rem;
-		}
-	}
-
 	li {
-		height: $header-height;
 		display: flex;
 		flex-direction: column;
 	}
@@ -213,14 +191,6 @@ function isLink(object: any): object is HeaderLink {
 		padding-inline: 1.5rem;
 	}
 
-	header a:where(:hover, :focus-within) {
-		outline: none;
-		background-color: var(--card-border-color);
-		color: var(--fg-color);
-		text-decoration: underline 2px solid var(--fg-color);
-		filter: none;
-	}
-
 	.sublist span {
 		justify-content: space-between;
 	}
@@ -230,91 +200,140 @@ function isLink(object: any): object is HeaderLink {
 		aspect-ratio: 1/1;
 	}
 
-	.sublist:where(:hover, :focus-within) {
-		.inner {
-			transition: translate 0s 0s;
-			translate: 0 -1 * $header-height;
-			pointer-events: initial;
-
-			li {
-				translate: 0 0;
-				opacity: 1;
-			}
-		}
-	}
-
 	.connect {
 		justify-content: center;
 		margin-left: 1rem;
 	}
 
 	.open {
-	// 	all: unset;
-	// 	cursor: pointer;
-	// 	position: absolute;
-	// 	right: 1rem;
-	// 	top: 0;
-	// 	height: 100%;
-	// 	place-content: center;
-	// 	aspect-ratio: 1/1;
+		all: unset;
+		cursor: pointer;
+		position: absolute;
+		right: 1rem;
+		top: 0;
+		height: 100%;
+		place-content: center;
+		aspect-ratio: 1/1;
 
 		display: none;
-	// 	pointer-events: none;
+		pointer-events: none;
 
-	// 	img {
-	// 		width: 100%;
-	// 		aspect-ratio: 1/1;
-	// 	}
+		img {
+			width: 100%;
+			aspect-ratio: 1/1;
+		}
 	}
 
-	// @media screen and (max-width: 50rem) {
-	// 	ul {
-	// 		height: initial;
-	// 		position: fixed;
-	// 		bottom: 100%;
-	// 		left: 0;
-	// 		flex-direction: column;
-	// 		translate: 0 0;
-	// 		z-index: 100;
-	// 		width: 100%;
-	// 		background: var(--accent-gradient);
-	// 		text-align: center;
-	// 		padding-block: 2rem;
-	// 		transition: translate 0.2s;
+	@media screen and (min-width: 50rem) {
+		li {
+			height: $header-height;
+		}
+		
+		.inner {
+			transition: translate 0s 0.4s;
+			pointer-events: none;
+			translate: 0 calc(-100% - $header-height);
 
-	// 		a {
-	// 			padding-block: 0.5rem;
-	// 			width: 100%;
-	// 			flex-direction: column;
-	// 		}
-	// 	}
+			li {
+				background-color: var(--accent-color);
+				transition: 
+					translate 0.2s calc(0.1s * var(--nth)) cubic-bezier(0.34, 1.56, 0.64, 1),
+					opacity   0.2s calc(0.1s * var(--nth)) cubic-bezier(0.34, 1.56, 0.64, 1);
 
-	// 	button {
-	// 		display: grid;
-	// 		pointer-events: initial;
-	// 	}
+				translate: -2rem 0;
+				opacity: 0;
+				overflow: hidden;
+			}
 
-	// 	.close {
-	// 		transition: opacity 0.1s;
-	// 		position: fixed;
-	// 		inset: 0;
-	// 		background-color: hsla(0, 0%, 0%, 0.8);
-	// 		opacity: 0;
-	// 		pointer-events: none;
-	// 		display: grid;
-	// 		place-content: center;
-	// 		z-index: 50;
-	// 	}
+			li:last-child {
+				border-radius: 0 0 0.5rem 0.5rem;
+			}
+		}
 
-	// 	[data-open] {
-	// 		.close {
-	// 			opacity: 1;
-	// 			pointer-events: initial;
-	// 		}
+		header a:where(:hover, :focus-within) {
+			outline: none;
+			background-color: var(--card-border-color);
+			color: var(--fg-color);
+			text-decoration: underline 2px solid var(--fg-color);
+			filter: none;
+		}
 
-	// 		ul {
-	// 			translate: 0 100%;
-	// 		}
-	// 	}
-	// }
+		.sublist:where(:hover, :focus-within) {
+			.inner {
+				transition: translate 0s 0s;
+				translate: 0 -1 * $header-height;
+				pointer-events: initial;
+
+				li {
+					translate: 0 0;
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 50rem) {
+		.outer {
+			height: initial;
+			position: fixed;
+			bottom: calc(100%);
+			left: 0;
+			flex-direction: column;
+			translate: 0 0;
+			z-index: 100;
+			width: 100%;
+			background: var(--accent-gradient);
+			text-align: center;
+			padding-block: 2rem;
+			transition: translate 0.2s;
+
+			a, span {
+				padding-block: 0.5rem;
+				width: 100%;
+			}
+		}
+
+		.inner a {
+			padding-left: 4rem;
+		}
+
+		.open {
+			display: grid;
+			pointer-events: initial;
+		}
+
+		.sublist span {
+			justify-content: flex-start;
+			gap: 1rem;
+		}
+
+		.connect {
+			justify-content: center;
+			margin-inline: 1rem;
+			margin-top: 1rem;
+		}
+
+		.close {
+			transition: opacity 0.1s;
+			position: fixed;
+			inset: 0;
+			background-color: hsla(0, 0%, 0%, 0.8);
+			opacity: 0;
+			pointer-events: none;
+			display: grid;
+			place-content: center;
+			z-index: 50;
+		}
+
+		[data-open] {
+			.close {
+				opacity: 1;
+				pointer-events: initial;
+			}
+
+			.outer {
+				translate: 0 100%;
+			}
+		}
+	}
 </style>
