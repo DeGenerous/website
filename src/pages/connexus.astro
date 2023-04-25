@@ -23,7 +23,7 @@ import Layout from '@layouts/Layout.astro';
         options: string[],
     }
 
-    const url = "https://backend-3osd.onrender.com"
+    const url = "http://localhost:3000"
 
 	class Connexus extends HTMLElement {
         #story:        HTMLSpanElement;
@@ -35,7 +35,6 @@ import Layout from '@layouts/Layout.astro';
         async #start() {
             const response = await fetch(`${url}/start`, {
                 method: "POST",
-                mode: "no-cors"
             });
 
             if (!response.ok) {
