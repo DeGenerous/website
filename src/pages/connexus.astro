@@ -7,6 +7,7 @@ import Layout from '@layouts/Layout.astro';
 	<main>
 		<Section title="Connexus" gap>
             <connexus-component>
+                <img class="image" src="" alt="">
                 <span class="story">Press start!</span>
                 <div class="options">
                     <button class="start">Start</button>
@@ -23,9 +24,10 @@ import Layout from '@layouts/Layout.astro';
         options: string[],
     }
 
-    const url = "https://backend-3osd.onrender.com"
+    const url = import.meta.env.PUBLIC_BACKEND
 
 	class Connexus extends HTMLElement {
+        #image:        HTMLImageElement;
         #story:        HTMLSpanElement;
         #options:      HTMLDivElement;
         #start_button: HTMLButtonElement;
@@ -43,7 +45,7 @@ import Layout from '@layouts/Layout.astro';
             }
 
             try {
-                this.#set_data(await response.json());
+                await this.#set_data(await response.json());
             } catch (e) {
                 console.error(e)
             }
@@ -64,13 +66,13 @@ import Layout from '@layouts/Layout.astro';
             }
 
             try {
-                this.#set_data(await response.json());
+                await this.#set_data(await response.json());
             } catch (e) {
                 console.error(e)
             }
         }
 
-        #set_data(node: Node) {
+        async #set_data(node: Node) {
             this.#story.innerText = node.message;
             this.#jwt = node.jwt;
 
@@ -83,11 +85,26 @@ import Layout from '@layouts/Layout.astro';
 
                 this.#options.appendChild(button);
             }
+
+            this.#image.src = "";
+
+            const response = await fetch(`${url}/image`, {
+                method: "POST",
+                body: JSON.stringify({ jwt: this.#jwt })
+            });
+
+            if (!response.ok) {
+                console.error(`Status: ${response.status}`)
+                return
+            }
+
+            this.#image.src = `data:image/png;base64,${await response.text()}`
         }
 
 		constructor() {
 			super();
 
+            this.#image        = document.querySelector(".image")   as HTMLImageElement;
             this.#story        = document.querySelector(".story")   as HTMLSpanElement;
             this.#options      = document.querySelector(".options") as HTMLDivElement;
             this.#start_button = document.querySelector(".start")   as HTMLButtonElement;
