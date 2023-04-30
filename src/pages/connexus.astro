@@ -7,11 +7,14 @@ import Layout from '@layouts/Layout.astro';
 	<main>
 		<Section title="Connexus" gap>
             <connexus-component>
-                <img class="image" src="" alt="">
+                <div class="stars"></div>
+                <img class="image" alt="">
                 <span class="story">Press start!</span>
+                <h2>Options: </h2>
                 <div class="options">
-                    <button class="start">Start</button>
                 </div>
+
+                <button class="start">Start</button>
             </connexus-component>
         </Section>
     </main>
@@ -24,34 +27,37 @@ import Layout from '@layouts/Layout.astro';
         options: string[],
     }
 
-    const url = import.meta.env.PUBLIC_BACKEND
+    const url = import.meta.env.PUBLIC_BACKEND;
+    const stars_num = 10;
 
 	class Connexus extends HTMLElement {
         #image:        HTMLImageElement;
         #story:        HTMLSpanElement;
         #options:      HTMLDivElement;
         #start_button: HTMLButtonElement;
+        #stars: HTMLDivElement;
 
         #jwt: string;
 
         async #start() {
+            this.classList.add("loading");
             const response = await fetch(`${url}/start`, {
                 method: "POST",
             });
+            this.classList.remove("loading");
 
             if (!response.ok) {
-                console.error(`Status: ${response.status}`)
-                return
+                alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
+                return;
             }
 
-            try {
-                await this.#set_data(await response.json());
-            } catch (e) {
-                console.error(e)
-            }
+            this.classList.add("started");
+
+            await this.#set_data(await response.json());
         }
 
         async #respond(index: number) {
+            this.classList.add("loading");
             const response = await fetch(`${url}/respond`, {
                 method: "POST",
                 body: JSON.stringify({
@@ -59,28 +65,28 @@ import Layout from '@layouts/Layout.astro';
                     option: index
                 })
             });
+            this.classList.remove("loading");
 
             if (!response.ok) {
-                console.error(`Status: ${response.status}`)
-                return
+                alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
+                return;
             }
 
-            try {
-                await this.#set_data(await response.json());
-            } catch (e) {
-                console.error(e)
-            }
+            await this.#set_data(await response.json());
         }
 
         async #set_data(node: Node) {
             this.#story.innerText = node.message;
             this.#jwt = node.jwt;
 
+            this.#move_stars();
+
             this.#options.replaceChildren();
             for (const [i, option] of node.options.entries()) {
                 const button = document.createElement("button");
 
-                button.innerText = option;
+                button.classList.add("c");
+                button.innerText = `${i + 1}) ${option}`;
                 button.onclick = () => this.#respond(i + 1);
 
                 this.#options.appendChild(button);
@@ -94,11 +100,27 @@ import Layout from '@layouts/Layout.astro';
             });
 
             if (!response.ok) {
-                console.error(`Status: ${response.status}`)
-                return
+                alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
+                return;
             }
 
-            this.#image.src = `data:image/png;base64,${await response.text()}`
+            this.#image.src = `data:image/png;base64,${await response.text()}`;
+        }
+
+        #generate_stars() {
+            for (let index = 0; index < stars_num; index++) {
+                const star = document.createElement("div");
+                star.classList.add("star");
+                this.#stars.appendChild(star);
+            }
+            this.#move_stars();
+        }
+
+        #move_stars() {
+            [...this.#stars.children].forEach((star: HTMLElement) => {
+                star.style.setProperty("--x", `${Math.random() * 100}%`);
+                star.style.setProperty("--y", `${Math.random() * 100}%`);
+            })
         }
 
 		constructor() {
@@ -108,10 +130,106 @@ import Layout from '@layouts/Layout.astro';
             this.#story        = document.querySelector(".story")   as HTMLSpanElement;
             this.#options      = document.querySelector(".options") as HTMLDivElement;
             this.#start_button = document.querySelector(".start")   as HTMLButtonElement;
+            this.#stars        = document.querySelector(".stars")   as HTMLDivElement;
 
-            this.#start_button.onclick = () => this.#start()
+            this.#start_button.onclick = () => this.#start();
+            this.#generate_stars();
 		}
 	}
 
 	customElements.define("connexus-component", Connexus);
 </script>
+
+<style lang="scss">
+    body {
+        background-color: hsl(254, 33%, 5%);
+    }
+
+    main {
+        position: relative;
+    }
+
+    connexus-component {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    connexus-component:not(.started) {
+        h2, .options {
+            display: none;
+        }
+    }
+
+    connexus-component.started {
+        .start {
+            display: none;
+        }
+    }
+
+    $star-size: 10px;
+    .stars :global(.star) {
+        background-color: white;
+        width: $star-size;
+        aspect-ratio: 1/1;
+        position: absolute;
+        top: var(--y);
+        left: var(--x);
+        border-radius: 50%;
+        filter: blur(2px);
+    }
+
+    .loading :where(.options, .start) {
+        pointer-events: none;
+        filter: brightness(0.6);
+    }
+
+    .image:not([src]) {
+        display: none;
+    }
+
+    .image[src=""] {
+        opacity: 0;
+    }
+
+    .image {
+        align-self: center;
+        width: 256px;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+
+    .story {
+        margin-block: 2rem;
+    }
+
+    .options {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .5rem;
+        margin-block: 1rem;
+
+        :global(button) {
+            text-align: start;
+            font-weight: bold;
+            font-size: 1.2rem;
+            cursor: pointer;
+
+            &:hover {
+                filter: brightness(0.8);
+                text-decoration: underline;
+            }
+
+            &:active {
+                filter: brightness(0.7);
+                text-decoration: underline;
+            }
+
+            &:focus {
+                filter: brightness(0.65);
+                text-decoration: underline;
+            }
+        }
+    }
+</style>

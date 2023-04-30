@@ -10,17 +10,17 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"astro": "^2.3.1",
+		"astro": "^2.3.2",
 		"ethers": "^5.7.2"
 	},
 	"devDependencies": {
-		"@astrojs/rss": "^2.3.2",
+		"@astrojs/rss": "^2.4.0",
 		"@astrojs/sitemap": "^1.2.2",
-		"@tinacms/cli": "^1.5.7",
+		"@tinacms/cli": "^1.5.9",
 		"markdown-it": "^13.0.1",
 		"sanitize-html": "^2.10.0",
 		"sass": "^1.62.1",
-		"tinacms": "^1.5.0",
+		"tinacms": "^1.5.2",
 		"typescript": "^5.0.4"
 	}
 }

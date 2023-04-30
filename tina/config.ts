@@ -1,7 +1,5 @@
 import { defineConfig } from "tinacms";
 
-console.log(process.env)
-
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "testing";
 
