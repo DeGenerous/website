@@ -25,6 +25,8 @@ import Layout from '@layouts/Layout.astro';
         jwt: string,
         message: string,
         options: string[],
+        end: boolean,
+        summary: string,
     }
 
     const url = import.meta.env.PUBLIC_BACKEND;
@@ -82,15 +84,27 @@ import Layout from '@layouts/Layout.astro';
             this.#move_stars();
 
             this.#options.replaceChildren();
-            for (const [i, option] of node.options.entries()) {
+            if (node.end) {
+                this.#story.innerText += "\n\nThe story has ended, here is the summary of your joruney:\n" + node.summary;
                 const button = document.createElement("button");
 
                 button.classList.add("c");
-                button.innerText = `${i + 1}) ${option}`;
-                button.onclick = () => this.#respond(i + 1);
+                button.innerText = `Start new story`;
+                button.onclick = () => this.#start();
 
                 this.#options.appendChild(button);
+            } else {
+                for (const [i, option] of node.options.entries()) {
+                    const button = document.createElement("button");
+
+                    button.classList.add("c");
+                    button.innerText = `${i + 1}) ${option}`;
+                    button.onclick = () => this.#respond(i + 1);
+
+                    this.#options.appendChild(button);
+                }
             }
+
 
             // this.#image.src = "";
 
