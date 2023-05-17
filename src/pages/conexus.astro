@@ -1,0 +1,342 @@
+---
+import Section from '@components/Section.astro';
+import Layout from '@layouts/Layout.astro';
+---
+
+<Layout title="CoNexus | Degenerous" page="CoNexus">
+	<main>
+		<Section title="CoNexus" gap>
+            <connexus-component data-state="start">
+                <div class="start">
+                    <h2>Start your jurney</h2>
+                    <span class="about">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio, eos facere nisi enim distinctio nam magni voluptatum quidem eum explicabo expedita illum. Dignissimos adipisci accusantium magni! Eos, voluptates ipsum? Odio et porro nostrum asperiores, consequatur distinctio, iste debitis magni minima delectus ipsam necessitatibus maxime tenetur ducimus ab? Vitae, adipisci quaerat!</span>
+                    <div class="buttons">
+                        <button class="c bstart">Start</button>
+                    </div>
+                </div>
+                <div class="step">
+                    <!-- <img class="image" alt=""> -->
+                    <span class="story"></span>
+                    <div class="heading">
+                        <h2>Options</h2>
+                        <div class="line"></div>
+                        <strong class="step_number"></strong>
+                    </div>
+                    <div class="options buttons">
+
+                    </div>
+                </div>
+                <div class="end">
+                    <span class="end_story"></span>
+                    <h2>The story has ended. Here is the summary of your adventure:</h2>
+                    <span class="summary"></span>
+                    <div class="buttons">
+                        <button class="c bstart">Start new jurney</button>
+                    </div>
+                </div>
+                <div class="spinner" onclick="(e) => e.stopPropagation()" />
+            </connexus-component>
+        </Section>
+    </main>
+</Layout>
+
+<script>
+    type Node = {
+        jwt: string,
+        message: string,
+        options: string[],
+        end: boolean,
+        summary: string,
+        step: number,
+    }
+
+    const url = import.meta.env.PUBLIC_BACKEND;
+
+	class Connexus extends HTMLElement {
+        // #image:        HTMLImageElement;
+        #story:         HTMLSpanElement;
+        #options:       HTMLDivElement;
+        #start_buttons: NodeListOf<HTMLButtonElement>;
+        #step_number:   HTMLElement;
+        #end_story:     HTMLSpanElement;
+        #summary:       HTMLSpanElement;
+
+        #jwt: string;
+
+        async #start() {
+            this.dataset.loading = "";
+            const response = await fetch(`${url}/start`, {
+                method: "POST",
+            });
+
+            if (!response.ok) {
+                alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
+                return;
+            }
+            delete this.dataset.loading;
+            this.dataset.state = "step";
+
+            await this.#set_data(await response.json());
+        }
+
+        async #respond(index: number) {
+            this.dataset.loading = "";
+            const response = await fetch(`${url}/respond`, {
+                method: "POST",
+                body: JSON.stringify({
+                    jwt: this.#jwt,
+                    option: index
+                })
+            });
+            delete this.dataset.loading;
+
+            if (!response.ok) {
+                alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
+                return;
+            }
+
+            await this.#set_data(await response.json());
+        }
+
+        async #set_data(node: Node) {
+            this.#jwt = node.jwt;
+
+            this.#step_number.innerText  = `Step ${(node.step < 10)? "0": ""}${node.step}`;
+
+            this.#options.replaceChildren();
+            if (node.end) {
+                this.dataset.state = "end";
+                this.#end_story.innerText = node.message;
+                this.#summary.innerText = node.summary;
+            } else {
+                this.#story.innerText = node.message;
+                for (const [i, option] of node.options.entries()) {
+                    const button = document.createElement("button");
+
+                    button.classList.add("c");
+                    button.innerText = option;
+                    button.onclick = () => this.#respond(i + 1);
+
+                    this.#options.appendChild(button);
+                }
+            }
+
+
+            // this.#image.src = "";
+
+            // const response = await fetch(`${url}/image`, {
+            //     method: "POST",
+            //     body: JSON.stringify({ jwt: this.#jwt })
+            // });
+
+            // if (!response.ok) {
+            //     alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
+            //     return;
+            // }
+
+            // this.#image.src = `data:image/png;base64,${await response.text()}`;
+        }
+
+		constructor() {
+			super();
+
+            // this.#image        = document.querySelector(".image")   as HTMLImageElement;
+            this.#story         = document.querySelector(".story")       as HTMLSpanElement;
+            this.#options       = document.querySelector(".options")     as HTMLDivElement;
+            this.#start_buttons = document.querySelectorAll(".bstart")   as NodeListOf<HTMLButtonElement>;
+            this.#step_number   = document.querySelector(".step_number") as HTMLElement;
+            this.#end_story     = document.querySelector(".end_story")   as HTMLSpanElement;
+            this.#summary       = document.querySelector(".summary")     as HTMLSpanElement;
+
+            this.#start_buttons.forEach(e => {
+               e.onclick = () => this.#start(); 
+            });
+		}
+	}
+
+	customElements.define("connexus-component", Connexus);
+</script>
+
+<style lang="scss">
+    body {
+        background-color: hsl(254, 33%, 5%);
+    }
+
+    main {
+        position: relative;
+        background: url("/images/conexus-bg.jpg");
+        background-size: cover;
+        background-position: bottom center;
+        background-blend-mode: darken;
+        background-color: rgba(0,0,0,0.7);
+    }
+
+    connexus-component {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    $options: "start", "step", "end";
+
+    @each $option in $options {
+        [data-state=#{$option}] > :not(.#{$option}) {
+            display: none;
+        }
+    }
+
+    $star-size: 10px;
+    .stars :global(.star) {
+        background-color: white;
+        width: $star-size;
+        aspect-ratio: 1/1;
+        position: absolute;
+        top: var(--y);
+        left: var(--x);
+        border-radius: 50%;
+        filter: blur(2px);
+    }
+
+    // [data-loading] :where(.options, .start) {
+    //     pointer-events: none;
+    //     filter: brightness(0.6);
+    // }
+
+    :is(.start, .end) h2 {
+        margin-bottom: 1rem;
+    }
+
+    .about, .end_story, .summary {
+        margin-bottom: 2rem;
+        display: block;
+    }
+
+    .image:not([src]) {
+        display: none;
+    }
+
+    .image[src=""] {
+        opacity: 0;
+    }
+
+    .image {
+        align-self: center;
+        width: 256px;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+
+    .story {
+        margin-block: 2rem;
+    }
+
+    .heading {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        padding: 2rem;
+
+        .line {
+            height: .2rem;
+            background-color: var(--fg-color);
+            flex-grow: 1;
+        }
+
+        .step_number {
+            padding: 0.75rem 1.5rem;
+            border: .2rem solid var(--fg-color);
+            border-radius: 1rem;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        align-items: stretch;
+        gap: .75rem;
+
+        :global(button) {
+            text-align: start;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 0.25rem;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            &::before {
+                content: "";
+                height: 1.5rem;
+                width: 0.25rem;
+                background-color: var(--fg-color);
+                display: inline-block;
+                margin-right: 1rem;
+            }
+
+            :not([data-loading]) &:hover {
+                background: linear-gradient(to right, transparent 1rem, var(--accent-color) 1rem, transparent);
+                &::before {
+                    background-color: var(--accent-color);
+                }
+            }
+
+            &:active {
+                filter: brightness(0.7);
+                background: linear-gradient(to right, transparent 1rem, var(--accent-color) 1rem, transparent);
+                &::before {
+                    background-color: var(--accent-color);
+                }
+            }
+
+            &:focus {
+                filter: brightness(0.65);
+                background: linear-gradient(to right, transparent 1rem, var(--accent-color) 1rem, transparent);
+                &::before {
+                    background-color: var(--accent-color);
+                }
+            }
+        }
+    }
+
+    .end_story, .summary {
+        margin-bottom: 2rem;
+        display: block;
+    }
+
+
+	@keyframes glare {
+		from {
+			background-position: top right;
+		}
+		to {
+			background-position: bottom left;
+		}
+	}
+
+    .spinner.spinner {
+        pointer-events: none;
+        display: block;
+        opacity: 0;
+        transition: opacity 0.2s;
+
+        z-index: 100;
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(45deg, transparent 40%, hsl(0, 0%, 100%, .1) 60%, transparent 65%);
+        background-position: 0% 0%;
+        background-size: 300% 300%;
+        background-position: top right;
+        background-color: rgba(0,0,0,0.7);
+    }
+
+    [data-loading] {
+        pointer-events: none;
+    }
+
+    [data-loading] .spinner {
+        opacity: 1;
+        animation: glare 2s ease-in-out infinite;
+    }
+</style>
