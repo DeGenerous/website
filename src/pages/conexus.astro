@@ -8,14 +8,21 @@ import Layout from '@layouts/Layout.astro';
 		<Section title="CoNexus" gap>
             <connexus-component data-state="start">
                 <div class="start">
-                    <h2>Start your jurney</h2>
-                    <span class="about">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio, eos facere nisi enim distinctio nam magni voluptatum quidem eum explicabo expedita illum. Dignissimos adipisci accusantium magni! Eos, voluptates ipsum? Odio et porro nostrum asperiores, consequatur distinctio, iste debitis magni minima delectus ipsam necessitatibus maxime tenetur ducimus ab? Vitae, adipisci quaerat!</span>
+                    <h2>A new world of unique possibilities awaits you</h2>
+                    <span class="about">
+                        <p>Welcome to CoNexus, an immersive and dynamic interactive story game that serves as your personal gateway to a boundless multiverse. Powered by cutting-edge artificial intelligence, CoNexus seamlessly generates captivating narratives and vivid visuals in real-time, offering you an unparalleled journey into infinite and truly one-of-a-kind experiences.</p>
+                        <p>Within CoNexus, you will transcend the boundaries of reality as we know it, delving into alternate dimensions where you possess the remarkable ability to shape and influence the outcome of pivotal moments from the past, present, and future.</p>
+                        <p>Your primary objective in this extraordinary realm is to survive the challenges that await you, navigating through a rich tapestry of possibilities. Additionally, strive to acquire as many traits as you can, as it can help evolve your avatar in a multiverse-spanning story.</p>
+                        <p>Your choices and actions will shape the course of your own unique narrative. Get ready to explore, conquer, and immerse yourself in a world without limits.</p>
+                    </span>
                     <div class="buttons">
-                        <button class="c bstart">Start</button>
+                        <button class="c bstart">Explore the Multiverse</button>
                     </div>
                 </div>
                 <div class="step">
-                    <!-- <img class="image" alt=""> -->
+                    <div class="image-wrapper">
+                        <img class="image" alt="">
+                    </div>
                     <span class="story"></span>
                     <div class="heading">
                         <h2>Options</h2>
@@ -31,7 +38,7 @@ import Layout from '@layouts/Layout.astro';
                     <h2>The story has ended. Here is the summary of your adventure:</h2>
                     <span class="summary"></span>
                     <div class="buttons">
-                        <button class="c bstart">Start new jurney</button>
+                        <button class="c bstart">Start new journey</button>
                     </div>
                 </div>
                 <div class="spinner" onclick="(e) => e.stopPropagation()" />
@@ -53,7 +60,7 @@ import Layout from '@layouts/Layout.astro';
     const url = import.meta.env.PUBLIC_BACKEND;
 
 	class Connexus extends HTMLElement {
-        // #image:        HTMLImageElement;
+        #image:         HTMLImageElement;
         #story:         HTMLSpanElement;
         #options:       HTMLDivElement;
         #start_buttons: NodeListOf<HTMLButtonElement>;
@@ -122,25 +129,25 @@ import Layout from '@layouts/Layout.astro';
             }
 
 
-            // this.#image.src = "";
+            this.#image.src = "";
 
-            // const response = await fetch(`${url}/image`, {
-            //     method: "POST",
-            //     body: JSON.stringify({ jwt: this.#jwt })
-            // });
+            const response = await fetch(`${url}/image`, {
+                method: "POST",
+                body: JSON.stringify({ jwt: this.#jwt })
+            });
 
-            // if (!response.ok) {
-            //     alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
-            //     return;
-            // }
+            if (!response.ok) {
+                alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
+                return;
+            }
 
-            // this.#image.src = `data:image/png;base64,${await response.text()}`;
+            this.#image.src = `data:image/png;base64,${await response.text()}`;
         }
 
 		constructor() {
 			super();
 
-            // this.#image        = document.querySelector(".image")   as HTMLImageElement;
+            this.#image         = document.querySelector(".image")       as HTMLImageElement;
             this.#story         = document.querySelector(".story")       as HTMLSpanElement;
             this.#options       = document.querySelector(".options")     as HTMLDivElement;
             this.#start_buttons = document.querySelectorAll(".bstart")   as NodeListOf<HTMLButtonElement>;
@@ -211,6 +218,11 @@ import Layout from '@layouts/Layout.astro';
         display: block;
     }
 
+    .step {
+        display: flex;
+        flex-direction: column;
+    }
+
     .image:not([src]) {
         display: none;
     }
@@ -219,11 +231,26 @@ import Layout from '@layouts/Layout.astro';
         opacity: 0;
     }
 
-    .image {
+    .image, .image-wrapper {
         align-self: center;
         width: 256px;
         aspect-ratio: 1/1;
         object-fit: cover;
+        box-shadow: 1rem 1rem 0 var(--accent-color);
+
+    }
+
+    .image-wrapper {
+        width: calc(256px + 1rem);
+
+        clip-path: polygon(
+			0 0, 
+			calc(100% - var(--border-size)) 0, 
+			100% var(--border-size), 
+			100% 100%, 
+			var(--border-size) 100%, 
+			0 calc(100% - var(--border-size))
+		);
     }
 
     .story {
