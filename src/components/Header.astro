@@ -21,7 +21,7 @@ const links: (HeaderLink | HeaderDropwdown)[] = [
 		link: "/#",
 	},
 	{
-		title: "Join",
+		title: "Community",
 		links: [
 			{
 				title: "Collection",
@@ -30,10 +30,6 @@ const links: (HeaderLink | HeaderDropwdown)[] = [
 			{
 				title: "Contact",
 				link: "/#contact",
-			},
-			{
-				title: "CoNexus",
-				link: "/conexus",
 			},
 		],
 	},
@@ -104,7 +100,7 @@ function isLink(object: any): object is HeaderLink {
 
 				<li class="sublist holders">
 					<span>
-						Holders
+						Games
 						<img src="/icons/arrow_drop_down.svg" alt="" />
 					</span>
 					<ul class="inner">
@@ -163,8 +159,6 @@ function isLink(object: any): object is HeaderLink {
 			});
 
 			const update_holders = async () => {
-				console.log("oof");
-
 				if (await loggedIn()) {
 					element.dataset.holder = ""
 				} else {
