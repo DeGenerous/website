@@ -101,9 +101,21 @@ function isLink(object: any): object is HeaderLink {
 						);
 					})
 				}
-				<!-- <li class="connect">
+
+				<li class="sublist holders">
+					<span>
+						Holders
+						<img src="/icons/arrow_drop_down.svg" alt="" />
+					</span>
+					<ul class="inner">
+						<li data-selected={"conexus" == page} style={`--nth:0`}>
+							<a class="c" href="/conexus">CoNexus</a>
+						</li>
+					</ul>
+				</li>
+				<li class="connect">
 					<button>Connect</button>
-				</li> -->
+				</li>
 			</ul>
 		</nav>
 		<button class="open">
@@ -113,6 +125,8 @@ function isLink(object: any): object is HeaderLink {
 </custom-header>
 
 <script>
+	import { login, loggedIn } from "@lib/auth";
+
 	class CustomHeader extends HTMLElement {
 		constructor() {
 			super();
@@ -121,6 +135,7 @@ function isLink(object: any): object is HeaderLink {
 			const nav = this.querySelector("nav")           as HTMLElement;
 			const ul = this.querySelector("ul")             as HTMLUListElement;
 			const _close = this.querySelector(".close")     as HTMLDivElement;
+			const connect = this.querySelector(".connect")  as HTMLButtonElement;
 
 			const element = this;
 			const open = () => {
@@ -146,6 +161,23 @@ function isLink(object: any): object is HeaderLink {
 					close();
 				}
 			});
+
+			const update_holders = async () => {
+				console.log("oof");
+
+				if (await loggedIn()) {
+					element.dataset.holder = ""
+				} else {
+					delete element.dataset.holder
+				}
+			}
+
+			connect.onclick = async () => {
+				await login();
+				await update_holders();
+			}
+
+			update_holders();
 		}
 	}
 
@@ -226,6 +258,10 @@ function isLink(object: any): object is HeaderLink {
 			width: 100%;
 			aspect-ratio: 1/1;
 		}
+	}
+
+	custom-header:not([data-holder]) .holders {
+		display: none;
 	}
 
 	@media screen and (min-width: 50rem) {
