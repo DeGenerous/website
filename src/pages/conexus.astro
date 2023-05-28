@@ -274,17 +274,19 @@ import Layout from '@layouts/Layout.astro';
     }
 
     $shadow-size: 0.5rem;
-
+    $image-size: 512px;
     .image, .image-wrapper {
         align-self: center;
-        width: 256px;
+        width: $image-size;
+        max-width: calc(90vw - $shadow-size);
         aspect-ratio: 1/1;
         object-fit: cover;
         box-shadow: $shadow-size $shadow-size 0 var(--accent-color);
     }
 
     .image-wrapper {
-        width: calc(256px + $shadow-size);
+        width: calc($image-size + $shadow-size);
+        max-width: 90vw;
 
         clip-path: polygon(
 			0 0, 
