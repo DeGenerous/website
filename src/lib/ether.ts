@@ -1,10 +1,7 @@
 import { BigNumber, ethers } from "ethers";
+import detectProvider from '@metamask/detect-provider';
 import { CLAIM, USDC, EXOSAMA, NFT, GOVERNANCE } from "./constants";
 import additional from "./additional.json";
-
-declare global {
-    interface Window { ethereum: any; }
-}
 
 type ContractList = {
     claim: ethers.Contract,
@@ -24,17 +21,20 @@ type Contracts = {
 let contracts: Nullable<Contracts> = null;
 let selected_token: Nullable<BigNumber> = null;
 
-export const get_provider = (): Nullable<ethers.providers.Web3Provider> => {
-    if (typeof window.ethereum === "undefined") { return null; }
-    if (contracts != null) { return contracts.provider; }
+export const get_provider = async (): Promise<Nullable<ethers.providers.Web3Provider>> => {
+    const provider = await detectProvider();
 
-    return new ethers.providers.Web3Provider(window.ethereum, "any");
+    if (provider === null) {
+        return null;
+    }
+
+    return new ethers.providers.Web3Provider(provider, "any");
 }
 
 export const get_contracts = async (): Promise<Nullable<Contracts>> => {
     if (contracts !== null) { return contracts; }
 
-    const provider = get_provider();
+    const provider = await get_provider();
     if (provider === null) { return null }
 
     const claim = new ethers.Contract(CLAIM.address, CLAIM.ABI, provider);
@@ -83,7 +83,7 @@ export const get_data = async () : Promise<[number, number, string]> => {
 }
 
 export const check_network = async (): Promise<boolean> => {
-    const provider = get_provider();
+    const provider = await get_provider();
     if (provider === null) { return false; }
 
     const hex = (await provider.getNetwork()).chainId.toString(16);
@@ -133,7 +133,7 @@ export enum state {
 }
 
 export const get_state = async (): Promise<state> => {
-    const provider = get_provider();
+    const provider = await get_provider();
     if (provider === null) { return state.MISSING }
 
     const accounts = await window.ethereum.request({ method: 'eth_accounts' });
@@ -147,8 +147,8 @@ export const get_state = async (): Promise<state> => {
     return state.READY;
 }
 
-export const change_listener = (callback: () => void) => {
-    const provider = get_provider();
+export const change_listener = async (callback: () => void) => {
+    const provider = await get_provider();
     if (provider === null) { return; }
 
     window.ethereum.on("accountsChanged", callback)
