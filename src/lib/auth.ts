@@ -20,13 +20,21 @@ const get_nonce = async (): Promise<Nullable<string>> => {
     return await response.text();
 }
 
+const message = (nonce: string) => `
+Sign this message to prove you're an Inception Ark NFT holder.
+
+It will not cause a blockchain transaction, nor any gas fees.
+
+Nonce:
+${nonce}`;
+
 export const login = async () => {
     const contracts = await with_signer();
 
     const nonce = await get_nonce();
     if (nonce === null) { return; }
 
-    const signature = await contracts?.with_signer?.signer.signMessage(nonce) as string;
+    const signature = await contracts?.with_signer?.signer.signMessage(message(nonce)) as string;
 
     const response = await fetch(`${url}/login`, {
         method: "POST",
