@@ -1,0 +1,47 @@
+<login-provider>
+    <div class="false">
+        <slot name="no" />
+    </div>
+    <div class="true">
+        <slot name="yes" />
+    </div>
+</login-provider>
+
+<script>
+import { has_logged_in, register_login_action } from "@lib/auth";
+
+	class LoginProvider extends HTMLElement {
+
+        async #initialize() {
+            this.dataset.logged = `${has_logged_in()}`;
+            register_login_action(state => {
+                this.dataset.logged = `${state}`
+            });
+        }
+
+		constructor() {
+			super();
+            this.#initialize();
+		}
+	}
+
+	customElements.define('login-provider', LoginProvider);
+</script>
+
+<style lang="scss">
+    login-provider, login-provider > div {
+        display: contents;
+    }
+
+    login-provider:not([data-logged]) {
+        display: none;
+    }
+
+    $options: "false", "true";
+
+    @each $option in $options {
+        [data-logged=#{$option}] :not(.#{$option}) {
+            display: none;
+        }
+    }
+</style>

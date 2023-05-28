@@ -1,54 +1,62 @@
 ---
+import LoginProvider from '@components/LoginProvider.astro';
 import Section from '@components/Section.astro';
 import Layout from '@layouts/Layout.astro';
 ---
 
 <Layout title="CoNexus | Degenerous" page="CoNexus">
 	<main>
-		<Section title="CoNexus" gap>
-            <connexus-component data-state="start">
-                <div class="start">
-                    <h2>A new world of unique possibilities awaits you</h2>
-                    <span class="about">
-                        <p>Welcome to CoNexus, an immersive and dynamic interactive story game that serves as your personal gateway to a boundless multiverse. Powered by cutting-edge artificial intelligence, CoNexus seamlessly generates captivating narratives and vivid visuals in real-time, offering you an unparalleled journey into infinite and truly one-of-a-kind experiences.</p>
-                        <p>Within CoNexus, you will transcend the boundaries of reality as we know it, delving into alternate dimensions where you possess the remarkable ability to shape and influence the outcome of pivotal moments from the past, present, and future.</p>
-                        <p>Your primary objective in this extraordinary realm is to survive the challenges that await you, navigating through a rich tapestry of possibilities. Additionally, strive to acquire as many traits as you can, as it can help evolve your avatar in a multiverse-spanning story.</p>
-                        <p>Your choices and actions will shape the course of your own unique narrative. Get ready to explore, conquer, and immerse yourself in a world without limits.</p>
-                    </span>
-                    <span class="available">Daily stories played: </span>
-                    <div class="buttons">
-                        <button class="c bstart">Explore the Multiverse</button>
+        <LoginProvider>
+            <Section title="CoNexus" gap slot="yes">
+                <connexus-component data-state="start">
+                    <div class="start">
+                        <h2>A new world of unique possibilities awaits you</h2>
+                        <span class="about">
+                            <p>Welcome to CoNexus, an immersive and dynamic interactive story game that serves as your personal gateway to a boundless multiverse. Powered by cutting-edge artificial intelligence, CoNexus seamlessly generates captivating narratives and vivid visuals in real-time, offering you an unparalleled journey into infinite and truly one-of-a-kind experiences.</p>
+                            <p>Within CoNexus, you will transcend the boundaries of reality as we know it, delving into alternate dimensions where you possess the remarkable ability to shape and influence the outcome of pivotal moments from the past, present, and future.</p>
+                            <p>Your primary objective in this extraordinary realm is to survive the challenges that await you, navigating through a rich tapestry of possibilities. Additionally, strive to acquire as many traits as you can, as it can help evolve your avatar in a multiverse-spanning story.</p>
+                            <p>Your choices and actions will shape the course of your own unique narrative. Get ready to explore, conquer, and immerse yourself in a world without limits.</p>
+                            <strong class="available">Daily stories played: </strong>
+                        </span>
+                        <div class="buttons">
+                            <button class="c bstart">Explore the Multiverse</button>
+                        </div>
                     </div>
-                </div>
-                <div class="step">
-                    <div class="image-wrapper">
-                        <img class="image" alt="">
-                    </div>
-                    <span class="story"></span>
-                    <div class="heading">
-                        <h2>Options</h2>
-                        <div class="line"></div>
-                        <strong class="step_number"></strong>
-                    </div>
-                    <div class="options buttons">
+                    <div class="step">
+                        <div class="image-wrapper">
+                            <img class="image" alt="">
+                        </div>
+                        <span class="story"></span>
+                        <div class="heading">
+                            <h2>Options</h2>
+                            <div class="line"></div>
+                            <strong class="step_number"></strong>
+                        </div>
+                        <div class="options buttons">
 
+                        </div>
                     </div>
-                </div>
-                <div class="end">
-                    <span class="end_story"></span>
-                    <h2>The story has ended. Here is the summary of your adventure:</h2>
-                    <span class="summary"></span>
-                    <div class="buttons">
-                        <button class="c bstart">Start new journey</button>
+                    <div class="end">
+                        <span class="end_story"></span>
+                        <h2>The story has ended. Here is the summary of your adventure:</h2>
+                        <span class="summary"></span>
+                        <div class="buttons">
+                            <button class="c bstart">Start new journey</button>
+                        </div>
                     </div>
-                </div>
-                <div class="spinner" onclick="(e) => e.stopPropagation()" />
-            </connexus-component>
-        </Section>
+                    <div class="spinner" onclick="(e) => e.stopPropagation()" />
+                </connexus-component>
+            </Section>
+            <Section title="CoNexus" gap slot="no">
+                <h2>To access CoNexus please connect your wallet</h2>
+            </Section>
+        </LoginProvider>
     </main>
 </Layout>
 
 <script>
+import { ready } from "@lib/auth";
+
     type Node = {
         jwt: string,
         message: string,
@@ -87,9 +95,13 @@ import Layout from '@layouts/Layout.astro';
                 return;
             }
 
-            const numbers: Available = await response.json()
+            const {used, available}: Available = await response.json()
 
-            this.#available.innerText = `Daily stories played: ${numbers.used} / ${numbers.available}`
+            this.#available.innerText = `Daily stories played: ${used} / ${available}`
+
+            if (used >= available) {
+                this.#start_buttons.forEach( b => b.disabled = true);
+            }
         }
 
         async #start() {
@@ -182,7 +194,10 @@ import Layout from '@layouts/Layout.astro';
                e.onclick = () => this.#start(); 
             });
 
-            this.#init();
+
+            ready(() => {
+                this.#init();  
+            })
 		}
 	}
 
@@ -327,26 +342,33 @@ import Layout from '@layouts/Layout.astro';
                 margin-right: 1rem;
             }
 
-            :not([data-loading]) &:hover {
-                background: linear-gradient(to right, transparent 1rem, var(--accent-color) 1rem, transparent);
-                &::before {
-                    background-color: var(--accent-color);
-                }
-            }
-
-            &:active {
+            &:disabled {
                 filter: brightness(0.7);
-                background: linear-gradient(to right, transparent 1rem, var(--accent-color) 1rem, transparent);
-                &::before {
-                    background-color: var(--accent-color);
-                }
             }
 
-            &:focus {
-                filter: brightness(0.65);
-                background: linear-gradient(to right, transparent 1rem, var(--accent-color) 1rem, transparent);
-                &::before {
-                    background-color: var(--accent-color);
+            &:not(:disabled) {
+
+                :not([data-loading]) &:hover {
+                    background: linear-gradient(to right, transparent 1rem, var(--accent-color) 1rem, transparent);
+                    &::before {
+                        background-color: var(--accent-color);
+                    }
+                }
+
+                &:active {
+                    filter: brightness(0.7);
+                    background: linear-gradient(to right, transparent 1rem, var(--accent-color) 1rem, transparent);
+                    &::before {
+                        background-color: var(--accent-color);
+                    }
+                }
+
+                &:focus {
+                    filter: brightness(0.65);
+                    background: linear-gradient(to right, transparent 1rem, var(--accent-color) 1rem, transparent);
+                    &::before {
+                        background-color: var(--accent-color);
+                    }
                 }
             }
         }
