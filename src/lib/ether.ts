@@ -91,9 +91,12 @@ export const check_network = async (): Promise<boolean> => {
 }
 
 export const add_network = async ():Promise<void> => {
-    window.ethereum.request({
+    const provider = await get_provider();
+    if (provider === null) { return; }
+
+    provider.provider.request?.({
         method: "wallet_addEthereumChain",
-        params: [EXOSAMA]
+        params: [EXOSAMA],
     });
 }
 
@@ -136,7 +139,7 @@ export const get_state = async (): Promise<state> => {
     const provider = await get_provider();
     if (provider === null) { return state.MISSING }
 
-    const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+    const accounts = await provider.listAccounts();
     if (! (await check_network())) { return state.WRONG_NETWORK; }
 
     const contracts = accounts.length > 0 ? await with_signer() : await get_contracts();
@@ -151,7 +154,7 @@ export const change_listener = async (callback: () => void) => {
     const provider = await get_provider();
     if (provider === null) { return; }
 
-    window.ethereum.on("accountsChanged", callback)
+    provider.on("accountsChanged", callback)
     provider.on("network", callback);
 }
 
