@@ -162,7 +162,7 @@ import Layout from '@layouts/Layout.astro';
                 }
             }
 
-
+            this.dataset.image = "loading";
             this.#image.src = "https://i.pinimg.com/originals/19/09/f9/1909f9e57aca7d81ab5cbb50b9a7a069.gif";
 
             const response = await fetch(`${url}/image`, {
@@ -175,6 +175,7 @@ import Layout from '@layouts/Layout.astro';
                 return;
             }
 
+            delete this.dataset.image;
             this.#image.src = `data:image/png;base64,${await response.text()}`;
         }
 
@@ -216,6 +217,7 @@ import Layout from '@layouts/Layout.astro';
         background-position: bottom center;
         background-blend-mode: darken;
         background-color: rgba(0,0,0,0.7);
+        padding-bottom: 5rem;
     }
 
     connexus-component {
@@ -279,11 +281,9 @@ import Layout from '@layouts/Layout.astro';
         aspect-ratio: 1/1;
         object-fit: cover;
         box-shadow: $shadow-size $shadow-size 0 var(--accent-color);
-
     }
 
     .image-wrapper {
-        mix-blend-mode: lighten;
         width: calc(256px + $shadow-size);
 
         clip-path: polygon(
@@ -294,6 +294,10 @@ import Layout from '@layouts/Layout.astro';
 			var(--border-size) 100%, 
 			0 calc(100% - var(--border-size))
 		);
+
+        [data-image="loading"] & {
+            mix-blend-mode: lighten;
+        }
     }
 
     .story {
