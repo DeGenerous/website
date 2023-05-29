@@ -1,14 +1,19 @@
-import { with_signer } from "@lib/ether";
+import { get_provider } from "@lib/ether";
 
 const url = import.meta.env.PUBLIC_BACKEND;
 
 const get_nonce = async (): Promise<Nullable<string>> => {
-    const contracts = await with_signer();
+    const provider = await get_provider();
+    if (provider === null) { return ""; }
+
+    await provider.send("eth_requestAccounts", []);
+
+    const signer = provider.getSigner();
 
     const response = await fetch(`${url}/nonce`, {
         method: "POST",
         body: JSON.stringify({
-            wallet: await contracts?.with_signer?.signer?.getAddress()
+            wallet: await signer.getAddress()
         })
     });
 
@@ -29,17 +34,22 @@ Nonce:
 ${nonce}`;
 
 export const login = async () => {
-    const contracts = await with_signer();
+    const provider = await get_provider();
+    if (provider === null) { return; }
+
+    await provider.send("eth_requestAccounts", []);
+
+    const signer = provider.getSigner();
 
     const nonce = await get_nonce();
     if (nonce === null) { return; }
 
-    const signature = await contracts?.with_signer?.signer.signMessage(message(nonce)) as string;
+    const signature = await signer.signMessage(message(nonce)) as string;
 
     const response = await fetch(`${url}/login`, {
         method: "POST",
         body: JSON.stringify({
-            wallet: await contracts?.with_signer?.signer?.getAddress(),
+            wallet: await signer.getAddress(),
             signature: signature
         })
     });
