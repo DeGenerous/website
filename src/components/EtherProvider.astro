@@ -22,7 +22,7 @@
         }
 
         async #initialize() {
-            change_listener(() => { this.#update(); });
+            await change_listener(() => { this.#update(); });
             this.#update();
         }
 

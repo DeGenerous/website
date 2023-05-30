@@ -1,4 +1,6 @@
 ---
+import LoginProvider from './LoginProvider.astro';
+
 export interface Props {
 	page: string;
 }
@@ -28,8 +30,8 @@ const links: (HeaderLink | HeaderDropwdown)[] = [
 				link: "https://raresama.com/collections/2109/0x1acb10dbd319da52d941dfec478f1aa2d118d7f7",
 			},
 			{
-				title: "Contact",
-				link: "/#contact",
+				title: "Community",
+				link: "/#community",
 			},
 		],
 	},
@@ -97,9 +99,28 @@ function isLink(object: any): object is HeaderLink {
 						);
 					})
 				}
-				<!-- <li class="connect">
-					<button>Connect</button>
-				</li> -->
+
+				<LoginProvider>
+					<Fragment slot="yes">
+						<li class="sublist">
+							<span>
+								Games
+								<img src="/icons/arrow_drop_down.svg" alt="" />
+							</span>
+							<ul class="inner">
+								<li data-selected={"conexus" == page} style={`--nth:0`}>
+									<a class="c" href="/conexus">CoNexus</a>
+								</li>
+							</ul>
+						</li>
+						<li class="disconnect">
+							<button>Disconnect</button>
+						</li>
+					</Fragment>
+					<li slot="no" class="connect">
+						<button>Connect</button>
+					</li>
+				</LoginProvider>
 			</ul>
 		</nav>
 		<button class="open">
@@ -109,14 +130,18 @@ function isLink(object: any): object is HeaderLink {
 </custom-header>
 
 <script>
+	import { login, logout } from "@lib/auth";
+
 	class CustomHeader extends HTMLElement {
 		constructor() {
 			super();
 
-			const open_button = this.querySelector(".open") as HTMLButtonElement;
-			const nav = this.querySelector("nav")           as HTMLElement;
-			const ul = this.querySelector("ul")             as HTMLUListElement;
-			const _close = this.querySelector(".close")     as HTMLDivElement;
+			const open_button = this.querySelector(".open")      as HTMLButtonElement;
+			const nav = this.querySelector("nav")                as HTMLElement;
+			const ul = this.querySelector("ul")                  as HTMLUListElement;
+			const _close = this.querySelector(".close")          as HTMLDivElement;
+			const connect = this.querySelector(".connect")       as HTMLButtonElement;
+			const disconnect = this.querySelector(".disconnect") as HTMLButtonElement;
 
 			const element = this;
 			const open = () => {
@@ -142,6 +167,9 @@ function isLink(object: any): object is HeaderLink {
 					close();
 				}
 			});
+
+			connect.onclick = login;
+			disconnect.onclick = logout;
 		}
 	}
 
@@ -200,7 +228,7 @@ function isLink(object: any): object is HeaderLink {
 		aspect-ratio: 1/1;
 	}
 
-	.connect {
+	.connect, .disconnect {
 		justify-content: center;
 		margin-left: 1rem;
 	}
@@ -307,7 +335,7 @@ function isLink(object: any): object is HeaderLink {
 			gap: 1rem;
 		}
 
-		.connect {
+		.connect, .disconnect {
 			justify-content: center;
 			margin-inline: 1rem;
 			margin-top: 1rem;

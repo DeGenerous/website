@@ -1,0 +1,429 @@
+---
+import LoginProvider from '@components/LoginProvider.astro';
+import Section from '@components/Section.astro';
+import Layout from '@layouts/Layout.astro';
+---
+
+<Layout title="CoNexus | Degenerous" page="CoNexus">
+	<main>
+        <LoginProvider>
+            <Section title="CoNexus" gap slot="yes">
+                <connexus-component data-state="start">
+                    <div class="start">
+                        <h2>A new world of unique possibilities awaits you</h2>
+                        <span class="about">
+                            <p>Welcome to CoNexus, an immersive and dynamic interactive story game that serves as your personal gateway to a boundless multiverse. Powered by cutting-edge artificial intelligence, CoNexus seamlessly generates captivating narratives and vivid visuals in real-time, offering you an unparalleled journey into infinite and truly one-of-a-kind experiences.</p>
+                            <p>Within CoNexus, you will transcend the boundaries of reality as we know it, delving into alternate dimensions where you possess the remarkable ability to shape and influence the outcome of pivotal moments from the past, present, and future.</p>
+                            <p>Your primary objective in this extraordinary realm is to survive the challenges that await you, navigating through a rich tapestry of possibilities. Additionally, strive to acquire as many traits as you can, as it can help evolve your avatar in a multiverse-spanning story.</p>
+                            <p>Your choices and actions will shape the course of your own unique narrative. Get ready to explore, conquer, and immerse yourself in a world without limits.</p>
+                            <strong class="available">Daily stories played: </strong>
+                        </span>
+                        <div class="buttons">
+                            <button class="c bstart">Explore the Multiverse</button>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="image-wrapper">
+                            <img class="image" alt="">
+                        </div>
+                        <span class="story"></span>
+                        <div class="heading">
+                            <h2>Options</h2>
+                            <div class="line"></div>
+                            <strong class="step_number"></strong>
+                        </div>
+                        <div class="options buttons">
+
+                        </div>
+                    </div>
+                    <div class="end">
+                        <div class="image-wrapper">
+                            <img class="image" alt="">
+                        </div>
+                        <span class="end_story"></span>
+                        <h2>The story has ended. Here is the summary of your adventure:</h2>
+                        <span class="summary"></span>
+                        <div class="buttons">
+                            <button class="c bstart">Start new journey</button>
+                        </div>
+                    </div>
+                    <div class="spinner" onclick="(e) => e.stopPropagation()" />
+                </connexus-component>
+            </Section>
+            <Section title="CoNexus" gap slot="no">
+                <h2>To access CoNexus please connect your wallet</h2>
+            </Section>
+        </LoginProvider>
+    </main>
+</Layout>
+
+<script>
+    import { ready } from "@lib/auth";
+
+    type Node = {
+        jwt: string,
+        message: string,
+        options: string[],
+        end: boolean,
+        summary: string,
+        step: number,
+    }
+
+    type Available = {
+        available: number,
+		used:      number,
+    }
+
+    const url = import.meta.env.PUBLIC_BACKEND;
+
+	class Connexus extends HTMLElement {
+        #images:        NodeListOf<HTMLImageElement>;
+        #story:         HTMLSpanElement;
+        #options:       HTMLDivElement;
+        #start_buttons: NodeListOf<HTMLButtonElement>;
+        #step_number:   HTMLElement;
+        #end_story:     HTMLSpanElement;
+        #summary:       HTMLSpanElement;
+        #available:     HTMLSpanElement;
+
+        #jwt: string;
+
+        async #init() {
+            const response = await fetch(`${url}/available`, {
+                method: "POST",
+            });
+
+            if (!response.ok) {
+                alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
+                return;
+            }
+
+            const {used, available}: Available = await response.json()
+
+            this.#available.innerText = `Daily stories played: ${used} / ${available}`
+
+            if (used >= available) {
+                this.#start_buttons.forEach( b => b.disabled = true);
+            }
+        }
+
+        async #start() {
+            this.dataset.loading = "";
+            const response = await fetch(`${url}/start`, {
+                method: "POST",
+            });
+
+            if (!response.ok) {
+                alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
+                return;
+            }
+            delete this.dataset.loading;
+            this.dataset.state = "step";
+
+            await this.#set_data(await response.json());
+        }
+
+        async #respond(index: number) {
+            this.dataset.loading = "";
+            const response = await fetch(`${url}/respond`, {
+                method: "POST",
+                body: JSON.stringify({
+                    jwt: this.#jwt,
+                    option: index
+                })
+            });
+            delete this.dataset.loading;
+
+            if (!response.ok) {
+                alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
+                return;
+            }
+
+            await this.#set_data(await response.json());
+        }
+
+        async #set_data(node: Node) {
+            this.#jwt = node.jwt;
+
+            this.#step_number.innerText  = `Step ${(node.step < 10)? "0": ""}${node.step}`;
+
+            this.#options.replaceChildren();
+            if (node.end) {
+                this.dataset.state = "end";
+                this.#end_story.innerText = node.message;
+                this.#summary.innerText = node.summary;
+            } else {
+                this.#story.innerText = node.message;
+                for (const [i, option] of node.options.entries()) {
+                    const button = document.createElement("button");
+
+                    button.classList.add("c");
+                    button.innerText = option;
+                    button.onclick = () => this.#respond(i + 1);
+
+                    this.#options.appendChild(button);
+                }
+            }
+
+            this.dataset.image = "loading";
+            this.#images.forEach( i => i.src = "https://i.pinimg.com/originals/19/09/f9/1909f9e57aca7d81ab5cbb50b9a7a069.gif");
+
+            const response = await fetch(`${url}/image`, {
+                method: "POST",
+                body: JSON.stringify({ jwt: this.#jwt })
+            });
+
+            if (!response.ok) {
+                alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
+                return;
+            }
+
+            delete this.dataset.image;
+            const image = await response.text();
+            this.#images.forEach(i => i.src = `data:image/png;base64,${image}`);
+        }
+
+		constructor() {
+			super();
+
+            this.#images        = document.querySelectorAll(".image")    as NodeListOf<HTMLImageElement>;
+            this.#story         = document.querySelector(".story")       as HTMLSpanElement;
+            this.#options       = document.querySelector(".options")     as HTMLDivElement;
+            this.#start_buttons = document.querySelectorAll(".bstart")   as NodeListOf<HTMLButtonElement>;
+            this.#step_number   = document.querySelector(".step_number") as HTMLElement;
+            this.#end_story     = document.querySelector(".end_story")   as HTMLSpanElement;
+            this.#summary       = document.querySelector(".summary")     as HTMLSpanElement;
+            this.#available     = document.querySelector(".available")   as HTMLSpanElement;
+
+            this.#start_buttons.forEach(e => {
+               e.onclick = () => this.#start(); 
+            });
+
+
+            ready(() => {
+                this.#init();  
+            })
+		}
+	}
+
+	customElements.define("connexus-component", Connexus);
+</script>
+
+<style lang="scss">
+    body {
+        background-color: hsl(254, 33%, 5%);
+    }
+
+    main {
+        position: relative;
+        background: url("/images/conexus-bg.jpg");
+        background-size: cover;
+        background-position: bottom center;
+        background-blend-mode: darken;
+        background-color: rgba(0,0,0,0.7);
+        padding-bottom: 5rem;
+    }
+
+    connexus-component {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    $options: "start", "step", "end";
+
+    @each $option in $options {
+        [data-state=#{$option}] > :not(.#{$option}) {
+            display: none;
+        }
+    }
+
+    $star-size: 10px;
+    .stars :global(.star) {
+        background-color: white;
+        width: $star-size;
+        aspect-ratio: 1/1;
+        position: absolute;
+        top: var(--y);
+        left: var(--x);
+        border-radius: 50%;
+        filter: blur(2px);
+    }
+
+    // [data-loading] :where(.options, .start) {
+    //     pointer-events: none;
+    //     filter: brightness(0.6);
+    // }
+
+    .start h2 {
+        margin-bottom: 1rem;
+    }
+
+    .about {
+        margin-bottom: 2rem;
+        display: block;
+    }
+
+    .step, .end {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .image:not([src]) {
+        display: none;
+    }
+
+    .image[src=""] {
+        opacity: 0;
+    }
+
+    $shadow-size: 0.5rem;
+    $image-size: 512px;
+    .image, .image-wrapper {
+        align-self: center;
+        width: $image-size;
+        max-width: calc(90vw - $shadow-size);
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        box-shadow: $shadow-size $shadow-size 0 var(--accent-color);
+    }
+
+    .image-wrapper {
+        width: calc($image-size + $shadow-size);
+        max-width: 90vw;
+
+        clip-path: polygon(
+			0 0, 
+			calc(100% - var(--border-size)) 0, 
+			100% var(--border-size), 
+			100% 100%, 
+			var(--border-size) 100%, 
+			0 calc(100% - var(--border-size))
+		);
+
+        [data-image="loading"] & {
+            mix-blend-mode: lighten;
+        }
+    }
+
+    .story {
+        margin-block: 2rem;
+    }
+
+    .heading {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        padding: 2rem;
+
+        .line {
+            height: .2rem;
+            background-color: var(--fg-color);
+            flex-grow: 1;
+        }
+
+        .step_number {
+            padding: 0.75rem 1.5rem;
+            border: .2rem solid var(--fg-color);
+            border-radius: 1rem;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        align-items: stretch;
+        gap: .75rem;
+
+        :global(button) {
+            text-align: start;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 0.25rem;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            &::before {
+                content: "";
+                height: 1.5rem;
+                width: 0.25rem;
+                background-color: var(--fg-color);
+                display: inline-block;
+                margin-right: 1rem;
+            }
+
+            &:disabled {
+                filter: brightness(0.7);
+            }
+
+            &:not(:disabled) {
+
+                :not([data-loading]) &:hover {
+                    background: linear-gradient(to right, transparent 1rem, var(--accent-color) 1rem, transparent);
+                    &::before {
+                        background-color: var(--accent-color);
+                    }
+                }
+
+                &:active {
+                    filter: brightness(0.7);
+                    background: linear-gradient(to right, transparent 1rem, var(--accent-color) 1rem, transparent);
+                    &::before {
+                        background-color: var(--accent-color);
+                    }
+                }
+
+                &:focus {
+                    filter: brightness(0.65);
+                    background: linear-gradient(to right, transparent 1rem, var(--accent-color) 1rem, transparent);
+                    &::before {
+                        background-color: var(--accent-color);
+                    }
+                }
+            }
+        }
+    }
+
+    .end_story, .summary {
+        margin-block: 2rem;
+        display: block;
+    }
+
+
+	@keyframes glare {
+		from {
+			background-position: top right;
+		}
+		to {
+			background-position: bottom left;
+		}
+	}
+
+    .spinner.spinner {
+        pointer-events: none;
+        display: block;
+        opacity: 0;
+        transition: opacity 0.2s;
+
+        z-index: 100;
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(45deg, transparent 40%, hsl(0, 0%, 100%, .1) 60%, transparent 65%);
+        background-position: 0% 0%;
+        background-size: 300% 300%;
+        background-position: top right;
+        background-color: rgba(0,0,0,0.7);
+    }
+
+    [data-loading] {
+        pointer-events: none;
+    }
+
+    [data-loading] .spinner {
+        opacity: 1;
+        animation: glare 2s ease-in-out infinite;
+    }
+</style>
