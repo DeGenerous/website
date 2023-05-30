@@ -60,6 +60,15 @@ const links: (HeaderLink | HeaderDropwdown)[] = [
 			// },
 		],
 	},
+	{
+		title: "Games",
+		links: [
+			{
+				title: "CoNexus",
+				link: "/conexus"
+			}
+		]
+	}
 ];
 
 function isLink(object: any): object is HeaderLink {
@@ -103,17 +112,6 @@ function isLink(object: any): object is HeaderLink {
 
 				<LoginProvider>
 					<Fragment slot="yes">
-						<li class="sublist">
-							<span>
-								Games
-								<img src="/icons/arrow_drop_down.svg" alt="" />
-							</span>
-							<ul class="inner">
-								<li data-selected={"conexus" == page} style={`--nth:0`}>
-									<a class="c" href="/conexus">CoNexus</a>
-								</li>
-							</ul>
-						</li>
 						<li class="disconnect">
 							<button>Disconnect</button>
 						</li>
