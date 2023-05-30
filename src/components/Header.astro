@@ -69,6 +69,7 @@ function isLink(object: any): object is HeaderLink {
 
 <custom-header>
 	<header>
+		<div class="title">DeGenerous</div>
 		<div class="close"></div>
 		<nav>
 			<ul class="outer">
@@ -193,6 +194,15 @@ function isLink(object: any): object is HeaderLink {
 		z-index: 1000;
 		padding-inline: 3rem;
 		height: $header-height;
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.title {
+		display: flex;
+    	align-items: center;
+		font-family: 'Righteous', cursive;
+		font-size: 1.5rem;
 	}
 
 	ul {
@@ -237,7 +247,7 @@ function isLink(object: any): object is HeaderLink {
 		all: unset;
 		cursor: pointer;
 		position: absolute;
-		right: 1rem;
+		right: 2rem;
 		top: 0;
 		height: 100%;
 		place-content: center;
