@@ -37,6 +37,9 @@ import Layout from '@layouts/Layout.astro';
                         </div>
                     </div>
                     <div class="end">
+                        <div class="image-wrapper">
+                            <img class="image" alt="">
+                        </div>
                         <span class="end_story"></span>
                         <h2>The story has ended. Here is the summary of your adventure:</h2>
                         <span class="summary"></span>
@@ -74,7 +77,7 @@ import Layout from '@layouts/Layout.astro';
     const url = import.meta.env.PUBLIC_BACKEND;
 
 	class Connexus extends HTMLElement {
-        #image:         HTMLImageElement;
+        #images:        NodeListOf<HTMLImageElement>;
         #story:         HTMLSpanElement;
         #options:       HTMLDivElement;
         #start_buttons: NodeListOf<HTMLButtonElement>;
@@ -163,7 +166,7 @@ import Layout from '@layouts/Layout.astro';
             }
 
             this.dataset.image = "loading";
-            this.#image.src = "https://i.pinimg.com/originals/19/09/f9/1909f9e57aca7d81ab5cbb50b9a7a069.gif";
+            this.#images.forEach( i => i.src = "https://i.pinimg.com/originals/19/09/f9/1909f9e57aca7d81ab5cbb50b9a7a069.gif");
 
             const response = await fetch(`${url}/image`, {
                 method: "POST",
@@ -176,13 +179,14 @@ import Layout from '@layouts/Layout.astro';
             }
 
             delete this.dataset.image;
-            this.#image.src = `data:image/png;base64,${await response.text()}`;
+            const image = await response.text();
+            this.#images.forEach(i => i.src = `data:image/png;base64,${image}`);
         }
 
 		constructor() {
 			super();
 
-            this.#image         = document.querySelector(".image")       as HTMLImageElement;
+            this.#images        = document.querySelectorAll(".image")    as NodeListOf<HTMLImageElement>;
             this.#story         = document.querySelector(".story")       as HTMLSpanElement;
             this.#options       = document.querySelector(".options")     as HTMLDivElement;
             this.#start_buttons = document.querySelectorAll(".bstart")   as NodeListOf<HTMLButtonElement>;
@@ -251,16 +255,16 @@ import Layout from '@layouts/Layout.astro';
     //     filter: brightness(0.6);
     // }
 
-    :is(.start, .end) h2 {
+    .start h2 {
         margin-bottom: 1rem;
     }
 
-    .about, .end_story, .summary {
+    .about {
         margin-bottom: 2rem;
         display: block;
     }
 
-    .step {
+    .step, .end {
         display: flex;
         flex-direction: column;
     }
@@ -384,7 +388,7 @@ import Layout from '@layouts/Layout.astro';
     }
 
     .end_story, .summary {
-        margin-bottom: 2rem;
+        margin-block: 2rem;
         display: block;
     }
 
