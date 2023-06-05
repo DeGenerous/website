@@ -39,6 +39,10 @@ const links: (HeaderLink | HeaderDropwdown)[] = [
 		title: "About",
 		links: [
 			{
+				title: "Wiki",
+				link: "https://dgrs.fandom.com/wiki/DGRS_Wiki",
+			},
+			{
 				title: "Team",
 				link: "/#team",
 			},
@@ -101,7 +105,7 @@ function isLink(object: any): object is HeaderLink {
 								<ul class="inner">
 									{l.links.map((link, i) => (
 										<li data-selected={link.title == page} style={`--nth:${i}`}>
-											<a class="c" href={link.link}>{link.title}</a>
+											<a class="c" href={link.link} target={link.link.indexOf("http") === 0 ? "_blank" : "_self"}>{link.title}</a>
 										</li>
 									))}
 								</ul>
