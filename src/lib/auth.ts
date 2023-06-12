@@ -1,4 +1,5 @@
 import { get_provider } from "@lib/ether";
+import { ethers } from "ethers";
 
 const url = import.meta.env.PUBLIC_BACKEND;
 
@@ -44,7 +45,7 @@ export const login = async () => {
     const nonce = await get_nonce();
     if (nonce === null) { return; }
 
-    const signature = await signer.signMessage(message(nonce)) as string;
+    const signature = await signer.signMessage(message(nonce));
 
     const response = await fetch(`${url}/login`, {
         method: "POST",

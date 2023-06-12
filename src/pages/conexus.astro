@@ -20,6 +20,7 @@ import Layout from '@layouts/Layout.astro';
                             <strong class="available">Daily stories played: </strong>
                         </span>
                         <div class="buttons">
+                            <button class="c continue hidden">Continue last game</button>
                             <button class="c bstart">Explore the Multiverse</button>
                         </div>
                     </div>
@@ -27,15 +28,17 @@ import Layout from '@layouts/Layout.astro';
                         <div class="image-wrapper">
                             <img class="image" alt="">
                         </div>
+                        <div class="_volume">
+                            <img src="/icons/volume.svg" alt="Change backround music volume">
+                            <input class="volume" type="range" min="0" max="1" step="0.01" value="0.2">
+                        </div>
                         <span class="story"></span>
                         <div class="heading">
                             <h2>Options</h2>
                             <div class="line"></div>
                             <strong class="step_number"></strong>
                         </div>
-                        <div class="options buttons">
-
-                        </div>
+                        <div class="options buttons" />
                     </div>
                     <div class="end">
                         <div class="image-wrapper">
@@ -62,12 +65,13 @@ import Layout from '@layouts/Layout.astro';
     import { ready } from "@lib/auth";
 
     type Node = {
-        jwt: string,
+        jwt:     string,
         message: string,
         options: string[],
-        end: boolean,
+        end:     boolean,
         summary: string,
-        step: number,
+        step:    number,
+        image?:  string,
     }
 
     type Available = {
@@ -76,18 +80,59 @@ import Layout from '@layouts/Layout.astro';
     }
 
     const url = import.meta.env.PUBLIC_BACKEND;
+    const tracks = ["track01.mp3", "track02.mp3", "track03.mp3"];
+
+    const shuffle = <T,>(array: T[]) => {
+        let currentIndex = array.length,  randomIndex;
+
+        while (currentIndex != 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            [array[currentIndex], array[randomIndex]] = 
+            [array[randomIndex], array[currentIndex]];
+        }
+
+        return array;
+    }
 
 	class Connexus extends HTMLElement {
-        #images:        NodeListOf<HTMLImageElement>;
-        #story:         HTMLSpanElement;
-        #options:       HTMLDivElement;
-        #start_buttons: NodeListOf<HTMLButtonElement>;
-        #step_number:   HTMLElement;
-        #end_story:     HTMLSpanElement;
-        #summary:       HTMLSpanElement;
-        #available:     HTMLSpanElement;
+        #images:          NodeListOf<HTMLImageElement>;
+        #volume:          HTMLInputElement;
+        #story:           HTMLSpanElement;
+        #options:         HTMLDivElement;
+        #continue_button: HTMLButtonElement;
+        #start_buttons:   NodeListOf<HTMLButtonElement>;
+        #step_number:     HTMLElement;
+        #end_story:       HTMLSpanElement;
+        #summary:         HTMLSpanElement;
+        #available:       HTMLSpanElement;
 
-        #jwt: string;
+        #jwt:   string;
+        #track: number;
+        #audio: HTMLAudioElement;
+
+        #play_music() {
+            let queue: number[] = JSON.parse(localStorage.getItem("queue") ?? "[]");
+            const volume = parseFloat(localStorage.getItem("volume") ?? "0.1");
+
+            if (queue.length === 0) {
+                queue = shuffle([...tracks.keys()]);
+            }
+
+            this.#track = queue.shift() ?? 0;
+            localStorage.setItem("queue", JSON.stringify(queue));
+
+            this.#audio = new Audio("/music/coNexus/" + tracks[this.#track]);
+            this.#audio.volume = volume;
+            this.#audio.play();
+
+            this.#audio.onended = () => this.#play_music();
+        }
+
+        #set_volume(volume: number) {
+            this.#audio.volume = volume;
+        }
 
         async #init() {
             const response = await fetch(`${url}/available`, {
@@ -109,6 +154,8 @@ import Layout from '@layouts/Layout.astro';
         }
 
         async #start() {
+            this.#play_music();
+
             this.dataset.loading = "";
             const response = await fetch(`${url}/start`, {
                 method: "POST",
@@ -119,7 +166,6 @@ import Layout from '@layouts/Layout.astro';
                 return;
             }
             delete this.dataset.loading;
-            this.dataset.state = "step";
 
             await this.#set_data(await response.json());
         }
@@ -154,6 +200,7 @@ import Layout from '@layouts/Layout.astro';
                 this.#end_story.innerText = node.message;
                 this.#summary.innerText = node.summary;
             } else {
+                this.dataset.state = "step";
                 this.#story.innerText = node.message;
                 for (const [i, option] of node.options.entries()) {
                     const button = document.createElement("button");
@@ -166,40 +213,75 @@ import Layout from '@layouts/Layout.astro';
                 }
             }
 
-            this.dataset.image = "loading";
-            this.#images.forEach( i => i.src = "https://i.pinimg.com/originals/19/09/f9/1909f9e57aca7d81ab5cbb50b9a7a069.gif");
+            if (node.image) {
+                this.#images.forEach(i => i.src = `data:image/png;base64,${node.image}`);
+            } else {
+                this.dataset.image = "loading";
+                this.#images.forEach( i => i.src = "https://i.pinimg.com/originals/19/09/f9/1909f9e57aca7d81ab5cbb50b9a7a069.gif");
 
-            const response = await fetch(`${url}/image`, {
-                method: "POST",
-                body: JSON.stringify({ jwt: this.#jwt })
-            });
+                const response = await fetch(`${url}/image`, {
+                    method: "POST",
+                    body: JSON.stringify({ jwt: this.#jwt })
+                });
 
-            if (!response.ok) {
-                alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
-                return;
+                if (!response.ok) {
+                    alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
+                    return;
+                }
+
+                delete this.dataset.image;
+
+                const image = await response.text();
+                this.#images.forEach(i => i.src = `data:image/png;base64,${image}`);
+                node.image = image;
             }
 
-            delete this.dataset.image;
-            const image = await response.text();
-            this.#images.forEach(i => i.src = `data:image/png;base64,${image}`);
+            if (node.end) {
+                localStorage.removeItem("node");
+            } else {
+                localStorage.setItem("node", JSON.stringify(node));
+            }
+        }
+
+        #can_continue(): boolean {
+            return localStorage.getItem("node") !== null;
+        }
+
+        async #continue() {
+            const node: Node = JSON.parse(localStorage.getItem("node") ?? "{}");
+
+            this.#play_music();
+
+            return this.#set_data(node);
         }
 
 		constructor() {
 			super();
 
-            this.#images        = document.querySelectorAll(".image")    as NodeListOf<HTMLImageElement>;
-            this.#story         = document.querySelector(".story")       as HTMLSpanElement;
-            this.#options       = document.querySelector(".options")     as HTMLDivElement;
-            this.#start_buttons = document.querySelectorAll(".bstart")   as NodeListOf<HTMLButtonElement>;
-            this.#step_number   = document.querySelector(".step_number") as HTMLElement;
-            this.#end_story     = document.querySelector(".end_story")   as HTMLSpanElement;
-            this.#summary       = document.querySelector(".summary")     as HTMLSpanElement;
-            this.#available     = document.querySelector(".available")   as HTMLSpanElement;
+            this.#images          = document.querySelectorAll(".image")    as NodeListOf<HTMLImageElement>;
+            this.#volume          = document.querySelector(".volume")      as HTMLInputElement;
+            this.#story           = document.querySelector(".story")       as HTMLSpanElement;
+            this.#options         = document.querySelector(".options")     as HTMLDivElement;
+            this.#continue_button = document.querySelector(".continue")    as HTMLButtonElement;
+            this.#start_buttons   = document.querySelectorAll(".bstart")   as NodeListOf<HTMLButtonElement>;
+            this.#step_number     = document.querySelector(".step_number") as HTMLElement;
+            this.#end_story       = document.querySelector(".end_story")   as HTMLSpanElement;
+            this.#summary         = document.querySelector(".summary")     as HTMLSpanElement;
+            this.#available       = document.querySelector(".available")   as HTMLSpanElement;
 
             this.#start_buttons.forEach(e => {
                e.onclick = () => this.#start(); 
             });
 
+            if (this.#can_continue()) {
+                this.#continue_button.onclick = () => this.#continue();
+                this.#continue_button.classList.remove("hidden");
+            }
+
+            this.#volume.onchange = (event: Event) => {
+                const target = event.target as HTMLInputElement;
+                this.#set_volume(parseFloat(target.value));
+            }
 
             ready(() => {
                 this.#init();  
@@ -250,11 +332,6 @@ import Layout from '@layouts/Layout.astro';
         border-radius: 50%;
         filter: blur(2px);
     }
-
-    // [data-loading] :where(.options, .start) {
-    //     pointer-events: none;
-    //     filter: brightness(0.6);
-    // }
 
     .start h2 {
         margin-bottom: 1rem;
@@ -307,6 +384,19 @@ import Layout from '@layouts/Layout.astro';
         }
     }
 
+    ._volume {
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+        img {
+            height: 2rem;
+            aspect-ratio: 1/1;
+        }
+    }
+
     .story {
         margin-block: 2rem;
     }
@@ -338,6 +428,11 @@ import Layout from '@layouts/Layout.astro';
         align-items: stretch;
         gap: .75rem;
 
+
+        .hidden {
+            display: none;
+        }
+
         :global(button) {
             text-align: start;
             font-weight: bold;
@@ -361,7 +456,6 @@ import Layout from '@layouts/Layout.astro';
             }
 
             &:not(:disabled) {
-
                 :not([data-loading]) &:hover {
                     background: linear-gradient(to right, transparent 1rem, var(--accent-color) 1rem, transparent);
                     &::before {
@@ -392,7 +486,6 @@ import Layout from '@layouts/Layout.astro';
         margin-block: 2rem;
         display: block;
     }
-
 
 	@keyframes glare {
 		from {
