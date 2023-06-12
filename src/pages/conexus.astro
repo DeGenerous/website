@@ -112,6 +112,10 @@ import Layout from '@layouts/Layout.astro';
         #track: number;
         #audio: HTMLAudioElement;
 
+        #set_volume() {
+            this.#audio.volume = parseFloat(this.#volume.value);
+        }
+
         #play_music() {
             let queue: number[] = JSON.parse(localStorage.getItem("queue") ?? "[]");
             const volume = parseFloat(localStorage.getItem("volume") ?? "0.1");
@@ -124,14 +128,10 @@ import Layout from '@layouts/Layout.astro';
             localStorage.setItem("queue", JSON.stringify(queue));
 
             this.#audio = new Audio("/music/coNexus/" + tracks[this.#track]);
-            this.#audio.volume = volume;
+            this.#set_volume();
             this.#audio.play();
 
             this.#audio.onended = () => this.#play_music();
-        }
-
-        #set_volume(volume: number) {
-            this.#audio.volume = volume;
         }
 
         async #init() {
@@ -278,10 +278,7 @@ import Layout from '@layouts/Layout.astro';
                 this.#continue_button.classList.remove("hidden");
             }
 
-            this.#volume.onchange = (event: Event) => {
-                const target = event.target as HTMLInputElement;
-                this.#set_volume(parseFloat(target.value));
-            }
+            this.#volume.onchange = () => this.#set_volume();
 
             ready(() => {
                 this.#init();  
