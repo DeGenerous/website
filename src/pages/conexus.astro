@@ -163,6 +163,7 @@ import Layout from '@layouts/Layout.astro';
 
             if (!response.ok) {
                 alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
+                localStorage.removeItem("node");
                 return;
             }
             delete this.dataset.loading;
@@ -183,6 +184,7 @@ import Layout from '@layouts/Layout.astro';
 
             if (!response.ok) {
                 alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
+                localStorage.removeItem("node");
                 return;
             }
 
