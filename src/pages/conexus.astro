@@ -17,11 +17,11 @@ import Layout from '@layouts/Layout.astro';
                             <p>Within CoNexus, you will transcend the boundaries of reality as we know it, delving into alternate dimensions where you possess the remarkable ability to shape and influence the outcome of pivotal moments from the past, present, and future.</p>
                             <p>Your primary objective in this extraordinary realm is to survive the challenges that await you, navigating through a rich tapestry of possibilities. Additionally, strive to acquire as many traits as you can, as it can help evolve your avatar in a multiverse-spanning story.</p>
                             <p>Your choices and actions will shape the course of your own unique narrative. Get ready to explore, conquer, and immerse yourself in a world without limits.</p>
-                            <strong class="available">Daily stories played: </strong>
+                            <strong class="available">Daily stories played: 0/0</strong>
                         </span>
                         <div class="buttons">
                             <!-- <button class="c continue hidden">Continue last game</button> -->
-                            <button class="c bstart">Explore the Multiverse</button>
+                            <button class="c bstart" disabled>Explore the Multiverse</button>
                         </div>
                     </div>
                     <div class="step">
@@ -155,10 +155,16 @@ import Layout from '@layouts/Layout.astro';
 
             const {used, available, bonus}: Available = await response.json();
 
-            this.#available.innerText = `Daily stories played: ${used} / ${available + bonus}`;
+            let played = `Daily stories played: ${used} / ${available}`;
 
-            if (used >= available + bonus) {
-                this.#start_buttons.forEach( b => b.disabled = true);
+            if (bonus > 0) {
+                played += `\nRemaining bonus games: ${bonus}`
+            }
+
+            this.#available.innerText = played;
+
+            if (used <= available + bonus) {
+                this.#start_buttons.forEach( b => b.disabled = false);
             }
         }
 
