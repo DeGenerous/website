@@ -20,7 +20,7 @@ import Layout from '@layouts/Layout.astro';
                             <strong class="available">Daily stories played: </strong>
                         </span>
                         <div class="buttons">
-                            <button class="c continue hidden">Continue last game</button>
+                            <!-- <button class="c continue hidden">Continue last game</button> -->
                             <button class="c bstart">Explore the Multiverse</button>
                         </div>
                     </div>
@@ -77,6 +77,7 @@ import Layout from '@layouts/Layout.astro';
     type Available = {
         available: number,
 		used:      number,
+        bonus:     number,
     }
 
     const url = import.meta.env.PUBLIC_BACKEND;
@@ -101,7 +102,7 @@ import Layout from '@layouts/Layout.astro';
         #volume:          HTMLInputElement;
         #story:           HTMLSpanElement;
         #options:         HTMLDivElement;
-        #continue_button: HTMLButtonElement;
+        // #continue_button: HTMLButtonElement;
         #start_buttons:   NodeListOf<HTMLButtonElement>;
         #step_number:     HTMLElement;
         #end_story:       HTMLSpanElement;
@@ -144,11 +145,11 @@ import Layout from '@layouts/Layout.astro';
                 return;
             }
 
-            const {used, available}: Available = await response.json()
+            const {used, available, bonus}: Available = await response.json();
 
-            this.#available.innerText = `Daily stories played: ${used} / ${available}`
+            this.#available.innerText = `Daily stories played: ${used} / ${available + bonus}`;
 
-            if (used >= available) {
+            if (used >= available + bonus) {
                 this.#start_buttons.forEach( b => b.disabled = true);
             }
         }
@@ -163,6 +164,7 @@ import Layout from '@layouts/Layout.astro';
 
             if (!response.ok) {
                 alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
+                localStorage.removeItem("node");
                 return;
             }
             delete this.dataset.loading;
@@ -183,6 +185,7 @@ import Layout from '@layouts/Layout.astro';
 
             if (!response.ok) {
                 alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
+                localStorage.removeItem("node");
                 return;
             }
 
@@ -262,7 +265,7 @@ import Layout from '@layouts/Layout.astro';
             this.#volume          = document.querySelector(".volume")      as HTMLInputElement;
             this.#story           = document.querySelector(".story")       as HTMLSpanElement;
             this.#options         = document.querySelector(".options")     as HTMLDivElement;
-            this.#continue_button = document.querySelector(".continue")    as HTMLButtonElement;
+            // this.#continue_button = document.querySelector(".continue")    as HTMLButtonElement;
             this.#start_buttons   = document.querySelectorAll(".bstart")   as NodeListOf<HTMLButtonElement>;
             this.#step_number     = document.querySelector(".step_number") as HTMLElement;
             this.#end_story       = document.querySelector(".end_story")   as HTMLSpanElement;
@@ -273,10 +276,10 @@ import Layout from '@layouts/Layout.astro';
                e.onclick = () => this.#start(); 
             });
 
-            if (this.#can_continue()) {
-                this.#continue_button.onclick = () => this.#continue();
-                this.#continue_button.classList.remove("hidden");
-            }
+            // if (this.#can_continue()) {
+            //     this.#continue_button.onclick = () => this.#continue();
+            //     this.#continue_button.classList.remove("hidden");
+            // }
 
             this.#volume.onchange = () => this.#set_volume();
 
