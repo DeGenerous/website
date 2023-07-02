@@ -28,9 +28,15 @@ import Layout from '@layouts/Layout.astro';
                         <div class="image-wrapper">
                             <img class="image" alt="">
                         </div>
-                        <div class="_volume">
-                            <img src="/icons/volume.svg" alt="Change backround music volume">
-                            <input class="volume" type="range" min="0" max="1" step="0.01" value="0.2">
+                        <div class="controls">
+                            <div class="_volume">
+                                <img src="/icons/volume.svg" alt="Change backround music volume">
+                                <input class="volume" type="range" min="0" max="1" step="0.01" value="0.2">
+                            </div>
+                            <button class="c fullscreen">
+                                <img src="/icons/fullscreen.svg" class="fullscreen_enter" alt="Enter fullscreen">
+                                <img src="/icons/fullscreen_exit.svg" class="fullscreen_exit" alt="Exit fullscreen">
+                            </button>
                         </div>
                         <span class="story"></span>
                         <div class="heading">
@@ -65,6 +71,7 @@ import Layout from '@layouts/Layout.astro';
     import { ready } from "@lib/auth";
 
     type Node = {
+        id:      string,
         jwt:     string,
         message: string,
         options: string[],
@@ -100,6 +107,7 @@ import Layout from '@layouts/Layout.astro';
 	class Connexus extends HTMLElement {
         #images:          NodeListOf<HTMLImageElement>;
         #volume:          HTMLInputElement;
+        #fullscreen:      HTMLButtonElement;
         #story:           HTMLSpanElement;
         #options:         HTMLDivElement;
         // #continue_button: HTMLButtonElement;
@@ -246,6 +254,14 @@ import Layout from '@layouts/Layout.astro';
             }
         }
 
+        #toggle_fullscreen() {
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+            } else {
+                document.querySelector("main")?.requestFullscreen();
+            }
+        }
+
         #can_continue(): boolean {
             return localStorage.getItem("node") !== null;
         }
@@ -263,6 +279,7 @@ import Layout from '@layouts/Layout.astro';
 
             this.#images          = document.querySelectorAll(".image")    as NodeListOf<HTMLImageElement>;
             this.#volume          = document.querySelector(".volume")      as HTMLInputElement;
+            this.#fullscreen      = document.querySelector(".fullscreen")  as HTMLButtonElement;
             this.#story           = document.querySelector(".story")       as HTMLSpanElement;
             this.#options         = document.querySelector(".options")     as HTMLDivElement;
             // this.#continue_button = document.querySelector(".continue")    as HTMLButtonElement;
@@ -282,6 +299,7 @@ import Layout from '@layouts/Layout.astro';
             // }
 
             this.#volume.onchange = () => this.#set_volume();
+            this.#fullscreen.onclick = () => this.#toggle_fullscreen();
 
             ready(() => {
                 this.#init();  
@@ -384,17 +402,40 @@ import Layout from '@layouts/Layout.astro';
         }
     }
 
-    ._volume {
-        margin-top: 2rem;
+    .controls {
         display: flex;
         align-items: center;
-        justify-content: center;
-        gap: 1rem;
+        justify-content: space-between;
+        margin-top: 2rem;
 
         img {
             height: 2rem;
             aspect-ratio: 1/1;
         }
+
+        button {
+            cursor: pointer;
+
+            &:hover {
+                filter: brightness(0.7);
+            }
+        }
+
+        .fullscreen_enter { display: initial; }
+        .fullscreen_exit  { display: none;    }
+
+        @media all and (display-mode: fullscreen) {
+            .fullscreen_enter { display: none;    }
+            .fullscreen_exit  { display: initial; }
+        }
+
+    }
+
+    ._volume {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
     }
 
     .story {
