@@ -11,7 +11,7 @@
 	},
 	"dependencies": {
 		"@metamask/detect-provider": "^2.0.0",
-		"astro": "^2.7.2",
+		"astro": "^2.7.3",
 		"ethers": "^5.7.2"
 	},
 	"devDependencies": {

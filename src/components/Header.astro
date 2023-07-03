@@ -82,7 +82,9 @@ function isLink(object: any): object is HeaderLink {
 
 <custom-header>
 	<header>
-		<div class="title">DeGenerous</div>
+		<div class="title">
+			<a class="c" href="/#">DeGenerous</a>
+		</div>
 		<div class="close"></div>
 		<nav>
 			<ul class="outer">
@@ -296,6 +298,11 @@ function isLink(object: any): object is HeaderLink {
 			color: var(--fg-color);
 			text-decoration: underline 2px solid var(--fg-color);
 			filter: none;
+		}
+
+		.title a:where(:hover, :focus-within) {
+			text-decoration: none;
+			background-color: var(--bg-color-transparent);
 		}
 
 		.sublist:where(:hover, :focus-within) {
