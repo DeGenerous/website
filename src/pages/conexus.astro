@@ -54,6 +54,17 @@ import Layout from '@layouts/Layout.astro';
                         <h2>The story has ended. Here is the summary of your adventure:</h2>
                         <span class="summary"></span>
                         <div class="buttons">
+                            <button class="c bhome">Back to homepage</button>
+                            <button class="c bstart">Start new journey</button>
+                        </div>
+                    </div>
+                    <div class="error">
+                        <div class="image-wrapper">
+                            <img class="image" alt="">
+                        </div>
+                        <span class="error_message"></span>
+                        <div class="buttons">
+                            <button class="c bhome">Back to homepage</button>
                             <button class="c bstart">Start new journey</button>
                         </div>
                     </div>
@@ -87,6 +98,11 @@ import Layout from '@layouts/Layout.astro';
         bonus:     number,
     }
 
+    type Error = {
+        code: number,
+		text: string,
+    }
+
     const url = import.meta.env.PUBLIC_BACKEND;
     const tracks = ["track01.mp3", "track02.mp3", "track03.mp3"];
 
@@ -112,10 +128,12 @@ import Layout from '@layouts/Layout.astro';
         #options:         HTMLDivElement;
         // #continue_button: HTMLButtonElement;
         #start_buttons:   NodeListOf<HTMLButtonElement>;
+        #home_buttons:   NodeListOf<HTMLButtonElement>;
         #step_number:     HTMLElement;
         #end_story:       HTMLSpanElement;
         #summary:         HTMLSpanElement;
         #available:       HTMLSpanElement;
+        #error:           HTMLSpanElement;
 
         #jwt:   string;
         #track: number;
@@ -149,7 +167,7 @@ import Layout from '@layouts/Layout.astro';
             });
 
             if (!response.ok) {
-                alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
+                this.#set_error({code: response.status, text: await response.text()});
                 return;
             }
 
@@ -168,6 +186,23 @@ import Layout from '@layouts/Layout.astro';
             }
         }
 
+        async #set_error(error: Error) {
+            const errors = [
+                "Warning: The CoNexus Multiversal Interface Node has encountered a Paradox Rift issue and destabilized your systems.The parallel universe you were exploring has imploded and ceased to exist. Congratulations, you have successfully destroyed an entire universe.",
+                "Warning: The Architect’s minions have traced your CoNexus signal and have hijacked your control processor. Agents are being dispatched to your current location. "
+            ];
+
+            this.dataset.state = "error";
+            this.#error.innerText = errors[Math.floor(Math.random() * errors.length)] + `\n\nError ${error.code}:\n${error.text}`;
+            this.#images.forEach(i => i.src = `/images/error.png`);
+            delete this.dataset.loading;
+        }
+
+
+        #home() {
+            location.reload();
+        }
+
         async #start() {
             this.#play_music();
 
@@ -177,7 +212,7 @@ import Layout from '@layouts/Layout.astro';
             });
 
             if (!response.ok) {
-                alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
+                this.#set_error({code: response.status, text: await response.text()});
                 localStorage.removeItem("node");
                 return;
             }
@@ -198,7 +233,7 @@ import Layout from '@layouts/Layout.astro';
             delete this.dataset.loading;
 
             if (!response.ok) {
-                alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
+                this.#set_error({code: response.status, text: await response.text()});
                 localStorage.removeItem("node");
                 return;
             }
@@ -242,7 +277,7 @@ import Layout from '@layouts/Layout.astro';
                 });
 
                 if (!response.ok) {
-                    alert(`Server responded with status: ${response.status}\nError: ${await response.text()}`);
+                    this.#set_error({code: response.status, text: await response.text()});
                     return;
                 }
 
@@ -283,20 +318,26 @@ import Layout from '@layouts/Layout.astro';
 		constructor() {
 			super();
 
-            this.#images          = document.querySelectorAll(".image")    as NodeListOf<HTMLImageElement>;
-            this.#volume          = document.querySelector(".volume")      as HTMLInputElement;
-            this.#fullscreen      = document.querySelector(".fullscreen")  as HTMLButtonElement;
-            this.#story           = document.querySelector(".story")       as HTMLSpanElement;
-            this.#options         = document.querySelector(".options")     as HTMLDivElement;
+            this.#images          = document.querySelectorAll(".image")      as NodeListOf<HTMLImageElement>;
+            this.#volume          = document.querySelector(".volume")        as HTMLInputElement;
+            this.#fullscreen      = document.querySelector(".fullscreen")    as HTMLButtonElement;
+            this.#story           = document.querySelector(".story")         as HTMLSpanElement;
+            this.#options         = document.querySelector(".options")       as HTMLDivElement;
             // this.#continue_button = document.querySelector(".continue")    as HTMLButtonElement;
-            this.#start_buttons   = document.querySelectorAll(".bstart")   as NodeListOf<HTMLButtonElement>;
-            this.#step_number     = document.querySelector(".step_number") as HTMLElement;
-            this.#end_story       = document.querySelector(".end_story")   as HTMLSpanElement;
-            this.#summary         = document.querySelector(".summary")     as HTMLSpanElement;
-            this.#available       = document.querySelector(".available")   as HTMLSpanElement;
+            this.#start_buttons   = document.querySelectorAll(".bstart")     as NodeListOf<HTMLButtonElement>;
+            this.#home_buttons    = document.querySelectorAll(".bhome")      as NodeListOf<HTMLButtonElement>;
+            this.#step_number     = document.querySelector(".step_number")   as HTMLElement;
+            this.#end_story       = document.querySelector(".end_story")     as HTMLSpanElement;
+            this.#summary         = document.querySelector(".summary")       as HTMLSpanElement;
+            this.#available       = document.querySelector(".available")     as HTMLSpanElement;
+            this.#error           = document.querySelector(".error_message") as HTMLSpanElement;
 
             this.#start_buttons.forEach(e => {
                e.onclick = () => this.#start(); 
+            });
+
+            this.#home_buttons.forEach(e => {
+               e.onclick = () => this.#home(); 
             });
 
             // if (this.#can_continue()) {
@@ -338,7 +379,7 @@ import Layout from '@layouts/Layout.astro';
         align-items: flex-start;
     }
 
-    $options: "start", "step", "end";
+    $options: "start", "step", "end", "error";
 
     @each $option in $options {
         [data-state=#{$option}] > :not(.#{$option}) {
@@ -367,9 +408,10 @@ import Layout from '@layouts/Layout.astro';
         display: block;
     }
 
-    .step, .end {
+    .step, .end, .error {
         display: flex;
         flex-direction: column;
+        width: 100%;
     }
 
     .image:not([src]) {
@@ -530,7 +572,7 @@ import Layout from '@layouts/Layout.astro';
         }
     }
 
-    .end_story, .summary {
+    .end_story, .summary, .error_message {
         margin-block: 2rem;
         display: block;
     }
