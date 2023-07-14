@@ -4,14 +4,24 @@ import Section from "@components/Section.astro";
 
 <Section id="arks" width="full">
 	<h2>Take control of your own destiny and unlock your true potential. <strong>#builtdifferent</strong></h2>
-	<h1>Inception Arks</h1>
+	<h1>Inception Arks and Potentials</h1>
 
 	<ul class="arks">
-		{Array.from({length: 6}, (_, i) => i + 1).map( (i: number) => (
-			<li data-details={`Ark`}>
-				<img src={`/images/ark${i}.jpg`} alt="Arc" />
-			</li>
-		))}
+		<li data-details="Spy">
+			<img src={`/images/spy.jpg`} alt="Spy" />
+		</li>
+		<li data-details="Engeneer">
+			<img src={`/images/engeneer.jpg`} alt="Engeneer" />
+		</li>
+		<li data-details="Oracle">
+			<img src={`/images/oracle.jpg`} alt="Oracle" />
+		</li>
+		<li data-details="Assassin">
+			<img src={`/images/assassin.jpg`} alt="Assassin" />
+		</li>
+		<li data-details="Soldier">
+			<img src={`/images/soldier.jpg`} alt="Soldier" />
+		</li>
 	</ul>
 
 	<p>DeGenerous DAO is launching the Potentials collection. Beginning as Inception Arks minted multi-chain and for a charity raise, Potentials will evolve based on decisions you make as a part of the Dischordian Saga, a multiverse-spanning story that the community controls.</p>

@@ -72,7 +72,15 @@ import Layout from '@layouts/Layout.astro';
                 </connexus-component>
             </Section>
             <Section title="CoNexus" gap slot="no">
-                <h2>To access CoNexus please connect your wallet</h2>
+                <span class="about">
+                    <p>Welcome to CoNexus, an immersive and dynamic interactive story game that serves as your personal gateway to a boundless multiverse. Powered by cutting-edge artificial intelligence, CoNexus seamlessly generates captivating narratives and vivid visuals in real-time, offering you an unparalleled journey into infinite and truly one-of-a-kind experiences.</p>
+                    <p>During each loading animation, it's the AI that is coming up in real-time with the story text, choices presented, and the picture generated. Due to this live factor, nobody can rig it, or know how the story will develop, and there's endless possibilities.</p>
+                    <p>Within CoNexus, you will transcend the boundaries of reality as we know it, delving into alternate dimensions where you possess the remarkable ability to shape and influence the outcome of pivotal moments from the past, present, and future.</p>
+                    <p>Your primary objective in this extraordinary realm is to survive the challenges that await you, navigating through a rich tapestry of possibilities. Additionally, strive to acquire as many traits as you can, as it can help evolve your avatar in a multiverse-spanning story.</p>
+                    <p>Your choices and actions will shape the course of your own unique narrative. Get ready to explore, conquer, and immerse yourself in a world without limits.</p>
+                </span>
+
+                <h2 class="connect">To access CoNexus please connect your wallet</h2>
             </Section>
         </LoginProvider>
     </main>
@@ -371,6 +379,10 @@ import Layout from '@layouts/Layout.astro';
         background-color: rgba(0,0,0,0.7);
         padding-bottom: 5rem;
         overflow-y: auto;
+    }
+
+    .connect {
+        font-size: 2rem;
     }
 
     connexus-component {
