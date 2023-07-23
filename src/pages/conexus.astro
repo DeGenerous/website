@@ -62,7 +62,7 @@ import Layout from '@layouts/Layout.astro';
                         <span class="end_story"></span>
                         <h2>The story has ended. Here is the summary of your adventure:</h2>
                         <span class="summary"></span>
-                        <h2>AI has identified you as: <span class="trait"></span></h2>
+                        <h2 class="trait-heading">AI has identified you as: <span class="trait"></span></h2>
                         <div class="buttons">
                             <button class="c bhome">Back to homepage</button>
                             <button class="c bstart">Start new journey</button>
@@ -646,6 +646,10 @@ import Layout from '@layouts/Layout.astro';
                 }
             }
         }
+    }
+
+    .trait-heading {
+        margin-bottom: 2rem;
     }
 
     .end_story, .summary, .error_message {
