@@ -17,7 +17,7 @@ import Layout from '@layouts/Layout.astro';
                             <p>Within CoNexus, you will transcend the boundaries of reality as we know it, delving into alternate dimensions where you possess the remarkable ability to shape and influence the outcome of pivotal moments from the past, present, and future.</p>
                             <p>Your primary objective in this extraordinary realm is to survive the challenges that await you, navigating through a rich tapestry of possibilities. Additionally, strive to acquire as many traits as you can, as it can help evolve your avatar in a multiverse-spanning story.</p>
                             <p>Your choices and actions will shape the course of your own unique narrative. Get ready to explore, conquer, and immerse yourself in a world without limits.</p>
-                            <strong class="available">Daily stories played: 0/0</strong>
+                            <strong class="available">Daily stories played:</strong>
                         </span>
                         <div class="buttons">
                             <!-- <button class="c continue hidden">Continue last game</button> -->
@@ -30,9 +30,18 @@ import Layout from '@layouts/Layout.astro';
                         </div>
                         <div class="controls">
                             <div class="_volume">
-                                <img src="/icons/volume.svg" alt="Change backround music volume">
-                                <input class="volume" type="range" min="0" max="1" step="0.01" value="0.2">
+                                <button class="c bg-mute">
+                                    <img src="/icons/volume.svg" alt="Change backround music volume">
+                                </button>
+                                <input class="bg-volume" type="range" min="0" max="1" step="0.01" value="0.1">
                             </div>
+                            <div class="_volume">
+                                <button class="c tts-mute">
+                                    <img class=""src="/icons/text_to_speech.svg" alt="Change text to speech volume">
+                                </button>
+                                <input class="tts-volume" type="range" min="0" max="1" step="0.01" value="0.1">
+                            </div>
+                            <div class="spacer"></div>
                             <button class="c fullscreen">
                                 <img src="/icons/fullscreen.svg" class="fullscreen_enter" alt="Enter fullscreen">
                                 <img src="/icons/fullscreen_exit.svg" class="fullscreen_exit" alt="Exit fullscreen">
@@ -53,6 +62,7 @@ import Layout from '@layouts/Layout.astro';
                         <span class="end_story"></span>
                         <h2>The story has ended. Here is the summary of your adventure:</h2>
                         <span class="summary"></span>
+                        <h2>AI has identified you as: <span class="trait"></span></h2>
                         <div class="buttons">
                             <button class="c bhome">Back to homepage</button>
                             <button class="c bstart">Start new journey</button>
@@ -97,6 +107,7 @@ import Layout from '@layouts/Layout.astro';
         end:     boolean,
         summary: string,
         step:    number,
+        trait:   string,
         image?:  string,
     }
 
@@ -130,7 +141,10 @@ import Layout from '@layouts/Layout.astro';
 
 	class Connexus extends HTMLElement {
         #images:          NodeListOf<HTMLImageElement>;
-        #volume:          HTMLInputElement;
+        #bg_mute:         HTMLButtonElement;
+        #bg_volume:       HTMLInputElement;
+        #tts_mute:         HTMLButtonElement;
+        #tts_volume:      HTMLInputElement;
         #fullscreen:      HTMLButtonElement;
         #story:           HTMLSpanElement;
         #options:         HTMLDivElement;
@@ -140,20 +154,31 @@ import Layout from '@layouts/Layout.astro';
         #step_number:     HTMLElement;
         #end_story:       HTMLSpanElement;
         #summary:         HTMLSpanElement;
+        #trait:           HTMLSpanElement;
         #available:       HTMLSpanElement;
         #error:           HTMLSpanElement;
 
-        #jwt:   string;
-        #track: number;
-        #audio: HTMLAudioElement;
+        #jwt:      string;
+        #track:    number;
+        #bg_audio: HTMLAudioElement;
+        #tts_audio:HTMLAudioElement;
 
-        #set_volume() {
-            this.#audio.volume = parseFloat(this.#volume.value);
+        #set_bg_volume(volume?: number) {
+            const v = typeof volume != "undefined" ? volume : parseFloat(this.#bg_volume.value);
+            this.#bg_volume.value = `${v}`;
+            this.#bg_audio.volume = v;
+            localStorage.setItem("bg_volume", `${v}`);
+        }
+
+        #set_tts_volume(volume?: number) {
+            const v = typeof volume != "undefined" ? volume : parseFloat(this.#tts_volume.value);
+            this.#tts_volume.value = `${v}`;
+            this.#tts_audio.volume = v;
+            localStorage.setItem("tts_volume", `${v}`);
         }
 
         #play_music() {
             let queue: number[] = JSON.parse(localStorage.getItem("queue") ?? "[]");
-            const volume = parseFloat(localStorage.getItem("volume") ?? "0.1");
 
             if (queue.length === 0) {
                 queue = shuffle([...tracks.keys()]);
@@ -162,14 +187,16 @@ import Layout from '@layouts/Layout.astro';
             this.#track = queue.shift() ?? 0;
             localStorage.setItem("queue", JSON.stringify(queue));
 
-            this.#audio = new Audio("/music/coNexus/" + tracks[this.#track]);
-            this.#set_volume();
-            this.#audio.play();
+            this.#bg_audio = new Audio("/music/coNexus/" + tracks[this.#track]);
+            this.#set_bg_volume();
+            this.#bg_audio.play();
 
-            this.#audio.onended = () => this.#play_music();
+            this.#bg_audio.onended = () => this.#play_music();
         }
 
         async #init() {
+            this.#bg_volume.value = localStorage.getItem("bg_volume") ?? "0.1";
+            this.#tts_volume.value = localStorage.getItem("tts_volume") ?? "0.3";
             const response = await fetch(`${url}/available`, {
                 method: "POST",
             });
@@ -197,7 +224,7 @@ import Layout from '@layouts/Layout.astro';
         async #set_error(error: Error) {
             const errors = [
                 "Warning: The CoNexus Multiversal Interface Node has encountered a Paradox Rift issue and destabilized your systems.The parallel universe you were exploring has imploded and ceased to exist. Congratulations, you have successfully destroyed an entire universe.",
-                "Warning: The Architect’s minions have traced your CoNexus signal and have hijacked your control processor. Agents are being dispatched to your current location. "
+                "Warning: The Architect’s minions have traced your CoNexus signal and have hijacked your control processor. Agents are being dispatched to your current location."
             ];
 
             this.dataset.state = "error";
@@ -259,6 +286,7 @@ import Layout from '@layouts/Layout.astro';
                 this.dataset.state = "end";
                 this.#end_story.innerText = node.message;
                 this.#summary.innerText = node.summary;
+                this.#trait.innerText = node.trait;
             } else {
                 this.dataset.state = "step";
                 this.#story.innerText = node.message;
@@ -272,6 +300,8 @@ import Layout from '@layouts/Layout.astro';
                     this.#options.appendChild(button);
                 }
             }
+
+            await this.#tts();
 
             if (node.image) {
                 this.#images.forEach(i => i.src = `data:image/png;base64,${node.image}`);
@@ -303,6 +333,29 @@ import Layout from '@layouts/Layout.astro';
             }
         }
 
+        async #tts() {
+            const response = await fetch(`${url}/tts`, {
+                method: "POST",
+                body: JSON.stringify({ jwt: this.#jwt })
+            });
+
+
+            if (!response.ok) {
+                this.#set_error({code: response.status, text: await response.text()});
+                return;
+            }
+
+            if (this.#tts_audio != null) {
+                this.#tts_audio.pause();
+                this.#tts_audio.remove();
+            }
+
+            this.#tts_audio = new Audio();
+            this.#tts_audio.src = window.URL.createObjectURL(await response.blob());
+            this.#set_tts_volume();
+            this.#tts_audio.play();
+        }
+
         #toggle_fullscreen() {
             if (document.fullscreenElement) {
                 document.exitFullscreen();
@@ -327,7 +380,10 @@ import Layout from '@layouts/Layout.astro';
 			super();
 
             this.#images          = document.querySelectorAll(".image")      as NodeListOf<HTMLImageElement>;
-            this.#volume          = document.querySelector(".volume")        as HTMLInputElement;
+            this.#bg_mute         = document.querySelector(".bg-mute")       as HTMLButtonElement;
+            this.#bg_volume       = document.querySelector(".bg-volume")     as HTMLInputElement;
+            this.#tts_mute        = document.querySelector(".tts-mute")      as HTMLButtonElement;
+            this.#tts_volume      = document.querySelector(".tts-volume")    as HTMLInputElement;
             this.#fullscreen      = document.querySelector(".fullscreen")    as HTMLButtonElement;
             this.#story           = document.querySelector(".story")         as HTMLSpanElement;
             this.#options         = document.querySelector(".options")       as HTMLDivElement;
@@ -337,6 +393,7 @@ import Layout from '@layouts/Layout.astro';
             this.#step_number     = document.querySelector(".step_number")   as HTMLElement;
             this.#end_story       = document.querySelector(".end_story")     as HTMLSpanElement;
             this.#summary         = document.querySelector(".summary")       as HTMLSpanElement;
+            this.#trait           = document.querySelector(".trait")         as HTMLSpanElement;
             this.#available       = document.querySelector(".available")     as HTMLSpanElement;
             this.#error           = document.querySelector(".error_message") as HTMLSpanElement;
 
@@ -353,7 +410,10 @@ import Layout from '@layouts/Layout.astro';
             //     this.#continue_button.classList.remove("hidden");
             // }
 
-            this.#volume.onchange = () => this.#set_volume();
+            this.#bg_mute.onclick = () => this.#set_bg_volume(0);
+            this.#bg_volume.onchange = () => this.#set_bg_volume();
+            this.#tts_mute.onclick = () => this.#set_tts_volume(0);
+            this.#tts_volume.onchange = () => this.#set_tts_volume();
             this.#fullscreen.onclick = () => this.#toggle_fullscreen();
 
             ready(() => {
@@ -466,8 +526,12 @@ import Layout from '@layouts/Layout.astro';
     .controls {
         display: flex;
         align-items: center;
-        justify-content: space-between;
         margin-top: 2rem;
+        gap: 3rem;
+
+        .spacer {
+            flex-grow: 1;
+        }
 
         img {
             height: 2rem;
