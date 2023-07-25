@@ -19,9 +19,10 @@ import Layout from '@layouts/Layout.astro';
                             <p>Your choices and actions will shape the course of your own unique narrative. Get ready to explore, conquer, and immerse yourself in a world without limits.</p>
                             <strong class="available">Daily stories played:</strong>
                         </span>
-                        <div class="buttons">
-                            <!-- <button class="c continue hidden">Continue last game</button> -->
-                            <button class="c bstart" disabled>Explore the Multiverse</button>
+                        <h2>Choose your adventure</h2>
+                        <div class="buttons start-buttons">
+                            <button class="c escape" disabled>the Escape</button>
+                            <button class="c arena" disabled>the Arena</button>
                         </div>
                     </div>
                     <div class="step">
@@ -65,7 +66,6 @@ import Layout from '@layouts/Layout.astro';
                         <h2 class="trait-heading">AI has identified you as: <span class="trait"></span></h2>
                         <div class="buttons">
                             <button class="c bhome">Back to homepage</button>
-                            <button class="c bstart">Start new journey</button>
                         </div>
                     </div>
                     <div class="error">
@@ -75,7 +75,6 @@ import Layout from '@layouts/Layout.astro';
                         <span class="error_message"></span>
                         <div class="buttons">
                             <button class="c bhome">Back to homepage</button>
-                            <button class="c bstart">Start new journey</button>
                         </div>
                     </div>
                     <div class="spinner" onclick="(e) => e.stopPropagation()" />
@@ -98,6 +97,7 @@ import Layout from '@layouts/Layout.astro';
 
 <script>
     import { ready } from "@lib/auth";
+import { Button } from "tinacms";
 
     type Node = {
         id:      string,
@@ -115,6 +115,7 @@ import Layout from '@layouts/Layout.astro';
         available: number,
 		used:      number,
         bonus:     number,
+        classes:   string[],
     }
 
     type Error = {
@@ -140,6 +141,9 @@ import Layout from '@layouts/Layout.astro';
     }
 
 	class Connexus extends HTMLElement {
+        #escape:          HTMLButtonElement;
+        #arena:           HTMLButtonElement;
+        #start_buttons:   HTMLDivElement;
         #images:          NodeListOf<HTMLImageElement>;
         #bg_mute:         HTMLButtonElement;
         #bg_volume:       HTMLInputElement;
@@ -149,8 +153,7 @@ import Layout from '@layouts/Layout.astro';
         #story:           HTMLSpanElement;
         #options:         HTMLDivElement;
         // #continue_button: HTMLButtonElement;
-        #start_buttons:   NodeListOf<HTMLButtonElement>;
-        #home_buttons:   NodeListOf<HTMLButtonElement>;
+        #home_buttons:    NodeListOf<HTMLButtonElement>;
         #step_number:     HTMLElement;
         #end_story:       HTMLSpanElement;
         #summary:         HTMLSpanElement;
@@ -206,7 +209,7 @@ import Layout from '@layouts/Layout.astro';
                 return;
             }
 
-            const {used, available, bonus}: Available = await response.json();
+            const {used, available, bonus, classes}: Available = await response.json();
 
             let played = `Daily stories played: ${used} / ${available}`;
 
@@ -216,9 +219,17 @@ import Layout from '@layouts/Layout.astro';
 
             this.#available.innerText = played;
 
-            if (used <= available + bonus) {
-                this.#start_buttons.forEach( b => b.disabled = false);
+            if (used < available + bonus) {
+                [...this.#start_buttons.children].forEach( (b: HTMLButtonElement) => b.disabled = false);
             }
+
+            classes.forEach( e => {
+                const button = document.createElement("button");
+                button.classList.add("c");
+                button.innerText = `the ${e.charAt(0).toUpperCase() + e.slice(1)}`;
+                button.onclick = () => this.#start(e);
+                this.#start_buttons.appendChild(button);
+            })
         }
 
         async #set_error(error: Error) {
@@ -238,11 +249,14 @@ import Layout from '@layouts/Layout.astro';
             location.reload();
         }
 
-        async #start() {
+        async #start(category: string) {
             this.#play_music();
 
             this.dataset.loading = "";
             const response = await fetch(`${url}/start`, {
+                body: JSON.stringify({
+                    category: category
+                }),
                 method: "POST",
             });
 
@@ -379,6 +393,9 @@ import Layout from '@layouts/Layout.astro';
 		constructor() {
 			super();
 
+            this.#escape          = document.querySelector(".escape")        as HTMLButtonElement;
+            this.#arena           = document.querySelector(".arena")         as HTMLButtonElement;
+            this.#start_buttons   = document.querySelector(".start-buttons") as HTMLDivElement;
             this.#images          = document.querySelectorAll(".image")      as NodeListOf<HTMLImageElement>;
             this.#bg_mute         = document.querySelector(".bg-mute")       as HTMLButtonElement;
             this.#bg_volume       = document.querySelector(".bg-volume")     as HTMLInputElement;
@@ -388,7 +405,6 @@ import Layout from '@layouts/Layout.astro';
             this.#story           = document.querySelector(".story")         as HTMLSpanElement;
             this.#options         = document.querySelector(".options")       as HTMLDivElement;
             // this.#continue_button = document.querySelector(".continue")    as HTMLButtonElement;
-            this.#start_buttons   = document.querySelectorAll(".bstart")     as NodeListOf<HTMLButtonElement>;
             this.#home_buttons    = document.querySelectorAll(".bhome")      as NodeListOf<HTMLButtonElement>;
             this.#step_number     = document.querySelector(".step_number")   as HTMLElement;
             this.#end_story       = document.querySelector(".end_story")     as HTMLSpanElement;
@@ -397,9 +413,8 @@ import Layout from '@layouts/Layout.astro';
             this.#available       = document.querySelector(".available")     as HTMLSpanElement;
             this.#error           = document.querySelector(".error_message") as HTMLSpanElement;
 
-            this.#start_buttons.forEach(e => {
-               e.onclick = () => this.#start(); 
-            });
+            this.#escape.onclick = () => this.#start("escape");
+            this.#arena.onclick = () => this.#start("arena");
 
             this.#home_buttons.forEach(e => {
                e.onclick = () => this.#home(); 
