@@ -97,7 +97,6 @@ import Layout from '@layouts/Layout.astro';
 
 <script>
     import { ready } from "@lib/auth";
-import { Button } from "tinacms";
 
     type Node = {
         id:      string,
@@ -112,10 +111,11 @@ import { Button } from "tinacms";
     }
 
     type Available = {
-        available: number,
-		used:      number,
-        bonus:     number,
-        classes:   string[],
+        available:   number,
+		used:        number,
+        bonus:       number,
+        classes:     string[],
+        all_classes: string[],
     }
 
     type Error = {
@@ -209,7 +209,7 @@ import { Button } from "tinacms";
                 return;
             }
 
-            const {used, available, bonus, classes}: Available = await response.json();
+            const {used, available, bonus, classes, all_classes}: Available = await response.json();
 
             let played = `Daily stories played: ${used} / ${available}`;
 
@@ -223,11 +223,12 @@ import { Button } from "tinacms";
                 [...this.#start_buttons.children].forEach( (b: HTMLButtonElement) => b.disabled = false);
             }
 
-            classes.forEach( e => {
+            all_classes.forEach( e => {
                 const button = document.createElement("button");
                 button.classList.add("c");
                 button.innerText = `the ${e.charAt(0).toUpperCase() + e.slice(1)}`;
                 button.onclick = () => this.#start(e);
+                button.disabled = !(classes ?? []).includes(e);
                 this.#start_buttons.appendChild(button);
             })
         }
