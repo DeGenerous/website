@@ -100,13 +100,12 @@ import Layout from '@layouts/Layout.astro';
 
     type Node = {
         id:      string,
-        jwt:     string,
-        message: string,
-        options: string[],
+        step:    number,
+        story:   string,
         end:     boolean,
         summary: string,
-        step:    number,
         trait:   string,
+        options: string[],
         image?:  string,
     }
 
@@ -161,7 +160,6 @@ import Layout from '@layouts/Layout.astro';
         #available:       HTMLSpanElement;
         #error:           HTMLSpanElement;
 
-        #jwt:      string;
         #track:    number;
         #bg_audio: HTMLAudioElement;
         #tts_audio:HTMLAudioElement;
@@ -271,13 +269,13 @@ import Layout from '@layouts/Layout.astro';
             await this.#set_data(await response.json());
         }
 
-        async #respond(index: number) {
+        async #respond(id: string, index: number) {
             this.dataset.loading = "";
             const response = await fetch(`${url}/respond`, {
                 method: "POST",
                 body: JSON.stringify({
-                    jwt: this.#jwt,
-                    option: index
+                    story_id: id,
+                    choice: index
                 })
             });
             delete this.dataset.loading;
@@ -292,31 +290,29 @@ import Layout from '@layouts/Layout.astro';
         }
 
         async #set_data(node: Node) {
-            this.#jwt = node.jwt;
-
-            this.#step_number.innerText  = `Step ${(node.step < 10)? "0": ""}${node.step}`;
+            this.#step_number.innerText = `Step ${(node.step < 10)? "0": ""}${node.step}`;
 
             this.#options.replaceChildren();
             if (node.end) {
                 this.dataset.state = "end";
-                this.#end_story.innerText = node.message;
+                this.#end_story.innerText = node.story;
                 this.#summary.innerText = node.summary;
                 this.#trait.innerText = node.trait;
             } else {
                 this.dataset.state = "step";
-                this.#story.innerText = node.message;
+                this.#story.innerText = node.story;
                 for (const [i, option] of node.options.entries()) {
                     const button = document.createElement("button");
 
                     button.classList.add("c");
                     button.innerText = option;
-                    button.onclick = () => this.#respond(i + 1);
+                    button.onclick = () => this.#respond(node.id, i + 1);
 
                     this.#options.appendChild(button);
                 }
             }
 
-            await this.#tts();
+            await this.#tts(node.id);
 
             if (node.image) {
                 this.#images.forEach(i => i.src = `data:image/png;base64,${node.image}`);
@@ -326,7 +322,7 @@ import Layout from '@layouts/Layout.astro';
 
                 const response = await fetch(`${url}/image`, {
                     method: "POST",
-                    body: JSON.stringify({ jwt: this.#jwt })
+                    body: JSON.stringify({ story_id: node.id })
                 });
 
                 if (!response.ok) {
@@ -348,10 +344,10 @@ import Layout from '@layouts/Layout.astro';
             }
         }
 
-        async #tts() {
+        async #tts(story_id: string) {
             const response = await fetch(`${url}/tts`, {
                 method: "POST",
-                body: JSON.stringify({ jwt: this.#jwt })
+                body: JSON.stringify({ story_id })
             });
 
 
