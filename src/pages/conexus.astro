@@ -27,7 +27,7 @@ import Layout from '@layouts/Layout.astro';
                     </div>
                     <div class="step">
                         <div class="image-wrapper">
-                            <img class="image" alt="">
+                            <img class="image" alt="" src="">
                         </div>
                         <div class="controls">
                             <div class="_volume">
@@ -58,7 +58,7 @@ import Layout from '@layouts/Layout.astro';
                     </div>
                     <div class="end">
                         <div class="image-wrapper">
-                            <img class="image" alt="">
+                            <img class="image" alt="" src="">
                         </div>
                         <span class="end_story"></span>
                         <h2>The story has ended. Here is the summary of your adventure:</h2>
@@ -117,7 +117,7 @@ import Layout from '@layouts/Layout.astro';
         all_classes: string[],
     }
 
-    type Error = {
+    type CoNexusError = {
         code: number,
 		text: string,
     }
@@ -231,7 +231,7 @@ import Layout from '@layouts/Layout.astro';
             })
         }
 
-        async #set_error(error: Error) {
+        #set_error(error: CoNexusError) {
             const errors = [
                 "Warning: The CoNexus Multiversal Interface Node has encountered a Paradox Rift issue and destabilized your systems.The parallel universe you were exploring has imploded and ceased to exist. Congratulations, you have successfully destroyed an entire universe.",
                 "Warning: The Architect’s minions have traced your CoNexus signal and have hijacked your control processor. Agents are being dispatched to your current location."
@@ -364,7 +364,7 @@ import Layout from '@layouts/Layout.astro';
             this.#tts_audio = new Audio();
             this.#tts_audio.src = window.URL.createObjectURL(await response.blob());
             this.#set_tts_volume();
-            this.#tts_audio.play();
+            await this.#tts_audio.play();
         }
 
         #toggle_fullscreen() {
@@ -601,7 +601,6 @@ import Layout from '@layouts/Layout.astro';
     .buttons {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
         width: 100%;
         align-items: stretch;
         gap: .75rem;
@@ -687,8 +686,7 @@ import Layout from '@layouts/Layout.astro';
         z-index: 100;
         position: fixed;
         inset: 0;
-        background: linear-gradient(45deg, transparent 40%, hsl(0, 0%, 100%, .1) 60%, transparent 65%);
-        background-position: 0% 0%;
+        background-image: linear-gradient(45deg, transparent 40%, hsl(0, 0%, 100%, .1) 60%, transparent 65%);
         background-size: 300% 300%;
         background-position: top right;
         background-color: rgba(0,0,0,0.7);
