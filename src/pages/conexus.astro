@@ -21,8 +21,12 @@ import Layout from '@layouts/Layout.astro';
                         </span>
                         <h2>Choose your adventure</h2>
                         <div class="buttons start-buttons">
-                            <button class="c escape" disabled>the Escape</button>
-                            <button class="c arena" disabled>the Arena</button>
+                            <button data-story="escape" class="c bstart" disabled>the Escape</button>
+                            <button data-story="arena" class="c bstart" disabled>the Arena</button>
+                            <button data-story="diesel" class="c bstart" disabled>Diesel</button>
+                            <button data-story="public_pressure" class="c bstart" disabled>Public Pressure</button>
+                            <button data-story="givenchy" class="c bstart" disabled>Givenchy</button>
+                            <button data-story="louis_vuitton" class="c bstart" disabled>Louis Vuitton</button>
                         </div>
                     </div>
                     <div class="step">
@@ -140,8 +144,7 @@ import Layout from '@layouts/Layout.astro';
     }
 
 	class Connexus extends HTMLElement {
-        #escape:          HTMLButtonElement;
-        #arena:           HTMLButtonElement;
+        #bstart:          NodeListOf<HTMLButtonElement>;
         #start_buttons:   HTMLDivElement;
         #images:          NodeListOf<HTMLImageElement>;
         #bg_mute:         HTMLButtonElement;
@@ -221,7 +224,7 @@ import Layout from '@layouts/Layout.astro';
                 [...this.#start_buttons.children].forEach( (b: HTMLButtonElement) => b.disabled = false);
             }
 
-            all_classes.forEach( e => {
+            all_classes?.forEach(e => {
                 const button = document.createElement("button");
                 button.classList.add("c");
                 button.innerText = `the ${e.charAt(0).toUpperCase() + e.slice(1)}`;
@@ -390,8 +393,7 @@ import Layout from '@layouts/Layout.astro';
 		constructor() {
 			super();
 
-            this.#escape          = document.querySelector(".escape")        as HTMLButtonElement;
-            this.#arena           = document.querySelector(".arena")         as HTMLButtonElement;
+            this.#bstart          = document.querySelectorAll(".bstart")     as NodeListOf<HTMLButtonElement>;
             this.#start_buttons   = document.querySelector(".start-buttons") as HTMLDivElement;
             this.#images          = document.querySelectorAll(".image")      as NodeListOf<HTMLImageElement>;
             this.#bg_mute         = document.querySelector(".bg-mute")       as HTMLButtonElement;
@@ -410,8 +412,9 @@ import Layout from '@layouts/Layout.astro';
             this.#available       = document.querySelector(".available")     as HTMLSpanElement;
             this.#error           = document.querySelector(".error_message") as HTMLSpanElement;
 
-            this.#escape.onclick = () => this.#start("escape");
-            this.#arena.onclick = () => this.#start("arena");
+            this.#bstart.forEach(e => {
+                e.onclick = () => this.#start(e.dataset.story ?? "");
+            })
 
             this.#home_buttons.forEach(e => {
                e.onclick = () => this.#home(); 
