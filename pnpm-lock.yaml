@@ -9,8 +9,8 @@ dependencies:
     specifier: ^2.0.0
     version: 2.0.0
   astro:
-    specifier: ^2.10.7
-    version: 2.10.7(sass@1.65.1)
+    specifier: ^2.10.9
+    version: 2.10.9(sass@1.65.1)
   ethers:
     specifier: ^5.7.2
     version: 5.7.2
@@ -23,8 +23,8 @@ devDependencies:
     specifier: ^1.4.0
     version: 1.4.0
   '@tinacms/cli':
-    specifier: ^1.5.27
-    version: 1.5.27(@babel/core@7.22.10)(react-dom@18.2.0)(react@18.2.0)(sass@1.65.1)
+    specifier: ^1.5.28
+    version: 1.5.28(@babel/core@7.22.10)(react-dom@18.2.0)(react@18.2.0)(sass@1.65.1)
   markdown-it:
     specifier: ^13.0.1
     version: 13.0.1
@@ -35,8 +35,8 @@ devDependencies:
     specifier: ^1.65.1
     version: 1.65.1
   tinacms:
-    specifier: ^1.5.18
-    version: 1.5.18(@babel/core@7.22.10)(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^1.5.19
+    version: 1.5.19(@babel/core@7.22.10)(react-dom@18.2.0)(react@18.2.0)
   typescript:
     specifier: ^5.1.6
     version: 5.1.6
@@ -111,17 +111,17 @@ packages:
       vscode-uri: 3.0.7
     dev: false
 
-  /@astrojs/markdown-remark@2.2.1(astro@2.10.7):
+  /@astrojs/markdown-remark@2.2.1(astro@2.10.9):
     resolution: {integrity: sha512-VF0HRv4GpC1XEMLnsKf6jth7JSmlt9qpqP0josQgA2eSpCIAC/Et+y94mgdBIZVBYH/yFnMoIxgKVe93xfO2GA==}
     peerDependencies:
       astro: ^2.5.0
     dependencies:
       '@astrojs/prism': 2.1.2
-      astro: 2.10.7(sass@1.65.1)
+      astro: 2.10.9(sass@1.65.1)
       github-slugger: 1.5.0
       import-meta-resolve: 2.2.2
       rehype-raw: 6.1.1
-      rehype-stringify: 9.0.3
+      rehype-stringify: 9.0.4
       remark-gfm: 3.0.1
       remark-parse: 10.0.2
       remark-rehype: 10.1.0
@@ -152,7 +152,7 @@ packages:
     resolution: {integrity: sha512-uTK77kcg7iTiik+u7rTGG6vK4ZWTfYMaVnFndOVQrLzaE5xivmQgIbVLtlN+xRcME5n/m6vYQFJmogFR+elGCw==}
     dependencies:
       sitemap: 7.1.1
-      zod: 3.21.4
+      zod: 3.22.1
     dev: true
 
   /@astrojs/telemetry@2.1.1:
@@ -3605,28 +3605,28 @@ packages:
       tailwindcss: 3.3.3
     dev: true
 
-  /@tinacms/app@1.2.25(@babel/core@7.22.10)(yup@0.32.11):
-    resolution: {integrity: sha512-GbFGKwhmYef5oaekUWA7hYRL+1aNfNadRdlfyE8hL3uXuSRFM8wfJx/oHErRDmnw8aZCw1FccmDpDQAchU/0PQ==}
+  /@tinacms/app@1.2.26(@babel/core@7.22.10)(yup@0.32.11):
+    resolution: {integrity: sha512-B3M05J9OhmSs8SsIC/wZEtmgL27f9dUYJNI5KCVImuDyy2sF12iyChlmUckYi0h8FN1GwRH3meGIn0ues9pWlQ==}
     dependencies:
       '@codemirror/language': 6.0.0
       '@graphiql/toolkit': 0.8.4(graphql@15.8.0)
       '@headlessui/react': 1.6.6(react-dom@17.0.2)(react@17.0.2)
       '@heroicons/react': 1.0.6(react@17.0.2)
       '@monaco-editor/react': 4.4.5(monaco-editor@0.31.0)(react-dom@17.0.2)(react@17.0.2)
-      '@tinacms/mdx': 1.3.16(react@17.0.2)(yup@0.32.11)
+      '@tinacms/mdx': 1.3.17(react@17.0.2)(yup@0.32.11)
       '@xstate/react': 3.0.0(react@17.0.2)
       final-form: 4.20.7
       graphiql: 3.0.0-alpha.1(@codemirror/language@6.0.0)(graphql@15.8.0)(react-dom@17.0.2)(react@17.0.2)
       graphql: 15.8.0
       monaco-editor: 0.31.0
-      postcss: 8.4.27
+      postcss: 8.4.28
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
       react-router-dom: 6.3.0(react-dom@17.0.2)(react@17.0.2)
       tailwindcss: 3.3.3
-      tinacms: 1.5.18(@babel/core@7.22.10)(react-dom@17.0.2)(react@17.0.2)
+      tinacms: 1.5.19(@babel/core@7.22.10)(react-dom@17.0.2)(react@17.0.2)
       typescript: 4.9.5
-      zod: 3.21.4
+      zod: 3.22.1
     transitivePeerDependencies:
       - '@babel/core'
       - '@babel/template'
@@ -3651,8 +3651,8 @@ packages:
       - yup
     dev: true
 
-  /@tinacms/cli@1.5.27(@babel/core@7.22.10)(react-dom@18.2.0)(react@18.2.0)(sass@1.65.1):
-    resolution: {integrity: sha512-a1ZjUZDMLTjYCWEDkyTBttwLfDO9mkg3KL9/kuyyRlDD4uQGYbVfhYP0bLqLXnTY1i79ukxAAFghvpgEzHnygw==}
+  /@tinacms/cli@1.5.28(@babel/core@7.22.10)(react-dom@18.2.0)(react@18.2.0)(sass@1.65.1):
+    resolution: {integrity: sha512-B78gYmBnsfHEEkqaRrID2DqO4jkZCoeJ7oGpOBF1cJ9ZVSfef7dXYnQhN3YNY9xTqBAhpfPQbXStxBtdtzvhEw==}
     hasBin: true
     dependencies:
       '@graphql-codegen/core': 2.6.8(graphql@15.8.0)
@@ -3669,12 +3669,12 @@ packages:
       '@tailwindcss/aspect-ratio': 0.4.2(tailwindcss@3.3.3)
       '@tailwindcss/line-clamp': 0.3.1(tailwindcss@3.3.3)
       '@tailwindcss/typography': 0.5.9(tailwindcss@3.3.3)
-      '@tinacms/app': 1.2.25(@babel/core@7.22.10)(yup@0.32.11)
-      '@tinacms/datalayer': 1.2.23(react@18.2.0)
-      '@tinacms/graphql': 1.4.23(react@18.2.0)
+      '@tinacms/app': 1.2.26(@babel/core@7.22.10)(yup@0.32.11)
+      '@tinacms/datalayer': 1.2.24(react@18.2.0)
+      '@tinacms/graphql': 1.4.24(react@18.2.0)
       '@tinacms/metrics': 1.0.2(fs-extra@9.1.0)
-      '@tinacms/schema-tools': 1.4.10(react@18.2.0)(yup@0.32.11)
-      '@tinacms/search': 1.0.8(react@18.2.0)(yup@0.32.11)
+      '@tinacms/schema-tools': 1.4.11(react@18.2.0)(yup@0.32.11)
+      '@tinacms/search': 1.0.9(react@18.2.0)(yup@0.32.11)
       '@vitejs/plugin-react': 3.1.0(vite@4.4.9)
       ajv: 6.12.6
       altair-express-middleware: 4.0.6
@@ -3706,20 +3706,20 @@ packages:
       multer: 1.4.5-lts.1
       node-fetch: 2.6.12(encoding@0.1.13)
       normalize-path: 3.0.0
-      postcss: 8.4.27
+      postcss: 8.4.28
       prettier: 2.8.8
       progress: 2.0.3
       prompts: 2.4.2
       readable-stream: 4.4.2
       rollup-plugin-visualizer: 5.9.2
       tailwindcss: 3.3.3
-      tinacms: 1.5.18(@babel/core@7.22.10)(react-dom@18.2.0)(react@18.2.0)
+      tinacms: 1.5.19(@babel/core@7.22.10)(react-dom@18.2.0)(react@18.2.0)
       typanion: 3.13.0
       url-pattern: 1.0.3
       vite: 4.4.9(sass@1.65.1)
       yarn: 1.22.19
       yup: 0.32.11
-      zod: 3.21.4
+      zod: 3.22.1
     transitivePeerDependencies:
       - '@babel/core'
       - '@babel/template'
@@ -3754,21 +3754,21 @@ packages:
       - xstate
     dev: true
 
-  /@tinacms/datalayer@1.2.23(react@18.2.0):
-    resolution: {integrity: sha512-CHYQfQLWqNqJHYanYBG8WHJRxE4pVVZcA1ZHB5jp/bffz/XC9bAvGv8uwbt8jJ+jrXkiE0RrUc/wkBIHx642qQ==}
+  /@tinacms/datalayer@1.2.24(react@18.2.0):
+    resolution: {integrity: sha512-O7vI/aUuBirGrNG13NwSO9eoXBOXkttRlVh7FXdlAhPYGZJwRdYql00yAHcluoaiK0630+LyvJeqdQQ0U4ymSA==}
     dependencies:
-      '@tinacms/graphql': 1.4.23(react@18.2.0)
+      '@tinacms/graphql': 1.4.24(react@18.2.0)
     transitivePeerDependencies:
       - react
       - supports-color
     dev: true
 
-  /@tinacms/graphql@1.4.23(react@17.0.2):
-    resolution: {integrity: sha512-JcfjpcAMLnnKoedUzTnADzPTipHMS0yCLA5V81PfubG84h+iK1AY3YjweIgmZgqmvMOjosqIrbHjhAqA0yLhOw==}
+  /@tinacms/graphql@1.4.24(react@17.0.2):
+    resolution: {integrity: sha512-yYKrE4a/QwHXWvoahgy9tDhqSTFO5QjZm8Ovg7PSp9EFsHVjMSNfFqHqMF5/1BXYqHPOEJCVUmGCxLk9djtmDA==}
     dependencies:
       '@iarna/toml': 2.2.5
-      '@tinacms/mdx': 1.3.16(react@17.0.2)(yup@0.32.11)
-      '@tinacms/schema-tools': 1.4.10(react@17.0.2)(yup@0.32.11)
+      '@tinacms/mdx': 1.3.17(react@17.0.2)(yup@0.32.11)
+      '@tinacms/schema-tools': 1.4.11(react@17.0.2)(yup@0.32.11)
       abstract-level: 1.0.3
       body-parser: 1.20.2
       cors: 2.8.5
@@ -3796,12 +3796,12 @@ packages:
       - supports-color
     dev: true
 
-  /@tinacms/graphql@1.4.23(react@18.2.0):
-    resolution: {integrity: sha512-JcfjpcAMLnnKoedUzTnADzPTipHMS0yCLA5V81PfubG84h+iK1AY3YjweIgmZgqmvMOjosqIrbHjhAqA0yLhOw==}
+  /@tinacms/graphql@1.4.24(react@18.2.0):
+    resolution: {integrity: sha512-yYKrE4a/QwHXWvoahgy9tDhqSTFO5QjZm8Ovg7PSp9EFsHVjMSNfFqHqMF5/1BXYqHPOEJCVUmGCxLk9djtmDA==}
     dependencies:
       '@iarna/toml': 2.2.5
-      '@tinacms/mdx': 1.3.16(react@18.2.0)(yup@0.32.11)
-      '@tinacms/schema-tools': 1.4.10(react@18.2.0)(yup@0.32.11)
+      '@tinacms/mdx': 1.3.17(react@18.2.0)(yup@0.32.11)
+      '@tinacms/schema-tools': 1.4.11(react@18.2.0)(yup@0.32.11)
       abstract-level: 1.0.3
       body-parser: 1.20.2
       cors: 2.8.5
@@ -3829,10 +3829,10 @@ packages:
       - supports-color
     dev: true
 
-  /@tinacms/mdx@1.3.16(react@17.0.2)(yup@0.32.11):
-    resolution: {integrity: sha512-lEfaIULPxiHbf58pb+Ohkzm+RK/sddvUYTJWXq/VxkgoPsbpsXIl5mEkzcI5RYQ3dynIpKU8oaselZYojuaOaw==}
+  /@tinacms/mdx@1.3.17(react@17.0.2)(yup@0.32.11):
+    resolution: {integrity: sha512-OLEcxn3L/f+tRFwcEj7TQw9DfFf+AvRul0NfUpIet+od8b4jtGAdmnw26wrRyIKtBRDyuKxyRJwZ1Q5j5luU4w==}
     dependencies:
-      '@tinacms/schema-tools': 1.4.10(react@17.0.2)(yup@0.32.11)
+      '@tinacms/schema-tools': 1.4.11(react@17.0.2)(yup@0.32.11)
       acorn: 8.8.2
       ccount: 2.0.1
       estree-util-is-identifier-name: 2.1.0
@@ -3865,10 +3865,10 @@ packages:
       - yup
     dev: true
 
-  /@tinacms/mdx@1.3.16(react@18.2.0)(yup@0.32.11):
-    resolution: {integrity: sha512-lEfaIULPxiHbf58pb+Ohkzm+RK/sddvUYTJWXq/VxkgoPsbpsXIl5mEkzcI5RYQ3dynIpKU8oaselZYojuaOaw==}
+  /@tinacms/mdx@1.3.17(react@18.2.0)(yup@0.32.11):
+    resolution: {integrity: sha512-OLEcxn3L/f+tRFwcEj7TQw9DfFf+AvRul0NfUpIet+od8b4jtGAdmnw26wrRyIKtBRDyuKxyRJwZ1Q5j5luU4w==}
     dependencies:
-      '@tinacms/schema-tools': 1.4.10(react@18.2.0)(yup@0.32.11)
+      '@tinacms/schema-tools': 1.4.11(react@18.2.0)(yup@0.32.11)
       acorn: 8.8.2
       ccount: 2.0.1
       estree-util-is-identifier-name: 2.1.0
@@ -3912,8 +3912,8 @@ packages:
       - encoding
     dev: true
 
-  /@tinacms/schema-tools@1.4.10(react@17.0.2)(yup@0.32.11):
-    resolution: {integrity: sha512-1ey2PF5UFI7M/4aearZ4IqTsZStVu6EpUd4nHdyQKKvxKSWkWxi1D8m1NvYrgYvC5nnWjsTIq6LrVdzKw9Tb+g==}
+  /@tinacms/schema-tools@1.4.11(react@17.0.2)(yup@0.32.11):
+    resolution: {integrity: sha512-WXQy+P8izp8ve9jUSQWT7JCZ9C5aRob53VxmagmBZ3/0QBbj2frv3aUlqWGy+ydTVdSNkTZuUob2bBLMgIAjDg==}
     peerDependencies:
       react: '>=16.14.0'
       yup: ^0.32.0
@@ -3922,11 +3922,11 @@ packages:
       react: 17.0.2
       url-pattern: 1.0.3
       yup: 0.32.11
-      zod: 3.21.4
+      zod: 3.22.1
     dev: true
 
-  /@tinacms/schema-tools@1.4.10(react@18.2.0)(yup@0.32.11):
-    resolution: {integrity: sha512-1ey2PF5UFI7M/4aearZ4IqTsZStVu6EpUd4nHdyQKKvxKSWkWxi1D8m1NvYrgYvC5nnWjsTIq6LrVdzKw9Tb+g==}
+  /@tinacms/schema-tools@1.4.11(react@18.2.0)(yup@0.32.11):
+    resolution: {integrity: sha512-WXQy+P8izp8ve9jUSQWT7JCZ9C5aRob53VxmagmBZ3/0QBbj2frv3aUlqWGy+ydTVdSNkTZuUob2bBLMgIAjDg==}
     peerDependencies:
       react: '>=16.14.0'
       yup: ^0.32.0
@@ -3935,14 +3935,14 @@ packages:
       react: 18.2.0
       url-pattern: 1.0.3
       yup: 0.32.11
-      zod: 3.21.4
+      zod: 3.22.1
     dev: true
 
-  /@tinacms/search@1.0.8(encoding@0.1.13)(react@17.0.2)(yup@0.32.11):
-    resolution: {integrity: sha512-FSW1x7v3ni2HKCHnTAOWdiAr6Zq1hton6RTyL3Cja0Zv7XiJXoMkRqJYd0EP9UHiUc7i5XIxJdJqMOoyZRa/dg==}
+  /@tinacms/search@1.0.9(encoding@0.1.13)(react@17.0.2)(yup@0.32.11):
+    resolution: {integrity: sha512-crRMW9kThdVGX+58wJX/Gp+gyORmlrViI0R1jjESMYxCkKQtiHxVTk9oA6i5iv3sWReq6BKZO3letYaQYH6DcA==}
     dependencies:
-      '@tinacms/graphql': 1.4.23(react@17.0.2)
-      '@tinacms/schema-tools': 1.4.10(react@17.0.2)(yup@0.32.11)
+      '@tinacms/graphql': 1.4.24(react@17.0.2)
+      '@tinacms/schema-tools': 1.4.11(react@17.0.2)(yup@0.32.11)
       abstract-level: 1.0.3
       memory-level: 1.0.0
       module-error: 1.0.2
@@ -3957,11 +3957,11 @@ packages:
       - yup
     dev: true
 
-  /@tinacms/search@1.0.8(encoding@0.1.13)(react@18.2.0)(yup@0.32.11):
-    resolution: {integrity: sha512-FSW1x7v3ni2HKCHnTAOWdiAr6Zq1hton6RTyL3Cja0Zv7XiJXoMkRqJYd0EP9UHiUc7i5XIxJdJqMOoyZRa/dg==}
+  /@tinacms/search@1.0.9(encoding@0.1.13)(react@18.2.0)(yup@0.32.11):
+    resolution: {integrity: sha512-crRMW9kThdVGX+58wJX/Gp+gyORmlrViI0R1jjESMYxCkKQtiHxVTk9oA6i5iv3sWReq6BKZO3letYaQYH6DcA==}
     dependencies:
-      '@tinacms/graphql': 1.4.23(react@18.2.0)
-      '@tinacms/schema-tools': 1.4.10(react@18.2.0)(yup@0.32.11)
+      '@tinacms/graphql': 1.4.24(react@18.2.0)
+      '@tinacms/schema-tools': 1.4.11(react@18.2.0)(yup@0.32.11)
       abstract-level: 1.0.3
       memory-level: 1.0.0
       module-error: 1.0.2
@@ -3976,11 +3976,11 @@ packages:
       - yup
     dev: true
 
-  /@tinacms/search@1.0.8(react@18.2.0)(yup@0.32.11):
-    resolution: {integrity: sha512-FSW1x7v3ni2HKCHnTAOWdiAr6Zq1hton6RTyL3Cja0Zv7XiJXoMkRqJYd0EP9UHiUc7i5XIxJdJqMOoyZRa/dg==}
+  /@tinacms/search@1.0.9(react@18.2.0)(yup@0.32.11):
+    resolution: {integrity: sha512-crRMW9kThdVGX+58wJX/Gp+gyORmlrViI0R1jjESMYxCkKQtiHxVTk9oA6i5iv3sWReq6BKZO3letYaQYH6DcA==}
     dependencies:
-      '@tinacms/graphql': 1.4.23(react@18.2.0)
-      '@tinacms/schema-tools': 1.4.10(react@18.2.0)(yup@0.32.11)
+      '@tinacms/graphql': 1.4.24(react@18.2.0)
+      '@tinacms/schema-tools': 1.4.11(react@18.2.0)(yup@0.32.11)
       abstract-level: 1.0.3
       memory-level: 1.0.0
       module-error: 1.0.2
@@ -7484,8 +7484,8 @@ packages:
     resolution: {integrity: sha512-BSHWgDSAiKs50o2Re8ppvp3seVHXSRM44cdSsT9FfNEUUZLOGWVCsiWaRPWM1Znn+mqZ1OfVZ3z3DWEzSp7hRA==}
     dev: true
 
-  /astro@2.10.7(sass@1.65.1):
-    resolution: {integrity: sha512-R8aF4yphrsbhxW2UxHZ1DslBn8e8vPQ23+Z/OnajNE1Q4HEZCOZ4CAbHJx2PDwq2p+CRWArNalpr3+rTqyOYBQ==}
+  /astro@2.10.9(sass@1.65.1):
+    resolution: {integrity: sha512-rtm/RHeJdAIAsziQaAGvbv2ALylNNOF1SUQ0zJaugu/ABUU62tNGNSxIR0LO5l4+dHhLbzRNo5uEnIPkmSRw+w==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
     hasBin: true
     peerDependencies:
@@ -7497,7 +7497,7 @@ packages:
       '@astrojs/compiler': 1.8.1
       '@astrojs/internal-helpers': 0.1.2
       '@astrojs/language-server': 1.0.8
-      '@astrojs/markdown-remark': 2.2.1(astro@2.10.7)
+      '@astrojs/markdown-remark': 2.2.1(astro@2.10.9)
       '@astrojs/telemetry': 2.1.1
       '@astrojs/webapi': 2.2.0
       '@babel/core': 7.22.10
@@ -7516,7 +7516,6 @@ packages:
       common-ancestor-path: 1.0.1
       cookie: 0.5.0
       debug: 4.3.4
-      deepmerge-ts: 4.3.0
       devalue: 4.3.2
       diff: 5.1.0
       es-module-lexer: 1.3.0
@@ -7551,7 +7550,7 @@ packages:
       vitefu: 0.2.4(vite@4.4.9)
       which-pm: 2.0.0
       yargs-parser: 21.1.1
-      zod: 3.21.4
+      zod: 3.22.1
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -7802,8 +7801,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001520
-      electron-to-chromium: 1.4.490
+      caniuse-lite: 1.0.30001521
+      electron-to-chromium: 1.4.492
       node-releases: 2.0.13
       update-browserslist-db: 1.0.11(browserslist@4.21.10)
 
@@ -7881,8 +7880,8 @@ packages:
     resolution: {integrity: sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA==}
     engines: {node: '>=10'}
 
-  /caniuse-lite@1.0.30001520:
-    resolution: {integrity: sha512-tahF5O9EiiTzwTUqAeFjIZbn4Dnqxzz7ktrgGlMYNLH43Ul26IgTMH/zvL3DG0lZxBYnlT04axvInszUsZULdA==}
+  /caniuse-lite@1.0.30001521:
+    resolution: {integrity: sha512-fnx1grfpEOvDGH+V17eccmNjucGUnCbP6KL+l5KqBIerp26WK/+RQ7CIDE37KGJjaPyqWXXlFUyKiWmvdNNKmQ==}
 
   /capital-case@1.0.4:
     resolution: {integrity: sha512-ds37W8CytHgwnhGGTi88pcPyR15qoNkOpYwmMMfnWqqWgESapLqvDx6huFjQ5vqWSn2Z06173XNA7LtMOeUh1A==}
@@ -8331,11 +8330,6 @@ packages:
     engines: {node: '>=4.0.0'}
     dev: true
 
-  /deepmerge-ts@4.3.0:
-    resolution: {integrity: sha512-if3ZYdkD2dClhnXR5reKtG98cwyaRT1NeugQoAPTTfsOpV9kqyeiBF9Qa5RHjemb3KzD5ulqygv6ED3t5j9eJw==}
-    engines: {node: '>=12.4.0'}
-    dev: false
-
   /deepmerge@4.3.1:
     resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
     engines: {node: '>=0.10.0'}
@@ -8516,8 +8510,8 @@ packages:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: true
 
-  /electron-to-chromium@1.4.490:
-    resolution: {integrity: sha512-6s7NVJz+sATdYnIwhdshx/N/9O6rvMxmhVoDSDFdj6iA45gHR8EQje70+RYsF4GeB+k0IeNSBnP7yG9ZXJFr7A==}
+  /electron-to-chromium@1.4.492:
+    resolution: {integrity: sha512-36K9b/6skMVwAIEsC7GiQ8I8N3soCALVSHqWHzNDtGemAcI9Xu8hP02cywWM0A794rTHm0b0zHPeLJHtgFVamQ==}
 
   /elliptic@6.5.4:
     resolution: {integrity: sha512-iLhC6ULemrljPZb+QutR5TQGB+pdW6KGD5RSegS+8sorOZT+rdQFbsQFJgvN3eRqNALqJer4oQ16YvJHlU8hzQ==}
@@ -10998,8 +10992,8 @@ packages:
       tslib: 2.5.3
     dev: true
 
-  /node-abi@3.45.0:
-    resolution: {integrity: sha512-iwXuFrMAcFVi/ZoZiqq8BzAdsLw9kxDfTC0HMyjXfSL/6CSDAGD5UmR7azrAgWV1zKYq7dUUMj4owusBWKLsiQ==}
+  /node-abi@3.46.0:
+    resolution: {integrity: sha512-LXvP3AqTIrtvH/jllXjkNVbYifpRbt9ThTtymSMSuHmhugQLAWr99QQFTm+ZRht9ziUvdGOgB+esme1C6iE6Lg==}
     engines: {node: '>=10'}
     dependencies:
       semver: 7.5.4
@@ -11372,29 +11366,29 @@ packages:
       tslib: 2.6.1
     dev: true
 
-  /postcss-import@15.1.0(postcss@8.4.27):
+  /postcss-import@15.1.0(postcss@8.4.28):
     resolution: {integrity: sha512-hpr+J05B2FVYUAXHeK1YyI267J/dDDhMU6B6civm8hSY1jYJnBXxzKDKDswzJmtLHryrjhnDjqqp/49t8FALew==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       postcss: ^8.0.0
     dependencies:
-      postcss: 8.4.27
+      postcss: 8.4.28
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.4
     dev: true
 
-  /postcss-js@4.0.1(postcss@8.4.27):
+  /postcss-js@4.0.1(postcss@8.4.28):
     resolution: {integrity: sha512-dDLF8pEO191hJMtlHFPRa8xsizHaM82MLfNkUHdUtVEV3tgTp5oj+8qbEqYM57SLfc74KSbw//4SeJma2LRVIw==}
     engines: {node: ^12 || ^14 || >= 16}
     peerDependencies:
       postcss: ^8.4.21
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.4.27
+      postcss: 8.4.28
     dev: true
 
-  /postcss-load-config@4.0.1(postcss@8.4.27):
+  /postcss-load-config@4.0.1(postcss@8.4.28):
     resolution: {integrity: sha512-vEJIc8RdiBRu3oRAI0ymerOn+7rPuMvRXslTvZUKZonDHFIczxztIyJ1urxM1x9JXEikvpWWTUUqal5j/8QgvA==}
     engines: {node: '>= 14'}
     peerDependencies:
@@ -11407,17 +11401,17 @@ packages:
         optional: true
     dependencies:
       lilconfig: 2.1.0
-      postcss: 8.4.27
+      postcss: 8.4.28
       yaml: 2.3.1
     dev: true
 
-  /postcss-nested@6.0.1(postcss@8.4.27):
+  /postcss-nested@6.0.1(postcss@8.4.28):
     resolution: {integrity: sha512-mEp4xPMi5bSWiMbsgoPfcP74lsWLHkQbZc3sY+jWYd65CUwXrUaTp0fmNpa01ZcETKlIgUdFN/MpS2xZtqL9dQ==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.2.14
     dependencies:
-      postcss: 8.4.27
+      postcss: 8.4.28
       postcss-selector-parser: 6.0.13
     dev: true
 
@@ -11441,8 +11435,8 @@ packages:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
     dev: true
 
-  /postcss@8.4.27:
-    resolution: {integrity: sha512-gY/ACJtJPSmUFPDCHtX78+01fHa64FaU4zaaWfuh1MhGJISufJAH4cun6k/8fwsHYeK4UQmENQK+tRLCFJE8JQ==}
+  /postcss@8.4.28:
+    resolution: {integrity: sha512-Z7V5j0cq8oEKyejIKfpD8b4eBy9cwW2JWPk0+fB1HOAMsfHbnAXLLS+PfVWlzMSLQaWttKDt607I0XHmpE67Vw==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
       nanoid: 3.3.6
@@ -11460,7 +11454,7 @@ packages:
       minimist: 1.2.8
       mkdirp-classic: 0.5.3
       napi-build-utils: 1.0.2
-      node-abi: 3.45.0
+      node-abi: 3.46.0
       pump: 3.0.0
       rc: 1.2.8
       simple-get: 4.0.1
@@ -12223,8 +12217,8 @@ packages:
     resolution: {integrity: sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==}
     dev: true
 
-  /rehype-parse@8.0.4:
-    resolution: {integrity: sha512-MJJKONunHjoTh4kc3dsM1v3C9kGrrxvA3U8PxZlP2SjH8RNUSrb+lF7Y0KVaUDnGH2QZ5vAn7ulkiajM9ifuqg==}
+  /rehype-parse@8.0.5:
+    resolution: {integrity: sha512-Ds3RglaY/+clEX2U2mHflt7NlMA72KspZ0JLUJgBBLpRddBcEw3H8uYZQliQriku22NZpYMfjDdSgHcjxue24A==}
     dependencies:
       '@types/hast': 2.3.5
       hast-util-from-parse5: 7.1.2
@@ -12240,8 +12234,8 @@ packages:
       unified: 10.1.2
     dev: false
 
-  /rehype-stringify@9.0.3:
-    resolution: {integrity: sha512-kWiZ1bgyWlgOxpqD5HnxShKAdXtb2IUljn3hQAhySeak6IOQPPt6DeGnsIh4ixm7yKJWzm8TXFuC/lPfcWHJqw==}
+  /rehype-stringify@9.0.4:
+    resolution: {integrity: sha512-Uk5xu1YKdqobe5XpSskwPvo1XeHUUucWEQSl8hTrXt5selvca1e8K1EZ37E6YoZ4BT8BCqCdVfQW7OfHfthtVQ==}
     dependencies:
       '@types/hast': 2.3.5
       hast-util-to-html: 8.0.4
@@ -12252,8 +12246,8 @@ packages:
     resolution: {integrity: sha512-ey6kAqwLM3X6QnMDILJthGvG1m1ULROS9NT4uG9IDCuv08SFyLlreSuvOa//DgEvbXx62DS6elGVqusWhRUbgw==}
     dependencies:
       '@types/hast': 2.3.5
-      rehype-parse: 8.0.4
-      rehype-stringify: 9.0.3
+      rehype-parse: 8.0.5
+      rehype-stringify: 9.0.4
       unified: 10.1.2
     dev: false
 
@@ -12493,7 +12487,7 @@ packages:
       htmlparser2: 8.0.2
       is-plain-object: 5.0.0
       parse-srcset: 1.0.2
-      postcss: 8.4.27
+      postcss: 8.4.28
     dev: true
 
   /sass-formatter@0.7.7:
@@ -13045,11 +13039,11 @@ packages:
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.0.0
-      postcss: 8.4.27
-      postcss-import: 15.1.0(postcss@8.4.27)
-      postcss-js: 4.0.1(postcss@8.4.27)
-      postcss-load-config: 4.0.1(postcss@8.4.27)
-      postcss-nested: 6.0.1(postcss@8.4.27)
+      postcss: 8.4.28
+      postcss-import: 15.1.0(postcss@8.4.28)
+      postcss-js: 4.0.1(postcss@8.4.28)
+      postcss-load-config: 4.0.1(postcss@8.4.28)
+      postcss-nested: 6.0.1(postcss@8.4.28)
       postcss-selector-parser: 6.0.13
       resolve: 1.22.4
       sucrase: 3.34.0
@@ -13095,8 +13089,8 @@ packages:
       any-promise: 1.3.0
     dev: true
 
-  /tinacms@1.5.18(@babel/core@7.22.10)(react-dom@17.0.2)(react@17.0.2):
-    resolution: {integrity: sha512-u87pXLEChzF/s7znoHfSJHGb22UyW7iJAxEeON3KdPFzSa2JainHMBOYMDcs6YiHqtKWUWvaY5PQv1PGWZFSHQ==}
+  /tinacms@1.5.19(@babel/core@7.22.10)(react-dom@17.0.2)(react@17.0.2):
+    resolution: {integrity: sha512-yfr4GZJFNF0dPcpzuvhvPbfkCWC3VC60x+XGnBOaZBCXJoZtmuHPm+ASBBdiS59cGP9rh00W6TPGc92QjrbJkg==}
     peerDependencies:
       react: '>=16.14.0'
       react-dom: '>=16.14.0'
@@ -13113,8 +13107,8 @@ packages:
       '@react-types/combobox': 3.7.0(react@17.0.2)
       '@react-types/shared': 3.19.0(react@17.0.2)
       '@sambego/storybook-styles': 1.0.0
-      '@tinacms/schema-tools': 1.4.10(react@17.0.2)(yup@0.32.11)
-      '@tinacms/search': 1.0.8(encoding@0.1.13)(react@17.0.2)(yup@0.32.11)
+      '@tinacms/schema-tools': 1.4.11(react@17.0.2)(yup@0.32.11)
+      '@tinacms/search': 1.0.9(encoding@0.1.13)(react@17.0.2)(yup@0.32.11)
       '@tinacms/sharedctx': 1.0.2(react-dom@17.0.2)(react@17.0.2)
       '@udecode/plate-headless': 21.5.0(@babel/core@7.22.10)(react-dom@17.0.2)(react@17.0.2)(scheduler@0.19.0)(slate-history@0.93.0)(slate-hyperscript@0.77.0)(slate-react@0.97.2)(slate@0.94.1)
       atob: 2.1.2
@@ -13154,7 +13148,7 @@ packages:
       slate-react: 0.97.2(react-dom@17.0.2)(react@17.0.2)(slate@0.94.1)
       webfontloader: 1.6.28
       yup: 0.32.11
-      zod: 3.21.4
+      zod: 3.22.1
     transitivePeerDependencies:
       - '@babel/core'
       - '@babel/template'
@@ -13173,8 +13167,8 @@ packages:
       - supports-color
     dev: true
 
-  /tinacms@1.5.18(@babel/core@7.22.10)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-u87pXLEChzF/s7znoHfSJHGb22UyW7iJAxEeON3KdPFzSa2JainHMBOYMDcs6YiHqtKWUWvaY5PQv1PGWZFSHQ==}
+  /tinacms@1.5.19(@babel/core@7.22.10)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-yfr4GZJFNF0dPcpzuvhvPbfkCWC3VC60x+XGnBOaZBCXJoZtmuHPm+ASBBdiS59cGP9rh00W6TPGc92QjrbJkg==}
     peerDependencies:
       react: '>=16.14.0'
       react-dom: '>=16.14.0'
@@ -13191,8 +13185,8 @@ packages:
       '@react-types/combobox': 3.7.0(react@18.2.0)
       '@react-types/shared': 3.19.0(react@18.2.0)
       '@sambego/storybook-styles': 1.0.0
-      '@tinacms/schema-tools': 1.4.10(react@18.2.0)(yup@0.32.11)
-      '@tinacms/search': 1.0.8(encoding@0.1.13)(react@18.2.0)(yup@0.32.11)
+      '@tinacms/schema-tools': 1.4.11(react@18.2.0)(yup@0.32.11)
+      '@tinacms/search': 1.0.9(encoding@0.1.13)(react@18.2.0)(yup@0.32.11)
       '@tinacms/sharedctx': 1.0.2(react-dom@18.2.0)(react@18.2.0)
       '@udecode/plate-headless': 21.5.0(@babel/core@7.22.10)(react-dom@18.2.0)(react@18.2.0)(scheduler@0.19.0)(slate-history@0.93.0)(slate-hyperscript@0.77.0)(slate-react@0.97.2)(slate@0.94.1)
       atob: 2.1.2
@@ -13232,7 +13226,7 @@ packages:
       slate-react: 0.97.2(react-dom@18.2.0)(react@18.2.0)(slate@0.94.1)
       webfontloader: 1.6.28
       yup: 0.32.11
-      zod: 3.21.4
+      zod: 3.22.1
     transitivePeerDependencies:
       - '@babel/core'
       - '@babel/template'
@@ -13881,7 +13875,7 @@ packages:
         optional: true
     dependencies:
       esbuild: 0.18.20
-      postcss: 8.4.27
+      postcss: 8.4.28
       rollup: 3.28.0
       sass: 1.65.1
     optionalDependencies:
@@ -14168,8 +14162,8 @@ packages:
       toposort: 2.0.2
     dev: true
 
-  /zod@3.21.4:
-    resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
+  /zod@3.22.1:
+    resolution: {integrity: sha512-+qUhAMl414+Elh+fRNtpU+byrwjDFOS1N7NioLY+tSlcADTx4TkCUua/hxJvxwDXcV4397/nZ420jy4n4+3WUg==}
 
   /zustand@3.7.2(react@17.0.2):
     resolution: {integrity: sha512-PIJDIZKtokhof+9+60cpockVOq05sJzHCriyvaLBmEJixseQ1a5Kdov6fWZfWOu5SK9c+FhH1jU0tntLxRJYMA==}
