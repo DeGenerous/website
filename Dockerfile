@@ -10,4 +10,4 @@ RUN bun install
 
 COPY . /app
 
-CMD ["bun", "run", "build"]
+RUN bun run build
