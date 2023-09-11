@@ -132,7 +132,7 @@ import Layout from '@layouts/Layout.astro';
     const tracks = ["track01.mp3", "track02.mp3", "track03.mp3"];
 
     const shuffle = <T,>(array: T[]) => {
-        let currentIndex = array.length,  randomIndex;
+        let currentIndex = array.length,  randomIndex: number;
 
         while (currentIndex != 0) {
             randomIndex = Math.floor(Math.random() * currentIndex);
