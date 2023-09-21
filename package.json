@@ -1,27 +1,29 @@
 {
-	"name": "degenerous",
-	"type": "module",
-	"version": "1.0.1",
-	"scripts": {
-		"dev": "tinacms dev -c \"astro dev --host\"",
-		"start": "astro dev",
-		"build": "tinacms build && astro build",
-		"preview": "astro preview",
-		"astro": "astro"
-	},
-	"dependencies": {
-		"@metamask/detect-provider": "^2.0.0",
-		"astro": "^2.10.1",
-		"ethers": "^5.7.2"
-	},
-	"devDependencies": {
-		"@astrojs/rss": "^2.4.3",
-		"@astrojs/sitemap": "^1.4.0",
-		"@tinacms/cli": "^1.5.26",
-		"markdown-it": "^13.0.1",
-		"sanitize-html": "^2.11.0",
-		"sass": "^1.64.2",
-		"tinacms": "^1.5.17",
-		"typescript": "^5.1.6"
-	}
+  "name": "degenerous",
+  "type": "module",
+  "version": "1.0.1",
+  "scripts": {
+    "dev": "astro dev --host",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "tina:dev": "tinacms dev -c \"astro dev --host\"",
+    "tina:build": "tinacms build && astro build"
+  },
+  "dependencies": {
+    "@metamask/detect-provider": "^2.0.0",
+    "astro": "^2.10.15",
+    "ethers": "^5.7.2"
+  },
+  "devDependencies": {
+    "@astrojs/rss": "^2.4.4",
+    "@astrojs/sitemap": "^1.4.0",
+    "@tinacms/cli": "^1.5.29",
+    "markdown-it": "^13.0.1",
+    "sanitize-html": "^2.11.0",
+    "sass": "^1.66.1",
+    "tinacms": "^1.5.20",
+    "typescript": "^5.2.2"
+  }
 }
