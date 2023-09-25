@@ -39,6 +39,7 @@
   // Drawing SVG
   let containerWidth;
   let containerHeight;
+  $: trackContainer = containerWidth;
 
   let points = [];
   let pairs = [];
@@ -49,6 +50,10 @@
     // Container width and height in pixels
     containerWidth = container.offsetWidth;
     containerHeight = container.offsetHeight;
+    window.addEventListener("resize", () => {
+      containerWidth = container.offsetWidth;
+      window.location.reload();
+    });
 
     const svgLength = 5;
 
@@ -102,16 +107,20 @@
     activeBox = 0;
   }}
 >
-  {#if containerHeight}
-    {#each pairs as pair}
-      <Svg
-        x1={pair.firstPoint.x}
-        y1={pair.firstPoint.y}
-        x2={pair.secondPoint.x}
-        y2={pair.secondPoint.y}
-      />
-    {/each}
-  {/if}
+  {#key trackContainer}{/key}
+  {#key trackContainer}
+    {#if containerHeight}
+      {#each pairs as pair}
+        <Svg
+          x1={pair.firstPoint.x}
+          y1={pair.firstPoint.y}
+          x2={pair.secondPoint.x}
+          y2={pair.secondPoint.y}
+        />
+      {/each}
+    {/if}
+  {/key}
+
   <!-- <h1 class="title">Roadmap</h1> -->
   {#each $Store as elem (elem.title)}
     <Box
