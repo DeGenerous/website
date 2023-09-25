@@ -1,14 +1,14 @@
 <script>
   import Roadmap from "./components/Roadmap.svelte";
-  export let name;
 </script>
 
-<main class="roadmap">
-  <Roadmap client:load />
-</main>
+<div class="roadmap">
+  <Roadmap />
+</div>
 
 <style>
   .roadmap {
+    width: 100%;
     background-color: #0e080e;
     display: block;
     color: #fff;

@@ -1,10 +1,10 @@
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
-import renderer from "@astrojs/renderer-svelte";
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [sitemap(), svelte(), renderer()],
+  integrations: [sitemap(), svelte()],
   // renderers: ["@astrojs/renderer-svelte"],
   site: "https://degenerousdao.com",
   vite: {

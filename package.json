@@ -17,7 +17,6 @@
 		"svelte": "^4.2.0"
 	},
 	"devDependencies": {
-		"@astrojs/renderer-svelte": "^0.5.2",
 		"@astrojs/rss": "^2.4.3",
 		"@astrojs/sitemap": "^1.4.0",
 		"@tinacms/cli": "^1.5.26",

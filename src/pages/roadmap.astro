@@ -2,13 +2,15 @@
 import Section from '@components/Section.astro';
 import Layout from '@layouts/Layout.astro';
 import SvelteRoadmap from '../components/roadmap/App.svelte'
+
 ---
 
 <Layout title="Roadmap | Degenerous" page="Roadmap">
 	<main>
 		<Section gap>
-            <!-- <h1>Roadmap</h1> -->
-            <SvelteRoadmap name={undefined}/>
+            <h1>Roadmap</h1>
+            <SvelteRoadmap client:load/>
+
             <!-- <ul>
                 <li>Distribute Inception Arks </li>
                 <li>Start planning the service trips and distribution of $125 000 to charity </li>

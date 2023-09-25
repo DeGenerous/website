@@ -2,6 +2,7 @@
   import Popup from "./Popup.svelte";
   import { createEventDispatcher } from "svelte";
   export let title;
+  export let text;
   export let number;
   export let left;
   export let top;
@@ -13,7 +14,7 @@
 <div class={`map-dot-mobile`} style="top: {top}%; left: {left}%;">
   <div
     class="box"
-    on:click={() => {
+    on:click|preventDefault={() => {
       dispatch("changeActiveBox", number);
     }}
   >
@@ -23,8 +24,10 @@
   </div>
 </div>
 
+<p class="title" style="top: {top + 7}%; left: {left}%;">{title}</p>
+
 <Popup
-  {title}
+  {text}
   {left}
   {top}
   {number}
@@ -39,8 +42,6 @@
 
 <style>
   .map-dot-mobile {
-    /* margin-top: 25.1em; */
-    /* margin-left: 46em; */
     margin-top: 0;
     margin-left: 0;
     font-size: 3rem;
@@ -52,8 +53,8 @@
   }
 
   .box {
-    width: 4rem;
-    height: 4rem;
+    width: 70px;
+    height: 70px;
     cursor: pointer;
     transform-style: preserve-3d;
     background-color: #9d50eb;
@@ -84,7 +85,24 @@
     font-weight: 400;
     color: black;
   }
-  .active {
-    background-color: #9e52eb;
+  .box-inner.active {
+    background-color: #632c9a;
+    color: white;
+  }
+  .title {
+    color: white;
+    position: absolute;
+    font-weight: bold;
+    background-color: #9d50eb;
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  @media screen and (max-width: 767px) {
+    p {
+      display: none;
+    }
   }
 </style>

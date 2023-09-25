@@ -1,7 +1,7 @@
 <script>
   import { createEventDispatcher } from "svelte";
 
-  export let title;
+  export let text;
   export let top;
   export let left;
   export let number;
@@ -15,7 +15,7 @@
   class:active
   style="top: {top + 10 >= 80 ? top - 12 : top + 10}%; left: {left}%;"
 >
-  <p>{number}. {title}</p>
+  <p>{number}. {text}</p>
   <div class="roadmap-navigation">
     <div
       class="roadmap-nav-button"
