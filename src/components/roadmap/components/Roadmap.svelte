@@ -39,7 +39,7 @@
   // Drawing SVG
   let containerWidth;
   let containerHeight;
-  $: trackContainer = containerWidth;
+  // $: trackContainer = containerWidth;
 
   let points = [];
   let pairs = [];
@@ -107,19 +107,16 @@
     activeBox = 0;
   }}
 >
-  {#key trackContainer}{/key}
-  {#key trackContainer}
-    {#if containerHeight}
-      {#each pairs as pair}
-        <Svg
-          x1={pair.firstPoint.x}
-          y1={pair.firstPoint.y}
-          x2={pair.secondPoint.x}
-          y2={pair.secondPoint.y}
-        />
-      {/each}
-    {/if}
-  {/key}
+  {#if containerHeight}
+    {#each pairs as pair}
+      <Svg
+        x1={pair.firstPoint.x}
+        y1={pair.firstPoint.y}
+        x2={pair.secondPoint.x}
+        y2={pair.secondPoint.y}
+      />
+    {/each}
+  {/if}
 
   <!-- <h1 class="title">Roadmap</h1> -->
   {#each $Store as elem (elem.title)}
