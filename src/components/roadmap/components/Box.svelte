@@ -99,10 +99,35 @@
     text-align: center;
     margin-top: 20px;
   }
-
-  @media screen and (max-width: 767px) {
+  @media screen and (min-width: 280px) {
+    .box {
+      width: 30px;
+      height: 30px;
+      font-size: 1rem;
+    }
     p {
       display: none;
+    }
+  }
+
+  @media screen and (min-width: 375px) {
+    .box {
+      width: 45px;
+      height: 45px;
+    }
+    p {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: 500px) {
+    .box {
+      width: 70px;
+      height: 70px;
+      font-size: 2rem;
+    }
+    p {
+      display: block;
     }
   }
 </style>

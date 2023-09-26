@@ -4,9 +4,11 @@
   import Svg from "./Svg.svelte";
   import { onMount } from "svelte";
 
+  let screenWidth;
+
   let activeBox = 1;
   let nextBoxTime = 6000;
-  let boxRadius = 35;
+  let boxRadius;
   // Restart interval that automatically start showing Boxes
   $: if (activeBox === 0) {
     clearInterval(boxInterval);
@@ -24,6 +26,7 @@
       return;
     }
     activeBox -= 1;
+    clearInterval(boxInterval);
   };
 
   const increaseBox = () => {
@@ -32,6 +35,7 @@
       return;
     }
     activeBox += 1;
+    clearInterval(boxInterval);
   };
 
   let boxInterval = setInterval(increaseBox, nextBoxTime);
@@ -45,13 +49,25 @@
   let pairs = [];
 
   onMount(() => {
+    // Defining boxRadius for SVG deponding on windwos width
+    screenWidth = window.innerWidth;
+    if (screenWidth <= 309) {
+      boxRadius = 15;
+    } else if (screenWidth <= 420) {
+      boxRadius = 22.5;
+    } else {
+      boxRadius = 35;
+    }
+
     const container = document.querySelector(".roadmap");
 
     // Container width and height in pixels
     containerWidth = container.offsetWidth;
     containerHeight = container.offsetHeight;
+
     window.addEventListener("resize", () => {
       containerWidth = container.offsetWidth;
+      screenWidth = window.innerWidth;
       window.location.reload();
     });
 
@@ -97,7 +113,6 @@
         if (i % 3 === 0) pairs.push({ firstPoint, secondPoint });
       }
     }
-    console.log(pairs.length);
   });
 </script>
 
@@ -105,6 +120,7 @@
   class="roadmap"
   on:click|self={() => {
     activeBox = 0;
+    console.log("Clicked");
   }}
 >
   {#if containerHeight}
@@ -114,6 +130,8 @@
         y1={pair.firstPoint.y}
         x2={pair.secondPoint.x}
         y2={pair.secondPoint.y}
+        {containerWidth}
+        {containerHeight}
       />
     {/each}
   {/if}
@@ -138,7 +156,7 @@
 <style>
   .roadmap {
     width: 100%;
-    height: 100svh;
+    height: 100vh;
     font-family: "Poppins,sans-serif";
     /* position: fixed; */
     position: relative;
