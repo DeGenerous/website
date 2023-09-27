@@ -53,15 +53,16 @@
   }
 
   .box {
-    width: 70px;
-    height: 70px;
+    width: 22px;
+    height: 22px;
     cursor: pointer;
+    margin: 0 auto;
     transform-style: preserve-3d;
     background-color: #9d50eb;
     border-radius: 100px;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1rem;
     line-height: 1em;
     transition: transform 0.4s;
     display: flex;
@@ -99,32 +100,35 @@
     text-align: center;
     margin-top: 20px;
   }
-  @media screen and (min-width: 280px) {
+  p {
+    display: none;
+  }
+
+  @media screen and (min-width: 248px) {
     .box {
       width: 30px;
       height: 30px;
-      font-size: 1rem;
-    }
-    p {
-      display: none;
     }
   }
 
-  @media screen and (min-width: 375px) {
+  @media screen and (min-width: 380px) {
     .box {
       width: 45px;
       height: 45px;
-    }
-    p {
-      display: none;
     }
   }
 
   @media screen and (min-width: 500px) {
     .box {
-      width: 70px;
-      height: 70px;
+      width: 60px;
+      height: 60px;
       font-size: 2rem;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .box {
+      width: 75px;
+      height: 75px;
     }
     p {
       display: block;

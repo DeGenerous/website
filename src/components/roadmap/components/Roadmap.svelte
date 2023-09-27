@@ -52,10 +52,14 @@
   onMount(() => {
     // Defining boxRadius for SVG depending on windows width
     screenWidth = window.innerWidth;
-    if (screenWidth <= 309) {
+    if (screenWidth < 299) {
+      boxRadius = 11;
+    } else if (screenWidth < 389) {
       boxRadius = 15;
-    } else if (screenWidth <= 420) {
+    } else if (screenWidth < 500) {
       boxRadius = 22.5;
+    } else if (screenWidth < 1024) {
+      boxRadius = 30;
     } else {
       boxRadius = 35;
     }
@@ -65,10 +69,12 @@
     // Container width and height in pixels
     containerWidth = container.offsetWidth;
     containerHeight = container.offsetHeight;
-
+    console.log(`Roadmap width: ${containerWidth}`);
+    console.log(`Screen width: ${screenWidth}`);
     window.addEventListener("resize", () => {
-      containerWidth = container.offsetWidth;
-      screenWidth = window.innerWidth;
+      // containerWidth = container.offsetWidth;
+      // screenWidth = window.innerWidth;
+
       window.location.reload();
     });
 
@@ -80,7 +86,7 @@
       let x2 = $Store[i + 1].left;
       let y2 = $Store[i + 1].top;
 
-      // Difference beetween points
+      // Difference between points
       let dx = x2 - x1;
       dx = (parseFloat(dx) / 100) * containerWidth;
 
@@ -97,7 +103,7 @@
       let stepX = dx / numSteps;
       let stepY = dy / numSteps;
 
-      // Generating points beetween boxes
+      // Generating points between boxes
       for (let i = 1; i < numSteps; i++) {
         const newX =
           (parseFloat(x1) / 100) * containerWidth + i * stepX + boxRadius;
@@ -157,6 +163,7 @@
 <style>
   .roadmap {
     width: 100%;
+    margin: 0 auto;
     height: 100vh;
     font-family: "Poppins,sans-serif";
     /* position: fixed; */
