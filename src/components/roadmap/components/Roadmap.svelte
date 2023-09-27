@@ -9,11 +9,13 @@
   let activeBox = 1;
   let nextBoxTime = 6000;
   let boxRadius;
+
   // Restart interval that automatically start showing Boxes
   $: if (activeBox === 0) {
     clearInterval(boxInterval);
     boxInterval = setInterval(increaseBox, nextBoxTime);
   }
+
   // after clicking on box style of clicked box is changed and Popup showed
   const changeActiveBox = (e) => {
     activeBox = e.detail;
@@ -43,13 +45,12 @@
   // Drawing SVG
   let containerWidth;
   let containerHeight;
-  // $: trackContainer = containerWidth;
 
   let points = [];
   let pairs = [];
 
   onMount(() => {
-    // Defining boxRadius for SVG deponding on windwos width
+    // Defining boxRadius for SVG depending on windows width
     screenWidth = window.innerWidth;
     if (screenWidth <= 309) {
       boxRadius = 15;
