@@ -6,14 +6,17 @@
   export let left;
   export let number;
   export let active;
+  export let boxRadius;
 
   const dispatch = createEventDispatcher();
+  console.log(`${number} has box radius: ${boxRadius}`);
 </script>
 
 <div
   class="popup-container"
   class:active
-  style="top: {top + 10 >= 80 ? top - 12 : top + 10}%; left: {left}%;"
+  style="top: {top + 2 * boxRadius + 2}%; 
+    left: {left + 10 >= 70 ? left - 4 * boxRadius : left + boxRadius}%;"
 >
   <p>{number}. {text}</p>
   <div class="roadmap-navigation">
@@ -49,6 +52,7 @@
 
 <style>
   .popup-container {
+    font-size: 0.5rem;
     position: absolute;
     background-color: #297268;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -87,5 +91,11 @@
   }
   .roadmap-nav-button:hover {
     background-color: #63cfc0;
+  }
+
+  @media screen and (min-width: 500px) {
+    .popup-container {
+      font-size: 1rem;
+    }
   }
 </style>

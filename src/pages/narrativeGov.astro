@@ -1,15 +1,15 @@
 ---
 import Section from '@components/Section.astro';
 import Layout from '@layouts/Layout.astro';
-import SvelteRoadmap from '../components/roadmap/App.svelte'
+
+import NarrativeG from '../components/narrativeGov/App.svelte'
 
 ---
 
 <Layout title="Roadmap | Degenerous" page="Roadmap">
 	<main>
 		<Section gap>
-            <h1>Roadmap</h1>
-            <SvelteRoadmap client:load/>
+            <NarrativeG/>
 
             <p>At Degenerous DAO, we strive to revolutionize charity and NFTs. Our end goal is to build an NFT-governed decentralized platform that allows donors to directly fund verified meaningful causes and gives creators the power to guarantee efficient resource allocation. Our mission is to foster trust, transparency and collaboration in the industry to facilitate positive change in communities and create global impact.</p>
         </Section>

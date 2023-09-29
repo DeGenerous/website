@@ -8,6 +8,8 @@
   export let top;
   export let isActive = false;
   export let isDone = false;
+  export let boxRadius;
+
   const dispatch = createEventDispatcher();
 </script>
 
@@ -24,13 +26,16 @@
   </div>
 </div>
 
-<p class="title" style="top: {top + 7}%; left: {left}%;">{title}</p>
+<p class="title" style="top: {top + 1.7 * boxRadius}%; left: {left}%;">
+  {title}
+</p>
 
 <Popup
   {text}
   {left}
   {top}
   {number}
+  {boxRadius}
   active={isActive}
   on:decreaseBox={() => {
     dispatch("decreaseBox");
@@ -129,6 +134,7 @@
     .box {
       width: 75px;
       height: 75px;
+      font-size: 2rem;
     }
     p {
       display: block;

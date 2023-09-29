@@ -86,14 +86,14 @@
       let x2 = $Store[i + 1].left;
       let y2 = $Store[i + 1].top;
 
-      // Difference between points
+      // Difference between points in pixels
       let dx = x2 - x1;
       dx = (parseFloat(dx) / 100) * containerWidth;
 
       let dy = y2 - y1;
       dy = (parseFloat(dy) / 100) * containerHeight;
 
-      // Total length between points
+      // Total length between points in pixels
       const distance = Math.sqrt(dx * dx + dy * dy);
 
       // Max number of steps between points
@@ -144,20 +144,23 @@
   {/if}
 
   <!-- <h1 class="title">Roadmap</h1> -->
-  {#each $Store as elem (elem.title)}
-    <Box
-      title={elem.title}
-      text={elem.text}
-      top={elem.top}
-      left={elem.left}
-      number={elem.id}
-      isActive={activeBox === elem.id}
-      isDone={elem.isDone}
-      on:changeActiveBox={changeActiveBox}
-      on:decreaseBox={decreaseBox}
-      on:increaseBox={increaseBox}
-    />
-  {/each}
+  {#if boxRadius}
+    {#each $Store as elem (elem.title)}
+      <Box
+        title={elem.title}
+        text={elem.text}
+        top={elem.top}
+        left={elem.left}
+        number={elem.id}
+        isActive={activeBox === elem.id}
+        isDone={elem.isDone}
+        boxRadius={(boxRadius / containerHeight) * 100}
+        on:changeActiveBox={changeActiveBox}
+        on:decreaseBox={decreaseBox}
+        on:increaseBox={increaseBox}
+      />
+    {/each}
+  {/if}
 </div>
 
 <style>
