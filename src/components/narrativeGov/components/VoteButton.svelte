@@ -1,21 +1,21 @@
 <script>
   export let top;
   export let left;
-  export let imgSource = "../images/narrativeGov/Vote-Clicked.png";
+  export let imgSource = "../images/narrativeGov/Votecrop.png";
 </script>
 
 <div class="voteButton" style="background-image: url({imgSource})" />
 
 <style>
   .voteButton {
-    width: 15.5%;
-    height: 13%;
+    width: 20.5%;
+    height: 17%;
     position: absolute;
-    top: 58%;
-    left: 71%;
+    top: 71%;
+    left: 75.5%;
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center center;
-    object-fit: contain;
+    object-fit: cover;
+    border: 1px solid white;
   }
 </style>

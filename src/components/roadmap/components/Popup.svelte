@@ -9,7 +9,6 @@
   export let boxRadius;
 
   const dispatch = createEventDispatcher();
-  console.log(`${number} has box radius: ${boxRadius}`);
 </script>
 
 <div

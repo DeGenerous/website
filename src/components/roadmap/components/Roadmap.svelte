@@ -48,6 +48,16 @@
 
   let points = [];
   let pairs = [];
+  // let lastBoxDone = 0;
+
+  // //Find last box that is done
+  // for (let i = 0; i < $Store.length; i++) {
+  //   if (($Store[i].isDone = true)) {
+  //     lastBoxDone = i + 1;
+  //   } else {
+  //     break;
+  //   }
+  // }
 
   onMount(() => {
     // Defining boxRadius for SVG depending on windows width
@@ -69,8 +79,7 @@
     // Container width and height in pixels
     containerWidth = container.offsetWidth;
     containerHeight = container.offsetHeight;
-    console.log(`Roadmap width: ${containerWidth}`);
-    console.log(`Screen width: ${screenWidth}`);
+
     window.addEventListener("resize", () => {
       // containerWidth = container.offsetWidth;
       // screenWidth = window.innerWidth;
@@ -86,6 +95,9 @@
       let x2 = $Store[i + 1].left;
       let y2 = $Store[i + 1].top;
 
+      // If next box is done svg will be colored
+      let nextBoxDone = $Store[i + 1].isDone ? true : false;
+
       // Difference between points in pixels
       let dx = x2 - x1;
       dx = (parseFloat(dx) / 100) * containerWidth;
@@ -99,7 +111,7 @@
       // Max number of steps between points
       const numSteps = Math.floor(distance / svgLength);
 
-      //Steps for x and y
+      // Steps for x and y
       let stepX = dx / numSteps;
       let stepY = dy / numSteps;
 
@@ -114,11 +126,20 @@
       }
 
       // Taking every third pair for drawing SVG
+      let id = 0;
       for (let i = 0; i < points.length - 1; i++) {
         let firstPoint = points[i];
         let secondPoint = points[i + 1];
-        if (i % 3 === 0) pairs.push({ firstPoint, secondPoint });
+
+        if (i % 3 === 0) {
+          pairs.push({ id, firstPoint, secondPoint, nextBoxDone });
+          id++;
+        }
       }
+    }
+
+    for (let i = 0; i < pairs.length; i++) {
+      console.log(pairs[i].id);
     }
   });
 </script>
@@ -127,7 +148,6 @@
   class="roadmap"
   on:click|self={() => {
     activeBox = 0;
-    console.log("Clicked");
   }}
 >
   {#if containerHeight}
@@ -139,6 +159,7 @@
         y2={pair.secondPoint.y}
         {containerWidth}
         {containerHeight}
+        color={pair.nextBoxDone}
       />
     {/each}
   {/if}

@@ -3,19 +3,16 @@
 </script>
 
 <div class="narrativeGov">
-  <VoteButton imgSource={"../images/narrativeGov/Vote-Clicked.png"} />
+  <VoteButton imgSource={"../images/narrativeGov/Vote-Hover.png"} />
 </div>
 
 <style>
   .narrativeGov {
     width: 100%;
-    height: 500px;
-    /* height: 100vh; */
+    padding-top: 91%;
     position: relative;
     background-image: url("../images/narrativeGov/Hub.png");
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
-    /* background-position: center center; */
-    object-fit: cover;
   }
 </style>
