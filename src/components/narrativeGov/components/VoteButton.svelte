@@ -1,21 +1,30 @@
 <script>
-  export let top;
-  export let left;
-  export let imgSource = "../images/narrativeGov/Votecrop.png";
+  export let active = false;
+  if (active) {
+    console.log("Vote button is active");
+  } else {
+    console.log("Vote button is NOT active");
+  }
 </script>
 
-<div class="voteButton" style="background-image: url({imgSource})" />
+<div class="voteButton" class:active />
 
 <style>
   .voteButton {
-    width: 20.5%;
+    width: 19.7%;
     height: 17%;
     position: absolute;
-    top: 71%;
-    left: 75.5%;
+    top: 72.4%;
+    left: 75%;
     background-size: contain;
     background-repeat: no-repeat;
-    object-fit: cover;
-    border: 1px solid white;
+    background-image: url("../images/narrativeGov/VoteInactive.png");
+    /* border: 1px solid white; */
+  }
+  .active {
+    background-image: url("../images/narrativeGov/Vote-Active.png");
+  }
+  .active:hover {
+    background-image: url("../images/narrativeGov/Vote-Hover.png");
   }
 </style>

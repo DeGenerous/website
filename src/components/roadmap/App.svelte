@@ -2,7 +2,7 @@
   import Roadmap from "./components/Roadmap.svelte";
 </script>
 
-<div class="roadmap">
+<div class="roadmap" on:click={handleLog}>
   <Roadmap />
 </div>
 

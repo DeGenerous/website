@@ -48,16 +48,8 @@
 
   let points = [];
   let pairs = [];
-  // let lastBoxDone = 0;
 
-  // //Find last box that is done
-  // for (let i = 0; i < $Store.length; i++) {
-  //   if (($Store[i].isDone = true)) {
-  //     lastBoxDone = i + 1;
-  //   } else {
-  //     break;
-  //   }
-  // }
+  let pairsDone = 0;
 
   onMount(() => {
     // Defining boxRadius for SVG depending on windows width
@@ -81,9 +73,6 @@
     containerHeight = container.offsetHeight;
 
     window.addEventListener("resize", () => {
-      // containerWidth = container.offsetWidth;
-      // screenWidth = window.innerWidth;
-
       window.location.reload();
     });
 
@@ -137,19 +126,17 @@
         }
       }
     }
-
-    for (let i = 0; i < pairs.length; i++) {
-      console.log(pairs[i].id);
-    }
   });
 </script>
 
 <div
   class="roadmap"
   on:click|self={() => {
+    console.log("Roadmap clicked");
     activeBox = 0;
   }}
 >
+  <!-- Drawing after container is mounted -->
   {#if containerHeight}
     {#each pairs as pair}
       <Svg
