@@ -20,11 +20,11 @@
     position: absolute;
     width: 17%;
     height: 30%;
-    top: 14%;
+    top: 10%;
     left: 77.5%;
     background-size: contain;
 
-    background-image: url("../images/narrativeGov/TextButton-inactive.png");
+    background-image: url("../images/narrativeGov/Text-Inactive.png");
     background-repeat: no-repeat;
     /* border: 1px solid white; */
   }
@@ -33,7 +33,11 @@
     background-image: url("../images/narrativeGov/Text-Hover.png");
   }
   .BookButton.active {
-    background-image: url("../images/narrativeGov/TextButton-active.png");
-    /* background-image: url("../images/narrativeGov/Text-Hover.png"); */
+    background-image: url("../images/narrativeGov/Text-Active.png");
+    top: 2%;
+    left: 73%;
+    width: 24.5%;
+    height: 44.5%;
+    /* border: 1px solid white; */
   }
 </style>

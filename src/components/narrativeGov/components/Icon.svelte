@@ -5,6 +5,7 @@
 
 <style>
   .icon {
+    pointer-events: auto;
     position: absolute;
     width: 10%;
     height: 10%;

@@ -5,7 +5,7 @@
   import VideoFrame from "./VideoFrame.svelte";
   import TextButton from "./TextButton.svelte";
   import TextFrame from "./TextFrame.svelte";
-  let activeField;
+  let activeField = "video";
 
   const changeActiveField = (e) => {
     activeField = e.detail;
@@ -16,20 +16,18 @@
   {#if activeField === "video"}
     <video playsinline autoplay loop>
       <source
-        src="../../../public/video/narrativeGov/Narrative Governance.mp4"
+        src="/video/narrativeGov/Narrative Governance.mp4"
         type="video/mp4"
       />
       Your browser does not support the video tag.
     </video>
+    <!-- <iframe
+      src="https://www.youtube.com/embed/GMGSSpqEE_A?autoplay=1&mute=1"
+      frameborder="0"
+      allowfullscreen
+    /> -->
   {/if}
 
-  <!-- <iframe
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/GMGSSpqEE_A"
-    frameborder="0"
-    allowfullscreen
-  /> -->
   <div class="narrativeGov">
     <FormatButton on:changeActiveField={changeActiveField} {activeField} />
     <VoteButton active={activeField === "video"} />
@@ -40,6 +38,7 @@
 
 <style>
   .narrativeGov {
+    pointer-events: none;
     width: 100%;
     padding-top: 91%;
     position: relative;
@@ -48,7 +47,9 @@
     background-repeat: no-repeat;
     /* border: 1px solid white; */
   }
-
+  .narrativeGov > * {
+    pointer-events: auto; /* Reset pointer-events for children */
+  }
   .wrapper {
     position: relative;
     width: 100%;
@@ -71,16 +72,11 @@
   iframe {
     /** Simulationg background-size: cover */
     object-fit: cover;
-    height: 100%;
-    width: 100%;
+    height: 57%;
+    width: 90%;
 
     position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .header {
-    position: relative;
-    color: white;
-    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6);
+    top: 8%;
+    left: 5%;
   }
 </style>

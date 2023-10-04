@@ -11,6 +11,7 @@
 
 <style>
   .voteButton {
+    pointer-events: auto;
     width: 19.7%;
     height: 17%;
     position: absolute;

@@ -18,11 +18,11 @@
     position: absolute;
     width: 17%;
     height: 30%;
-    top: 14%;
+    top: 10%;
     left: 6.5%;
     background-size: contain;
 
-    background-image: url("../images/narrativeGov/VideoButton-inactive.png");
+    background-image: url("../images/narrativeGov/Video-Inactive.png");
     background-repeat: no-repeat;
     /* border: 1px solid white; */
   }
@@ -30,6 +30,10 @@
     background-image: url("../images/narrativeGov/Video-Hover.png");
   }
   .videoButton.active {
-    background-image: url("../images/narrativeGov/VideoButton-active.png");
+    background-image: url("../images/narrativeGov/Video-Active.png");
+    top: 2%;
+    left: 2.5%;
+    width: 24.5%;
+    height: 44.5%;
   }
 </style>

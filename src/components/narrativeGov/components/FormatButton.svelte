@@ -25,6 +25,7 @@
 
 <style>
   .FormatButton {
+    pointer-events: auto;
     position: absolute;
     width: 20%;
     height: 12%;
@@ -32,7 +33,7 @@
     left: 76%;
     background-size: contain;
 
-    background-image: url("../images/narrativeGov/FormatBG.png");
+    background-image: url("../images/narrativeGov/Format.png");
     background-repeat: no-repeat;
     /* border: 1px solid white; */
   }
