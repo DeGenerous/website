@@ -1,7 +1,15 @@
 <script>
+  import { createEventDispatcher } from "svelte";
+  const dispatch = createEventDispatcher();
+
+  export let top = 0;
+  export let right = 0;
+  const handleClick = () => {
+    dispatch("iconClicked");
+  };
 </script>
 
-<div class="icon" />
+<div class="icon" on:click={handleClick} style="top: {top}%; right:{right}%" />
 
 <style>
   .icon {
@@ -9,13 +17,12 @@
     position: absolute;
     width: 10%;
     height: 10%;
-    top: 0%;
-    right: 0%;
     background-size: contain;
-
+    padding: 0;
+    margin: 0;
     background-image: url("../images/narrativeGov/Icon.png");
     background-repeat: no-repeat;
-    background-position: center center;
+    /* background-position: center center; */
     /* border: 1px solid white; */
   }
 

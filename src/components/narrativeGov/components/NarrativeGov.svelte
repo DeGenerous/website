@@ -5,16 +5,25 @@
   import VideoFrame from "./VideoFrame.svelte";
   import TextButton from "./TextButton.svelte";
   import TextFrame from "./TextFrame.svelte";
+  import SidePanel from "./sidePanel/SidePanel.svelte";
+  import Vote from "./vote/Vote.svelte";
+
   let activeField = "video";
+  let showSidePanel = false;
 
   const changeActiveField = (e) => {
     activeField = e.detail;
+  };
+
+  const toggleSidePanel = () => {
+    showSidePanel = !showSidePanel;
   };
 </script>
 
 <div class="wrapper">
   {#if activeField === "video"}
-    <video playsinline autoplay loop>
+    <!-- add autoplay below -->
+    <video playsinline loop autoplay paused={showSidePanel}>
       <source
         src="/video/narrativeGov/Narrative Governance.mp4"
         type="video/mp4"
@@ -28,12 +37,17 @@
     /> -->
   {/if}
 
+  <Vote />
+
   <div class="narrativeGov">
     <FormatButton on:changeActiveField={changeActiveField} {activeField} />
     <VoteButton active={activeField === "video"} />
-    <Icon />
+    <Icon on:iconClicked={toggleSidePanel} />
     <TextFrame play={activeField === "text"} />
   </div>
+
+  {#if showSidePanel === true}<div class="shadow" />{/if}
+  <SidePanel on:toggleSidePanel={toggleSidePanel} show={showSidePanel} />
 </div>
 
 <style>
@@ -47,6 +61,8 @@
     background-repeat: no-repeat;
     /* border: 1px solid white; */
   }
+
+  /* Does not work for children  */
   .narrativeGov > * {
     pointer-events: auto; /* Reset pointer-events for children */
   }
@@ -58,6 +74,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* border: 1px solid blue; */
   }
   video {
     /** Simulationg background-size: cover */
@@ -78,5 +95,14 @@
     position: absolute;
     top: 8%;
     left: 5%;
+  }
+  .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.6;
   }
 </style>
