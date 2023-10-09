@@ -1,5 +1,10 @@
 <script>
-  import NarrativeGovStore from "../../stores/narrativeGovStore";
+  import {
+    NarrativeGovStore,
+    updateStore,
+  } from "../../stores/narrativeGovStore";
+  import NarrativeGov from "../narrativeGov.svelte";
+  import Option from './Option.svelte'
   let options = [
     "Interstellar Trade Regulations",
     "Galactic Defense Funding",
@@ -7,22 +12,27 @@
     "Resource Allocation for Renewable Energy",
     "Cultural Exchange and Diplomacy Programs:",
   ];
+
   let selectedOption;
+  
 </script>
 
 <div class="vote">
+  <!-- <Option/> -->
   <div class="select-component">
     <div class="options">
       {#each options as option (option)}
         <div
           on:click={() => {
             selectedOption = option;
+            updateStore(option);
           }}
           class:selected={selectedOption === option}
         >
           * {option}
         </div>
       {/each}
+    
     </div>
   </div>
 </div>

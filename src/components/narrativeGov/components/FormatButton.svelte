@@ -29,8 +29,8 @@
     position: absolute;
     width: 20%;
     height: 12%;
-    top: 62%;
-    left: 76%;
+    top: 68%;
+    left: 75.4%;
     background-size: contain;
 
     background-image: url("../images/narrativeGov/Format.png");

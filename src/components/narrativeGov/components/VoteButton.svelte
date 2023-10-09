@@ -1,13 +1,17 @@
 <script>
-  export let active = false;
-  if (active) {
-    console.log("Vote button is active");
-  } else {
-    console.log("Vote button is NOT active");
-  }
+  import { NarrativeGovStore } from "../stores/narrativeGovStore";
+  let isClicked = false;
 </script>
 
-<div class="voteButton" class:active />
+<div
+  class="voteButton"
+  class:active={$NarrativeGovStore.votedOption != null && !isClicked}
+  class:clicked={isClicked === true}
+  on:click={() => {
+    // isClicked = !isClicked;
+    isClicked = true;
+  }}
+/>
 
 <style>
   .voteButton {
@@ -15,17 +19,20 @@
     width: 19.7%;
     height: 17%;
     position: absolute;
-    top: 72.4%;
-    left: 75%;
+    top: 77.5%;
+    left: 75.5%;
     background-size: contain;
     background-repeat: no-repeat;
     background-image: url("../images/narrativeGov/VoteInactive.png");
     /* border: 1px solid white; */
   }
   .active {
-    background-image: url("../images/narrativeGov/Vote-Active.png");
+    background-image: url("../images/narrativeGov/VoteActive.png");
   }
   .active:hover {
-    background-image: url("../images/narrativeGov/Vote-Hover.png");
+    background-image: url("../images/narrativeGov/VoteHover.png");
+  }
+  .clicked {
+    background-image: url("../images/narrativeGov/VoteClicked.png");
   }
 </style>

@@ -1,13 +1,19 @@
-<script>
+ <script>
   import Icon from "../Icon.svelte";
   import { createEventDispatcher } from "svelte";
   import MenuTile from "./MenuTile.svelte";
   import NftTile from "./NftTile.svelte";
-  import SelectButton from "./SelectButton.svelte";
+  import nftData from "../../../../../public/data/narrativegov/nftData.json"; 
 
   const dispatch = createEventDispatcher();
+  
+  let nftSelected = []
 
+  const handleSelect = (e) => {
+    nftSelected = [...nftSelected, nftData.nft.find((elem) => { elem.src = e.detail})]
+  }
   export let show = false;
+
 </script>
 
 <div
@@ -22,9 +28,12 @@
       dispatch("toggleSidePanel");
     }}
   />
-  <MenuTile />
-  <NftTile />
-  <SelectButton />
+  <MenuTile nftSum = {nftData.nft.length} nftSelected = {nftSelected.length} />
+  
+  {#each nftData.nft as nft}
+    <NftTile src = {nft.img} nftClass={nft.class} nftId = {nft.id} on:nftSelected={handleSelect}/>
+  {/each}
+  
 </div>
 
 <style>
@@ -53,18 +62,7 @@
     left: 0%;
     opacity: 1;
   }
-  /* @keyframes right-appear {
-    to {
-      left: 0%;
-      opacity: 1;
-    }
-  }
-  @keyframes right-disappear {
-    to {
-      left: 100%;
-      opacity: 0;
-    }
-  } */
+
   /* @media screen and (min-width: 500px) {
     .sidePanel {
       top: 0%;

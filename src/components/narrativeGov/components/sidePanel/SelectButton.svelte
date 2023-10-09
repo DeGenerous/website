@@ -1,33 +1,37 @@
 <script>
-  export let active;
+  import { createEventDispatcher } from "svelte";
+  const dispatch = createEventDispatcher();
+
   let clicked = false;
 </script>
 
 <div
-  class="selectButtom"
+  class="selectButton"
   class:clicked
   on:click={() => {
-    clicked = !clicked;
+    clicked = true;
+    dispatch("nftSelected");
   }}
 />
 
 <style>
-  .selectButtom {
+  .selectButton {
     position: absolute;
-    top: 36.5%;
-    left: 85.7%;
-    width: 10%;
-    height: 3%;
+    top: 75.5%;
+    left: 48.7%;
+    width: 40%;
+    height: 30%;
 
     background-image: url("/images/narrativeGov/Select.png");
     background-size: contain;
     background-repeat: no-repeat;
     /* border: 1px solid white; */
   }
-  .selectButtom:hover {
+  .selectButton:hover {
     background-image: url("/images/narrativeGov/Select-Hover.png");
   }
   .clicked {
     background-image: url("/images/narrativeGov/Selected.png");
+    pointer-events: none;
   }
 </style>

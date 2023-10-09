@@ -5,8 +5,8 @@
   import VideoFrame from "./VideoFrame.svelte";
   import TextButton from "./TextButton.svelte";
   import TextFrame from "./TextFrame.svelte";
-  import SidePanel from "./sidePanel/SidePanel.svelte";
-  import Vote from "./vote/Vote.svelte";
+  import SidePanel from "./SidePanel/SidePanel.svelte";
+  import Vote from "./Vote/Vote.svelte";
 
   let activeField = "video";
   let showSidePanel = false;
@@ -23,25 +23,25 @@
 <div class="wrapper">
   {#if activeField === "video"}
     <!-- add autoplay below -->
-    <video playsinline loop autoplay paused={showSidePanel}>
+    <!-- <video playsinline loop autoplay paused={showSidePanel}>
       <source
         src="/video/narrativeGov/Narrative Governance.mp4"
         type="video/mp4"
       />
       Your browser does not support the video tag.
-    </video>
-    <!-- <iframe
+    </video> -->
+    <iframe
       src="https://www.youtube.com/embed/GMGSSpqEE_A?autoplay=1&mute=1"
       frameborder="0"
       allowfullscreen
-    /> -->
+    />
   {/if}
 
   <Vote />
 
   <div class="narrativeGov">
     <FormatButton on:changeActiveField={changeActiveField} {activeField} />
-    <VoteButton active={activeField === "video"} />
+    <VoteButton  />
     <Icon on:iconClicked={toggleSidePanel} />
     <TextFrame play={activeField === "text"} />
   </div>
@@ -56,7 +56,7 @@
     width: 100%;
     padding-top: 91%;
     position: relative;
-    background-image: url("../images/narrativeGov/Display.png");
+    background-image: url("../images/narrativeGov/Hub.png");
     background-size: cover;
     background-repeat: no-repeat;
     /* border: 1px solid white; */
@@ -79,22 +79,24 @@
   video {
     /** Simulationg background-size: cover */
     object-fit: cover;
-    height: 57%;
+    height: 56.5%;
     width: 90%;
 
     position: absolute;
-    top: 7%;
+    top: 7.9%;
     left: 5%;
   }
   iframe {
     /** Simulationg background-size: cover */
     object-fit: cover;
-    height: 57%;
-    width: 90%;
+    height: 56.5%;
+    width: 91%;
 
     position: absolute;
-    top: 8%;
-    left: 5%;
+    top: 7.9%;
+    left: 4.5%;
+    border: 1px solid red;
+
   }
   .shadow {
     position: absolute;

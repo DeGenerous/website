@@ -17,11 +17,11 @@
     position: absolute;
     width: 10%;
     height: 10%;
-    background-size: contain;
     padding: 0;
     margin: 0;
     background-image: url("../images/narrativeGov/Icon.png");
     background-repeat: no-repeat;
+    background-size: contain;
     /* background-position: center center; */
     /* border: 1px solid white; */
   }

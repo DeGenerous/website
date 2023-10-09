@@ -1,6 +1,5 @@
 <script>
   import jsonData from "../../../../public/data/narrativegov/randomData.json";
-  console.log(typeof jsonData);
 
   export let play;
 </script>

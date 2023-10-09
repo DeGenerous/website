@@ -1,0 +1,17 @@
+{
+    "nft":[
+        {
+            "id":"1",
+            "img":"/images/soldier.jpg",          
+            "class":"Solider"
+        }, {
+            "id":"2",
+            "img":"/images/spy.jpg",          
+            "class":"Spy"
+        }, {
+            "id":"3",
+            "img":"/images/engineer.jpg",
+            "class":"Engineer"
+        }
+    ]
+}
