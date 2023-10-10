@@ -4,13 +4,15 @@
   import MenuTile from "./MenuTile.svelte";
   import NftTile from "./NftTile.svelte";
   import nftData from "../../../../../public/data/narrativegov/nftData.json"; 
-
+  import {
+    NarrativeGovStore,
+  } from "../../stores/narrativeGovStore";
   const dispatch = createEventDispatcher();
   
-  let nftSelected = []
 
   const handleSelect = (e) => {
-    nftSelected = [...nftSelected, nftData.nft.find((elem) => { elem.src = e.detail})]
+    $NarrativeGovStore.nftSelected = [...$NarrativeGovStore.nftSelected, e.detail]
+    console.log(`Nft: ${$NarrativeGovStore.nftSelected.length}`)
   }
   export let show = false;
 
@@ -28,7 +30,7 @@
       dispatch("toggleSidePanel");
     }}
   />
-  <MenuTile nftSum = {nftData.nft.length} nftSelected = {nftSelected.length} />
+  <MenuTile nftSum = {nftData.nft.length} nftSelected = {$NarrativeGovStore.nftSelected.length} />
   
   {#each nftData.nft as nft}
     <NftTile src = {nft.img} nftClass={nft.class} nftId = {nft.id} on:nftSelected={handleSelect}/>
@@ -43,7 +45,6 @@
     left: 100%;
     width: 100%;
     height: 100%;
-    /* height: 100%; */
     background-image: url("/images/narrativeGov/Side panel.png");
     background-size: cover;
     background-repeat: no-repeat;
@@ -62,14 +63,4 @@
     left: 0%;
     opacity: 1;
   }
-
-  /* @media screen and (min-width: 500px) {
-    .sidePanel {
-      top: 0%;
-      left: 100%;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-    }
-  } */
 </style>

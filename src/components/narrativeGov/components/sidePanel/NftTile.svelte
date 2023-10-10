@@ -12,7 +12,7 @@
   <p style="top: 5%;">Potential:</p>
   <p style="top: 16%; left:75%"># {nftId}</p>
   <p>Class:</p>
-  <p style="font-size: 1.5rem; top:53%; left:54%;">
+  <p class="nftClass" style=" top:53%; left:54%;">
     {nftClass}
   </p>
   <img {src} alt="Nft picture" />
@@ -52,5 +52,19 @@
     top: 40%;
     font-family: "Righteous", cursive;
     font-size: 1.2rem;
+  }
+  .nftClass {
+    font-size: 1.5rem;
+  }
+
+  @media screen and (max-width: 450px) {
+    .nftTile > p {
+      font-size: 0.4rem;
+      left: 53%;
+    }
+
+    .nftClass {
+      font-size: 0.3rem;
+    }
   }
 </style>

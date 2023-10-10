@@ -33,4 +33,10 @@
     top:9%;
     left:44%
   }
+  @media screen and (max-width: 450px){
+    .menuTile > p{
+      font-size: 0.3rem;
+    }
+  }
+  
 </style>

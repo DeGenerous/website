@@ -1,14 +1,16 @@
 <script>
   import { NarrativeGovStore } from "../stores/narrativeGovStore";
+
   let isClicked = false;
 </script>
 
 <div
   class="voteButton"
-  class:active={$NarrativeGovStore.votedOption != null && !isClicked}
+  class:active={$NarrativeGovStore.votedOption != null &&
+    !isClicked &&
+    $NarrativeGovStore.nftSelected.length > 0}
   class:clicked={isClicked === true}
   on:click={() => {
-    // isClicked = !isClicked;
     isClicked = true;
   }}
 />
