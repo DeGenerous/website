@@ -1,5 +1,5 @@
 <script>
-  import jsonData from "../../../../public/data/narrativegov/randomData.json";
+  import jsonData from "../../../../../public/data/narrativegov/randomData.json";
 
   export let play;
 </script>
@@ -40,5 +40,21 @@
     font-style: italic;
     padding-bottom: 30px;
     padding-top: 30px;
+  }
+  @media screen and (max-width: 460px) {
+    .textFrame {
+      position: absolute;
+      padding-top: 0;
+      width: 80%;
+      height: 60%;
+      top: 10%;
+      left: 0;
+      font-size: 0.3rem;
+      overflow: hidden;
+    }
+    h2 {
+      padding-bottom: 5px;
+      padding-top: 5px;
+    }
   }
 </style>

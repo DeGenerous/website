@@ -1,21 +1,20 @@
- <script>
-  import Icon from "../Icon.svelte";
+<script>
+  import Icon from "../NarrativeGov/Icon.svelte";
   import { createEventDispatcher } from "svelte";
   import MenuTile from "./MenuTile.svelte";
   import NftTile from "./NftTile.svelte";
-  import nftData from "../../../../../public/data/narrativegov/nftData.json"; 
-  import {
-    NarrativeGovStore,
-  } from "../../stores/narrativeGovStore";
+  import nftData from "../../../../../public/data/narrativegov/nftData.json";
+  import { NarrativeGovStore } from "../../stores/narrativeGovStore";
   const dispatch = createEventDispatcher();
-  
 
   const handleSelect = (e) => {
-    $NarrativeGovStore.nftSelected = [...$NarrativeGovStore.nftSelected, e.detail]
-    console.log(`Nft: ${$NarrativeGovStore.nftSelected.length}`)
-  }
+    $NarrativeGovStore.nftSelected = [
+      ...$NarrativeGovStore.nftSelected,
+      e.detail,
+    ];
+    console.log(`Nft: ${$NarrativeGovStore.nftSelected.length}`);
+  };
   export let show = false;
-
 </script>
 
 <div
@@ -30,12 +29,19 @@
       dispatch("toggleSidePanel");
     }}
   />
-  <MenuTile nftSum = {nftData.nft.length} nftSelected = {$NarrativeGovStore.nftSelected.length} />
-  
+  <MenuTile
+    nftSum={nftData.nft.length}
+    nftSelected={$NarrativeGovStore.nftSelected.length}
+  />
+
   {#each nftData.nft as nft}
-    <NftTile src = {nft.img} nftClass={nft.class} nftId = {nft.id} on:nftSelected={handleSelect}/>
+    <NftTile
+      src={nft.img}
+      nftClass={nft.class}
+      nftId={nft.id}
+      on:nftSelected={handleSelect}
+    />
   {/each}
-  
 </div>
 
 <style>

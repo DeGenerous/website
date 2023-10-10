@@ -1,5 +1,5 @@
 <script>
-  import { NarrativeGovStore } from "../stores/narrativeGovStore";
+  import { NarrativeGovStore } from "../../stores/narrativeGovStore";
 
   let isClicked = false;
 </script>

@@ -1,5 +1,5 @@
 <script>
-  import NarrativeGov from "./components/narrativeGov.svelte";
+  import NarrativeGov from "./components/NarrativeGov/NarrativeGov.svelte";
 </script>
 
 <div class="narrativeGov">

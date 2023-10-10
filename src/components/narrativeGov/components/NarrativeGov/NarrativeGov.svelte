@@ -2,11 +2,9 @@
   import VoteButton from "./VoteButton.svelte";
   import FormatButton from "./FormatButton.svelte";
   import Icon from "./Icon.svelte";
-  import VideoFrame from "./VideoFrame.svelte";
-  import TextButton from "./TextButton.svelte";
   import TextFrame from "./TextFrame.svelte";
-  import SidePanel from "./SidePanel/SidePanel.svelte";
-  import Vote from "./Vote/Vote.svelte";
+  import SidePanel from "../SidePanel/SidePanel.svelte";
+  import Vote from "../Vote/Vote.svelte";
 
   let activeField = "video";
   let showSidePanel = false;
@@ -41,7 +39,7 @@
 
   <div class="narrativeGov">
     <FormatButton on:changeActiveField={changeActiveField} {activeField} />
-    <VoteButton  />
+    <VoteButton />
     <Icon on:iconClicked={toggleSidePanel} />
     <TextFrame play={activeField === "text"} />
   </div>
@@ -96,7 +94,6 @@
     top: 7.9%;
     left: 4.5%;
     border: 1px solid red;
-
   }
   .shadow {
     position: absolute;
