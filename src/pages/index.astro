@@ -1,0 +1,260 @@
+---
+import Image from '@components/Image.astro';
+import Basic from "../layouts/basic.astro";
+
+import logo from "@assets/logo.png";
+import avatar from "@assets/avatar.png";
+import lions from "@assets/lions.png";
+import planet1 from "@assets/planet1.png";
+
+import Component from "./_index/sections/grid.svelte"
+import Team from "./_index/sections/team.astro"
+---
+
+<Basic title="Home | DeGenerous" page="index">
+    <script is:raw slot="head" async src="https://platform.twitter.com/widgets.js" charset="utf-8" />
+
+    <section class="hero columns">
+        <div>
+            <h1>
+                Unlock Your Potential With Us
+                and <strong>Make a Difference</strong>
+            </h1>
+            <h3>Where innovation and fun meet generosity</h3>
+            <a class="button" href="#">JOIN</a>
+        </div>
+        <Image src={logo} alt="DeGenerous logo" />
+    </section>
+    <section>
+        <div class="card center decorated">
+            <span>
+                DeGenerous DAO is building an ecosystem of AI and NFT-powered storytelling and gaming products,
+                creating shared and personalized experiences, and fostering charity.
+            </span>
+            <Image class="planet" src={planet1} alt="" />
+        </div>
+    </section>
+    <Component client:visible />
+    <section>
+        <div class="card">
+            <div class="video">
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/isK6VuGAbs4?si=iWIIQ_WGy_LjDiyb"
+                    title='Proof of Service'
+                    frameborder="0"
+                    allow="encrypted-media; web-share"
+                    allowfullscreen
+                />
+            </div>
+        </div>
+    </section>
+    <div class="socials">
+        <a class="icon" href="https://twitter.com/degenerousdao" target="_blank">
+            <img src="/icons/twitter.svg" alt="Twitter" />
+        </a>
+        <a class="icon" href="https://discord.gg/349FgMSUK8" target="_blank">
+            <img src="/icons/discord.svg" alt="Discord" />
+        </a>
+        <a class="icon" href="https://www.instagram.com/degenerousdao" target="_blank">
+            <img src="/icons/instagram.svg" alt="Instagram">
+        </a>
+        <a class="icon" href="https://www.youtube.com/@degenerous" target="_blank">
+            <img src="/icons/youtube.svg" alt="Youtube">
+        </a>
+    </div>
+    <section class="lions">
+        <div class="card split">
+            <div>
+                <h2>Proof-of-Impact</h2>
+                <p>
+                    DeGenerous DAO is committed to real-world change.
+                    From funding international service trips
+                    to our flagship app's daily use by kids in a leading gaming museum,
+                    our endeavors resonate with the joy of beneficiaries.
+                </p>
+                <p>
+                    As humanitarian partners of the world's largest service organization -
+                    Lions International - with over 1.4M members and 50k local clubs,
+                    we’ve organized numerous co-branded initiatives and funded several $100k+ service trips,
+                    including a Global Service Week coming in February 2024. Our
+                    holders are shaping this trip with innovative governance systems.
+                </p>
+                <p>
+                    True impact lies beyond the digital realm and is measured not just in bytes,
+                    but in smiles, stories, and changed lives.
+                </p>
+                <strong>Make the World a Better Place. Unlock Your Potential.</strong>
+            </div>
+            <Image src={lions} alt="" />
+        </div>
+    </section>
+    <Team />
+    <section class="news columns">
+        <Image src={avatar} alt="Avatar" />
+        <div class="tweets">
+            <a class="twitter-timeline" data-lang="en" data-dnt="true" data-theme="dark" data-chrome="noheader,noborders" href="https://twitter.com/degenerousdao?ref_src=twsrc%5Etfw">Tweets by DegenerousDao</a>
+        </div>
+    </section>
+</Basic>
+
+<style lang="scss">
+    @use "@styles/imports";
+
+    $box-padding: var(--bp);
+    $section-gap: var(--sg);
+
+    :root {
+      --bp: 3rem;
+      --sg: 10rem;
+
+      @media screen and (max-width: 50rem) {
+        --bp: 1.5rem;
+        --sg: 5rem;
+      }
+    }
+
+    h1, h2, h3 {
+      margin-block: 1rem;
+    }
+
+    p {
+      margin-block: 1rem;
+    }
+
+    :global(section) {
+      margin-block: $section-gap;
+    }
+
+    .columns {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+
+      @media screen and (max-width: 70rem) {
+        flex-direction: column-reverse;
+      }
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .card {
+      position: relative;
+      background-color: imports.$card-color;
+      border: imports.$card-border;
+      border-radius: 1rem;
+      font-size: 1.1rem;
+      margin-block: 5rem;
+      padding: $box-padding;
+      width: 100%;
+      margin-inline: auto;
+      align-items: center;
+
+      &.decorated {
+        max-width: calc(100vw - 7rem);
+      }
+
+      .planet {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        translate: -50% 50%;
+      }
+
+      @media screen and (max-width: 80rem) {
+        flex-direction: column;
+      }
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero {
+      margin-block: 5rem;
+
+      h1 {
+        max-width: 20ch;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+    }
+
+    .split {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .lions {
+      :global(img) {
+        max-height: 100%;
+        border-radius: 0.5rem;
+        display: block;
+        position: relative;
+
+        /*position: absolute;*/
+        /*inset: 0;*/
+
+        &:before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: red;
+        }
+      }
+    }
+
+    .socials {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      &::before {
+        content: '';
+        display: block;
+        width: calc((100vw - imports.$content-width) / 2 + 2vw);
+        height: 0.5rem;
+        background-color: imports.$accent-bg-color;
+        border-radius: 0 1000px 1000px 0;
+      }
+    }
+
+    .video {
+      width: 100%;
+
+      iframe {
+        width: 100%;
+        aspect-ratio: 16/9;
+        display: block;
+      }
+    }
+
+    .news {
+      gap: 5rem;
+
+      div {
+        flex-grow: 1;
+        width: 100%;
+      }
+    }
+
+    .tweets {
+      max-width: min(imports.$content-width, 40rem);
+      height: 700px;
+      overflow: auto;
+      border-radius: 1rem;
+
+      :global(div), :global(iframe) {
+        width: 100%;
+      }
+    }
+</style>

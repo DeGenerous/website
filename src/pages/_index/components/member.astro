@@ -1,0 +1,76 @@
+---
+export interface Props {
+    name: string;
+    title: string
+    img: string;
+}
+
+const { name, title, img } = Astro.props;
+---
+
+<div>
+    <div class="card">
+        <img src={img} alt={`${name}'s picture`}>
+        <!--<div class="grow" />-->
+        <!--<div class="details">-->
+        <!--    <h2>{name}</h2>-->
+        <!--    <h3>{title}</h3>-->
+        <!--</div>-->
+    </div>
+</div>
+
+<style lang="scss">
+  @use "@styles/imports";
+
+  img {
+    min-width: 10rem;
+    width: 10rem;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+
+  .card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    transition: scale 0.2s;
+    border: transparent solid 2px;
+  }
+
+  .card:hover {
+    scale: 1.2;
+    border-color: imports.$accent-bg-color;
+    box-shadow: 0 0 10px black;
+    z-index: 100;
+  }
+
+  .card {
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transition: background-position 0s;
+      background-image: linear-gradient(45deg, transparent 40%, hsl(0, 0%, 100%, .2) 60%, transparent 65%);
+      background-size: 300% 300%;
+      background-position: top right;
+    }
+    &:hover {
+      scale: 1.05;
+      z-index: 100;
+
+      &::after {
+        animation: glare 1s forwards;
+      }
+    }
+  }
+
+  @keyframes glare {
+    from {
+      background-position: top right;
+    }
+    to {
+      background-position: bottom left;
+    }
+  }
+
+</style>

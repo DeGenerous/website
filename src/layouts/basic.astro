@@ -1,0 +1,40 @@
+---
+import Footer from "../components/Footer.astro";
+export interface Props {
+    title: string;
+    page: string;
+}
+
+const { title, page } = Astro.props;
+
+import Header from '@components/Header.astro';
+import "@styles/index.scss"
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&display=swap" rel="stylesheet">
+
+    <title>{title}</title>
+
+    <slot name="head" />
+</head>
+<body>
+    <Header page={page} />
+    <main>
+        <slot />
+    </main>
+    <Footer />
+</body>
+</html>
+<style lang="scss">
+    main {
+      min-height: 100vh;
+    }
+</style>

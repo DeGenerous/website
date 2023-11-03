@@ -1,0 +1,27 @@
+{
+  "name": "new-website",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev --host",
+    "start": "astro dev --host",
+    "build": "astro build",
+    "preview": "astro preview --host",
+    "astro": "astro",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@astrojs/svelte": "^4.0.3",
+    "astro": "^3.3.0",
+    "sass": "^1.69.3",
+    "sharp": "^0.32.6",
+    "svelte": "^4.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.0"
+  },
+  "trustedDependencies": [
+    "sharp"
+  ]
+}
