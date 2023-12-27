@@ -1,147 +1,158 @@
 ---
 export interface Props {
-    page: string;
+  page: string;
 }
 
 const { page } = Astro.props;
 
 type HeaderLink = {
-    title: string;
-    link: string;
+  title: string;
+  link: string;
 };
 
 type HeaderDropwdown = {
-    title: string;
-    links: HeaderLink[];
+  title: string;
+  links: HeaderLink[];
 };
 
 const links: (HeaderLink | HeaderDropwdown)[] = [
-    {
-        title: "Home",
-        link: "/#",
-    },
-    {
-        title: "Roadmap",
-        link: "/roadmap",
-    },
-    {
-        title: "Wiki",
-        link: "https://degenerousdao.gitbook.io/wiki/",
-    },
-    {
-        title: "Apps",
-        links: [
-            {
-                title: "CoNexus",
-                link: "https://conexus.degenerousdao.com/"
-            },
-            {
-                title: "Iron Lion: Last Stand",
-                link: "https://emerald-rain.github.io/Iron-Lion-Last-Stand/"
-            },
-            {
-                title: "Sagaverse Gaming",
-                link: "https://emerald-rain.github.io/Battle-for-Nexon-WebGL/"
-            },
-            {
-                title: "Galactic Governance Hub",
-                link: "https://emerald-rain.github.io/Ark-Assassin-Unity/"
-            }
-        ]
-    }
+  {
+    title: "Home",
+    link: "/#",
+  },
+  {
+    title: "Roadmap",
+    link: "/roadmap",
+  },
+  {
+    title: "Wiki",
+    link: "https://degenerousdao.gitbook.io/wiki/",
+  },
+  {
+    title: "Apps",
+    links: [
+      {
+        title: "CoNexus",
+        link: "https://conexus.degenerousdao.com/",
+      },
+      {
+        title: "Iron Lion: Last Stand",
+        link: "https://emerald-rain.github.io/Iron-Lion-Last-Stand/",
+      },
+      {
+        title: "Battle for Nexon",
+        link: "https://emerald-rain.github.io/Battle-for-Nexon-WebGL/",
+      },
+      {
+        title: "Ark Assasin",
+        link: "https://emerald-rain.github.io/Ark-Assassin-Unity/",
+      },
+    ],
+  },
 ];
 
 function isLink(object: any): object is HeaderLink {
-    return "link" in object;
+  return "link" in object;
 }
 ---
 
 <custom-header>
-    <div class="close" />
-    <header>
-        <a class="c" href="/#">DeGenerous</a>
-        <nav>
-            <ul class="outer">
-                {
-                    links.map((l) => {
-                        if (isLink(l)) {
-                            return (
-                                    <li data-selected={l.title == page}>
-                                        <a class="c" href={l.link}>{l.title}</a>
-                                    </li>
-                            );
+  <div class="close"></div>
+  <header>
+    <a class="c" href="/#">DeGenerous</a>
+    <nav>
+      <ul class="outer">
+        {
+          links.map((l) => {
+            if (isLink(l)) {
+              return (
+                <li data-selected={l.title == page}>
+                  <a class="c" href={l.link}>
+                    {l.title}
+                  </a>
+                </li>
+              );
+            }
+
+            return (
+              <li class="sublist">
+                <span>
+                  {l.title}
+                  <img src="/icons/arrow_drop_down.svg" alt="" />
+                </span>
+                <ul class="inner">
+                  {l.links.map((link, i) => (
+                    <li data-selected={link.title == page} style={`--nth:${i}`}>
+                      <a
+                        class="c"
+                        href={link.link}
+                        target={
+                          link.link.indexOf("http") === 0 ? "_blank" : "_self"
                         }
-
-                        return (
-                                <li class="sublist">
-								<span>
-									{l.title}
-                                    <img src="/icons/arrow_drop_down.svg" alt="" />
-								</span>
-                                    <ul class="inner">
-                                        {l.links.map((link, i) => (
-                                                <li data-selected={link.title == page} style={`--nth:${i}`}>
-                                                    <a class="c" href={link.link} target={link.link.indexOf("http") === 0 ? "_blank" : "_self"}>{link.title}</a>
-                                                </li>
-                                        ))}
-                                    </ul>
-                                </li>
-                        );
-                    })
-                }
-
-            </ul>
-        </nav>
-        <button class="open">
-            <img src="/icons/menu.svg" alt="Open menu" />
-        </button>
-    </header>
+                      >
+                        {link.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+    <button class="open">
+      <img src="/icons/menu.svg" alt="Open menu" />
+    </button>
+  </header>
 </custom-header>
 
 <script>
+  class CustomHeader extends HTMLElement {
+    constructor() {
+      super();
 
-    class CustomHeader extends HTMLElement {
-        constructor() {
-            super();
+      const open_button = this.querySelector(".open");
+      const nav = this.querySelector("nav");
+      const ul = this.querySelector("ul");
+      const _close = this.querySelector(".close");
+      const header = this.querySelector("header");
 
-            const open_button = this.querySelector(".open");
-            const nav = this.querySelector("nav");
-            const ul = this.querySelector("ul");
-            const _close = this.querySelector(".close");
-            const header = this.querySelector('header');
+      const element = this;
 
-            const element = this;
+      window.onscroll = function () {
+        header?.toggleAttribute(
+          "stuck",
+          document.documentElement.scrollTop > 0
+        );
+      };
+      const open = () => {
+        element.dataset.open = "true";
+      };
+      const close = () => {
+        element.dataset.open = "closing";
+        setTimeout(() => {
+          delete element.dataset.open;
+        }, 200);
+      };
 
-            window.onscroll = function() {
-                header.toggleAttribute('stuck', document.documentElement.scrollTop > 0);
-            };
-            const open = () => {
-                element.dataset.open = "true";
-            };
-            const close = () => {
-                element.dataset.open = "closing";
-                setTimeout(() => {
-                    delete element.dataset.open;
-                }, 200);
-            };
+      open_button?.addEventListener("click", open);
+      _close?.addEventListener("click", close);
+      ul?.addEventListener("click", close);
 
-            open_button.addEventListener("click", open);
-            _close.addEventListener("click", close);
-            ul.addEventListener("click", close);
+      nav?.addEventListener("click", (e: MouseEvent) => {
+        e.stopPropagation();
+      });
 
-            nav.addEventListener("click", (e: MouseEvent) => {
-                e.stopPropagation();
-            });
-
-            window.addEventListener("keydown", (e: KeyboardEvent) => {
-                if (e.key === "Escape" && element.dataset.open === "true") {
-                    close();
-                }
-            });
+      window.addEventListener("keydown", (e: KeyboardEvent) => {
+        if (e.key === "Escape" && element.dataset.open === "true") {
+          close();
         }
+      });
     }
+  }
 
-    customElements.define("custom-header", CustomHeader);
+  customElements.define("custom-header", CustomHeader);
 </script>
 
 <style lang="scss">
@@ -177,7 +188,6 @@ function isLink(object: any): object is HeaderLink {
   a {
     text-decoration: none;
   }
-
 
   ul {
     list-style: none;
@@ -242,9 +252,9 @@ function isLink(object: any): object is HeaderLink {
 
       li {
         background-color: imports.$accent-bg-color;
-        transition:
-                translate 0.2s calc(0.1s * var(--nth)) cubic-bezier(0.34, 1.56, 0.64, 1),
-                opacity   0.2s calc(0.1s * var(--nth)) cubic-bezier(0.34, 1.56, 0.64, 1);
+        transition: translate 0.2s calc(0.1s * var(--nth))
+            cubic-bezier(0.34, 1.56, 0.64, 1),
+          opacity 0.2s calc(0.1s * var(--nth)) cubic-bezier(0.34, 1.56, 0.64, 1);
 
         translate: -2rem 0;
         opacity: 0;
@@ -261,7 +271,6 @@ function isLink(object: any): object is HeaderLink {
       filter: unset;
       background-color: darken(imports.$accent-bg-color, 10%);
     }
-
 
     .sublist:where(:hover, :focus-within) {
       .inner {
@@ -296,7 +305,8 @@ function isLink(object: any): object is HeaderLink {
       backdrop-filter: blur(10px);
       background-color: rgba(imports.$bg-color, 0.8);
 
-      a, span {
+      a,
+      span {
         padding-block: 0.5rem;
         width: 100%;
       }
@@ -320,7 +330,8 @@ function isLink(object: any): object is HeaderLink {
       gap: 1rem;
     }
 
-    .connect, .disconnect {
+    .connect,
+    .disconnect {
       justify-content: center;
       margin-inline: 1rem;
       margin-top: 1rem;

@@ -1,3 +1,6 @@
+.idea/
+.code/
+
 # build output
 dist/
 # generated types
