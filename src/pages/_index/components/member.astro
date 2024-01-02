@@ -3,30 +3,86 @@ export interface Props {
     name: string;
     title: string
     img: string;
+    placement: string;
 }
 
-const { name, title, img } = Astro.props;
+const { name, title, img, placement } = Astro.props;
 ---
-
-<div>
-    <div class="card">
-        <img src={img} alt={`${name}'s picture`}>
-        <!--<div class="grow" />-->
-        <!--<div class="details">-->
-        <!--    <h2>{name}</h2>-->
-        <!--    <h3>{title}</h3>-->
-        <!--</div>-->
+<member-card>
+  <div class={`card ${placement}`}>
+    <img src={img} alt={`${name}'s picture`}>
+    <div class="details">
+      <h4 class="name">{name}</h4>
+      <label class="title">{title}</label>
+    </div>    
+  </div>
+  <div class="close modal">
+    <div class="opened">
+      <button class="exit" />
+      <img src={img} alt={`${name}'s picture`}>
+      <div class="grow" />
+      <div class="details">
+        <h2>{name}</h2>
+        <h3>{title}</h3>
+        <span class="description">
+          <slot />
+        </span>
+      </div>
     </div>
-</div>
+  </div>
+</member-card>
+
+<script>
+  // WIP
+	class MemberCard extends HTMLElement {
+		#card:    HTMLDivElement;
+		#close:   HTMLDivElement;
+		#details: HTMLDivElement;
+		#exit:    HTMLDivElement;
+
+		constructor() {
+			super();
+
+            this.#card    = this.querySelector(".card") as HTMLDivElement;
+            this.#close   = this.querySelector(".close") as HTMLDivElement;
+            this.#details = this.querySelector(".opened") as HTMLDivElement;
+            this.#exit    = this.querySelector(".exit") as HTMLDivElement;
+
+			const element = this;
+			const open = () => { element.dataset.open = "true"; }
+			const close = () => {
+				element.dataset.open = "closing";
+				setTimeout(() => {
+					delete element.dataset.open;
+				}, 200);
+			}
+
+			// this.#card.addEventListener("click", open);
+			// this.#close.addEventListener("click", close);
+			// this.#exit.addEventListener("click", close);
+
+			// this.#details.addEventListener("click", (e: MouseEvent) => {
+			// 	e.stopPropagation();
+			// })
+
+			// window.addEventListener('keydown', (e: KeyboardEvent) => {
+			// 	if (e.key === 'Escape') { close(); }
+			// })
+		}
+	}
+
+	customElements.define('member-card', MemberCard);
+</script>
 
 <style lang="scss">
   @use "@styles/imports";
 
   img {
-    min-width: 10rem;
-    width: 10rem;
+    min-width: 12rem;
+    width: 12rem;
     aspect-ratio: 1/1;
     object-fit: cover;
+    border-radius: 1rem;
   }
 
   .card {
@@ -35,10 +91,30 @@ const { name, title, img } = Astro.props;
     border-radius: 1rem;
     transition: scale 0.2s;
     border: transparent solid 2px;
+    img {
+      z-index: 1;
+    }
+    .details {
+      display: none;
+      z-index: 2;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 5px 4px 4px 4px;
+      text-align: center;
+      background-color: imports.$bg-color;
+    }
+    .name {
+      font-size: 13px;
+    }
+    .title {
+      font-size: 11px;
+      cursor: pointer;
+    }
   }
 
   .card:hover {
-    scale: 1.2;
     border-color: imports.$accent-bg-color;
     box-shadow: 0 0 10px black;
     z-index: 100;
@@ -55,14 +131,98 @@ const { name, title, img } = Astro.props;
       background-position: top right;
     }
     &:hover {
-      scale: 1.05;
+      scale: 1.25;
       z-index: 100;
+      cursor: pointer;
 
+      .details {
+        display: block;
+      }
       &::after {
         animation: glare 1s forwards;
       }
     }
+    &.first:hover {
+      transform-origin: center left;
+    }
+    &.last:hover {
+      transform-origin: center right;
+    }
   }
+
+  .close {
+		transition: opacity .1s;
+		position: fixed;
+		inset: 0;
+		background-color: hsla(0, 0%, 0%, 0.8);
+		opacity: 0;
+		pointer-events: none;
+		display: grid;
+		place-content: center;
+		z-index: 1000;
+	}
+
+	.opened {
+		display: block;
+		width: calc(100vw - 2rem);
+		max-width: 40rem;
+		background-color: hsl(var(--bg-color));
+
+		border-radius: var(--corner-size);
+		border: solid 4px var(--card-border-color);
+
+		transition: translate .2s, opacity .2s;
+		translate: 0 2rem;
+		opacity: 0;
+
+		max-height: 90vh;
+		overflow-y: auto;
+	}
+
+	.exit {
+		padding: 1.5rem;
+		position: absolute;
+		color: var(--fg-color);
+		aspect-ratio: 1/1;
+		top: 1rem;
+		right: 1rem;
+		background-color: hsl(var(--bg-color));
+
+		&::before, &::after {
+			position: absolute;
+			content: "";
+			height: .75rem;
+			width: .15rem;
+			left: 50%;
+			top: 50%;
+			translate: -50% -50%;
+			background-color: white;
+		}
+
+		&::before { rotate: -45deg; }
+		&::after  { rotate: 45deg;  }
+	}
+
+	[data-open] {
+		cursor: initial;
+
+		.close {
+			opacity: 1;
+			pointer-events: initial;
+		}
+
+		.opened {
+			translate: 0;
+			opacity: 1;
+		}
+	}
+
+	[data-open="closing"] {
+		.opened {
+			translate: 0 -2rem;
+			opacity: 0;
+		}
+	}
 
   @keyframes glare {
     from {
@@ -70,6 +230,21 @@ const { name, title, img } = Astro.props;
     }
     to {
       background-position: bottom left;
+    }
+  }
+
+  @media screen and (max-width: 60rem) {
+    img {
+      min-width: 10rem;
+      width: 10rem;
+    }
+    .card {
+      &:hover {
+        scale: 1;
+      }
+      .details {
+        display: block;        
+      }
     }
   }
 
