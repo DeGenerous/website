@@ -16,19 +16,19 @@ const { name, title, img, placement } = Astro.props;
       <label class="title">{title}</label>
     </div>    
   </div>
-  <div class="close modal">
-    <div class="opened">
-      <button class="exit" />
+  <div class="member-details-template">
+    <!-- <div class="opened">
+      <button class="exit" /> -->
       <img src={img} alt={`${name}'s picture`}>
       <div class="grow" />
       <div class="details">
         <h2>{name}</h2>
         <h3>{title}</h3>
-        <span class="description">
+        <div class="description">
           <slot />
-        </span>
+        </div>
       </div>
-    </div>
+    <!-- </div> -->
   </div>
 </member-card>
 
@@ -36,28 +36,44 @@ const { name, title, img, placement } = Astro.props;
   // WIP
 	class MemberCard extends HTMLElement {
 		#card:    HTMLDivElement;
-		#close:   HTMLDivElement;
-		#details: HTMLDivElement;
-		#exit:    HTMLDivElement;
+    #template: HTMLDivElement;
+		// #close:   HTMLDivElement;
+		// #details: HTMLDivElement;
+		// #exit:    HTMLDivElement;
 
 		constructor() {
 			super();
 
-            this.#card    = this.querySelector(".card") as HTMLDivElement;
-            this.#close   = this.querySelector(".close") as HTMLDivElement;
-            this.#details = this.querySelector(".opened") as HTMLDivElement;
-            this.#exit    = this.querySelector(".exit") as HTMLDivElement;
+      this.#card     = this.querySelector(".card") as HTMLDivElement;
+      this.#template = this.querySelector(".member-details-template") as HTMLDivElement;
+      // this.#close   = this.querySelector(".close") as HTMLDivElement;
+      // this.#details = this.querySelector(".opened") as HTMLDivElement;
+      // this.#exit    = this.querySelector(".exit") as HTMLDivElement;
+
+      const modal = document.querySelector("#member-details-modal") as HTMLDivElement;
+      
+      console.log(modal);
 
 			const element = this;
-			const open = () => { element.dataset.open = "true"; }
-			const close = () => {
-				element.dataset.open = "closing";
-				setTimeout(() => {
-					delete element.dataset.open;
-				}, 200);
-			}
+			const open = () => { 
+        //element.dataset.open = "true";
+        modal.dataset.open = "true";
+        //var description = element.querySelector(".opened")
+        var modalContent = modal.querySelector(".member-details-content");
+        if(modalContent && element.#template) {
+          modalContent.innerHTML = element.#template.innerHTML;
+        }
+      }
+			// const close = () => {
+			// 	//element.dataset.open = "closing";
+      //   modal.dataset.open = "closing";
+			// 	setTimeout(() => {
+			// 		//delete element.dataset.open;
+      //     delete modal.dataset.open;
+			// 	}, 200);
+			// }
 
-			// this.#card.addEventListener("click", open);
+			this.#card.addEventListener("click", open);
 			// this.#close.addEventListener("click", close);
 			// this.#exit.addEventListener("click", close);
 
@@ -150,60 +166,64 @@ const { name, title, img, placement } = Astro.props;
     }
   }
 
-  .close {
-		transition: opacity .1s;
-		position: fixed;
-		inset: 0;
-		background-color: hsla(0, 0%, 0%, 0.8);
-		opacity: 0;
-		pointer-events: none;
-		display: grid;
-		place-content: center;
-		z-index: 1000;
-	}
+  .member-details-template {
+    display: none;
+  }
 
-	.opened {
-		display: block;
-		width: calc(100vw - 2rem);
-		max-width: 40rem;
-		background-color: hsl(var(--bg-color));
+  // .close {
+	// 	transition: opacity .1s;
+	// 	position: fixed;
+	// 	inset: 0;
+	// 	background-color: hsla(0, 0%, 0%, 0.8);
+	// 	opacity: 0;
+	// 	pointer-events: none;
+	// 	display: grid;
+	// 	place-content: center;
+	// 	z-index: 1000;
+	// }
 
-		border-radius: var(--corner-size);
-		border: solid 4px var(--card-border-color);
+	// .opened {
+	// 	display: block;
+	// 	width: calc(100vw - 2rem);
+	// 	max-width: 40rem;
+	// 	background-color: hsl(var(--bg-color));
 
-		transition: translate .2s, opacity .2s;
-		translate: 0 2rem;
-		opacity: 0;
+	// 	border-radius: var(--corner-size);
+	// 	border: solid 4px var(--card-border-color);
 
-		max-height: 90vh;
-		overflow-y: auto;
-	}
+	// 	transition: translate .2s, opacity .2s;
+	// 	translate: 0 2rem;
+	// 	opacity: 0;
 
-	.exit {
-		padding: 1.5rem;
-		position: absolute;
-		color: var(--fg-color);
-		aspect-ratio: 1/1;
-		top: 1rem;
-		right: 1rem;
-		background-color: hsl(var(--bg-color));
+	// 	max-height: 90vh;
+	// 	overflow-y: auto;
+	// }
 
-		&::before, &::after {
-			position: absolute;
-			content: "";
-			height: .75rem;
-			width: .15rem;
-			left: 50%;
-			top: 50%;
-			translate: -50% -50%;
-			background-color: white;
-		}
+	// .exit {
+	// 	padding: 1.5rem;
+	// 	position: absolute;
+	// 	color: var(--fg-color);
+	// 	aspect-ratio: 1/1;
+	// 	top: 1rem;
+	// 	right: 1rem;
+	// 	background-color: hsl(var(--bg-color));
 
-		&::before { rotate: -45deg; }
-		&::after  { rotate: 45deg;  }
-	}
+	// 	&::before, &::after {
+	// 		position: absolute;
+	// 		content: "";
+	// 		height: .75rem;
+	// 		width: .15rem;
+	// 		left: 50%;
+	// 		top: 50%;
+	// 		translate: -50% -50%;
+	// 		background-color: white;
+	// 	}
 
-	[data-open] {
+	// 	&::before { rotate: -45deg; }
+	// 	&::after  { rotate: 45deg;  }
+	// }
+
+	/*[data-open] {
 		cursor: initial;
 
 		.close {
@@ -222,7 +242,7 @@ const { name, title, img, placement } = Astro.props;
 			translate: 0 -2rem;
 			opacity: 0;
 		}
-	}
+	}*/
 
   @keyframes glare {
     from {

@@ -2,8 +2,8 @@
 import Member from "../components/member.astro";
 ---
 <section class="full-width our-team">
-    <h2>Our Team</h2>
-    <div class="swiper">    
+  <h2>Our Team</h2>
+  <div class="swiper">    
     <div class="swiper-wrapper">
         <div class="swiper-slide">
             <Member name="Pano (Daniel Elkins)" title="Founder" img="/images/team/pano.jpg" placement="first">
@@ -193,6 +193,12 @@ import Member from "../components/member.astro";
         <div class="swiper-scrollbar-drag"></div>
     </div>
   </div>
+  <div id="member-details-modal" class="member-details modal">
+    <div class="member-details-wrapper">
+        <button class="exit" />
+        <div class="member-details-content"></div>
+    </div>
+  </div>
 </section>
 
 <style lang="scss">
@@ -223,6 +229,76 @@ import Member from "../components/member.astro";
       padding-block: 1rem;
       padding-inline: 2rem;
     }
+
+    .member-details {
+        transition: opacity .1s;
+		position: fixed;
+		inset: 0;
+		background-color: hsla(0, 0%, 0%, 0.8);
+		opacity: 0;
+		pointer-events: none;
+		display: grid;
+		place-content: center;
+		z-index: 1000;
+
+        .member-details-wrapper {
+            display: block;
+            width: calc(100vw - 2rem);
+            max-width: 40rem;
+            background-color: hsl(var(--bg-color));
+
+            border-radius: var(--corner-size);
+            border: solid 4px var(--card-border-color);
+
+            transition: translate .2s, opacity .2s;
+            translate: 0 2rem;
+            opacity: 0;
+
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .exit {
+            padding: 1.5rem;
+            position: absolute;
+            color: var(--fg-color);
+            aspect-ratio: 1/1;
+            top: 1rem;
+            right: 1rem;
+            background-color: hsl(var(--bg-color));
+
+            &::before, &::after {
+                position: absolute;
+                content: "";
+                height: .75rem;
+                width: .15rem;
+                left: 50%;
+                top: 50%;
+                translate: -50% -50%;
+                background-color: white;
+            }
+
+            &::before { rotate: -45deg; }
+            &::after  { rotate: 45deg;  }
+        }
+    }
+
+    [data-open] {
+		cursor: initial;
+        opacity: 1;
+        pointer-events: initial;
+		
+		.member-details-wrapper {
+			translate: 0;
+			opacity: 1;
+		}
+	}
+
+    [data-open="closing"] {
+		.member-details-wrapper {
+			translate: 0 -2rem;
+			opacity: 0;
+		}
+	}
 
     .swiper {
       width: 100%;
@@ -258,4 +334,33 @@ import Member from "../components/member.astro";
       },
       modules: [Scrollbar]
     });
+
+    const modal = document.querySelector("#member-details-modal") as HTMLDivElement;
+    const wrapper = document.querySelector(".member-details-wrapper") as HTMLDivElement;
+    const exit = modal.querySelector(".exit") as HTMLDivElement;
+
+    const close = () => {
+        if(modal.dataset.open !== "true") {
+            return;
+        }
+
+        modal.dataset.open = "closing";
+        setTimeout(() => {
+            modal.dataset.closed = "true";
+            delete modal.dataset.open;
+        }, 200);
+    }
+
+    wrapper.addEventListener("click", (e: MouseEvent) => {
+        e.stopPropagation();
+    })
+
+    modal.addEventListener("click", close);
+    exit.addEventListener("click", close);
+    window.addEventListener('keydown', (e: KeyboardEvent) => {
+        if (e.key === 'Escape') { 
+            close(); 
+        }
+    })
+    
 </script>
