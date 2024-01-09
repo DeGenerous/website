@@ -45,7 +45,7 @@ const { name, title, img, placement } = Astro.props;
 			const element = this;
 			const open = () => { 
         modal.dataset.open = "true";
-        var modalContent = modal.querySelector(".member-details-content");
+        const modalContent = modal.querySelector(".member-details-content");
         if(modalContent && element.#template) {
           modalContent.innerHTML = element.#template.innerHTML;
         }
