@@ -397,7 +397,7 @@ import Member from "../components/member.astro";
 
 <script>    
   import Swiper from 'swiper';
-  import { Scrollbar } from 'swiper/modules';
+  import { Scrollbar, Mousewheel } from 'swiper/modules';
   import 'swiper/css';
   import 'swiper/css/scrollbar';
     
@@ -408,7 +408,11 @@ import Member from "../components/member.astro";
         el: ".swiper-scrollbar",
         hide: false
       },
-      modules: [Scrollbar]
+      mousewheel: {
+        releaseOnEdges: true,
+        forceToAxis: true
+      },
+      modules: [Scrollbar, Mousewheel]
     });
 
     const modal = document.querySelector("#member-details-modal") as HTMLDivElement;
