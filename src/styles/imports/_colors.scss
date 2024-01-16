@@ -6,3 +6,6 @@ $accent-bg-color: hsl(220, 96%, 58%);
 
 $card-color: hsl(234, 62%, 23%);
 $card-border: $accent-bg-color solid 1px;
+
+$swiper-scrollbar-bg: $card-color;
+$swiper-scrollbar-drag: $accent-fg-color;
