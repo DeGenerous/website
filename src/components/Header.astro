@@ -29,6 +29,10 @@ const links: (HeaderLink | HeaderDropwdown)[] = [
     link: "https://degenerousdao.gitbook.io/wiki/",
   },
   {
+    title: "Merch",
+    link: "https://degenerous.myshopify.com",
+  },
+  {
     title: "Apps",
     links: [
       {
@@ -67,7 +71,7 @@ function isLink(object: any): object is HeaderLink {
             if (isLink(l)) {
               return (
                 <li data-selected={l.title == page}>
-                  <a class="c" href={l.link}>
+                  <a class="c" href={l.link} target={l.link.indexOf("http") === 0 ? "_blank" : "_self"}>
                     {l.title}
                   </a>
                 </li>
