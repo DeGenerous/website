@@ -4,7 +4,9 @@ import Basic from "../layouts/basic.astro";
 
 import logo from "@assets/logo.png";
 import avatar from "@assets/avatar.png";
-import lions from "@assets/lions.png";
+import lions from "@assets/lions.jpg";
+import lions2 from "@assets/lions2.jpg";
+import lions3 from "@assets/LionsLogo.png";
 import planet1 from "@assets/planet1.png";
 
 import Component from "./_index/sections/grid.svelte"
@@ -65,7 +67,7 @@ import Team from "./_index/sections/team.astro"
     <section class="lions">
         <div class="card split">
             <div>
-                <h2>Proof-of-Impact</h2>
+                <h2>Proof-Of-Impact</h2>
                 <p>
                     DeGenerous DAO is committed to real-world change.
                     From funding international service trips
@@ -85,7 +87,24 @@ import Team from "./_index/sections/team.astro"
                 </p>
                 <strong>Make the World a Better Place. Unlock Your Potential.</strong>
             </div>
-            <Image src={lions} alt="" />
+            <div class="swiper-container">
+              <div class="swiper swiper--lions">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <Image src={lions} width="513" alt="" />
+                  </div>
+                  <div class="swiper-slide">
+                    <Image src={lions2} width="513" alt="" />
+                  </div>
+                  <div class="swiper-slide">
+                    <Image src={lions3} height="414" alt="" />
+                  </div>
+                </div>                
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+              </div>
+              <div class="swiper-pagination swiper-pagination--lions"></div>
+            </div>            
         </div>
     </section>
     <Team />
@@ -194,12 +213,13 @@ import Team from "./_index/sections/team.astro"
       gap: 2rem;
     }
 
-    .lions {
+    .lions {      
       :global(img) {
         max-height: 100%;
-        border-radius: 0.5rem;
+        //border-radius: 0.5rem;
         display: block;
         position: relative;
+        margin: 0 auto;
 
         /*position: absolute;*/
         /*inset: 0;*/
@@ -210,6 +230,58 @@ import Team from "./_index/sections/team.astro"
           inset: 0;
           background: red;
         }
+      }
+
+      h2 {
+        margin-top: 0;
+        font-size: 3rem;
+      }
+
+      p {
+        line-height: 1.3;
+      }
+
+      .split {
+        gap: 4rem;
+        @media screen and (max-width: 50rem) {
+          gap: 2rem;
+        }
+      }
+
+      .swiper-container {
+        position: relative;
+        max-width: 100%;
+        width: 513px;
+      }
+
+      .swiper-button-prev::before,
+      .swiper-button-next::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: -190px;
+        bottom: -190px;
+        width: 55px;
+      }
+
+      .swiper-button-prev::before {
+        left: -10px;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+      }
+
+      .swiper-button-next::before {
+        right: -10px;
+        background: linear-gradient(to left, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+      }
+
+      .swiper-pagination {
+        bottom: -30px;
+        @media screen and (max-width: 50rem) {
+          bottom: -20px;
+        }
+      }
+      .swiper-pagination-bullet-active {
+        background: #fff !important;
       }
     }
 
@@ -257,4 +329,38 @@ import Team from "./_index/sections/team.astro"
         width: 100%;
       }
     }
+
+    :root {
+      --swiper-navigation-color: #fff;
+      --swiper-pagination-color: #fff;
+    }
 </style>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination, Mousewheel } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
+
+  const ourTeamSwiper = new Swiper(".swiper--lions", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    loop: true,
+    navigation: {
+      enabled: true,
+      prevEl: ".swiper-button-prev",
+      nextEl: ".swiper-button-next"
+    },
+    pagination: {
+      enabled: true,
+      clickable: true,
+      el: ".swiper-pagination--lions"
+    },
+    mousewheel: {
+      releaseOnEdges: true,
+      forceToAxis: true
+    },
+    modules: [Navigation, Pagination, Mousewheel]
+  });
+</script>
