@@ -3,7 +3,7 @@ import Member from "../components/member.astro";
 ---
 <section class="full-width our-team">
   <h2>Our Team</h2>
-  <div class="swiper">    
+  <div class="swiper swiper--our-team">    
     <div class="swiper-wrapper">
         <div class="swiper-slide">
             <Member name="Pano (Daniel Elkins)" title="Founder" img="/images/team/pano.jpg" placement="first">
@@ -246,20 +246,20 @@ import Member from "../components/member.astro";
 		}
 	}
 
-    .swiper {
+    .swiper--our-team {
       width: 100%;
       padding: 20px 0px 30px;
     }
 
-    .swiper-slide {
+    .swiper--our-team .swiper-slide {
       width: auto;
     }
 
-    .swiper-scrollbar {
+    .swiper--our-team .swiper-scrollbar {
         background-color: imports.$swiper-scrollbar-bg;
     }
 
-    .swiper-scrollbar-drag {
+    .swiper--our-team .swiper-scrollbar-drag {
         background-color: imports.$swiper-scrollbar-drag;
     }
 
@@ -401,11 +401,12 @@ import Member from "../components/member.astro";
   import 'swiper/css';
   import 'swiper/css/scrollbar';
     
-  const swiper = new Swiper(".swiper", {
+  const ourTeamSwiper = new Swiper(".swiper--our-team", {
       slidesPerView: "auto",
       spaceBetween: 10,
       scrollbar: {
         el: ".swiper-scrollbar",
+        draggable: true,
         hide: false
       },
       mousewheel: {
