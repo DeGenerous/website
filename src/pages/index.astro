@@ -23,7 +23,18 @@ import Team from "./_index/sections/team.astro"
                 and <strong>Make a Difference</strong>
             </h1>
             <h3>Where innovation and fun meet generosity</h3>
-            <a class="button" href="https://opensea.io/collection/potentials-eth" target="_blank">JOIN</a>
+            <a class="button button--primary" href="https://magiceden.io/collections/ethereum/0xfa511d5c4cce10321e6e86793cc083213c36278e" target="_blank">JOIN US</a>
+            <div class="hero__secondary-links">
+              <a class="icon" href="https://discord.gg/349FgMSUK8" target="_blank">
+                <img src="/icons/discord.svg" width="35" alt="Discord" title="Discord" />
+              </a>
+              <a class="icon" href="https://opensea.io/collection/potentials-eth" target="_blank" style="padding-top: 1px;">
+                <img src="/icons/opensea.svg" width="33" alt="OpenSea" title="OpenSea" />
+              </a>
+              <a class="icon" href="https://twitter.com/degenerousdao" target="_blank">
+                <img src="/icons/twitter.svg" width="35" alt="Twitter/X" title="Twitter/X" />
+              </a>              
+            </div>
         </div>
         <Image src={logo} alt="DeGenerous logo" />
     </section>
@@ -62,6 +73,9 @@ import Team from "./_index/sections/team.astro"
         </a>
         <a class="icon" href="https://www.youtube.com/@degenerous" target="_blank">
             <img src="/icons/youtube.svg" alt="Youtube">
+        </a>
+        <a class="icon" href="https://warpcast.com/degenerousdao" target="_blank">
+          <img src="/icons/warpcast.svg" alt="Warpcast" title="Warpcast" />
         </a>
     </div>
     <section class="lions">
@@ -199,11 +213,21 @@ import Team from "./_index/sections/team.astro"
         max-width: 20ch;
       }
 
+      .button--primary {
+        font-size: 1.4rem;
+      }
+
       div {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
+      }
+
+      .hero__secondary-links {
+        width: 153px;
+        flex-direction: row;
+        justify-content: space-between;        
       }
     }
 
