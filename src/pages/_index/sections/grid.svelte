@@ -28,10 +28,10 @@
     <div class="image-grid">
         <ImageButton my_state={HomeSection.Potentials} image="/images/potentials/potentials2.png">Potentials</ImageButton>
         <ImageButton my_state={HomeSection.CoNexus} image="/images/potentials/conexus.jpg">CoNexus</ImageButton>
-        <ImageButton my_state={HomeSection.SagaChallenges} image="/images/potentials/saga_gaming.png">Sagaverse Gaming</ImageButton>
-        <ImageButton my_state={HomeSection.DischordianSaga} image="/images/potentials/dischordian.png">The Dischordian Saga</ImageButton>
-        <ImageButton my_state={HomeSection.Philanthropy} image="/images/potentials/philanthropy.png">Philanthropy</ImageButton>
-        <ImageButton my_state={HomeSection.Vision} image="/images/potentials/vision.png">Vision</ImageButton>
+        <ImageButton my_state={HomeSection.SagaChallenges} image="/images/potentials/saga_gaming_small.png">Sagaverse Gaming</ImageButton>
+        <ImageButton my_state={HomeSection.DischordianSaga} image="/images/potentials/dischordian_small.png">The Dischordian Saga</ImageButton>
+        <ImageButton my_state={HomeSection.Philanthropy} image="/images/potentials/philanthropy_small.png">Philanthropy</ImageButton>
+        <ImageButton my_state={HomeSection.Vision} image="/images/potentials/vision_small.png">Vision</ImageButton>
     </div>
     <div>
         {#if $state === HomeSection.Potentials}

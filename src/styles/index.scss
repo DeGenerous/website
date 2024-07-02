@@ -4,7 +4,7 @@
 
 :where(html) {
   background-color: imports.$bg-color;
-  background-image: url("/images/stars.png"), linear-gradient(rgba(imports.$bg-color, 85%), rgba(imports.$bg-color, 85%)), url("/images/background.jpg");
+  background-image: url("/images/stars_small.png"), linear-gradient(rgba(imports.$bg-color, 85%), rgba(imports.$bg-color, 85%)), url("/images/background_small.jpg");
   background-size: cover;
   background-position: center;
   color: imports.$fg-color;
