@@ -11,14 +11,14 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@astrojs/svelte": "5.7.0",
-    "astro": "4.13.1",
+    "@astrojs/svelte": "^4.0.3",
+    "astro": "^3.3.0",
     "sass": "^1.69.3",
     "svelte": "^4.0.0",
     "swiper": "^11.0.5"
   },
   "devDependencies": {
     "prettier": "^3.0.3",
-    "prettier-plugin-astro": "0.14.1"
+    "prettier-plugin-astro": "^0.12.0"
   }
 }
