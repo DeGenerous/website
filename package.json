@@ -14,15 +14,11 @@
     "@astrojs/svelte": "^4.0.3",
     "astro": "^3.3.0",
     "sass": "^1.69.3",
-    "sharp": "^0.32.6",
     "svelte": "^4.0.0",
     "swiper": "^11.0.5"
   },
   "devDependencies": {
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0"
-  },
-  "trustedDependencies": [
-    "sharp"
-  ]
+  }
 }
