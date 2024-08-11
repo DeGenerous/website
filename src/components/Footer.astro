@@ -1,8 +1,13 @@
 <footer>
     <div>
         <span class="logo">DEGENEROUS</span>
-        <a href="mailto:info@degenerousdao.com">info@degenerousdao.com</a>
-        <span>©2024 by DeGenerous Society Inc.</span>
+        <a href="mailto:contact@degenerousdao.com">contact@degenerousdao.com</a>
+        <div class="links">          
+          <a class="document" target="_blank" href="https://docs.google.com/document/d/1kkIY-86y2LtoM4IXzp80E5H7Op1YSezw8nPBG1AQ2uo/edit?usp=sharing">Privacy Policy</a><span class="divider"> - </span>
+          <a class="document" target="_blank" href="https://docs.google.com/document/d/1bTbxDdGSIOzPzYS30urRMa83EeCG0Ewvlfa2pa3LsMI/edit?usp=sharing">Contributor's License Agreement</a><span class="divider"> - </span>
+          <a class="document" target="_blank" href="https://docs.google.com/document/d/1fEemq6HVM_h8ZTbc_Fl_k3RvlPdjYd70TI1iloT5gXA/edit?usp=sharing">Terms of Service</a>
+        </div>
+        <span class="copyright">©2024 by DeGenerous Society Inc.</span>
     </div>
 </footer>
 
@@ -13,13 +18,37 @@
     width: 100%;
     background-color: imports.$bg-color;
     padding-block: 3rem;
+
+    .logo {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .links {
+      margin-bottom: 8px;      
+    }
+
+    a {
+      line-height: 1.8;
+    }
   }
 
   div {
-    display: flex;
-    flex-direction: column;
     max-width: imports.$content-width;
     margin-inline: auto;
     gap: .5rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    footer {
+      .links {
+        a {
+          display: block;
+        }
+        .divider {
+          display: none;
+        }
+      }      
+    }
   }
 </style>
