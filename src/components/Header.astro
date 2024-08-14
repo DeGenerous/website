@@ -17,10 +17,6 @@ type HeaderDropwdown = {
 
 const links: (HeaderLink | HeaderDropwdown)[] = [
   {
-    title: "Home",
-    link: "/#",
-  },
-  {
     title: "Roadmap",
     link: "/roadmap",
   },
@@ -59,7 +55,9 @@ function isLink(object: any): object is HeaderLink {
 <custom-header>
   <div class="close"></div>
   <header>
-    <a class="c" href="/#">DeGenerous</a>
+    <a class="logo" href="/#">
+      <img src="/favicon.ico" alt="Logo" />
+    </a>
     <nav>
       <ul class="outer">
         {
@@ -238,6 +236,14 @@ function isLink(object: any): object is HeaderLink {
       width: 100%;
       aspect-ratio: 1/1;
     }
+  }
+
+  .logo {
+    padding: 0 !important;
+  }
+
+  .logo > img {
+    padding: 10%;
   }
 
   @media screen and (min-width: 60rem) {
