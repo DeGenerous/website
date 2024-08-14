@@ -76,7 +76,7 @@
                     and expand engagement across diverse games, metaverses, and blockchain platforms.
                 </p>
                 <div class="buttons">
-                    <a class="button" href="https://degenerousdao.gitbook.io/wiki/our-products/sagaverse-gaming">ENTER</a>
+                    <a class="button" href="https://sagaverse.degenerousdao.com/">ENTER</a>
                 </div>
             </div>
         {:else if $state === HomeSection.DischordianSaga}
