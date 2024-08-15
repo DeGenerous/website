@@ -173,6 +173,7 @@ function isLink(object: any): object is HeaderLink {
     display: flex;
     justify-content: space-between;
 
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     transition: background-color 0.2s;
 
@@ -309,6 +310,7 @@ function isLink(object: any): object is HeaderLink {
       max-height: 100vh;
       overflow-y: auto;
 
+      -webkit-backdrop-filter: blur(10px);
       backdrop-filter: blur(10px);
       background-color: rgba(imports.$bg-color, 0.8);
 
