@@ -1,26 +1,25 @@
 <script lang="ts">
-    import { state } from "@stores/homepage.ts";
-    import type { HomeSection } from "@types/homepage.ts";
-    import { onMount } from "svelte";
+  import { state } from "@stores/homepage.ts";
+  import type { HomeSection } from "@types/homepage.ts";
+  import { onMount } from "svelte";
 
-    export let image: string;
-    export let my_state: HomeSection;
+  export let image: string;
+  export let my_state: HomeSection;
 
-    let loaded = false;
+  let loaded = false;
 
-    onMount(() => loaded = true)
-
+  onMount(() => (loaded = true));
 </script>
 
 <div>
-    <button
-        on:click={() => state.set(my_state)}
-        class="button"
-        class:active={loaded && $state === my_state}
-        style={`background-image: url(${image})`}
-    >
-        <slot />
-    </button>
+  <button
+    on:click={() => state.set(my_state)}
+    class="button"
+    class:active={loaded && $state === my_state}
+    style={`background-image: url(${image})`}
+  >
+    <slot />
+  </button>
 </div>
 
 <style lang="scss">
@@ -53,7 +52,10 @@
     background-blend-mode: multiply;
     background-position: center;
 
-    text-shadow: 0 0 5px black, 0 0 10px black, 0 0 20px black;
+    text-shadow:
+      0 0 5px black,
+      0 0 10px black,
+      0 0 20px black;
     font-weight: bold;
     font-size: 1.2rem;
 

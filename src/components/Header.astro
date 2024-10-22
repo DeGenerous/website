@@ -65,7 +65,11 @@ function isLink(object: any): object is HeaderLink {
             if (isLink(l)) {
               return (
                 <li data-selected={l.title == page}>
-                  <a class="c" href={l.link} target={l.link.indexOf("http") === 0 ? "_blank" : "_self"}>
+                  <a
+                    class="c"
+                    href={l.link}
+                    target={l.link.indexOf("http") === 0 ? "_blank" : "_self"}
+                  >
                     {l.title}
                   </a>
                 </li>
@@ -261,7 +265,8 @@ function isLink(object: any): object is HeaderLink {
 
       li {
         background-color: imports.$accent-bg-color;
-        transition: translate 0.2s calc(0.1s * var(--nth))
+        transition:
+          translate 0.2s calc(0.1s * var(--nth))
             cubic-bezier(0.34, 1.56, 0.64, 1),
           opacity 0.2s calc(0.1s * var(--nth)) cubic-bezier(0.34, 1.56, 0.64, 1);
 

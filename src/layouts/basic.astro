@@ -1,25 +1,28 @@
 ---
 import Footer from "../components/Footer.astro";
 export interface Props {
-    title: string;
-    page: string;
+  title: string;
+  page: string;
 }
 
 const { title, page } = Astro.props;
 
-import Header from '@components/Header.astro';
-import "@styles/index.scss"
+import Header from "@components/Header.astro";
+import "@styles/index.scss";
 ---
 
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 
     <!-- Open Graph meta tags -->
     <meta property="og:title" content="Degenerous DAO" />
-    <meta property="og:description" content="Degenerous DAO is a community of degenerates who are passionate about NFTs, DeFi, and blockchain technology." />
+    <meta
+      property="og:description"
+      content="Degenerous DAO is a community of degenerates who are passionate about NFTs, DeFi, and blockchain technology."
+    />
     <meta property="og:image" content="/assets/logo.png" />
     <meta property="og:url" content={`https://degenerousdao.com/${page}`} />
     <meta property="og:type" content="website" />
@@ -29,27 +32,33 @@ import "@styles/index.scss"
     <meta name="twitter:site" content="@degenerousdao" />
     <meta name="twitter:creator" content="@degenerousdao" />
     <meta name="twitter:title" content="Degenerous DAO" />
-    <meta name="twitter:description" content="Degenerous DAO is a community of degenerates who are passionate about NFTs, DeFi, and blockchain technology." />
+    <meta
+      name="twitter:description"
+      content="Degenerous DAO is a community of degenerates who are passionate about NFTs, DeFi, and blockchain technology."
+    />
     <meta name="twitter:image" content="/assets/logo.png" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
 
     <title>{title}</title>
 
     <slot name="head" />
-</head>
-<body>
+  </head>
+  <body>
     <Header page={page} />
     <main>
-        <slot />
+      <slot />
     </main>
     <Footer />
-</body>
+  </body>
 </html>
 <style lang="scss">
-    main {
-      min-height: 100vh;
-    }
+  main {
+    min-height: 100vh;
+  }
 </style>
