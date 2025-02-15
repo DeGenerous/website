@@ -112,13 +112,17 @@
         <h3>Shape the Future</h3>
         <p>
           Step into the captivating realm of The Dischordian Saga, a
-          community-governed story based on sci-fi lore that breathes life and
+          community-governed series based on sci-fi lore that breathes life and
           depth into Potentials.
         </p>
         <p>
-          Every week, your on-chain votes influence the overall narrative,
-          adding unique traits to your NFTs that reveal your true character and
-          unlock mission-based story games within the CoNexus platform.
+          The Potentials holders' on-chain votes influence the overall
+          narrative, add unique traits to NFTs that reveal their true character,
+          and unlock mission-based story games within CoNexus.
+        </p>
+        <p>
+          This franchise is powered by AI filmmaking and watched by millions of
+          people.
         </p>
         <div class="buttons">
           <a
