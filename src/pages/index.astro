@@ -1,10 +1,20 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.svelte";
+import Title from "@components/Title.svelte";
+import Collabs from "@components/Collabs.svelte";
 
 const title = "DeGenerous";
 ---
 
-<Layout {title}>
-  <Header />
-</Layout>
+<main>
+  <Layout {title}>
+    <Header />
+
+    <Title />
+
+    <Collabs />
+
+    <Title />
+  </Layout>
+</main>

@@ -12,8 +12,9 @@ h1,
 h2 {
   text-align: center;
   color: #dedede;
-  font-size: 3vw;
-  line-height: 3vw;
+  font-size: 2.5vw;
+  line-height: 4vw;
+  text-shadow: 0 0.25vw 0.25vw #010020;
 }
 
 h2 {
@@ -142,6 +143,15 @@ button svg {
 button *,
 [role="button"] * {
   cursor: inherit;
+}
+
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+  min-height: 100vh;
 }
 
 @media only screen and (max-width: 600px) {

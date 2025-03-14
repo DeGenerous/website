@@ -20,12 +20,16 @@
 
 <style>
   header {
+    position: fixed;
+    top: 0;
+    width: 100vw;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
     gap: 1vw;
-    padding: 0.5vw;
+    padding: 1vw;
+    z-index: 10;
   }
 
   section {
