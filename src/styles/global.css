@@ -1,0 +1,194 @@
+.blur {
+  -webkit-backdrop-filter: blur(1rem);
+  backdrop-filter: blur(1rem);
+}
+
+hr {
+  width: 95%;
+  border: 0.1vw solid rgba(51, 226, 230, 0.5);
+}
+
+h1,
+h2 {
+  text-align: center;
+  color: #dedede;
+  font-size: 3vw;
+  line-height: 3vw;
+}
+
+h2 {
+  font-size: 2vw;
+  line-height: 2vw;
+}
+
+h3,
+label,
+a {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1.5vw;
+  line-height: 1.5vw;
+}
+
+a {
+  color: rgba(51, 226, 230, 0.9);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a * {
+  cursor: inherit;
+}
+
+a:hover,
+a:active {
+  color: rgb(51, 226, 230);
+  text-decoration: underline;
+}
+
+.validation {
+  text-align: center;
+  font-size: 1.25vw;
+  line-height: 1.5vw;
+  color: rgba(255, 50, 50, 0.75);
+}
+
+.green {
+  color: rgba(0, 185, 55, 0.75);
+}
+
+.gray {
+  color: rgba(150, 150, 150, 0.75);
+}
+
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2vw;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+  padding: 1vw;
+  font-size: 1.5vw;
+  line-height: 1.5vw;
+  color: #dedede;
+  background-color: rgba(56, 117, 250, 0.5);
+  border: 0.1vw solid rgba(51, 226, 230, 0.5);
+  border-radius: 1vw;
+}
+
+button:hover,
+button:active {
+  color: rgba(51, 226, 230, 0.9);
+  background-color: rgba(56, 117, 250, 0.9);
+  border-color: rgba(51, 226, 230, 0.9);
+  filter: drop-shadow(0 0 0.5vw rgba(51, 226, 230, 0.5));
+  text-shadow: 0 0 0.25vw rgba(1, 0, 32, 0.5);
+  transform: scale(1.05);
+}
+
+button:disabled,
+button:disabled:hover,
+button:disabled:active {
+  opacity: 0.5;
+  color: #dedede;
+  border-color: rgba(51, 226, 230, 0.5);
+  background-color: rgba(56, 117, 250, 0.5);
+  filter: none;
+  transform: none;
+  cursor: not-allowed;
+}
+
+.non-hover-btn:hover,
+.non-hover-btn:active {
+  filter: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 0);
+  opacity: 1;
+}
+
+.disabled-btn-styling {
+  color: #dedede !important;
+  background-color: rgba(56, 117, 250, 0.5) !important;
+  border-color: rgba(51, 226, 230, 0.5) !important;
+  filter: none !important;
+  text-shadow: none !important;
+  transform: none !important;
+}
+
+button img {
+  height: 2vw;
+  width: auto;
+  cursor: inherit;
+  filter: drop-shadow(0 0 0.5vw rgba(1, 0, 32, 0.5));
+  border-radius: 10%;
+}
+
+button svg {
+  height: 2vw;
+  width: 2vw;
+  cursor: inherit !important;
+}
+
+button *,
+[role="button"] * {
+  cursor: inherit;
+}
+
+@media only screen and (max-width: 600px) {
+  hr {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    line-height: 1.75em;
+  }
+
+  h2 {
+    font-size: 1.25em;
+    line-height: 1.5em;
+  }
+
+  h3,
+  label,
+  a {
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+
+  .validation {
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+
+  main {
+    gap: 1em;
+  }
+
+  button {
+    font-size: 1em;
+    line-height: 1.75em;
+    padding: 0.25em 1em;
+    border-radius: 0.5em;
+    gap: 0.5em;
+  }
+
+  button img {
+    height: 1.25em;
+  }
+
+  button svg {
+    height: 1.25em;
+    width: 1.25em;
+  }
+}
