@@ -18,3 +18,21 @@
     transform: scale(1);
   }
 }
+
+@keyframes slide {
+  from {
+    left: 100%;
+  }
+  to {
+    left: calc(100% / 7 * -1);
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    transform: scale(2);
+  }
+  to {
+    transform: scale(1);
+  }
+}

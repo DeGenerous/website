@@ -38,7 +38,7 @@ a {
 }
 
 a * {
-  cursor: inherit;
+  cursor: pointer;
 }
 
 a:hover,

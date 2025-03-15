@@ -1,6 +1,11 @@
 <script>
 </script>
 
+<h2>
+  We’re backed by industry pioneers, from Web3 leaders to award-winning
+  filmmakers.
+</h2>
+
 <section class="blur">
   <div>
     <a style="--position: 0" href="https://www.lionsclubs.org/">
@@ -68,12 +73,18 @@
     opacity: 1;
   }
 
-  @keyframes slide {
-    from {
-      left: 100%;
+  @media only screen and (max-width: 600px) {
+    section {
+      height: 12vh;
+      padding-block: 1vh;
     }
-    to {
-      left: -20vw;
+
+    div {
+      min-width: calc(20vh * 7);
+    }
+
+    a {
+      width: 20vh;
     }
   }
 </style>

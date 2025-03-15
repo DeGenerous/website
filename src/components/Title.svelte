@@ -25,4 +25,10 @@
       fadeIn 2.4s 1s forwards,
       zoomIn 1.2s 1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   }
+
+  @media only screen and (max-width: 600px) {
+    h1 {
+      width: 90%;
+    }
+  }
 </style>
