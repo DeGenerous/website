@@ -1,7 +1,7 @@
 <script>
 </script>
 
-<section>
+<section class="flex-box">
   <h1>
     We believe community-owned franchises, interactivity, and AI-powered
     user-generated content will shape the future of storytelling.
@@ -10,10 +10,6 @@
 
 <style>
   section {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
     padding: 1vw;
     height: 100vh;
   }
@@ -27,6 +23,10 @@
   }
 
   @media only screen and (max-width: 600px) {
+    section {
+      height: 50vh;
+    }
+
     h1 {
       width: 90%;
     }

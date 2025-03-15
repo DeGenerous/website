@@ -1,8 +1,8 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.svelte";
-import Title from "@components/Title.svelte";
-import Collabs from "@components/Collabs.svelte";
+import Content from "@components/content/index.svelte";
+import Footer from "@components/Footer.svelte";
 
 const title = "DeGenerous";
 ---
@@ -11,10 +11,8 @@ const title = "DeGenerous";
   <Layout {title}>
     <Header />
 
-    <Title />
+    <Content client:load />
 
-    <Collabs />
-
-    <Title />
+    <Footer />
   </Layout>
 </main>

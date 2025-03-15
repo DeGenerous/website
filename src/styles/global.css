@@ -13,13 +13,12 @@ h2 {
   text-align: center;
   color: #dedede;
   font-size: 2.5vw;
-  line-height: 4vw;
+  line-height: 1.5;
   text-shadow: 0 0.25vw 0.25vw #010020;
 }
 
 h2 {
   font-size: 2vw;
-  line-height: 2vw;
 }
 
 h3,
@@ -145,13 +144,11 @@ button *,
   cursor: inherit;
 }
 
-main {
+.flex-box {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  gap: 2vw;
-  min-height: 100vh;
 }
 
 @media only screen and (max-width: 600px) {
@@ -161,12 +158,10 @@ main {
 
   h1 {
     font-size: 1.5em;
-    line-height: 1.75em;
   }
 
   h2 {
     font-size: 1.25em;
-    line-height: 1.5em;
   }
 
   h3,
@@ -182,7 +177,7 @@ main {
   }
 
   main {
-    gap: 1em;
+    gap: 1.5em;
   }
 
   button {
