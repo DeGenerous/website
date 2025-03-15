@@ -1,22 +1,70 @@
-<script>
+<script lang="ts">
+  export let page = "home";
+
+  let backArrowSvgFocus: boolean = false;
 </script>
 
 <header class="flex-box">
-  <section class="flex-box blur">
-    <a class="icon-anchor" href="/" aria-label="DeGenerous">
-      <img class="logo" src="/logo.png" alt="Logo" />
-    </a>
-    <span class="flex-box links">
-      <a href="/">Governance Hub</a>
-      <h2>|</h2>
-      <a href="/">Loredex</a>
-      <h2>|</h2>
-      <a href="/">Roadmap</a>
-    </span>
-    <a class="icon-anchor conexus-link" href="/" aria-label="CoNexus">
-      <img src="conexus.png" alt="CoNexus" />
-    </a>
-  </section>
+  {#if page === "home"}
+    <section class="flex-box blur">
+      <a class="icon-anchor" href="/" aria-label="DeGenerous">
+        <img class="logo" src="/logo.png" alt="Logo" />
+      </a>
+      <span class="flex-box links">
+        <a href="/">Governance Hub</a>
+        <h2>|</h2>
+        <a href="/">Loredex</a>
+        <h2>|</h2>
+        <a href="/roadmap">Roadmap</a>
+      </span>
+      <a class="icon-anchor conexus-link" href="/" aria-label="CoNexus">
+        <img src="conexus.png" alt="CoNexus" />
+      </a>
+    </section>
+  {:else if page === "roadmap"}
+    <section class="flex-box blur conexus-button">
+      <a class="icon-anchor" href="/" aria-label="DeGenerous">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="-100 -100 200 200"
+          class="circle-icon"
+        >
+          <defs>
+            <mask id="back-arrow-svg-mask">
+              <circle r="95" fill="white" />
+              <path
+                class="back-arrow-svg-mask"
+                transform={backArrowSvgFocus ? "scale(1.1)" : ""}
+                d="
+                  M -14 -30
+                  L -14 -64
+                  L -76 -9
+                  L -14 48
+                  L -14 12
+                  Q 36 14 60 52
+                  Q 60 -26 -12 -30
+                  Z
+                "
+                fill="black"
+                stroke="black"
+                stroke-width="4"
+                stroke-linejoin="round"
+              />
+            </mask>
+          </defs>
+
+          <circle
+            class="back-arrow-svg"
+            r="95"
+            fill="rgba(51, 226, 230, 0.75)"
+            mask="url(#back-arrow-svg-mask)"
+            on:pointerover={() => (backArrowSvgFocus = true)}
+            on:pointerout={() => (backArrowSvgFocus = false)}
+          />
+        </svg>
+      </a>
+    </section>
+  {/if}
 
   <section class="conexus-button flex-box blur">
     <button>
@@ -35,9 +83,6 @@
     gap: 1vw;
     padding: 1vw;
     z-index: 10;
-    /* animation:
-      zoomOut 1s forwards,
-      fadeIn 3s forwards; */
   }
 
   section {
@@ -70,6 +115,11 @@
   .icon-anchor:hover,
   .icon-anchor:active {
     transform: scale(1.05);
+  }
+
+  .circle-icon {
+    width: 100%;
+    height: 100%;
   }
 
   .links {
@@ -108,6 +158,7 @@
     header {
       position: static;
       flex-direction: column;
+      padding: 0;
     }
 
     section {

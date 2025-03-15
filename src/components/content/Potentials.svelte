@@ -14,10 +14,6 @@
 </h3>
 
 <style>
-  h3 {
-    line-height: 1.5;
-  }
-
   img {
     width: 100vw;
     box-shadow: 0 0 0.5vw #010020;

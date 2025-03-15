@@ -45,8 +45,8 @@
 
   div:hover img,
   div:active img {
-    transform: scale(1.5);
-    filter: blur(2vw) brightness(50%);
+    transform: scale(1.25);
+    filter: blur(0.5vw) brightness(50%);
   }
 
   div:hover h3,

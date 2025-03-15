@@ -11,14 +11,15 @@ hr {
 h1,
 h2 {
   text-align: center;
-  color: #dedede;
-  font-size: 2.5vw;
+  font-size: 5vw;
+  color: rgba(51, 226, 230, 0.85);
   line-height: 1.5;
   text-shadow: 0 0.25vw 0.25vw #010020;
 }
 
 h2 {
   font-size: 2vw;
+  color: #dedede;
 }
 
 h3,
@@ -27,7 +28,7 @@ a {
   text-align: center;
   color: rgba(255, 255, 255, 0.5);
   font-size: 1.5vw;
-  line-height: 1.5vw;
+  line-height: 1.5;
 }
 
 a {
@@ -168,7 +169,6 @@ button *,
   label,
   a {
     font-size: 1em;
-    line-height: 1.5em;
   }
 
   .validation {
