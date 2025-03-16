@@ -13,8 +13,14 @@
 
 <Title />
 
+<hr />
+
 <Collabs />
 
+<hr />
+
 <Potentials />
+
+<hr />
 
 <Vision />

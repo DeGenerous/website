@@ -10,6 +10,8 @@
     <h3>|</h3>
     <a href="/">Loredex</a>
     <h3>|</h3>
+    <a href="/">Sagaverse</a>
+    <h3>|</h3>
     <a href="/">Roadmap</a>
     <h3>|</h3>
     <a href="/">Wiki</a>
@@ -60,10 +62,6 @@
   div {
     flex-direction: row;
     gap: 1vw;
-  }
-
-  hr {
-    border-color: rgba(51, 226, 230, 0.1);
   }
 
   @media only screen and (max-width: 600px) {

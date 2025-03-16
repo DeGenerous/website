@@ -9,7 +9,7 @@
     innovation, we create immersive experiences with global impact—blending
     narrative worldbuilding, mass adoption, and philanthropy.
   </h3>
-  <img src="/vision.png" alt="Vision" />
+  <img src="/vision.webp" alt="Vision" />
 </div>
 
 <h2>
