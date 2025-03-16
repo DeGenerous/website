@@ -24,3 +24,5 @@
 <hr />
 
 <Vision />
+
+<div class="background" style:top={-scroll / 25 + "vh"}></div>

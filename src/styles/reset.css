@@ -150,11 +150,7 @@
 }
 
 html {
-  background-image: url('/background.webp'), linear-gradient(rgb(1, 0, 32), rgb(0, 0, 16));
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-image: linear-gradient(rgb(1, 0, 32), rgb(0, 0, 16));
   background-color: #010020;
   box-sizing: border-box;
   overflow-x: hidden;
