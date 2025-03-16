@@ -2,6 +2,10 @@
   export let page = "home";
 
   let backArrowSvgFocus: boolean = false;
+
+  const openConexus = () => {
+    window.open("https://conexus.degenerousdao.com/", "_blank");
+  };
 </script>
 
 <header class="flex-box">
@@ -11,13 +15,17 @@
         <img class="logo" src="/logo.png" alt="Logo" />
       </a>
       <span class="flex-box links">
-        <a href="/">Governance Hub</a>
+        <a href="https://governance.degenerousdao.com/">Governance Hub</a>
         <h2>|</h2>
-        <a href="/">Loredex</a>
+        <a href="https://loredex.degenerousdao.com/">Loredex</a>
         <h2>|</h2>
         <a href="/roadmap">Roadmap</a>
       </span>
-      <a class="icon-anchor conexus-link" href="/" aria-label="CoNexus">
+      <a
+        class="icon-anchor conexus-link"
+        href="https://conexus.degenerousdao.com/"
+        aria-label="CoNexus"
+      >
         <img src="conexus.png" alt="CoNexus" />
       </a>
     </section>
@@ -67,7 +75,7 @@
   {/if}
 
   <section class="conexus-button flex-box blur">
-    <button>
+    <button on:click={openConexus}>
       <img src="/conexus-full.png" alt="CoNexus" />
     </button>
   </section>

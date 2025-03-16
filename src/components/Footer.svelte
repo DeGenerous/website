@@ -4,19 +4,21 @@
   <h3>DeGenerous DAO</h3>
 
   <div class="flex-box links">
-    <a href="/">CoNexus</a>
+    <a href="https://conexus.degenerousdao.com/" target="_blank">CoNexus</a>
     <h3>|</h3>
-    <a href="/">Governance Hub</a>
+    <a href="https://governance.degenerousdao.com/" target="_blank">
+      Governance Hub
+    </a>
     <h3>|</h3>
-    <a href="/">Loredex</a>
+    <a href="https://loredex.degenerousdao.com/" target="_blank">Loredex</a>
     <h3>|</h3>
-    <a href="/">Sagaverse</a>
+    <a href="https://sagaverse.degenerousdao.com/" target="_blank">Sagaverse</a>
     <h3>|</h3>
-    <a href="/">Roadmap</a>
+    <a href="/roadmap">Roadmap</a>
     <h3>|</h3>
-    <a href="/">Wiki</a>
+    <a href="https://degenerousdao.gitbook.io/wiki" target="_blank">Wiki</a>
     <h3>|</h3>
-    <a href="/">Merch</a>
+    <a href="https://degenerous.myshopify.com/" target="_blank">Merch</a>
   </div>
 
   <hr />
@@ -30,18 +32,21 @@
   <div class="flex-box docs">
     <a
       href="https://docs.google.com/document/d/1kkIY-86y2LtoM4IXzp80E5H7Op1YSezw8nPBG1AQ2uo/edit?usp=sharing"
+      target="_blank"
     >
       Privacy Policy
     </a>
     <h3>|</h3>
     <a
       href="https://docs.google.com/document/d/1bTbxDdGSIOzPzYS30urRMa83EeCG0Ewvlfa2pa3LsMI/edit?usp=sharing"
+      target="_blank"
     >
       Contributor's License Agreement
     </a>
     <h3>|</h3>
     <a
       href="https://docs.google.com/document/d/1fEemq6HVM_h8ZTbc_Fl_k3RvlPdjYd70TI1iloT5gXA/edit?usp=sharing"
+      target="_blank"
     >
       Terms of Service
     </a>
