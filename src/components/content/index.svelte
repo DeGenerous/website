@@ -2,6 +2,7 @@
   import Title from "./Title.svelte";
   import Collabs from "./Collabs.svelte";
   import Potentials from "./Potentials.svelte";
+  import GovernanceHub from "./GovernanceHub.svelte";
   import Vision from "./Vision.svelte";
 
   let scroll;
@@ -18,6 +19,10 @@
 <hr />
 
 <Potentials />
+
+<hr />
+
+<GovernanceHub />
 
 <hr />
 

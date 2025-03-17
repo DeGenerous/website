@@ -157,8 +157,9 @@ button *,
   top: 0;
   left: 0;
   width: 100vw;
-  height: 150vh;
+  height: 300vw;
   background-image: url('/background.webp');
+  background-size: cover;
   background-repeat: repeat;
   background-position: top;
   z-index: -100;
@@ -208,9 +209,5 @@ button *,
   button svg {
     height: 1.25em;
     width: 1.25em;
-  }
-
-  .background {
-    background-image: url('/background-mobile.webp');
   }
 }
