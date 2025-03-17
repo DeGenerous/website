@@ -5,8 +5,6 @@
   import Vision from "./Vision.svelte";
 
   let scroll;
-
-  $: console.log(scroll);
 </script>
 
 <svelte:window bind:scrollY={scroll} />

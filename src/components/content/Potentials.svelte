@@ -1,12 +1,11 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  let cape: HTMLImageElement;
-  let outfit: HTMLImageElement;
+  let bg: HTMLImageElement;
+  let back: HTMLImageElement;
   let arms: HTMLImageElement;
   let mask: HTMLImageElement;
   let weapon: HTMLImageElement;
-  let badge0: HTMLImageElement;
   let badge1: HTMLImageElement;
   let badge2: HTMLImageElement;
   let badge3: HTMLImageElement;
@@ -16,42 +15,41 @@
   });
 
   const animatePotential = () => {
-    hideAllItems();
-    setTimeout(showAllItems, 2500);
+    switchItem(arms, "arms", 4);
+    switchItem(back, "back", 4);
+    switchItem(bg, "bg", 5);
+    switchItem(mask, "mask", 4);
+    switchItem(weapon, "weapon", 5);
+    switchItem(badge1, "badges/first");
+    switchItem(badge2, "badges/second");
+    switchItem(badge3, "badges/third");
   };
 
-  const showAllItems = () => {
-    showItem(cape);
-    showItem(outfit);
-    showItem(arms);
-    showItem(mask);
-    showItem(weapon);
-    showItem(badge0);
-    showItem(badge1);
-    showItem(badge2);
-    showItem(badge3);
-  };
-
-  function showItem(element: HTMLElement) {
-    const delay = Math.random() * 2000;
-    return setTimeout(() => (element.style.opacity = "1"), delay);
+  function switchItem(
+    element: HTMLImageElement,
+    folder: string = "weapon",
+    max: number = 2
+  ) {
+    setTimeout(
+      () => {
+        element.style.opacity = "0";
+        setTimeout(
+          () => {
+            element.src = `/potential/${folder}/${getRandomNumber(max + 1)}.webp`;
+            element.style.opacity = "1";
+          },
+          getRandomNumber(10, 20) * 100
+        );
+      },
+      getRandomNumber(10, 20) * 100
+    );
   }
 
-  const hideAllItems = () => {
-    hideItem(cape);
-    hideItem(outfit);
-    hideItem(arms);
-    hideItem(mask);
-    hideItem(weapon);
-    hideItem(badge0);
-    hideItem(badge1);
-    hideItem(badge2);
-    hideItem(badge3);
-  };
+  function getRandomNumber(min: number = 1, max: number = 3) {
+    min = Math.ceil(1);
+    max = Math.floor(max);
 
-  function hideItem(element: HTMLElement) {
-    const delay = Math.random() * 2000;
-    return setTimeout(() => (element.style.opacity = "0"), delay);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 </script>
 
@@ -62,18 +60,28 @@
 
   <div class="flex-box potential-wrapper">
     <div class="potential">
-      <img src="/potential/bg.webp" alt="Body" />
-      <img bind:this={cape} src="/potential/cape.webp" alt="Frame" />
-      <img src="/potential/body.webp" alt="Body" />
-      <img bind:this={outfit} src="/potential/outfit.webp" alt="Body" />
-      <img bind:this={arms} src="/potential/arms.webp" alt="Body" />
-      <img bind:this={mask} src="/potential/mask.webp" alt="Body" />
-      <img bind:this={weapon} src="/potential/weapon.webp" alt="Body" />
-      <img src="/potential/frame.webp" alt="Frame" />
-      <img bind:this={badge0} src="/potential/badge-0.webp" alt="Body" />
-      <img bind:this={badge1} src="/potential/badge-1.webp" alt="Body" />
-      <img bind:this={badge2} src="/potential/badge-2.webp" alt="Body" />
-      <img bind:this={badge3} src="/potential/badge-3.webp" alt="Body" />
+      <img bind:this={bg} src="/potential/bg/1.webp" alt="Background" />
+      <img bind:this={back} src="/potential/back/1.webp" alt="Back Accessory" />
+      <img src="/potential/static/body.webp" alt="Body" />
+      <img bind:this={arms} src="/potential/arms/1.webp" alt="Arm Accessory" />
+      <img bind:this={mask} src="/potential/mask/1.webp" alt="Mask" />
+      <img bind:this={weapon} src="/potential/weapon/1.webp" alt="Weapon" />
+      <img src="/potential/static/frame.webp" alt="Frame" />
+      <img
+        bind:this={badge1}
+        src="/potential/badges/first/1.webp"
+        alt="First Badge"
+      />
+      <img
+        bind:this={badge2}
+        src="/potential/badges/second/1.webp"
+        alt="Second Badge"
+      />
+      <img
+        bind:this={badge3}
+        src="/potential/badges/third/1.webp"
+        alt="Third Badge"
+      />
     </div>
     <article class="flex-box">
       <h2>The evolutionary NFT collection</h2>
@@ -86,7 +94,17 @@
         experiences, telling your story, and opening up custom trait-gated
         stories.
       </h3>
-      <button>JOIN US</button>
+      <div class="flex-box nft-links">
+        <a
+          href="https://magiceden.io/collections/ethereum/0xfa511d5c4cce10321e6e86793cc083213c36278e"
+        >
+          <img src="/icons/magiceden.png" alt="MagicEden" />
+        </a>
+        <h2>JOIN US</h2>
+        <a href="https://opensea.io/collection/potentials-eth">
+          <img src="/icons/opensea.png" alt="OpenSea" />
+        </a>
+      </div>
     </article>
   </div>
 </section>
@@ -108,7 +126,7 @@
     justify-content: space-between;
     width: 95%;
     gap: 2vw;
-    padding-bottom: 1vw;
+    padding-bottom: 2vw;
   }
 
   article {
@@ -129,6 +147,33 @@
     width: 100%;
     height: 100%;
     transition: opacity 1s ease-out;
+  }
+
+  .potential:hover,
+  .potential:active {
+    transform: scale(1.1);
+    box-shadow: 0 0 1vw black;
+  }
+
+  .nft-links {
+    flex-direction: row;
+    gap: 2vw;
+  }
+
+  .nft-links a {
+    width: 3vw;
+    height: 3vw;
+  }
+
+  .nft-links a:hover,
+  .nft-links a:active {
+    transform: scale(1.1);
+    filter: brightness(125%);
+  }
+
+  .nft-links img {
+    width: 100%;
+    height: 100%;
   }
 
   @media only screen and (max-width: 600px) {
@@ -153,6 +198,16 @@
     .potential {
       width: 90vw;
       height: 125vw;
+      transform: none;
+    }
+
+    .nft-links {
+      gap: 1em;
+    }
+
+    .nft-links a {
+      width: 2em;
+      height: 2em;
     }
   }
 </style>

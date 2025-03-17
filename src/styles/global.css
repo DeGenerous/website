@@ -67,7 +67,7 @@ main {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  gap: 2vw;
+  gap: 3vw;
 }
 
 button {
@@ -190,7 +190,7 @@ button *,
   }
 
   main {
-    gap: 1.5em;
+    gap: 2em;
   }
 
   button {

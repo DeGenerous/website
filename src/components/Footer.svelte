@@ -1,9 +1,9 @@
 <script></script>
 
 <section class="flex-box blur">
-  <h3>DeGenerous DAO</h3>
+  <h3 style:color={"#dedede"}>DeGenerous DAO</h3>
 
-  <div class="flex-box links">
+  <div class="flex-box">
     <a href="https://conexus.degenerousdao.com/" target="_blank">CoNexus</a>
     <h3>|</h3>
     <a href="https://governance.degenerousdao.com/" target="_blank">
@@ -22,6 +22,24 @@
   </div>
 
   <hr />
+
+  <div class="flex-box socials">
+    <a href="https://discord.gg/349FgMSUK8">
+      <img src="/icons/discord.png" alt="Discord" />
+    </a>
+    <a href="https://twitter.com/degenerousdao">
+      <img src="/icons/twitter.png" alt="Twitter" />
+    </a>
+    <a href="https://www.youtube.com/@degenerous">
+      <img src="/icons/youtube.png" alt="YouTube" />
+    </a>
+    <a href="https://www.tiktok.com/@degenerousdao">
+      <img src="/icons/tiktok.png" alt="TikTok" />
+    </a>
+    <a href="https://warpcast.com/degenerousdao">
+      <img src="/icons/warpcast.png" alt="Warpcast" />
+    </a>
+  </div>
 
   <a class="mail" href="mailto:contact@degenerousdao.com"
     >contact@degenerousdao.com</a
@@ -69,6 +87,36 @@
     gap: 1vw;
   }
 
+  .socials {
+    gap: 2vw;
+  }
+
+  .socials a {
+    width: 2vw;
+    height: 2vw;
+  }
+
+  .socials a:hover,
+  .socials a:active {
+    transform: scale(1.1);
+    filter: brightness(125%);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10%;
+  }
+
+  .mail {
+    color: #dedede;
+  }
+
+  .mail:hover,
+  .mail:active {
+    color: white;
+  }
+
   @media only screen and (max-width: 600px) {
     section {
       gap: 1em;
@@ -78,6 +126,15 @@
     div {
       flex-wrap: wrap;
       gap: 1em;
+    }
+
+    .socials {
+      gap: 1em;
+    }
+
+    .socials a {
+      width: 1.5em;
+      height: 1.5em;
     }
   }
 </style>
