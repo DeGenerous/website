@@ -1,9 +1,3 @@
-interface Goal {
-  name: string;
-  description: string;
-  done: boolean;
-}
-
 const roadmap: Goal[] = [
   {
     name: "Inception Arks",

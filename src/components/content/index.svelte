@@ -4,6 +4,7 @@
   import Potentials from "./Potentials.svelte";
   import GovernanceHub from "./GovernanceHub.svelte";
   import Vision from "./Vision.svelte";
+  import Team from "./Team.svelte";
 
   let scroll;
 </script>
@@ -27,5 +28,9 @@
 <hr />
 
 <Vision />
+
+<hr />
+
+<Team />
 
 <div class="background" style:top={-scroll / 25 + "vh"}></div>

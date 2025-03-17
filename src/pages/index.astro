@@ -3,6 +3,7 @@ import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.svelte";
 import Content from "@components/content/index.svelte";
 import Footer from "@components/Footer.svelte";
+import Modal from "@components/Modal.svelte";
 
 const title = "DeGenerous";
 ---
@@ -14,5 +15,7 @@ const title = "DeGenerous";
     <Content client:load />
 
     <Footer />
+
+    <Modal client:load />
   </Layout>
 </main>
