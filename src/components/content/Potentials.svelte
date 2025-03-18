@@ -38,10 +38,10 @@
             element.src = `/potential/${folder}/${getRandomNumber(max + 1)}.webp`;
             element.style.opacity = "1";
           },
-          getRandomNumber(10, 20) * 100
+          getRandomNumber(15, 20) * 50
         );
       },
-      getRandomNumber(10, 20) * 100
+      getRandomNumber(15, 20) * 50
     );
   }
 
@@ -151,7 +151,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    transition: opacity 1s ease-out;
+    transition: opacity 0.3s ease-out;
   }
 
   .potential:hover,
