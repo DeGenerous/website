@@ -4,6 +4,7 @@
   import Potentials from "./Potentials.svelte";
   import GovernanceHub from "./GovernanceHub.svelte";
   import Vision from "./Vision.svelte";
+  import Philanthropy from "./Philanthropy.svelte";
   import Team from "./Team.svelte";
 
   let scroll;
@@ -28,6 +29,10 @@
 <hr />
 
 <Vision />
+
+<hr />
+
+<Philanthropy />
 
 <hr />
 

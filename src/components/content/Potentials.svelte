@@ -86,13 +86,18 @@
     <article class="flex-box">
       <h2>The evolutionary NFT collection</h2>
       <h3>
-        Potentials are 1,000 dynamic avatars that evolve on-chain through
-        community participation. As a Potential owner, you are at the core of
-        all of our products and have a say in shaping your avatar’s traits,
-        attributes, and features through your decisions. The art develops with
-        your digital persona - mirroring your unique personality, embedding your
-        experiences, telling your story, and opening up custom trait-gated
-        stories.
+        <strong>Potentials</strong> are 1,000 dynamic avatars that
+        <strong>evolve on-chain</strong> through community participation. As a
+        Potential owner, you are at the core of all our products, playing an
+        active role in shaping your avatar’s
+        <strong>traits, attributes, and features</strong>
+        through your decisions. This isn’t just a static NFT —
+        <strong>your avatar grows with you</strong>. The art itself transforms,
+        reflecting your unique personality, embedding your choices and
+        experiences, and telling a story that is uniquely yours. Through
+        trait-gated storytelling, your evolving digital persona unlocks
+        <strong>exclusive narratives, interactions, and opportunities</strong>,
+        making every journey personal and meaningful.
       </h3>
       <div class="flex-box nft-links">
         <a

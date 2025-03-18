@@ -3,7 +3,7 @@
   import { showModal, member } from "@stores/modal";
 </script>
 
-<h2>Our Core Team</h2>
+<h1>Our Core Team</h1>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <section class="blur">
@@ -42,14 +42,6 @@
 <style>
   * {
     transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  }
-
-  h2 {
-    font-size: 3vw;
-    line-height: 3vw;
-    color: rgba(51, 226, 230, 0.85);
-    -webkit-text-stroke: 0.03vw #33e2e6;
-    text-shadow: 0 0.25vw 0.25vw #010020;
   }
 
   section {
@@ -124,13 +116,14 @@
   img {
     object-fit: cover;
     width: 95%;
-    height: 19vw;
+    height: 22vw;
     margin: 2.5%;
     border: 0.1vw solid rgba(51, 226, 230, 0.5);
     border-radius: 1vw;
     flex: 1;
     background-color: rgba(51, 226, 230, 0.1);
     cursor: pointer;
+    flex: none;
   }
 
   p {
@@ -148,12 +141,6 @@
   }
 
   @media only screen and (max-width: 600px) {
-    h2 {
-      gap: 0.5em;
-      font-size: 1.5em;
-      line-height: 1.5em;
-    }
-
     section {
       border-radius: 0;
       border-left: none;
@@ -168,8 +155,9 @@
     }
 
     img {
-      height: 46vw;
+      height: 52vw;
       border-radius: 0.75em;
+      flex: auto;
     }
 
     p,
