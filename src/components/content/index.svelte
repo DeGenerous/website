@@ -3,6 +3,7 @@
   import Collabs from "./Collabs.svelte";
   import Potentials from "./Potentials.svelte";
   import GovernanceHub from "./GovernanceHub.svelte";
+  import Sagaverse from "./Sagaverse.svelte";
   import Vision from "./Vision.svelte";
   import Philanthropy from "./Philanthropy.svelte";
   import Team from "./Team.svelte";
@@ -25,6 +26,10 @@
 <hr />
 
 <GovernanceHub />
+
+<hr />
+
+<Sagaverse />
 
 <hr />
 

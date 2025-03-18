@@ -35,7 +35,7 @@
     people.
   </h3>
 
-  <button on:click={openGovernanceHub}> Enter The Governance Hub </button>
+  <button on:click={openGovernanceHub}> ENTER THE GOVERNANCE HUB </button>
 </section>
 
 <style>
