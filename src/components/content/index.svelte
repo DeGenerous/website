@@ -1,5 +1,6 @@
 <script>
   import Title from "./Title.svelte";
+  import Conexus from "./Conexus.svelte";
   import Collabs from "./Collabs.svelte";
   import Potentials from "./Potentials.svelte";
   import GovernanceHub from "./GovernanceHub.svelte";
@@ -14,6 +15,10 @@
 <svelte:window bind:scrollY={scroll} />
 
 <Title />
+
+<hr />
+
+<Conexus />
 
 <hr />
 
