@@ -64,6 +64,12 @@ const roadmap: Goal[] = [
     done: true,
   },
   {
+    name: "Loredex",
+    description:
+      "Launch Loredex, a dynamic lore-tracking app that visualizes character connections, histories, and their role in Dischordian Saga episodes on an evolving timeline.",
+    done: true,
+  },
+  {
     name: "CoNexus v1",
     description:
       "Launch the first version of CoNexus available to the wider public",

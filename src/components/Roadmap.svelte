@@ -43,39 +43,43 @@
   <a class="icon-anchor" href="/" aria-label="Home" on:click|preventDefault></a>
 </header>
 
-<ul class="flex-box blur">
+<ul class="flex-box">
   {#each roadmap as { name, description, done }, index}
-    <li
-      id="goal-{index}"
-      class="flex-box"
-      class:done
-      style={done ? "background-color: rgba(22, 30, 95, 0.75)" : ""}
-    >
+    <li>
       {#if done}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="-100 -100 200 200"
-          class="checkmark-svg"
-          fill="rgba(0, 185, 55, 0.9)"
-          stroke-width="30"
-        >
-          <defs>
-            <mask id="checkmark-svg-mask">
-              <circle r="85" stroke="none" fill="white" />
-              <path d="M -50 0 L -15 30 L 50 -35" fill="none" stroke="black" />
-            </mask>
-          </defs>
-          <circle r="85" stroke="none" mask="url(#checkmark-svg-mask)" />
-        </svg>
-      {:else}
-        <span class="flex-box number"
-          >{index + 1 - roadmap.filter((goal) => goal.done).length}</span
-        >
+        <div class="flex-box checkmark-wrapper">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="-100 -100 200 200"
+            class="checkmark-svg"
+            fill="rgba(0, 185, 55, 0.9)"
+            stroke-width="30"
+          >
+            <defs>
+              <mask id="checkmark-svg-mask">
+                <circle r="85" stroke="none" fill="white" />
+                <path
+                  d="M -50 0 L -15 30 L 50 -35"
+                  fill="none"
+                  stroke="black"
+                />
+              </mask>
+            </defs>
+            <circle r="85" stroke="none" mask="url(#checkmark-svg-mask)" />
+          </svg>
+        </div>
       {/if}
-      <article class="flex-box">
-        <h2>{name}</h2>
-        <h3>{description}</h3>
-      </article>
+      <div
+        id="goal-{index}"
+        class="flex-box blur goal"
+        class:done
+        style={done ? "background-color: rgba(22, 30, 95, 0.75)" : ""}
+      >
+        <article class="flex-box">
+          <h2>{name}</h2>
+          <h3>{description}</h3>
+        </article>
+      </div>
     </li>
   {/each}
 </ul>
@@ -84,6 +88,7 @@
   header {
     width: 100vw;
     flex-direction: row;
+    padding-top: 3vw;
     opacity: 0;
     animation: fadeIn 2.4s 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   }
@@ -102,6 +107,10 @@
   }
 
   li {
+    position: relative;
+  }
+
+  .goal {
     flex-direction: row;
     width: 57.5vw;
     gap: 1vw;
@@ -113,7 +122,7 @@
       0 0.5vw 0.5vw #010020;
   }
 
-  li article {
+  .goal article {
     width: 100%;
   }
 
@@ -140,19 +149,15 @@
     color: #bebebe;
   }
 
-  .checkmark-svg,
-  .number {
-    width: 4vw;
-    height: 4vw;
-    flex: none;
+  .checkmark-wrapper {
+    position: absolute;
+    left: -5vw;
+    height: 100%;
   }
 
-  .number {
-    color: rgb(51, 226, 230);
-    background-color: rgba(1, 0, 32, 0.5);
-    box-shadow: 0 0 0.5vw rgba(51, 226, 230, 0.5);
-    border-radius: 50%;
-    font-size: 2vw;
+  .checkmark-svg {
+    width: 4vw;
+    height: 4vw;
   }
 
   @media only screen and (max-width: 600px) {
@@ -172,25 +177,27 @@
       gap: 1em;
     }
 
-    li {
+    .goal {
       width: 95vw;
       gap: 1em;
       padding: 1em;
       border-radius: 1em;
     }
 
-    li article {
+    .goal article {
       gap: 0.5em;
     }
 
-    .checkmark-svg,
-    .number {
-      width: 2em;
-      height: 2em;
+    .checkmark-wrapper {
+      top: 1em;
+      left: 0.5em;
+      z-index: 10;
+      height: 1.5em;
     }
 
-    .number {
-      font-size: 1em;
+    .checkmark-svg {
+      width: 2em;
+      height: 2em;
     }
   }
 </style>
