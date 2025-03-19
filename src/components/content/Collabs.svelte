@@ -2,7 +2,7 @@
 </script>
 
 <h2>
-  We’re backed by industry pioneers, from Web3 leaders to award-winning
+  We’re working with industry pioneers, from Web3 leaders to award-winning
   filmmakers.
 </h2>
 

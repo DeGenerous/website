@@ -1,51 +1,46 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  let bg: HTMLImageElement;
-  let back: HTMLImageElement;
-  let arms: HTMLImageElement;
-  let mask: HTMLImageElement;
-  let weapon: HTMLImageElement;
-  let badge1: HTMLImageElement;
-  let badge2: HTMLImageElement;
-  let badge3: HTMLImageElement;
+  let bg: HTMLDivElement;
+  let back: HTMLDivElement;
+  let outfit: HTMLDivElement;
+  let arms: HTMLDivElement;
+  let mask: HTMLDivElement;
+  let weapon: HTMLDivElement;
+  let badge1: HTMLDivElement;
+  let badge2: HTMLDivElement;
+  let badge3: HTMLDivElement;
 
   onMount(() => {
-    setInterval(animatePotential, 5000);
+    animatePotential();
   });
 
   const animatePotential = () => {
-    switchItem(arms, "arms", 4);
-    switchItem(back, "back", 4);
-    switchItem(bg, "bg", 5);
-    switchItem(mask, "mask", 4);
-    switchItem(weapon, "weapon", 5);
-    switchItem(badge1, "badges/first");
-    switchItem(badge2, "badges/second");
-    switchItem(badge3, "badges/third");
+    switchItem(outfit, 4);
+    switchItem(arms, 4);
+    switchItem(back, 4);
+    switchItem(bg, 5);
+    switchItem(mask, 4);
+    switchItem(weapon, 5);
+    switchItem(badge1);
+    switchItem(badge2);
+    switchItem(badge3);
   };
 
-  function switchItem(
-    element: HTMLImageElement,
-    folder: string = "weapon",
-    max: number = 2
-  ) {
-    setTimeout(
-      () => {
-        element.style.opacity = "0";
-        setTimeout(
-          () => {
-            element.src = `/potential/${folder}/${getRandomNumber(max + 1)}.webp`;
-            element.style.opacity = "1";
-          },
-          getRandomNumber(15, 20) * 50
-        );
-      },
-      getRandomNumber(15, 20) * 50
-    );
+  function switchItem(container: HTMLDivElement, max: number = 3) {
+    Array.from(container.children).map((node) => {
+      const image = node as HTMLImageElement;
+      image.style.opacity = "0";
+    });
+
+    const element = container.children[
+      getRandomNumber(0, max - 1)
+    ] as HTMLImageElement;
+
+    element.style.opacity = "1";
   }
 
-  function getRandomNumber(min: number = 1, max: number = 3) {
+  function getRandomNumber(min: number = 0, max: number = 3) {
     min = Math.ceil(1);
     max = Math.floor(max);
 
@@ -58,46 +53,95 @@
 
   <hr />
 
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div class="flex-box potential-wrapper">
-    <div class="potential">
-      <img bind:this={bg} src="/potential/bg/1.webp" alt="Background" />
-      <img bind:this={back} src="/potential/back/1.webp" alt="Back Accessory" />
-      <img src="/potential/static/body.webp" alt="Body" />
-      <img bind:this={arms} src="/potential/arms/1.webp" alt="Arm Accessory" />
-      <img bind:this={mask} src="/potential/mask/1.webp" alt="Mask" />
-      <img bind:this={weapon} src="/potential/weapon/1.webp" alt="Weapon" />
-      <img src="/potential/static/frame.webp" alt="Frame" />
-      <img
-        bind:this={badge1}
-        src="/potential/badges/first/1.webp"
-        alt="First Badge"
-      />
-      <img
-        bind:this={badge2}
-        src="/potential/badges/second/1.webp"
-        alt="Second Badge"
-      />
-      <img
-        bind:this={badge3}
-        src="/potential/badges/third/1.webp"
-        alt="Third Badge"
-      />
+    <div
+      class="potential"
+      on:click={animatePotential}
+      on:pointerover={animatePotential}
+      role="button"
+      tabindex="0"
+    >
+      <div bind:this={bg}>
+        <img src="/potential/bg/1.webp" alt="Background" />
+        <img src="/potential/bg/2.webp" alt="Background" />
+        <img src="/potential/bg/3.webp" alt="Background" />
+        <img src="/potential/bg/4.webp" alt="Background" />
+        <img src="/potential/bg/5.webp" alt="Background" />
+      </div>
+
+      <div bind:this={back}>
+        <img src="/potential/back/1.webp" alt="Back Accessory" />
+        <img src="/potential/back/2.webp" alt="Back Accessory" />
+        <img src="/potential/back/3.webp" alt="Back Accessory" />
+        <img src="/potential/back/4.webp" alt="Back Accessory" />
+      </div>
+
+      <img style:opacity={"1"} src="/potential/static/body.webp" alt="Body" />
+
+      <div bind:this={outfit}>
+        <img src="/potential/outfit/1.webp" alt="Outfit" />
+        <img src="/potential/outfit/2.webp" alt="Outfit" />
+        <img src="/potential/outfit/3.webp" alt="Outfit" />
+        <img src="/potential/outfit/4.webp" alt="Outfit" />
+      </div>
+
+      <div bind:this={arms}>
+        <img src="/potential/arms/1.webp" alt="Arm Accessory" />
+        <img src="/potential/arms/2.webp" alt="Arm Accessory" />
+        <img src="/potential/arms/3.webp" alt="Arm Accessory" />
+        <img src="/potential/arms/4.webp" alt="Arm Accessory" />
+      </div>
+
+      <div bind:this={mask}>
+        <img src="/potential/mask/1.webp" alt="Mask" />
+        <img src="/potential/mask/2.webp" alt="Mask" />
+        <img src="/potential/mask/3.webp" alt="Mask" />
+        <img src="/potential/mask/4.webp" alt="Mask" />
+      </div>
+
+      <div bind:this={weapon}>
+        <img src="/potential/weapon/1.webp" alt="Weapon" />
+        <img src="/potential/weapon/2.webp" alt="Weapon" />
+        <img src="/potential/weapon/3.webp" alt="Weapon" />
+        <img src="/potential/weapon/4.webp" alt="Weapon" />
+        <img src="/potential/weapon/5.webp" alt="Weapon" />
+      </div>
+
+      <img style:opacity={"1"} src="/potential/static/frame.webp" alt="Frame" />
+
+      <div bind:this={badge1}>
+        <img src="/potential/badges/first/1.webp" alt="First Badge" />
+        <img src="/potential/badges/first/2.webp" alt="First Badge" />
+        <img src="/potential/badges/first/3.webp" alt="First Badge" />
+      </div>
+
+      <div bind:this={badge2}>
+        <img src="/potential/badges/second/1.webp" alt="First Badge" />
+        <img src="/potential/badges/second/2.webp" alt="First Badge" />
+        <img src="/potential/badges/second/3.webp" alt="First Badge" />
+      </div>
+
+      <div bind:this={badge3}>
+        <img src="/potential/badges/third/1.webp" alt="First Badge" />
+        <img src="/potential/badges/third/2.webp" alt="First Badge" />
+        <img src="/potential/badges/third/3.webp" alt="First Badge" />
+      </div>
     </div>
+
     <article class="flex-box">
       <h2>The evolutionary NFT collection</h2>
       <h3>
-        <strong>Potentials</strong> are 1,000 dynamic avatars that
-        <strong>evolve on-chain</strong> through community participation. As a
-        Potential owner, you are at the core of all our products, playing an
-        active role in shaping your avatar’s
-        <strong>traits, attributes, and features</strong>
-        through your decisions. This isn’t just a static NFT —
-        <strong>your avatar grows with you</strong>. The art itself transforms,
+        Potentials are 1,000 dynamic avatars that evolve on-chain through
+        community participation. As a Potential owner, you are at the core of
+        all our products, playing an active role in shaping your avatar’s
+        traits, attributes, and features through your decisions. This isn’t just
+        a static NFT — your avatar grows with you. The art itself transforms,
         reflecting your unique personality, embedding your choices and
         experiences, and telling a story that is uniquely yours. Through
         trait-gated storytelling, your evolving digital persona unlocks
-        <strong>exclusive narratives, interactions, and opportunities</strong>,
-        making every journey personal and meaningful.
+        exclusive narratives, interactions, and opportunities, making every
+        journey personal and meaningful.
       </h3>
       <div class="flex-box nft-links">
         <a
@@ -145,13 +189,22 @@
     flex: none;
     background-color: rgba(51, 226, 230, 0.05);
     box-shadow: 0 0.25vw 0.5vw #010020;
+    cursor: pointer;
+  }
+
+  .potential div {
+    position: absolute;
+    width: inherit;
+    height: inherit;
   }
 
   .potential img {
     position: absolute;
     width: 100%;
     height: 100%;
+    opacity: 0;
     transition: opacity 0.3s ease-out;
+    cursor: inherit;
   }
 
   .potential:hover,
