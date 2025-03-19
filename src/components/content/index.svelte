@@ -4,6 +4,7 @@
   import Collabs from "./Collabs.svelte";
   import Potentials from "./Potentials.svelte";
   import GovernanceHub from "./GovernanceHub.svelte";
+  import Loredex from "./Loredex.svelte";
   import Sagaverse from "./Sagaverse.svelte";
   import Vision from "./Vision.svelte";
   import Philanthropy from "./Philanthropy.svelte";
@@ -31,6 +32,10 @@
 <hr />
 
 <GovernanceHub />
+
+<hr />
+
+<Loredex />
 
 <hr />
 

@@ -7,7 +7,7 @@
 <h2>Another Layer of Immersion</h2>
 
 <section class="flex-box blur">
-  <img src="/sagaverse.webp" alt="Lions International" />
+  <img src="/sagaverse.webp" alt="Sagaverse" />
   <div class="flex-box">
     <h3>
       Immerse yourself in Sagaverse Gaming by participating in custom games and
@@ -17,7 +17,7 @@
       and expand engagement across diverse games, metaverses, and blockchain
       platforms.
     </h3>
-    <button on:click={openSagaverse}>SAGAVERSE GAMING</button>
+    <button on:click={openSagaverse}>SAGAVERSE</button>
   </div>
 </section>
 
@@ -26,8 +26,8 @@
     flex-direction: row;
     padding: 2vw;
     gap: 1vw;
-    background-color: rgba(22, 30, 95, 0.25);
-    box-shadow: 0 0 0.5vw #010020;
+    background-color: rgba(51, 226, 230, 0.05);
+    box-shadow: 0 0.25vw 0.5vw #010020;
   }
 
   div {

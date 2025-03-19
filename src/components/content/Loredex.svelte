@@ -1,0 +1,70 @@
+<script>
+  const openLoredex = () => {
+    window.open("https://loredex.degenerousdao.com/", "_blank");
+  };
+</script>
+
+<h2>The Living History of the Dischordian Saga</h2>
+
+<section class="flex-box blur">
+  <h3>
+    Spanning 150,000 years of history, Loredex is a dynamic, interactive mindmap
+    that connects characters, events, and conflicts across time. It visualizes
+    alliances, rivalries, and key moments, letting you explore how everything is
+    connected in a living, evolving universe.
+  </h3>
+
+  <img class="pc" src="/loredex.webp" alt="Loredex" />
+  <img class="mobile" src="/loredex-mobile.webp" alt="Loredex" />
+
+  <h3>
+    Navigate through timelines, relationships, and pivotal battles, uncover
+    hidden connections, and watch events unfold across different eras. More than
+    just a database, Loredex is a gateway to understanding the full depth of an
+    ever-expanding saga.
+  </h3>
+  <button on:click={openLoredex}>EXPLORE THE LORE</button>
+</section>
+
+<style>
+  section {
+    padding: 2vw;
+    gap: 1vw;
+    background-color: rgba(51, 226, 230, 0.05);
+    box-shadow: 0 0.25vw 0.5vw #010020;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 1vw;
+    box-shadow: 0 0 0.5vw rgba(51, 226, 230, 0.25);
+  }
+
+  .pc {
+    display: block;
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  @media only screen and (max-width: 600px) {
+    section {
+      padding: 1em;
+      gap: 1em;
+    }
+
+    img {
+      width: 90vw;
+      border-radius: 1em;
+    }
+
+    .pc {
+      display: none;
+    }
+
+    .mobile {
+      display: block;
+    }
+  }
+</style>

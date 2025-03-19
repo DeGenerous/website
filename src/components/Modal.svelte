@@ -28,7 +28,11 @@
   <div on:click|stopPropagation>
     {#if $member}
       <section class="flex-box">
-        <img class="picture" src="/team/{$member.picture}.jpg" alt="Pano" />
+        <img
+          class="picture"
+          src="/team/{$member.picture}.jpg"
+          alt={$member.name}
+        />
 
         <article class="flex-box">
           <span class="flex-box">

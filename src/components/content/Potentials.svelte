@@ -160,22 +160,23 @@
 
 <style>
   section {
+    padding: 2vw;
     gap: 1vw;
     background-color: rgba(22, 30, 95, 0.25);
     box-shadow: 0 0 0.5vw #010020;
   }
 
   .potentials-banner {
-    width: 100vw;
-    box-shadow: 0 0 0.5vw #010020;
+    width: 100%;
+    box-shadow: 0 0.25vw 0.5vw #010020;
+    border-radius: 0.5vw;
   }
 
   .potential-wrapper {
     flex-direction: row;
     justify-content: space-between;
-    width: 95%;
+    width: 100%;
     gap: 2vw;
-    padding-bottom: 2vw;
   }
 
   article {
@@ -205,6 +206,7 @@
     opacity: 0;
     transition: opacity 0.3s ease-out;
     cursor: inherit;
+    border-radius: 0.5vw;
   }
 
   .potential:hover,
