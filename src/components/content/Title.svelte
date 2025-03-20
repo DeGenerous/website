@@ -73,6 +73,7 @@
   }
 
   header {
+    position: relative;
     gap: 1vw;
     opacity: 0;
     animation:
@@ -86,6 +87,8 @@
   }
 
   ul {
+    position: absolute;
+    bottom: calc(-100% - 2vw);
     flex-direction: row;
     align-items: flex-start;
     gap: 1.5vw;
@@ -163,6 +166,7 @@
     }
 
     ul {
+      bottom: -100%;
       gap: 1.5em;
     }
 
