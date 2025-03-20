@@ -9,10 +9,29 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <section class="flex-box">
-  <h2>
-    We believe community-owned franchises, interactivity, and AI-powered
-    user-generated content will shape the future of storytelling.
-  </h2>
+  <header class="flex-box">
+    <h2>
+      We believe community-owned franchises, interactivity, and AI-powered
+      user-generated content will shape the future of storytelling.
+    </h2>
+
+    <ul class="flex-box">
+      <a href="https://twitter.com/degenerousdao">
+        <img src="/icons/twitter.png" alt="Twitter" />
+      </a>
+
+      <a
+        href="https://magiceden.io/collections/ethereum/0xfa511d5c4cce10321e6e86793cc083213c36278e"
+        class="flex-box"
+      >
+        JOIN US
+      </a>
+
+      <a href="https://discord.gg/349FgMSUK8">
+        <img src="/icons/discord.png" alt="Discord" />
+      </a>
+    </ul>
+  </header>
 
   <span class="flex-box">
     <img src="/logo.png" alt="Logo" />
@@ -48,13 +67,32 @@
     position: relative;
   }
 
-  h2 {
-    color: white;
-    width: 75%;
+  header {
+    gap: 2vw;
     opacity: 0;
     animation:
       fadeIn 1.8s 1.6s forwards,
       zoomIn 1.2s 1.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  }
+
+  h2 {
+    color: white;
+    width: 75%;
+  }
+
+  ul {
+    flex-direction: row;
+    gap: 1vw;
+  }
+
+  ul a {
+    height: 3vw;
+  }
+
+  ul img {
+    height: 100%;
+    border-radius: 0.5vw;
+    cursor: inherit;
   }
 
   span {
@@ -65,9 +103,10 @@
     z-index: -10;
   }
 
-  img {
+  span img {
     height: 100%;
     width: 70vh;
+    transform: scale(1.1);
     animation: logo 2.2s ease-in forwards;
   }
 
@@ -110,7 +149,7 @@
       top: auto;
     }
 
-    img {
+    span img {
       height: 100%;
       width: 90vw;
       animation: logo 2s ease-in-out forwards;
