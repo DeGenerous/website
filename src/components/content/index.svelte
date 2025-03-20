@@ -1,4 +1,6 @@
-<script>
+<script lang="ts">
+  import { onMount } from "svelte";
+
   import Title from "./Title.svelte";
   import Conexus from "./Conexus.svelte";
   import Collabs from "./Collabs.svelte";
@@ -11,7 +13,22 @@
   import Team from "./Team.svelte";
   import Twitter from "./Twitter.svelte";
 
-  let scroll;
+  import observeElement from "@utils/observer";
+
+  let scroll: number;
+
+  onMount(() => {
+    const headings = document.querySelectorAll("h1");
+    Array.from(headings).map((h1) => observeElement(h1, "highlighted-header"));
+
+    const blurredPictures = document.querySelectorAll(".blurred-image");
+    Array.from(blurredPictures).map((img) =>
+      observeElement(img, "visible-image")
+    );
+
+    const buttons = document.querySelectorAll(".scaled-down");
+    Array.from(buttons).map((button) => observeElement(button, "no-transform"));
+  });
 </script>
 
 <svelte:window bind:scrollY={scroll} />
@@ -59,3 +76,6 @@
 <Twitter />
 
 <div class="background" style:top={-scroll / 25 + "vh"}></div>
+
+<style>
+</style>

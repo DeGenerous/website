@@ -7,7 +7,7 @@
 <h1>Another Layer of Immersion</h1>
 
 <section class="flex-box blur">
-  <img src="/sagaverse.webp" alt="Sagaverse" />
+  <img class="blurred-image" src="/sagaverse.webp" alt="Sagaverse" />
   <div class="flex-box">
     <h3>
       Immerse yourself in Sagaverse Gaming by participating in custom games and
@@ -17,7 +17,7 @@
       and expand engagement across diverse games, metaverses, and blockchain
       platforms.
     </h3>
-    <button on:click={openSagaverse}>SAGAVERSE</button>
+    <button class="scaled-down" on:click={openSagaverse}>SAGAVERSE</button>
   </div>
 </section>
 

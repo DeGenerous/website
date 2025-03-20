@@ -115,7 +115,7 @@
     ownership, we’re turning imagination into reality—giving power back to
     creators and communities.
   </h3>
-  <button on:click={openConexus}>PLAY NOW</button>
+  <button class="scaled-down" on:click={openConexus}>PLAY NOW</button>
 </section>
 
 <style>

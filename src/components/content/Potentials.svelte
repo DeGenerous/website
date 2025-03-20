@@ -49,7 +49,11 @@
 </script>
 
 <section class="flex-box blur">
-  <img class="potentials-banner" src="/potentials.webp" alt="Potentials" />
+  <img
+    class="blurred-image potentials-banner"
+    src="/potentials.webp"
+    alt="Potentials"
+  />
 
   <hr />
 
@@ -181,12 +185,16 @@
       </h3>
       <div class="flex-box nft-links">
         <a
+          class="scaled-down"
           href="https://magiceden.io/collections/ethereum/0xfa511d5c4cce10321e6e86793cc083213c36278e"
         >
           <img src="/icons/magiceden.png" alt="MagicEden" />
         </a>
         <h2>Forge Your Legacy</h2>
-        <a href="https://opensea.io/collection/potentials-eth">
+        <a
+          class="scaled-down"
+          href="https://opensea.io/collection/potentials-eth"
+        >
           <img src="/icons/opensea.png" alt="OpenSea" />
         </a>
       </div>

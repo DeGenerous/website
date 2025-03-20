@@ -14,8 +14,8 @@
     connected in a living, evolving universe.
   </h3>
 
-  <img class="pc" src="/loredex.webp" alt="Loredex" />
-  <img class="mobile" src="/loredex-mobile.webp" alt="Loredex" />
+  <img class="blurred-image pc" src="/loredex.webp" alt="Loredex" />
+  <img class="blurred-image mobile" src="/loredex-mobile.webp" alt="Loredex" />
 
   <h3>
     Navigate through timelines, relationships, and pivotal battles, uncover

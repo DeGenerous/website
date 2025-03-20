@@ -35,7 +35,7 @@
     people.
   </h3>
 
-  <button on:click={openGovernanceHub}> VOTE </button>
+  <button class="scaled-down" on:click={openGovernanceHub}> VOTE </button>
 </section>
 
 <style>

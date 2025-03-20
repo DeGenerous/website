@@ -9,7 +9,8 @@
       "@styles/*": ["src/styles/*"],
       "@lib/*": ["src/lib/*"],
       "@stores/*": ["src/stores/*"],
-      "@constants/*": ["src/constants/*"]
+      "@constants/*": ["src/constants/*"],
+      "@utils/*": ["src/utils/*"],
     }
   }
 }

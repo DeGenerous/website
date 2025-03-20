@@ -12,7 +12,8 @@ h1 {
   text-align: center;
   font-size: 3vw;
   line-height: 3vw;
-  color: rgba(51, 226, 230, 0.85);
+  /* color: rgba(51, 226, 230, 0.85); */
+  color: #dedede;
   -webkit-text-stroke: 0.03vw #33e2e6;
   text-shadow: 0 0.25vw 0.25vw #010020;
 }
@@ -32,10 +33,6 @@ a {
   color: rgba(255, 255, 255, 0.5);
   font-size: 1.5vw;
   line-height: 1.5;
-}
-
-strong {
-  color: rgba(255, 255, 255, 0.65);
 }
 
 a {

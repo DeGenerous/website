@@ -4,7 +4,7 @@
 
 <section class="flex-box blur">
   <div class="flex-box">
-    <img src="/museum.jpg" alt="Phylanthropy" />
+    <img class="blurred-image" src="/museum.jpg" alt="Phylanthropy" />
     <article class="flex-box">
       <h2>Proof-Of-Impact: Turning Digital Contributions into Real Change</h2>
       <h3>
@@ -25,7 +25,7 @@
   <hr />
 
   <div class="flex-box">
-    <img src="/ball.jpg" alt="Phylanthropy" />
+    <img class="blurred-image" src="/ball.jpg" alt="Phylanthropy" />
     <article class="flex-box">
       <h2>Make the World a Better Place. Unlock Your Potential.</h2>
       <h3>
