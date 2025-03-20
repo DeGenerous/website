@@ -16,6 +16,15 @@
   }
 }
 
+@keyframes fadeInSemiTransparent {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}
+
 @keyframes zoomIn {
   0% {
     transform: scale(0.75);
@@ -78,7 +87,16 @@
     transform: translateY(-125%);
   }
   to {
-    transform: translateX(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes translateTop {
+  from {
+    transform: translateY(125%);
+  }
+  to {
+    transform: translateY(0);
   }
 }
 

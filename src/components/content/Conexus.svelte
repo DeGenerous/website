@@ -4,7 +4,7 @@
   };
 </script>
 
-<h1>Unlock Your Potential and Dive Into Your Dreams</h1>
+<h1 id="conexus">Unlock Your Potential and Dive Into Your Dreams</h1>
 
 <section class="flex-box blur">
   <h3>
