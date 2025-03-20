@@ -85,6 +85,10 @@
 </ul>
 
 <style>
+  h1 {
+    color: rgba(51, 226, 230, 0.85) !important;
+  }
+
   header {
     width: 100vw;
     flex-direction: row;

@@ -30,7 +30,27 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .highlighted-header {
+    letter-spacing: 0.2vw;
+  }
+  
+  .blurred-image {
+    filter: blur(1em) grayscale(100%);
+    transform: scale(0.85);
+  }
 
+  .visible-image {
+    filter: none;
+    transform: none;
+  }
+
+  .scaled-down {
+    transform: scale(0.75);
+  }
+  
+  .no-transform {
+    transform: none;
+  }
 }
 
 
