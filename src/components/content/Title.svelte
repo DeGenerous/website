@@ -43,7 +43,7 @@
   </span>
 
   <div class="flex-box" on:click={scrollDown} role="button" tabindex="0">
-    <h3>Show more</h3>
+    <h3>See more</h3>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="-100 -100 200 200"
@@ -190,10 +190,6 @@
       height: 100%;
       width: 90vw;
       animation: logo 2s ease-in-out forwards;
-    }
-
-    div {
-      bottom: 0;
     }
   }
 </style>
