@@ -9,6 +9,7 @@
   import Vision from "./Vision.svelte";
   import Philanthropy from "./Philanthropy.svelte";
   import Team from "./Team.svelte";
+  import Twitter from "./Twitter.svelte";
 
   let scroll;
 </script>
@@ -52,5 +53,9 @@
 <hr />
 
 <Team />
+
+<hr />
+
+<Twitter />
 
 <div class="background" style:top={-scroll / 25 + "vh"}></div>

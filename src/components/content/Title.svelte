@@ -138,8 +138,24 @@
       height: 80vh;
     }
 
+    header {
+      gap: 1.5em;
+    }
+
     h2 {
       width: 100%;
+    }
+
+    ul {
+      gap: 1.5em;
+    }
+
+    ul a {
+      height: 2em;
+    }
+
+    ul img {
+      border-radius: 0.25em;
     }
 
     span {
