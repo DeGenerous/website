@@ -120,6 +120,7 @@
 
 <style>
   section {
+    width: 100vw;
     padding: 2vw;
     gap: 1vw;
     background-color: rgba(51, 226, 230, 0.05);
