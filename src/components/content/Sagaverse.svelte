@@ -4,7 +4,7 @@
   };
 </script>
 
-<h2>Another Layer of Immersion</h2>
+<h1>Another Layer of Immersion</h1>
 
 <section class="flex-box blur">
   <img src="/sagaverse.webp" alt="Sagaverse" />

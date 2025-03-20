@@ -4,7 +4,7 @@
   };
 </script>
 
-<h2>The Living History of the Dischordian Saga</h2>
+<h1>The Living History of the Dischordian Saga</h1>
 
 <section class="flex-box blur">
   <h3>

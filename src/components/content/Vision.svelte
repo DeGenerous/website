@@ -1,6 +1,6 @@
 <script></script>
 
-<h2>Your Imagination. Your Story. Your Future.</h2>
+<h1>Your Imagination. Your Story. Your Future.</h1>
 
 <div class="flex-box">
   <h3>

@@ -4,7 +4,7 @@
   };
 </script>
 
-<h2>Shape the Future</h2>
+<h1>Shape the Future</h1>
 
 <section class="flex-box blur">
   <div class="video">

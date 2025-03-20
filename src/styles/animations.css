@@ -46,6 +46,15 @@
   }
 }
 
+@keyframes slide-reverse {
+  from {
+    right: 100vw;
+  }
+  to {
+    right: -100vw;
+  }
+}
+
 @keyframes translateRight {
   from {
     transform: translateX(-125%);
