@@ -67,11 +67,13 @@ a:active {
 }
 
 main {
+  width: 100vw;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   gap: 3vw;
+  overflow-x: hidden;
 }
 
 button {
