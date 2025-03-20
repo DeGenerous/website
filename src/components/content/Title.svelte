@@ -104,6 +104,7 @@
 
   a img {
     height: 100%;
+    width: 3vw;
     border-radius: 50%;
     cursor: inherit;
   }
@@ -172,6 +173,10 @@
 
     ul a {
       height: 2em;
+    }
+
+    a img {
+      width: 2em;
     }
 
     span {

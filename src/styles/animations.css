@@ -31,7 +31,8 @@
 
 @media only screen and (max-width: 600px) {
   .highlighted-header {
-    letter-spacing: 0.2vw;
+    letter-spacing: auto;
+    transform: scale(1.05);
   }
   
   .blurred-image {
