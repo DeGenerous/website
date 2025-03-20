@@ -48,10 +48,10 @@
 
 @keyframes slide-reverse {
   from {
-    right: 100vw;
+    right: 100%;
   }
   to {
-    right: -100vw;
+    right: -100%;
   }
 }
 
@@ -79,5 +79,20 @@
   }
   to {
     transform: translateX(0);
+  }
+}
+
+@keyframes logo {
+  50% {
+    transform: scale(1.1);
+    filter: brightness(150%);
+    opacity: 1;
+  }
+  75% {
+    transform: none;
+  }
+  100% {
+    filter: brightness(50%);
+    opacity: 0.25;
   }
 }

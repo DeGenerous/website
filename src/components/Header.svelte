@@ -175,7 +175,8 @@
       gap: 1em;
       padding: 0.5em;
       border-radius: 0;
-      animation: translateBottom 1s ease-in-out forwards;
+      transform: translateY(-125%);
+      animation: translateBottom 1s 1.2s ease-in-out forwards;
     }
 
     .links {

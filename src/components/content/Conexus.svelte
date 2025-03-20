@@ -16,21 +16,96 @@
 
   <section class="stories">
     <div>
-      <img style="--position: 0" src="/conexus/1.webp" alt="Story" />
-      <img style="--position: 1" src="/conexus/2.webp" alt="Story" />
-      <img style="--position: 2" src="/conexus/3.webp" alt="Story" />
-      <img style="--position: 3" src="/conexus/4.webp" alt="Story" />
-      <img style="--position: 4" src="/conexus/5.webp" alt="Story" />
-      <img style="--position: 5" src="/conexus/6.webp" alt="Story" />
-      <img style="--position: 6" src="/conexus/7.webp" alt="Story" />
-      <img style="--position: 7" src="/conexus/8.webp" alt="Story" />
-      <img style="--position: 8" src="/conexus/9.webp" alt="Story" />
-      <img style="--position: 9" src="/conexus/10.webp" alt="Story" />
-      <img style="--position: 10" src="/conexus/11.webp" alt="Story" />
-      <img style="--position: 11" src="/conexus/12.webp" alt="Story" />
-      <img style="--position: 12" src="/conexus/13.webp" alt="Story" />
-      <img style="--position: 13" src="/conexus/14.webp" alt="Story" />
-      <img style="--position: 14" src="/conexus/15.webp" alt="Story" />
+      <img
+        style="--position: 0"
+        src="/conexus/1.webp"
+        alt="Story"
+        loading="lazy"
+      />
+      <img
+        style="--position: 1"
+        src="/conexus/2.webp"
+        alt="Story"
+        loading="lazy"
+      />
+      <img
+        style="--position: 2"
+        src="/conexus/3.webp"
+        alt="Story"
+        loading="lazy"
+      />
+      <img
+        style="--position: 3"
+        src="/conexus/4.webp"
+        alt="Story"
+        loading="lazy"
+      />
+      <img
+        style="--position: 4"
+        src="/conexus/5.webp"
+        alt="Story"
+        loading="lazy"
+      />
+      <img
+        style="--position: 5"
+        src="/conexus/6.webp"
+        alt="Story"
+        loading="lazy"
+      />
+      <img
+        style="--position: 6"
+        src="/conexus/7.webp"
+        alt="Story"
+        loading="lazy"
+      />
+      <img
+        style="--position: 7"
+        src="/conexus/8.webp"
+        alt="Story"
+        loading="lazy"
+      />
+      <img
+        style="--position: 8"
+        src="/conexus/9.webp"
+        alt="Story"
+        loading="lazy"
+      />
+      <img
+        style="--position: 9"
+        src="/conexus/10.webp"
+        alt="Story"
+        loading="lazy"
+      />
+      <img
+        style="--position: 10"
+        src="/conexus/11.webp"
+        alt="Story"
+        loading="lazy"
+      />
+      <img
+        style="--position: 11"
+        src="/conexus/12.webp"
+        alt="Story"
+        loading="lazy"
+      />
+      <img
+        style="--position: 12"
+        src="/conexus/13.webp"
+        alt="Story"
+        loading="lazy"
+      />
+      <img
+        style="--position: 13"
+        src="/conexus/14.webp"
+        alt="Story"
+        loading="lazy"
+      />
+      <img
+        style="--position: 14"
+        src="/conexus/15.webp"
+        alt="Story"
+        loading="lazy"
+      />
     </div>
   </section>
 
@@ -55,6 +130,7 @@
     width: 100vw;
     height: 15vw;
     padding-block: 1vw;
+    padding-inline: 0;
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.25);
     box-shadow: inset 0 0 0.5vw rgba(51, 226, 230, 0.25);
@@ -64,6 +140,7 @@
     position: relative;
     display: flex;
     height: 100%;
+    width: calc(13vw * 7.5);
   }
 
   div:hover img {
@@ -79,7 +156,7 @@
 
   img {
     position: absolute;
-    right: 100vw;
+    right: 100%;
     height: 100%;
     width: 13vw;
     height: 13vw;
@@ -93,6 +170,21 @@
     section {
       padding: 1em;
       gap: 1em;
+    }
+
+    .stories {
+      height: 21vh;
+      padding-block: 1.5vh;
+    }
+
+    div {
+      width: calc(18vh * 7.5);
+    }
+
+    img {
+      width: 18vh;
+      height: 18vh;
+      border-radius: 1vh;
     }
   }
 </style>

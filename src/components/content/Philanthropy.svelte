@@ -68,10 +68,6 @@
   }
 
   @media only screen and (max-width: 600px) {
-    hr {
-      display: none;
-    }
-
     section {
       padding: 1em;
       gap: 1em;
@@ -79,6 +75,10 @@
 
     div {
       flex-direction: column;
+      gap: 1em;
+    }
+
+    article {
       gap: 1em;
     }
 
