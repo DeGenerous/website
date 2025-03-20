@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
 
   onMount(() => {
-    setTimeout(createTweets, 2000);
+    setTimeout(createTweets, 2500);
   });
 
   function createTweets() {

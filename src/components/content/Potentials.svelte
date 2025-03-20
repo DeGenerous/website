@@ -185,7 +185,7 @@
         >
           <img src="/icons/magiceden.png" alt="MagicEden" />
         </a>
-        <h2>JOIN US</h2>
+        <h2>Forge Your Legacy</h2>
         <a href="https://opensea.io/collection/potentials-eth">
           <img src="/icons/opensea.png" alt="OpenSea" />
         </a>

@@ -13,8 +13,6 @@
     $showModal = false;
     dialog?.close();
   };
-
-  let closeSvgFocus: boolean = false;
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
@@ -42,16 +40,18 @@
                 {$member.secondName}
               {/if}
             </h2>
-            {#if $member.twitter}
-              <a href={$member.twitter}>
-                <img src="/icons/twitter.png" alt="Twitter" />
-              </a>
-            {/if}
-            {#if $member.email}
-              <a href="mailto:{$member.email}">
-                <img src="/icons/email.png" alt="Email" />
-              </a>
-            {/if}
+            <div class="flex-box socials">
+              {#if $member.twitter}
+                <a href={$member.twitter}>
+                  <img src="/icons/twitter.png" alt="Twitter" />
+                </a>
+              {/if}
+              {#if $member.email}
+                <a href="mailto:{$member.email}">
+                  <img src="/icons/email.png" alt="Email" />
+                </a>
+              {/if}
+            </div>
           </span>
 
           {#each $member.description as description}
@@ -146,12 +146,18 @@
   h3 {
     text-align: left;
     color: #dedede;
+    width: 100%;
   }
 
   .picture {
     width: 25vw;
     border-radius: 1vw;
     box-shadow: 0 0 0.5vw rgba(51, 226, 230, 0.5);
+  }
+
+  .socials {
+    flex-direction: row;
+    gap: 1vw;
   }
 
   a {
@@ -201,6 +207,10 @@
       backdrop-filter: blur(1rem);
     }
 
+    h3 {
+      text-align: center;
+    }
+
     .picture {
       width: 100%;
       border-radius: 0.5em;
@@ -208,10 +218,15 @@
 
     span {
       gap: 1em;
+      flex-wrap: wrap;
     }
 
     article {
       padding: 1em;
+      gap: 1em;
+    }
+
+    .socials {
       gap: 1em;
     }
 
