@@ -308,6 +308,11 @@
       transform: none;
     }
 
+    .potential:hover,
+    .potential:active {
+      transform: scale(1.05);
+    }
+
     .nft-links {
       gap: 1em;
     }

@@ -16,96 +16,21 @@
 
   <section class="stories">
     <div class="paused-animation">
-      <img
-        style="--position: 0"
-        src="/conexus/1.webp"
-        alt="Story"
-        loading="lazy"
-      />
-      <img
-        style="--position: 1"
-        src="/conexus/2.webp"
-        alt="Story"
-        loading="lazy"
-      />
-      <img
-        style="--position: 2"
-        src="/conexus/3.webp"
-        alt="Story"
-        loading="lazy"
-      />
-      <img
-        style="--position: 3"
-        src="/conexus/4.webp"
-        alt="Story"
-        loading="lazy"
-      />
-      <img
-        style="--position: 4"
-        src="/conexus/5.webp"
-        alt="Story"
-        loading="lazy"
-      />
-      <img
-        style="--position: 5"
-        src="/conexus/6.webp"
-        alt="Story"
-        loading="lazy"
-      />
-      <img
-        style="--position: 6"
-        src="/conexus/7.webp"
-        alt="Story"
-        loading="lazy"
-      />
-      <img
-        style="--position: 7"
-        src="/conexus/8.webp"
-        alt="Story"
-        loading="lazy"
-      />
-      <img
-        style="--position: 8"
-        src="/conexus/9.webp"
-        alt="Story"
-        loading="lazy"
-      />
-      <img
-        style="--position: 9"
-        src="/conexus/10.webp"
-        alt="Story"
-        loading="lazy"
-      />
-      <img
-        style="--position: 10"
-        src="/conexus/11.webp"
-        alt="Story"
-        loading="lazy"
-      />
-      <img
-        style="--position: 11"
-        src="/conexus/12.webp"
-        alt="Story"
-        loading="lazy"
-      />
-      <img
-        style="--position: 12"
-        src="/conexus/13.webp"
-        alt="Story"
-        loading="lazy"
-      />
-      <img
-        style="--position: 13"
-        src="/conexus/14.webp"
-        alt="Story"
-        loading="lazy"
-      />
-      <img
-        style="--position: 14"
-        src="/conexus/15.webp"
-        alt="Story"
-        loading="lazy"
-      />
+      <img style="--position: 0" src="/conexus/1.webp" alt="Story" />
+      <img style="--position: 1" src="/conexus/2.webp" alt="Story" />
+      <img style="--position: 2" src="/conexus/3.webp" alt="Story" />
+      <img style="--position: 3" src="/conexus/4.webp" alt="Story" />
+      <img style="--position: 4" src="/conexus/5.webp" alt="Story" />
+      <img style="--position: 5" src="/conexus/6.webp" alt="Story" />
+      <img style="--position: 6" src="/conexus/7.webp" alt="Story" />
+      <img style="--position: 7" src="/conexus/8.webp" alt="Story" />
+      <img style="--position: 8" src="/conexus/9.webp" alt="Story" />
+      <img style="--position: 9" src="/conexus/10.webp" alt="Story" />
+      <img style="--position: 10" src="/conexus/11.webp" alt="Story" />
+      <img style="--position: 11" src="/conexus/12.webp" alt="Story" />
+      <img style="--position: 12" src="/conexus/13.webp" alt="Story" />
+      <img style="--position: 13" src="/conexus/14.webp" alt="Story" />
+      <img style="--position: 14" src="/conexus/15.webp" alt="Story" />
     </div>
   </section>
 
