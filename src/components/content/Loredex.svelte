@@ -23,7 +23,7 @@
     just a database, Loredex is a gateway to understanding the full depth of an
     ever-expanding saga.
   </h3>
-  <button on:click={openLoredex}>EXPLORE THE LORE</button>
+  <button class="scaled-down" on:click={openLoredex}>EXPLORE THE LORE</button>
 </section>
 
 <style>

@@ -1,23 +1,36 @@
 <script>
   import { onMount } from "svelte";
+  import observeElement from "@utils/observer";
+
+  let loadingWrapper;
+  let tweetsWrapper;
+  let loadedTweets = false;
 
   onMount(() => {
-    setTimeout(createTweets, 2500);
+    observeElement(loadingWrapper, null, createTweets);
   });
 
   function createTweets() {
+    if (loadedTweets) return;
     const tweets = document.querySelectorAll(".tweet");
     Array.from(tweets).map((span) => {
       twttr.widgets.createTweet(span.innerHTML, span.parentElement, {
         theme: "dark",
       });
     });
+    loadedTweets = true;
+    setTimeout(() => {
+      loadingWrapper.style.display = "none";
+      tweetsWrapper.style.display = "flex";
+    }, 5000);
   }
 </script>
 
 <h1>Highlighted Tweets</h1>
 
-<section class="flex-box">
+<h3 bind:this={loadingWrapper}>Syncing with the network grid...</h3>
+
+<section class="flex-box" bind:this={tweetsWrapper}>
   <div>
     <span class="tweet">1760742472844759111</span>
   </div>
@@ -48,6 +61,7 @@
   }
 
   section {
+    display: none;
     width: 100vw;
     flex-direction: row;
     justify-content: flex-start;

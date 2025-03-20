@@ -1,5 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import observeElement from "@utils/observer";
+
+  let potential: HTMLDivElement;
 
   let bg: HTMLDivElement;
   let back: HTMLDivElement;
@@ -12,7 +15,7 @@
   let badge3: HTMLDivElement;
 
   onMount(() => {
-    animatePotential();
+    observeElement(potential, null, animatePotential);
   });
 
   const animatePotential = () => {
@@ -62,7 +65,7 @@
     <div
       class="potential"
       on:click={animatePotential}
-      on:pointerover={animatePotential}
+      bind:this={potential}
       role="button"
       tabindex="0"
     >

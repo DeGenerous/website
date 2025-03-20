@@ -5,7 +5,7 @@
 
 .blurred-image {
   filter: blur(1vw) grayscale(100%);
-  transform: scale(0.9);
+  transform: scale(0.95);
 }
 
 .visible-image {
@@ -14,11 +14,19 @@
 }
 
 .scaled-down {
-  transform: scale(0);
+  transform: scale(0.85);
 }
 
 .no-transform {
   transform: none;
+}
+
+.paused-animation {
+  animation-play-state: paused;
+}
+
+.running-animation {
+  animation-play-state: running;
 }
 
 @media only screen and (max-width: 600px) {

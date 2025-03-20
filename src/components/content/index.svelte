@@ -28,6 +28,11 @@
 
     const buttons = document.querySelectorAll(".scaled-down");
     Array.from(buttons).map((button) => observeElement(button, "no-transform"));
+
+    const animations = document.querySelectorAll(".paused-animation");
+    Array.from(animations).map((element) =>
+      observeElement(element, "running-animation")
+    );
   });
 </script>
 

@@ -15,7 +15,7 @@
   </h3>
 
   <section class="stories">
-    <div>
+    <div class="paused-animation">
       <img
         style="--position: 0"
         src="/conexus/1.webp"
@@ -164,6 +164,7 @@
     transition: all 0.3s ease-in-out;
     animation: slide-reverse 14s linear infinite;
     animation-delay: calc((15s / 15) * var(--position) - 15s);
+    animation-play-state: inherit;
   }
 
   @media only screen and (max-width: 600px) {

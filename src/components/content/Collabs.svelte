@@ -7,7 +7,7 @@
 </h2>
 
 <section class="blur">
-  <div>
+  <div class="paused-animation">
     <a style="--position: 0" href="https://www.lionsclubs.org/">
       <img src="/collabs/lions.png" alt="Lions International" />
     </a>
@@ -57,6 +57,7 @@
     transition: all 0.3s ease-in-out;
     animation: slide 14s linear infinite;
     animation-delay: calc((14s / 7) * var(--position) - 14s);
+    animation-play-state: inherit;
   }
 
   img {

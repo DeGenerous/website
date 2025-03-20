@@ -1,10 +1,15 @@
-function observeElement(element: Element, toggleClass: string) {
+function observeElement(
+  element: Element,
+  toggleClass: Nullable<string> = null,
+  customFunction: Function = () => {}
+) {
   const observer: IntersectionObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add(toggleClass);
+        if (toggleClass) entry.target.classList.add(toggleClass);
+        customFunction();
       } else {
-        entry.target.classList.remove(toggleClass);
+        if (toggleClass) entry.target.classList.remove(toggleClass);
       }
     });
   });
