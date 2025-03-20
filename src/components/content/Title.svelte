@@ -16,25 +16,30 @@
     </h2>
 
     <ul class="flex-box">
-      <a href="https://twitter.com/degenerousdao">
-        <img src="/icons/twitter.png" alt="Twitter" />
-      </a>
-
-      <a
-        href="https://magiceden.io/collections/ethereum/0xfa511d5c4cce10321e6e86793cc083213c36278e"
-        class="flex-box"
-      >
-        JOIN US
-      </a>
-
       <a href="https://discord.gg/349FgMSUK8">
         <img src="/icons/discord.png" alt="Discord" />
+      </a>
+
+      <li class="flex-box">
+        <a
+          href="https://magiceden.io/collections/ethereum/0xfa511d5c4cce10321e6e86793cc083213c36278e"
+          class="flex-box"
+        >
+          JOIN US
+        </a>
+        <a href="https://twitter.com/degenerousdao">
+          <img src="/icons/twitter.png" alt="Twitter" />
+        </a>
+      </li>
+
+      <a href="https://opensea.io/collection/potentials-eth">
+        <img src="/icons/opensea.png" alt="OpenSea" />
       </a>
     </ul>
   </header>
 
   <span class="flex-box">
-    <img src="/logo.png" alt="Logo" />
+    <img class="logo" src="/logo.png" alt="Logo" />
   </span>
 
   <div class="flex-box" on:click={scrollDown} role="button" tabindex="0">
@@ -68,7 +73,7 @@
   }
 
   header {
-    gap: 2vw;
+    gap: 1vw;
     opacity: 0;
     animation:
       fadeIn 1.8s 1.6s forwards,
@@ -82,17 +87,28 @@
 
   ul {
     flex-direction: row;
-    gap: 1vw;
+    align-items: flex-start;
+    gap: 1.5vw;
   }
 
-  ul a {
+  a {
     height: 3vw;
   }
 
-  ul img {
+  li {
+    gap: 1vw;
+  }
+
+  a img {
     height: 100%;
-    border-radius: 0.5vw;
+    border-radius: 50%;
     cursor: inherit;
+  }
+
+  a img:hover,
+  a img:active {
+    transform: scale(1.1);
+    filter: brightness(125%);
   }
 
   span {
@@ -103,7 +119,7 @@
     z-index: -10;
   }
 
-  span img {
+  .logo {
     height: 100%;
     width: 70vh;
     transform: scale(1.1);
@@ -154,10 +170,6 @@
       height: 2em;
     }
 
-    ul img {
-      border-radius: 0.25em;
-    }
-
     span {
       position: absolute;
       width: 90vw;
@@ -165,7 +177,7 @@
       top: auto;
     }
 
-    span img {
+    .logo {
       height: 100%;
       width: 90vw;
       animation: logo 2s ease-in-out forwards;
