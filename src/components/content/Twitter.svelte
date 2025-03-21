@@ -1,57 +1,63 @@
 <script>
   import { onMount } from "svelte";
   import observeElement from "@utils/observer";
+  import posts from "@constants/twitter";
 
-  let loadingWrapper;
+  let loadingWrapper1;
+  let loadingWrapper2;
+  let loadingWrapper3;
   let tweetsWrapper;
   let loadedTweets = false;
 
   onMount(() => {
-    observeElement(loadingWrapper, null, createTweets);
+    observeElement(loadingWrapper1, null, createTweets);
   });
 
   function createTweets() {
     if (loadedTweets) return;
+
     const tweets = document.querySelectorAll(".tweet");
     Array.from(tweets).map((span) => {
       twttr.widgets.createTweet(span.innerHTML, span.parentElement, {
         theme: "dark",
       });
     });
-    loadedTweets = true;
+
     setTimeout(() => {
-      loadingWrapper.style.display = "none";
-      tweetsWrapper.style.display = "flex";
-    }, 5000);
+      loadingWrapper1.style.display = "none";
+      loadingWrapper2.style.display = "block";
+
+      setTimeout(() => {
+        loadingWrapper2.style.display = "none";
+        loadingWrapper3.style.display = "block";
+
+        setTimeout(() => {
+          loadingWrapper3.style.display = "none";
+          tweetsWrapper.style.display = "flex";
+        }, 3000);
+      }, 3000);
+    }, 3000);
+
+    loadedTweets = true;
   }
 </script>
 
 <h1>Highlighted Tweets</h1>
 
-<h3 bind:this={loadingWrapper}>Syncing with the network grid...</h3>
+<h3 bind:this={loadingWrapper1}>Syncing with the network grid...</h3>
+<h3 class="hidden" bind:this={loadingWrapper2}>
+  Fetching the latest updates...
+</h3>
+<h3 class="hidden" bind:this={loadingWrapper3}>
+  Bringing the conversation to you...
+</h3>
 
 <section class="flex-box" bind:this={tweetsWrapper}>
-  <div>
-    <span class="tweet">1760742472844759111</span>
-  </div>
-  <div>
-    <span class="tweet">1731660381997740165</span>
-  </div>
-  <div>
-    <span class="tweet">1726994405989437864</span>
-  </div>
-  <div>
-    <span class="tweet">1816970658632339546</span>
-  </div>
-  <div>
-    <span class="tweet">1898767898744611204</span>
-  </div>
-  <div>
-    <span class="tweet">1760434777432141850</span>
-  </div>
-  <div>
-    <span class="tweet">1760086629996253534</span>
-  </div>
+  {#each posts as postID}
+    <div>
+      <span class="tweet">{postID}</span>
+    </div>
+  {/each}
 </section>
 
 <style>
@@ -105,6 +111,10 @@
   section::-webkit-scrollbar-thumb:hover,
   section::-webkit-scrollbar-thumb:active {
     background: rgba(51, 226, 230, 0.5);
+  }
+
+  .hidden {
+    display: none;
   }
 
   @media only screen and (max-width: 600px) {
