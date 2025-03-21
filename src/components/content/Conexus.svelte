@@ -9,9 +9,8 @@
 <section class="flex-box blur">
   <h3>
     Unleash your creativity with CoNexus, the AI-powered storytelling platform
-    where you can create, play, and own immersive interactive experiences. From
-    award-winning directors to community-built franchises, storytelling has
-    never been this limitless.
+    where you can create, play, and own immersive interactive experiences.
+    Imagine using simple instructions to star in any story you want.
   </h3>
 
   <section class="stories">
@@ -36,7 +35,7 @@
 
   <h3>
     DeGenerous DAO is breaking creative monopolies and redefining how content is
-    made, shared, and owned. With AI-powered storytelling and blockchain-backed
+    made, shared, and owned. Leveraging Generative AI and blockchain-backed
     ownership, we’re turning imagination into reality—giving power back to
     creators and communities.
   </h3>

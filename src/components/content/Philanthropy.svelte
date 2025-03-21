@@ -4,7 +4,7 @@
 
 <section class="flex-box blur">
   <div class="flex-box">
-    <img class="blurred-image" src="/museum.jpg" alt="Phylanthropy" />
+    <img class="blurred-image" src="/ball.jpg" alt="Phylanthropy" />
     <article class="flex-box">
       <h2>Proof-Of-Impact: Turning Digital Contributions into Real Change</h2>
       <h3>
@@ -25,20 +25,21 @@
   <hr />
 
   <div class="flex-box">
-    <img class="blurred-image" src="/ball.jpg" alt="Phylanthropy" />
+    <img class="blurred-image" src="/museum.jpg" alt="Phylanthropy" />
     <article class="flex-box">
       <h2>Make the World a Better Place. Unlock Your Potential.</h2>
       <h3>
         Philanthropy isn’t just about donations—it’s about measurable,
-        life-changing impact. From funding international service trips to
-        empowering communities, DeGenerous DAO is committed to ensuring that
-        every contribution translates into direct action. As humanitarian
-        partners of Lions International, the world’s largest service
-        organization with 1.4M members and 50K local clubs, we’ve helped fund
-        multiple $100K+ global service projects, including a major initiative in
-        India in February 2024, where our community shaped the mission through
-        innovative governance systems. True impact isn’t measured in bytes, but
-        in smiles, shared stories, and lives forever changed.
+        life-changing impact. From funding international service trips to our
+        flagship app's daily usage by kids in a leading gaming museum,
+        DeGenerous DAO is committed to ensuring that every contribution
+        translates into the joy of beneficiaries. As humanitarian partners of
+        Lions International, the world’s largest service organization with 1.4M
+        members and 50K local clubs, we’ve helped fund multiple $100K+ global
+        service projects, including a major initiative in India in February
+        2024, where our community shaped the mission through innovative
+        governance systems. True impact isn’t measured in bytes, but in smiles,
+        shared stories, and lives forever changed.
       </h3>
     </article>
   </div>

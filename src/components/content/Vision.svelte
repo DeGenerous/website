@@ -1,20 +1,20 @@
 <script></script>
 
-<h1>Your Imagination. Your Story. Your Future.</h1>
+<h1>Shape The World You Dream of</h1>
 
 <div class="flex-box">
   <h3>
-    At DeGenerous DAO, we merge technology and imagination to revolutionize
-    storytelling. Using generative AI, dynamic NFTs, and community-driven
-    innovation, we create immersive experiences with global impact—blending
-    narrative worldbuilding, mass adoption, and philanthropy.
+    Leveraging GenAI and user-friendly tools, DeGenerous DAO's social app
+    empowers anyone to create, distribute, and monetize high-quality, visually
+    immersive stories within a user-centric environment featuring
+    hyper-personalization, interactivity, and socialization.
   </h3>
   <img src="/vision.webp" alt="Vision" />
 </div>
 
 <h2>
-  The next era of entertainment belongs to creators. Step into the world of AI
-  storytelling and make your mark. Whether you want to play, create, or
+  The next era of entertainment belongs to creators. Step into our world of no
+  restraints and make your mark. Whether you want to play, create, or
   innovate—now is your time.
 </h2>
 

@@ -25,9 +25,9 @@
   </h3>
 
   <h3>
-    The Potentials holders' on-chain votes influence the overall narrative, add
-    unique traits to NFTs that reveal their true character, and unlock
-    mission-based story games within CoNexus.
+    The Potentials holders' on-chain votes on our app influence the overall
+    narrative, add unique traits to NFTs that reveal their true character, and
+    unlock mission-based story games within CoNexus.
   </h3>
 
   <h3>

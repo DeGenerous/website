@@ -66,7 +66,7 @@ const roadmap: Goal[] = [
   {
     name: "Loredex",
     description:
-      "Launch Loredex, a dynamic lore-tracking app that visualizes character connections, histories, and their role in Dischordian Saga episodes on an evolving timeline.",
+      "Launch a dynamic lore-tracking map that makes IP assets easily searchable and discoverable. It turns intricate storytelling into a seamless experience via the visualization of character connections, histories, and appearances.",
     done: true,
   },
   {

@@ -4,24 +4,24 @@
   };
 </script>
 
-<h1>The Living History of the Dischordian Saga</h1>
+<h1>The Living History of a Franchise</h1>
 
 <section class="flex-box blur">
   <h3>
-    Spanning 150,000 years of history, Loredex is a dynamic, interactive mindmap
-    that connects characters, events, and conflicts across time. It visualizes
-    alliances, rivalries, and key moments, letting you explore how everything is
-    connected in a living, evolving universe.
+    Loredex is a dynamic, interactive mindmap that connects IP assets such as
+    characters, locations, and episodes across time. It visualizes alliances,
+    rivalries, and key moments, letting you explore how everything is connected
+    in a living, evolving universe.
   </h3>
 
   <img class="blurred-image pc" src="/loredex.webp" alt="Loredex" />
   <img class="blurred-image mobile" src="/loredex-mobile.webp" alt="Loredex" />
 
   <h3>
-    Navigate through timelines, relationships, and pivotal battles, uncover
-    hidden connections, and watch events unfold across different eras. More than
-    just a database, Loredex is a gateway to understanding the full depth of an
-    ever-expanding saga.
+    Our app simplified the complex universe of the Dischordian Saga, spanning
+    150,000 years of history. Navigate through timelines, relationships, and
+    pivotal battles, uncover connections, and watch events unfold across
+    different eras.
   </h3>
   <button class="scaled-down" on:click={openLoredex}>EXPLORE THE LORE</button>
 </section>
@@ -35,7 +35,7 @@
   }
 
   img {
-    width: 100%;
+    width: 75%;
     border-radius: 1vw;
     box-shadow: 0 0 0.5vw rgba(51, 226, 230, 0.25);
   }
