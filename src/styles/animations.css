@@ -4,7 +4,7 @@
 }
 
 .blurred-image {
-  filter: blur(1vw) grayscale(100%);
+  filter: blur(1vw) brightness(200%);
   transform: scale(0.95);
 }
 
