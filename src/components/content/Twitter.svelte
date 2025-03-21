@@ -3,14 +3,15 @@
   import observeElement from "@utils/observer";
   import posts from "@constants/twitter";
 
-  let loadingWrapper1;
-  let loadingWrapper2;
-  let loadingWrapper3;
+  let loadingWrapper;
+  let loading1;
+  let loading2;
+  let loading3;
   let tweetsWrapper;
   let loadedTweets = false;
 
   onMount(() => {
-    observeElement(loadingWrapper1, null, createTweets);
+    observeElement(loadingWrapper, null, createTweets);
   });
 
   function createTweets() {
@@ -24,19 +25,19 @@
     });
 
     setTimeout(() => {
-      loadingWrapper1.style.display = "none";
-      loadingWrapper2.style.display = "block";
+      loading1.style.display = "none";
+      loading2.style.display = "block";
 
       setTimeout(() => {
-        loadingWrapper2.style.display = "none";
-        loadingWrapper3.style.display = "block";
+        loading2.style.display = "none";
+        loading3.style.display = "block";
 
         setTimeout(() => {
-          loadingWrapper3.style.display = "none";
+          loadingWrapper.style.display = "none";
           tweetsWrapper.style.display = "flex";
-        }, 3000);
-      }, 3000);
-    }, 3000);
+        }, 3300);
+      }, 3300);
+    }, 3300);
 
     loadedTweets = true;
   }
@@ -44,13 +45,15 @@
 
 <h1>Highlighted Tweets</h1>
 
-<h3 bind:this={loadingWrapper1}>Syncing with the network grid...</h3>
-<h3 class="hidden" bind:this={loadingWrapper2}>
-  Fetching the latest updates...
-</h3>
-<h3 class="hidden" bind:this={loadingWrapper3}>
-  Bringing the conversation to you...
-</h3>
+<ul class="flex-box" bind:this={loadingWrapper}>
+  <img class="paused-animation" src="/logo.png" alt="Loading..." />
+
+  <h3 bind:this={loading1}>Syncing with the network grid...</h3>
+  <h3 class="hidden" bind:this={loading2}>Fetching the latest updates...</h3>
+  <h3 class="hidden" bind:this={loading3}>
+    Bringing the conversation to you...
+  </h3>
+</ul>
 
 <section class="flex-box" bind:this={tweetsWrapper}>
   {#each posts as postID}
@@ -61,9 +64,18 @@
 </section>
 
 <style>
-  h1 {
-    opacity: 0;
-    animation: fadeIn 0.3s 5s ease-in-out forwards;
+  h3 {
+    color: rgba(51, 226, 230, 0.5);
+  }
+
+  ul {
+    gap: 2vw;
+  }
+
+  img {
+    opacity: 0.2;
+    width: 15vw;
+    animation: pulse 3.3s linear infinite;
   }
 
   section {
@@ -118,6 +130,14 @@
   }
 
   @media only screen and (max-width: 600px) {
+    ul {
+      gap: 1em;
+    }
+
+    img {
+      width: 50vw;
+    }
+
     section {
       width: 100%;
       padding-inline: 1em;
