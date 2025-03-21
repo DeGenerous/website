@@ -30,6 +30,7 @@
       <img style="--position: 12" src="/conexus/13.webp" alt="Story" />
       <img style="--position: 13" src="/conexus/14.webp" alt="Story" />
       <img style="--position: 14" src="/conexus/15.webp" alt="Story" />
+      <img style="--position: 15" src="/conexus/16.webp" alt="Story" />
     </div>
   </section>
 
@@ -66,7 +67,7 @@
     position: relative;
     display: flex;
     height: 100%;
-    width: calc(13vw * 7.5);
+    width: calc(13vw * 8.5);
   }
 
   div:hover img {
@@ -88,8 +89,8 @@
     height: 13vw;
     border-radius: 1vw;
     transition: all 0.3s ease-in-out;
-    animation: slide-reverse 14s linear infinite;
-    animation-delay: calc((15s / 15) * var(--position) - 15s);
+    animation: slide-reverse 16s linear infinite;
+    animation-delay: calc((16s / 16) * var(--position) - 16s);
     animation-play-state: inherit;
   }
 
@@ -105,7 +106,7 @@
     }
 
     div {
-      width: calc(18vh * 7.5);
+      width: calc(18vh * 8.5);
     }
 
     img {
