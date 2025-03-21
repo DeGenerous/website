@@ -194,7 +194,7 @@
       height: 4em;
       width: 4em;
       background-color: rgba(0, 0, 0, 0.25);
-      box-shadow: 0 0 0.25em #010020;
+      box-shadow: inset 0 0 0.25em #010020;
       border-radius: 50%;
     }
 
@@ -205,7 +205,7 @@
     .conexus-link {
       display: block;
       background-color: rgba(51, 226, 230, 0.25);
-      box-shadow: 0 0 0.25em rgba(51, 226, 230, 0.5);
+      box-shadow: inset 0 0 0.25em rgba(51, 226, 230, 0.5);
     }
 
     .conexus-link:hover,
