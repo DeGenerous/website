@@ -155,11 +155,12 @@
 
   @media only screen and (max-width: 600px) {
     section {
-      height: 80vh;
+      height: calc(90vh - 2em);
     }
 
     header {
       gap: 1.5em;
+      margin-top: -10vh;
     }
 
     h2 {
@@ -183,7 +184,7 @@
       position: absolute;
       width: 90vw;
       height: 90vw;
-      top: auto;
+      top: 15vh;
     }
 
     .logo {
