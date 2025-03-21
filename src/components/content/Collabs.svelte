@@ -8,26 +8,41 @@
 
 <section class="blur">
   <div class="paused-animation">
-    <a style="--position: 0" href="https://www.lionsclubs.org/">
-      <img src="/collabs/lions.png" alt="Lions International" />
-    </a>
-    <a style="--position: 1" href="https://www.story.foundation/">
-      <img src="/collabs/story-protocol.png" alt="Story Protocol" />
-    </a>
-    <a style="--position: 2" href="https://www.base.org/">
-      <img src="/collabs/base.png" alt="Base" />
-    </a>
-    <a style="--position: 3" href="https://film3.org/">
-      <img src="/collabs/film3.png" alt="Film3" />
-    </a>
-    <a style="--position: 4" href="https://www.bingeable.net/">
+    <a style="--position: 0" href="https://www.bingeable.net/">
       <img src="/collabs/bingeable.png" alt="Bingeable" />
     </a>
-    <a style="--position: 5" href="https://www.lazylionsnft.com/">
+    <a style="--position: 1" href="https://www.jnj.com/">
+      <img src="/collabs/johnson.png" alt="Johnson & Johnson" />
+    </a>
+    <a style="--position: 2" href="https://www.lionsclubs.org/">
+      <img src="/collabs/lions.png" alt="Lions International" />
+    </a>
+    <a style="--position: 3" href="https://www.story.foundation/">
+      <img src="/collabs/story-protocol.png" alt="Story Protocol" />
+    </a>
+    <a style="--position: 4" href="https://www.base.org/">
+      <img src="/collabs/base.png" alt="Base" />
+    </a>
+    <a style="--position: 5" href="https://twigg.xyz/">
+      <img src="/collabs/twigg.png" alt="Twigg" />
+    </a>
+    <a style="--position: 6" href="https://www.anyone.io/">
+      <img src="/collabs/anyone.png" alt="Anyone" />
+    </a>
+    <a style="--position: 7" href="https://moonsheep.org/">
+      <img src="/collabs/moonsheep.png" alt="Moonsheep" />
+    </a>
+    <a style="--position: 8" href="https://www.lazylionsnft.com/">
       <img src="/collabs/lazy-lions.png" alt="Lazy Lions" />
     </a>
-    <a style="--position: 6" href="https://www.glmrapes.com/">
+    <a style="--position: 9" href="https://www.glmrapes.com/">
       <img src="/collabs/glma.png" alt="GLMR Apes" />
+    </a>
+    <a style="--position: 10" href="https://t2.world/">
+      <img src="/collabs/t2.png" alt="t2" />
+    </a>
+    <a style="--position: 11" href="https://film3.org/">
+      <img src="/collabs/film3.png" alt="Film3" />
     </a>
   </div>
 </section>
@@ -46,7 +61,7 @@
     position: relative;
     display: flex;
     height: 100%;
-    min-width: calc(20vw * 7);
+    min-width: calc(20vw * 11);
   }
 
   a {
@@ -55,8 +70,8 @@
     height: 100%;
     width: 20vw;
     transition: all 0.3s ease-in-out;
-    animation: slide 14s linear infinite;
-    animation-delay: calc((14s / 7) * var(--position) - 14s);
+    animation: slide 24s linear infinite;
+    animation-delay: calc((24s / 12) * var(--position) - 24s);
     animation-play-state: inherit;
   }
 
@@ -81,7 +96,7 @@
     }
 
     div {
-      min-width: calc(20vh * 7);
+      min-width: calc(20vh * 12);
     }
 
     a {

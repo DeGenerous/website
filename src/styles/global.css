@@ -22,6 +22,7 @@ h2 {
   text-align: center;
   font-size: 2vw;
   line-height: 3vw;
+  padding-inline: 1vw;
   color: #dedede;
   text-shadow: 0 0.25vw 0.25vw #010020;
 }
