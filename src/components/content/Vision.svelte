@@ -5,12 +5,8 @@
   let vision: HTMLDivElement;
 
   onMount(() => {
-    observeElement(vision, null, focusVision);
+    observeElement(vision, null, toggleVision);
   });
-
-  const focusVision = () => {
-    vision.focus();
-  };
 
   const toggleVision = () => {
     const focusedElement = document.activeElement;
@@ -18,7 +14,7 @@
       vision.blur();
       return;
     }
-    focusVision();
+    vision.focus();
   };
 </script>
 

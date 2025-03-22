@@ -111,6 +111,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 3.5vw;
   }
 
   .icon-anchor {
@@ -170,6 +171,10 @@
       flex-direction: column;
       padding: 0;
       height: 10vh;
+    }
+
+    a {
+      height: auto;
     }
 
     section {

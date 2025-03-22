@@ -94,6 +94,7 @@
     align-items: center;
     justify-content: space-between;
     width: 20vw;
+    height: 31vw;
     background-color: rgba(36, 65, 189, 0.75);
     color: rgba(255, 255, 255, 0.6);
     border: 0.1vw solid rgba(51, 226, 230, 0.5);

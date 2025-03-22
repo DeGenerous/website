@@ -78,7 +78,7 @@
   a {
     position: absolute;
     right: 100%;
-    height: 100%;
+    height: 10vw;
     width: 20vw;
     transition: all 0.3s ease-in-out;
     animation: slide 22s linear infinite;
@@ -88,6 +88,7 @@
 
   img {
     height: 100%;
+    width: 20vw;
   }
 
   div:hover a {
@@ -111,6 +112,10 @@
     }
 
     a {
+      width: 20vh;
+    }
+    img {
+      height: 10vh;
       width: 20vh;
     }
   }
