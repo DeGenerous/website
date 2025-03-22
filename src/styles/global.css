@@ -194,6 +194,7 @@ button *,
   label,
   a {
     font-size: 1em;
+    padding-inline: 1em;
   }
 
   .validation {
