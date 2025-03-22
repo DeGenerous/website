@@ -11,7 +11,7 @@
 <header class="flex-box">
   {#if page === "home"}
     <section class="flex-box blur">
-      <a class="icon-anchor" href="/" aria-label="DeGenerous">
+      <a class="flex-box icon-anchor" href="/" aria-label="DeGenerous">
         <img class="logo" src="/logo.png" alt="Logo" />
       </a>
       <span class="flex-box links">
@@ -24,7 +24,7 @@
         <a href="/roadmap">Roadmap</a>
       </span>
       <a
-        class="icon-anchor conexus-link"
+        class="flex-box icon-anchor conexus-link"
         href="https://conexus.degenerousdao.com/"
         aria-label="CoNexus"
       >
@@ -202,12 +202,15 @@
     .icon-anchor {
       height: 4em;
       width: 4em;
+      padding: 0;
       background-color: rgba(0, 0, 0, 0.25);
       box-shadow: inset 0 0 0.25em #010020;
       border-radius: 50%;
     }
 
     .icon-anchor img {
+      width: 100%;
+      height: 100%;
       padding: 15%;
     }
 
