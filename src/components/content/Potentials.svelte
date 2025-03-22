@@ -21,7 +21,7 @@
   });
 
   const setAnimation = () => {
-    interval = setInterval(animatePotential, 1000);
+    interval = setInterval(animatePotential, 1500);
   };
 
   const resetAnimation = () => {
