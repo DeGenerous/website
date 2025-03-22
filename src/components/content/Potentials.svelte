@@ -52,11 +52,7 @@
 </script>
 
 <section class="flex-box blur">
-  <img
-    class="blurred-image potentials-banner"
-    src="/potentials.webp"
-    alt="Potentials"
-  />
+  <img class="potentials-banner" src="/potentials.webp" alt="Potentials" />
 
   <hr />
 
@@ -190,6 +186,7 @@
         <a
           class="scaled-down"
           href="https://magiceden.io/collections/ethereum/0xfa511d5c4cce10321e6e86793cc083213c36278e"
+          target="_blank"
         >
           <img src="/icons/magiceden.png" alt="MagicEden" />
         </a>
@@ -197,6 +194,7 @@
         <a
           class="scaled-down"
           href="https://opensea.io/collection/potentials-eth"
+          target="_blank"
         >
           <img src="/icons/opensea.png" alt="OpenSea" />
         </a>

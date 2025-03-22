@@ -35,11 +35,12 @@
         DeGenerous DAO is committed to ensuring that every contribution
         translates into the joy of beneficiaries. As humanitarian partners of
         Lions International, the world’s largest service organization with 1.4M
-        members and 50K local clubs, we’ve helped fund multiple $100K+ global
-        service projects, including a major initiative in India in February
-        2024, where our community shaped the mission through innovative
-        governance systems. True impact isn’t measured in bytes, but in smiles,
-        shared stories, and lives forever changed.
+        members and 50K local clubs, we’ve helped ~100k people worldwide by
+        funding several global service projects, including a major initiative
+        with Johnson&Johnson in India in February 2024, where our community
+        shaped the mission through innovative governance systems. True impact
+        isn’t measured in bytes, but in smiles, shared stories, and lives
+        forever changed.
       </h3>
     </article>
   </div>

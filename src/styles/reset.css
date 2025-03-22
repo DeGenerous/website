@@ -147,6 +147,7 @@
 * {
   font-size: inherit;
   line-height: inherit;
+  outline: none;
 }
 
 html {

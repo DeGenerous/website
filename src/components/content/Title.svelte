@@ -16,7 +16,7 @@
     </h2>
 
     <ul class="flex-box">
-      <a href="https://discord.gg/349FgMSUK8">
+      <a href="https://discord.gg/349FgMSUK8" target="_blank">
         <img src="/icons/discord.png" alt="Discord" />
       </a>
 
@@ -24,15 +24,16 @@
         <a
           href="https://magiceden.io/collections/ethereum/0xfa511d5c4cce10321e6e86793cc083213c36278e"
           class="flex-box"
+          target="_blank"
         >
           JOIN US
         </a>
-        <a href="https://twitter.com/degenerousdao">
+        <a href="https://twitter.com/degenerousdao" target="_blank">
           <img src="/icons/twitter.png" alt="Twitter" />
         </a>
       </li>
 
-      <a href="https://opensea.io/collection/potentials-eth">
+      <a href="https://opensea.io/collection/potentials-eth" target="_blank">
         <img src="/icons/opensea.png" alt="OpenSea" />
       </a>
     </ul>

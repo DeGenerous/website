@@ -24,19 +24,19 @@
   <hr />
 
   <div class="flex-box socials">
-    <a href="https://discord.gg/349FgMSUK8">
+    <a href="https://discord.gg/349FgMSUK8" target="_blank">
       <img src="/icons/discord.png" alt="Discord" />
     </a>
-    <a href="https://twitter.com/degenerousdao">
+    <a href="https://twitter.com/degenerousdao" target="_blank">
       <img src="/icons/twitter.png" alt="Twitter" />
     </a>
-    <a href="https://www.youtube.com/@degenerous">
+    <a href="https://www.youtube.com/@degenerous" target="_blank">
       <img src="/icons/youtube.png" alt="YouTube" />
     </a>
-    <a href="https://www.tiktok.com/@degenerousdao">
+    <a href="https://www.tiktok.com/@degenerousdao" target="_blank">
       <img src="/icons/tiktok.png" alt="TikTok" />
     </a>
-    <a href="https://warpcast.com/degenerousdao">
+    <a href="https://warpcast.com/degenerousdao" target="_blank">
       <img src="/icons/warpcast.png" alt="Warpcast" />
     </a>
   </div>

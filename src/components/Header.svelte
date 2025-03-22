@@ -15,9 +15,11 @@
         <img class="logo" src="/logo.png" alt="Logo" />
       </a>
       <span class="flex-box links">
-        <a href="https://governance.degenerousdao.com/">Governance Hub</a>
+        <a href="https://governance.degenerousdao.com/" target="_blank"
+          >Governance Hub</a
+        >
         <h2>|</h2>
-        <a href="https://loredex.degenerousdao.com/">Loredex</a>
+        <a href="https://loredex.degenerousdao.com/" target="_blank">Loredex</a>
         <h2>|</h2>
         <a href="/roadmap">Roadmap</a>
       </span>

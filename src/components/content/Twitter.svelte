@@ -35,9 +35,9 @@
         setTimeout(() => {
           loadingWrapper.style.display = "none";
           tweetsWrapper.style.display = "flex";
-        }, 3300);
-      }, 3300);
-    }, 3300);
+        }, 4000);
+      }, 4000);
+    }, 4000);
 
     loadedTweets = true;
   }
@@ -75,7 +75,7 @@
   img {
     opacity: 0.2;
     width: 15vw;
-    animation: pulse 3.3s linear infinite;
+    animation: pulse 4s linear infinite;
   }
 
   section {
@@ -89,7 +89,7 @@
     overflow-x: scroll;
     transform: rotateX(180deg);
     opacity: 0;
-    animation: fadeIn 0.3s 5s ease-in-out forwards;
+    animation: fadeIn 0.6s ease-in-out forwards;
   }
 
   div {

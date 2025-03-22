@@ -42,7 +42,7 @@
             </h2>
             <div class="flex-box socials">
               {#if $member.twitter}
-                <a href={$member.twitter}>
+                <a href={$member.twitter} target="_blank">
                   <img src="/icons/twitter.png" alt="Twitter" />
                 </a>
               {/if}
