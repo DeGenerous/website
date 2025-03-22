@@ -93,6 +93,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    gap: 0;
     width: 20vw;
     height: 31vw;
     background-color: rgba(36, 65, 189, 0.75);
@@ -153,6 +154,7 @@
 
     div {
       width: 48vw;
+      height: auto;
       border-radius: 1em;
     }
 
