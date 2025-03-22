@@ -105,6 +105,7 @@
       0 0.25vw 0.5vw #010020;
     border-radius: 1.5vw;
     animation: translateRight 1s ease-in-out forwards;
+    height: 6vw;
   }
 
   a {
@@ -185,6 +186,7 @@
       border-radius: 0;
       transform: translateY(-125%);
       animation: translateBottom 1s 1.2s ease-in-out forwards;
+      height: auto;
     }
 
     .links {

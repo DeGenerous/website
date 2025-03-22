@@ -131,6 +131,7 @@
     text-align: center;
     font-size: 1.75vw;
     line-height: 2.5vw;
+    height: 2.5vw;
     text-shadow: 0 0 1vw rgba(1, 0, 32, 0.4);
     cursor: pointer;
   }
@@ -165,6 +166,7 @@
     div h3 {
       font-size: 1.1em;
       line-height: 2em;
+      height: auto;
     }
 
     div h3 {
