@@ -3,6 +3,7 @@
   import observeElement from "@utils/observer";
 
   let potential: HTMLDivElement;
+  let interval: number;
 
   let bg: HTMLDivElement;
   let back: HTMLDivElement;
@@ -15,10 +16,20 @@
   let badge3: HTMLDivElement;
 
   onMount(() => {
-    observeElement(potential, null, animatePotential);
+    animatePotential();
+    observeElement(potential, null, setAnimation, resetAnimation);
   });
 
+  const setAnimation = () => {
+    interval = setInterval(animatePotential, 1000);
+  };
+
+  const resetAnimation = () => {
+    clearInterval(interval);
+  };
+
   const animatePotential = () => {
+    console.log("animation");
     switchItem(outfit, 4);
     switchItem(arms, 4);
     switchItem(back, 4);
@@ -33,7 +44,7 @@
   function switchItem(container: HTMLDivElement, max: number = 3) {
     Array.from(container.children).map((node) => {
       const image = node as HTMLImageElement;
-      image.style.opacity = "0";
+      image!.style.opacity = "0";
     });
 
     const element = container.children[
@@ -58,113 +69,71 @@
 
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div class="flex-box potential-wrapper">
-    <div
-      class="potential"
-      on:click={animatePotential}
-      bind:this={potential}
-      role="button"
-      tabindex="0"
-    >
+    <div class="potential" bind:this={potential} role="button" tabindex="0">
       <div bind:this={bg}>
-        <img src="/potential/bg/1.webp" alt="Background" loading="lazy" />
-        <img src="/potential/bg/2.webp" alt="Background" loading="lazy" />
-        <img src="/potential/bg/3.webp" alt="Background" loading="lazy" />
-        <img src="/potential/bg/4.webp" alt="Background" loading="lazy" />
-        <img src="/potential/bg/5.webp" alt="Background" loading="lazy" />
+        <img src="/potential/bg/1.webp" alt="Background" />
+        <img src="/potential/bg/2.webp" alt="Background" />
+        <img src="/potential/bg/3.webp" alt="Background" />
+        <img src="/potential/bg/4.webp" alt="Background" />
+        <img src="/potential/bg/5.webp" alt="Background" />
       </div>
 
       <div bind:this={back}>
-        <img src="/potential/back/1.webp" alt="Back Accessory" loading="lazy" />
-        <img src="/potential/back/2.webp" alt="Back Accessory" loading="lazy" />
-        <img src="/potential/back/3.webp" alt="Back Accessory" loading="lazy" />
-        <img src="/potential/back/4.webp" alt="Back Accessory" loading="lazy" />
+        <img src="/potential/back/1.webp" alt="Back Accessory" />
+        <img src="/potential/back/2.webp" alt="Back Accessory" />
+        <img src="/potential/back/3.webp" alt="Back Accessory" />
+        <img src="/potential/back/4.webp" alt="Back Accessory" />
       </div>
 
       <img style:opacity={"1"} src="/potential/static/body.webp" alt="Body" />
 
       <div bind:this={outfit}>
-        <img src="/potential/outfit/1.webp" alt="Outfit" loading="lazy" />
-        <img src="/potential/outfit/2.webp" alt="Outfit" loading="lazy" />
-        <img src="/potential/outfit/3.webp" alt="Outfit" loading="lazy" />
-        <img src="/potential/outfit/4.webp" alt="Outfit" loading="lazy" />
+        <img src="/potential/outfit/1.webp" alt="Outfit" />
+        <img src="/potential/outfit/2.webp" alt="Outfit" />
+        <img src="/potential/outfit/3.webp" alt="Outfit" />
+        <img src="/potential/outfit/4.webp" alt="Outfit" />
       </div>
 
       <div bind:this={arms}>
-        <img src="/potential/arms/1.webp" alt="Arm Accessory" loading="lazy" />
-        <img src="/potential/arms/2.webp" alt="Arm Accessory" loading="lazy" />
-        <img src="/potential/arms/3.webp" alt="Arm Accessory" loading="lazy" />
-        <img src="/potential/arms/4.webp" alt="Arm Accessory" loading="lazy" />
+        <img src="/potential/arms/1.webp" alt="Arm Accessory" />
+        <img src="/potential/arms/2.webp" alt="Arm Accessory" />
+        <img src="/potential/arms/3.webp" alt="Arm Accessory" />
+        <img src="/potential/arms/4.webp" alt="Arm Accessory" />
       </div>
 
       <div bind:this={mask}>
-        <img src="/potential/mask/1.webp" alt="Mask" loading="lazy" />
-        <img src="/potential/mask/2.webp" alt="Mask" loading="lazy" />
-        <img src="/potential/mask/3.webp" alt="Mask" loading="lazy" />
-        <img src="/potential/mask/4.webp" alt="Mask" loading="lazy" />
+        <img src="/potential/mask/1.webp" alt="Mask" />
+        <img src="/potential/mask/2.webp" alt="Mask" />
+        <img src="/potential/mask/3.webp" alt="Mask" />
+        <img src="/potential/mask/4.webp" alt="Mask" />
       </div>
 
       <div bind:this={weapon}>
-        <img src="/potential/weapon/1.webp" alt="Weapon" loading="lazy" />
-        <img src="/potential/weapon/2.webp" alt="Weapon" loading="lazy" />
-        <img src="/potential/weapon/3.webp" alt="Weapon" loading="lazy" />
-        <img src="/potential/weapon/4.webp" alt="Weapon" loading="lazy" />
-        <img src="/potential/weapon/5.webp" alt="Weapon" loading="lazy" />
+        <img src="/potential/weapon/1.webp" alt="Weapon" />
+        <img src="/potential/weapon/2.webp" alt="Weapon" />
+        <img src="/potential/weapon/3.webp" alt="Weapon" />
+        <img src="/potential/weapon/4.webp" alt="Weapon" />
+        <img src="/potential/weapon/5.webp" alt="Weapon" />
       </div>
 
       <img style:opacity={"1"} src="/potential/static/frame.webp" alt="Frame" />
 
       <div bind:this={badge1}>
-        <img
-          src="/potential/badges/first/1.webp"
-          alt="First Badge"
-          loading="lazy"
-        />
-        <img
-          src="/potential/badges/first/2.webp"
-          alt="First Badge"
-          loading="lazy"
-        />
-        <img
-          src="/potential/badges/first/3.webp"
-          alt="First Badge"
-          loading="lazy"
-        />
+        <img src="/potential/badges/first/1.webp" alt="First Badge" />
+        <img src="/potential/badges/first/2.webp" alt="First Badge" />
+        <img src="/potential/badges/first/3.webp" alt="First Badge" />
       </div>
 
       <div bind:this={badge2}>
-        <img
-          src="/potential/badges/second/1.webp"
-          alt="First Badge"
-          loading="lazy"
-        />
-        <img
-          src="/potential/badges/second/2.webp"
-          alt="First Badge"
-          loading="lazy"
-        />
-        <img
-          src="/potential/badges/second/3.webp"
-          alt="First Badge"
-          loading="lazy"
-        />
+        <img src="/potential/badges/second/1.webp" alt="First Badge" />
+        <img src="/potential/badges/second/2.webp" alt="First Badge" />
+        <img src="/potential/badges/second/3.webp" alt="First Badge" />
       </div>
 
       <div bind:this={badge3}>
-        <img
-          src="/potential/badges/third/1.webp"
-          alt="First Badge"
-          loading="lazy"
-        />
-        <img
-          src="/potential/badges/third/2.webp"
-          alt="First Badge"
-          loading="lazy"
-        />
-        <img
-          src="/potential/badges/third/3.webp"
-          alt="First Badge"
-          loading="lazy"
-        />
+        <img src="/potential/badges/third/1.webp" alt="First Badge" />
+        <img src="/potential/badges/third/2.webp" alt="First Badge" />
+        <img src="/potential/badges/third/3.webp" alt="First Badge" />
       </div>
     </div>
 
@@ -235,7 +204,6 @@
     flex: none;
     background-color: rgba(51, 226, 230, 0.05);
     box-shadow: 0 0.25vw 0.5vw #010020;
-    cursor: pointer;
   }
 
   .potential div {

@@ -1,7 +1,8 @@
 function observeElement(
   element: Element,
   toggleClass: Nullable<string> = null,
-  customFunction: Function = () => {}
+  customFunction: Function = () => {},
+  resetFunction: Function = () => {}
 ) {
   const observer: IntersectionObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
@@ -10,6 +11,7 @@ function observeElement(
         customFunction();
       } else {
         if (toggleClass) entry.target.classList.remove(toggleClass);
+        resetFunction();
       }
     });
   });
