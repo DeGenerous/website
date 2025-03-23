@@ -17,7 +17,7 @@
       and expand engagement across diverse games, metaverses, and blockchain
       platforms.
     </h3>
-    <button class="scaled-down" on:click={openSagaverse}>SAGAVERSE</button>
+    <button class="scaled-down" on:click={openSagaverse}>GAME</button>
   </div>
 </section>
 
