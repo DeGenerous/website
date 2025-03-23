@@ -113,6 +113,7 @@
 
     a {
       width: 20vh;
+      padding: 0;
     }
     img {
       height: 10vh;
