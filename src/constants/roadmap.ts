@@ -76,6 +76,12 @@ const roadmap: Goal[] = [
     done: false,
   },
   {
+    name: "CoNexus v1.5",
+    description:
+      "Merge all apps into CoNexus and support user customization of languages, length, visuals, and more for all stories",
+    done: false,
+  },
+  {
     name: "OmniHub",
     description:
       "Launch a singular platform allowing holders to manage their assets in one place. It can be used for connecting multiple addresses to one account, customizing & staking NFTs, token burning, managing incoming rewards, etc.",
