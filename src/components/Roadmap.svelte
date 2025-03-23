@@ -200,7 +200,6 @@
 
     ul {
       gap: 1em;
-      visibility: hidden;
     }
 
     .goal {
