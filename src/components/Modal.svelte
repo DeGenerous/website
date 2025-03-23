@@ -160,11 +160,6 @@
     gap: 1vw;
   }
 
-  a {
-    width: 3vw;
-    height: 3vw;
-  }
-
   a:hover,
   a:active {
     transform: scale(1.1);
@@ -172,8 +167,8 @@
   }
 
   a img {
-    width: 100%;
-    height: 100%;
+    width: 3vw;
+    height: 3vw;
     border-radius: 10%;
   }
 
@@ -230,7 +225,7 @@
       gap: 1em;
     }
 
-    a {
+    a img {
       width: 2em;
       height: 2em;
     }
