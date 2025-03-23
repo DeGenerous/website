@@ -166,9 +166,17 @@
 
   @media only screen and (max-width: 600px) {
     header {
+      position: fixed;
+      top: 0;
+      width: 100vw;
       justify-content: space-between;
-      padding-inline: 1em;
+      padding: 1em;
       animation-delay: 0;
+      z-index: 100;
+      background-color: rgba(1, 0, 32, 0.75);
+      box-shadow: 0 0.25vw 0.5vw #010020;
+      -webkit-backdrop-filter: blur(1rem);
+      backdrop-filter: blur(1rem);
     }
 
     .icon-anchor {
