@@ -2,6 +2,8 @@
   import roadmap from "@constants/roadmap";
   import { onMount } from "svelte";
 
+  let scroll: number;
+
   onMount(() => {
     const firstGoal = document.getElementById("goal-12") as HTMLLIElement;
     setTimeout(() => {
@@ -12,6 +14,8 @@
     }, 500);
   });
 </script>
+
+<svelte:window bind:scrollY={scroll} />
 
 <header class="flex-box">
   <a class="icon-anchor" href="/" aria-label="Home">
@@ -83,6 +87,8 @@
     </li>
   {/each}
 </ul>
+
+<div class="background" style:top={-scroll / 25 + "vh"}></div>
 
 <style>
   h1 {
@@ -164,6 +170,13 @@
     height: 4vw;
   }
 
+  .background {
+    background-image: url("/roadmap-bg.webp"), linear-gradient(#000000, #010020);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
   @media only screen and (max-width: 600px) {
     header {
       position: fixed;
@@ -187,6 +200,7 @@
 
     ul {
       gap: 1em;
+      visibility: hidden;
     }
 
     .goal {
@@ -210,6 +224,14 @@
     .checkmark-svg {
       width: 2em;
       height: 2em;
+    }
+
+    .background {
+      background-image: url("/background.webp");
+      background-repeat: repeat;
+      background-position: top;
+      background-attachment: initial;
+      background-position: top;
     }
   }
 </style>
