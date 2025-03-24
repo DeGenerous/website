@@ -231,11 +231,7 @@
   .nft-links {
     flex-direction: row;
     gap: 2vw;
-  }
-
-  .nft-links a {
-    width: 3vw;
-    height: 3vw;
+    width: 100%;
   }
 
   .nft-links a:hover,
@@ -245,8 +241,8 @@
   }
 
   .nft-links img {
-    width: 100%;
-    height: 100%;
+    width: 3vw;
+    height: 3vw;
   }
 
   @media only screen and (max-width: 600px) {
@@ -283,9 +279,14 @@
       gap: 1em;
     }
 
-    .nft-links a {
-      width: 2em;
-      height: 2em;
+    .nft-links h2 {
+      font-size: 1em;
+    }
+
+    .nft-links img {
+      min-width: 2.5em;
+      width: 2.5em;
+      height: 2.5em;
     }
   }
 </style>
