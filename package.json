@@ -14,8 +14,7 @@
     "@astrojs/svelte": "^4.0.3",
     "astro": "^3.3.0",
     "sass": "^1.69.3",
-    "svelte": "^4.0.0",
-    "swiper": "^11.0.5"
+    "svelte": "^4.0.0"
   },
   "devDependencies": {
     "prettier": "^3.0.3",
