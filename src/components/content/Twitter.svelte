@@ -35,9 +35,9 @@
         setTimeout(() => {
           loadingWrapper.style.display = "none";
           tweetsWrapper.style.display = "flex";
-        }, 4000);
-      }, 4000);
-    }, 4000);
+        }, 2000);
+      }, 2000);
+    }, 2000);
 
     loadedTweets = true;
   }
@@ -75,7 +75,7 @@
   img {
     opacity: 0.2;
     width: 15vw;
-    animation: pulse 4s linear infinite;
+    animation: pulse 6s linear infinite;
   }
 
   section {

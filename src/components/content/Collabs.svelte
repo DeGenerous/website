@@ -8,47 +8,47 @@
 
 <section class="blur">
   <div class="paused-animation">
-    <a style="--position: 0" href="https://www.bingeable.net/" target="_blank">
+    <!-- <a style="--position: 0" href="https://www.bingeable.net/" target="_blank">
       <img src="/collabs/bingeable.png" alt="Bingeable" />
-    </a>
-    <a style="--position: 1" href="https://www.lionsclubs.org/" target="_blank">
+    </a> -->
+    <a style="--position: 0" href="https://www.lionsclubs.org/" target="_blank">
       <img src="/collabs/lions.png" alt="Lions International" />
     </a>
     <a
-      style="--position: 2"
+      style="--position: 1"
       href="https://www.story.foundation/"
       target="_blank"
     >
       <img src="/collabs/story-protocol.png" alt="Story Protocol" />
     </a>
-    <a style="--position: 3" href="https://www.base.org/" target="_blank">
+    <a style="--position: 2" href="https://www.base.org/" target="_blank">
       <img src="/collabs/base.png" alt="Base" />
     </a>
-    <a style="--position: 4" href="https://twigg.xyz/" target="_blank">
+    <a style="--position: 3" href="https://twigg.xyz/" target="_blank">
       <img src="/collabs/twigg.png" alt="Twigg" />
     </a>
-    <a style="--position: 5" href="https://www.anyone.io/" target="_blank">
+    <!-- <a style="--position: 5" href="https://www.anyone.io/" target="_blank">
       <img src="/collabs/anyone.png" alt="Anyone" />
-    </a>
-    <a style="--position: 6" href="https://www.moonsheep.xyz/" target="_blank">
+    </a> -->
+    <!-- <a style="--position: 6" href="https://www.moonsheep.xyz/" target="_blank">
       <img src="/collabs/moonsheep.png" alt="Moonsheep" />
-    </a>
-    <a
+    </a> -->
+    <!-- <a
       style="--position: 7"
       href="https://www.lazylionsnft.com/"
       target="_blank"
     >
       <img src="/collabs/lazy-lions.png" alt="Lazy Lions" />
-    </a>
-    <a style="--position: 8" href="https://www.glmrapes.com/" target="_blank">
+    </a> -->
+    <a style="--position: 4" href="https://www.glmrapes.com/" target="_blank">
       <img src="/collabs/glma.png" alt="GLMR Apes" />
     </a>
-    <a style="--position: 9" href="https://t2.world/" target="_blank">
+    <!-- <a style="--position: 9" href="https://t2.world/" target="_blank">
       <img src="/collabs/t2.png" alt="t2" />
-    </a>
-    <a style="--position: 10" href="https://film3.org/" target="_blank">
+    </a> -->
+    <!-- <a style="--position: 10" href="https://film3.org/" target="_blank">
       <img src="/collabs/film3.png" alt="Film3" />
-    </a>
+    </a> -->
   </div>
 </section>
 
@@ -72,7 +72,7 @@
     position: relative;
     display: flex;
     height: 100%;
-    min-width: calc(20vw * 11);
+    min-width: calc(20vw * 6);
   }
 
   a {
@@ -81,8 +81,8 @@
     height: 10vw;
     width: 20vw;
     transition: all 0.3s ease-in-out;
-    animation: slide 22s linear infinite;
-    animation-delay: calc((22s / 11) * var(--position) - 22s);
+    animation: slide 10s linear infinite;
+    animation-delay: calc((10s / 5) * var(--position) - 10s);
     animation-play-state: inherit;
   }
 
@@ -108,7 +108,7 @@
     }
 
     div {
-      min-width: calc(20vh * 11);
+      min-width: calc(20vh * 6);
     }
 
     a {
