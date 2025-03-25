@@ -60,14 +60,16 @@
 
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
+
+  let showText: boolean = false;
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-to-interactive-role -->
 <section class="flex-box blur">
   <img class="potentials-banner" src="/potentials.webp" alt="Potentials" />
 
   <hr />
 
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div class="flex-box potential-wrapper">
     <div class="potential" bind:this={potential} role="button" tabindex="0">
       <div bind:this={bg}>
@@ -141,15 +143,27 @@
       <h2>The evolutionary NFT collection</h2>
       <h3>
         Potentials are 1,000 dynamic avatars that evolve on-chain through
-        community participation. As a Potential owner, you are at the core of
-        all our products, playing an active role in shaping your avatar’s
-        traits, attributes, and features through your decisions. This isn’t just
-        a static NFT — your avatar grows with you. The art itself transforms,
-        reflecting your unique personality, embedding your choices and
-        experiences, and telling a story that is uniquely yours. Through
-        trait-gated storytelling, your evolving digital persona unlocks
-        exclusive narratives, interactions, and opportunities, making every
-        journey personal and meaningful.
+        community participation.
+        {#if showText}
+          As a Potential owner, you are at the core of all our products, playing
+          an active role in shaping your avatar’s traits, attributes, and
+          features through your decisions. This isn’t just a static NFT — your
+          avatar grows with you. The art itself transforms, reflecting your
+          unique personality, embedding your choices and experiences, and
+          telling a story that is uniquely yours. Through trait-gated
+          storytelling, your evolving digital persona unlocks exclusive
+          narratives, interactions, and opportunities, making every journey
+          personal and meaningful.
+        {:else}
+          <h3
+            class="more-text"
+            on:click={() => (showText = true)}
+            role="button"
+            tabindex="0"
+          >
+            See more...
+          </h3>
+        {/if}
       </h3>
       <div class="flex-box nft-links">
         <a
@@ -255,7 +269,7 @@
     }
 
     .potential-wrapper {
-      flex-direction: column;
+      flex-direction: column-reverse;
       gap: 1em;
       padding: 1em;
     }
