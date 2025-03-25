@@ -153,7 +153,7 @@
       </h3>
       <div class="flex-box nft-links">
         <a
-          class="scaled-down"
+          class="flex-box scaled-down"
           href="https://magiceden.io/collections/ethereum/0xfa511d5c4cce10321e6e86793cc083213c36278e"
           target="_blank"
         >
@@ -161,7 +161,7 @@
         </a>
         <h2>Forge Your Legacy</h2>
         <a
-          class="scaled-down"
+          class="flex-box scaled-down"
           href="https://opensea.io/collection/potentials-eth"
           target="_blank"
         >
@@ -276,11 +276,7 @@
     }
 
     .nft-links {
-      gap: 1em;
-    }
-
-    .nft-links h2 {
-      font-size: 1em;
+      gap: 0;
     }
 
     .nft-links img {

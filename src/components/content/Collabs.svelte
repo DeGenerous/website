@@ -52,11 +52,11 @@
   </div>
 </section>
 
-<h3>
+<h2>
   We want to democratize the media & entertainment industries and power
   tomorrow's digital economy with built-in monetization, gamification, and
   programmable IP.
-</h3>
+</h2>
 
 <style>
   section {
