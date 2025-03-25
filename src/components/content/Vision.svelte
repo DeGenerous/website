@@ -9,13 +9,10 @@
   });
 
   const toggleVision = () => {
-    const focusedElement = document.activeElement;
-    if (focusedElement == vision) {
-      vision.blur();
-      return;
-    }
-    vision.focus();
+    showVision = !showVision;
   };
+
+  let showVision: boolean = false;
 </script>
 
 <h1>Shape The World You Dream of</h1>
@@ -28,13 +25,19 @@
   role="button"
   tabindex="0"
 >
-  <h3 class="vision">
+  <h3 style={showVision ? "opacity: 1;" : ""}>
     We are building a decentralized entertainment platform for the creative
     economy and Generative AI era. Our flagship app, made with user-friendly
     tools and efficiency in mind, empowers anyone to create, distribute, and
     monetize high-quality, visually immersive stories.
   </h3>
-  <img src="/vision.webp" alt="Vision" />
+  <img
+    src="/vision.webp"
+    alt="Vision"
+    style={showVision
+      ? "transform: scale(1.25); filter: blur(0.5vw) brightness(50%);"
+      : ""}
+  />
 </div>
 
 <h3>
@@ -57,7 +60,7 @@
     padding-inline: 2vw;
   }
 
-  .vision {
+  div h3 {
     opacity: 0;
     width: 90%;
     line-height: 1.5;
@@ -73,18 +76,15 @@
     transition-timing-function: ease-in-out;
   }
 
-  div:focus img {
-    transform: scale(1.25);
-    filter: blur(0.5vw) brightness(50%);
-  }
-
-  div:focus .vision {
-    opacity: 1;
+  div:hover,
+  div:active {
+    filter: brightness(125%);
+    transform: scale(1.025);
   }
 
   @media only screen and (max-width: 600px) {
     div {
-      height: 25vh;
+      height: 60vw;
     }
 
     img {
