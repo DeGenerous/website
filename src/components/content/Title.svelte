@@ -91,7 +91,7 @@
 
   ul {
     position: absolute;
-    bottom: calc(-100% - 3vw);
+    bottom: -100%;
     gap: 1vw;
   }
 
