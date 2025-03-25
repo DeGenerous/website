@@ -75,7 +75,7 @@
   img {
     opacity: 0.2;
     width: 15vw;
-    animation: pulse 6s linear infinite;
+    animation: pulse 3s linear infinite;
   }
 
   section {
