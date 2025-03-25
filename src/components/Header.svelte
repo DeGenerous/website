@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
   export let page = "home";
 
   let backArrowSvgFocus: boolean = false;
@@ -6,23 +8,40 @@
   const openConexus = () => {
     window.open("https://conexus.degenerousdao.com/", "_blank");
   };
+
+  const toggleOpen = () => (isOpen = !isOpen);
+
+  let isOpen: boolean = true;
+
+  onMount(() => {
+    setTimeout(() => (isOpen = false), 1500);
+  });
 </script>
 
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <header class="flex-box">
   {#if page === "home"}
-    <section class="flex-box blur">
+    <section class="flex-box blur" style:width={isOpen ? "45%" : "10%"}>
       <a class="flex-box icon-anchor" href="/" aria-label="DeGenerous">
         <img class="logo" src="/logo.png" alt="Logo" />
       </a>
-      <span class="flex-box links">
-        <a href="https://governance.degenerousdao.com/" target="_blank"
-          >Governance Hub</a
-        >
-        <h2>|</h2>
-        <a href="https://loredex.degenerousdao.com/" target="_blank">Loredex</a>
-        <h2>|</h2>
-        <a href="/roadmap">Roadmap</a>
-      </span>
+      <div
+        class="flex-box links-wrapper"
+        style:width={isOpen ? "100%" : "0"}
+        style:opacity={isOpen ? "1" : "0"}
+      >
+        <span class="flex-box links">
+          <a href="https://governance.degenerousdao.com/" target="_blank"
+            >Governance Hub</a
+          >
+          <h2>|</h2>
+          <a href="https://loredex.degenerousdao.com/" target="_blank"
+            >Loredex</a
+          >
+          <h2>|</h2>
+          <a href="/roadmap">Roadmap</a>
+        </span>
+      </div>
       <a
         class="flex-box icon-anchor conexus-link"
         href="https://conexus.degenerousdao.com/"
@@ -30,6 +49,28 @@
       >
         <img src="conexus.png" alt="CoNexus" />
       </a>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="-100 -100 200 200"
+        class="option-selector-svg"
+        fill="rgb(51, 226, 230)"
+        stroke="rgb(51, 226, 230)"
+        stroke-width="20"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        transform={isOpen ? "rotate(180)" : ""}
+        opacity="0.75"
+        on:click={toggleOpen}
+        role="button"
+        tabindex="0"
+      >
+        <polygon
+          class="option-selector-icon"
+          points="
+            -40 -90 -40 90 50 0
+          "
+        />
+      </svg>
     </section>
   {:else if page === "roadmap"}
     <section class="flex-box blur conexus-button">
@@ -97,6 +138,7 @@
 
   section {
     flex-direction: row;
+    justify-content: flex-start;
     gap: 1vw;
     padding: 1vw;
     background-color: rgba(51, 226, 230, 0.1);
@@ -108,11 +150,19 @@
     height: 6vw;
   }
 
+  .links-wrapper {
+    flex-direction: row;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+  }
+
   a {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 3.5vw;
+    white-space: nowrap;
   }
 
   .icon-anchor {
@@ -142,6 +192,7 @@
   .links h2 {
     color: rgba(51, 226, 230, 0.1);
     text-shadow: none;
+    padding: 0;
   }
 
   .conexus-link {
@@ -166,6 +217,15 @@
     filter: none;
   }
 
+  .option-selector-svg {
+    flex: none;
+  }
+
+  .option-selector-svg:hover,
+  .option-selector-svg:active {
+    opacity: 1;
+  }
+
   @media only screen and (max-width: 600px) {
     header {
       position: static;
@@ -179,7 +239,7 @@
     }
 
     section {
-      width: 100vw;
+      width: 100vw !important;
       justify-content: space-between;
       gap: 1em;
       padding: 0.5em;
@@ -226,6 +286,15 @@
     }
 
     .conexus-button {
+      display: none;
+    }
+
+    .links-wrapper {
+      width: 100% !important;
+      opacity: 1 !important;
+    }
+
+    .option-selector-svg {
       display: none;
     }
   }

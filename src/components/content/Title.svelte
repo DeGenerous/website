@@ -158,7 +158,7 @@
 
     header {
       gap: 1.5em;
-      margin-top: -10vh;
+      margin-top: -15vh;
     }
 
     h2 {
@@ -166,7 +166,7 @@
     }
 
     ul {
-      bottom: -100%;
+      bottom: -110%;
       gap: 1.5em;
     }
 

@@ -72,7 +72,6 @@
     position: relative;
     display: flex;
     height: 100%;
-    min-width: calc(20vw * 6);
   }
 
   a {
@@ -108,7 +107,7 @@
     }
 
     div {
-      min-width: calc(20vh * 6);
+      min-width: calc(20vh * 3);
     }
 
     a {
