@@ -164,7 +164,7 @@
     opacity: 1;
   }
   100% {
-    filter: brightness(50%);
+    filter: brightness(50%) blur(max(0.25vw, 0.25em));
     opacity: 0.25;
     transform: none;
   }

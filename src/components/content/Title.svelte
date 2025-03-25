@@ -16,9 +16,19 @@
     </h2>
 
     <ul class="flex-box">
-      <a href="https://discord.gg/349FgMSUK8" target="_blank">
-        <img src="/icons/discord.png" alt="Discord" />
-      </a>
+      <li class="flex-box">
+        <a href="https://discord.gg/349FgMSUK8" target="_blank">
+          <img src="/icons/discord.png" alt="Discord" />
+        </a>
+
+        <a href="https://twitter.com/degenerousdao" target="_blank">
+          <img src="/icons/twitter.png" alt="Twitter" />
+        </a>
+
+        <a href="https://opensea.io/collection/potentials-eth" target="_blank">
+          <img src="/icons/opensea.png" alt="OpenSea" />
+        </a>
+      </li>
 
       <li class="flex-box">
         <a
@@ -28,14 +38,7 @@
         >
           JOIN US
         </a>
-        <a href="https://twitter.com/degenerousdao" target="_blank">
-          <img src="/icons/twitter.png" alt="Twitter" />
-        </a>
       </li>
-
-      <a href="https://opensea.io/collection/potentials-eth" target="_blank">
-        <img src="/icons/opensea.png" alt="OpenSea" />
-      </a>
     </ul>
   </header>
 
@@ -75,7 +78,6 @@
 
   header {
     position: relative;
-    gap: 1vw;
     opacity: 0;
     animation:
       fadeIn 1.8s 1.6s forwards,
@@ -89,22 +91,17 @@
 
   ul {
     position: absolute;
-    bottom: calc(-100% - 2vw);
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 1.5vw;
-  }
-
-  a {
-    height: 3vw;
+    bottom: calc(-100% - 3vw);
+    gap: 1vw;
   }
 
   li {
+    flex-direction: row;
     gap: 1vw;
   }
 
   a img {
-    height: 100%;
+    height: 3vw;
     width: 3vw;
     border-radius: 50%;
     cursor: inherit;
@@ -173,11 +170,8 @@
       gap: 1.5em;
     }
 
-    ul a {
-      height: 2em;
-    }
-
     a img {
+      height: 2em;
       width: 2em;
     }
 
