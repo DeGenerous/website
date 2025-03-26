@@ -3,7 +3,7 @@
 
   export let page = "home";
 
-  let backArrowSvgFocus: boolean = false;
+  let backArrowSvgFocus = false;
 
   const openConexus = () => {
     window.open("https://conexus.degenerousdao.com/", "_blank");
@@ -11,7 +11,7 @@
 
   const toggleOpen = () => (isOpen = !isOpen);
 
-  let isOpen: boolean = true;
+  let isOpen = true;
 
   onMount(() => {
     setTimeout(() => (isOpen = false), 1500);
