@@ -2,6 +2,10 @@
 
 FROM node:18 AS builder
 
+# Install Bun
+RUN curl -fsSL https://bun.sh/install | bash && \
+    mv /root/.bun/bin/bun /usr/local/bin/bun
+
 ENV PUBLIC_BACKEND=/api
 
 WORKDIR /app
