@@ -1,6 +1,10 @@
 # FROM docker.io/oven/bun:latest
 
-FROM node:18 AS builder
+# Builder Stage
+FROM node:23-alpine AS builder
+
+# Install dependencies required for `node-gyp`
+RUN apk add --no-cache python3 make g++
 
 # Install Bun
 RUN curl -fsSL https://bun.sh/install | bash && \
