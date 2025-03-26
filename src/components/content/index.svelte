@@ -1,17 +1,17 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  import Title from "./Title.svelte";
-  import Conexus from "./Conexus.svelte";
-  import Collabs from "./Collabs.svelte";
-  import Potentials from "./Potentials.svelte";
-  import GovernanceHub from "./GovernanceHub.svelte";
-  import Loredex from "./Loredex.svelte";
-  import Sagaverse from "./Sagaverse.svelte";
-  import Vision from "./Vision.svelte";
-  import Philanthropy from "./Philanthropy.svelte";
-  import Team from "./Team.svelte";
-  import Twitter from "./Twitter.svelte";
+  import Title from "@components/content/Title.svelte";
+  import Conexus from "@components/content/Conexus.svelte";
+  import Collabs from "@components/content/Collabs.svelte";
+  import Potentials from "@components/content/Potentials.svelte";
+  import GovernanceHub from "@components/content/GovernanceHub.svelte";
+  import Loredex from "@components/content/Loredex.svelte";
+  import Sagaverse from "@components/content/Sagaverse.svelte";
+  import Vision from "@components/content/Vision.svelte";
+  import Philanthropy from "@components/content/Philanthropy.svelte";
+  import Team from "@components/content/Team.svelte";
+  import Twitter from "@components/content/Twitter.svelte";
 
   import observeElement from "@utils/observer";
 
