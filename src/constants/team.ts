@@ -43,9 +43,9 @@ const team: Member[] = [
     ]
   },
   {
-    name: 'Ansuiem',
+    name: 'Anusiem',
     secondName: 'John-Franklin',
-    picture: 'ansuiem',
+    picture: 'anusiem',
     position: 'Software Developer',
     twitter: 'https://x.com/ivxnio',
     description: [
