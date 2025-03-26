@@ -1,4 +1,6 @@
-FROM docker.io/oven/bun:latest
+# FROM docker.io/oven/bun:latest
+
+FROM node:18 AS builder
 
 ENV PUBLIC_BACKEND=/api
 
