@@ -45,6 +45,7 @@
       <a
         class="flex-box icon-anchor conexus-link"
         href="https://conexus.degenerousdao.com/"
+        target="_blank"
         aria-label="CoNexus"
       >
         <img src="conexus.png" alt="CoNexus" />
@@ -72,7 +73,7 @@
         />
       </svg>
     </section>
-  {:else if page === "roadmap"}
+  {:else}
     <section class="flex-box blur conexus-button">
       <a class="icon-anchor" href="/" aria-label="DeGenerous">
         <svg
@@ -117,7 +118,12 @@
     </section>
   {/if}
 
-  <section class="conexus-button flex-box blur">
+  <section
+    class="conexus-button flex-box blur"
+    style:visibility={page === "home" || page === "roadmap"
+      ? "visible"
+      : "hidden"}
+  >
     <button on:click={openConexus}>
       <img src="/conexus-full.png" alt="CoNexus" />
     </button>

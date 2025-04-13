@@ -48,26 +48,13 @@
   <hr />
 
   <div class="flex-box docs">
-    <a
-      href="https://docs.google.com/document/d/1kkIY-86y2LtoM4IXzp80E5H7Op1YSezw8nPBG1AQ2uo/edit?usp=sharing"
-      target="_blank"
-    >
-      Privacy Policy
-    </a>
+    <a href="/legal/privacy-policy"> Privacy Policy </a>
     <h3 class="divider">|</h3>
-    <a
-      href="https://docs.google.com/document/d/1bTbxDdGSIOzPzYS30urRMa83EeCG0Ewvlfa2pa3LsMI/edit?usp=sharing"
-      target="_blank"
-    >
+    <a href="/legal/contributors-licence-agreement">
       Contributor's License Agreement
     </a>
     <h3 class="divider">|</h3>
-    <a
-      href="https://docs.google.com/document/d/1fEemq6HVM_h8ZTbc_Fl_k3RvlPdjYd70TI1iloT5gXA/edit?usp=sharing"
-      target="_blank"
-    >
-      Terms of Service
-    </a>
+    <a href="/legal/terms-of-service"> Terms of Service </a>
   </div>
 
   <h3>©2024 by DeGenerous Society Inc.</h3>

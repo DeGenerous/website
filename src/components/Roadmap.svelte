@@ -17,7 +17,7 @@
 
 <svelte:window bind:scrollY={scroll} />
 
-<header class="flex-box">
+<header class="flex-box subpage-header">
   <a class="icon-anchor" href="/" aria-label="Home">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -88,30 +88,9 @@
   {/each}
 </ul>
 
-<div class="background" style:top={-scroll / 25 + "vh"}></div>
+<div class="background subpage-bg" style:top={-scroll / 25 + "vh"}></div>
 
 <style>
-  h1 {
-    color: rgba(51, 226, 230, 0.85) !important;
-  }
-
-  header {
-    width: 100vw;
-    flex-direction: row;
-    padding-top: 3vw;
-    opacity: 0;
-    animation: fadeIn 2.4s 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-  }
-
-  .icon-anchor {
-    display: none;
-  }
-
-  .circle-icon {
-    width: inherit;
-    height: inherit;
-  }
-
   ul {
     gap: 1vw;
   }
@@ -129,7 +108,7 @@
     border-radius: 1.5vw;
     box-shadow:
       inset 0 0 0.5vw rgba(51, 226, 230, 0.5),
-      0 0.5vw 0.5vw #010020;
+      0 0.25vw 0.5vw #010020;
   }
 
   .goal article {
@@ -148,7 +127,7 @@
   .done {
     box-shadow:
       inset 0 0 0.5vw rgba(0, 185, 55, 0.25),
-      0 0.5vw 0.5vw #010020;
+      0 0.25vw 0.5vw #010020;
   }
 
   .done h2 {
@@ -170,34 +149,7 @@
     height: 4vw;
   }
 
-  .background {
-    background-image: url("/roadmap-bg.webp"), linear-gradient(#000000, #010020);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
   @media only screen and (max-width: 600px) {
-    header {
-      position: fixed;
-      top: 0;
-      width: 100vw;
-      justify-content: space-between;
-      padding: 1em;
-      animation-delay: 0;
-      z-index: 100;
-      background-color: rgba(1, 0, 32, 0.75);
-      box-shadow: 0 0.25vw 0.5vw #010020;
-      -webkit-backdrop-filter: blur(1rem);
-      backdrop-filter: blur(1rem);
-    }
-
-    .icon-anchor {
-      display: block;
-      width: 3em;
-      height: 3em;
-    }
-
     ul {
       gap: 1em;
     }
@@ -223,14 +175,6 @@
     .checkmark-svg {
       width: 2em;
       height: 2em;
-    }
-
-    .background {
-      background-image: url("/background.webp");
-      background-repeat: repeat;
-      background-position: top;
-      background-attachment: initial;
-      background-position: top;
     }
   }
 </style>
