@@ -9,6 +9,12 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <section class="flex-box">
+  <video autoplay loop muted>
+    <source src="CoNexusTrailer.webm" type="video/webm" />
+    <source src="CoNexusTrailer.mp4" type="video/mp4" />
+    <track kind="captions" />
+  </video>
+
   <header class="flex-box">
     <h2>
       We believe community-owned franchises, interactivity, and AI-powered
@@ -42,10 +48,6 @@
     </ul>
   </header>
 
-  <span class="flex-box">
-    <img class="logo" src="/logo.png" alt="Logo" />
-  </span>
-
   <div class="flex-box" on:click={scrollDown} role="button" tabindex="0">
     <h3>See more</h3>
     <svg
@@ -71,17 +73,22 @@
 
 <style>
   section {
-    padding: 1vw;
+    gap: 3vw;
+  }
+
+  video {
+    width: 100vw;
     height: 100vh;
-    position: relative;
+    object-fit: cover;
+    z-index: -10;
   }
 
   header {
-    position: relative;
+    gap: 2vw;
     opacity: 0;
     animation:
-      fadeIn 1.8s 1.6s forwards,
-      zoomIn 1.2s 1.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+      fadeIn 1.8s forwards,
+      zoomIn 1.2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   }
 
   h2 {
@@ -90,8 +97,6 @@
   }
 
   ul {
-    position: absolute;
-    bottom: -100%;
     gap: 1vw;
   }
 
@@ -113,21 +118,6 @@
     filter: brightness(125%);
   }
 
-  span {
-    position: absolute;
-    width: 100vw;
-    height: 70vh;
-    top: 15vh;
-    z-index: -10;
-  }
-
-  .logo {
-    height: 100%;
-    width: 70vh;
-    transform: scale(1.1);
-    animation: logo 2.2s ease-in forwards;
-  }
-
   div {
     position: absolute;
     bottom: 5%;
@@ -146,19 +136,28 @@
     opacity: 1 !important;
   }
 
-  h3 {
+  h3,
+  svg {
     color: inherit;
     cursor: inherit;
+    flex: none;
   }
 
   @media only screen and (max-width: 600px) {
     section {
-      height: calc(90vh - 2em);
+      gap: 3em;
+    }
+
+    video {
+      height: auto;
     }
 
     header {
       gap: 1.5em;
-      margin-top: -15vh;
+    }
+
+    div {
+      display: none;
     }
 
     h2 {
@@ -173,19 +172,6 @@
     a img {
       height: 2em;
       width: 2em;
-    }
-
-    span {
-      position: absolute;
-      width: 90vw;
-      height: 90vw;
-      top: 15vh;
-    }
-
-    .logo {
-      height: 100%;
-      width: 90vw;
-      animation: logo 2s ease-in-out forwards;
     }
   }
 </style>
