@@ -9,9 +9,15 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <section class="flex-box">
-  <video autoplay loop muted>
+  <video class="pc-video" autoplay loop muted>
     <source src="CoNexusTrailer.webm" type="video/webm" />
     <source src="CoNexusTrailer.mp4" type="video/mp4" />
+    <track kind="captions" />
+  </video>
+
+  <video class="mobile-video" autoplay loop muted>
+    <source src="CoNexusTrailerMobile.webm" type="video/webm" />
+    <source src="CoNexusTrailerMobile.mp4" type="video/mp4" />
     <track kind="captions" />
   </video>
 
@@ -83,6 +89,14 @@
     z-index: -10;
   }
 
+  .pc-video {
+    display: block;
+  }
+
+  .mobile-video {
+    display: none;
+  }
+
   header {
     gap: 2vw;
     opacity: 0;
@@ -150,6 +164,14 @@
 
     video {
       height: auto;
+    }
+
+    .pc-video {
+      display: none;
+    }
+
+    .mobile-video {
+      display: block;
     }
 
     header {
