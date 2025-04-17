@@ -21,7 +21,7 @@
     <track kind="captions" />
   </video>
 
-  <video class="mobile-video" autoplay loop muted>
+  <video class="mobile-video" controls autoplay loop muted>
     <source
       src="https://media.degenerousdao.com/assets/trailer/CoNexusTrailerMobile.webm"
       type="video/webm"
@@ -176,6 +176,7 @@
 
     video {
       height: auto;
+      z-index: 1;
     }
 
     .pc-video {
