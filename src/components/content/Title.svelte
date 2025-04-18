@@ -10,26 +10,14 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <section class="flex-box">
   <video class="pc-video" autoplay loop muted>
-    <source
-      src="https://media.degenerousdao.com/assets/trailer/CoNexusTrailer.webm"
-      type="video/webm"
-    />
-    <source
-      src="https://media.degenerousdao.com/assets/trailer/CoNexusTrailer.mp4"
-      type="video/mp4"
-    />
+    <source src="/CoNexusTrailer.webm" type="video/webm" />
+    <source src="/CoNexusTrailer.mp4" type="video/mp4" />
     <track kind="captions" />
   </video>
 
   <video class="mobile-video" autoplay loop muted playsinline>
-    <source
-      src="https://media.degenerousdao.com/assets/trailer/CoNexusTrailerMobile.webm"
-      type="video/webm"
-    />
-    <source
-      src="https://media.degenerousdao.com/assets/trailer/CoNexusTrailerMobile.mp4"
-      type="video/mp4"
-    />
+    <source src="/CoNexusTrailerMobile.webm" type="video/webm" />
+    <source src="/CoNexusTrailerMobile.mp4" type="video/mp4" />
     <track kind="captions" />
   </video>
 
