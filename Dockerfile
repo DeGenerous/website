@@ -1,10 +1,5 @@
 FROM node:23-alpine AS builder
 
-# Install dependencies required for `node-gyp`
-RUN apk add --no-cache python3 make g++
-
-ENV PUBLIC_BACKEND=/api
-
 # Set the working directory inside the container
 WORKDIR /app
 
@@ -15,10 +10,16 @@ COPY package*.json ./
 RUN npm install
 
 # copy public files
-COPY public ./app/public
+COPY public ./public
 
 # Copy the rest of the application code to the working directory
 COPY . .
 
-# Build the Next.js application
+# Build the Astro application
 RUN npm run build
+
+# Astro app listens internally on port 4321
+EXPOSE 4321
+
+# Start the Astro application
+CMD ["npm", "preview"]
