@@ -9,19 +9,14 @@
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <section class="flex-box">
-  <video class="pc-video" autoplay loop muted>
+  <video autoplay loop muted>
     <source src="/CoNexusTrailer.webm" type="video/webm" />
     <source src="/CoNexusTrailer.mp4" type="video/mp4" />
     <track kind="captions" />
   </video>
 
-  <video class="mobile-video" autoplay loop muted playsinline>
-    <source src="/CoNexusTrailerMobile.webm" type="video/webm" />
-    <source src="/CoNexusTrailerMobile.mp4" type="video/mp4" />
-    <track kind="captions" />
-  </video>
-
   <header class="flex-box">
+    <img class="logo" src="/logo.png" alt="Logo" />
     <h2>
       We believe community-owned franchises, interactivity, and AI-powered
       user-generated content will shape the future of storytelling.
@@ -89,11 +84,7 @@
     z-index: -10;
   }
 
-  .pc-video {
-    display: block;
-  }
-
-  .mobile-video {
+  .logo {
     display: none;
   }
 
@@ -163,16 +154,14 @@
     }
 
     video {
+      display: none;
       height: auto;
       z-index: 1;
     }
 
-    .pc-video {
-      display: none;
-    }
-
-    .mobile-video {
+    .logo {
       display: block;
+      width: 85vw;
     }
 
     header {
