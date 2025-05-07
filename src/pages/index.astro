@@ -4,12 +4,10 @@ import Header from "@components/Header.svelte";
 import Content from "@components/content/base.svelte";
 import Footer from "@components/Footer.svelte";
 import Modal from "@components/Modal.svelte";
-
-const title = "DeGenerous";
 ---
 
 <main>
-  <Layout {title}>
+  <Layout>
     <Header client:load />
 
     <Content client:load />
