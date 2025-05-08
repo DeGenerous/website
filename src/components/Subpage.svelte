@@ -95,7 +95,20 @@
   </div>
 {/if}
 
-<div class="background subpage-bg" style:top={-scroll / 25 + "vh"}></div>
+<div
+  class="background subpage-bg"
+  style={project?.background
+    ? "background-image: none; background-color: rgba(0, 0, 0, 0.85);"
+    : ""}
+  style:top={-scroll / 25 + "vh"}
+></div>
+
+{#if project?.background}
+  <div
+    class="collab-bg"
+    style:background-image="url({project.background})"
+  ></div>
+{/if}
 
 <style>
   .collab-description {
@@ -218,6 +231,19 @@
   .link-icon:active {
     transform: scale(1.1);
     filter: brightness(125%);
+  }
+
+  .collab-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -200;
   }
 
   @media only screen and (max-width: 600px) {
