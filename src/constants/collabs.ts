@@ -35,18 +35,18 @@ collabs.set('anyone', {
     {
       picture: tilePictureURL("anyone", "the-relay-guide"),
       title: "The Relay Guide",
-      link: `${storyURL}`,
+      link: `${storyURL}/The%20Relay%20Guide?id=95`,
     },
     {
       picture: tilePictureURL("anyone", "router-mode"),
       title: "Router Mode - Anyone’s Hotspot",
-      link: `${storyURL}`,
+      link: `${storyURL}/Router%20Mode%20-%20Anyone's%20Hotspot?id=93`,
     },
-    // {
-    //   picture: tilePictureURL("anyone", "the-anon-uprising"),
-    //   title: "The Anon Uprising",
-    //   link: `${storyURL}`,
-    // }
+    {
+      picture: tilePictureURL("anyone", "the-anon-uprising"),
+      title: "The Anon Uprising",
+      link: `${storyURL}/The%20Anon%20Uprising?id=94`,
+    }
   ],
   website: "https://www.anyone.io/",
   twitter: "https://x.com/AnyoneFDN",
