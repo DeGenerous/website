@@ -120,7 +120,7 @@
 
   <section
     class="conexus-button flex-box blur"
-    style:visibility={page === "home" || page === "roadmap"
+    style:visibility={page === "home" || page === "roadmap" || page === "collab"
       ? "visible"
       : "hidden"}
   >

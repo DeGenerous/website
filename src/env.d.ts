@@ -18,3 +18,24 @@ interface Member {
   email?: string;
   description: string[];
 }
+
+interface Collab {
+  name: string;
+  description: string;
+  logo?: string;
+  background?: string;
+  stories: StoryTile[];
+  website: string;
+  twitter?: string;
+  tiktok?: string;
+  telegram?: string;
+  discord?: string;
+  warpcast?: string;
+  youtube?: string;
+}
+
+interface StoryTile {
+  picture: string;
+  title: string;
+  link: string;
+}
