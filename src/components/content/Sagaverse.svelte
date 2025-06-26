@@ -21,14 +21,14 @@
         extra rewards, encourage community interaction and expand engagement
         across diverse games, metaverses, and blockchain platforms.
       {:else}
-        <h3
+        <span
           class="more-text"
           on:click={() => (showText = true)}
           role="button"
           tabindex="0"
         >
           See more...
-        </h3>
+        </span>
       {/if}
     </h3>
     <button class="scaled-down" on:click={openSagaverse}>GAME</button>

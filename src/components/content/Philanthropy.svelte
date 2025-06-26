@@ -25,14 +25,14 @@
           telling a story of generosity, woven into a larger movement of social
           good.
         {:else}
-          <h3
+          <span
             class="more-text"
             on:click={() => (showText1 = true)}
             role="button"
             tabindex="0"
           >
             See more...
-          </h3>
+          </span>
         {/if}
       </h3>
     </article>
@@ -59,14 +59,14 @@
           innovative governance systems. True impact isn’t measured in bytes,
           but in smiles, shared stories, and lives forever changed.
         {:else}
-          <h3
+          <span
             class="more-text"
             on:click={() => (showText2 = true)}
             role="button"
             tabindex="0"
           >
             See more...
-          </h3>
+          </span>
         {/if}
       </h3>
     </article>

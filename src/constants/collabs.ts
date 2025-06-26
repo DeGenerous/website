@@ -55,4 +55,21 @@ collabs.set('anyone', {
   youtube: "http://youtube.com/@anyoneprotocol"
 })
 
+collabs.set('hcc', {
+  name: "High Class Crypto",
+  description: "High Class Crypto unites crypto enthusiasts, technologists, and investors to uncover hidden gems. We fear no market and stand strong through all conditions, offering hope to investors.\n\nWe are highly committed, organized, and focused on fundamentals.\n\nOur community is the most electric in the game and we welcome you to join it.",
+  logo: mediaURL("hcc"),
+  background: mediaURL("hcc", "bg"),
+  stories: [
+    {
+      picture: mediaURL("hcc"),
+      title: "Hight Class Crypto",
+      link: `${storyURL}/High%20Class%20Crypto?id=90`,
+    }
+  ],
+  website: "https://highclasscrypto.io/",
+  twitter: "https://twitter.com/HCC_Capital",
+  telegram: "https://t.me/HighClassCrypto",
+})
+
 export default collabs;

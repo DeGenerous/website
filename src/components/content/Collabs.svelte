@@ -43,6 +43,9 @@
     <a style="--position: 5" href="https://www.glmrapes.com/" target="_blank">
       <img src="/collabs/glma.png" alt="GLMR Apes" />
     </a>
+    <a style="--position: 6" href="https://highclasscrypto.io/" target="_blank">
+      <img src="/collabs/hcc.png" alt="High Class Crypto" />
+    </a>
     <!-- <a style="--position: 9" href="https://t2.world/" target="_blank">
       <img src="/collabs/t2.png" alt="t2" />
     </a> -->
@@ -81,7 +84,7 @@
     width: 20vw;
     transition: all 0.3s ease-in-out;
     animation: slide 12s linear infinite;
-    animation-delay: calc((12s / 6) * var(--position) - 12s);
+    animation-delay: calc((12s / 7) * var(--position) - 12s);
     animation-play-state: inherit;
   }
 

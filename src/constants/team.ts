@@ -75,16 +75,6 @@ const team: Member[] = [
     ]
   },
   {
-    name: 'Eve',
-    picture: 'eve',
-    position: 'Community Manager',
-    twitter: '',
-    description: [
-      'Member of numerous clubs, varying from sports to non-profit.',
-      'Participated in and organized global events.'
-    ]
-  },
-  {
     name: 'Vani',
     picture: 'vani',
     position: 'Web3 Developer',

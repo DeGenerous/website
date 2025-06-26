@@ -122,6 +122,7 @@
 
   .collab-logo {
     width: 25vw;
+    border-radius: 2vw;
   }
 
   .tiles-collection {

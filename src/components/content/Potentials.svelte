@@ -155,14 +155,14 @@
           narratives, interactions, and opportunities, making every journey
           personal and meaningful.
         {:else}
-          <h3
+          <span
             class="more-text"
             on:click={() => (showText = true)}
             role="button"
             tabindex="0"
           >
             See more...
-          </h3>
+          </span>
         {/if}
       </h3>
       <div class="flex-box nft-links">
