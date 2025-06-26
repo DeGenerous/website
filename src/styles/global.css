@@ -166,7 +166,7 @@ button *,
   left: 0;
   width: 100vw;
   height: 300vw;
-  background-image: url('/background.webp');
+  background-image: url("/background.webp");
   background-size: cover;
   background-repeat: repeat;
   background-position: top;
@@ -257,7 +257,7 @@ button *,
 }
 
 .document-wrapper ul ul ul {
-  list-style-type:square;
+  list-style-type: square;
 }
 
 .document-wrapper ol {
@@ -282,7 +282,7 @@ button *,
 .subordered > li:before {
   content: counters(item, ".") ".";
   display: table-cell;
-  padding-right: 1vw;  
+  padding-right: 1vw;
 }
 
 li .subordered > li:before {
@@ -389,6 +389,6 @@ li .subordered > li:before {
   }
 
   .subordered > li:before {
-    padding-right: 0.5em;  
+    padding-right: 0.5em;
   }
 }

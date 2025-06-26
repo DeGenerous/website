@@ -119,7 +119,7 @@
 }
 
 :where(blockquote:before, blockquote:after, q:before, q:after) {
-  content: '';
+  content: "";
   content: none;
 }
 
@@ -154,7 +154,7 @@ html {
   background-color: #010020;
   box-sizing: border-box;
   overflow-x: hidden;
-  font-family: 'PT Serif Caption', serif;
+  font-family: "PT Serif Caption", serif;
   color: #dedede;
   font-size: 1em;
   word-spacing: 0.2em;
