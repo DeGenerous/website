@@ -24,7 +24,7 @@
 
     <ul class="flex-box">
       <li class="flex-box">
-        <a href="https://discord.gg/349FgMSUK8" target="_blank">
+        <a href="http://degenerousdao.com/join" target="_blank">
           <img src="/icons/discord.png" alt="Discord" />
         </a>
 

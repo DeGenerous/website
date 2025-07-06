@@ -22,17 +22,6 @@ const team: Member[] = [
     ],
   },
   {
-    name: "Shek",
-    secondName: "(Peter Shekleton)",
-    picture: "shek",
-    position: "CCO",
-    twitter: "https://twitter.com/sheklemec",
-    email: "shek@degenerousdao.com",
-    description: [
-      "Ex-Director of Sales at Bitgo. Ex-banker with 15 years of capital market, sales and trading experience, and experienced in scaling start-ups and closing large enterprise deals.",
-    ],
-  },
-  {
     name: "Kyt",
     picture: "kyt",
     position: "Lead Ambassador",
