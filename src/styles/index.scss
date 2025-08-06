@@ -130,12 +130,12 @@ a {
 
 html {
   text-align: center;
-  padding-top: 4rem;
+  // padding-top: 4rem;
   letter-spacing: 0.025rem;
   word-spacing: 0.2em;
   // background-color: $dark-blue;
 
-  @include cyan(0.85, 'text');
+  // @include cyan(0.85, 'text');
   @include font;
 
   // @include respond-up('small-desktop') {

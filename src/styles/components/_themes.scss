@@ -1,0 +1,25 @@
+@use '/src/styles/mixins' as *;
+
+// LIGHT AND DARK THEMES STYLING
+
+body {
+  transition: all 0.3s ease-in-out;
+
+  &.light {
+    background-color: white;
+    color: black;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    a {
+      color: black;
+    }
+  }
+
+  &.dark {
+    background-color: black;
+    color: white;
+  }
+}
