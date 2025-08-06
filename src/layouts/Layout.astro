@@ -1,11 +1,8 @@
 ---
-import "../styles/reset.css";
-import "../styles/global.css";
-import "../styles/icons.css";
-import "../styles/animations.css";
-
 import { SEO } from "astro-seo";
 import { seoConfig } from "../../utils/seoConfig";
+
+import "/src/styles/index.scss";
 
 type LayoutProps = {
   header?: string;
@@ -78,8 +75,10 @@ const {
     <slot />
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"
     ></script>
-  </body><!-- Copyright DeGenerous
+  </body>
+</html>
+
+<!-- Copyright DeGenerous
 Society - All Rights Reserved
 Unauthorized copying of this file, via any medium is strictly prohibited
 Proprietary and confidential -->
-</html>
