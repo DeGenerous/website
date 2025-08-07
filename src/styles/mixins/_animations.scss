@@ -291,6 +291,10 @@
 :global(.blink-caret) {
   border-right: 0.25rem solid;
   animation: blink-caret-black 0.8s step-end infinite;
+
+  @media screen and (max-width: 1023px) {
+    border: none;
+  }
 }
 
 :global(body.dark .blink-caret) {

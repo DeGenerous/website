@@ -1,8 +1,8 @@
 function observeElement(
   element: Element,
   toggleClass: Nullable<string> = null,
-  customFunction: Function = () => {},
-  resetFunction: Function = () => {},
+  customFunction: any = () => {},
+  resetFunction: any = () => {},
 ) {
   const observer: IntersectionObserver = new IntersectionObserver(
     (entries, observer) => {

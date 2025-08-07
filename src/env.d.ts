@@ -39,3 +39,16 @@ interface StoryTile {
   title: string;
   link: string;
 }
+
+type Link = {
+  name: string;
+  link: string;
+}
+
+type CTA = {
+  name: string;
+  color: () => string;
+  title: string;
+  description: string;
+  buttons: Link[];
+}

@@ -5,6 +5,10 @@
 body {
   transition: all 0.3s ease-in-out;
 
+  h5 {
+    font-weight: normal;
+  }
+
   &.light {
     background-color: white;
     color: black;
@@ -13,13 +17,21 @@ body {
     h2,
     h3,
     h4,
-    a {
+    h5 {
       color: black;
     }
   }
 
   &.dark {
     background-color: black;
-    color: white;
+    @include white-txt;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      color: white;
+    }
   }
 }

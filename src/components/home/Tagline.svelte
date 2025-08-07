@@ -25,10 +25,10 @@
   <h1 class="blink-caret" bind:this={tagline}>
     The GenAI Ecosystem for Storytelling
   </h1>
-  <p>
+  <h5>
     License, produce, consume, and monetize stories at scale with Text-To-Story
     & on‑chain ownership
-  </p>
+  </h5>
   <button class="pad-inline" onclick={scrollDown}>
     Explore the Future of Entertainment
   </button>
@@ -40,7 +40,7 @@
 
   .tagline {
     height: 100vh;
-    max-width: 95%;
+    @include auto-width;
 
     h1 {
       line-height: 1.25;
@@ -52,9 +52,8 @@
       }
     }
 
-    p {
+    h5 {
       max-width: 40rem;
-      @include font(h5);
     }
 
     button {
