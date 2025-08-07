@@ -51,8 +51,8 @@
     height: 2.5rem;
     width: 10rem;
     border-radius: 0.5rem;
-    fill: $cyan;
-    @include dark-blue;
+    fill: $blue;
+    @include light-blue(0.25);
 
     svg {
       width: 85%;
@@ -61,8 +61,22 @@
     &:hover:not(&:disabled),
     &:active:not(&:disabled),
     &:focus:not(&:disabled) {
-      fill: $dark-blue;
-      @include cyan;
+      fill: $cyan;
+      @include dark-blue;
+    }
+  }
+
+  :global(body.dark) {
+    button {
+      fill: $cyan;
+      @include cyan(0.1);
+
+      &:hover,
+      &:active:not(&:disabled),
+      &:focus:not(&:disabled) {
+        fill: $dark-blue;
+        @include cyan;
+      }
     }
   }
 </style>

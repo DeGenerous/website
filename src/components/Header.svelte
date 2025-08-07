@@ -3,9 +3,12 @@
 
   import LogoSVG from "@components/icons/Logo.svelte";
   import ConexusLogoSVG from "@components/icons/ConexusLogo.svelte";
+  import BurgerSVG from "@components/icons/Burger.svelte";
 
   let isDark = $state<boolean>(false);
   let activeTheme = $derived(isDark ? "dark" : "light");
+
+  let hiddenTabs = $state<boolean>(true);
 
   onMount(() => {
     const saved = localStorage.getItem("theme");
@@ -21,17 +24,25 @@
 </script>
 
 <header class="flex-row blur">
-  <LogoSVG onclick={() => {}} />
-  <nav class="flex-row">
+  <LogoSVG onclick={() => open("/", "_self")} />
+  <nav class="flex transition" class:hidden={hiddenTabs}>
+    <ConexusLogoSVG
+      onclick={() => open("https://conexus.degenerousdao.com/", "_blank")}
+      hideForPCs={true}
+    />
     <a href="/">Investors</a>
-    <a href="/">Enterprise</a>
+    <a class="active" href="/">Enterprise</a>
     <a href="/">Apps</a>
     <a href="/">Impact</a>
     <a href="/">Community</a>
     <a href="/">Team</a>
     <input class="theme-toggle" type="checkbox" bind:checked={isDark} />
   </nav>
-  <ConexusLogoSVG onclick={() => {}} />
+  <ConexusLogoSVG
+    onclick={() => open("https://conexus.degenerousdao.com/", "_blank")}
+    hideForMobiles={true}
+  />
+  <BurgerSVG onclick={() => (hiddenTabs = !hiddenTabs)} />
 </header>
 
 <style lang="scss">
@@ -44,34 +55,68 @@
     width: 100vw;
     justify-content: space-between;
     padding: 0.5rem 1rem;
+    height: 4rem;
     @include box-shadow;
+    @include light-blue(0.1);
 
     nav {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 100%;
       gap: 0.25rem;
+      padding: 1rem;
+      opacity: 1;
+      background-color: white;
+      @include box-shadow;
+
+      &.hidden {
+        right: -100%;
+        opacity: 0;
+      }
 
       a {
         display: flex;
+        justify-content: center;
         align-items: center;
+        width: 100%;
         height: 2.5rem;
         padding-inline: 0.5rem;
         border-radius: 0.5rem;
+        font-weight: 500;
+        @include dark-blue(1, text);
 
         &:hover,
         &:active,
         &:focus {
           text-decoration: none;
-          color: $cyan;
-          @include dark-blue;
+          @include light-blue(1, text);
+        }
+
+        &.active {
+          @include blue(1, text);
+          @include light-blue(0.25);
+        }
+      }
+
+      @include respond-up("small-desktop") {
+        position: static;
+        flex-direction: row;
+        padding: 0;
+        width: auto;
+        box-shadow: none;
+        background-color: transparent !important;
+
+        &.hidden {
+          opacity: 1;
         }
       }
 
       .theme-toggle {
         --size: 2rem;
-
         appearance: none;
         outline: none;
         cursor: pointer;
-
         width: var(--size);
         height: var(--size);
         box-shadow: inset calc(var(--size) * 0.33) calc(var(--size) * -0.25) 0;
@@ -79,10 +124,9 @@
         background-color: transparent;
         border: none;
         filter: none;
-        transform: scale(0.75);
-
         transition: all 500ms;
 
+        @include scale(0.75);
         @include light-blue(0.5, text);
 
         &:checked {
@@ -90,7 +134,6 @@
           --offset-orthogonal: calc(var(--size) * 0.65);
           --offset-diagonal: calc(var(--size) * 0.45);
 
-          transform: scale(0.5);
           box-shadow:
             inset 0 0 0 var(--size),
             calc(var(--offset-orthogonal) * -1) 0 0 var(--ray-size),
@@ -105,7 +148,14 @@
             var(--offset-diagonal) calc(var(--offset-diagonal) * -1) 0
               var(--ray-size);
 
-          @include orange(1, text, bright);
+          @include scale(0.5);
+          @include cyan(1, text);
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+          @include bright;
         }
       }
     }
@@ -113,14 +163,22 @@
 
   :global(body.dark) {
     header {
-      @include navy(0.5);
+      @include dark-blue;
 
       nav {
+        @include dark-blue;
+
         a {
+          @include white-txt;
+
           &:hover,
           &:active,
           &:focus {
-            color: $dark-blue;
+            @include cyan(1, text);
+          }
+
+          &.active {
+            @include dark-blue(1, text);
             @include cyan;
           }
         }

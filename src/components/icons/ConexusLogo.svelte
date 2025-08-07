@@ -1,10 +1,20 @@
 <script lang="ts">
-  let { onclick = () => {} }: { onclick: () => void } = $props();
+  let {
+    onclick = () => {},
+    hideForMobiles = false,
+    hideForPCs = false,
+  }: {
+    onclick: () => void;
+    hideForMobiles?: boolean;
+    hideForPCs?: boolean;
+  } = $props();
   let svgFocus = $state<boolean>(false);
 </script>
 
 <button
   class="flex void-btn"
+  class:pc-only={hideForMobiles}
+  class:mobile-only={hideForPCs}
   onpointerover={() => (svgFocus = true)}
   onpointerout={() => (svgFocus = false)}
   {onclick}
@@ -65,14 +75,30 @@
       fill: $cyan;
       @include dark-blue;
     }
+
+    &.mobile-only {
+      display: flex;
+
+      @include respond-up("small-desktop") {
+        display: none;
+      }
+    }
+
+    &.pc-only {
+      display: none;
+
+      @include respond-up("small-desktop") {
+        display: flex;
+      }
+    }
   }
 
   :global(body.dark) {
     button {
       fill: $cyan;
-      @include dark-blue;
+      @include cyan(0.1);
 
-      &:hover:not(&:disabled),
+      &:hover,
       &:active:not(&:disabled),
       &:focus:not(&:disabled) {
         fill: $dark-blue;
