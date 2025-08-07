@@ -198,6 +198,16 @@
   }
 }
 
+@keyframes blink-caret-black {
+  from, to { border-color: transparent }
+  50% { border-color: black; }
+}
+
+@keyframes blink-caret-white {
+  from, to { border-color: transparent }
+  50% { border-color: white; }
+}
+
 // General definitions
 
 :global(.loading-animation) {
@@ -276,4 +286,13 @@
 
 :global(.pulse-animation) {
   animation: pulse-animation 6s ease-in-out infinite;
+}
+
+:global(.blink-caret) {
+  border-right: 0.25rem solid;
+  animation: blink-caret-black 0.8s step-end infinite;
+}
+
+:global(body.dark .blink-caret) {
+  animation: blink-caret-white 0.8s step-end infinite;
 }

@@ -5,9 +5,15 @@
   import ConexusLogoSVG from "@components/icons/ConexusLogo.svelte";
   import BurgerSVG from "@components/icons/Burger.svelte";
 
+  let scrollY = $state<number>(0);
+  const clamp = 64; // px after which hiding can kick in
+
+  let header: HTMLElement;
+
   let isDark = $state<boolean>(false);
   let activeTheme = $derived(isDark ? "dark" : "light");
 
+  let hiddenHeader = $state<boolean>(false);
   let hiddenTabs = $state<boolean>(true);
 
   onMount(() => {
@@ -21,9 +27,21 @@
     document.body.classList.toggle("light", !isDark);
     localStorage.setItem("theme", activeTheme);
   });
+
+  const onscroll = () => {
+    const y = window.scrollY;
+
+    if (y > scrollY && y > clamp) {
+      header.classList.add("hide");
+    } else if (y < scrollY) {
+      header.classList.remove("hide");
+    }
+  };
 </script>
 
-<header class="flex-row blur">
+<svelte:window {onscroll} bind:scrollY />
+
+<header class="flex-row blur" class:hide={hiddenHeader} bind:this={header}>
   <LogoSVG onclick={() => open("/", "_self")} />
   <nav class="flex transition" class:hidden={hiddenTabs}>
     <ConexusLogoSVG
@@ -49,15 +67,21 @@
   @use "/src/styles/mixins/" as *;
 
   header {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
     z-index: 1000;
     width: 100vw;
     justify-content: space-between;
     padding: 0.5rem 1rem;
-    height: 4rem;
+    transition: transform 0.3s ease-in-out;
+    will-change: transform;
     @include box-shadow;
     @include light-blue(0.1);
+
+    &.hide {
+      transform: translateY(-100%);
+    }
 
     nav {
       position: absolute;
