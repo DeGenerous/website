@@ -1,16 +1,16 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  import VoidArrowSVG from "@components/icons/VoidArrow.svelte";
   import typeWrite from "@utils/typewriter";
+  import observeElement from "@utils/observer";
 
-  let tagline: HTMLHeadingElement;
+  import VoidArrowSVG from "@components/icons/VoidArrow.svelte";
+
+  let tagline = $state<HTMLHeadingElement>();
 
   onMount(() => {
-    if (tagline) {
-      tagline.innerHTML = ""; // Clear any existing content
-      typeWrite(tagline, "The GenAI Ecosystem for Storytelling");
-    }
+    if (tagline)
+      typeWrite(tagline!, "The GenAI Ecosystem for Storytelling", 100);
   });
 
   const scrollDown = () => {
@@ -22,9 +22,7 @@
 </script>
 
 <div class="tagline flex mar-auto">
-  <h1 class="blink-caret" bind:this={tagline}>
-    The GenAI Ecosystem for Storytelling
-  </h1>
+  <h1 bind:this={tagline}>The GenAI Ecosystem for Storytelling</h1>
   <h5>
     License, produce, consume, and monetize stories at scale with Text-To-Story
     & on‑chain ownership
