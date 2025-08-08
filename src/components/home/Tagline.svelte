@@ -18,6 +18,7 @@
 
     // Abort any lingering instance (safety) and start fresh
     typer?.abort();
+    tagline.classList.remove("sr-only");
     typer = typeWrite(tagline, "The GenAI Ecosystem for Storytelling", 100);
     // If you ever want to chain something after finish: await typer.promise;
   });
@@ -32,9 +33,11 @@
   }
 </script>
 
-<div class="tagline flex mar-auto">
+<div class="tagline flex mar-auto fade-in">
   <!-- Keep real text in markup for SEO/no-JS, the script will overwrite it -->
-  <h1 bind:this={tagline}>The GenAI Ecosystem for Storytelling</h1>
+  <h1 class="sr-only" bind:this={tagline}>
+    The GenAI Ecosystem for Storytelling
+  </h1>
 
   <h5>
     License, produce, consume, and monetize stories at scale with Text-To-Story
@@ -72,22 +75,8 @@
   }
 
   :global(body.dark) {
-    .tagline {
-      h1 {
-        @include cyan(1, text);
-      }
-
-      button {
-        @include cyan(0.85);
-        @include dark-blue(1, text);
-
-        &:hover:not(&:disabled),
-        &:active:not(&:disabled),
-        &:focus:not(&:disabled) {
-          @include cyan;
-          @include dark-blue(1, text);
-        }
-      }
+    .tagline h1 {
+      @include cyan(1, text);
     }
   }
 </style>

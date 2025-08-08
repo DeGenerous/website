@@ -305,7 +305,7 @@ html {
     @extend .blur;
     @extend .pad;
     @extend .round;
-    width: clamp(250px, 90%, 50rem);
+    // width: clamp(250px, 90%, 50rem);
     box-shadow: $shadow-plus-inset-glow;
     animation: dark-glowing 10s ease-in-out infinite;
     margin-inline: auto;

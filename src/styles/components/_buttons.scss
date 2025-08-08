@@ -224,4 +224,19 @@ body {
       }
     }
   }
+
+  &.dark {
+    button:not(.void-btn),
+    .button-anchor {
+      @include cyan(0.85);
+      @include dark-blue(1, text);
+
+      &:hover:not(&:disabled),
+      &:active:not(&:disabled),
+      &:focus:not(&:disabled) {
+        @include cyan;
+        @include dark-blue(1, text);
+      }
+    }
+  }
 }

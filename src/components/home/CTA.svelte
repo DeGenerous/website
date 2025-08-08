@@ -4,6 +4,7 @@
   import observeElement from "@utils/observer";
   import callToAction from "@constants/CTA";
 
+  let ctaSection = $state<HTMLElement>();
   let tagline = $state<HTMLHeadingElement>();
   let sectionTitle = $state<HTMLHeadingElement>();
   let activeSection = $state<Nullable<CTA>>(null);
@@ -41,7 +42,7 @@
 
   // Observe the section tagline once; start the initial sequence
   onMount(() => {
-    observeElement(tagline!, null, animateSection);
+    observeElement(ctaSection!, null, animateSection);
     return () => {
       stopTyping();
     };
@@ -62,7 +63,7 @@
   }
 </script>
 
-<section class="flex">
+<section class="flex" bind:this={ctaSection}>
   {#if !activeSection}
     <h3 bind:this={tagline}>What brings you here today?</h3>
 
@@ -142,6 +143,7 @@
 
   section {
     min-height: 100vh;
+    padding-block: 1rem;
 
     h3 {
       @include light-blue(1, text);
@@ -155,10 +157,14 @@
       gap: 1.5rem;
 
       li {
-        width: 10rem;
+        width: 95%;
         transform: translateY(-120vh) rotate(-2deg) scale(0.98);
         opacity: 0;
         will-change: transform, opacity;
+
+        @include respond-up("tablet") {
+          width: 10rem;
+        }
       }
 
       &.is-live li {
@@ -215,9 +221,6 @@
     }
 
     .container {
-      animation: none;
-      @include light-blue(0.1);
-
       .caption {
         @include gray(1, text);
         @include font(caption);
@@ -230,13 +233,17 @@
         }
       }
 
-      a.secondary {
-        background-color: white;
+      span {
+        margin-block: 0.5rem;
 
-        &:hover:not(&:disabled),
-        &:active:not(&:disabled),
-        &:focus:not(&:disabled) {
+        a.secondary {
           background-color: white;
+
+          &:hover:not(&:disabled),
+          &:active:not(&:disabled),
+          &:focus:not(&:disabled) {
+            background-color: white;
+          }
         }
       }
     }

@@ -9,16 +9,28 @@ body {
     font-weight: normal;
   }
 
+  .container {
+    animation: none !important;
+    @include auto-width;
+  }
+
   &.light {
     background-color: white;
     color: black;
 
     h1,
     h2,
-    h3,
+    h3 {
+      @include light-blue(1, text);
+    }
+
     h4,
     h5 {
       color: black;
+    }
+
+    .container {
+      @include light-blue(0.1);
     }
   }
 
@@ -28,10 +40,18 @@ body {
 
     h1,
     h2,
-    h3,
+    h3 {
+      @include cyan(1, text);
+    }
+
     h4,
     h5 {
       color: white;
+    }
+
+    .container {
+      @include box-glow(inset);
+      @include dark-blue;
     }
   }
 }
