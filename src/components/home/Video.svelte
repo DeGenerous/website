@@ -10,13 +10,24 @@
   </video>
 </div>
 
-<style>
+<style lang="scss">
+  @use "/src/styles/mixins/" as *;
+
   div {
     width: 100vw;
   }
 
   video {
     width: 100%;
+    border-radius: inherit;
     height: auto;
+  }
+
+  @include respond-up("quad-hd") {
+    div {
+      margin-inline: auto;
+      border-radius: 1rem;
+      @include auto-width;
+    }
   }
 </style>

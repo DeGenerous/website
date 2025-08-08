@@ -3,9 +3,11 @@
   import Video from "@components/home/Video.svelte";
   import CTA from "@components/home/CTA.svelte";
   import Conexus from "@components/home/Conexus.svelte";
+  import Collabs from "@components/home/Collabs.svelte";
 </script>
 
 <Tagline />
 <Video />
 <CTA />
 <Conexus />
+<Collabs />

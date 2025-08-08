@@ -2,7 +2,8 @@
 
 @mixin auto-width {
   width: auto;
-  max-width: min(95%, 80rem);
+  // max-width: min(95%, 80rem);
+  max-width: min(95%, 100rem);
 }
 
 // Responsive styling up to 2k resolution

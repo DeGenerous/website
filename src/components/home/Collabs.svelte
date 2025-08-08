@@ -1,0 +1,160 @@
+<script>
+  const collabs = [
+    {
+      href: "https://www.lionsclubs.org/",
+      src: "/collabs/lions.png",
+      alt: "Lions International",
+    },
+    {
+      href: "https://www.story.foundation/",
+      src: "/collabs/story-protocol.png",
+      alt: "Story Protocol",
+    },
+    { href: "https://www.base.org/", src: "/collabs/base.png", alt: "Base" },
+    { href: "https://twigg.xyz/", src: "/collabs/twigg.png", alt: "Twigg" },
+    {
+      href: "https://www.anyone.io/",
+      src: "/collabs/anyone.png",
+      alt: "ANyONe",
+    },
+    {
+      href: "https://nonos-tech.xyz/",
+      src: "/collabs/nonos.png",
+      alt: "NONOS",
+    },
+    {
+      href: "https://www.glmrapes.com/",
+      src: "/collabs/glma.png",
+      alt: "GLMR Apes",
+    },
+    {
+      href: "https://highclasscrypto.io/",
+      src: "/collabs/hcc.png",
+      alt: "High Class Crypto",
+    },
+  ];
+</script>
+
+<section class="container fade-in">
+  <p>
+    We’re working with industry pioneers, from Web3 leaders to award-winning
+    filmmakers.
+  </p>
+
+  <div class="collabs">
+    <ul class="reel" style="--count:{collabs.length}">
+      {#each [...collabs, ...collabs] as c}
+        <li>
+          <a href={c.href} target="_blank" rel="noopener">
+            <img src={c.src} alt={c.alt} loading="lazy" />
+          </a>
+        </li>
+      {/each}
+    </ul>
+  </div>
+
+  <p>
+    Our mission is to unleash human creativity, democratize IP ownership, and
+    channel Web3 value toward real‑world good.
+  </p>
+</section>
+
+<style lang="scss">
+  @use "/src/styles/mixins" as *;
+
+  /* Tunables */
+  $row-h: 7rem; // row height (logos scale to fit)
+  $space: 2.5rem; // space between logos
+  $edge-fade: 6%; // fade at edges
+  $dur-per-item: 2s; // speed: total duration = count * dur-per-item
+
+  section {
+    margin-bottom: 2rem;
+  }
+
+  /* Wrap */
+  .collabs {
+    width: 100%;
+    overflow: hidden;
+
+    // soft edge fade
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0,
+      #000 #{$edge-fade},
+      #000 calc(100% - #{$edge-fade}),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      90deg,
+      transparent 0,
+      #000 #{$edge-fade},
+      #000 calc(100% - #{$edge-fade}),
+      transparent 100%
+    );
+
+    .reel {
+      --count: var(--count, 7);
+      --dur: calc(var(--count) * #{$dur-per-item});
+
+      /* Critical bits for seamless loop */
+      display: inline-flex;
+      min-width: max-content;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+
+      will-change: transform;
+      backface-visibility: hidden;
+      transform: translate3d(0, 0, 0);
+      animation: slide-left var(--dur) linear infinite;
+
+      > li {
+        flex: 0 0 auto;
+        height: $row-h;
+        display: flex;
+        align-items: center;
+        border-radius: 1rem;
+        padding: 0.5rem;
+
+        // Use margin for spacing (NOT gap)
+        margin-inline-end: $space;
+
+        @include respond-up("large-desktop") {
+          height: $row-h * 1.25;
+        }
+
+        > a {
+          display: inline-flex;
+          align-items: center;
+          height: 100%;
+        }
+
+        img {
+          height: 100%;
+          width: auto; // keep natural aspect
+          object-fit: contain;
+          display: block;
+          transition:
+            transform 0.25s ease,
+            filter 0.25s ease,
+            opacity 0.25s ease;
+        }
+      }
+    }
+
+    /* Pause + dim on hover (desktop) */
+    &:hover .reel {
+      animation-play-state: paused;
+    }
+    &:hover img {
+      filter: grayscale(1) contrast(1.05);
+      opacity: 0.75;
+    }
+    .reel li:hover img {
+      filter: none;
+      opacity: 1;
+      transform: scale(1.06);
+    }
+  }
+</style>

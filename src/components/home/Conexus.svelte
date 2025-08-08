@@ -45,6 +45,10 @@
   $edge-fade: 5%;
   $dur-per-card: 1s; // speed: total duration = count * dur-per-card
 
+  section {
+    margin-bottom: 2rem;
+  }
+
   /* Mask container */
   .stories {
     width: 100%;
@@ -75,7 +79,7 @@
      - inline-flex so width shrinks to content
      - min-width:max-content so track width == exact content width
      - no padding, no borders, no gap
-  */
+    */
     display: inline-flex;
     min-width: max-content;
     padding: 0;
@@ -85,7 +89,7 @@
     will-change: transform;
     backface-visibility: hidden;
     transform: translate3d(0, 0, 0);
-    animation: marquee var(--dur) linear infinite;
+    animation: slide-right var(--dur) linear infinite;
 
     > li {
       flex: 0 0 auto;
@@ -96,6 +100,12 @@
 
       /* spacing via margin, NOT gap */
       margin-inline-end: $space;
+
+      @include respond-up("large-desktop") {
+        width: $card-w * 1.5;
+        height: $card-h * 1.5;
+        margin-inline-end: 1.25rem;
+      }
 
       img {
         width: 100%;
@@ -122,14 +132,5 @@
     filter: none;
     opacity: 1;
     transform: scale(1.06);
-  }
-
-  /* Larger cards on wide screens */
-  @include respond-up("large-desktop") {
-    .reel > li {
-      width: $card-w * 1.5;
-      height: $card-h * 1.5;
-      margin-inline-end: 1.25rem;
-    }
   }
 </style>
