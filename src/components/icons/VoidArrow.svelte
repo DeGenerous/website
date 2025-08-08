@@ -14,7 +14,7 @@
   onpointerover={() => (svgFocus = true)}
   onpointerout={() => (svgFocus = false)}
   {onclick}
-  aria-label="CoNexus"
+  aria-label="Arrow"
 >
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path
