@@ -1,22 +1,29 @@
-function typeWrite(element: HTMLElement, text: string, delay: number = 50): void {
-  element.innerHTML = ""; // Clear any existing content
-  element.classList.add('blink-caret'); // Add typewriter class for styling
+export default function typeWrite(el: HTMLElement, text: string, delay = 50) {
+  let aborted = false;
+  let timeoutId: ReturnType<typeof setTimeout>;
 
-  let index = 0;
-  let content = '';
+  const promise = new Promise<void>((resolve) => {
+    let i = 0;
 
-  function type() {
-    if (index < text.length) {
-      content = text.slice(0, index + 1);
-      element.textContent = content;
-      index++;
-      setTimeout(type, delay);
-    } else {
-      element.classList.remove('blink-caret'); // Remove typewriter class after typing is done
+    function type() {
+      if (aborted) return resolve();
+      if (i < text.length) {
+        el.textContent = text.slice(0, ++i);
+        timeoutId = setTimeout(type, delay);
+      } else {
+        resolve();
+      }
     }
-  }
 
-  type();
+    el.textContent = "";
+    type();
+  });
+
+  return {
+    promise,
+    abort() {
+      aborted = true;
+      clearTimeout(timeoutId);
+    },
+  };
 }
-
-export default typeWrite;

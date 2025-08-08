@@ -1,7 +1,7 @@
 // CLASSES
 // input-container <div><label><input></div>
 
-@use '/src/styles/mixins' as *;
+@use "/src/styles/mixins" as *;
 
 input {
   transition: all 0.3s ease-in-out;
@@ -86,7 +86,7 @@ input {
       white-space: nowrap;
 
       &::after {
-        content: ':';
+        content: ":";
       }
     }
   }
@@ -100,15 +100,15 @@ input {
     position: static;
 
     &::after {
-      content: '';
+      content: "";
     }
   }
 }
 
-input[type='checkbox'],
-input[type='range'],
-input[type='color'],
-input[type='number'] {
+input[type="checkbox"],
+input[type="range"],
+input[type="color"],
+input[type="number"] {
   min-width: unset !important;
   min-height: unset !important;
   max-width: unset !important;
@@ -117,7 +117,7 @@ input[type='number'] {
   cursor: pointer;
 }
 
-input[type='checkbox'] {
+input[type="checkbox"] {
   width: 1.5rem;
   height: 1.5rem;
 
@@ -127,8 +127,8 @@ input[type='checkbox'] {
   }
 }
 
-input[type='range'],
-input[type='color'] {
+input[type="range"],
+input[type="color"] {
   padding: 0 !important;
   height: 1.5rem;
   border-radius: 0;
@@ -143,7 +143,7 @@ input[type='color'] {
   }
 }
 
-input[type='range'] {
+input[type="range"] {
   width: 10rem;
 
   @include respond-up(large-desktop) {
@@ -155,7 +155,7 @@ input[type='range'] {
   }
 }
 
-input[type='color'] {
+input[type="color"] {
   width: 3rem;
   border: none;
 
@@ -166,13 +166,13 @@ input[type='color'] {
   }
 }
 
-input[type='number'] {
+input[type="number"] {
   cursor: text;
   appearance: textfield;
 }
 
-input[type='number']::-webkit-outer-spin-button,
-input[type='number']::-webkit-inner-spin-button {
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -212,7 +212,7 @@ input[type='number']::-webkit-inner-spin-button {
     }
   }
 
-  input[type='file'] {
+  input[type="file"] {
     position: absolute;
     top: 0;
     left: 0;

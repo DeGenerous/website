@@ -45,41 +45,41 @@ $bright-rose: rgb(230, 175, 175);
 $gray: rgb(150, 150, 150);
 $dark-gray: rgb(16, 16, 16);
 
-@mixin white-txt($opacity: 'normal') {
-  @if $opacity == 'normal' {
+@mixin white-txt($opacity: "normal") {
+  @if $opacity == "normal" {
     color: rgba(255, 255, 255, 0.9);
-  } @else if $opacity == 'soft' {
+  } @else if $opacity == "soft" {
     color: rgba(255, 255, 255, 0.75);
   } @else {
     color: rgba(255, 255, 255, $opacity); // Custom opacity
   }
 }
 
-@mixin cyan($opacity: 1, $type: 'bg') {
-  @if $type == 'bg' {
+@mixin cyan($opacity: 1, $type: "bg") {
+  @if $type == "bg" {
     background-color: rgba(51, 226, 230, $opacity);
-  } @else if $type == 'text' {
+  } @else if $type == "text" {
     color: rgba(51, 226, 230, $opacity);
   }
 }
 
-@mixin light-blue($opacity: 1, $type: 'bg') {
-  @if $type == 'bg' {
+@mixin light-blue($opacity: 1, $type: "bg") {
+  @if $type == "bg" {
     background-color: rgba(56, 117, 250, $opacity);
-  } @else if $type == 'text' {
+  } @else if $type == "text" {
     color: rgba(56, 117, 250, $opacity);
   }
 }
 
-@mixin blue($opacity: 1, $type: 'bg', $state: 'normal') {
-  @if $type == 'bg' {
-    @if $state == 'normal' {
+@mixin blue($opacity: 1, $type: "bg", $state: "normal") {
+  @if $type == "bg" {
+    @if $state == "normal" {
       background-color: rgba(36, 65, 189, $opacity);
     } @else {
       background-color: rgba(45, 90, 216, $opacity);
     }
-  } @else if $type == 'text' {
-    @if $state == 'normal' {
+  } @else if $type == "text" {
+    @if $state == "normal" {
       color: rgba(36, 65, 189, $opacity);
     } @else {
       color: rgba(45, 90, 216, $opacity);
@@ -87,103 +87,103 @@ $dark-gray: rgb(16, 16, 16);
   }
 }
 
-@mixin navy($opacity: 1, $type: 'bg') {
-  @if $type == 'bg' {
+@mixin navy($opacity: 1, $type: "bg") {
+  @if $type == "bg" {
     background-color: rgba(22, 30, 95, $opacity);
-  } @else if $type == 'text' {
+  } @else if $type == "text" {
     color: rgba(22, 30, 95, $opacity);
   }
 }
 
-@mixin dark-blue($opacity: 1, $type: 'bg') {
-  @if $type == 'bg' {
+@mixin dark-blue($opacity: 1, $type: "bg") {
+  @if $type == "bg" {
     background-color: rgba(1, 0, 32, $opacity);
-  } @else if $type == 'text' {
+  } @else if $type == "text" {
     color: rgba(1, 0, 32, $opacity);
   }
 }
 
-@mixin green($opacity: 1, $type: 'bg') {
-  @if $type == 'bg' {
+@mixin green($opacity: 1, $type: "bg") {
+  @if $type == "bg" {
     background-color: rgba(0, 185, 55, $opacity);
-  } @else if $type == 'text' {
+  } @else if $type == "text" {
     color: rgba(0, 185, 55, $opacity);
   }
 }
 
-@mixin deep-green($opacity: 1, $type: 'bg') {
-  @if $type == 'bg' {
+@mixin deep-green($opacity: 1, $type: "bg") {
+  @if $type == "bg" {
     background-color: rgba(75, 112, 50, $opacity);
-  } @else if $type == 'text' {
+  } @else if $type == "text" {
     color: rgba(75, 112, 50, $opacity);
   }
 }
 
-@mixin dark-green($opacity: 1, $type: 'bg') {
-  @if $type == 'bg' {
+@mixin dark-green($opacity: 1, $type: "bg") {
+  @if $type == "bg" {
     background-color: rgba(0, 25, 6, $opacity);
-  } @else if $type == 'text' {
+  } @else if $type == "text" {
     color: rgba(0, 25, 6, $opacity);
   }
 }
 
-@mixin red($opacity: 1, $type: 'bg') {
-  @if $type == 'bg' {
+@mixin red($opacity: 1, $type: "bg") {
+  @if $type == "bg" {
     background-color: rgba(255, 60, 64, $opacity);
-  } @else if $type == 'text' {
+  } @else if $type == "text" {
     color: rgba(255, 60, 64, $opacity);
   }
 }
 
-@mixin deep-red($opacity: 1, $type: 'bg') {
-  @if $type == 'bg' {
+@mixin deep-red($opacity: 1, $type: "bg") {
+  @if $type == "bg" {
     background-color: rgba(155, 20, 38, $opacity);
-  } @else if $type == 'text' {
+  } @else if $type == "text" {
     color: rgba(155, 20, 38, $opacity);
   }
 }
 
-@mixin dark-red($opacity: 1, $type: 'bg') {
-  @if $type == 'bg' {
+@mixin dark-red($opacity: 1, $type: "bg") {
+  @if $type == "bg" {
     background-color: rgba(32, 0, 1, $opacity);
-  } @else if $type == 'text' {
+  } @else if $type == "text" {
     color: rgba(32, 0, 1, $opacity);
   }
 }
 
-@mixin gray($opacity: 1, $type: 'bg') {
-  @if $type == 'bg' {
+@mixin gray($opacity: 1, $type: "bg") {
+  @if $type == "bg" {
     background-color: rgba(150, 150, 150, $opacity);
-  } @else if $type == 'text' {
+  } @else if $type == "text" {
     color: rgba(150, 150, 150, $opacity);
   }
 }
 
-@mixin orange($opacity: 1, $type: 'bg', $state: 'normal') {
-  @if $type == 'bg' {
-    @if $state == 'normal' {
+@mixin orange($opacity: 1, $type: "bg", $state: "normal") {
+  @if $type == "bg" {
+    @if $state == "normal" {
       background-color: rgba(255, 140, 0, $opacity);
     } @else {
       background-color: rgba(255, 165, 40, $opacity);
     }
-  } @else if $type == 'text' {
-    @if $state == 'normal' {
+  } @else if $type == "text" {
+    @if $state == "normal" {
       color: rgba(255, 140, 0, $opacity);
-    } @else if $state == 'bright' {
+    } @else if $state == "bright" {
       color: rgba(255, 165, 40, $opacity);
     }
   }
 }
 
-@mixin purple($opacity: 1, $type: 'bg', $state: 'normal') {
-  @if $type == 'bg' {
-    @if $state == 'normal' {
+@mixin purple($opacity: 1, $type: "bg", $state: "normal") {
+  @if $type == "bg" {
+    @if $state == "normal" {
       background-color: rgba(95, 80, 160, $opacity);
     } @else {
       background-color: rgba(160, 120, 255, $opacity);
     }
-  } @else if $type == 'text' {
-    @if $state == 'normal' {
+  } @else if $type == "text" {
+    @if $state == "normal" {
       color: rgba(95, 80, 160, $opacity);
     } @else {
       color: rgba(160, 120, 255, $opacity);
@@ -191,15 +191,15 @@ $dark-gray: rgb(16, 16, 16);
   }
 }
 
-@mixin rose($opacity: 1, $type: 'bg', $state: 'normal') {
-  @if $type == 'bg' {
-    @if $state == 'normal' {
+@mixin rose($opacity: 1, $type: "bg", $state: "normal") {
+  @if $type == "bg" {
+    @if $state == "normal" {
       background-color: rgba(200, 140, 140, $opacity);
     } @else {
       background-color: rgba(230, 175, 175, $opacity);
     }
-  } @else if $type == 'text' {
-    @if $state == 'normal' {
+  } @else if $type == "text" {
+    @if $state == "normal" {
       color: rgba(200, 140, 140, $opacity);
     } @else {
       color: rgba(230, 175, 175, $opacity);

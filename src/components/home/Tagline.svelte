@@ -2,7 +2,6 @@
   import { onMount } from "svelte";
 
   import typeWrite from "@utils/typewriter";
-  import observeElement from "@utils/observer";
 
   import VoidArrowSVG from "@components/icons/VoidArrow.svelte";
 
@@ -56,16 +55,6 @@
 
     button {
       margin-block: 0.5rem;
-      box-shadow: none !important;
-      border: none !important;
-      @include blue(1, bg, bright);
-
-      &:hover:not(&:disabled),
-      &:active:not(&:disabled),
-      &:focus:not(&:disabled) {
-        @include light-blue;
-        @include white-txt(1);
-      }
     }
   }
 

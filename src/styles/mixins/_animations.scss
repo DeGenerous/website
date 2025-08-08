@@ -8,20 +8,20 @@
   filter: grayscale($intensity);
 }
 
-@mixin scale($intensity: 1.05, $direction: 'both') {
-  @if $direction == 'x' {
+@mixin scale($intensity: 1.05, $direction: "both") {
+  @if $direction == "x" {
     transform: scaleX($intensity);
-  } @else if $direction == 'y' {
+  } @else if $direction == "y" {
     transform: scaleY($intensity);
   } @else {
     transform: scale($intensity);
   }
 }
 
-@mixin scale-up($intensity: 'deep') {
-  @if $intensity == 'soft' {
+@mixin scale-up($intensity: "deep") {
+  @if $intensity == "soft" {
     transform: scale(1.025) translateY(-0.25rem);
-  } @else if $intensity == 'deep' {
+  } @else if $intensity == "deep" {
     transform: scale(1.025) translateY(-0.5rem);
   } @else {
     transform: scale($intensity) translateY(-0.5rem);
@@ -198,14 +198,19 @@
   }
 }
 
-@keyframes blink-caret-black {
-  from, to { border-color: rgba(0, 0, 0, 0) }
-  50% { border-color: rgba(0, 0, 0, 1); }
-}
-
-@keyframes blink-caret-white {
-  from, to { border-color: rgba(255, 255, 255, 0) }
-  50% { border-color: rgba(255, 255, 255, 1); }
+@keyframes card-fall {
+  0% {
+    transform: translateY(-120vh) rotate(-2deg) scale(0.98);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(6px) rotate(0.6deg) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) rotate(0) scale(1);
+    opacity: 1;
+  }
 }
 
 // General definitions
@@ -286,17 +291,4 @@
 
 :global(.pulse-animation) {
   animation: pulse-animation 6s ease-in-out infinite;
-}
-
-:global(.blink-caret) {
-  border-right: 0.25rem solid;
-  animation: blink-caret-black 1s ease-in-out infinite;
-
-  @media screen and (max-width: 1023px) {
-    border: none;
-  }
-}
-
-:global(body.dark .blink-caret) {
-  animation: blink-caret-white 0.8s step-end infinite;
 }

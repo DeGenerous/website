@@ -1,4 +1,4 @@
-@use 'sass:map';
+@use "sass:map";
 
 @mixin auto-width {
   width: auto;
@@ -7,12 +7,12 @@
 
 // Responsive styling up to 2k resolution
 $breakpoints: (
-  'mobile': 0,
-  'tablet': 768px,
-  'small-desktop': 1024px,
-  'large-desktop': 1440px,
-  'full-hd': 1920px,
-  'quad-hd': 2560px, // 'ultra-hd': 3840px,
+  "mobile": 0,
+  "tablet": 768px,
+  "small-desktop": 1024px,
+  "large-desktop": 1440px,
+  "full-hd": 1920px,
+  "quad-hd": 2560px, // 'ultra-hd': 3840px,
 );
 
 @mixin respond-up($breakpoint) {

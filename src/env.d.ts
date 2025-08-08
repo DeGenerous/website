@@ -43,12 +43,14 @@ interface StoryTile {
 type Link = {
   name: string;
   link: string;
-}
+};
 
 type CTA = {
   name: string;
-  color: () => string;
+  color: (opacity?: number) => string;
   title: string;
   description: string;
   buttons: Link[];
-}
+};
+
+type TypewriterController = { abort: () => void };

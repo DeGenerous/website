@@ -5,12 +5,12 @@
 // Margin: mar, mar-inline (16), mar-auto
 // (# - pixel value)
 
-@use 'mixins' as *;
-@use 'components';
+@use "mixins" as *;
+@use "components";
 
 // Tippy.js tooltips - https://atomiks.github.io/tippyjs/
-@import 'tippy.js/dist/tippy.css';
-@import 'tippy.js/animations/scale.css';
+@import "tippy.js/dist/tippy.css";
+@import "tippy.js/animations/scale.css";
 // Use like this:
 // import { tippy } from 'svelte-tippy';
 // use:tippy={{ content: 'Start your story', animation: 'scale' }}
@@ -44,7 +44,7 @@
 
 a,
 button,
-[role='button'],
+[role="button"],
 svg,
 select {
   cursor: pointer;
@@ -54,7 +54,7 @@ select {
 
 a *,
 button *,
-[role='button'] *,
+[role="button"] *,
 svg * {
   cursor: inherit;
   transition: all 0.3s ease-in-out;
@@ -351,7 +351,7 @@ html {
       animation-duration: 36s !important;
     }
 
-    input:not(input[type='range']),
+    input:not(input[type="range"]),
     textarea,
     select {
       animation: dark-glowing 10s ease-in-out infinite;
@@ -401,7 +401,7 @@ html {
           position: static;
 
           &::after {
-            content: '';
+            content: "";
           }
         }
       }
