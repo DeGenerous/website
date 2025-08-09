@@ -1,4 +1,20 @@
-<script>
+<script lang="ts">
+  import { onMount } from "svelte";
+
+  import observeElement from "@utils/observer";
+  import typeWrite from "@utils/typewriter";
+
+  let tagline = $state<HTMLHeadingElement>();
+
+  onMount(() => {
+    observeElement(tagline!, null, () => {
+      typeWrite(
+        tagline!,
+        "Dream to Screen: Unlock Your Storytelling Potential"
+      );
+    });
+  });
+
   const openConexus = () =>
     window.open("https://conexus.degenerousdao.com/", "_blank");
 
@@ -6,7 +22,9 @@
 </script>
 
 <section class="container fade-in">
-  <h3>Dream to Screen: Unlock Your Storytelling Potential</h3>
+  <h3 bind:this={tagline}>
+    Dream to Screen: Unlock Your Storytelling Potential
+  </h3>
   <p>
     CoNexus, DGRS Labs’ flagship app, transforms how content is made, shared,
     and owned. Our text-to-story engine is the most efficient way for anyone to
@@ -32,7 +50,7 @@
     innovate, now is the moment to step into the next era of entertainment.
   </p>
 
-  <button on:click={openConexus}>Launch CoNexus</button>
+  <button onclick={openConexus}>Launch CoNexus</button>
 </section>
 
 <style lang="scss">
@@ -46,7 +64,11 @@
   $dur-per-card: 1s; // speed: total duration = count * dur-per-card
 
   section {
-    margin-bottom: 4rem;
+    margin-block: 4rem;
+
+    @include respond-up("small-desktop") {
+      margin-block: 0 4rem;
+    }
   }
 
   /* Mask container */

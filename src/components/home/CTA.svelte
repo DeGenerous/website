@@ -9,56 +9,35 @@
   let sectionTitle = $state<HTMLHeadingElement>();
   let activeSection = $state<Nullable<CTA>>(null);
 
-  let currentTypewriter: ReturnType<typeof typeWrite> | null = null;
+  // This will be used to trigger the cards to drop after the tagline animation
   let finishedAnimation = $state(false);
-
-  // ---- helpers -------------------------------------------------------------
-
-  function stopTyping() {
-    currentTypewriter?.abort();
-    currentTypewriter = null;
-  }
-
-  async function startTyping(el: HTMLElement, text: string, delay = 50) {
-    stopTyping();
-    await tick(); // ensure element is in DOM & layout settled
-    const typer = typeWrite(el, text, delay);
-    currentTypewriter = typer;
-    await typer.promise;
-  }
 
   // ---- flows ---------------------------------------------------------------
 
   const animateSection = async () => {
     finishedAnimation = false;
-    await startTyping(tagline!, "What brings you here today?");
+    await tick(); // ensure the section is in the DOM
+    await typeWrite(tagline!, "What brings you here today?");
     finishedAnimation = true; // triggers the cards to drop
   };
 
   const animateTitle = async () => {
-    if (!sectionTitle || !activeSection) return;
-    await startTyping(sectionTitle, activeSection.title);
+    await tick(); // ensure the section is in the DOM
+    await typeWrite(sectionTitle!, activeSection!.title);
   };
 
   // Observe the section tagline once; start the initial sequence
-  onMount(() => {
-    observeElement(ctaSection!, null, animateSection);
-    return () => {
-      stopTyping();
-    };
-  });
+  onMount(() => observeElement(ctaSection!, null, animateSection));
 
   // UI actions
   async function pickSection(item: CTA) {
     if (activeSection?.name === item.name) return;
     activeSection = item;
-    await tick(); // section DOM mounts
     await animateTitle(); // type the section title
   }
 
   async function resetToMenu() {
     activeSection = null;
-    await tick(); // menu DOM mounts
     await animateSection();
   }
 </script>

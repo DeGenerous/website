@@ -53,4 +53,7 @@ type CTA = {
   buttons: Link[];
 };
 
-type TypewriterController = { abort: () => void };
+type TypewriterInstance = {
+  promise: Promise<void>;
+  abort: () => void;
+};

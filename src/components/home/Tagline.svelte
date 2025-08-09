@@ -10,12 +10,6 @@
     await tick(); // ensure <h1> is in the DOM
     if (!tagline) return;
 
-    // Respect reduced motion (keep it simple & instant)
-    if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      tagline.textContent = "The GenAI Ecosystem for Storytelling";
-      return;
-    }
-
     // Abort any lingering instance (safety) and start fresh
     typer?.abort();
     tagline.classList.remove("sr-only");
