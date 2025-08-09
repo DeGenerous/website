@@ -142,7 +142,7 @@
   @use "/src/styles/mixins" as *;
 
   section {
-    min-height: 100vh;
+    min-height: min(100vh, 50rem);
     padding-block: 1rem;
 
     h3 {
@@ -174,6 +174,7 @@
 
       button {
         width: 100%;
+        @include gray-border;
         @include light-blue(0.1);
 
         img {
@@ -190,6 +191,10 @@
         &:focus {
           background-color: transparent;
           @include box-shadow;
+
+          * {
+            @include scale;
+          }
         }
       }
     }
@@ -257,7 +262,6 @@
       }
 
       .cards button {
-        @include box-glow(inset);
         @include dark-blue;
 
         &:hover,

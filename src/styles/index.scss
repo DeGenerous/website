@@ -306,8 +306,10 @@ html {
     @extend .pad;
     @extend .round;
     // width: clamp(250px, 90%, 50rem);
-    box-shadow: $shadow-plus-inset-glow;
-    animation: dark-glowing 10s ease-in-out infinite;
+    // box-shadow: $shadow-plus-inset-glow;
+    // animation: dark-glowing 10s ease-in-out infinite;
+    @include gray-border;
+    @include light-blue(0.1);
     margin-inline: auto;
   }
 

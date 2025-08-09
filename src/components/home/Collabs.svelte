@@ -69,7 +69,7 @@
   $dur-per-item: 2s; // speed: total duration = count * dur-per-item
 
   section {
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
   }
 
   /* Wrap */

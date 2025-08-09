@@ -177,8 +177,7 @@
         }
 
         &:hover,
-        &:active,
-        &:focus {
+        &:active {
           @include bright;
         }
       }

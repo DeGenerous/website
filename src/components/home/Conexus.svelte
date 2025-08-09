@@ -46,7 +46,7 @@
   $dur-per-card: 1s; // speed: total duration = count * dur-per-card
 
   section {
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
   }
 
   /* Mask container */
