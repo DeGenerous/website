@@ -1,10 +1,20 @@
 <script lang="ts">
-  let { onclick = () => {} }: { onclick: () => void } = $props();
+  let {
+    onclick = () => {},
+    big = false,
+    branding = false,
+  }: {
+    onclick?: () => void;
+    big?: boolean;
+    branding?: boolean;
+  } = $props();
   let svgFocus = $state<boolean>(false);
 </script>
 
 <button
   class="flex void-btn"
+  class:big
+  class:branding
   onpointerover={() => (svgFocus = true)}
   onpointerout={() => (svgFocus = false)}
   {onclick}
@@ -64,6 +74,21 @@
       fill: $cyan;
       @include dark-blue;
     }
+
+    &.big {
+      width: 16rem;
+      height: 4rem;
+    }
+
+    &.branding {
+      fill: $dark-blue !important;
+      background-color: transparent !important;
+      cursor: default;
+
+      svg {
+        width: 100%;
+      }
+    }
   }
 
   :global(body.dark) {
@@ -76,6 +101,10 @@
       &:focus:not(&:disabled) {
         fill: $dark-blue;
         @include cyan;
+      }
+
+      &.branding {
+        fill: $cyan !important;
       }
     }
   }

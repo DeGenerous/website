@@ -3,11 +3,14 @@ import Layout from "@layouts/Layout.astro";
 
 import Header from "@components/Header.svelte";
 import Home from "@components/Home.svelte";
+import Footer from "@components/Footer.svelte";
+
 import Background from "@components/utils/Background.svelte";
 ---
 
 <Layout>
   <Header client:load />
   <Home client:load />
+  <Footer client:load />
   <Background client:load />
 </Layout>

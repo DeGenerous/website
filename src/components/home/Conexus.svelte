@@ -4,10 +4,11 @@
   import observeElement from "@utils/observer";
   import typeWrite from "@utils/typewriter";
 
+  let section = $state<HTMLElement>();
   let tagline = $state<HTMLHeadingElement>();
 
   onMount(() => {
-    observeElement(tagline!, null, () => {
+    observeElement(section!, null, () => {
       typeWrite(
         tagline!,
         "Dream to Screen: Unlock Your Storytelling Potential"
@@ -21,7 +22,7 @@
   const images = Array.from({ length: 16 }, (_, i) => `/conexus/${i + 1}.webp`);
 </script>
 
-<section class="container fade-in">
+<section class="container fade-in" bind:this={section}>
   <h3 bind:this={tagline}>
     Dream to Screen: Unlock Your Storytelling Potential
   </h3>

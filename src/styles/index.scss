@@ -117,13 +117,13 @@ ol:not(.default-ol) {
 /* GENERAL STYLING */
 
 a {
-  color: rgba(51, 226, 230, 0.9);
+  // color: rgba(51, 226, 230, 0.9);
   text-decoration: none;
 
   &:hover,
   &:active,
   &:focus {
-    color: $cyan;
+    // color: $cyan;
     text-decoration: underline;
   }
 }

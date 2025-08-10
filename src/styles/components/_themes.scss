@@ -23,14 +23,11 @@ body {
       @include light-blue(1, text);
     }
 
+    a,
     h4,
     h5 {
       color: black;
     }
-
-    // .container {
-    //   @include light-blue(0.05);
-    // }
   }
 
   &.dark {
@@ -43,6 +40,7 @@ body {
       @include cyan(1, text);
     }
 
+    a,
     h4,
     h5 {
       color: white;

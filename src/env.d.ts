@@ -57,3 +57,18 @@ type TypewriterInstance = {
   promise: Promise<void>;
   abort: () => void;
 };
+
+type FooterSocial = {
+  icon: string;
+  href: string;
+  alt: string;
+};
+
+type FooterLink = {
+  title: string;
+  anchors: {
+    label: string;
+    href: string;
+    target: string;
+  }[];
+};
