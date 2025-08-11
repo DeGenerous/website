@@ -14,7 +14,6 @@
     typer?.abort();
     tagline.classList.remove("sr-only");
     typer = typeWrite(tagline, "The GenAI Ecosystem for Storytelling", 100);
-    // If you ever want to chain something after finish: await typer.promise;
   });
 
   onDestroy(() => {

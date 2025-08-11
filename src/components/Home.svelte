@@ -4,6 +4,7 @@
   import CTA from "@components/home/CTA.svelte";
   import Conexus from "@components/home/Conexus.svelte";
   import Collabs from "@components/home/Collabs.svelte";
+  import Tweets from "@components/home/Tweets.svelte";
 </script>
 
 <Tagline />
@@ -11,3 +12,4 @@
 <CTA />
 <Conexus />
 <Collabs />
+<Tweets />
