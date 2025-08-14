@@ -33,6 +33,8 @@
     const epsilon = 4;
     const maxLeft = scroller.scrollWidth - scroller.clientWidth;
 
+    scroller.style.scrollSnapType = "x proximity"; // enable snapping
+
     if (dir === 1) {
       // next
       if (scroller.scrollLeft + epsilon >= maxLeft) {
@@ -48,12 +50,16 @@
         scroller.scrollBy({ left: -tileStep, behavior: "smooth" });
       }
     }
+
+    setTimeout(() => {
+      scroller!.style.scrollSnapType = "none"; // disable snapping temporarily
+    });
   }
 </script>
 
 <h3>Built on DGRS</h3>
 
-<p class="description mar-auto">
+<p>
   Our composable AI infrastructure underpins everything from multimedia agents
   to games, films, and apps - all within a single, unified ecosystem. From
   authors and brands to filmmakers, four entertainment &amp; management apps,
@@ -89,26 +95,24 @@
 
 <span class="flex gap-8">
   <h5>Have an idea?</h5>
-  <button>Launch on DGRS</button>
+  <a class="button-anchor" href="/"> Launch on DGRS </a>
 </span>
 
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
-  .description {
-    @include auto-width;
-  }
-
   .carousel {
-    @include auto-width;
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 0.75rem;
     padding-inline: 0.5rem; /* visual breathing room around arrows */
+    // @include auto-width;
   }
 
   /* Real scroll container — no horizontal padding here */
   .projects-list {
+    width: 100%;
     display: flex;
     align-items: stretch;
     gap: 1rem; /* measured for tileStep */
@@ -117,19 +121,25 @@
     // scroll-snap-type: x mandatory;
     scroll-padding-inline: 0.5rem; /* where "start" should align visually */
     flex: 1;
+    // background-color: rgba(0, 0, 0, 0.25);
 
     &::-webkit-scrollbar {
       display: none;
     }
 
     .project {
+      width: inherit;
+      max-width: 300px; /* max width for smaller screens */
       justify-content: space-between;
       flex: 0 0 auto;
-      width: 260px;
       scroll-snap-align: start;
       text-align: left;
       @include gray-border;
       @include light-blue(0.1);
+
+      @include respond-up("tablet") {
+        width: 260px; /* fixed width for larger screens */
+      }
 
       * {
         pointer-events: none;

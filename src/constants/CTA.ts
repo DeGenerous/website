@@ -8,11 +8,13 @@ const callToAction: CTA[] = [
     buttons: [
       {
         name: "Launch CoNexus",
-        link: "/",
+        link: "https://conexus.degenerousdao.com/",
+        target: "_blank",
       },
       {
         name: "Join Discord",
-        link: "/",
+        link: "http://degenerousdao.com/join",
+        target: "_blank",
       },
     ],
   },
@@ -25,7 +27,8 @@ const callToAction: CTA[] = [
     buttons: [
       {
         name: "Launch CoNexus",
-        link: "/",
+        link: "https://conexus.degenerousdao.com/",
+        target: "_blank",
       },
       {
         name: "Pursue Collabs",
@@ -42,11 +45,11 @@ const callToAction: CTA[] = [
     buttons: [
       {
         name: "Contact us",
-        link: "/",
+        link: "mailto:biz@degenerousdao.com",
       },
       {
         name: "See more",
-        link: "/",
+        link: "/enterprise",
       },
     ],
   },
@@ -59,11 +62,12 @@ const callToAction: CTA[] = [
     buttons: [
       {
         name: "Unlock Your Potential",
-        link: "/",
+        link: "https://magiceden.io/collections/ethereum/0xfa511d5c4cce10321e6e86793cc083213c36278e",
+        target: "_blank",
       },
       {
         name: "See more",
-        link: "/",
+        link: "/investors",
       },
     ],
   },
@@ -76,11 +80,11 @@ const callToAction: CTA[] = [
     buttons: [
       {
         name: "Contact us",
-        link: "/",
+        link: "mailto:charity@degenerousdao.com",
       },
       {
         name: "See more",
-        link: "/",
+        link: "/enterprise",
       },
     ],
   },

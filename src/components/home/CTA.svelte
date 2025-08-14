@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount, tick } from "svelte";
+
   import typeWrite from "@utils/typewriter";
   import observeElement from "@utils/observer";
   import callToAction from "@constants/CTA";
@@ -76,7 +77,7 @@
       <p>{activeSection.description}</p>
 
       <span class="flex-row flex-wrap">
-        {#each activeSection.buttons as { name, link }, index (name)}
+        {#each activeSection.buttons as { name, link, target }, index (name)}
           <a
             class="button-anchor"
             class:secondary={index !== 0}
@@ -84,6 +85,7 @@
               ? `background-color: ${activeSection.color()};`
               : `color: ${activeSection.color()}; border: 1px solid ${activeSection.color()};`}
             href={link}
+            {target}
             rel="noopener noreferrer"
           >
             {name}

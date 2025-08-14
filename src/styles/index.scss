@@ -91,6 +91,11 @@ ol:not(.default-ol) {
   cursor: default;
 }
 
+:where(p) {
+  margin-inline: auto;
+  @include auto-width;
+}
+
 :where(img) {
   width: 100%;
   height: auto;

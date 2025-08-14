@@ -43,6 +43,7 @@ interface StoryTile {
 type Link = {
   name: string;
   link: string;
+  target?: string;
 };
 
 type CTA = {

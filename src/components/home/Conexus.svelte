@@ -16,9 +16,6 @@
     });
   });
 
-  const openConexus = () =>
-    window.open("https://conexus.degenerousdao.com/", "_blank");
-
   const images = Array.from({ length: 16 }, (_, i) => `/conexus/${i + 1}.webp`);
 </script>
 
@@ -51,7 +48,13 @@
     innovate, now is the moment to step into the next era of entertainment.
   </p>
 
-  <button onclick={openConexus}>Launch CoNexus</button>
+  <a
+    class="button-anchor"
+    href="https://conexus.degenerousdao.com/"
+    target="_blank"
+  >
+    Launch CoNexus
+  </a>
 </section>
 
 <style lang="scss">
