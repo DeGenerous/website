@@ -29,9 +29,13 @@
     </ul>
 
     <span class="flex gap-8">
-      <p>© DGRS Labs Pte. Ltd. All rights reserved.</p>
+      <p>© DGRS Labs Pte. Ltd.</p>
       <p>Registered in Singapore - UEN: 202534215D</p>
       <p>20 Collyer Quay, #11-07, Singapore 049319</p>
+      <span class="flex-row gap-8">
+        <img src="/icons/gdpr.png" alt="GDPR Badge" />
+        <p>All rights reserved.</p>
+      </span>
     </span>
   </section>
 
@@ -87,7 +91,16 @@
         @include gray(1, text);
 
         p {
+          white-space: nowrap;
           @include font(caption);
+        }
+
+        span {
+          align-items: center;
+
+          img {
+            width: 2rem;
+          }
         }
       }
     }

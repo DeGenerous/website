@@ -58,6 +58,13 @@ type TypewriterInstance = {
   abort: () => void;
 };
 
+type BuiltProject = {
+  title: string;
+  category: string;
+  img: string;
+  desc: string;
+};
+
 type FooterSocial = {
   icon: string;
   href: string;

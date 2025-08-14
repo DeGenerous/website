@@ -80,12 +80,12 @@
     }
   }
 
-  onMount(() => {
-    observeElement(root!, null, () => {
-      typeWrite(tagline!, "Highlighted Tweets");
-    });
-    hydrateTweets();
-  });
+  // onMount(() => {
+  //   observeElement(root!, null, () => {
+  //     typeWrite(tagline!, "Highlighted Tweets");
+  //   });
+  //   hydrateTweets();
+  // });
 </script>
 
 <section bind:this={root}>
@@ -114,76 +114,47 @@
 
   section {
     width: 100vw;
-  }
 
-  h3 {
-    margin-bottom: 0.5rem;
-  }
-
-  h5 {
-    margin-block: 0.5rem;
-  }
-
-  .tweets {
-    display: flex;
-    align-items: stretch;
-    gap: 1rem;
-    margin-top: 0.5rem;
-    padding-left: 1rem;
-    overflow-x: auto;
-    // scroll-snap-type: x proximity;
-    opacity: 0;
-    transform: scale(0.9);
-    transition: all 0.6s ease-in-out;
-
-    &.visible {
-      transform: rotateX(180deg) scale(1);
-      opacity: 1;
+    h3 {
+      margin-bottom: 0.5rem;
     }
-  }
 
-  .tweet-card {
-    min-width: clamp(20rem, 50vw, 32rem);
-    scroll-snap-align: start;
-    display: flex;
-    transform: rotateX(180deg);
-  }
-
-  .tweet-slot {
-    width: 100%;
-    /* Twitter injects an iframe here */
-  }
-
-  /* Desktop scrollbar polish */
-  // @media (hover: hover) {
-  //   .tweets::-webkit-scrollbar {
-  //     height: 0.6rem;
-  //   }
-  //   .tweets::-webkit-scrollbar-track {
-  //     background-color: rgba(0, 0, 0, 0.1);
-  //   }
-  //   .tweets::-webkit-scrollbar-thumb {
-  //     background: linear-gradient(
-  //       90deg,
-  //       rgba(51, 226, 230, 0.15),
-  //       rgba(51, 226, 230, 0.3),
-  //       rgba(51, 226, 230, 0.15)
-  //     );
-  //     border-radius: 0.75rem;
-  //   }
-  //   .tweets::-webkit-scrollbar-thumb:hover {
-  //     background: rgba(51, 226, 230, 0.5);
-  //   }
-  // }
-
-  /* Mobile sizing */
-  @media (max-width: 600px) {
-    .tweet-card {
-      min-width: 85vw;
+    h5 {
+      margin-block: 0.5rem;
     }
+
     .tweets {
-      padding: 0 0.75rem 1rem;
-      gap: 0.75rem;
+      display: flex;
+      align-items: stretch;
+      gap: 1rem;
+      margin-top: 0.5rem;
+      padding-left: 1rem;
+      overflow-x: auto;
+      // scroll-snap-type: x proximity;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 0.6s ease-in-out;
+
+      &.visible {
+        transform: rotateX(180deg) scale(1);
+        opacity: 1;
+      }
+
+      .tweet-card {
+        min-width: 85vw;
+        scroll-snap-align: start;
+        display: flex;
+        transform: rotateX(180deg);
+
+        .tweet-slot {
+          width: 100%;
+          /* Twitter injects an iframe here */
+        }
+
+        @include respond-up("small-desktop") {
+          min-width: clamp(20rem, 50vw, 32rem);
+        }
+      }
     }
   }
 </style>

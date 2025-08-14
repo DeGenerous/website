@@ -206,13 +206,14 @@
 
     .container {
       .caption {
+        text-decoration: underline dotted;
         @include gray(1, text);
         @include font(caption);
 
         &:hover,
         &:active,
         &:focus {
-          text-decoration: underline dashed;
+          text-decoration: underline;
           color: black;
         }
       }
