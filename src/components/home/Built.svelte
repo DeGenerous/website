@@ -1,15 +1,26 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
   import projects from "@constants/built";
+  import observeElement from "@utils/observer";
+  import typeWrite from "@utils/typewriter";
 
   import Switch from "@components/icons/Switch.svelte";
 
   let expandedIndex = $state<number[]>([]);
 
+  let tagline = $state<HTMLHeadingElement>();
   let viewport = $state<HTMLElement>(); // padded wrapper (not the scroller)
   let scroller = $state<HTMLUListElement>(); // the real scroll container
   let tileRefs = $state<HTMLElement[]>([]);
 
   let tileStep = 300; // fallback
+
+  onMount(() => {
+    observeElement(tagline!, null, () => {
+      typeWrite(tagline!, "Built on DGRS");
+    });
+  });
 
   function toggleExpand(event: Event, i: number) {
     if (expandedIndex.includes(i)) {
@@ -57,7 +68,7 @@
   }
 </script>
 
-<h3>Built on DGRS</h3>
+<h3 bind:this={tagline}>Built on DGRS</h3>
 
 <p>
   Our composable AI infrastructure underpins everything from multimedia agents
@@ -107,7 +118,6 @@
     align-items: center;
     gap: 0.75rem;
     padding-inline: 0.5rem; /* visual breathing room around arrows */
-    // @include auto-width;
   }
 
   /* Real scroll container — no horizontal padding here */
@@ -128,6 +138,7 @@
     }
 
     .project {
+      height: 400px; /* fixed height for tiles */
       width: inherit;
       max-width: 300px; /* max width for smaller screens */
       justify-content: space-between;
@@ -138,7 +149,13 @@
       @include light-blue(0.1);
 
       @include respond-up("tablet") {
-        width: 260px; /* fixed width for larger screens */
+        width: 360px; /* fixed width for larger screens */
+        max-width: unset;
+      }
+
+      @include respond-up("quad-hd") {
+        height: 15vw;
+        width: 12.5vw; /* fixed width for wide desktop */
       }
 
       * {
@@ -162,6 +179,7 @@
           text-align: center;
           font-weight: 500;
           height: inherit;
+          @include font(h5);
         }
 
         h5 {

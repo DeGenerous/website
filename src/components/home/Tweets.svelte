@@ -80,12 +80,12 @@
     }
   }
 
-  // onMount(() => {
-  //   observeElement(root!, null, () => {
-  //     typeWrite(tagline!, "Highlighted Tweets");
-  //   });
-  //   hydrateTweets();
-  // });
+  onMount(() => {
+    observeElement(root!, null, () => {
+      typeWrite(tagline!, "Highlighted Tweets");
+    });
+    hydrateTweets();
+  });
 </script>
 
 <section bind:this={root}>
@@ -117,6 +117,7 @@
 
     h3 {
       margin-bottom: 0.5rem;
+      max-width: unset;
     }
 
     h5 {

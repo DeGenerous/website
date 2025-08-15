@@ -41,7 +41,7 @@ export const links: FooterLink[] = [
         target: "_self",
       },
       {
-        label: "Security",
+        label: "Copyright Policy",
         href: "/",
         target: "_self",
       },

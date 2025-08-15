@@ -47,9 +47,9 @@
         <li>
           <h5>{title}</h5>
         </li>
-        {#each anchors as { label, href }}
+        {#each anchors as { label, href, target }}
           <li>
-            <a {href} rel="noopener noreferrer">{label}</a>
+            <a {href} {target} rel="noopener noreferrer">{label}</a>
           </li>
         {/each}
       </ul>
@@ -66,6 +66,10 @@
     @include light-blue(0.1);
 
     section {
+      p {
+        max-width: unset;
+      }
+
       .socials {
         margin-block: 0.5rem;
 
@@ -91,6 +95,8 @@
         @include gray(1, text);
 
         p {
+          margin: 0;
+          max-width: unset;
           white-space: nowrap;
           @include font(caption);
         }
