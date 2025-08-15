@@ -82,7 +82,7 @@
       >
         <span class="pad-8">
           <p>{project.desc}</p>
-          <img src="sagaverse.webp" alt={project.title} />
+          <img src={project.img} alt={project.title} />
           <h5 class="fade-in">Learn more...</h5>
         </span>
         <h4>{project.title}</h4>
