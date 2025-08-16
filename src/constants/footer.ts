@@ -97,18 +97,18 @@ export const links: FooterLink[] = [
     anchors: [
       {
         label: "CoNexus",
-        href: "/",
-        target: "_self",
+        href: "https://conexus.degenerousdao.com/",
+        target: "_blank",
       },
       {
         label: "Galactic Governance Hub",
-        href: "/",
-        target: "_self",
+        href: "https://governance.degenerousdao.com/",
+        target: "_blank",
       },
       {
         label: "Loredex",
-        href: "/",
-        target: "_self",
+        href: "https://loredex.degenerousdao.com/",
+        target: "_blank",
       },
       {
         label: "Sagaverse Gaming",

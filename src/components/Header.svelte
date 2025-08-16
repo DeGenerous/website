@@ -1,9 +1,13 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
+  import tabs from "@constants/header";
+
   import LogoSVG from "@components/icons/Logo.svelte";
   import ConexusLogoSVG from "@components/icons/ConexusLogo.svelte";
   import BurgerSVG from "@components/icons/Burger.svelte";
+
+  let { activeTab = "" }: { activeTab?: string } = $props();
 
   let scrollY = $state<number>(0);
   const clamp = 64; // px after which hiding can kick in
@@ -48,12 +52,9 @@
       onclick={() => open("https://conexus.degenerousdao.com/", "_blank")}
       hideForPCs={true}
     />
-    <a href="/">Investors</a>
-    <a class="active" href="/">Enterprise</a>
-    <a href="/">Apps</a>
-    <a href="/">Impact</a>
-    <a href="/">Community</a>
-    <a href="/">Team</a>
+    {#each tabs as tab}
+      <a class:active={activeTab === tab} href="/{tab}">{tab}</a>
+    {/each}
     <input class="theme-toggle" type="checkbox" bind:checked={isDark} />
   </nav>
   <ConexusLogoSVG
@@ -108,6 +109,7 @@
         padding-inline: 0.5rem;
         border-radius: 0.5rem;
         font-weight: 500;
+        text-transform: capitalize;
         @include dark-blue(1, text);
 
         &:hover,

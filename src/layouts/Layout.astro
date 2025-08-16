@@ -4,12 +4,13 @@ import { seoConfig } from "../../utils/seoConfig";
 
 import "/src/styles/index.scss";
 
+import Header from "@components/Header.svelte";
+import Footer from "@components/Footer.svelte";
+
+import Background from "@components/utils/Background.svelte";
+
 type LayoutProps = {
-  header?: string;
-  subheading?: string;
   nav?: string;
-  arrow?: boolean;
-  story?: string;
   title?: string;
   ogTitle?: string;
   description?: string;
@@ -21,9 +22,10 @@ type LayoutProps = {
 };
 
 const {
-  title = "DeGenerous DAO | AI Storytelling",
+  title = "DGRS Labs | AI Storytelling",
   description = "We're building a decentralized entertainment platform for the GenAI era. Play interactive story games or create your own visual novel with branching choices.",
   image = "/favicon.ico",
+  nav = "home",
   url = "https://degenerousdao.com/",
   type = "website",
   ogTitle,
@@ -72,7 +74,10 @@ const {
     />
   </head>
   <body>
+    <Header activeTab={nav} client:load />
     <slot />
+    <Footer client:load />
+    <Background client:load />
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"
     ></script>
   </body>
