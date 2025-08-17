@@ -96,7 +96,7 @@
   {/if}
 
   <div
-    class="tweets horiz-scrollbar"
+    class="tweets flex-row horiz-scrollbar"
     class:visible={!loading}
     aria-live="polite"
   >
@@ -113,25 +113,22 @@
   @use "/src/styles/mixins" as *;
 
   section {
-    width: 100vw;
+    @include respond-up("small-desktop") {
+      padding-top: 1rem;
+      min-height: 100vh;
+    }
 
     h3 {
-      margin-bottom: 0.5rem;
       max-width: unset;
     }
 
-    h5 {
-      margin-block: 0.5rem;
-    }
-
     .tweets {
-      display: flex;
+      width: 100vw;
       align-items: stretch;
-      gap: 1rem;
       margin-top: 0.5rem;
       padding-left: 1rem;
       overflow-x: auto;
-      // scroll-snap-type: x proximity;
+      scroll-snap-type: x proximity;
       opacity: 0;
       transform: scale(0.9);
       transition: all 0.6s ease-in-out;

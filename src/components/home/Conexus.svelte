@@ -35,7 +35,12 @@
     <ul class="reel" style="--count:{images.length}">
       {#each [...images, ...images] as src, i}
         <li>
-          <img {src} alt={`Story ${(i % images.length) + 1}`} loading="lazy" />
+          <img
+            class="transition"
+            {src}
+            alt={`Story ${(i % images.length) + 1}`}
+            loading="lazy"
+          />
         </li>
       {/each}
     </ul>
@@ -138,10 +143,6 @@
         height: 100%;
         object-fit: cover;
         display: block;
-        transition:
-          transform 0.25s ease,
-          filter 0.25s ease,
-          opacity 0.25s ease;
       }
     }
   }
@@ -151,12 +152,11 @@
     animation-play-state: paused;
   }
   .stories:hover img {
-    filter: grayscale(1) blur(0.05rem);
+    filter: grayscale(50%);
     opacity: 0.75;
   }
   .reel > li:hover img {
-    filter: none;
+    filter: brightness(125%);
     opacity: 1;
-    transform: scale(1.06);
   }
 </style>

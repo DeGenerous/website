@@ -123,7 +123,7 @@
   @use "/src/styles/mixins" as *;
 
   section {
-    min-height: min(100vh, 50rem);
+    min-height: 100vh;
     padding-block: 1rem;
 
     h3 {

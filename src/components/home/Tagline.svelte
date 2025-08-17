@@ -26,7 +26,7 @@
   }
 </script>
 
-<div class="tagline flex mar-auto fade-in">
+<section class="tagline flex mar-auto fade-in">
   <!-- Keep real text in markup for SEO/no-JS, the script will overwrite it -->
   <h1 class="sr-only" bind:this={tagline}>
     The GenAI Ecosystem for Storytelling
@@ -42,7 +42,7 @@
   </button>
 
   <VoidArrowSVG onclick={scrollDown} />
-</div>
+</section>
 
 <style lang="scss">
   @use "/src/styles/mixins/" as *;

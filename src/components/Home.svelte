@@ -9,16 +9,26 @@
   import Tweets from "@components/home/Tweets.svelte";
 </script>
 
-<main class="flex">
+<main class="snap-wrap flex">
   <Tagline />
+
   <Video />
+
   <CTA />
+
   <Conexus />
   <Collabs />
-  <hr class="mar-block" />
+
   <Built />
-  <hr class="mar-block" />
+
   <Shape />
-  <hr class="mar-block" />
+
   <Tweets />
 </main>
+
+<style lang="scss">
+  // main {
+  // overflow-y: auto;
+  // scroll-snap-type: y proximity;
+  // }
+</style>

@@ -20,6 +20,7 @@
     observeElement(tagline!, null, () => {
       typeWrite(tagline!, "Built on DGRS");
     });
+    observeElement(viewport!, "visible");
   });
 
   function toggleExpand(event: Event, i: number) {
@@ -68,189 +69,203 @@
   }
 </script>
 
-<h3 bind:this={tagline}>Built on DGRS</h3>
+<section class="flex">
+  <h3 bind:this={tagline}>Built on DGRS</h3>
 
-<p>
-  Our composable AI infrastructure underpins everything from multimedia agents
-  to games, films, and apps - all within a single, unified ecosystem. From
-  authors and brands to filmmakers, four entertainment &amp; management apps,
-  three video games, a sci-fi franchise, and a social media AI agent, DGRS’s
-  modular building blocks power real-world innovation.
-</p>
+  <p>
+    Our composable AI infrastructure underpins everything from multimedia agents
+    to games, films, and apps - all within a single, unified ecosystem. From
+    authors and brands to filmmakers, four entertainment &amp; management apps,
+    three video games, a sci-fi franchise, and a social media AI agent, DGRS’s
+    modular building blocks power real-world innovation.
+  </p>
 
-<section class="carousel mar-auto mar-block" bind:this={viewport}>
-  <Switch onclick={() => scrollWrap(-1)} />
+  <div class="carousel mar-auto mar-block transition" bind:this={viewport}>
+    <Switch onclick={() => scrollWrap(-1)} />
 
-  <!-- Viewport gives visual padding; scroller has NO horizontal padding -->
-  <ul class="projects-list" bind:this={scroller}>
-    {#each projects as project, i}
-      <button
-        class="project void-btn flex pad-8 gap-8 round"
-        class:expanded={expandedIndex.includes(i)}
-        onclick={(event) => toggleExpand(event, i)}
-        data-description={project.desc}
-        bind:this={tileRefs[i]}
-      >
-        <span class="pad-8">
-          <p>{project.desc}</p>
-          <img src={project.img} alt={project.title} />
-          <h5 class="fade-in">Learn more...</h5>
-        </span>
-        <h4>{project.title}</h4>
-      </button>
-    {/each}
-  </ul>
+    <!-- Viewport gives visual padding; scroller has NO horizontal padding -->
+    <ul class="projects-list" bind:this={scroller}>
+      {#each projects as project, i}
+        <button
+          class="project void-btn flex pad-8 gap-8 round"
+          class:expanded={expandedIndex.includes(i)}
+          onclick={(event) => toggleExpand(event, i)}
+          data-description={project.desc}
+          bind:this={tileRefs[i]}
+        >
+          <span class="pad-8">
+            <p>{project.desc}</p>
+            <img src={project.img} alt={project.title} />
+            <h5 class="fade-in">Learn more...</h5>
+          </span>
+          <h4>{project.title}</h4>
+        </button>
+      {/each}
+    </ul>
 
-  <Switch onclick={() => scrollWrap(1)} right />
+    <Switch onclick={() => scrollWrap(1)} right />
+  </div>
+
+  <span class="flex gap-8">
+    <h5>Have an idea?</h5>
+    <a class="button-anchor" href="/"> Launch on DGRS </a>
+  </span>
 </section>
-
-<span class="flex gap-8">
-  <h5>Have an idea?</h5>
-  <a class="button-anchor" href="/"> Launch on DGRS </a>
-</span>
 
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
-  .carousel {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding-inline: 0.5rem; /* visual breathing room around arrows */
-  }
+  section {
+    min-height: 100vh;
 
-  /* Real scroll container — no horizontal padding here */
-  .projects-list {
-    width: 100%;
-    display: flex;
-    align-items: stretch;
-    gap: 1rem; /* measured for tileStep */
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    // scroll-snap-type: x mandatory;
-    scroll-padding-inline: 0.5rem; /* where "start" should align visually */
-    flex: 1;
-    // background-color: rgba(0, 0, 0, 0.25);
-
-    &::-webkit-scrollbar {
-      display: none;
+    .carousel {
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-inline: 0.5rem; /* visual breathing room around arrows */
+      transition-duration: 0.6s;
+      opacity: 0.5;
+      transform: scaleY(0.85);
     }
 
-    .project {
-      height: 400px; /* fixed height for tiles */
-      width: inherit;
-      max-width: 300px; /* max width for smaller screens */
-      justify-content: space-between;
-      flex: 0 0 auto;
-      scroll-snap-align: start;
-      text-align: left;
-      @include gray-border;
-      @include light-blue(0.1);
+    /* Real scroll container — no horizontal padding here */
+    .projects-list {
+      width: 100%;
+      display: flex;
+      align-items: stretch;
+      gap: 1rem; /* measured for tileStep */
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      // scroll-snap-type: x mandatory;
+      scroll-padding-inline: 0.5rem; /* where "start" should align visually */
+      flex: 1;
+      // background-color: rgba(0, 0, 0, 0.25);
 
-      @include respond-up("tablet") {
-        width: 360px; /* fixed width for larger screens */
-        max-width: unset;
+      &::-webkit-scrollbar {
+        display: none;
       }
 
-      @include respond-up("quad-hd") {
-        height: 15vw;
-        width: 12.5vw; /* fixed width for wide desktop */
-      }
+      .project {
+        height: 400px; /* fixed height for tiles */
+        width: inherit;
+        max-width: 300px; /* max width for smaller screens */
+        justify-content: space-between;
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        text-align: left;
+        @include gray-border;
+        @include light-blue(0.1);
 
-      * {
-        pointer-events: none;
-      }
-
-      span {
-        position: relative;
-        height: 100%;
-
-        img {
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: inherit;
-          display: block;
-          border-radius: 0.5rem;
+        @include respond-up("tablet") {
+          width: 360px; /* fixed width for larger screens */
+          max-width: unset;
         }
 
-        p {
-          text-align: center;
-          font-weight: 500;
-          height: inherit;
-          @include font(h5);
+        @include respond-up("quad-hd") {
+          height: 15vw;
+          width: 12.5vw; /* fixed width for wide desktop */
         }
 
-        h5 {
-          display: none;
-          position: absolute;
-          top: 50%;
-          left: 0;
-          transform: translateY(-50%);
-          width: 100%;
-          text-align: center;
-          @include white-txt(1);
+        * {
+          pointer-events: none;
         }
-      }
-
-      h4 {
-        text-align: center;
-        font-family: $font-sans;
-        @include blue(1, text);
-      }
-
-      &.expanded {
-        @include navy;
 
         span {
+          position: relative;
+          height: 100%;
+
           img {
-            opacity: 0;
-            filter: blur(10rem) brightness(200%);
-            transform: scaleX(0);
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: inherit;
+            display: block;
+            border-radius: 0.5rem;
           }
 
           p {
-            @include white-txt;
+            text-align: center;
+            font-weight: 500;
+            height: inherit;
+            @include font(h5);
+          }
+
+          h5 {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            width: 100%;
+            text-align: center;
+            @include white-txt(1);
           }
         }
 
         h4 {
-          @include white-txt(1);
+          text-align: center;
+          font-family: $font-sans;
+          @include blue(1, text);
         }
-      }
 
-      &:hover,
-      &:active {
         &.expanded {
-          @include bright;
-        }
-
-        &:not(&.expanded) {
-          @include light-blue(0.25);
-
-          h4 {
-            @include navy(1, text);
-          }
+          @include navy;
 
           span {
             img {
-              filter: blur(0.1rem) brightness(50%);
+              opacity: 0;
+              filter: blur(10rem) brightness(200%);
+              transform: scaleX(0);
             }
 
-            h5 {
-              display: block;
+            p {
+              @include white-txt;
+            }
+          }
+
+          h4 {
+            @include white-txt(1);
+          }
+        }
+
+        &:hover,
+        &:active {
+          &.expanded {
+            @include bright;
+          }
+
+          &:not(&.expanded) {
+            @include light-blue(0.25);
+
+            h4 {
+              @include navy(1, text);
+            }
+
+            span {
+              img {
+                filter: blur(0.1rem) brightness(50%);
+              }
+
+              h5 {
+                display: block;
+              }
             }
           }
         }
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .projects-list {
+        scroll-behavior: auto;
       }
     }
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .projects-list {
-      scroll-behavior: auto;
-    }
+  :global(.carousel.visible) {
+    opacity: 1 !important;
+    transform: scaleY(1) !important;
   }
 
   :global(body.dark) {

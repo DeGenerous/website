@@ -6,82 +6,88 @@
   import typeWrite from "@utils/typewriter";
 
   let tagline = $state<HTMLHeadingElement>();
+  let video = $state<HTMLVideoElement>();
 
   onMount(() => {
     observeElement(tagline!, null, () => {
       typeWrite(tagline!, "Shape The World You Dream Of");
     });
+    observeElement(video!, "visible");
   });
 </script>
 
-<h3 bind:this={tagline}>Shape The World You Dream Of</h3>
+<hr class="mobile-only mar-block" />
 
-<p>
-  Step into a playground of endless possibility, where your wildest visions come
-  to life on a foundation built for boundless creativity.
-</p>
+<section class="shape-world flex blur">
+  <h3 bind:this={tagline}>Shape The World You Dream Of</h3>
 
-<div class="fade-in round">
-  <video controls>
+  <p>
+    Step into a playground of endless possibility, where your wildest visions
+    come to life on a foundation built for boundless creativity.
+  </p>
+
+  <video class="shape-video round transition" controls bind:this={video}>
     <!-- <source src={`${trailerURL}/CoNexusTrailer.webm`} type="video/webm" /> -->
     <source src="CoNexus.mp4" type="video/mp4" />
     <track kind="captions" />
   </video>
-</div>
 
-<p>
-  Whether you’re weaving epic tales, crafting unforgettable games, or launching
-  the next breakthrough app, DGRS hands you the keys to build, iterate, and
-  amaze - no limits attached. Join a community of dreamers and doers and watch
-  your ideas reshape reality.
-</p>
+  <p>
+    Whether you’re weaving epic tales, crafting unforgettable games, or
+    launching the next breakthrough app, DGRS hands you the keys to build,
+    iterate, and amaze - no limits attached. Join a community of dreamers and
+    doers and watch your ideas reshape reality.
+  </p>
 
-<a class="button-anchor" href="http://degenerousdao.com/join" target="_blank">
-  Join the Community
-</a>
+  <a class="button-anchor" href="http://degenerousdao.com/join" target="_blank">
+    Join the Community
+  </a>
+</section>
+
+<hr class="mobile-only mar-block" />
 
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
-  div {
-    width: 95vw;
+  .shape-world {
+    width: 100vw;
+
+    @include respond-up("small-desktop") {
+      min-height: 100vh;
+      padding-block: 1rem;
+      border-left: none !important;
+      border-right: none !important;
+      @include light-blue(0.1);
+      @include gray-border;
+    }
+
+    video {
+      width: 95vw;
+      height: auto;
+      opacity: 0.25;
+      transition-duration: 0.6s;
+
+      @include respond-up("small-desktop") {
+        width: 30rem;
+      }
+
+      @include respond-up("large-desktop") {
+        width: 40rem;
+      }
+
+      @include respond-up("quad-hd") {
+        width: 50rem;
+      }
+    }
   }
 
-  video {
-    width: 100%;
-    border-radius: inherit;
-    height: auto;
+  :global(.shape-video.visible) {
+    opacity: 1 !important;
   }
 
-  @include respond-up("small-desktop") {
-    div {
-      width: 90vw;
-    }
-
-    p {
-      width: 90vw;
-    }
-  }
-
-  @include respond-up("large-desktop") {
-    div {
-      width: 70vw;
-    }
-
-    p {
-      width: 70vw;
-    }
-  }
-
-  @include respond-up("quad-hd") {
-    div {
-      margin-inline: auto;
-      border-radius: 1rem;
-      @include auto-width;
-    }
-
-    p {
-      width: 50vw;
+  :global(body.dark .shape-world) {
+    @include respond-up("small-desktop") {
+      @include cyan(0.05);
     }
   }
 </style>

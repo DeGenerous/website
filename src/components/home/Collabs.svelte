@@ -1,38 +1,5 @@
-<script>
-  const collabs = [
-    {
-      href: "https://www.lionsclubs.org/",
-      src: "/collabs/lions.png",
-      alt: "Lions International",
-    },
-    {
-      href: "https://www.story.foundation/",
-      src: "/collabs/story-protocol.png",
-      alt: "Story Protocol",
-    },
-    { href: "https://www.base.org/", src: "/collabs/base.png", alt: "Base" },
-    { href: "https://twigg.xyz/", src: "/collabs/twigg.png", alt: "Twigg" },
-    {
-      href: "https://www.anyone.io/",
-      src: "/collabs/anyone.png",
-      alt: "ANyONe",
-    },
-    {
-      href: "https://nonos-tech.xyz/",
-      src: "/collabs/nonos.png",
-      alt: "NONOS",
-    },
-    {
-      href: "https://www.glmrapes.com/",
-      src: "/collabs/glma.png",
-      alt: "GLMR Apes",
-    },
-    {
-      href: "https://highclasscrypto.io/",
-      src: "/collabs/hcc.png",
-      alt: "High Class Crypto",
-    },
-  ];
+<script lang="ts">
+  import collabs from "@constants/collabs";
 </script>
 
 <section class="container fade-in">
@@ -46,7 +13,7 @@
       {#each [...collabs, ...collabs] as c}
         <li>
           <a href={c.href} target="_blank" rel="noopener">
-            <img src={c.src} alt={c.alt} loading="lazy" />
+            <img class="transform" src={c.src} alt={c.alt} loading="lazy" />
           </a>
         </li>
       {/each}
@@ -148,13 +115,12 @@
       animation-play-state: paused;
     }
     &:hover img {
-      filter: grayscale(1) contrast(1.05);
+      filter: grayscale(50%);
       opacity: 0.75;
     }
     .reel li:hover img {
-      filter: none;
+      filter: brightness(125%);
       opacity: 1;
-      transform: scale(1.06);
     }
   }
 </style>

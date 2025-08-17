@@ -166,6 +166,10 @@ html {
     gap: 1rem;
   }
 
+  main.snap-wrap {
+    scroll-snap-type: y proximity;
+  }
+
   .flex-row {
     @extend .flex;
     flex-direction: row;
