@@ -38,9 +38,10 @@
       height: auto;
       transition-duration: 0.6s;
       opacity: 0;
-      transform: scale(0.75) skew(15deg, -15deg);
+      transform: scale(0.75) skew(5deg, -5deg);
 
       @include respond-up("quad-hd") {
+        transform: scale(0.75) skew(15deg, -15deg);
         margin-inline: auto;
         border-radius: 1rem;
         @include auto-width;

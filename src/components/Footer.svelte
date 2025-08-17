@@ -21,7 +21,7 @@
     <ul class="socials flex-row">
       {#each socials as { icon, href, alt }}
         <li>
-          <a {href} target="_blank">
+          <a class="nohover-link" {href} target="_blank">
             <img src={icon} {alt} />
           </a>
         </li>

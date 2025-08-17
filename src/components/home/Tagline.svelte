@@ -22,7 +22,7 @@
   });
 
   function scrollDown() {
-    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+    window.scrollTo({ top: window.innerHeight + 5 * 16, behavior: "smooth" });
   }
 </script>
 

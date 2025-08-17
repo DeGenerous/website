@@ -53,7 +53,9 @@
       hideForPCs={true}
     />
     {#each tabs as tab}
-      <a class:active={activeTab === tab} href="/{tab}">{tab}</a>
+      <a class="nohover-link" class:active={activeTab === tab} href="/{tab}"
+        >{tab}</a
+      >
     {/each}
     <input class="theme-toggle" type="checkbox" bind:checked={isDark} />
   </nav>

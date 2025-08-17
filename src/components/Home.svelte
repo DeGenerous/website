@@ -9,7 +9,7 @@
   import Tweets from "@components/home/Tweets.svelte";
 </script>
 
-<main class="snap-wrap flex">
+<main class="flex">
   <Tagline />
 
   <Video />
@@ -26,9 +26,8 @@
   <Tweets />
 </main>
 
-<style lang="scss">
-  // main {
-  // overflow-y: auto;
-  // scroll-snap-type: y proximity;
-  // }
+<style>
+  main {
+    gap: 5rem;
+  }
 </style>
