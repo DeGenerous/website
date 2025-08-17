@@ -43,7 +43,7 @@
 
   <div class="flex-row flex-wrap">
     {#each links as { title, anchors }}
-      <ul>
+      <ul class="links">
         <li>
           <h5>{title}</h5>
         </li>
@@ -116,7 +116,7 @@
       align-items: flex-start;
       gap: 2rem;
 
-      ul {
+      .links {
         text-align: left;
         width: calc((100% - 2rem * 2) / 2);
         display: flex;
@@ -132,8 +132,15 @@
         }
 
         a {
-          font-weight: 300;
+          color: $dark-blue;
+          opacity: 0.5;
           @include font(caption);
+
+          &:hover,
+          &:active,
+          &:focus {
+            opacity: 1;
+          }
         }
 
         @include respond-up("tablet") {

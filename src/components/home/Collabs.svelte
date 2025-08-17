@@ -12,8 +12,8 @@
     <ul class="reel" style="--count:{collabs.length}">
       {#each [...collabs, ...collabs] as c}
         <li>
-          <a href={c.href} target="_blank" rel="noopener">
-            <img class="transform" src={c.src} alt={c.alt} loading="lazy" />
+          <a class="nohover-link" href={c.href} target="_blank" rel="noopener">
+            <img class="transition" src={c.src} alt={c.alt} loading="lazy" />
           </a>
         </li>
       {/each}
@@ -36,7 +36,7 @@
   $dur-per-item: 2s; // speed: total duration = count * dur-per-item
 
   section {
-    margin-bottom: 4rem;
+    margin-block: -5rem 4rem;
   }
 
   /* Wrap */
@@ -115,11 +115,9 @@
       animation-play-state: paused;
     }
     &:hover img {
-      filter: grayscale(50%);
-      opacity: 0.75;
+      opacity: 0.5;
     }
     .reel li:hover img {
-      filter: brightness(125%);
       opacity: 1;
     }
   }

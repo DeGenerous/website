@@ -152,13 +152,13 @@ a {
   &:not(.nohover-link, .button-anchor):hover::after,
   &:not(.nohover-link, .button-anchor):focus-visible::after {
     transform: scaleX(1);
-    transform-origin: left; // expand from left
+    // transform-origin: left; // expand from left
   }
 
   // When mouse leaves: shrink to the right
   &:not(.nohover-link, .button-anchor):not(:hover)::after {
     transform: scaleX(0);
-    transform-origin: right;
+    // transform-origin: right;
   }
 }
 

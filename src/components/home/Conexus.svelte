@@ -152,11 +152,9 @@
     animation-play-state: paused;
   }
   .stories:hover img {
-    filter: grayscale(50%);
-    opacity: 0.75;
+    opacity: 0.5;
   }
   .reel > li:hover img {
-    filter: brightness(125%);
     opacity: 1;
   }
 </style>

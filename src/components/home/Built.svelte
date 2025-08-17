@@ -126,7 +126,7 @@
       padding-inline: 0.5rem; /* visual breathing room around arrows */
       transition-duration: 0.6s;
       opacity: 0.5;
-      transform: scaleY(0.85);
+      transform: scaleY(0.9);
     }
 
     /* Real scroll container — no horizontal padding here */
