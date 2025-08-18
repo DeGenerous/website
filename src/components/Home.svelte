@@ -29,5 +29,6 @@
 <style>
   main {
     gap: 5rem;
+    width: 100vw;
   }
 </style>

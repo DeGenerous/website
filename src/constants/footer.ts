@@ -52,7 +52,7 @@ export const links: FooterLink[] = [
     anchors: [
       {
         label: "Potentials",
-        href: "/",
+        href: "/investors",
         target: "_self",
       },
       {
@@ -112,7 +112,7 @@ export const links: FooterLink[] = [
       },
       {
         label: "Sagaverse Gaming",
-        href: "/",
+        href: "/apps",
         target: "_self",
       },
     ],
@@ -142,22 +142,22 @@ export const links: FooterLink[] = [
     anchors: [
       {
         label: "Join Channels",
-        href: "/",
+        href: "/commnunity",
         target: "_self",
       },
       {
         label: "Safe Links",
-        href: "/",
+        href: "/community",
         target: "_self",
       },
       {
         label: "Bounties",
-        href: "/",
+        href: "/community",
         target: "_self",
       },
       {
         label: "Ambassador & Affiliate",
-        href: "/",
+        href: "/community",
         target: "_self",
       },
     ],
@@ -182,22 +182,22 @@ export const links: FooterLink[] = [
     anchors: [
       {
         label: "About Us",
-        href: "/",
+        href: "/team",
         target: "_self",
       },
       {
         label: "Leadership",
-        href: "/",
+        href: "/team",
         target: "_self",
       },
       {
         label: "Core Team",
-        href: "/",
+        href: "/team",
         target: "_self",
       },
       {
         label: "Careers",
-        href: "/",
+        href: "/team",
         target: "_self",
       },
     ],

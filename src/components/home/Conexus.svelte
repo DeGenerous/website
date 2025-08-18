@@ -74,6 +74,11 @@
 
   section {
     margin-block: 4rem;
+    padding-inline: 0;
+    max-width: 100vw;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
 
     @include respond-up("small-desktop") {
       margin-block: 0 4rem;
@@ -85,20 +90,20 @@
     width: 100%;
     overflow: hidden;
 
-    -webkit-mask-image: linear-gradient(
-      90deg,
-      transparent 0,
-      #000 #{$edge-fade},
-      #000 calc(100% - #{$edge-fade}),
-      transparent 100%
-    );
-    mask-image: linear-gradient(
-      90deg,
-      transparent 0,
-      #000 #{$edge-fade},
-      #000 calc(100% - #{$edge-fade}),
-      transparent 100%
-    );
+    // -webkit-mask-image: linear-gradient(
+    //   90deg,
+    //   transparent 0,
+    //   #000 #{$edge-fade},
+    //   #000 calc(100% - #{$edge-fade}),
+    //   transparent 100%
+    // );
+    // mask-image: linear-gradient(
+    //   90deg,
+    //   transparent 0,
+    //   #000 #{$edge-fade},
+    //   #000 calc(100% - #{$edge-fade}),
+    //   transparent 100%
+    // );
   }
 
   /* The moving track */

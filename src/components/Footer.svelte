@@ -8,6 +8,8 @@
   onMount(() => {
     // Any initialization logic for the footer can go here
   });
+
+  // TODO: mark all unavailable links with tooltip
 </script>
 
 <footer class="pad flex fade-in">
@@ -180,6 +182,10 @@
   :global(body.dark) {
     footer {
       @include dark-blue;
+
+      a {
+        color: $cyan;
+      }
     }
   }
 </style>
