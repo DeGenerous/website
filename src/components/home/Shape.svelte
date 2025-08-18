@@ -18,7 +18,7 @@
 
 <hr class="mobile-only mar-block" />
 
-<section class="shape-world flex blur">
+<section class="shape-world flex">
   <h3 bind:this={tagline}>Shape The World You Dream Of</h3>
 
   <p>
@@ -87,7 +87,9 @@
 
   :global(body.dark .shape-world) {
     @include respond-up("small-desktop") {
-      @include cyan(0.05);
+      // @include cyan(0.05);
+      border: none;
+      background-color: transparent;
     }
   }
 </style>

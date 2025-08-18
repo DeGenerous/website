@@ -37,6 +37,8 @@
 
   section {
     margin-block: -5rem 4rem;
+    max-width: 100vw;
+    padding-inline: 0;
   }
 
   /* Wrap */
@@ -45,20 +47,20 @@
     overflow: hidden;
 
     // soft edge fade
-    -webkit-mask-image: linear-gradient(
-      90deg,
-      transparent 0,
-      #000 #{$edge-fade},
-      #000 calc(100% - #{$edge-fade}),
-      transparent 100%
-    );
-    mask-image: linear-gradient(
-      90deg,
-      transparent 0,
-      #000 #{$edge-fade},
-      #000 calc(100% - #{$edge-fade}),
-      transparent 100%
-    );
+    // -webkit-mask-image: linear-gradient(
+    //   90deg,
+    //   transparent 0,
+    //   #000 #{$edge-fade},
+    //   #000 calc(100% - #{$edge-fade}),
+    //   transparent 100%
+    // );
+    // mask-image: linear-gradient(
+    //   90deg,
+    //   transparent 0,
+    //   #000 #{$edge-fade},
+    //   #000 calc(100% - #{$edge-fade}),
+    //   transparent 100%
+    // );
 
     .reel {
       --count: var(--count, 7);

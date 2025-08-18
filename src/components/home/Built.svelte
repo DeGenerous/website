@@ -96,7 +96,7 @@
           <span class="pad-8">
             <p>{project.desc}</p>
             <img src={project.img} alt={project.title} />
-            <h5 class="fade-in">Learn more...</h5>
+            <h5 class="fade-in">Click to learn more...</h5>
           </span>
           <h4>{project.title}</h4>
         </button>
@@ -210,13 +210,14 @@
         }
 
         &.expanded {
-          @include navy;
+          @include dark-blue(0.9);
 
           span {
             img {
-              opacity: 0;
-              filter: blur(10rem) brightness(200%);
-              transform: scaleX(0);
+              // opacity: 0.5;
+              z-index: -1;
+              filter: blur(0.1rem) brightness(25%);
+              // transform: scaleX(0);
             }
 
             p {
