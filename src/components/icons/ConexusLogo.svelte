@@ -79,7 +79,7 @@
     &.mobile-only {
       display: flex;
 
-      @include respond-up("small-desktop") {
+      @include respond-up("tablet") {
         display: none;
       }
     }
@@ -87,7 +87,7 @@
     &.pc-only {
       display: none;
 
-      @include respond-up("small-desktop") {
+      @include respond-up("tablet") {
         display: flex;
       }
     }

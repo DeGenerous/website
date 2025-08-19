@@ -127,7 +127,7 @@
         }
       }
 
-      @include respond-up("small-desktop") {
+      @include respond-up("tablet") {
         position: static;
         flex-direction: row;
         padding: 0;

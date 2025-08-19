@@ -32,17 +32,17 @@ export const links: FooterLink[] = [
     anchors: [
       {
         label: "Terms of Use",
-        href: "/",
+        href: "/terms-of-servise",
         target: "_self",
       },
       {
         label: "Privacy Policy",
-        href: "/",
+        href: "/privacy-policy",
         target: "_self",
       },
       {
         label: "Copyright Policy",
-        href: "/",
+        href: "/contributors-licence-agreement",
         target: "_self",
       },
     ],
@@ -52,22 +52,22 @@ export const links: FooterLink[] = [
     anchors: [
       {
         label: "Potentials",
-        href: "/investors",
+        href: "/investors?tab=potentials",
         target: "_self",
       },
       {
         label: "PAC",
-        href: "/",
+        href: "/investors?tab=pac",
         target: "_self",
       },
       {
         label: "Token (Coming Soon)",
-        href: "/",
+        href: "/investors?tab=token",
         target: "_self",
       },
       {
         label: "Roadmap",
-        href: "/",
+        href: "/investors?tab=roadmap",
         target: "_self",
       },
     ],
@@ -77,17 +77,17 @@ export const links: FooterLink[] = [
     anchors: [
       {
         label: "CoNexus API",
-        href: "/",
+        href: "/enterprise",
         target: "_self",
       },
       {
         label: "Film Studio",
-        href: "/",
+        href: "/enterprise",
         target: "_self",
       },
       {
         label: "CSR",
-        href: "/",
+        href: "/enterprise",
         target: "_self",
       },
     ],
@@ -112,7 +112,7 @@ export const links: FooterLink[] = [
       },
       {
         label: "Sagaverse Gaming",
-        href: "/apps",
+        href: "/apps#sagaverse",
         target: "_self",
       },
     ],
@@ -122,17 +122,17 @@ export const links: FooterLink[] = [
     anchors: [
       {
         label: "Charity Missions",
-        href: "/",
+        href: "/impact",
         target: "_self",
       },
       {
         label: "Gaming Museum",
-        href: "/",
+        href: "/impact",
         target: "_self",
       },
       {
         label: "Ecosystem Metrics",
-        href: "/",
+        href: "/impact",
         target: "_self",
       },
     ],
