@@ -11,17 +11,10 @@
   const sections = ["Potentials", "PAC", "Token", "Roadmap"];
 
   onMount(() => {
-    const paramsString = window.location.search;
-    const searchParams = new URLSearchParams(paramsString);
+    const urlHash = window.location.hash.replace("#", "");
 
-    if (searchParams.has("tab")) {
-      const paramSection = searchParams.get("tab");
-      if (
-        paramSection &&
-        sections.some((section) => section.toLowerCase() == paramSection)
-      )
-        activeSection = paramSection;
-    }
+    if (urlHash && sections.some((section) => section.toLowerCase() == urlHash))
+      activeSection = urlHash;
   });
 </script>
 
