@@ -4,22 +4,22 @@
 
   let tagline = $state<HTMLHeadingElement>();
   let subtitle = $state<HTMLHeadingElement>();
-  let hidden = $state<boolean>(true);
 
   onMount(() => {
     subtitle!.innerText = "";
     typeWrite(tagline!, "$PAC").then(() =>
-      typeWrite(subtitle!, "Program and Control").then(() => {
-        hidden = false;
-      })
+      typeWrite(subtitle!, "Program and Control")
     );
   });
 </script>
 
 <section class="flex">
-  <h1 bind:this={tagline}>$PAC</h1>
+  <span class="flex-row">
+    <img class="fade-in" src="/investors/pac.webp" alt="PAC" />
+    <h1 bind:this={tagline}>$PAC</h1>
+  </span>
   <h3 bind:this={subtitle}>Program and Control</h3>
-  <article class="pad fade-in" class:hidden>
+  <article class="pad fade-in">
     PAC is a community-led experimental token and system built on top of DGRS to
     power The Meme, the first AI Story Agent on X. It fuels viral, on-demand
     multimedia narratives that start on social media and continue on CoNexus.
@@ -29,7 +29,7 @@
     to transform everyday static content into dynamic, shareable, and hilarious
     storylines.
   </article>
-  <div class="flex-row gap-8 fade-in" class:hidden>
+  <div class="flex-row gap-8 fade-in">
     <a
       class="button-anchor"
       href="https://magiceden.io/collections/ethereum/0xfa511d5c4cce10321e6e86793cc083213c36278e"
@@ -48,11 +48,13 @@
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
-  .hidden {
-    display: none;
-  }
-
   section {
+    img {
+      width: 4rem;
+      border: 0.25rem solid $light-blue;
+      border-radius: 50%;
+    }
+
     h1 {
       @include light-blue(1, text);
     }
@@ -64,6 +66,10 @@
 
   :global(body.dark) {
     section {
+      img {
+        border-color: $cyan;
+      }
+
       h1 {
         @include cyan(1, text);
       }

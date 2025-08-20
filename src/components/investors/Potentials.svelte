@@ -4,14 +4,11 @@
 
   let tagline = $state<HTMLHeadingElement>();
   let subtitle = $state<HTMLHeadingElement>();
-  let hidden = $state<boolean>(true);
 
   onMount(() => {
     subtitle!.innerText = "";
     typeWrite(tagline!, "The Potentials").then(() =>
-      typeWrite(subtitle!, "1,000 Evolutionary NFTs").then(() => {
-        hidden = false;
-      })
+      typeWrite(subtitle!, "1,000 Evolutionary NFTs")
     );
   });
 </script>
@@ -20,7 +17,7 @@
   <h1 bind:this={tagline}>The Potentials</h1>
   <img src="/investors/potentials.webp" alt="The Potentials" class="fade-in" />
   <h3 bind:this={subtitle}>1,000 Evolutionary NFTs</h3>
-  <article class="pad fade-in" class:hidden>
+  <article class="pad fade-in">
     The heart of our ecosystem that reaps the most benefits:
     <ul class="flex pad">
       <li>
@@ -45,7 +42,7 @@
     </ul>
     Owning a Potential places you at the center of our growth and direction.
   </article>
-  <div class="flex-row gap-8 fade-in" class:hidden>
+  <div class="flex-row fade-in">
     <a
       class="icon-link flex void-btn"
       href="https://opensea.io/collection/potentials-eth"
@@ -72,10 +69,6 @@
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
-  .hidden {
-    display: none;
-  }
-
   section {
     h1 {
       @include light-blue(1, text);
@@ -92,11 +85,6 @@
         list-style-type: disc;
         align-items: flex-start;
         padding-left: 2rem;
-
-        li b {
-          text-shadow: none;
-          @include dark-blue(1, text);
-        }
       }
     }
 
@@ -117,10 +105,6 @@
     section {
       h1 {
         @include cyan(1, text);
-      }
-      ul li b {
-        text-shadow: none;
-        @include white-txt(1);
       }
     }
   }

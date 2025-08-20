@@ -9,6 +9,10 @@ body {
     font-weight: normal;
   }
 
+  b {
+    text-shadow: none;
+  }
+
   .container {
     @include auto-width;
   }
@@ -28,6 +32,10 @@ body {
     h5 {
       color: black;
     }
+
+    b {
+      @include dark-blue(1, text);
+    }
   }
 
   &.dark {
@@ -44,6 +52,10 @@ body {
     h4,
     h5 {
       color: white;
+    }
+
+    b {
+      @include white-txt(1);
     }
 
     .container {

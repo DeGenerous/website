@@ -4,14 +4,11 @@
 
   let tagline = $state<HTMLHeadingElement>();
   let subtitle = $state<HTMLHeadingElement>();
-  let hidden = $state<boolean>(true);
 
   onMount(() => {
     subtitle!.innerText = "";
     typeWrite(tagline!, "Main Ecosystem Token").then(() =>
-      typeWrite(subtitle!, "(Coming Soon)").then(() => {
-        hidden = false;
-      })
+      typeWrite(subtitle!, "(Coming Soon)")
     );
   });
 </script>
@@ -19,7 +16,7 @@
 <section class="flex">
   <h1 bind:this={tagline}>Main Ecosystem Token</h1>
   <h3 bind:this={subtitle}>(Coming Soon)</h3>
-  <article class="pad fade-in" class:hidden>
+  <article class="pad fade-in">
     A single utility-and-governance token will ultimately power everything
     across our ecosystem, and its value will be backed by the real-world usage
     of CoNexus. Details on economics and the launch schedule will be released
@@ -30,10 +27,6 @@
 
 <style lang="scss">
   @use "/src/styles/mixins" as *;
-
-  .hidden {
-    display: none;
-  }
 
   section {
     h1 {

@@ -52,6 +52,29 @@
   {:else if activeSection === "roadmap"}
     <Roadmap />
   {/if}
+
+  <section class="learn-more container fade-in">
+    <h4>Want to learn more?</h4>
+    <div class="flex-row flex-wrap">
+      <span>
+        Join our
+        <a href="https://degenerousdao.com/join" target="_blank"> Discord </a>
+      </span>
+      <span>
+        Message us at
+        <a href="mailto:contact@dgrs.ink" target="_blank"> contact@dgrs.ink </a>
+      </span>
+    </div>
+    <article>
+      <b>Disclaimer:</b> This material is for informational purposes only and does
+      not constitute an offer to sell, or the solicitation of an offer to buy, any
+      securities, tokens, or other financial instruments. Digital assets are speculative
+      and involve a high degree of risk, including potential loss of principal. Nothing
+      herein should be construed as legal, financial, or tax advice. Always conduct
+      your own due diligence and consult professional advisors before making investment
+      decisions.
+    </article>
+  </section>
 </main>
 
 <style lang="scss">
@@ -113,6 +136,28 @@
         }
       }
     }
+
+    .learn-more {
+      margin-top: 1rem;
+
+      h4,
+      a {
+        @include light-blue(1, text);
+      }
+
+      span {
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        font-family: $font-serif;
+        background-color: white;
+        @include gray-border;
+      }
+
+      article {
+        opacity: 0.5;
+        @include font(caption);
+      }
+    }
   }
 
   :global(body.dark) {
@@ -133,6 +178,17 @@
 
       span {
         @include cyan;
+      }
+    }
+
+    .learn-more {
+      h4,
+      a {
+        @include cyan(1, text);
+      }
+
+      span {
+        background-color: black;
       }
     }
   }
