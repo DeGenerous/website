@@ -3,7 +3,26 @@
   import { socials, links } from "@constants/footer";
 
   import LogoSVG from "@components/icons/Logo.svelte";
+
+  let email = $state("");
 </script>
+
+<div class="newsletter flex pad">
+  <h4>Join the Future of Storytelling</h4>
+  <p>
+    Get the latest updates on DGRS, exclusive access to new features, and
+    insights into the AI storytelling revolution.
+  </p>
+  <span class="flex-row flex-wrap">
+    <input
+      type="email"
+      placeholder="Enter your email"
+      aria-label="Subscribe to newsletter"
+      bind:value={email}
+    />
+    <button> Subscribe </button>
+  </span>
+</div>
 
 <footer class="pad flex fade-in">
   <section class="flex gap">
@@ -36,7 +55,7 @@
 
   <hr />
 
-  <div class="flex-row flex-wrap">
+  <div class="footer-links flex-row flex-wrap">
     {#each links as { title, anchors }}
       <ul class="links">
         <li>
@@ -63,6 +82,11 @@
 
 <style lang="scss">
   @use "/src/styles/mixins/" as *;
+
+  .newsletter {
+    border-top: 1px solid rgba(150, 150, 150, 0.25);
+    @include light-blue(0.1);
+  }
 
   footer {
     gap: 2rem;
@@ -115,7 +139,7 @@
       }
     }
 
-    div {
+    .footer-links {
       font-family: $font-serif;
       align-items: flex-start;
       gap: 2rem;
@@ -183,12 +207,13 @@
   }
 
   :global(body.dark) {
-    footer {
+    footer,
+    .newsletter {
       @include dark-blue;
+    }
 
-      a {
-        color: $cyan;
-      }
+    .footer-links a {
+      color: $cyan;
     }
   }
 </style>

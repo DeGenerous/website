@@ -44,6 +44,23 @@ body {
     b {
       @include dark-blue(1, text);
     }
+
+    input {
+      box-shadow: none;
+      @include dark-blue(1, text);
+      @include light-blue(0.1);
+      @include gray-border;
+
+      &::placeholder {
+        @include gray(1, text);
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        @include bright(75%);
+      }
+    }
   }
 
   &.dark {
