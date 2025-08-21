@@ -9,7 +9,10 @@
 
   let tagline = $state<HTMLHeadingElement>();
 
-  onMount(() => typeWrite(tagline!, "Enterprise"));
+  const startTyping = () =>
+    setTimeout(() => typeWrite(tagline!, "Enterprise"), 1500);
+
+  onMount(startTyping);
 
   function scrollToSection(sectionID: string) {
     const section = document.getElementById(sectionID);
