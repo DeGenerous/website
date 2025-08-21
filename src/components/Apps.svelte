@@ -39,6 +39,6 @@
   @use "/src/styles/mixins" as *;
 
   section {
-    padding-block: 5rem 1rem;
+    padding-top: 6rem;
   }
 </style>

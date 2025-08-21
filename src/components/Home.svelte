@@ -9,25 +9,24 @@
   import Tweets from "@components/home/Tweets.svelte";
 </script>
 
-<main class="flex">
-  <Tagline />
+<Tagline />
 
-  <Video />
+<Video />
 
-  <CTA />
+<CTA />
 
-  <Conexus />
-  <Collabs />
+<Conexus />
+<Collabs />
 
-  <Built />
+<Built />
 
-  <Shape />
+<Shape />
 
-  <Tweets />
-</main>
+<Tweets />
 
 <style>
-  main {
-    gap: 5rem;
+  :global(main) {
+    padding-top: 0 !important;
+    gap: 5rem !important;
   }
 </style>

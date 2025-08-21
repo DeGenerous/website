@@ -63,7 +63,7 @@
   <p>
     The world doesn’t need more passive platforms. It needs engines of change.
   </p>
-  <h5>Build. Fund. Teach. Create. Disrupt. Give.</h5>
+  <h4>Build. Fund. Teach. Create. Disrupt. Give.</h4>
   <p>Whatever your skillset or story - you can make an impact here.</p>
 </div>
 
@@ -71,7 +71,11 @@
   @use "/src/styles/mixins" as *;
 
   section {
-    padding-block: 5rem 1rem;
+    padding-top: 6rem;
+
+    @include respond-up(small-desktop) {
+      padding-top: 0;
+    }
 
     .impact-data {
       align-items: stretch;
@@ -126,7 +130,10 @@
   }
 
   div {
-    margin-bottom: 1rem;
+    p {
+      width: auto;
+      max-width: unset;
+    }
   }
 
   :global(body.dark) {
