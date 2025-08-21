@@ -95,7 +95,7 @@
         @include light-blue(0.1);
 
         img {
-          width: 5rem;
+          width: 3rem;
         }
 
         p {

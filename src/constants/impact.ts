@@ -28,7 +28,7 @@ const data = [
     description: "partnerships with NGOs, museums, and enterprises",
     color: (opacity: number = 1) => `rgba(255, 140, 0, ${opacity})`, // orange
     image: "/icons/handshake.svg",
-  }
+  },
 ];
 
 export default data;
