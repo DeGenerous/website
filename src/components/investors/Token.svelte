@@ -1,6 +1,7 @@
 <script lang="ts">
-  import typeWrite from "@utils/typewriter";
   import { onMount } from "svelte";
+
+  import typeWrite from "@utils/typewriter";
 
   let tagline = $state<HTMLHeadingElement>();
   let subtitle = $state<HTMLHeadingElement>();
@@ -16,7 +17,7 @@
 <section class="flex">
   <h1 bind:this={tagline}>Main Ecosystem Token</h1>
   <h3 bind:this={subtitle}>(Coming Soon)</h3>
-  <article class="pad fade-in">
+  <article class="pad">
     A single utility-and-governance token will ultimately power everything
     across our ecosystem, and its value will be backed by the real-world usage
     of CoNexus. Details on economics and the launch schedule will be released

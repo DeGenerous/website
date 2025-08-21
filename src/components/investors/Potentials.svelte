@@ -1,6 +1,7 @@
 <script lang="ts">
-  import typeWrite from "@utils/typewriter";
   import { onMount } from "svelte";
+
+  import typeWrite from "@utils/typewriter";
 
   let tagline = $state<HTMLHeadingElement>();
   let subtitle = $state<HTMLHeadingElement>();
@@ -15,9 +16,9 @@
 
 <section class="flex">
   <h1 bind:this={tagline}>The Potentials</h1>
-  <img src="/investors/potentials.webp" alt="The Potentials" class="fade-in" />
+  <img src="/investors/potentials.webp" alt="The Potentials" />
   <h3 bind:this={subtitle}>1,000 Evolutionary NFTs</h3>
-  <article class="pad fade-in">
+  <article class="pad">
     The heart of our ecosystem that reaps the most benefits:
     <ul class="flex pad">
       <li>
@@ -42,7 +43,7 @@
     </ul>
     Owning a Potential places you at the center of our growth and direction.
   </article>
-  <div class="flex-row fade-in">
+  <div class="flex-row">
     <a
       class="icon-link flex void-btn"
       href="https://opensea.io/collection/potentials-eth"

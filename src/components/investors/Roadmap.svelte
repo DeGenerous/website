@@ -1,6 +1,7 @@
 <script lang="ts">
-  import typeWrite from "@utils/typewriter";
   import { onMount } from "svelte";
+
+  import typeWrite from "@utils/typewriter";
 
   let tagline = $state<HTMLHeadingElement>();
 

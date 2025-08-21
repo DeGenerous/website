@@ -52,22 +52,22 @@ export const links: FooterLink[] = [
     anchors: [
       {
         label: "Potentials",
-        href: "/investors?tab=potentials",
+        href: "/investors#potentials",
         target: "_self",
       },
       {
         label: "PAC",
-        href: "/investors?tab=pac",
+        href: "/investors#pac",
         target: "_self",
       },
       {
         label: "Token (Coming Soon)",
-        href: "/investors?tab=token",
+        href: "/investors#token",
         target: "_self",
       },
       {
         label: "Roadmap",
-        href: "/investors?tab=roadmap",
+        href: "/investors#roadmap",
         target: "_self",
       },
     ],
@@ -77,17 +77,17 @@ export const links: FooterLink[] = [
     anchors: [
       {
         label: "CoNexus API",
-        href: "/enterprise",
+        href: "/enterprise#conexus-api",
         target: "_self",
       },
       {
         label: "Film Studio",
-        href: "/enterprise",
+        href: "/enterprise#gen-ai",
         target: "_self",
       },
       {
         label: "CSR",
-        href: "/enterprise",
+        href: "/enterprise#csr",
         target: "_self",
       },
     ],

@@ -1,6 +1,7 @@
 <script lang="ts">
-  import typeWrite from "@utils/typewriter";
   import { onMount } from "svelte";
+
+  import typeWrite from "@utils/typewriter";
 
   let tagline = $state<HTMLHeadingElement>();
   let subtitle = $state<HTMLHeadingElement>();
@@ -15,11 +16,11 @@
 
 <section class="flex">
   <span class="flex-row">
-    <img class="fade-in" src="/investors/pac.webp" alt="PAC" />
+    <img src="/investors/pac.webp" alt="PAC" />
     <h1 bind:this={tagline}>$PAC</h1>
   </span>
   <h3 bind:this={subtitle}>Program and Control</h3>
-  <article class="pad fade-in">
+  <article class="pad">
     PAC is a community-led experimental token and system built on top of DGRS to
     power The Meme, the first AI Story Agent on X. It fuels viral, on-demand
     multimedia narratives that start on social media and continue on CoNexus.
@@ -29,7 +30,7 @@
     to transform everyday static content into dynamic, shareable, and hilarious
     storylines.
   </article>
-  <div class="flex-row gap-8 fade-in">
+  <div class="flex-row gap-8">
     <a
       class="button-anchor"
       href="https://magiceden.io/collections/ethereum/0xfa511d5c4cce10321e6e86793cc083213c36278e"
