@@ -57,7 +57,11 @@
       padding-block: 1rem;
       border-left: none !important;
       border-right: none !important;
-      @include light-blue(0.1);
+      background: linear-gradient(
+        to right,
+        rgba(56, 117, 250, 0.1),
+        rgba(56, 117, 250, 0.025)
+      );
       @include gray-border;
     }
 
@@ -89,7 +93,7 @@
     @include respond-up("small-desktop") {
       // @include cyan(0.05);
       border: none;
-      background-color: transparent;
+      background: transparent;
     }
   }
 </style>

@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<section id="conexus-api" class="flex pad-inline">
+<section id="conexus-api" class="flex pad-inline full-height">
   <h2>CoNexus API</h2>
   <article>
     Embed a living, breathing GenAI story engine into your website, app, game,
@@ -38,17 +38,13 @@
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
-  section {
-    height: 100vh;
+  article {
+    text-align: left;
 
-    article {
-      text-align: left;
-
-      ul {
-        padding-left: 2rem;
-        list-style-type: disc;
-        align-items: flex-start;
-      }
+    ul {
+      padding-left: 2rem;
+      list-style-type: disc;
+      align-items: flex-start;
     }
   }
 </style>

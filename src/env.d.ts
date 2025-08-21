@@ -3,42 +3,26 @@
 
 type Nullable<T> = null | T;
 
-interface Goal {
-  name: string;
-  description: string;
-  done: boolean;
-}
+type Roadmap = {
+  section: string;
+  goals: {
+    name: string;
+    description: string;
+  }[];
+};
 
-interface Member {
+type TeamMember = {
   name: string;
-  secondName?: string;
-  picture: string;
+  picture?: string;
   position: string;
-  twitter?: string;
-  email?: string;
-  description: string[];
-}
-
-interface Collab {
-  name: string;
   description: string;
-  logo?: string;
-  background?: string;
-  stories: StoryTile[];
-  website: string;
-  twitter?: string;
-  tiktok?: string;
-  telegram?: string;
-  discord?: string;
-  warpcast?: string;
-  youtube?: string;
-}
+};
 
-interface StoryTile {
+type StoryTile = {
   picture: string;
   title: string;
   link: string;
-}
+};
 
 type Link = {
   name: string;
@@ -62,9 +46,16 @@ type TypewriterInstance = {
 type BuiltProject = {
   title: string;
   category: string;
-  img: string;
-  desc: string;
+  image: string;
+  description: string;
 };
+
+type App = {
+  name: string;
+  description: string;
+  image?: string;
+  link: string;
+}
 
 type FooterSocial = {
   icon: string;

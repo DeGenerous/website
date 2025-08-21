@@ -188,7 +188,7 @@
       }
 
       span {
-        background-color: black;
+        background-color: transparent;
       }
     }
   }

@@ -1,5 +1,5 @@
 // UTILITY CLASSES:
-// flex, flex-row, flex-wrap, blur, validation, transition, gap-8
+// flex, flex-row, flex-wrap, blur, validation, transition, gap-8, full-height
 // Padding: pad-# 8, 16 (none); Padding-Inline: pad-inline
 // Border-radius: round-# 8, 12, 16 (none), 24, 32
 // Margin: mar, mar-inline (16), mar-auto
@@ -265,6 +265,10 @@ html {
     margin-inline: auto;
   }
 
+  .full-height {
+    min-height: 100vh;
+  }
+
   .validation {
     text-transform: uppercase;
     @include font(small);
@@ -360,8 +364,13 @@ html {
     // width: clamp(250px, 90%, 50rem);
     // box-shadow: $shadow-plus-inset-glow;
     // animation: dark-glowing 10s ease-in-out infinite;
+    background: linear-gradient(
+      to right,
+      rgba(56, 117, 250, 0.1),
+      rgba(56, 117, 250, 0.025)
+    );
     @include gray-border;
-    @include light-blue(0.1);
+    // @include light-blue(0.1);
     margin-inline: auto;
   }
 

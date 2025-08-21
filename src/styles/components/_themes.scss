@@ -17,6 +17,14 @@ body {
     @include auto-width;
   }
 
+  .blue-gradient {
+    background: linear-gradient(
+      to right,
+      rgba(56, 117, 250, 0.1),
+      rgba(56, 117, 250, 0.025)
+    );
+  }
+
   &.light {
     background-color: white;
     color: black;
@@ -59,7 +67,19 @@ body {
     }
 
     .container {
-      @include dark-blue;
+      background: linear-gradient(
+        to right,
+        rgba(1, 0, 32, 1),
+        rgba(1, 0, 32, 0.75)
+      );
+    }
+
+    .blue-gradient {
+      background: linear-gradient(
+        to right,
+        rgba(1, 0, 32, 1),
+        rgba(1, 0, 32, 0.85)
+      );
     }
   }
 }

@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<section class="flex fade-in">
+<section class="flex fade-in full-height">
   <h1>Digital Tools. Real-World Change.</h1>
   <p>
     We don't just build products - we build impact engines. The DGRS ecosystem
@@ -12,18 +12,4 @@
 
 <style lang="scss">
   @use "/src/styles/mixins" as *;
-
-  section {
-    height: 100vh;
-
-    h1 {
-      @include light-blue(1, text);
-    }
-  }
-
-  :global(body.dark) {
-    section h1 {
-      @include cyan(1, text);
-    }
-  }
 </style>

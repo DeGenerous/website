@@ -12,7 +12,7 @@
   onMount(() => typeWrite(tagline!, "Enterprise"));
 </script>
 
-<section class="flex">
+<section class="flex full-height">
   <h1 bind:this={tagline}>Enterprise</h1>
   <p>
     Elevate your company with our enterprise solutions. Whether you’re a product
@@ -30,18 +30,4 @@
 
 <style lang="scss">
   @use "/src/styles/mixins" as *;
-
-  section {
-    height: 100vh;
-
-    h1 {
-      @include light-blue(1, text);
-    }
-  }
-
-  :global(body.dark) {
-    section h1 {
-      @include cyan(1, text);
-    }
-  }
 </style>

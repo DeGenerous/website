@@ -69,7 +69,7 @@
   }
 </script>
 
-<section class="flex">
+<section class="flex full-height">
   <h3 bind:this={tagline}>Built on DGRS</h3>
 
   <p>
@@ -90,12 +90,12 @@
           class="project void-btn flex pad-8 gap-8 round"
           class:expanded={expandedIndex.includes(i)}
           onclick={(event) => toggleExpand(event, i)}
-          data-description={project.desc}
+          data-description={project.description}
           bind:this={tileRefs[i]}
         >
           <span class="pad-8">
-            <p>{project.desc}</p>
-            <img src={project.img} alt={project.title} />
+            <p>{project.description}</p>
+            <img src={project.image} alt={project.title} />
             <h5 class="fade-in">Click to learn more...</h5>
           </span>
           <h4>{project.title}</h4>
@@ -116,8 +116,6 @@
   @use "/src/styles/mixins" as *;
 
   section {
-    min-height: 100vh;
-
     .carousel {
       width: 100vw;
       display: flex;

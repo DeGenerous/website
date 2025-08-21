@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<section id="gen-ai" class="flex pad-inline">
+<section id="gen-ai" class="flex pad-inline full-height">
   <h2>GenAI Film Studio</h2>
   <article>
     Harness the power of AI alongside veteran directors and editors to produce
@@ -22,11 +22,7 @@
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
-  section {
-    height: 100vh;
-
-    article {
-      text-align: left;
-    }
+  article {
+    text-align: left;
   }
 </style>

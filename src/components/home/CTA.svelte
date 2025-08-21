@@ -43,7 +43,7 @@
   }
 </script>
 
-<section class="flex" bind:this={ctaSection}>
+<section class="flex full-height" bind:this={ctaSection}>
   {#if !activeSection}
     <h3 bind:this={tagline}>What brings you here today?</h3>
 
@@ -123,7 +123,6 @@
   @use "/src/styles/mixins" as *;
 
   section {
-    min-height: 100vh;
     padding-block: 1rem;
 
     h3 {

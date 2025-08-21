@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<section id="csr" class="flex pad-inline">
+<section id="csr" class="flex pad-inline full-height">
   <h2>CSR with Real Impact</h2>
   <article>
     Activate your company’s purpose through fully branded service missions in
@@ -28,11 +28,7 @@
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
-  section {
-    height: 100vh;
-
-    article {
-      text-align: left;
-    }
+  article {
+    text-align: left;
   }
 </style>

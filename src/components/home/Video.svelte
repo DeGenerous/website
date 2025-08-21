@@ -9,7 +9,10 @@
   onMount(() => observeElement(videoSection!, "visible"));
 </script>
 
-<section class="conexus-video flex blur" bind:this={videoSection}>
+<section
+  class="conexus-video flex blur full-height blue-gradient"
+  bind:this={videoSection}
+>
   <video class="transition" controls autoplay loop muted>
     <source src={`${trailerURL}/CoNexusTrailer.webm`} type="video/webm" />
     <source src={`${trailerURL}/CoNexusTrailer.mp4`} type="video/mp4" />
@@ -22,14 +25,11 @@
 
   .conexus-video {
     width: 100vw;
-    min-height: 100vh;
 
     @include respond-up("small-desktop") {
-      min-height: 100vh;
       border-left: none !important;
       border-right: none !important;
       @include gray-border;
-      @include light-blue(0.1);
     }
 
     video {
@@ -51,11 +51,5 @@
   :global(.conexus-video.visible video) {
     opacity: 1;
     transform: scale(1);
-  }
-
-  :global(body.dark .conexus-video) {
-    @include respond-up("small-desktop") {
-      @include cyan(0.05);
-    }
   }
 </style>
