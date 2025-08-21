@@ -4,11 +4,7 @@
 <section id="csr" class="flex pad-inline full-height">
   <h2>CSR with Real Impact</h2>
   <div class="container">
-    <img
-      class="round-8"
-      src="/enterprise/ball.webp"
-      alt="CSR with Real Impact"
-    />
+    <img class="round-8" src="/impact/ball.jpg" alt="CSR with Real Impact" />
     <article class="flex">
       <p>
         Activate your company’s purpose through fully branded service missions

@@ -58,7 +58,7 @@
               onclick={() => pickSection(item)}
               aria-label={item.name}
             >
-              <img src="/cta/{item.name}.svg" alt="{item.name} icon" />
+              <img src={item.image} alt="{item.name} icon" />
               <h4 style:color={item.color()}>{item.name}</h4>
             </button>
           </li>
@@ -110,7 +110,7 @@
               onclick={() => pickSection(item)}
               aria-label={item.name}
             >
-              <img src="/cta/{item.name}.svg" alt="{item.name} icon" />
+              <img src={item.image} alt="{item.name} icon" />
             </button>
           </li>
         {/each}

@@ -33,6 +33,7 @@ type Link = {
 type CTA = {
   name: string;
   color: (opacity?: number) => string;
+  image: string;
   title: string;
   description: string;
   buttons: Link[];
@@ -55,6 +56,13 @@ type App = {
   description: string;
   image?: string;
   href: string;
+};
+
+type ImpactData = {
+  name: string;
+  description: string;
+  image: string;
+  color: (opacity?: number) => string;
 };
 
 type FooterSocial = {
