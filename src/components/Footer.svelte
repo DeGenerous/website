@@ -136,6 +136,7 @@
         }
 
         a {
+          white-space: wrap;
           color: $dark-blue;
           opacity: 0.5;
           @include font(caption);

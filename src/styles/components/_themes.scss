@@ -31,12 +31,12 @@ body {
 
     h1,
     h2,
-    h3 {
+    h3,
+    h4,
+    a:not(.button-anchor, .nohover-link) {
       @include light-blue(1, text);
     }
 
-    a:not(.button-anchor),
-    h4,
     h5 {
       color: black;
     }
@@ -52,12 +52,12 @@ body {
 
     h1,
     h2,
-    h3 {
+    h3,
+    h4,
+    a:not(.button-anchor, .nohover-link) {
       @include cyan(1, text);
     }
 
-    a,
-    h4,
     h5 {
       color: white;
     }

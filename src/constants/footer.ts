@@ -61,7 +61,7 @@ export const links: FooterLink[] = [
         target: "_self",
       },
       {
-        label: "Token (Coming Soon)",
+        label: "Token",
         href: "/investors#token",
         target: "_self",
       },

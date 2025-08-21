@@ -134,6 +134,10 @@ a {
   $u-thickness: 2px;
   $u-offset: 0.1em; // distance below text
 
+  &:not(.nohover-link, .button-anchor) {
+    white-space: nowrap; // prevent line breaks
+  }
+
   &:not(.nohover-link, .button-anchor)::after {
     content: "";
     position: absolute;

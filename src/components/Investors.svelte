@@ -93,6 +93,7 @@
       margin-inline: auto;
       gap: 0;
       @include gray-border;
+      @include light-blue(0.1);
 
       button {
         width: 100%;
@@ -144,11 +145,6 @@
     .learn-more {
       margin-top: 1rem;
 
-      h4,
-      a {
-        @include light-blue(1, text);
-      }
-
       span {
         padding: 0.5rem 1rem;
         border-radius: 0.5rem;
@@ -186,11 +182,6 @@
     }
 
     .learn-more {
-      h4,
-      a {
-        @include cyan(1, text);
-      }
-
       span {
         background-color: transparent;
       }
