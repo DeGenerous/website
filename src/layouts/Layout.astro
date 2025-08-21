@@ -7,6 +7,7 @@ import "/src/styles/index.scss";
 import Header from "@components/Header.svelte";
 import Footer from "@components/Footer.svelte";
 
+import Scramble from "@components/Scramble.svelte";
 import Background from "@components/utils/Background.svelte";
 
 type LayoutProps = {
@@ -74,6 +75,7 @@ const {
     />
   </head>
   <body>
+    <Scramble client:load />
     <Header activeTab={nav} client:load />
     <slot />
     <Footer client:load />

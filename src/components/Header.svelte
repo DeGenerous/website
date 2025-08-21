@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
 
   import tabs from "@constants/header";
+  import { showScramble } from "@stores/scramble.svelte";
 
   import LogoSVG from "@components/icons/Logo.svelte";
   import ConexusLogoSVG from "@components/icons/ConexusLogo.svelte";
@@ -46,16 +47,27 @@
 <svelte:window {onscroll} bind:scrollY />
 
 <header class="flex-row blur" class:hide={hiddenHeader} bind:this={header}>
-  <LogoSVG onclick={() => open("/", "_self")} />
+  <LogoSVG
+    onclick={() => {
+      if (window.location.pathname == "/") return;
+      showScramble();
+      open("/", "_self");
+    }}
+  />
   <nav class="flex transition" class:hidden={hiddenTabs}>
     <ConexusLogoSVG
       onclick={() => open("https://conexus.degenerousdao.com/", "_blank")}
       hideForPCs={true}
     />
     {#each tabs as tab}
-      <a class="nohover-link" class:active={activeTab === tab} href="/{tab}"
-        >{tab}</a
+      <a
+        class="nohover-link"
+        class:active={activeTab === tab}
+        href="/{tab}"
+        onclick={showScramble}
       >
+        {tab}
+      </a>
     {/each}
     <input class="theme-toggle" type="checkbox" bind:checked={isDark} />
   </nav>

@@ -55,7 +55,7 @@ type App = {
   description: string;
   image?: string;
   link: string;
-}
+};
 
 type FooterSocial = {
   icon: string;
