@@ -1,20 +1,22 @@
 <script lang="ts">
-  import { onMount, onDestroy, tick } from "svelte";
+  import { onMount, onDestroy } from "svelte";
   import typeWrite from "@utils/typewriter";
   import VoidArrowSVG from "@components/icons/VoidArrow.svelte";
 
   let tagline = $state<HTMLHeadingElement>();
   let typer: ReturnType<typeof typeWrite> | null = null;
 
-  onMount(async () => {
-    await tick(); // ensure <h1> is in the DOM
-    if (!tagline) return;
+  const startTyping = () =>
+    setTimeout(async () => {
+      if (!tagline) return;
 
-    // Abort any lingering instance (safety) and start fresh
-    typer?.abort();
-    tagline.classList.remove("sr-only");
-    typer = typeWrite(tagline, "The GenAI Ecosystem for Storytelling", 100);
-  });
+      // Abort any lingering instance (safety) and start fresh
+      typer?.abort();
+      tagline.classList.remove("sr-only");
+      typer = typeWrite(tagline, "The GenAI Ecosystem for Storytelling", 100);
+    }, 1500);
+
+  onMount(startTyping);
 
   onDestroy(() => {
     typer?.abort();

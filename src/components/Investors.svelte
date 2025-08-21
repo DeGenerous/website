@@ -10,13 +10,17 @@
 
   const sections = ["Potentials", "PAC", "Token", "Roadmap"];
 
-  onMount(() => {
-    const urlHash = window.location.hash.replace("#", "");
+  const lookForSectionInURL = () => {
+    const urlHash = window.location.hash.slice(1);
 
     if (urlHash && sections.some((section) => section.toLowerCase() == urlHash))
       activeSection = urlHash;
-  });
+  };
+
+  onMount(lookForSectionInURL);
 </script>
+
+<svelte:window onhashchange={lookForSectionInURL} />
 
 <main>
   <nav class="investor-sections flex round-8">

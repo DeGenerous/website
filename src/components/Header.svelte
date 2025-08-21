@@ -49,7 +49,6 @@
 <header class="flex-row blur" class:hide={hiddenHeader} bind:this={header}>
   <LogoSVG
     onclick={() => {
-      if (window.location.pathname == "/") return;
       showScramble();
       open("/", "_self");
     }}

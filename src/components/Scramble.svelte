@@ -3,39 +3,38 @@
 
   // config
   const TEXT = "DGRS LABS";
-  const DURATION = 1200; // ms
-  const FADE = 300; // ms
-  const TICK = 150; // ms
-  const CHARSET = "ABCDEFGHIJKLMNOPQRSTUVXYZ";
+  const DURATION = 1200;
+  const FADE = 300;
+  const HOLD = 300;
+  const TICK = 100;
+  const CHARSET = "DGRSLABSCONEXU#$%&@";
   const NBSP = "\u00A0";
   const FLICKER_MIN = 3;
   const FLICKER_MAX = 4;
 
-  // precompute
   const chars = Array.from(TEXT);
   const isSpace = chars.map((c) => c === " ");
-  const animIdx = chars.map((_, i) => i).filter((i) => !isSpace[i]); // skip spaces
+  const animIdx = chars.map((_, i) => i).filter((i) => !isSpace[i]);
 
-  // lock times (left → right)
   const lockTimeByIndex: number[] = Array(chars.length).fill(DURATION);
   animIdx.forEach((idx, k) => {
     lockTimeByIndex[idx] = Math.round(((k + 1) / animIdx.length) * DURATION);
   });
 
-  // state
-  let display = $state(chars.map((c) => (c === " " ? NBSP : c)) as string[]); // <-- start with final letters
-  let finished = $state(false);
-  let fading = $state(false);
+  let display = $state(chars.map((c) => (c === " " ? NBSP : c)) as string[]);
+  let finished = $state(false); // toggles .fadeout
+  let fading = $state(false); // keep DOM mounted during fade
   let animating = false;
-  let locked: boolean[] = isSpace.slice(); // spaces start "locked"
+  let locked: boolean[] = isSpace.slice();
   let intervalId: number | null = null;
+  let holdId: number | null = null;
   let elapsed = 0;
 
   const randChar = () => CHARSET[Math.floor(Math.random() * CHARSET.length)];
   const randInt = (min: number, max: number) =>
     Math.floor(Math.random() * (max - min + 1)) + min;
 
-  // Edge-triggered effect on store changes
+  // Edge-trigger on store
   let lastSeen: boolean | null = null;
   $effect(() => {
     const curr = $scrambleVisible;
@@ -43,86 +42,82 @@
     lastSeen = curr;
 
     if (curr) start();
-    else fade();
+    else fade(); // external hide -> fade out
   });
 
   function start() {
     if (animating) return;
     animating = true;
-    finished = false;
+    finished = false; // no fade class yet
     fading = false;
     elapsed = 0;
 
-    // show final letters immediately
     display = chars.map((c) => (c === " " ? NBSP : c)) as string[];
     locked = isSpace.slice();
-    clear();
+    clearTimers();
 
     intervalId = window.setInterval(() => {
       if (!$scrambleVisible) {
-        clear();
+        clearTimers();
         animating = false;
         return;
       }
-
       elapsed += TICK;
 
-      // 1) lock pass
+      // lock pass
       for (const i of animIdx) {
-        if (!locked[i] && elapsed >= lockTimeByIndex[i]) {
-          locked[i] = true;
-        }
+        if (!locked[i] && elapsed >= lockTimeByIndex[i]) locked[i] = true;
       }
 
-      // 2) default to final letters for everything
+      // default to final letters
       for (let i = 0; i < chars.length; i++) {
         display[i] = isSpace[i] ? NBSP : chars[i];
       }
 
-      // 3) flicker a few still-unlocked letters
+      // flicker a few still-unlocked
       const pool = animIdx.filter((i) => !locked[i]);
-      const targetCount = Math.min(
-        pool.length,
-        randInt(FLICKER_MIN, FLICKER_MAX)
-      );
-      // choose unique indices by splicing from pool
-      for (let k = 0; k < targetCount; k++) {
+      const target = Math.min(pool.length, randInt(FLICKER_MIN, FLICKER_MAX));
+      for (let k = 0; k < target; k++) {
         const j = Math.floor(Math.random() * pool.length);
         const idx = pool.splice(j, 1)[0];
         if (idx !== undefined) display[idx] = randChar();
       }
 
-      // done?
+      // done -> hold, then fade, then flip store off
       if (animIdx.every((i) => locked[i])) {
-        finished = true;
         animating = false;
-        clear();
-        // flip the store ONCE; fade() will run via $effect
-        scrambleVisible.set(false);
+        clearTimers();
+        holdId = window.setTimeout(beginFadeOut, HOLD); // <— don’t set store false here
       }
     }, TICK);
   }
 
-  function fade() {
-    clear();
-    animating = false;
-
-    // only fade if something was shown
-    if (!fading && (finished || display.some((ch) => ch !== ""))) {
-      finished = true;
-      fading = true;
-      window.setTimeout(() => {
-        fading = false;
-      }, FADE);
-    } else {
-      fading = false;
-    }
+  function beginFadeOut() {
+    holdId = null;
+    if (fading) return;
+    finished = true; // add .fadeout class
+    fading = true; // keep DOM via {#if $scrambleVisible || fading}
+    window.setTimeout(() => {
+      fading = false; // unmount now
+      scrambleVisible.set(false); // flip store AFTER fade
+    }, FADE);
   }
 
-  function clear() {
+  function fade() {
+    // called if someone sets store=false externally
+    clearTimers();
+    animating = false;
+    if (!fading) beginFadeOut();
+  }
+
+  function clearTimers() {
     if (intervalId !== null) {
       clearInterval(intervalId);
       intervalId = null;
+    }
+    if (holdId !== null) {
+      clearTimeout(holdId);
+      holdId = null;
     }
   }
 </script>
@@ -171,6 +166,7 @@
     display: inline-block;
     width: 0.7em;
     color: $cyan;
+    font-weight: bold;
   }
 
   @media (prefers-reduced-motion: reduce) {

@@ -1,15 +1,8 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-
-  import LogoSVG from "@components/icons/Logo.svelte";
-
+  import { showScramble } from "@stores/scramble.svelte";
   import { socials, links } from "@constants/footer";
 
-  onMount(() => {
-    // Any initialization logic for the footer can go here
-  });
-
-  // TODO: mark all unavailable links with tooltip
+  import LogoSVG from "@components/icons/Logo.svelte";
 </script>
 
 <footer class="pad flex fade-in">
@@ -51,7 +44,16 @@
         </li>
         {#each anchors as { label, href, target }}
           <li>
-            <a {href} {target} rel="noopener noreferrer">{label}</a>
+            <a
+              {href}
+              {target}
+              rel="noopener noreferrer"
+              onclick={() => {
+                if (target === "_self") showScramble();
+              }}
+            >
+              {label}
+            </a>
           </li>
         {/each}
       </ul>
