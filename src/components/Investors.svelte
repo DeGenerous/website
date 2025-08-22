@@ -22,7 +22,7 @@
 
 <svelte:window onhashchange={lookForSectionInURL} />
 
-<nav class="investor-sections flex round-8">
+<nav class="sections-tabs flex round-8">
   {#each sections as section}
     <button
       class="void-btn round-8"
@@ -36,13 +36,13 @@
     </button>
   {/each}
   <span
-    class="active-investor-mobile mobile-only round-8 transition"
+    class="active-tab-mobile mobile-only round-8 transition"
     style:top="{sections.findIndex(
       (section) => section.toLowerCase() === activeSection
     ) * 3}rem"
   ></span>
   <span
-    class="active-investor-pc pc-only round-8 transition"
+    class="active-tab-pc pc-only round-8 transition"
     style:left="{sections.findIndex(
       (section) => section.toLowerCase() === activeSection
     ) * 10}rem"
@@ -85,7 +85,7 @@
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
-  .investor-sections {
+  .sections-tabs {
     position: relative;
     width: 95vw;
     margin-inline: auto;
@@ -118,12 +118,12 @@
       left: 0;
       @include light-blue(0.25);
 
-      &.active-investor-mobile {
+      &.active-tab-mobile {
         width: 100%;
         height: 3rem;
       }
 
-      &.active-investor-pc {
+      &.active-tab-pc {
         width: 10rem;
         height: 100%;
       }
@@ -158,7 +158,7 @@
   }
 
   :global(body.dark) {
-    .investor-sections {
+    .sections-tabs {
       @include dark-blue;
 
       button {

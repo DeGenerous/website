@@ -14,13 +14,17 @@
 
   // IDs must match <section id="..."> in each child component
   const ids = ["conexus-api", "gen-ai", "csr"];
-  let active = $state<string>(ids[0]);
+  let active = $state<Nullable<string>>(null);
+
+  $effect(() => {
+    // Keep URL hash in sync
+    if (active) history.replaceState(null, "", `#${active}`);
+  });
 
   function scrollToSection(id: string) {
     document
       .getElementById(id)
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
-    history.replaceState(null, "", `#${id}`); // optional, keeps URL hash in sync
   }
 
   onMount(() => {
@@ -80,7 +84,8 @@
   </button>
   <span
     class="pc-only round-8 transition"
-    style:left="{ids.indexOf(active) * 15}rem"
+    style:left="{ids.indexOf(active!) * 15}rem"
+    style:display={active ? "block" : "none"}
   ></span>
 </nav>
 
@@ -109,10 +114,6 @@
       &:active {
         @include light-blue(1, text);
       }
-
-      &.active {
-        @include blue(1, text);
-      }
     }
 
     span {
@@ -135,6 +136,10 @@
       button {
         min-width: 15rem;
         height: 100%;
+
+        &.active {
+          @include blue(1, text);
+        }
       }
     }
   }
