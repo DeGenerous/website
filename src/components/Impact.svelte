@@ -141,4 +141,8 @@
       }
     }
   }
+
+  :global(main) {
+    padding-block: 0 1rem !important;
+  }
 </style>

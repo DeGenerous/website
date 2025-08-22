@@ -2,24 +2,46 @@
   import { onMount } from "svelte";
 
   import typeWrite from "@utils/typewriter";
+  import observeElement from "@utils/observer";
 
   import ConexusAPI from "./enterprise/ConexusAPI.svelte";
   import GenAI from "./enterprise/GenAI.svelte";
   import CSR from "./enterprise/CSR.svelte";
 
   let tagline = $state<HTMLHeadingElement>();
-
   const startTyping = () =>
     setTimeout(() => typeWrite(tagline!, "Enterprise"), 1500);
 
-  onMount(startTyping);
+  // IDs must match <section id="..."> in each child component
+  const ids = ["conexus-api", "gen-ai", "csr"];
+  let active = $state<string>(ids[0]);
 
-  function scrollToSection(sectionID: string) {
-    const section = document.getElementById(sectionID);
-    if (!section) return;
-    const top = section.getBoundingClientRect().y;
-    window.scrollTo({ top, behavior: "smooth" });
+  function scrollToSection(id: string) {
+    document
+      .getElementById(id)
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.replaceState(null, "", `#${id}`); // optional, keeps URL hash in sync
   }
+
+  onMount(() => {
+    startTyping();
+
+    // highlight whichever section enters the viewport
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      observeElement(
+        el,
+        null, // don't need a toggle class on the section
+        () => (active = id), // when it intersects -> mark active
+        () => {} // nothing on exit (keep last seen as active)
+      );
+    });
+
+    // if page loads with a hash, honor it
+    const hash = location.hash.slice(1);
+    if (hash && ids.includes(hash as any)) active = hash;
+  });
 </script>
 
 <section class="flex">
@@ -27,21 +49,39 @@
   <p class="auto-width">
     Elevate your company with our enterprise solutions. Whether you’re a product
     team, a marketing department, CSR leader, or ed-tech innovator, our turnkey
-    offerings deliver measurable engagement, cost savings, and real‑world
+    offerings deliver measurable engagement, cost savings, and real-world
     impact.
   </p>
 </section>
 
-<nav class="enterprise-sections flex round blur">
-  <button class="void-btn" onclick={() => scrollToSection("conexus-api")}>
+<nav class="enterprise-sections flex round-8 blur">
+  <button
+    class="void-btn"
+    class:active={active === "conexus-api"}
+    onclick={() => scrollToSection("conexus-api")}
+  >
     CoNexus API
   </button>
-  <button class="void-btn" onclick={() => scrollToSection("gen-ai")}>
+
+  <button
+    class="void-btn"
+    class:active={active === "gen-ai"}
+    onclick={() => scrollToSection("gen-ai")}
+  >
     GenAI Film Studio
   </button>
-  <button class="void-btn" onclick={() => scrollToSection("csr")}>
+
+  <button
+    class="void-btn"
+    class:active={active === "csr"}
+    onclick={() => scrollToSection("csr")}
+  >
     CSR with Real Impact
   </button>
+  <span
+    class="pc-only round-8 transition"
+    style:left="{ids.indexOf(active) * 15}rem"
+  ></span>
 </nav>
 
 <ConexusAPI />
@@ -61,6 +101,7 @@
     button {
       height: 3rem;
       padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
       font-family: $font-sans;
       @include font(h5);
 
@@ -68,18 +109,31 @@
       &:active {
         @include light-blue(1, text);
       }
+
+      &.active {
+        @include blue(1, text);
+      }
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 15rem;
+      height: 100%;
+      @include light-blue(0.25);
     }
 
     @include respond-up(tablet) {
       flex-direction: row;
-      max-width: 40rem;
-      // position: sticky;
-      // top: 4rem;
-      // z-index: 100;
-      // @include box-shadow;
+      position: sticky;
+      top: 4rem;
+      z-index: 100;
+      border: none;
+      @include box-shadow;
 
       button {
-        min-width: 10rem;
+        min-width: 15rem;
         height: 100%;
       }
     }

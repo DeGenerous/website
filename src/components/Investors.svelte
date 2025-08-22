@@ -27,7 +27,10 @@
     <button
       class="void-btn round-8"
       class:active={activeSection === section.toLowerCase()}
-      onclick={() => (activeSection = section.toLowerCase())}
+      onclick={() => {
+        activeSection = section.toLowerCase();
+        history.replaceState(null, "", `#${activeSection}`); // optional, keeps URL hash in sync
+      }}
     >
       {section}
     </button>
