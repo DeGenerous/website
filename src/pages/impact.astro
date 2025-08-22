@@ -2,8 +2,10 @@
 import Layout from "@layouts/Layout.astro";
 
 import ImpactPage from "@components/Impact.svelte";
+
+const title = "Impact";
 ---
 
-<Layout nav="impact">
+<Layout {title} nav="impact">
   <ImpactPage client:load />
 </Layout>

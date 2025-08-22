@@ -1,23 +1,33 @@
----
-import Layout from "@layouts/Layout.astro";
+<script lang="ts">
+  import { onMount } from "svelte";
 
-const title = "Terms of Service";
----
+  import typeWrite from "@utils/typewriter";
 
-<Layout {title}>
-  <h2>DeGenerous Society General Terms of Service</h2>
+  let tagline = $state<HTMLHeadingElement>();
 
-  <article>
+  const startTyping = () =>
+    setTimeout(
+      () => typeWrite(tagline!, "DGRS Labs General Terms of Service"),
+      1500
+    );
+
+  onMount(startTyping);
+</script>
+
+<section class="flex">
+  <h1 bind:this={tagline}>DGRS Labs General Terms of Service</h1>
+
+  <article class="auto-width">
     Effective date: 12 August 2024
     <br />
     <br />
     These Terms of Service and our
-    <a href="/legal/privacy-policy">Privacy Policy</a> describe who we are, under
-    what terms and circumstances you can interact with us through the DeGenerous
-    Society Service, and how we interact with you.
+    <a href="/legal/privacy-policy">Privacy Policy</a> describe who we are,
+    under what terms and circumstances you can interact with us through the
+    DeGenerous Society Service, and how we interact with you.
     <br />
     <br />
-    <ol>
+    <ol class="uppercase">
       <li>
         <b>Definitions</b>
         <ol class="subordered">
@@ -82,7 +92,7 @@ const title = "Terms of Service";
         <ol class="subordered">
           <li>
             <b>Account Controls</b>
-            <ul>
+            <ul class="default-ul">
               <li>
                 Users. Subject to these Terms, you retain ultimate
                 administrative control over your User Account and the Content
@@ -114,7 +124,7 @@ const title = "Terms of Service";
             <br />
             There are the following requirements for DeGenerous Society User Accounts
             (via https://degenerousdao.com/ domain):
-            <ul>
+            <ul class="default-ul">
               <li>
                 You must be a human to create an Account. Accounts registered by
                 "bots" or other automated methods are not permitted. We do not
@@ -147,7 +157,7 @@ const title = "Terms of Service";
             <br />
             You are responsible for keeping your Account secure while you use our
             Service.
-            <ul>
+            <ul class="default-ul">
               <li>
                 You are responsible for all content posted and activity that
                 occurs under your Account (even when content is posted by others
@@ -200,7 +210,7 @@ const title = "Terms of Service";
             <br />
             You agree that you will not upload, post, host, or transmit any content
             that:
-            <ol class="lowercased">
+            <ol class="lowercase">
               <li>is unlawful or promotes unlawful activities;</li>
               <li>is or contains sexually obscene content (pornography);</li>
               <li>
@@ -231,7 +241,7 @@ const title = "Terms of Service";
             <br />
             While using DeGenerous Society Service, you agree that you will not under
             any circumstances:
-            <ol class="lowercased">
+            <ol class="lowercase">
               <li>
                 harass, abuse, threaten, or incite violence towards any
                 individual or group, including DeGenerous Society employees,
@@ -271,7 +281,7 @@ const title = "Terms of Service";
             without DeGenerous Society's express written permission.
             <br />
             You also agree to observe the following use restrictions:
-            <ul>
+            <ul class="default-ul">
               <li>
                 You may not use the Services to develop machine learning models
                 or related technology.
@@ -279,11 +289,11 @@ const title = "Terms of Service";
               <li>
                 You may not use the Services to perform or facilitate dangerous,
                 illegal, or malicious activities, including:
-                <ul>
+                <ul class="default-ul">
                   <li>
                     Facilitation or promotion of illegal activities or
                     violations of law, such as
-                    <ul>
+                    <ul class="default-ul">
                       <li>
                         Promoting or generating content related to child sexual
                         abuse or exploitation, or any other abuse;
@@ -318,7 +328,7 @@ const title = "Terms of Service";
                   <li>
                     Generation of content that may harm or promote the harm of
                     individuals or a group, such as
-                    <ul>
+                    <ul class="default-ul">
                       <li>
                         Generating content that promotes or encourages hatred
                       </li>
@@ -351,7 +361,7 @@ const title = "Terms of Service";
                   <li>
                     Generate and distribute content intended to misinform,
                     misrepresent, or mislead, including
-                    <ul>
+                    <ul class="default-ul">
                       <li>
                         Misrepresentation of the provenance of generated content
                         by claiming content was created by a human, or represent
@@ -396,7 +406,7 @@ const title = "Terms of Service";
             process, such as a bot or web crawler. It does not refer to the collection
             of information through the DeGenerous Society's API. You may scrape the
             website for the following reasons:
-            <ol class="lowercased">
+            <ol class="lowercase">
               <li>
                 Researchers may scrape public, non-personal information from the
                 DeGenerous Society Service for research purposes, only if any
@@ -415,7 +425,7 @@ const title = "Terms of Service";
             </ol>
             All use of data gathered through Website scraping must comply with the
             DeGenerous Society Privacy Policy and the European Union’s General Data
-            Protection Regulation <a
+            Protection Regulation<a
               href="https://eur-lex.europa.eu/eli/reg/2016/679/oj"
               target="_blank">(GDPR)</a
             >.
@@ -536,7 +546,7 @@ const title = "Terms of Service";
             it into a search index or otherwise analyze it on our servers, as well
             as share it with other users in full compliance with DeGenerous Society’s
             Privacy Policy. This license allows DeGenerous Society to:
-            <ul>
+            <ul class="default-ul">
               <li>
                 host, reproduce, distribute, communicate, and use your content —
                 for example, to save your content on our systems and make it
@@ -551,7 +561,7 @@ const title = "Terms of Service";
               </li>
               <li>
                 sublicense these rights to:
-                <ul>
+                <ul class="default-ul">
                   <li>
                     other users to allow the services to work as designed, such
                     as enabling you to share photos with people you choose
@@ -560,7 +570,7 @@ const title = "Terms of Service";
                     our contractors who’ve signed agreements with us that are
                     consistent with these terms, only for the limited purposes
                     described below:
-                    <ul>
+                    <ul class="default-ul">
                       <li>
                         operating and improving the services, including creating
                         new features and functionalities by using automated
@@ -641,7 +651,7 @@ const title = "Terms of Service";
             <br />
             DeGenerous Society employees may only access the content of your private
             libraries in the following situations:
-            <ul>
+            <ul class="default-ul">
               <li>
                 With your consent and knowledge, for support reasons. If
                 DeGenerous Society accesses a private library for support
@@ -706,7 +716,7 @@ const title = "Terms of Service";
             If you’d like to use DeGenerous Society’s trademarks, including those
             pertaining to specific Service like CoNexus, you must follow all of our
             trademark guidelines, defined as follows:
-            <ul>
+            <ul class="default-ul">
               <li>
                 You may use DeGenerous Society’s logo to link to the relevant
                 Website and/or to note that you are using the DeGenerous Society
@@ -871,7 +881,7 @@ const title = "Terms of Service";
         for any loss of profits, use, goodwill, or data, or for any incidental, indirect,
         special, consequential, or exemplary damages, however arising, that result
         from
-        <ul>
+        <ul class="default-ul">
           <li>
             the use, disclosure, or display of your User-Generated Content;
           </li>
@@ -1003,4 +1013,22 @@ const title = "Terms of Service";
       </li>
     </ol>
   </article>
-</Layout>
+</section>
+
+<style lang="scss">
+  @use "/src/styles/mixins" as *;
+
+  section {
+    padding-top: 5rem;
+
+    article {
+      text-align: left;
+
+      ol {
+        &.subordered {
+          padding-left: 1rem;
+        }
+      }
+    }
+  }
+</style>

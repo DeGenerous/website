@@ -1,0 +1,11 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import Terms from "@components/legal/Terms.svelte";
+
+const title = "Terms of Service";
+---
+
+<Layout {title}>
+  <Terms client:load />
+</Layout>

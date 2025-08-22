@@ -49,9 +49,9 @@
             <h4 id="name-dmytro">Dmytro&nbsp;Bryla</h4>
             <p><em>Senior Front-End &amp; UX Engineer</em></p>
             <p>
-              Fluent in Astro, Svelte, React, NodeJS, and Solidity. Crafts
-              pixel-perfect interfaces and back-end links for lightning-fast
-              user experiences.
+              Fluent in Astro, Svelte, React, NodeJS, and Solidity. Designs and
+              builds pixel-perfect interfaces with thoughtful interactions and
+              performance at the core.
             </p>
           </article>
         </li>

@@ -2,8 +2,10 @@
 import Layout from "@layouts/Layout.astro";
 
 import TeamPage from "@components/Team.svelte";
+
+const title = "Team";
 ---
 
-<Layout nav="team">
+<Layout {title} nav="team">
   <TeamPage client:load />
 </Layout>

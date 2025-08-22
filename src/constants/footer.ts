@@ -32,17 +32,17 @@ export const links: FooterLink[] = [
     anchors: [
       {
         label: "Terms of Use",
-        href: "/legal/terms-of-service",
+        href: "/terms-of-service",
         target: "_self",
       },
       {
         label: "Privacy Policy",
-        href: "/legal/privacy-policy",
+        href: "/privacy-policy",
         target: "_self",
       },
       {
         label: "Copyright Policy",
-        href: "/legal/contributors-licence-agreement",
+        href: "/contributors-licence-agreement",
         target: "_self",
       },
     ],

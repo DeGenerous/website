@@ -1,11 +1,18 @@
----
-import Layout from "@layouts/Layout.astro";
+<script lang="ts">
+  import { onMount } from "svelte";
 
-const title = "Privacy Policy";
----
+  import typeWrite from "@utils/typewriter";
 
-<Layout {title}>
-  <h2>DeGenerous Society Privacy Policy</h2>
+  let tagline = $state<HTMLHeadingElement>();
+
+  const startTyping = () =>
+    setTimeout(() => typeWrite(tagline!, "DGRS Labs Privacy Policy"), 1500);
+
+  onMount(startTyping);
+</script>
+
+<section class="flex">
+  <h1 bind:this={tagline}>DGRS Labs Privacy Policy</h1>
   <article>
     Effective Date: 12 August 2024
     <br />
@@ -28,7 +35,7 @@ const title = "Privacy Policy";
     you personally that we collect or for which we act as custodian.
   </article>
 
-  <h2>A. WHO WE ARE AND HOW TO CONTACT US</h2>
+  <h4>A. WHO WE ARE AND HOW TO CONTACT US</h4>
   <article>
     DeGenerous Society is a company developing AI and blockchain-powered
     storytelling and gaming products, creating shared and personalized
@@ -40,7 +47,7 @@ const title = "Privacy Policy";
     USA.
   </article>
 
-  <h2>B. PERSONAL DATA WE COLLECT</h2>
+  <h4>B. PERSONAL DATA WE COLLECT</h4>
   <article>
     We collect your personal information to provide and improve our products and
     services, and to communicate with you about DeGenerous Society and our
@@ -49,8 +56,8 @@ const title = "Privacy Policy";
     <br />
     <ul>
       <li>
-        <i>Information You Give Us:</i> In the course of subscribing to any newsletter
-        or web signup and other forms (e.g. via our websites
+        <i>Information You Give Us:</i> In the course of subscribing to any
+        newsletter or web signup and other forms (e.g. via our websites
         <a href="https://degenerousdao.com/">https://degenerousdao.com/</a>
         or an application we digitally enable), you may provide to us and we may
         collect from you personal information potentially including: name, title,
@@ -83,7 +90,7 @@ const title = "Privacy Policy";
     us.
   </article>
 
-  <h2>C. WHO HAS ACCESS TO YOUR INFORMATION</h2>
+  <h4>C. WHO HAS ACCESS TO YOUR INFORMATION</h4>
   <article>
     <b>
       We will never sell, lease, or otherwise share your personal information
@@ -128,7 +135,7 @@ const title = "Privacy Policy";
     Protection Regulation (GDPR) and similar legislation.
   </article>
 
-  <h2>D. HOW WE USE YOUR INFORMATION</h2>
+  <h4>D. HOW WE USE YOUR INFORMATION</h4>
   <article>
     Your information will be used to provide and improve DeGenerous Society
     products, services, and communications, and to offer a more tailored and
@@ -165,7 +172,7 @@ const title = "Privacy Policy";
     >.
   </article>
 
-  <h2>E. OPTIONS FOR MANAGING YOUR PERSONAL INFORMATION</h2>
+  <h4>E. OPTIONS FOR MANAGING YOUR PERSONAL INFORMATION</h4>
   <article>
     You can manage your email subscription preferences, unsubscribe,
     resubscribe, etc. at any time by following the links contained in any email
@@ -174,11 +181,28 @@ const title = "Privacy Policy";
     from our system.
   </article>
 
-  <h2>F. CHANGES TO OUR PRIVACY POLICY</h2>
+  <h4>F. CHANGES TO OUR PRIVACY POLICY</h4>
   <article>
     We can make changes to this Privacy Policy from time to time. In
     circumstances where a change will materially change the way in which we
     collect or use your personal information or data, we will send a notice of
     this change to all our account holders.
   </article>
-</Layout>
+</section>
+
+<style lang="scss">
+  @use "/src/styles/mixins" as *;
+
+  section {
+    padding-top: 5rem;
+
+    article,
+    h4 {
+      @include auto-width;
+    }
+
+    article {
+      text-align: left;
+    }
+  }
+</style>

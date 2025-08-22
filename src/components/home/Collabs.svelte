@@ -36,7 +36,7 @@
   $dur-per-item: 2s; // speed: total duration = count * dur-per-item
 
   section {
-    margin-block: -5rem 4rem;
+    margin-block: -6rem 4rem;
     max-width: 100vw;
     padding-inline: 0;
     border-radius: 0;

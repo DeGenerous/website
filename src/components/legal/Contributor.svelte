@@ -1,12 +1,22 @@
----
-import Layout from "@layouts/Layout.astro";
+<script lang="ts">
+  import { onMount } from "svelte";
 
-const title = "Contributors Licence Agreement";
----
+  import typeWrite from "@utils/typewriter";
 
-<Layout {title}>
-  <h2>DeGenerous Society Contributor's License Agreement</h2>
-  <article>
+  let tagline = $state<HTMLHeadingElement>();
+
+  const startTyping = () =>
+    setTimeout(
+      () => typeWrite(tagline!, "DGRS Labs Contributor's License Agreement"),
+      1500
+    );
+
+  onMount(startTyping);
+</script>
+
+<section class="flex">
+  <h1 bind:this={tagline}>DGRS Labs Contributor's License Agreement</h1>
+  <article class="auto-width">
     Thank you for your interest in providing one or more contributions to
     CoNexus and other Software developed and owned by DeGenerous Society under a
     copyright-protected commercial license (“We” or “Us”). We refer to the
@@ -217,5 +227,17 @@ const title = "Contributors Licence Agreement";
       </li>
     </ol>
   </article>
-  <h2>Copyright DeGenerous Society. All Rights Reserved.</h2>
-</Layout>
+  <h4>Copyright DGRS Labs Pte. Ltd. All Rights Reserved.</h4>
+</section>
+
+<style lang="scss">
+  @use "/src/styles/mixins" as *;
+
+  section {
+    padding-top: 5rem;
+
+    article {
+      text-align: left;
+    }
+  }
+</style>

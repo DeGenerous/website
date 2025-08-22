@@ -2,8 +2,10 @@
 import Layout from "@layouts/Layout.astro";
 
 import InvestorsPage from "@components/Investors.svelte";
+
+const title = "Investors";
 ---
 
-<Layout nav="investors">
+<Layout {title} nav="investors">
   <InvestorsPage client:load />
 </Layout>
