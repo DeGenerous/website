@@ -32,17 +32,17 @@ export const links: FooterLink[] = [
     anchors: [
       {
         label: "Terms of Use",
-        href: "/terms-of-servise",
+        href: "/legal/terms-of-service",
         target: "_self",
       },
       {
         label: "Privacy Policy",
-        href: "/privacy-policy",
+        href: "/legal/privacy-policy",
         target: "_self",
       },
       {
         label: "Copyright Policy",
-        href: "/contributors-licence-agreement",
+        href: "/legal/contributors-licence-agreement",
         target: "_self",
       },
     ],
@@ -97,17 +97,17 @@ export const links: FooterLink[] = [
     anchors: [
       {
         label: "CoNexus",
-        href: "https://conexus.degenerousdao.com/",
+        href: "/apps#conexus",
         target: "_blank",
       },
       {
         label: "Galactic Governance Hub",
-        href: "https://governance.degenerousdao.com/",
+        href: "/apps#galactic-governance-hub",
         target: "_blank",
       },
       {
         label: "Loredex",
-        href: "https://loredex.degenerousdao.com/",
+        href: "/apps#loredex",
         target: "_blank",
       },
       {
@@ -122,12 +122,12 @@ export const links: FooterLink[] = [
     anchors: [
       {
         label: "Charity Missions",
-        href: "/impact",
+        href: "/impact#supercharging",
         target: "_self",
       },
       {
         label: "Gaming Museum",
-        href: "/impact",
+        href: "/impact#museum",
         target: "_self",
       },
       {
@@ -142,22 +142,22 @@ export const links: FooterLink[] = [
     anchors: [
       {
         label: "Join Channels",
-        href: "/commnunity",
+        href: "/commnunity#join",
         target: "_self",
       },
       {
         label: "Safe Links",
-        href: "/community",
+        href: "/community#links",
         target: "_self",
       },
       {
         label: "Bounties",
-        href: "/community",
+        href: "/community#bounties",
         target: "_self",
       },
       {
         label: "Ambassador & Affiliate",
-        href: "/community",
+        href: "/community#ambassadors",
         target: "_self",
       },
     ],
@@ -182,22 +182,22 @@ export const links: FooterLink[] = [
     anchors: [
       {
         label: "About Us",
-        href: "/team",
+        href: "/team#about",
         target: "_self",
       },
       {
         label: "Leadership",
-        href: "/team",
+        href: "/team#leadership",
         target: "_self",
       },
       {
         label: "Core Team",
-        href: "/team",
+        href: "/team#core",
         target: "_self",
       },
       {
         label: "Careers",
-        href: "/team",
+        href: "/team#careers",
         target: "_self",
       },
     ],

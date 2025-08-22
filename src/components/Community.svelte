@@ -5,7 +5,7 @@
 
   import Intro from "@components/community/Intro.svelte";
   import Join from "@components/community/Join.svelte";
-  import Bounty from "@components/community/Bounty.svelte";
+  import Bounties from "@components/community/Bounties.svelte";
   import Ambassadors from "@components/community/Ambassadors.svelte";
 
   let tagline = $state<HTMLHeadingElement>();
@@ -25,7 +25,7 @@
 
 <Join />
 
-<Bounty />
+<Bounties />
 
 <Ambassadors />
 
