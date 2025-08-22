@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount, tick } from "svelte";
+  import { onMount } from "svelte";
 
   import typeWrite from "@utils/typewriter";
   import observeElement from "@utils/observer";
@@ -15,20 +15,20 @@
 
   // ---- flows ---------------------------------------------------------------
 
+  const resetTitle = () => (tagline!.style.opacity = "0");
+
   const animateSection = async () => {
     finishedAnimation = false;
-    await tick(); // ensure the section is in the DOM
     await typeWrite(tagline!, "What brings you here today?");
     finishedAnimation = true; // triggers the cards to drop
   };
 
-  const animateTitle = async () => {
-    await tick(); // ensure the section is in the DOM
-    await typeWrite(sectionTitle!, activeSection!.title);
-  };
+  const animateTitle = () => typeWrite(sectionTitle!, activeSection!.title);
 
   // Observe the section tagline once; start the initial sequence
-  onMount(() => observeElement(ctaSection!, null, animateSection));
+  onMount(() => observeElement(ctaSection!, null, animateSection, resetTitle));
+
+  onMount(resetTitle);
 
   // UI actions
   async function pickSection(item: CTA) {

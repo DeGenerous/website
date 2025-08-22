@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<section id="conexus-api" class="flex pad-inline full-height">
+<section id="conexus-api" class="flex pad-inline">
   <h2>CoNexus API</h2>
   <div class="container">
     <img class="round-8" src="/enterprise/conexus-api.webp" alt="CoNexus API" />

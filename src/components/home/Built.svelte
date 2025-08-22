@@ -16,12 +16,18 @@
 
   let tileStep = 300; // fallback
 
+  const resetTitle = () => (tagline!.style.opacity = "0");
+
   onMount(() => {
-    observeElement(tagline!, null, () => {
-      typeWrite(tagline!, "Built on DGRS");
-    });
-    observeElement(viewport!, "visible");
+    observeElement(
+      viewport!,
+      "visible",
+      () => typeWrite(tagline!, "Built on DGRS"),
+      resetTitle
+    );
   });
+
+  onMount(resetTitle);
 
   function toggleExpand(event: Event, i: number) {
     if (expandedIndex.includes(i)) {
@@ -265,6 +271,10 @@
   :global(.carousel.visible) {
     opacity: 1 !important;
     transform: scaleY(1) !important;
+
+    h3 {
+      opacity: 1;
+    }
   }
 
   :global(body.dark) {

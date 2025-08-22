@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<section id="gen-ai" class="flex pad-inline full-height">
+<section id="gen-ai" class="flex pad-inline">
   <h2>GenAI Film Studio</h2>
   <div class="container">
     <img

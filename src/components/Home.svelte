@@ -26,7 +26,7 @@
 
 <style>
   :global(main) {
-    padding-top: 0 !important;
+    padding-block: 0 1rem !important;
     gap: 5rem !important;
   }
 </style>

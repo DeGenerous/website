@@ -7,14 +7,22 @@
   let section = $state<HTMLElement>();
   let tagline = $state<HTMLHeadingElement>();
 
+  const resetTitle = () => (tagline!.style.opacity = "0");
+
   onMount(() => {
-    observeElement(section!, null, () => {
-      typeWrite(
-        tagline!,
-        "Dream to Screen: Unlock Your Storytelling Potential"
-      );
-    });
+    observeElement(
+      section!,
+      null,
+      () =>
+        typeWrite(
+          tagline!,
+          "Dream to Screen: Unlock Your Storytelling Potential"
+        ),
+      resetTitle
+    );
   });
+
+  onMount(resetTitle);
 
   const images = Array.from({ length: 16 }, (_, i) => `/conexus/${i + 1}.webp`);
 </script>

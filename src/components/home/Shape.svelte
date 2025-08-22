@@ -5,20 +5,25 @@
   import observeElement from "@utils/observer";
   import typeWrite from "@utils/typewriter";
 
+  let section = $state<HTMLElement>();
   let tagline = $state<HTMLHeadingElement>();
-  let video = $state<HTMLVideoElement>();
+
+  const resetTitle = () => (tagline!.style.opacity = "0");
 
   onMount(() => {
-    observeElement(tagline!, null, () => {
-      typeWrite(tagline!, "Shape The World You Dream Of");
-    });
-    observeElement(video!, "visible");
+    resetTitle();
+    observeElement(
+      section!,
+      "visible",
+      () => typeWrite(tagline!, "Shape The World You Dream Of"),
+      resetTitle
+    );
   });
 </script>
 
 <hr class="mobile-only mar-block" />
 
-<section class="shape-world flex">
+<section class="shape-world flex" bind:this={section}>
   <h3 bind:this={tagline}>Shape The World You Dream Of</h3>
 
   <p>
@@ -26,7 +31,7 @@
     come to life on a foundation built for boundless creativity.
   </p>
 
-  <video class="shape-video round transition" controls bind:this={video}>
+  <video class="round transition" controls>
     <!-- <source src={`${trailerURL}/CoNexusTrailer.webm`} type="video/webm" /> -->
     <source src="CoNexus.mp4" type="video/mp4" />
     <track kind="captions" />
@@ -73,7 +78,8 @@
     video {
       width: 95vw;
       height: auto;
-      opacity: 0.25;
+      opacity: 0.1;
+      filter: blur(1rem);
       transition-duration: 0.6s;
 
       @include respond-up("small-desktop") {
@@ -90,8 +96,9 @@
     }
   }
 
-  :global(.shape-video.visible) {
+  :global(.shape-world.visible video) {
     opacity: 1 !important;
+    filter: none !important;
   }
 
   :global(body.dark .shape-world) {

@@ -134,6 +134,7 @@ ol.subordered {
 
 :where(h1, h2, h3, h4, h5, p) {
   cursor: default;
+  transition: opacity 0.3s ease-in-out;
 }
 
 :where(img) {
@@ -234,7 +235,7 @@ html {
   }
 
   main {
-    padding-block: 1rem;
+    padding-block: 5rem;
     gap: 2rem;
   }
 

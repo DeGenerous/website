@@ -22,7 +22,7 @@
   }
 </script>
 
-<section class="flex full-height">
+<section class="flex">
   <h1 bind:this={tagline}>Enterprise</h1>
   <p class="auto-width">
     Elevate your company with our enterprise solutions. Whether you’re a product
@@ -30,18 +30,19 @@
     offerings deliver measurable engagement, cost savings, and real‑world
     impact.
   </p>
-  <nav class="enterprise-sections flex round">
-    <button class="void-btn" onclick={() => scrollToSection("conexus-api")}>
-      CoNexus API
-    </button>
-    <button class="void-btn" onclick={() => scrollToSection("gen-ai")}>
-      GenAI Film Studio
-    </button>
-    <button class="void-btn" onclick={() => scrollToSection("csr")}>
-      CSR with Real Impact
-    </button>
-  </nav>
 </section>
+
+<nav class="enterprise-sections flex round blur">
+  <button class="void-btn" onclick={() => scrollToSection("conexus-api")}>
+    CoNexus API
+  </button>
+  <button class="void-btn" onclick={() => scrollToSection("gen-ai")}>
+    GenAI Film Studio
+  </button>
+  <button class="void-btn" onclick={() => scrollToSection("csr")}>
+    CSR with Real Impact
+  </button>
+</nav>
 
 <ConexusAPI />
 
@@ -72,12 +73,20 @@
     @include respond-up(tablet) {
       flex-direction: row;
       max-width: 40rem;
+      // position: sticky;
+      // top: 4rem;
+      // z-index: 100;
+      // @include box-shadow;
 
       button {
         min-width: 10rem;
         height: 100%;
       }
     }
+  }
+
+  :global(main) {
+    gap: 5rem !important;
   }
 
   :global(body.dark) {

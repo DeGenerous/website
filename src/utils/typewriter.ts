@@ -15,6 +15,8 @@ export default function typeWrite(
     let i = 0;
 
     function type() {
+      el.style.opacity = "1"; // Ensure element is visible
+
       // Respect reduced motion globally
       if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
         el.textContent = text;

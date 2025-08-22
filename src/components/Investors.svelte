@@ -83,7 +83,6 @@
   @use "/src/styles/mixins" as *;
 
   .investor-sections {
-    margin-top: 6rem;
     position: relative;
     width: 95vw;
     margin-inline: auto;
