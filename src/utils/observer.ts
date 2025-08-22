@@ -17,8 +17,6 @@ function observeElement(
       } else {
         if (toggleClass) entry.target.classList.remove(toggleClass);
         resetFunction();
-        console.log('unsobserve')
-        console.log(entry)
       }
     });
   }, options);

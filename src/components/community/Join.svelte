@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<section aria-labelledby="join-degens-title">
+<section id="join" aria-labelledby="join-degens-title">
   <header>
     <h2 id="join-degens-title">Join the Generous Degens</h2>
   </header>
@@ -82,7 +82,7 @@
   <hr aria-hidden="true" />
 
   <!-- Verified platforms & protocols -->
-  <div aria-labelledby="verified-platforms-title">
+  <div id="links" aria-labelledby="verified-platforms-title">
     <h3 id="verified-platforms-title">Verified platforms &amp; protocols</h3>
     <p>
       You’ll also find us across key platforms and protocols. Below are verified

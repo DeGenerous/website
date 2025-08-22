@@ -2,26 +2,101 @@
   import { onMount } from "svelte";
 
   import typeWrite from "@utils/typewriter";
+  import observeElement from "@utils/observer";
 
-  import Intro from "@components/community/Intro.svelte";
+  import About from "@components/community/About.svelte";
   import Join from "@components/community/Join.svelte";
   import Bounties from "@components/community/Bounties.svelte";
   import Ambassadors from "@components/community/Ambassadors.svelte";
 
   let tagline = $state<HTMLHeadingElement>();
-
   const startTyping = () =>
     setTimeout(() => typeWrite(tagline!, "Community"), 1500);
 
-  onMount(startTyping);
+  // IDs must match <section id="..."> in each child component
+  const ids = ["intro", "join", "links", "bounties", "ambassadors"];
+  let active = $state<string>(ids[0]);
+
+  $effect(() => {
+    // Keep URL hash in sync
+    if (active !== "intro") history.replaceState(null, "", `#${active}`);
+    else history.replaceState(null, "", "/community");
+  });
+
+  function scrollToSection(id: string) {
+    document
+      .getElementById(id)
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  onMount(() => {
+    startTyping();
+
+    // highlight whichever section enters the viewport
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      observeElement(
+        el,
+        null, // don't need a toggle class on the section
+        () => (active = id), // when it intersects -> mark active
+        () => {} // nothing on exit (keep last seen as active)
+      );
+    });
+
+    // if page loads with a hash, honor it
+    const hash = location.hash.slice(1);
+    if (hash && ids.includes(hash as any)) active = hash;
+  });
 </script>
 
-<section class="flex full-height">
+<section class="flex">
   <h1 bind:this={tagline}>Community</h1>
-  <p>Join a community defined by purpose, innovation, and real-world impact.</p>
+  <p class="auto-width">
+    Join a community defined by purpose, innovation, and real-world impact.
+  </p>
 </section>
 
-<Intro />
+<nav id="intro" class="link-tabs flex round-8 blur">
+  <button
+    class="void-btn"
+    class:active={active === "join"}
+    onclick={() => scrollToSection("join")}
+  >
+    Join Channels
+  </button>
+
+  <button
+    class="void-btn"
+    class:active={active === "links"}
+    onclick={() => scrollToSection("links")}
+  >
+    Safe Links
+  </button>
+
+  <button
+    class="void-btn"
+    class:active={active === "bounties"}
+    onclick={() => scrollToSection("bounties")}
+  >
+    Bounties
+  </button>
+  <button
+    class="void-btn"
+    class:active={active === "ambassadors"}
+    onclick={() => scrollToSection("ambassadors")}
+  >
+    Ambassador & Affiliate
+  </button>
+
+  <span
+    class="pc-only round-8 transition"
+    style:left="{(ids.indexOf(active) - 1) * 15}rem"
+    style:display={active == "intro" ? "none" : "block"}
+  ></span>
+</nav>
+
+<About />
 
 <Join />
 
@@ -31,4 +106,72 @@
 
 <style lang="scss">
   @use "/src/styles/mixins" as *;
+
+  section {
+    margin-top: 5rem;
+  }
+
+  .link-tabs {
+    margin-bottom: 5rem;
+    gap: 0;
+    @include gray-border;
+    @include light-blue(0.1);
+
+    button {
+      height: 3rem;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-family: $font-sans;
+      @include font(h5);
+
+      &:hover,
+      &:active {
+        @include light-blue(1, text);
+      }
+    }
+
+    @include respond-up(tablet) {
+      flex-direction: row;
+      position: sticky;
+      top: 4rem;
+      z-index: 100;
+      border: none;
+      @include box-shadow;
+
+      button {
+        min-width: 15rem;
+        height: 100%;
+
+        &.active {
+          @include blue(1, text);
+        }
+      }
+
+      span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 15rem;
+        height: 100%;
+        @include light-blue(0.25);
+      }
+    }
+  }
+
+  :global(main) {
+    gap: 5rem !important;
+  }
+
+  :global(body.dark) {
+    .link-tabs {
+      @include dark-blue;
+
+      button {
+        &:hover,
+        &:active {
+          @include cyan(1, text);
+        }
+      }
+    }
+  }
 </style>

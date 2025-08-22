@@ -13,12 +13,13 @@
     setTimeout(() => typeWrite(tagline!, "Enterprise"), 1500);
 
   // IDs must match <section id="..."> in each child component
-  const ids = ["conexus-api", "gen-ai", "csr"];
-  let active = $state<Nullable<string>>(null);
+  const ids = ["intro", "conexus-api", "gen-ai", "csr"];
+  let active = $state<string>(ids[0]);
 
   $effect(() => {
     // Keep URL hash in sync
-    if (active) history.replaceState(null, "", `#${active}`);
+    if (active !== "intro") history.replaceState(null, "", `#${active}`);
+    else history.replaceState(null, "", "/enterprise");
   });
 
   function scrollToSection(id: string) {
@@ -58,7 +59,7 @@
   </p>
 </section>
 
-<nav class="enterprise-sections flex round-8 blur">
+<nav id="intro" class="link-tabs flex round-8 blur">
   <button
     class="void-btn"
     class:active={active === "conexus-api"}
@@ -84,8 +85,8 @@
   </button>
   <span
     class="pc-only round-8 transition"
-    style:left="{ids.indexOf(active!) * 15}rem"
-    style:display={active ? "block" : "none"}
+    style:left="{(ids.indexOf(active) - 1) * 15}rem"
+    style:display={active == "intro" ? "none" : "block"}
   ></span>
 </nav>
 
@@ -98,7 +99,12 @@
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
-  .enterprise-sections {
+  section {
+    margin-top: 5rem;
+  }
+
+  .link-tabs {
+    margin-bottom: 5rem;
     gap: 0;
     @include gray-border;
     @include light-blue(0.1);
@@ -114,15 +120,6 @@
       &:active {
         @include light-blue(1, text);
       }
-    }
-
-    span {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 15rem;
-      height: 100%;
-      @include light-blue(0.25);
     }
 
     @include respond-up(tablet) {
@@ -141,6 +138,15 @@
           @include blue(1, text);
         }
       }
+
+      span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 15rem;
+        height: 100%;
+        @include light-blue(0.25);
+      }
     }
   }
 
@@ -149,7 +155,7 @@
   }
 
   :global(body.dark) {
-    .enterprise-sections {
+    .link-tabs {
       @include dark-blue;
 
       button {

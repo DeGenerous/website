@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<section aria-labelledby="ambassador-affiliate-title">
+<section id="ambassadors" aria-labelledby="ambassador-affiliate-title">
   <header>
     <h2 id="ambassador-affiliate-title">Ambassador &amp; Affiliate programs</h2>
   </header>

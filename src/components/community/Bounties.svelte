@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<section aria-labelledby="bug-bounty-title">
+<section id="bounties" aria-labelledby="bug-bounty-title">
   <header>
     <h2 id="bug-bounty-title">Bug bounty</h2>
   </header>

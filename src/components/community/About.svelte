@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<section aria-labelledby="our-community-title">
+<section id="intro" aria-labelledby="our-community-title">
   <header>
     <h2 id="our-community-title">Our community</h2>
   </header>
