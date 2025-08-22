@@ -120,13 +120,13 @@ ol.subordered {
     display: table;
     counter-increment: item;
   }
-  
+
   & > li:before {
     content: counters(item, ".") ".";
     display: table-cell;
     padding-right: 0.5rem;
   }
-  
+
   li .subordered > li:before {
     content: counters(item, ".") ".";
   }

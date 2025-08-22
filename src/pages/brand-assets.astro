@@ -1,0 +1,11 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import Assets from "@components/media/Assets.svelte";
+
+const title = "Brand Assets";
+---
+
+<Layout {title}>
+  <Assets client:load />
+</Layout>
