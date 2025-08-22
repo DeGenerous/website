@@ -52,6 +52,7 @@
   .container {
     img {
       width: 100%;
+      @include gray-border;
     }
 
     article {
