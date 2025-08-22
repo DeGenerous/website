@@ -118,10 +118,6 @@
       min-height: 100vh;
     }
 
-    h3 {
-      max-width: unset;
-    }
-
     .tweets {
       width: 100vw;
       align-items: stretch;

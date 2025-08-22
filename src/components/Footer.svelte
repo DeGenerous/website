@@ -94,10 +94,6 @@
     @include light-blue(0.1);
 
     section {
-      p {
-        max-width: unset;
-      }
-
       .socials {
         margin-block: 0.5rem;
 
@@ -123,8 +119,6 @@
         @include gray(1, text);
 
         p {
-          margin: 0;
-          max-width: unset;
           white-space: nowrap;
           @include font(caption);
         }

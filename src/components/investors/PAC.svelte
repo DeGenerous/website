@@ -51,11 +51,6 @@
       a {
         font-family: $font-sans;
       }
-
-      p {
-        width: 100%;
-        max-width: unset;
-      }
     }
   }
 

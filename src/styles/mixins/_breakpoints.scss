@@ -25,3 +25,7 @@ $breakpoints: (
     @warn "Breakpoint `#{$breakpoint}` not found.";
   }
 }
+
+:global(.auto-width) {
+  @include auto-width;
+}

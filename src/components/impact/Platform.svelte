@@ -9,7 +9,7 @@
       Our tech has supported everyone from indie creators to
       <b>nine-figure companies</b>. CoNexus and DGRS tooling have:
     </p>
-    <ul class="flex">
+    <ul class="default-ul flex">
       <li>Enabled <b>authors</b> to turn novels into playable games</li>
       <li>
         Helped <b>startups prototype gamified platforms</b> in weeks, not years
@@ -35,9 +35,6 @@
   @use "/src/styles/mixins" as *;
 
   ul {
-    text-align: left;
     align-items: flex-start;
-    list-style-type: disc;
-    padding-left: 2rem;
   }
 </style>

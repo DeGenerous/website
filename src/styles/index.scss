@@ -91,15 +91,6 @@ ol:not(.default-ol) {
   cursor: default;
 }
 
-:where(h3) {
-  max-width: 95vw;
-}
-
-:where(p) {
-  margin-inline: auto;
-  @include auto-width;
-}
-
 :where(img) {
   width: 100%;
   height: auto;
@@ -115,12 +106,6 @@ ol:not(.default-ol) {
 :where(code) {
   font-family: monospace;
   @include gray(0.1);
-}
-
-:where(b) {
-  font-weight: bold;
-  color: $white;
-  @include text-shadow;
 }
 
 /* GENERAL STYLING */
@@ -287,12 +272,12 @@ html {
       font-size: inherit;
       line-height: inherit;
       filter: brightness(125%);
-      text-decoration: underline;
+      // text-decoration: underline;
 
-      &:hover,
-      &:active {
-        text-decoration: none;
-      }
+      // &:hover,
+      // &:active {
+      //   text-decoration: none;
+      // }
     }
   }
 

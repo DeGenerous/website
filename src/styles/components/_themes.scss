@@ -41,10 +41,6 @@ body {
       color: black;
     }
 
-    b {
-      @include dark-blue(1, text);
-    }
-
     input {
       box-shadow: none;
       background-color: white;

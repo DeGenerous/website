@@ -39,6 +39,11 @@
     margin-block: -5rem 4rem;
     max-width: 100vw;
     padding-inline: 0;
+    border-radius: 0;
+
+    p {
+      @include auto-width;
+    }
   }
 
   /* Wrap */

@@ -31,11 +31,6 @@
     article {
       align-items: flex-start;
       text-align: left;
-
-      p {
-        width: 100%;
-        max-width: unset;
-      }
     }
 
     @include respond-up(small-desktop) {

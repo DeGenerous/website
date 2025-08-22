@@ -24,7 +24,7 @@
 
 <section class="flex full-height">
   <h1 bind:this={tagline}>Enterprise</h1>
-  <p>
+  <p class="auto-width">
     Elevate your company with our enterprise solutions. Whether you’re a product
     team, a marketing department, CSR leader, or ed-tech innovator, our turnkey
     offerings deliver measurable engagement, cost savings, and real‑world
@@ -64,8 +64,7 @@
       @include font(h5);
 
       &:hover,
-      &:active,
-      &:focus {
+      &:active {
         @include light-blue(1, text);
       }
     }
@@ -87,8 +86,7 @@
 
       button {
         &:hover,
-        &:active,
-        &:focus {
+        &:active {
           @include cyan(1, text);
         }
       }

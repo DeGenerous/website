@@ -12,7 +12,7 @@
         expertise required.
       </p>
       <p>With a single line of code, you can:</p>
-      <ul class="flex">
+      <ul class="default-ul flex">
         <li>
           <b>Launch interactive gamified narratives</b> that adapt to each user’s
           choices
@@ -59,14 +59,7 @@
       align-items: flex-start;
       text-align: left;
 
-      p {
-        width: 100%;
-        max-width: unset;
-      }
-
       ul {
-        padding-left: 2rem;
-        list-style-type: disc;
         align-items: flex-start;
       }
     }

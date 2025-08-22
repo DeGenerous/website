@@ -83,6 +83,11 @@
     @include respond-up("small-desktop") {
       margin-block: 0 4rem;
     }
+
+    h3,
+    p {
+      @include auto-width;
+    }
   }
 
   /* Mask container */

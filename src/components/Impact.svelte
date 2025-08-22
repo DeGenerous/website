@@ -27,7 +27,7 @@
 
 <section class="flex fade-in full-height">
   <h1 bind:this={tagline}>Digital Tools. Real-World Change.</h1>
-  <p>
+  <p class="auto-width">
     We don’t just build products - we build impact engines. The DGRS ecosystem
     has helped raise
     <b>millions of dollars for global causes</b>, supported
@@ -126,13 +126,6 @@
           }
         }
       }
-    }
-  }
-
-  div {
-    p {
-      width: auto;
-      max-width: unset;
     }
   }
 

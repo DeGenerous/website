@@ -65,6 +65,11 @@
       @include gray-border;
     }
 
+    h3,
+    p {
+      @include auto-width;
+    }
+
     video {
       width: 95vw;
       height: auto;
