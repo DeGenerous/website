@@ -25,6 +25,112 @@ body {
     );
   }
 
+  // Page navigation: section-switcher
+  .sections-tabs {
+    position: relative;
+    width: 95vw;
+    margin-inline: auto;
+    gap: 0;
+    @include gray-border;
+    @include light-blue(0.1);
+
+    button {
+      width: 100%;
+      height: 3rem;
+      padding: 0.5rem 1rem;
+      font-family: $font-sans;
+      z-index: 1;
+      @include font(h5);
+
+      &:hover,
+      &:active,
+      &:focus {
+        @include light-blue(1, text);
+      }
+
+      &.active {
+        @include blue(1, text);
+      }
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include light-blue(0.25);
+
+      &.active-tab-mobile {
+        width: 100%;
+        height: 3rem;
+      }
+
+      &.active-tab-pc {
+        width: 10rem;
+        height: 100%;
+      }
+    }
+
+    @include respond-up(tablet) {
+      flex-direction: row;
+      max-width: 40rem;
+
+      button {
+        width: 10rem;
+        height: 100%;
+      }
+    }
+  }
+
+  // Page navigation: #links-scroller
+  .link-tabs {
+    margin-bottom: 5rem;
+    gap: 0;
+    @include gray-border;
+    @include light-blue(0.1);
+
+    button {
+      height: 3rem;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-family: $font-sans;
+      @include font(h5);
+
+      &:hover,
+      &:active {
+        @include light-blue(1, text);
+      }
+    }
+
+    @include respond-up(tablet) {
+      flex-direction: row;
+      position: sticky;
+      top: 4rem;
+      z-index: 100;
+      border: none;
+      overflow: hidden;
+      @include box-shadow;
+
+      button {
+        min-width: 15rem;
+        height: 100%;
+        z-index: 1;
+
+        &.active {
+          @include blue(1, text);
+        }
+      }
+
+      span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 15rem;
+        height: 100%;
+        @include light-blue(0.25);
+      }
+    }
+  }
+
   &.light {
     background-color: white;
     color: black;
@@ -87,6 +193,45 @@ body {
         rgba(1, 0, 32, 1),
         rgba(1, 0, 32, 0.85)
       );
+    }
+
+    .sections-tabs {
+      @include dark-blue;
+
+      button {
+        &:hover,
+        &:active,
+        &:focus {
+          @include cyan(1, text);
+        }
+
+        &.active {
+          @include dark-blue(1, text);
+        }
+      }
+
+      span {
+        @include cyan;
+      }
+    }
+
+    .link-tabs {
+      @include dark-blue;
+
+      button {
+        &.active {
+          @include dark-blue(1, text);
+        }
+
+        &:hover,
+        &:active {
+          @include cyan(1, text);
+        }
+      }
+
+      span {
+        @include cyan;
+      }
     }
   }
 }

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { scrambleVisible } from "@stores/scramble.svelte";
+  import { scrambleVisible, transitionVisible } from "@stores/scramble.svelte";
 
   // config
   const TEXT = "DGRS LABS";
@@ -130,10 +130,19 @@
   </div>
 {/if}
 
+{#if $transitionVisible}
+  <div class="transition-overlay" aria-hidden="true">
+    <div class="word">
+      {#each chars as ch}<span>{ch}</span>{/each}
+    </div>
+  </div>
+{/if}
+
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
-  .overlay {
+  .overlay,
+  .transition-overlay {
     position: fixed;
     inset: 0;
     z-index: 2000;
@@ -141,32 +150,42 @@
     place-items: center;
 
     transition: all 0.3s ease-in-out;
+    transform: none;
     opacity: 1;
     visibility: visible;
     background-color: $dark-blue;
 
-    &.fadeout {
-      opacity: 0;
-      transform: scale(1.5) skew(-15deg, 15deg);
-      visibility: hidden;
-      pointer-events: none;
+    .word {
+      display: inline-flex;
+      gap: 0;
+      line-height: 1;
+      font-family: $font-sans;
+
+      span {
+        text-transform: uppercase;
+        font-size: 10vw;
+        display: inline-block;
+        width: 0.7em;
+        color: $cyan;
+        font-weight: bold;
+      }
     }
   }
 
-  .word {
-    display: inline-flex;
-    gap: 0;
-    line-height: 1;
-    font-family: $font-sans;
+  .transition-overlay {
+    z-index: 1999;
+
+    @starting-style {
+      opacity: 0;
+      transform: scale(1.5) skew(15deg, -15deg);
+    }
   }
 
-  span {
-    text-transform: uppercase;
-    font-size: 10vw;
-    display: inline-block;
-    width: 0.7em;
-    color: $cyan;
-    font-weight: bold;
+  .overlay.fadeout {
+    opacity: 0;
+    transform: scale(1.5) skew(-15deg, 15deg);
+    visibility: hidden;
+    pointer-events: none;
   }
 
   @media (prefers-reduced-motion: reduce) {

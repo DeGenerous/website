@@ -1,6 +1,8 @@
 <script lang="ts">
 </script>
 
+<!-- TODO: Separate Join and Links sections -->
+
 <section id="join" aria-labelledby="join-degens-title">
   <header>
     <h2 id="join-degens-title">Join the Generous Degens</h2>

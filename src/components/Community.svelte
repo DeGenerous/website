@@ -92,7 +92,7 @@
   <span
     class="pc-only round-8 transition"
     style:left="{(ids.indexOf(active) - 1) * 15}rem"
-    style:display={active == "intro" ? "none" : "block"}
+    style:opacity={active == "intro" ? "0" : "1"}
   ></span>
 </nav>
 
@@ -111,67 +111,7 @@
     margin-top: 5rem;
   }
 
-  .link-tabs {
-    margin-bottom: 5rem;
-    gap: 0;
-    @include gray-border;
-    @include light-blue(0.1);
-
-    button {
-      height: 3rem;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      font-family: $font-sans;
-      @include font(h5);
-
-      &:hover,
-      &:active {
-        @include light-blue(1, text);
-      }
-    }
-
-    @include respond-up(tablet) {
-      flex-direction: row;
-      position: sticky;
-      top: 4rem;
-      z-index: 100;
-      border: none;
-      @include box-shadow;
-
-      button {
-        min-width: 15rem;
-        height: 100%;
-
-        &.active {
-          @include blue(1, text);
-        }
-      }
-
-      span {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 15rem;
-        height: 100%;
-        @include light-blue(0.25);
-      }
-    }
-  }
-
   :global(main) {
     gap: 5rem !important;
-  }
-
-  :global(body.dark) {
-    .link-tabs {
-      @include dark-blue;
-
-      button {
-        &:hover,
-        &:active {
-          @include cyan(1, text);
-        }
-      }
-    }
   }
 </style>
