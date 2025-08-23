@@ -66,7 +66,7 @@ const callToAction: CTA[] = [
     buttons: [
       {
         name: "Unlock Your Potential",
-        link: "https://magiceden.io/collections/ethereum/0xfa511d5c4cce10321e6e86793cc083213c36278e",
+        link: "https://magiceden.io/collections/ethereum/potentials-eth",
         target: "_blank",
       },
       {

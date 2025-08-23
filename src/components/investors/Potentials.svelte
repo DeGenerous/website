@@ -56,7 +56,7 @@
       </a>
       <a
         class="icon-link flex void-btn nohover-link"
-        href="https://magiceden.io/collections/ethereum/0xfa511d5c4cce10321e6e86793cc083213c36278e"
+        href="https://magiceden.io/collections/ethereum/potentials-eth"
         aria-label="Magic Eden"
       >
         <img src="/icons/magiceden.png" alt="Magic Eden" />

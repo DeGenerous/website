@@ -151,7 +151,7 @@ ol.subordered {
 
 :where(code) {
   font-family: monospace;
-  @include gray(0.1);
+  // @include gray(0.1);
 }
 
 /* GENERAL STYLING */
