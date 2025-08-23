@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { toastStore } from "@stores/toast.svelte";
+
   import VoidArrowSVG from "@components/icons/VoidArrow.svelte";
   import OpenSVG from "@components/icons/Open.svelte";
   import CopySVG from "@components/icons/Copy.svelte";
@@ -6,8 +8,12 @@
   let showInstagram = $state<boolean>(false);
   let showTwitter = $state<boolean>(false);
 
-  const copyContract = (contract: string) =>
+  const copyContract = (contract: string) => {
     navigator.clipboard.writeText(contract);
+    toastStore.show(
+      `Copied contract address: ${contract.slice(0, 6)}...${contract.slice(-4)}`
+    );
+  };
 </script>
 
 <section id="join" class="flex full-height">

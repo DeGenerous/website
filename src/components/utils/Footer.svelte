@@ -1,10 +1,29 @@
 <script lang="ts">
   import { showScramble } from "@stores/scramble.svelte";
   import { socials, links } from "@constants/footer";
+  import { toastStore } from "@stores/toast.svelte";
+  import { regexpEmail } from "@constants/regexp";
 
   import LogoSVG from "@components/icons/Logo.svelte";
 
   let email = $state("");
+
+  const subscribeToNewsletter = () => {
+    if (!email || !regexpEmail.test(email)) {
+      toastStore.show("Please enter a valid email address.", "error");
+      return;
+    }
+
+    // Here you would typically send the email to your backend or a service
+    // For demonstration, we'll just log it
+    console.log("Subscribed email:", email);
+
+    // Show a success message
+    toastStore.show("Thank you for subscribing to our newsletter!");
+
+    // Reset the input field after subscription
+    email = "";
+  };
 </script>
 
 <div class="newsletter flex pad">
@@ -20,7 +39,7 @@
       aria-label="Subscribe to newsletter"
       bind:value={email}
     />
-    <button> Subscribe </button>
+    <button onclick={subscribeToNewsletter}> Subscribe </button>
   </span>
 </div>
 

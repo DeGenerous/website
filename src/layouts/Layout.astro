@@ -9,6 +9,7 @@ import Footer from "@components/utils/Footer.svelte";
 
 import Scramble from "@components/utils/Scramble.svelte";
 import Background from "@components/utils/Background.svelte";
+import ToastContainer from "@components/utils/ToastContainer.svelte";
 
 type LayoutProps = {
   nav?: string;
@@ -82,6 +83,7 @@ const {
     </main>
     <Footer client:load />
     <Background client:load />
+    <ToastContainer client:load />
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"
     ></script>
   </body>
