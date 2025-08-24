@@ -10,108 +10,83 @@
 
 <section class="flex">
   <h1 bind:this={tagline}>Careers</h1>
-  <p>
+
+  <p class="auto-width">
     If you're passionate about building category-defining technology and joining
     a visionary team early, this is your moment.
   </p>
 
-  <h3 id="open-positions-title">Open positions</h3>
+  <h3>Open positions</h3>
 
-  <!-- Tile group (layout to be handled by your utilities) -->
-  <ul aria-labelledby="open-positions-title">
-    <!-- Tile 1 -->
-    <li>
-      <article aria-labelledby="job-ai-engineer">
-        <header>
-          <h4 id="job-ai-engineer">
-            AI Engineer <span aria-label="two openings">(x2)</span>
-          </h4>
-        </header>
-        <nav aria-label="AI Engineer actions">
-          <a href="/">Read more</a>
-
-          <!-- Attach CV: label triggers hidden file input without JS -->
-          <form
-            action="/careers/apply"
-            method="post"
-            enctype="multipart/form-data"
-          >
-            <input type="hidden" name="position" value="AI Engineer" />
-            <input
-              id="cv-ai"
-              name="cv"
-              type="file"
-              accept=".pdf,.doc,.docx,.txt"
-              hidden
-            />
-            <a class="button-anchor" href="/"> Attach CV </a>
-          </form>
-        </nav>
-      </article>
+  <ul class="flex-row flex-wrap pad-inline">
+    <li class="flex">
+      <h4>AI Engineer x2</h4>
+      <button class="read-more">Read more</button>
+      <button> Attach CV </button>
     </li>
 
-    <!-- Tile 2 -->
-    <li>
-      <article aria-labelledby="job-business-developer">
-        <header>
-          <h4 id="job-business-developer">Business Developer</h4>
-        </header>
-        <nav aria-label="Business Developer actions">
-          <a href="/">Read more</a>
-
-          <form
-            action="/careers/apply"
-            method="post"
-            enctype="multipart/form-data"
-          >
-            <input type="hidden" name="position" value="Business Developer" />
-            <input
-              id="cv-bizdev"
-              name="cv"
-              type="file"
-              accept=".pdf,.doc,.docx,.txt"
-              hidden
-            />
-            <a class="button-anchor" href="/"> Attach CV </a>
-          </form>
-        </nav>
-      </article>
+    <li class="flex">
+      <h4>Business Developer</h4>
+      <button class="read-more">Read more</button>
+      <button> Attach CV </button>
     </li>
 
-    <!-- Tile 3 -->
-    <li>
-      <article aria-labelledby="job-marketing-specialist">
-        <header>
-          <h4 id="job-marketing-specialist">Marketing Specialist</h4>
-        </header>
-        <nav aria-label="Marketing Specialist actions">
-          <a
-            href="/"
-            role="button"
-            aria-label="Read more about Marketing Specialist">Read more</a
-          >
-
-          <form
-            action="/careers/apply"
-            method="post"
-            enctype="multipart/form-data"
-          >
-            <input type="hidden" name="position" value="Marketing Specialist" />
-            <input
-              id="cv-marketing"
-              name="cv"
-              type="file"
-              accept=".pdf,.doc,.docx,.txt"
-              hidden
-            />
-            <a class="button-anchor" href="/"> Attach CV </a>
-          </form>
-        </nav>
-      </article>
+    <li class="flex">
+      <h4>Marketing Specialist</h4>
+      <button class="read-more">Read more</button>
+      <button> Attach CV </button>
     </li>
   </ul>
 </section>
 
 <style lang="scss">
   @use "/src/styles/mixins" as *;
+
+  ul {
+    width: 100%;
+
+    li {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      @include gray-border;
+      @include light-blue(0.1);
+
+      @include respond-up(tablet) {
+        width: 20rem;
+      }
+
+      button {
+        width: 100%;
+
+        &.read-more {
+          background-color: $white !important;
+          @include dark-blue(1, text);
+
+          &:hover,
+          &:active,
+          &:focus {
+            color: $light-blue !important;
+          }
+        }
+      }
+    }
+  }
+
+  :global(body.dark) {
+    ul li {
+      @include dark-blue;
+
+      button.read-more {
+        background-color: $navy !important;
+        @include cyan(1, text);
+
+        &:hover,
+        &:active,
+        &:focus {
+          color: $cyan !important;
+        }
+      }
+    }
+  }
 </style>

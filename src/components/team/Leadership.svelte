@@ -11,30 +11,71 @@
 <section class="flex">
   <h1 bind:this={tagline}>Leadership</h1>
 
-  <article aria-labelledby="leader-pano">
-    <h3 id="leader-pano">Daniel “Pano” Elkins</h3>
-    <p><em>Co-Founder</em></p>
-    <p>
-      Lions Clubs International board appointee, book publisher, and veteran
-      game designer. Led <cite>Dragon&nbsp;Age&nbsp;Dark&nbsp;Times</cite> and
-      <cite
-        >Star&nbsp;Wars&nbsp;Rise&nbsp;of&nbsp;the&nbsp;Silent&nbsp;Council</cite
-      >, attracting millions of players and inspiring thriving mod ecosystems.
-    </p>
-  </article>
+  <div class="container">
+    <img class="round-8" src="/team/pano.jpg" alt="Daniel “Pano” Elkins" />
+    <article class="flex">
+      <h4>Daniel “Pano” Elkins - Co-Founder</h4>
+      <p>
+        Lions Clubs International board appointee, book publisher, and veteran
+        game designer. Led Dragon Age Dark Times and Star Wars Rise of the
+        Silent Council, attracting millions of players and inspiring thriving
+        mod ecosystems.
+      </p>
+    </article>
+  </div>
 
-  <article aria-labelledby="leader-maxi">
-    <h3 id="leader-maxi">Uroš “Maxi” Trbović</h3>
-    <p><em>Co-Founder</em></p>
-    <p>
-      Growth strategist who built a media platform with more than one million
-      users and ran social channels topping 900k followers. Combines data-driven
-      experimentation with sharp storytelling instincts to scale creator
-      economies from zero to breakout.
-    </p>
-  </article>
+  <div class="container">
+    <img class="round-8" src="/team/maxi.jpg" alt="Uroš “Maxi” Trbović" />
+    <article class="flex">
+      <h4>Uroš “Maxi” Trbović - Co-Founder</h4>
+      <p>
+        Growth strategist who built a media platform with more than one million
+        users and ran social channels topping 900k followers. Combines
+        data-driven experimentation with sharp storytelling instincts to scale
+        creator economies from zero to breakout.
+      </p>
+    </article>
+  </div>
 </section>
 
 <style lang="scss">
   @use "/src/styles/mixins" as *;
+
+  section {
+    div {
+      img {
+        aspect-ratio: 2 / 3;
+        width: min(100%, 25rem);
+      }
+
+      article h4 {
+        font-family: $font-sans;
+      }
+    }
+
+    @include respond-up(small-desktop) {
+      width: 100vw;
+      flex-flow: row wrap;
+      padding-inline: 1rem;
+
+      h1 {
+        width: 100%;
+      }
+
+      div {
+        flex-direction: row;
+        width: min(calc(50% - 1rem), 50rem);
+        margin-inline: 0;
+
+        img {
+          max-width: 15rem;
+        }
+
+        article {
+          align-items: flex-start;
+          text-align: left;
+        }
+      }
+    }
+  }
 </style>
