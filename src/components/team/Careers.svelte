@@ -1,14 +1,19 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
+  import typeWrite from "@utils/typewriter";
+
+  let tagline = $state<HTMLHeadingElement>();
+
+  onMount(() => typeWrite(tagline!, "Careers"));
 </script>
 
-<section aria-labelledby="careers-title">
-  <header>
-    <h2 id="careers-title">Careers</h2>
-    <p>
-      If you're passionate about building category-defining technology and
-      joining a visionary team early, this is your moment.
-    </p>
-  </header>
+<section class="flex">
+  <h1 bind:this={tagline}>Careers</h1>
+  <p>
+    If you're passionate about building category-defining technology and joining
+    a visionary team early, this is your moment.
+  </p>
 
   <h3 id="open-positions-title">Open positions</h3>
 
@@ -23,9 +28,7 @@
           </h4>
         </header>
         <nav aria-label="AI Engineer actions">
-          <a href="#" role="button" aria-label="Read more about AI Engineer"
-            >Read more</a
-          >
+          <a href="/">Read more</a>
 
           <!-- Attach CV: label triggers hidden file input without JS -->
           <form
@@ -41,9 +44,7 @@
               accept=".pdf,.doc,.docx,.txt"
               hidden
             />
-            <label for="cv-ai" role="button" aria-controls="cv-ai"
-              >Attach CV</label
-            >
+            <a class="button-anchor" href="/"> Attach CV </a>
           </form>
         </nav>
       </article>
@@ -56,11 +57,7 @@
           <h4 id="job-business-developer">Business Developer</h4>
         </header>
         <nav aria-label="Business Developer actions">
-          <a
-            href="#"
-            role="button"
-            aria-label="Read more about Business Developer">Read more</a
-          >
+          <a href="/">Read more</a>
 
           <form
             action="/careers/apply"
@@ -75,9 +72,7 @@
               accept=".pdf,.doc,.docx,.txt"
               hidden
             />
-            <label for="cv-bizdev" role="button" aria-controls="cv-bizdev"
-              >Attach CV</label
-            >
+            <a class="button-anchor" href="/"> Attach CV </a>
           </form>
         </nav>
       </article>
@@ -91,7 +86,7 @@
         </header>
         <nav aria-label="Marketing Specialist actions">
           <a
-            href="#"
+            href="/"
             role="button"
             aria-label="Read more about Marketing Specialist">Read more</a
           >
@@ -109,9 +104,7 @@
               accept=".pdf,.doc,.docx,.txt"
               hidden
             />
-            <label for="cv-marketing" role="button" aria-controls="cv-marketing"
-              >Attach CV</label
-            >
+            <a class="button-anchor" href="/"> Attach CV </a>
           </form>
         </nav>
       </article>

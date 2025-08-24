@@ -1,12 +1,15 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
+  import typeWrite from "@utils/typewriter";
+
+  let tagline = $state<HTMLHeadingElement>();
+
+  onMount(() => typeWrite(tagline!, "Core Team"));
 </script>
 
-<section aria-labelledby="core-team-title">
-  <header>
-    <h2 id="core-team-title">
-      Core&nbsp;Team &ndash; Interactive Slider Layout
-    </h2>
-  </header>
+<section class="flex">
+  <h1 bind:this={tagline}>Core&nbsp;Team</h1>
 
   <!-- Slider region (no JS/CSS included) -->
   <div

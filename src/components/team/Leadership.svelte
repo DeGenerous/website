@@ -1,10 +1,15 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
+  import typeWrite from "@utils/typewriter";
+
+  let tagline = $state<HTMLHeadingElement>();
+
+  onMount(() => typeWrite(tagline!, "Leadership"));
 </script>
 
-<section aria-labelledby="leadership-title">
-  <header>
-    <h2 id="leadership-title">Leadership</h2>
-  </header>
+<section class="flex">
+  <h1 bind:this={tagline}>Leadership</h1>
 
   <article aria-labelledby="leader-pano">
     <h3 id="leader-pano">Daniel “Pano” Elkins</h3>
