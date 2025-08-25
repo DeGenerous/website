@@ -9,7 +9,6 @@
   let loader = $state<HTMLHeadingElement>(); // loading message
 
   let root = $state<HTMLElement>(); // observed wrapper
-  let slots: (HTMLElement | null)[] = []; // embed hosts, one per tweet
 
   let loading = $state<boolean>(true);
   let loaded = false;
@@ -21,6 +20,17 @@
     "Fetching the latest updates…",
     "Bringing the conversation to you…",
   ];
+
+  let slots: (HTMLElement | null)[] = [];
+
+  function assignSlot(node: HTMLElement, index: number) {
+    slots[index] = node;
+    return {
+      destroy() {
+        slots[index] = null;
+      },
+    };
+  }
 
   // Load Twitter SDK once
   function loadTwitterSDK(): Promise<any> {
@@ -100,10 +110,9 @@
     class:visible={!loading}
     aria-live="polite"
   >
-    {#each posts as id, i}
+    {#each posts as id, i (id)}
       <article class="tweet-card">
-        <!-- ✅ Valid binding: MemberExpression -->
-        <div class="tweet-slot" bind:this={slots[i]}></div>
+        <div class="tweet-slot" use:assignSlot={i}></div>
       </article>
     {/each}
   </div>
