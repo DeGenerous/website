@@ -5,7 +5,7 @@
   import observeElement from "@utils/observer";
   import typeWrite from "@utils/typewriter";
 
-  import Switch from "@components/icons/Switch.svelte";
+  import SwitchSVG from "@components/icons/Switch.svelte";
 
   let expandedIndex = $state<number[]>([]);
 
@@ -87,7 +87,7 @@
   </p>
 
   <div class="carousel mar-auto mar-block transition" bind:this={viewport}>
-    <Switch onclick={() => scrollWrap(-1)} />
+    <SwitchSVG onclick={() => scrollWrap(-1)} />
 
     <!-- Viewport gives visual padding; scroller has NO horizontal padding -->
     <ul class="projects-list" bind:this={scroller}>
@@ -109,7 +109,7 @@
       {/each}
     </ul>
 
-    <Switch onclick={() => scrollWrap(1)} right />
+    <SwitchSVG onclick={() => scrollWrap(1)} right />
   </div>
 
   <span class="flex gap-8">

@@ -11,7 +11,7 @@
   const sections = ["About Us", "Leadership", "Core Team", "Careers"];
 
   const lookForSectionInURL = () => {
-    const urlHash = window.location.hash.slice(1);
+    const urlHash = decodeURI(window.location.hash.slice(1));
 
     if (urlHash && sections.some((section) => section.toLowerCase() == urlHash))
       activeSection = urlHash;

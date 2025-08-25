@@ -85,11 +85,11 @@
     }
 
     &.right {
-      right: 0;
+      right: 1rem;
     }
 
     &.left {
-      left: 0;
+      left: 1rem;
     }
   }
 

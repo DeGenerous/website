@@ -1,165 +1,263 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-
+  import { onMount, onDestroy } from "svelte";
   import typeWrite from "@utils/typewriter";
+  import SwitchSVG from "@components/icons/Switch.svelte";
 
   let tagline = $state<HTMLHeadingElement>();
+  let scroller = $state<HTMLUListElement>();
+  let sectionHeader = $state<HTMLHeadingElement>();
 
-  onMount(() => typeWrite(tagline!, "Core Team"));
+  const titles = ["Engineering", "Creative", "Growth"] as const;
+  let currentIndex = 0;
+
+  let raf = 0;
+  function onScroll() {
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(() => {
+      if (!scroller) return;
+      const { scrollLeft, clientWidth } = scroller;
+      const idx = Math.round(scrollLeft / clientWidth);
+      currentIndex = Math.min(Math.max(idx, 0), titles.length - 1);
+    });
+  }
+
+  function scrollWrap(dir: 1 | -1) {
+    if (!scroller) return;
+    const next =
+      (currentIndex + (dir === 1 ? 1 : -1) + titles.length) % titles.length;
+
+    // Instant header change (optimistic), scrolling will keep it in sync.
+    currentIndex = next;
+    typeWrite(sectionHeader!, titles[currentIndex]);
+
+    scroller.scrollTo({
+      left: next * scroller.clientWidth,
+      behavior: "smooth",
+    });
+  }
+
+  onMount(() => {
+    typeWrite(tagline!, "Core Team");
+    if (scroller) scroller.scrollTo({ left: 0 });
+  });
+
+  onDestroy(() => cancelAnimationFrame(raf));
 </script>
 
 <section class="flex">
   <h1 bind:this={tagline}>Core&nbsp;Team</h1>
 
-  <!-- Slider region (no JS/CSS included) -->
-  <div
-    role="region"
-    aria-roledescription="carousel"
-    aria-label="Core Team slider"
-  >
-    <!-- Frame 1 -->
-    <div
-      role="group"
-      aria-roledescription="slide"
-      aria-label="Frame 1 • Engineering"
-      id="slide-engineering"
-    >
-      <h3>Frame&nbsp;1 &bull; Engineering</h3>
-      <ul>
-        <li>
-          <article aria-labelledby="name-john-franklin">
-            <h4 id="name-john-franklin">Anusiem&nbsp;John-Franklin</h4>
-            <p><em>Lead Full-Stack Engineer</em></p>
-            <p>
-              Built high-throughput services in Rust, Go, and Python. Scaled
-              fintech systems to 16M users; deep Azure, Kubernetes, and AI
-              expertise.
-            </p>
-          </article>
-        </li>
-        <li>
-          <article aria-labelledby="name-vani">
-            <h4 id="name-vani">Vani</h4>
-            <p><em>Web3 Engineer</em></p>
-            <p>
-              Hardware-to-Solidity polymath and multiple Ethereum Foundation
-              hackathon winner. Designs secure, composable smart contracts.
-            </p>
-          </article>
-        </li>
-        <li>
-          <article aria-labelledby="name-dmytro">
-            <h4 id="name-dmytro">Dmytro&nbsp;Bryla</h4>
-            <p><em>Senior Front-End &amp; UX Engineer</em></p>
-            <p>
-              Fluent in Astro, Svelte, React, NodeJS, and Solidity. Designs and
-              builds pixel-perfect interfaces with thoughtful interactions and
-              performance at the core.
-            </p>
-          </article>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Frame 2 -->
-    <div
-      role="group"
-      aria-roledescription="slide"
-      aria-label="Frame 2 • Creative"
-      id="slide-creative"
-    >
-      <h3>Frame&nbsp;2 &bull; Creative</h3>
-      <ul>
-        <li>
-          <article aria-labelledby="name-cryptok">
-            <h4 id="name-cryptok">Sean “Cryptok”&nbsp;Dugan</h4>
-            <p><em>Cinematics Director &amp; Producer</em></p>
-            <p>
-              Traditional and AI-film veteran. Produces and edits work from
-              short ads to feature-length films viewed tens of millions of
-              times, and has raised multi-million-dollar funding.
-            </p>
-          </article>
-        </li>
-        <li>
-          <article aria-labelledby="name-kit">
-            <h4 id="name-kit">Kit</h4>
-            <p><em>Art Director</em></p>
-            <p>
-              Global illustrator with more than ten years of professional craft,
-              officially backed by top Web3 orgs, marketplaces, and curators.
-            </p>
-          </article>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Frame 3 -->
-    <div
-      role="group"
-      aria-roledescription="slide"
-      aria-label="Frame 3 • Growth"
-      id="slide-growth"
-    >
-      <h3>Frame&nbsp;3 &bull; Growth</h3>
-      <ul>
-        <li>
-          <article aria-labelledby="name-kyt">
-            <h4 id="name-kyt">Kyt</h4>
-            <p><em>Lead Ambassador</em></p>
-            <p>
-              Twenty years in community building, content production, and
-              strategy. Forges partnerships and empowers new voices on-chain.
-            </p>
-          </article>
-        </li>
-      </ul>
-      <p>
-        <em
-          >Two contributors work under verified pseudonyms for security and
-          competitive edge. Details are available to investors under NDA.</em
-        >
-      </p>
-    </div>
-
-    <!-- Slide controls (hook up in your Svelte/JS) -->
-    <nav aria-label="Slide controls">
-      <ul>
-        <li>
-          <button
-            type="button"
-            aria-controls="slide-engineering"
-            aria-label="Show Engineering slide">Engineering</button
-          >
-        </li>
-        <li>
-          <button
-            type="button"
-            aria-controls="slide-creative"
-            aria-label="Show Creative slide">Creative</button
-          >
-        </li>
-        <li>
-          <button
-            type="button"
-            aria-controls="slide-growth"
-            aria-label="Show Growth slide">Growth</button
-          >
-        </li>
-      </ul>
+  <div class="team-wrapper container">
+    <nav class="pad">
+      <SwitchSVG onclick={() => scrollWrap(-1)} absolute="left" />
+      <h3 bind:this={sectionHeader}>Engineering</h3>
+      <SwitchSVG onclick={() => scrollWrap(1)} right absolute="right" />
     </nav>
+
+    <ul
+      class="flex-row pad horiz-scrollbar"
+      bind:this={scroller}
+      onscroll={onScroll}
+    >
+      <li class="flex">
+        <ul class="flex">
+          <li class="flex">
+            <img src="/team/anusiem.jpg" alt="Anusiem John-Franklin" />
+            <article class="flex">
+              <h4>
+                Anusiem&nbsp;John-Franklin <span>Lead Full-Stack Engineer</span>
+              </h4>
+              <p>
+                Built high-throughput services in Rust, Go, and Python. Scaled
+                fintech systems to 16M users; deep Azure, Kubernetes, and AI
+                expertise.
+              </p>
+            </article>
+          </li>
+          <li class="flex">
+            <img src="/team/vani.jpg" alt="Vani" />
+            <article class="flex">
+              <h4>Vani <span>Web3 Engineer</span></h4>
+              <p>
+                Hardware-to-Solidity polymath and multiple Ethereum Foundation
+                hackathon winner. Designs secure, composable smart contracts.
+              </p>
+            </article>
+          </li>
+          <li class="flex">
+            <img src="/team/dimon.jpg" alt="Dmytro Bryla" />
+            <article class="flex">
+              <h4>
+                Dmytro&nbsp;Bryla <span>Senior Front-End &amp; UX Engineer</span
+                >
+              </h4>
+              <p>
+                Fluent in Astro, Svelte, React, NodeJS, and Solidity. Designs
+                and builds pixel-perfect interfaces with thoughtful interactions
+                and performance at the core.
+              </p>
+            </article>
+          </li>
+        </ul>
+      </li>
+
+      <li class="flex">
+        <ul class="flex">
+          <li class="flex">
+            <img src="/team/cryptok.jpg" alt="Sean 'Cryptok' Dugan" />
+            <article class="flex">
+              <h4>
+                Sean “Cryptok”&nbsp;Dugan <span
+                  >Cinematics Director &amp; Producer</span
+                >
+              </h4>
+              <p>
+                Traditional and AI-film veteran. Produces and edits work from
+                short ads to feature-length films viewed tens of millions of
+                times, and has raised multi-million-dollar funding.
+              </p>
+            </article>
+          </li>
+          <li class="flex">
+            <img src="/team/kit.jpg" alt="Kit" />
+            <article class="flex">
+              <h4>Kit <span>Art Director</span></h4>
+              <p>
+                Global illustrator with more than ten years of professional
+                craft, officially backed by top Web3 orgs, marketplaces, and
+                curators.
+              </p>
+            </article>
+          </li>
+        </ul>
+      </li>
+
+      <li class="flex">
+        <ul class="flex">
+          <li class="flex">
+            <img src="/team/kyt.jpg" alt="Kyt" />
+            <article class="flex">
+              <h4>Kyt <span>Lead Ambassador</span></h4>
+              <p>
+                Twenty years in community building, content production, and
+                strategy. Forges partnerships and empowers new voices on-chain.
+              </p>
+            </article>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
 
-  <footer>
-    <p>
-      <strong>We’re not alone.</strong>
-      Every week, we draw on the expertise of contractors, agencies, and advisors—from
-      Web3 founders and legal counsel to branding specialists, storytellers, and
-      AI engineers—who share our vision of community-owned storytelling.
-    </p>
-  </footer>
+  <p class="notice">
+    Two contributors work under verified pseudonyms for security and competitive
+    edge. Details are available to investors under NDA.
+  </p>
+
+  <p>
+    We’re not alone. Every week, we draw on the expertise of contractors,
+    agencies, and advisors—from Web3 founders and legal counsel to branding
+    specialists, storytellers, and AI engineers—who share our vision of
+    community-owned storytelling.
+  </p>
 </section>
 
 <style lang="scss">
   @use "/src/styles/mixins" as *;
+
+  .team-wrapper {
+    width: 100vw;
+    padding: 0;
+
+    nav {
+      width: 100%;
+      position: relative;
+    }
+
+    ul {
+      align-items: flex-start;
+      justify-content: flex-start;
+      overflow-x: scroll;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      padding-top: 0;
+      width: 100%;
+
+      li {
+        flex: 0 0 100%; /* full viewport width “pages” */
+        scroll-snap-align: center; /* snap each section’s center */
+        scroll-snap-stop: always; /* don’t skip sections during momentum */
+
+        ul {
+          li {
+            width: 100%;
+            justify-content: flex-start;
+            padding: 1rem;
+            border-radius: 1rem;
+            background-color: $white;
+            @include gray-border;
+
+            img {
+              width: 100%;
+              border-radius: 0.5rem;
+              aspect-ratio: 1 / 1;
+            }
+
+            article {
+              h4 {
+                font-family: $font-sans;
+
+                span {
+                  display: block;
+                  @include font(body);
+                }
+              }
+            }
+
+            @include respond-up(tablet) {
+              flex-direction: row;
+
+              img {
+                width: 10rem;
+              }
+
+              article {
+                align-items: flex-start;
+                text-align: left;
+
+                h4 {
+                  span {
+                    display: inline;
+                    font: inherit;
+
+                    &::before {
+                      content: " — ";
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .notice {
+    font-style: italic;
+  }
+
+  :global(body.dark) {
+    .team-wrapper {
+      ul {
+        li {
+          ul {
+            li {
+              @include navy;
+            }
+          }
+        }
+      }
+    }
+  }
 </style>

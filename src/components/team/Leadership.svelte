@@ -14,7 +14,7 @@
   <div class="container">
     <img class="round-8" src="/team/pano.jpg" alt="Daniel “Pano” Elkins" />
     <article class="flex">
-      <h4>Daniel “Pano” Elkins - Co-Founder</h4>
+      <h4>Daniel “Pano” Elkins — Co-Founder</h4>
       <p>
         Lions Clubs International board appointee, book publisher, and veteran
         game designer. Led Dragon Age Dark Times and Star Wars Rise of the
@@ -27,7 +27,7 @@
   <div class="container">
     <img class="round-8" src="/team/maxi.jpg" alt="Uroš “Maxi” Trbović" />
     <article class="flex">
-      <h4>Uroš “Maxi” Trbović - Co-Founder</h4>
+      <h4>Uroš “Maxi” Trbović — Co-Founder</h4>
       <p>
         Growth strategist who built a media platform with more than one million
         users and ran social channels topping 900k followers. Combines
