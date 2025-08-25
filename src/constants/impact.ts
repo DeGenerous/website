@@ -15,7 +15,7 @@ const data = [
     name: "Millions",
     description: "of viewers following our AI stories across platforms",
     color: (opacity: number = 1) => `rgba(60, 171, 90, ${opacity})`, // green
-    image: "/icons/play.svg",
+    image: "/icons/people.svg",
   },
   {
     name: "Thousands",

@@ -98,17 +98,17 @@ export const links: FooterLink[] = [
       {
         label: "CoNexus",
         href: "/apps#conexus",
-        target: "_blank",
+        target: "_self",
       },
       {
         label: "Galactic Governance Hub",
         href: "/apps#galactic-governance-hub",
-        target: "_blank",
+        target: "_self",
       },
       {
         label: "Loredex",
         href: "/apps#loredex",
-        target: "_blank",
+        target: "_self",
       },
       {
         label: "Sagaverse Gaming",
@@ -142,7 +142,7 @@ export const links: FooterLink[] = [
     anchors: [
       {
         label: "Join Channels",
-        href: "/commnunity#join",
+        href: "/communnity#join",
         target: "_self",
       },
       {
@@ -182,7 +182,7 @@ export const links: FooterLink[] = [
     anchors: [
       {
         label: "About Us",
-        href: "/team#about",
+        href: "/team#about%20us",
         target: "_self",
       },
       {
@@ -192,7 +192,7 @@ export const links: FooterLink[] = [
       },
       {
         label: "Core Team",
-        href: "/team#core",
+        href: "/team#core%20team",
         target: "_self",
       },
       {

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { showScramble } from "@stores/scramble.svelte";
+  import { showScramble, hideScramble } from "@stores/scramble.svelte";
   import { socials, links } from "@constants/footer";
   import { toastStore } from "@stores/toast.svelte";
   import { regexpEmail } from "@constants/regexp";
@@ -87,7 +87,8 @@
               {target}
               rel="noopener noreferrer"
               onclick={() => {
-                if (target === "_self") showScramble();
+                showScramble();
+                setTimeout(hideScramble, 1500);
               }}
             >
               {label}

@@ -19,27 +19,54 @@
     />
     The heart of our ecosystem that reaps the most benefits:
     <ul class="flex">
-      <li>
-        <b>On‑chain evolution:</b> The avatars’ artwork, traits, and rarity transform
-        with the decisions the owners make
+      <li class="flex">
+        <span class="flex-row">
+          <img class="standard-icon" src="/icons/growth.svg" alt="Evolution" />
+          <h5>On‑chain evolution</h5>
+        </span>
+        <p>
+          The avatars’ artwork, traits, and rarity transform with the decisions
+          the owners make
+        </p>
       </li>
-      <li>
-        <b>Governance power:</b> Potentials holders vote on which stories and platform
-        features are admitted to CoNexus - shaping the product in real time
+      <li class="flex">
+        <span class="flex-row">
+          <img class="standard-icon" src="/icons/people.svg" alt="Power" />
+          <h5>Governance power</h5>
+        </span>
+        <p>
+          Potentials holders vote on which stories and platform features are
+          admitted to CoNexus - shaping the product in real time
+        </p>
       </li>
-      <li>
-        <b>Premium utility:</b> Holders receive prioritized free access to all betas
-        and live platforms, exclusive CoNexus storylines, custom video games, preferential
-        pricing & rewards. They also star as characters in our franchise’s series
-        (watched by millions) and govern its storyline.
+      <li class="flex">
+        <span class="flex-row">
+          <img class="standard-icon" src="/icons/cup.svg" alt="Utility" />
+          <h5>Premium utility</h5>
+        </span>
+        <p>
+          Holders receive prioritized free access to all betas and live
+          platforms, exclusive CoNexus storylines, custom video games,
+          preferential pricing & rewards. They also star as characters in our
+          franchise’s series (watched by millions) and govern its storyline.
+        </p>
       </li>
-      <li>
-        <b>Proven rewards:</b> Multiple partner-project airdrops have been delivered
-        to the NFT holders, and our upcoming token will be distributed to Potentials
-        first. Staking rewards are coming soon as well
+      <li class="flex">
+        <span class="flex-row">
+          <img class="standard-icon" src="/icons/coins.svg" alt="Rewards" />
+          <h5>Proven rewards</h5>
+        </span>
+        <p>
+          Multiple partner-project airdrops have been delivered to the NFT
+          holders, and our upcoming token will be distributed to Potentials
+          first. Staking rewards are coming soon as well
+        </p>
       </li>
     </ul>
-    Owning a Potential places you at the center of our growth and direction.
+
+    <i>
+      Owning a Potential places you at the center of our growth and direction.
+    </i>
     <span class="flex-row">
       <a
         class="icon-link flex void-btn nohover-link"
@@ -69,16 +96,26 @@
   @use "/src/styles/mixins" as *;
 
   article {
-    text-align: left;
-
     h3 {
       font-family: $font-sans;
     }
 
     ul {
-      list-style-type: disc;
-      align-items: flex-start;
-      padding-left: 2rem;
+      li {
+        gap: 0.5rem;
+
+        span {
+          gap: 0.5rem;
+
+          h5 {
+            font-weight: 600;
+          }
+
+          img {
+            width: 1.5rem;
+          }
+        }
+      }
     }
 
     span {

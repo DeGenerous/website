@@ -149,9 +149,11 @@
     </ul>
   </div>
 
-  <p class="notice">
-    Two contributors work under verified pseudonyms for security and competitive
-    edge. Details are available to investors under NDA.
+  <p>
+    <i>
+      Two contributors work under verified pseudonyms for security and
+      competitive edge. Details are available to investors under NDA.
+    </i>
   </p>
 
   <p>
@@ -241,10 +243,6 @@
         }
       }
     }
-  }
-
-  .notice {
-    font-style: italic;
   }
 
   :global(body.dark) {

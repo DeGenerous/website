@@ -160,6 +160,10 @@ body {
         @include gray(1, text);
       }
     }
+
+    .standard-icon {
+      @include bright(0);
+    }
   }
 
   &.dark {
@@ -235,6 +239,10 @@ body {
       span {
         @include cyan;
       }
+    }
+
+    .standard-icon {
+      @include bright(500%);
     }
   }
 }

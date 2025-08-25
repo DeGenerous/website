@@ -41,7 +41,7 @@
     <article class="flex">
       <span class="flex">
         <h4>How we operate</h4>
-        <ul class="default-ul">
+        <ul class="default-ul flex">
           <li>Iterate relentlessly – weekly releases</li>
           <li>Tiny strike teams with clear ownership</li>
           <li>Community input guides every sprint</li>
@@ -51,21 +51,56 @@
 
       <span class="flex">
         <h4>We live by five values:</h4>
-        <ul class="default-ul">
-          <li>
-            Innovation – breakthrough tech and bold ideas drive meaningful
-            change
+        <ul class="flex">
+          <li class="flex-row">
+            <img class="standard-icon" src="/icons/bulb.svg" alt="Innovation" />
+            <p>
+              <b>Innovation</b> – breakthrough tech and bold ideas drive meaningful
+              change
+            </p>
           </li>
-          <li>Community – members steer everything we build</li>
-          <li>
-            Empowerment – tools and ownership let anyone shape stories and earn
+          <li class="flex-row">
+            <img
+              class="standard-icon"
+              src="/icons/people.svg"
+              alt="Innovation"
+            />
+            <p>
+              <b>Community</b> – members steer everything we build
+            </p>
           </li>
-          <li>
-            Transparency – clear goals, open dialogue, visible on‑chain activity
+          <li class="flex-row">
+            <img
+              class="standard-icon"
+              src="/icons/target.svg"
+              alt="Innovation"
+            />
+            <p>
+              <b>Empowerment</b> – tools and ownership let anyone shape stories and
+              earn
+            </p>
           </li>
-          <li>
-            Impact – every launch targets measurable social and humanitarian
-            good
+          <li class="flex-row">
+            <img
+              class="standard-icon"
+              src="/icons/shield.svg"
+              alt="Innovation"
+            />
+            <p>
+              <b>Transparency</b> – clear goals, open dialogue, visible on‑chain
+              activity
+            </p>
+          </li>
+          <li class="flex-row">
+            <img
+              class="standard-icon"
+              src="/icons/heart.svg"
+              alt="Innovation"
+            />
+            <p>
+              <b>Impact</b> – every launch targets measurable social and humanitarian
+              good
+            </p>
           </li>
         </ul>
       </span>
@@ -80,6 +115,7 @@
     align-items: flex-start;
     justify-content: space-between;
   }
+
   article {
     width: 100%;
 
@@ -95,6 +131,19 @@
 
     span {
       gap: 0.5rem;
+    }
+
+    ul {
+      align-items: flex-start;
+
+      li {
+        align-items: flex-start;
+        gap: 0.5rem;
+
+        img {
+          width: 1.5rem;
+        }
+      }
     }
 
     @include respond-up(tablet) {
