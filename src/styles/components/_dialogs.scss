@@ -8,7 +8,7 @@ dialog {
   margin: auto;
   border-radius: 1rem;
   overflow-x: hidden;
-  box-shadow: $deep-shadow-plus-inset-glow;
+  // box-shadow: $deep-shadow-plus-inset-glow;
   transition: all 0.3s ease-in-out;
 
   // Fallback if no support
@@ -16,6 +16,8 @@ dialog {
   transform: none;
 
   @include dark-blue(0.75);
+
+  @include box-shadow;
 
   @include respond-up(tablet) {
     width: clamp(250px, 90%, 50rem);

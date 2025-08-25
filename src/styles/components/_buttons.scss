@@ -213,7 +213,7 @@ body {
   }
 
   &.light {
-    button:not(.void-btn),
+    button:not(.void-btn, .red-btn),
     .button-anchor {
       @include blue(1, bg, bright);
 

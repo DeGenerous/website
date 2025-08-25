@@ -79,3 +79,10 @@ type FooterLink = {
     target: string;
   }[];
 };
+
+type Modal = {
+  content: string;
+  button: string;
+  buttonFunc: () => void;
+  buttonClass: string;
+};
