@@ -27,7 +27,7 @@ const apps: App[] = [
     name: "Sagaverse Gaming",
     description:
       "Sagaverse Gaming extends lore immersion into custom games and events. This includes a top-down shooter with two modes, a mobile archery game, a spaceship shoot-out game, and more with skins from The Dischordian Saga’s universe.",
-    href: "/sagaverse",
+    href: "/apps/sagaverse",
   },
 ];
 

@@ -121,6 +121,7 @@
     .tweets {
       width: 100vw;
       align-items: stretch;
+      justify-content: flex-start;
       margin-top: 0.5rem;
       padding-left: 1rem;
       overflow-x: auto;

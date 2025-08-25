@@ -25,7 +25,7 @@
         <a
           class="button-anchor"
           {href}
-          target="_blank"
+          target={name == "Sagaverse Gaming" ? "_self" : "_blank"}
           rel="noopener noreferrer"
         >
           Launch App

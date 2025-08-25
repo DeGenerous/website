@@ -31,15 +31,16 @@
   onMount(resetTitle);
 
   // UI actions
-  async function pickSection(item: CTA) {
+  function pickSection(item: CTA) {
     if (activeSection?.name === item.name) return;
     activeSection = item;
-    await animateTitle(); // type the section title
+    animateTitle(); // type the section title
   }
 
-  async function resetToMenu() {
+  function resetToMenu() {
     activeSection = null;
-    await animateSection();
+    resetTitle();
+    animateSection();
   }
 </script>
 
