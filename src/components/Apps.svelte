@@ -4,6 +4,8 @@
   import apps from "@constants/apps";
   import typeWrite from "@utils/typewriter";
 
+  import ConexusDemo from "@components/apps/ConexusDemo.svelte";
+
   let tagline = $state<HTMLHeadingElement>();
 
   const startTyping = () => setTimeout(() => typeWrite(tagline!, "Apps"), 1500);
@@ -21,6 +23,9 @@
     {#each apps as { name, description, href }}
       <li class="container">
         <h4>{name}</h4>
+        {#if name === "CoNexus"}
+          <ConexusDemo />
+        {/if}
         <p>{description}</p>
         <a
           class="button-anchor"

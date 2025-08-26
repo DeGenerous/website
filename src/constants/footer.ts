@@ -175,6 +175,11 @@ export const links: FooterLink[] = [
         href: "/brand-guidelines",
         target: "_self",
       },
+      {
+        label: "Merch Shop",
+        href: "https://degenerous.myshopify.com/",
+        target: "_blank",
+      },
     ],
   },
   {
