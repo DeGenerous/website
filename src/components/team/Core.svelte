@@ -18,6 +18,8 @@
       const { scrollLeft, clientWidth } = scroller;
       const idx = Math.round(scrollLeft / clientWidth);
       currentIndex = Math.min(Math.max(idx, 0), titles.length - 1);
+
+      typeWrite(sectionHeader!, titles[currentIndex]);
     });
   }
 
@@ -149,14 +151,14 @@
     </ul>
   </div>
 
-  <p>
+  <p class="pc-narrow">
     <i>
       Two contributors work under verified pseudonyms for security and
       competitive edge. Details are available to investors under NDA.
     </i>
   </p>
 
-  <p>
+  <p class="pc-narrow">
     We’re not alone. Every week, we draw on the expertise of contractors,
     agencies, and advisors—from Web3 founders and legal counsel to branding
     specialists, storytellers, and AI engineers—who share our vision of
@@ -168,7 +170,6 @@
   @use "/src/styles/mixins" as *;
 
   .team-wrapper {
-    width: 100vw;
     padding: 0;
 
     nav {

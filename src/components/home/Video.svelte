@@ -30,12 +30,6 @@
       transition-duration: 0.6s;
       opacity: 0;
       transform: scale(0.9) skew(5deg, -5deg);
-
-      @include respond-up("quad-hd") {
-        margin-inline: auto;
-        border-radius: 1rem;
-        @include auto-width;
-      }
     }
   }
 

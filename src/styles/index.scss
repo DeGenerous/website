@@ -237,6 +237,10 @@ html {
   main {
     padding-block: 5rem;
     gap: 2rem;
+
+    @include respond-up(small-desktop) {
+      padding-inline: 100px;
+    }
   }
 
   .flex-row {
@@ -267,6 +271,12 @@ html {
 
   .pad-inline {
     padding-inline: 1rem;
+  }
+
+  .pc-narrow {
+    @include respond-up(small-desktop) {
+      padding-inline: 100px;
+    }
   }
 
   .round-8 {

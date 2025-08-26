@@ -26,7 +26,7 @@
 <section class="shape-world flex" bind:this={section}>
   <h3 bind:this={tagline}>Shape The World You Dream Of</h3>
 
-  <p>
+  <p class="pc-narrow">
     Step into a playground of endless possibility, where your wildest visions
     come to life on a foundation built for boundless creativity.
   </p>
@@ -37,7 +37,7 @@
     <track kind="captions" />
   </video>
 
-  <p>
+  <p class="pc-narrow">
     Whether you’re weaving epic tales, crafting unforgettable games, or
     launching the next breakthrough app, DGRS hands you the keys to build,
     iterate, and amaze - no limits attached. Join a community of dreamers and

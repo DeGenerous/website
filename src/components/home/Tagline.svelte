@@ -31,7 +31,7 @@
 <section class="tagline flex mar-auto fade-in">
   <!-- Keep real text in markup for SEO/no-JS, the script will overwrite it -->
   <h1 class="sr-only" bind:this={tagline}>
-    The GenAI Ecosystem for Storytelling
+    The GenAI Ecosystem <br class="pc-only" /> for Storytelling
   </h1>
 
   <h5>

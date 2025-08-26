@@ -5,6 +5,7 @@
   import typeWrite from "@utils/typewriter";
 
   import ConexusDemo from "@components/apps/ConexusDemo.svelte";
+  import GovernanceHubDemo from "@components/apps/GovernanceHubDemo.svelte";
 
   let tagline = $state<HTMLHeadingElement>();
 
@@ -25,6 +26,8 @@
         <h4>{name}</h4>
         {#if name === "CoNexus"}
           <ConexusDemo />
+        {:else if name === "Galactic Governance Hub"}
+          <GovernanceHubDemo />
         {/if}
         <p>{description}</p>
         <a

@@ -27,6 +27,7 @@
 <style>
   :global(main) {
     padding-block: 0 1rem !important;
+    padding-inline: 0 !important;
     gap: 5rem !important;
   }
 </style>

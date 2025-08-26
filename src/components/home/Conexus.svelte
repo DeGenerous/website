@@ -31,7 +31,7 @@
   <h3 bind:this={tagline}>
     Dream to Screen: Unlock Your Storytelling Potential
   </h3>
-  <p>
+  <p class="pc-narrow">
     CoNexus, DGRS Labs’ flagship app, transforms how content is made, shared,
     and owned. Our text-to-story engine is the most efficient way for anyone to
     create or star in high‑quality, visually immersive stories spanning novels,
@@ -54,7 +54,7 @@
     </ul>
   </div>
 
-  <p>
+  <p class="pc-narrow">
     Leveraging Generative AI and blockchain-backed ownership, we’re turning
     imagination into reality - giving creators and communities the tools to
     power tomorrow’s digital economy. Whether you want to play, create, or

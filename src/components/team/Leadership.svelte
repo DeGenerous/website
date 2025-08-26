@@ -54,17 +54,12 @@
     }
 
     @include respond-up(small-desktop) {
-      width: 100vw;
-      flex-flow: row wrap;
-      padding-inline: 1rem;
-
       h1 {
         width: 100%;
       }
 
       div {
         flex-direction: row;
-        width: min(calc(50% - 1rem), 50rem);
         margin-inline: 0;
 
         img {
@@ -75,6 +70,14 @@
           align-items: flex-start;
           text-align: left;
         }
+      }
+    }
+
+    @include respond-up(large-desktop) {
+      flex-flow: row wrap;
+
+      div {
+        width: min(calc(50% - 1rem), 50rem);
       }
     }
   }

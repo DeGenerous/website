@@ -78,7 +78,7 @@
 <section class="flex full-height">
   <h3 bind:this={tagline}>Built on DGRS</h3>
 
-  <p class="auto-width">
+  <p class="auto-width pc-narrow">
     Our composable AI infrastructure underpins everything from multimedia agents
     to games, films, and apps - all within a single, unified ecosystem. From
     authors and brands to filmmakers, four entertainment &amp; management apps,

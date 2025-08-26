@@ -26,7 +26,7 @@
   };
 </script>
 
-<div class="newsletter flex pad">
+<div class="newsletter flex pad pc-narrow">
   <h4>Join the Future of Storytelling</h4>
   <p>
     Get the latest updates on DGRS, exclusive access to new features, and
@@ -43,7 +43,7 @@
   </span>
 </div>
 
-<footer class="pad flex fade-in">
+<footer class="pad flex fade-in pc-narrow">
   <section class="flex gap">
     <LogoSVG big={true} branding={true} />
     <p>
@@ -112,6 +112,10 @@
     gap: 2rem;
     border-top: 1px solid rgba(150, 150, 150, 0.25);
     @include light-blue(0.1);
+
+    hr {
+      width: 100vw;
+    }
 
     section {
       .socials {
@@ -196,7 +200,7 @@
       }
     }
 
-    @include respond-up("large-desktop") {
+    @include respond-up("full-hd") {
       flex-direction: row;
       justify-content: space-around;
       align-items: flex-start;

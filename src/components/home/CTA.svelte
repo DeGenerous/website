@@ -44,7 +44,7 @@
   }
 </script>
 
-<section class="flex full-height" bind:this={ctaSection}>
+<section class="flex full-height pc-narrow" bind:this={ctaSection}>
   {#if !activeSection}
     <h3 bind:this={tagline}>What brings you here today?</h3>
 
@@ -67,10 +67,7 @@
       </ul>
     {/if}
   {:else}
-    <div
-      class="container fade-in"
-      style:background-color={activeSection.color(0.1)}
-    >
+    <div class="container fade-in" style:background={activeSection.color(0.1)}>
       <h3 bind:this={sectionTitle} style:color={activeSection.color()}>
         {activeSection.title}
       </h3>
