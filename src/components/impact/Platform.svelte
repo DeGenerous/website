@@ -1,10 +1,10 @@
 <script lang="ts">
 </script>
 
-<section class="flex full-height">
+<section class="container">
   <h2>A Platform That Powers Ecosystems</h2>
 
-  <article class="container">
+  <article class="flex">
     <p>
       Our tech has supported everyone from indie creators to
       <b>nine-figure companies</b>. CoNexus and DGRS tooling have:
@@ -34,7 +34,11 @@
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
-  ul {
-    align-items: flex-start;
+  section {
+    margin-bottom: 5rem;
+
+    ul {
+      align-items: flex-start;
+    }
   }
 </style>

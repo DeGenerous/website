@@ -4,8 +4,7 @@
   import typeWrite from "@utils/typewriter";
   import data from "@constants/impact";
 
-  import Supercharging from "@components/impact/Supercharging.svelte";
-  import Gaming from "@components/impact/Gaming.svelte";
+  import Charity from "@components/impact/Charity.svelte";
   import Platform from "@components/impact/Platform.svelte";
 
   let tagline = $state<HTMLHeadingElement>();
@@ -52,9 +51,7 @@
   {/if}
 </section>
 
-<Supercharging />
-
-<Gaming />
+<Charity />
 
 <Platform />
 
@@ -119,11 +116,29 @@
         flex-flow: row wrap;
 
         button {
-          max-width: min(17.5vw, 22.5rem);
+          max-width: 17.5vw;
 
           p {
             @include font(caption);
           }
+        }
+      }
+
+      @include respond-up(small-desktop) {
+        button {
+          max-width: 14vw;
+        }
+      }
+
+      @include respond-up(large-desktop) {
+        button {
+          max-width: 13rem;
+        }
+      }
+
+      @include respond-up(full-hd) {
+        button {
+          max-width: 18rem;
         }
       }
     }

@@ -107,10 +107,6 @@
         span {
           gap: 0.5rem;
 
-          h5 {
-            font-weight: 600;
-          }
-
           img {
             width: 1.5rem;
           }

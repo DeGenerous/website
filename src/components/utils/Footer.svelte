@@ -173,7 +173,6 @@
 
         h5 {
           font-family: $font-sans;
-          font-weight: 600;
           @include font(body);
         }
 
