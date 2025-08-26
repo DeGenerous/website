@@ -58,6 +58,10 @@
       /* Responsive without blowing up on mobile */
       font-size: clamp(2rem, 4vw + 1rem, 4rem);
       @include light-blue(1, text);
+
+      @include respond-up(small-desktop) {
+        max-width: 42rem;
+      }
     }
 
     h5 {

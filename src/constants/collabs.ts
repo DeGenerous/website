@@ -10,7 +10,6 @@ const collabs = [
     alt: "Story Protocol",
   },
   { href: "https://www.base.org/", src: "/collabs/base.png", alt: "Base" },
-  { href: "https://twigg.xyz/", src: "/collabs/twigg.png", alt: "Twigg" },
   {
     href: "https://www.anyone.io/",
     src: "/collabs/anyone.png",
@@ -21,15 +20,16 @@ const collabs = [
     src: "/collabs/nonos.png",
     alt: "NONOS",
   },
-  {
-    href: "https://www.glmrapes.com/",
-    src: "/collabs/glma.png",
-    alt: "GLMR Apes",
-  },
+  { href: "https://twigg.xyz/", src: "/collabs/twigg.png", alt: "Twigg" },
   {
     href: "https://highclasscrypto.io/",
     src: "/collabs/hcc.png",
     alt: "High Class Crypto",
+  },
+  {
+    href: "https://www.glmrapes.com/",
+    src: "/collabs/glma.png",
+    alt: "GLMR Apes",
   },
 ];
 

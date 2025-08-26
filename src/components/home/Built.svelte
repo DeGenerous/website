@@ -130,7 +130,7 @@
       padding-inline: 0.5rem; /* visual breathing room around arrows */
       transition-duration: 0.6s;
       opacity: 0.5;
-      transform: scaleY(0.9);
+      // transform: scaleY(0.9);
     }
 
     /* Real scroll container — no horizontal padding here */
@@ -270,7 +270,7 @@
 
   :global(.carousel.visible) {
     opacity: 1 !important;
-    transform: scaleY(1) !important;
+    // transform: scaleY(1) !important;
 
     h3 {
       opacity: 1;
