@@ -193,7 +193,7 @@ body {
       }
     }
 
-    select{
+    select {
       &:hover:not(&:disabled),
       &:active:not(&:disabled),
       &:focus:not(&:disabled) {

@@ -15,7 +15,7 @@
 
   section {
     position: relative;
-    width: min(95vw, 40rem);
+    width: min(100%, 40rem);
 
     iframe {
       position: absolute;

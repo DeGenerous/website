@@ -6,6 +6,7 @@
 
   import ConexusDemo from "@components/apps/ConexusDemo.svelte";
   import GovernanceHubDemo from "@components/apps/GovernanceHubDemo.svelte";
+  import SagaverseDemo from "@components/apps/SagaverseDemo.svelte";
 
   let tagline = $state<HTMLHeadingElement>();
 
@@ -28,6 +29,8 @@
           <ConexusDemo />
         {:else if name === "Galactic Governance Hub"}
           <GovernanceHubDemo />
+        {:else if name === "Sagaverse Gaming"}
+          <SagaverseDemo />
         {/if}
         <p>{description}</p>
         <a
