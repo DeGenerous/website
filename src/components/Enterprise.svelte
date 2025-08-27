@@ -49,7 +49,7 @@
   });
 </script>
 
-<section class="flex">
+<section class="flex full-height">
   <h1 bind:this={tagline}>Enterprise</h1>
   <p class="auto-width">
     Elevate your company with our enterprise solutions. Whether you’re a product
@@ -59,13 +59,13 @@
   </p>
 </section>
 
-<nav id="intro" class="link-tabs flex round-8 blur">
+<nav id="intro" class="link-tabs flex round-8">
   <button
     class="void-btn"
     class:active={active === "conexus-api"}
     onclick={() => scrollToSection("conexus-api")}
   >
-    CoNexus API
+    <p>CoNexus API</p>
   </button>
 
   <button
@@ -73,7 +73,7 @@
     class:active={active === "gen-ai"}
     onclick={() => scrollToSection("gen-ai")}
   >
-    GenAI Film Studio
+    <p>GenAI Film Studio</p>
   </button>
 
   <button
@@ -81,13 +81,8 @@
     class:active={active === "csr"}
     onclick={() => scrollToSection("csr")}
   >
-    CSR with Real Impact
+    <p>CSR with Real Impact</p>
   </button>
-  <span
-    class="pc-only round-8 transition"
-    style:left="{(ids.indexOf(active) - 1) * 15}rem"
-    style:opacity={active == "intro" ? "0" : "1"}
-  ></span>
 </nav>
 
 <ConexusAPI />
@@ -99,11 +94,8 @@
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
-  section {
-    margin-top: 5rem;
-  }
-
   :global(main) {
+    padding-top: 0 !important;
     gap: 5rem !important;
   }
 </style>

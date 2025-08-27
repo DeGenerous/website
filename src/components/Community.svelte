@@ -69,13 +69,15 @@
   </article>
 </section>
 
-<nav id="intro" class="link-tabs flex round-8 blur">
+<!-- style:opacity={active == "intro" ? "0" : "1"} -->
+
+<nav id="intro" class="link-tabs flex round-8">
   <button
     class="void-btn"
     class:active={active === "join"}
     onclick={() => scrollToSection("join")}
   >
-    Join Channels
+    <p>Join Channels</p>
   </button>
 
   <button
@@ -83,7 +85,7 @@
     class:active={active === "links"}
     onclick={() => scrollToSection("links")}
   >
-    Safe Links
+    <p>Safe Links</p>
   </button>
 
   <button
@@ -91,21 +93,15 @@
     class:active={active === "bounties"}
     onclick={() => scrollToSection("bounties")}
   >
-    Bounties
+    <p>Bounties</p>
   </button>
   <button
     class="void-btn"
     class:active={active === "ambassadors"}
     onclick={() => scrollToSection("ambassadors")}
   >
-    Ambassador & Affiliate
+    <p>Ambassador & Affiliate</p>
   </button>
-
-  <span
-    class="pc-only round-8 transition"
-    style:left="{(ids.indexOf(active) - 1) * 15}rem"
-    style:opacity={active == "intro" ? "0" : "1"}
-  ></span>
 </nav>
 
 <Join />
