@@ -176,11 +176,13 @@ body {
       @include light-blue(1, text);
     }
 
-    h5 {
+    h5,
+    label {
       color: black;
     }
 
-    input {
+    input,
+    select {
       box-shadow: none;
       background-color: white;
       @include dark-blue(1, text);
@@ -188,6 +190,18 @@ body {
 
       &::placeholder {
         @include gray(1, text);
+      }
+    }
+
+    select{
+      &:hover:not(&:disabled),
+      &:active:not(&:disabled),
+      &:focus:not(&:disabled) {
+        box-shadow: none;
+        @include dark-blue(1, text);
+        @include gray-border;
+        @include bright;
+        @include scale(1.01, x);
       }
     }
 
@@ -210,6 +224,10 @@ body {
 
     h5 {
       color: white;
+    }
+
+    label {
+      @include white-txt;
     }
 
     b {

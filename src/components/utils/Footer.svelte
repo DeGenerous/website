@@ -7,6 +7,7 @@
   import LogoSVG from "@components/icons/Logo.svelte";
 
   let email = $state("");
+  let lang = $state("en");
 
   const subscribeToNewsletter = () => {
     if (!email || !regexpEmail.test(email)) {
@@ -23,6 +24,10 @@
 
     // Reset the input field after subscription
     email = "";
+  };
+
+  const resetCookieConsent = () => {
+    // This function would reset cookie consent preferences
   };
 </script>
 
@@ -60,6 +65,19 @@
         </li>
       {/each}
     </ul>
+
+    <div class="controls flex-row flex-wrap">
+      <span class="flex-row">
+        <label for="lang">🌐 Language:</label>
+        <select id="lang" bind:value={lang}>
+          <option value="en" selected>English</option>
+        </select>
+      </span>
+
+      <button onclick={resetCookieConsent}>Cookie Policy</button>
+    </div>
+
+    <a href="mailto:contact@dgrs.ink" target="_blank"> contact@dgrs.ink </a>
 
     <span class="flex gap-8">
       <p>© DGRS Labs Pte. Ltd.</p>
@@ -214,6 +232,18 @@
 
         span {
           align-items: flex-start;
+        }
+
+        .controls {
+          justify-content: flex-start;
+
+          span {
+            width: 100%;
+            flex-flow: row wrap;
+            align-items: center;
+            justify-content: flex-start;
+            // flex-direction: column;
+          }
         }
       }
 
