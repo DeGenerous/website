@@ -98,7 +98,7 @@
   });
 </script>
 
-<section bind:this={root}>
+<section class="flex" bind:this={root}>
   <h3 bind:this={tagline}>Highlighted Tweets</h3>
 
   {#if loading}
@@ -122,11 +122,6 @@
   @use "/src/styles/mixins" as *;
 
   section {
-    @include respond-up("small-desktop") {
-      padding-top: 1rem;
-      min-height: 100vh;
-    }
-
     .tweets {
       width: 100vw;
       align-items: stretch;
@@ -152,12 +147,69 @@
 
         .tweet-slot {
           width: 100%;
+          height: auto;
           /* Twitter injects an iframe here */
         }
+      }
+    }
 
-        @include respond-up("small-desktop") {
-          min-width: clamp(20rem, 50vw, 32rem);
+    $tweet-width: 550px;
+
+    @include respond-up("small-desktop") {
+      .tweets {
+        width: auto;
+        display: block;
+        overflow: visible;
+        opacity: 1;
+        transform: none;
+        scroll-snap-type: unset;
+        margin-top: 0;
+        padding-left: 0;
+        max-width: calc(2 * $tweet-width - 200px);
+        column-count: 2; /* adjust for your width */
+        column-gap: 1rem;
+        border-radius: 1rem;
+        padding-inline: 1rem;
+        @include light-blue(0.1);
+        @include gray-border;
+
+        &.visible {
+          transform: none;
         }
+
+        .tweet-card {
+          min-width: unset;
+          width: 100%;
+          transform: none;
+          scroll-snap-align: unset;
+          display: inline-block; /* required inside columns */
+          break-inside: avoid; /* don't split a card between columns */
+          -webkit-column-break-inside: avoid; /* safari */
+
+          .tweet-slot {
+            width: auto;
+          }
+        }
+      }
+    }
+
+    @include respond-up("large-desktop") {
+      .tweets {
+        max-width: calc(100% - 200px);
+        column-count: 3;
+      }
+    }
+
+    @include respond-up("full-hd") {
+      .tweets {
+        max-width: calc(3 * $tweet-width - 200px);
+      }
+    }
+
+    @include respond-up("quad-hd") {
+      .tweets {
+        max-width: calc(4 * $tweet-width - 200px);
+        column-count: 4;
       }
     }
   }
