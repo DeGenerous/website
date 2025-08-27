@@ -13,8 +13,129 @@
 
 <section class="flex full-height">
   <h1 bind:this={tagline}>Sagaverse Gaming</h1>
+  <p class="auto-width">
+    Sagaverse Gaming consists of custom games and events that seamlessly
+    integrate with the Dischordian Saga's lore and enhance the NFTs' narrative.
+  </p>
+  <div class="flex">
+    <div class="container">
+      <img src="/apps/sagaverse/B4N.gif" alt="Battle for Nexon" />
+      <article class="flex">
+        <h3>Battle for Nexon</h3>
+        <p>
+          Play as Agent Zero, humanity's last hope in the Intelligence Wars. On
+          a mission to assassinate an AI warlord infamous for decimating human
+          colonies, you journey to the planet of Nexon. However, your ship gets
+          surrounded by the General's AI fleet, forcing you into an unexpected
+          battle.
+        </p>
+        <a
+          class="button-anchor"
+          href="https://arcade.degenerousdao.com/Battle-for-Nexon/"
+          target="_blank"
+        >
+          Play Now
+        </a>
+      </article>
+    </div>
+
+    <div class="container">
+      <img src="/apps/sagaverse/AA.gif" alt="Ark Assassin" />
+      <article class="flex">
+        <h3>Ark Assassin</h3>
+        <p>
+          Can you successfully navigate the temple, destroy the AI security
+          forces, and make it to the inner chambers to eliminate your target?
+          Welcome to "Ark Assassin", where the line between antiquity and the
+          future blurs, challenging players to rewrite history.
+        </p>
+        <a
+          class="button-anchor"
+          href="https://arcade.degenerousdao.com/Ark-Assassin/"
+          target="_blank"
+        >
+          Play Now
+        </a>
+      </article>
+    </div>
+
+    <div class="container">
+      <img src="/apps/sagaverse/LS.gif" alt="Last Stand" />
+      <article class="flex">
+        <h3>Last Stand</h3>
+        <p>
+          Play as Iron Lion, the greatest soldier of the human Insurgency, as
+          you're up against waves of AI robots on the planet of Veridian Prime.
+          You're left all alone with a mission to save time for Agent Zero, as
+          humanity's only chance for a future.
+        </p>
+        <a
+          class="button-anchor"
+          href="https://arcade.degenerousdao.com/Iron-Lion-Last-Stand/"
+          target="_blank"
+        >
+          Play Now
+        </a>
+      </article>
+    </div>
+
+    <div class="container">
+      <img src="/apps/sagaverse/TDZ.gif" alt="The Dark Zoo" />
+      <article class="flex">
+        <h3>GLMR Apes: The Dark Zoo</h3>
+        <p>
+          In a dystopian future, an ape named Generous Gibbon is captured and
+          imprisoned in a high-tech zoo controlled by the malevolent AI
+          overlord, the Collector. Guarded by a menacing robotic monster known
+          as the Keeper, Generous must use its agility and wit to navigate the
+          treacherous levels of the zoo prison.
+        </p>
+        <a
+          class="button-anchor"
+          href="https://degenerousdao.gitbook.io/wiki/products/sagaverse-gaming/the-dark-zoo"
+          target="_blank"
+        >
+          How to Play
+        </a>
+      </article>
+    </div>
+  </div>
 </section>
 
 <style lang="scss">
   @use "/src/styles/mixins" as *;
+
+  section {
+    > div {
+      .container {
+        img {
+          width: 100%;
+          border-radius: 0.5rem;
+          @include gray-border;
+        }
+
+        article {
+          h3,
+          a {
+            font-family: $font-sans;
+          }
+        }
+
+        @include respond-up(small-desktop) {
+          flex-direction: row;
+
+          img {
+            width: 40%;
+            max-width: 30rem;
+          }
+
+          article {
+            p {
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+  }
 </style>

@@ -109,6 +109,8 @@
         .container {
           box-shadow: $shadow-plus-inset-glow;
           animation: dark-glowing 10s ease-in-out infinite;
+          -webkit-backdrop-filter: blur(0.25rem);
+          backdrop-filter: blur(0.25rem);
 
           p {
             font-size: 0.5rem;
