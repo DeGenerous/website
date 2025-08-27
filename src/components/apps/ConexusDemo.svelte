@@ -41,7 +41,7 @@
       <p>Infinitely unique. Never repeatable.</p>
     </span>
   </div>
-  <img class="pc-only" src="/apps/conexusBG.webp" alt="CoNexus" />
+  <img src="/apps/conexusBG.webp" alt="CoNexus" />
 </section>
 
 <style lang="scss">
@@ -58,7 +58,10 @@
         gap: 0.5rem;
         padding: 0.5rem;
         border-radius: 0.5rem;
-        @include dark-blue;
+        background: unset;
+        border: unset;
+        backdrop-filter: unset;
+        -webkit-backdrop-filter: unset;
 
         p {
           @include white-txt;
@@ -84,8 +87,12 @@
     }
 
     > img {
-      height: inherit;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
       border-radius: inherit;
+      z-index: -1;
       @include gray-border;
     }
 
@@ -112,6 +119,10 @@
             width: 11rem;
           }
         }
+      }
+
+      > img {
+        position: static;
       }
     }
   }

@@ -2,12 +2,11 @@
 </script>
 
 <section class="round">
-  <!-- <div class="flex">
-    <span class="container">
-      <p>A new world of endless possibilities awaits you.</p>
-      <p>Infinitely unique. Never repeatable.</p>
-    </span>
-  </div> -->
+  <iframe
+    src="https://www.youtube.com/embed/isK6VuGAbs4"
+    title="Dischordian Saga"
+    allowfullscreen
+  ></iframe>
   <img src="/apps/governance-hub.webp" alt="Galactic Governance Hub" />
 </section>
 
@@ -18,27 +17,15 @@
     position: relative;
     width: min(95vw, 40rem);
 
-    div {
+    iframe {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-
-      .container {
-        width: auto;
-        gap: 0.5rem;
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-        box-shadow: $shadow-plus-inset-glow;
-        animation: dark-glowing 10s ease-in-out infinite;
-
-        p {
-          font-size: 0.5rem;
-          line-height: 1;
-          @include white-txt;
-        }
-      }
+      width: 89%;
+      left: 5.5%;
+      top: 12.5%;
+      height: 78.5%;
+      z-index: 10;
+      outline: none;
+      border: none;
     }
 
     > img {
