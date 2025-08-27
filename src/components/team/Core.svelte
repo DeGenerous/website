@@ -8,7 +8,7 @@
   let sectionHeader = $state<HTMLHeadingElement>();
 
   const titles = ["Engineering", "Creative", "Growth"] as const;
-  let currentIndex = 0;
+  let currentIndex = $state<number>(0);
 
   let raf = 0;
   function onScroll() {
@@ -23,19 +23,23 @@
     });
   }
 
-  function scrollWrap(dir: 1 | -1) {
+  function pageTo(index: number) {
     if (!scroller) return;
-    const next =
-      (currentIndex + (dir === 1 ? 1 : -1) + titles.length) % titles.length;
-
-    // Instant header change (optimistic), scrolling will keep it in sync.
-    currentIndex = next;
-    typeWrite(sectionHeader!, titles[currentIndex]);
-
+    currentIndex = index;
     scroller.scrollTo({
-      left: next * scroller.clientWidth,
+      left: index * scroller.clientWidth,
       behavior: "smooth",
     });
+  }
+
+  function scrollWrap(opts: { index?: number; dir?: 1 | -1 }) {
+    if (opts.index !== undefined) return pageTo(opts.index);
+
+    const next =
+      (currentIndex + (opts.dir === 1 ? 1 : -1) + titles.length) %
+      titles.length;
+
+    pageTo(next);
   }
 
   onMount(() => {
@@ -51,13 +55,17 @@
 
   <div class="team-wrapper container">
     <nav class="pad">
-      <SwitchSVG onclick={() => scrollWrap(-1)} absolute="left" />
+      <SwitchSVG onclick={() => scrollWrap({ dir: -1 })} absolute="left" />
       <h3 bind:this={sectionHeader}>Engineering</h3>
-      <SwitchSVG onclick={() => scrollWrap(1)} right absolute="right" />
+      <SwitchSVG
+        onclick={() => scrollWrap({ dir: 1 })}
+        right
+        absolute="right"
+      />
     </nav>
 
     <ul
-      class="flex-row pad horiz-scrollbar"
+      class="team flex-row pad horiz-scrollbar"
       bind:this={scroller}
       onscroll={onScroll}
     >
@@ -149,16 +157,27 @@
         </ul>
       </li>
     </ul>
+
+    <ul class="tabs flex-row pad-inline">
+      {#each titles as title, i (title)}
+        <button
+          class="void-btn"
+          class:active={i === currentIndex}
+          onclick={() => scrollWrap({ index: i })}
+          aria-label={"Scroll to " + title + " team section"}
+        ></button>
+      {/each}
+    </ul>
   </div>
 
-  <p class="pc-narrow">
+  <p class="auto-width pc-narrow">
     <i>
       Two contributors work under verified pseudonyms for security and
       competitive edge. Details are available to investors under NDA.
     </i>
   </p>
 
-  <p class="pc-narrow">
+  <p class="auto-width pc-narrow">
     We’re not alone. Every week, we draw on the expertise of contractors,
     agencies, and advisors—from Web3 founders and legal counsel to branding
     specialists, storytellers, and AI engineers—who share our vision of
@@ -170,6 +189,7 @@
   @use "/src/styles/mixins" as *;
 
   .team-wrapper {
+    max-width: 95vw;
     padding: 0;
 
     nav {
@@ -177,7 +197,7 @@
       position: relative;
     }
 
-    ul {
+    .team {
       align-items: flex-start;
       justify-content: flex-start;
       overflow-x: scroll;
@@ -185,6 +205,10 @@
       scroll-snap-type: x mandatory;
       padding-top: 0;
       width: 100%;
+
+      &::-webkit-scrollbar {
+        height: 0;
+      }
 
       li {
         flex: 0 0 100%; /* full viewport width “pages” */
@@ -243,6 +267,26 @@
           }
         }
       }
+    }
+
+    .tabs {
+      width: 100%;
+
+      button {
+        height: 0.25rem;
+        min-height: unset;
+        width: 100%;
+        border-radius: 0.5rem;
+        @include light-blue(0.1);
+
+        &.active {
+          @include light-blue(0.5);
+        }
+      }
+    }
+
+    @include respond-up(small-desktop) {
+      max-width: calc(100% - 200px);
     }
   }
 

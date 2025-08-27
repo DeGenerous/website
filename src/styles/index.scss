@@ -237,6 +237,7 @@ html {
   main {
     padding-block: 5rem;
     gap: 2rem;
+    overflow-x: hidden;
 
     @include respond-up(small-desktop) {
       padding-inline: 100px;

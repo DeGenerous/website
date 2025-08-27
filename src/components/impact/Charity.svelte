@@ -44,7 +44,7 @@
     </span>
   </div>
 
-  <article class="pc-only">
+  <article class="auto-width pc-only">
     Our story began with an NFT mint where hundreds of generous degens proved
     that digital assets could fuel real-world change. Since then, we’ve helped
     raise <b>millions more for charity</b>, tying Web3 engagement to a global
@@ -102,8 +102,13 @@
         span {
           flex-direction: column;
 
-          article h3 {
+          article {
+            align-items: center;
             text-align: center;
+
+            h3 {
+              text-align: center;
+            }
           }
         }
       }

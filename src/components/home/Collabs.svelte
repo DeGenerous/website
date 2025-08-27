@@ -3,10 +3,10 @@
 </script>
 
 <section class="flex pc-narrow">
-  <p>
+  <h5 class="auto-width">
     We’re working with industry pioneers, from Web3 leaders to award-winning
     filmmakers.
-  </p>
+  </h5>
 
   <ul class="container flex-row flex-wrap">
     {#each collabs as { href, src, alt }}
@@ -17,11 +17,6 @@
       </li>
     {/each}
   </ul>
-
-  <p>
-    Our mission is to unleash human creativity, democratize IP ownership, and
-    channel Web3 value toward real‑world good.
-  </p>
 </section>
 
 <style lang="scss">

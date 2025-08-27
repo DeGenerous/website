@@ -16,7 +16,7 @@
 
 <section class="flex full-height">
   <h1 bind:this={tagline}>Apps</h1>
-  <p>
+  <p class="auto-width">
     Explore our ecosystem of innovative applications that power the future of
     interactive storytelling and digital ownership.
   </p>

@@ -13,13 +13,10 @@
   let finishedAnimation = $state(false);
 
   const startTyping = () =>
-    setTimeout(
-      () =>
-        typeWrite(tagline!, "Digital Tools. Real-World Change.").then(() => {
-          finishedAnimation = true; // triggers the impact data to appear
-        }),
-      1500
-    );
+    setTimeout(() => {
+      typeWrite(tagline!, "Digital Tools. Real-World Change.");
+      finishedAnimation = true; // triggers the impact data to appear
+    }, 1500);
 
   onMount(startTyping);
 </script>

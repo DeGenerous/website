@@ -112,6 +112,11 @@
     <SwitchSVG onclick={() => scrollWrap(1)} right />
   </div>
 
+  <p class="auto-width pc-narrow">
+    Our mission is to unleash human creativity, democratize IP ownership, and
+    channel Web3 value toward real‑world good.
+  </p>
+
   <span class="flex gap-8">
     <h5>Have an idea?</h5>
     <a class="button-anchor" href="/"> Launch on DGRS </a>

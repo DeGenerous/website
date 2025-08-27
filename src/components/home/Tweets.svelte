@@ -160,7 +160,6 @@
         width: auto;
         display: block;
         overflow: visible;
-        opacity: 1;
         transform: none;
         scroll-snap-type: unset;
         margin-top: 0;
@@ -211,6 +210,16 @@
         max-width: calc(4 * $tweet-width - 200px);
         column-count: 4;
       }
+    }
+  }
+
+  :global(body.dark .tweets) {
+    @include respond-up("small-desktop") {
+      background: linear-gradient(
+        to right,
+        rgba(1, 0, 32, 1),
+        rgba(1, 0, 32, 0.75)
+      );
     }
   }
 </style>
