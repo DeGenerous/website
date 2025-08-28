@@ -79,25 +79,49 @@
       </article>
     </div>
 
-    <div class="container">
-      <img src="/apps/sagaverse/TDZ.gif" alt="The Dark Zoo" />
-      <article class="flex">
-        <h3>GLMR Apes: The Dark Zoo</h3>
-        <p>
-          In a dystopian future, an ape named Generous Gibbon is captured and
-          imprisoned in a high-tech zoo controlled by the malevolent AI
-          overlord, the Collector. Guarded by a menacing robotic monster known
-          as the Keeper, Generous must use its agility and wit to navigate the
-          treacherous levels of the zoo prison.
-        </p>
+    <div class="collab container">
+      <span class="flex">
+        <img src="/apps/sagaverse/TDZ.gif" alt="The Dark Zoo" />
+        <article class="flex">
+          <h3>GLMR Apes: The Dark Zoo</h3>
+          <p>
+            In a dystopian future, an ape named Generous Gibbon is captured and
+            imprisoned in a high-tech zoo controlled by the malevolent AI
+            overlord, the Collector. Guarded by a menacing robotic monster known
+            as the Keeper, Generous must use its agility and wit to navigate the
+            treacherous levels of the zoo prison.
+          </p>
+          <a
+            class="button-anchor"
+            href="https://playtge.com/dgrs"
+            target="_blank"
+          >
+            Play Now
+          </a>
+        </article>
+      </span>
+      <hr />
+      <p>
+        This game came from a cross-chain multi-platform partnership
+        collaborating on CoNexus and on TGE - with the biggest NFT collection on
+        Moonbeam Network and the first game on the leading Polkadot chain, with
+        hundreds of active players.
+      </p>
+      <p>
+        To learn more about the gameplay, you may read
         <a
-          class="button-anchor"
-          href="https://degenerousdao.gitbook.io/wiki/products/sagaverse-gaming/the-dark-zoo"
+          href="https://the-great-escape.gitbook.io/the-great-escape/the-basics/gameplay"
           target="_blank"
         >
-          How to Play
+          their docs
+        </a>.
+      </p>
+      <span class="flex-row">
+        <a href="https://www.glmrapes.com/" target="_blank"> GLMR Apes </a>
+        <a href="https://www.playtge.com/" target="_blank">
+          The Great Escape
         </a>
-      </article>
+      </span>
     </div>
   </div>
 </section>
@@ -132,6 +156,14 @@
           article {
             p {
               text-align: left;
+            }
+          }
+
+          &.collab {
+            flex-direction: column;
+
+            span {
+              flex-direction: row;
             }
           }
         }
