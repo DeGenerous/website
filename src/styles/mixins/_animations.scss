@@ -275,6 +275,60 @@
   }
 }
 
+:global(.appear-bottom) {
+  transition: all 0.6s ease-in-out;
+
+  // Fallback if no support
+  opacity: 1;
+  transform: none;
+  filter: none;
+
+  @starting-style {
+    opacity: 0;
+    transform: translateY(100%);
+    filter: grayscale(100%);
+  }
+}
+
+:global(.appear-right) {
+  transition: all 0.6s ease-in-out;
+
+  // Fallback if no support
+  opacity: 1;
+  transform: none;
+  filter: none;
+
+  @starting-style {
+    opacity: 0;
+    transform: translateX(100%);
+    filter: grayscale(100%);
+  }
+}
+
+:global(.appear-left) {
+  transition: all 0.6s ease-in-out;
+
+  // Fallback if no support
+  opacity: 1;
+  transform: none;
+  filter: none;
+
+  @starting-style {
+    opacity: 0;
+    transform: translateX(-100%);
+    filter: grayscale(100%);
+  }
+}
+
+:global(.fall-in) {
+  transform: translateY(-120vh) rotate(-2deg) scale(0.98);
+  opacity: 0;
+  will-change: transform, opacity;
+
+  animation: card-fall 0.72s cubic-bezier(0.2, 0.8, 0.25, 1) both;
+  animation-delay: calc(var(--i) * 120ms);
+}
+
 :global(.waving) {
   animation: waving 6s ease-in-out infinite;
 }

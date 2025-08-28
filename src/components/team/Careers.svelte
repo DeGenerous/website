@@ -25,19 +25,19 @@
   <h3>Open positions</h3>
 
   <ul class="flex-row flex-wrap pad-inline">
-    <li class="flex">
+    <li class="flex fall-in" style="--i:{0}">
       <h4>AI Engineer x2</h4>
       <button class="read-more" onclick={showPosition}>Read more</button>
       <button> Attach CV </button>
     </li>
 
-    <li class="flex">
+    <li class="flex fall-in" style="--i:{1}">
       <h4>Business Developer</h4>
       <button class="read-more" onclick={showPosition}>Read more</button>
       <button> Attach CV </button>
     </li>
 
-    <li class="flex">
+    <li class="flex fall-in" style="--i:{2}">
       <h4>Marketing Specialist</h4>
       <button class="read-more" onclick={showPosition}>Read more</button>
       <button> Attach CV </button>
@@ -55,6 +55,7 @@
       width: 100%;
       padding: 1rem;
       border-radius: 0.5rem;
+
       @include gray-border;
       @include light-blue(0.1);
 

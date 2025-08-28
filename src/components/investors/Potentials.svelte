@@ -10,7 +10,7 @@
 
 <section class="flex">
   <h1 bind:this={tagline}>The Potentials</h1>
-  <article class="container">
+  <article class="container appear-bottom">
     <h3>1,000 Evolutionary NFTs</h3>
     <img
       class="round-8"

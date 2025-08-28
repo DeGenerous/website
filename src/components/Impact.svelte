@@ -37,7 +37,7 @@
     <ul class="impact-data flex pad-inline">
       {#each data as { name, description, color, image }, i (name)}
         <li>
-          <button class="void-btn flex gap-8 pad round" style="--i:{i}">
+          <button class="void-btn flex gap-8 pad round fall-in" style="--i:{i}">
             <img src={image} alt={name + " " + description} />
             <h4 style:color={color()}>{name}</h4>
             <p>{description}</p>
@@ -78,13 +78,6 @@
         width: 100%;
         height: 100%;
         justify-content: space-between;
-
-        transform: translateY(-120vh) rotate(-2deg) scale(0.98);
-        opacity: 0;
-        will-change: transform, opacity;
-
-        animation: card-fall 0.72s cubic-bezier(0.2, 0.8, 0.25, 1) both;
-        animation-delay: calc(var(--i) * 120ms);
         @include gray-border;
         @include light-blue(0.1);
 

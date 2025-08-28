@@ -53,7 +53,7 @@
 <section class="flex">
   <h1 bind:this={tagline}>Core&nbsp;Team</h1>
 
-  <div class="team-wrapper container">
+  <div class="team-wrapper container appear-bottom">
     <nav class="pad">
       <SwitchSVG onclick={() => scrollWrap({ dir: -1 })} absolute="left" />
       <h3 bind:this={sectionHeader}>Engineering</h3>

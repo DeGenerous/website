@@ -11,7 +11,7 @@
 <section class="flex">
   <h1 bind:this={tagline}>About&nbsp;Us</h1>
 
-  <div class="container flex-row flex-wrap">
+  <div class="container flex-row flex-wrap appear-bottom">
     <article class="flex">
       <span class="flex">
         <h4>Who we are</h4>

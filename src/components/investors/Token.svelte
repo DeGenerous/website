@@ -10,7 +10,7 @@
 
 <section class="flex">
   <h1 bind:this={tagline}>Main Ecosystem Token</h1>
-  <article class="container">
+  <article class="container appear-bottom">
     <h3>(Coming Soon)</h3>
     A single utility-and-governance token will ultimately power everything across
     our ecosystem, and its value will be backed by the real-world usage of CoNexus.

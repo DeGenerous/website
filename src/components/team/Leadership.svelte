@@ -11,7 +11,7 @@
 <section class="flex">
   <h1 bind:this={tagline}>Leadership</h1>
 
-  <div class="container">
+  <div class="container appear-left">
     <img
       class="round-8"
       height="1280"
@@ -30,7 +30,7 @@
     </article>
   </div>
 
-  <div class="container">
+  <div class="container appear-right">
     <img
       class="round-8"
       height="1280"

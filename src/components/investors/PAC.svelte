@@ -13,7 +13,7 @@
     <img width="400" height="400" src="/investors/pac.webp" alt="PAC" />
     <h1 bind:this={tagline}>$PAC</h1>
   </span>
-  <article class="container">
+  <article class="container appear-bottom">
     <h3>Program and Control</h3>
     <p>
       PAC is a community-led experimental token and system built on top of DGRS
