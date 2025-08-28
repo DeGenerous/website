@@ -85,16 +85,6 @@
             </article>
           </li>
           <li class="flex">
-            <img src="/team/vani.jpg" alt="Vani" />
-            <article class="flex">
-              <h4>Vani <span>Web3 Engineer</span></h4>
-              <p>
-                Hardware-to-Solidity polymath and multiple Ethereum Foundation
-                hackathon winner. Designs secure, composable smart contracts.
-              </p>
-            </article>
-          </li>
-          <li class="flex">
             <img src="/team/dimon.jpg" alt="Dmytro Bryla" />
             <article class="flex">
               <h4>
@@ -105,6 +95,16 @@
                 Fluent in Astro, Svelte, React, NodeJS, and Solidity. Designs
                 and builds pixel-perfect interfaces with thoughtful interactions
                 and performance at the core.
+              </p>
+            </article>
+          </li>
+          <li class="flex">
+            <img src="/team/vani.jpg" alt="Vani" />
+            <article class="flex">
+              <h4>Vani <span>Web3 Engineer</span></h4>
+              <p>
+                Hardware-to-Solidity polymath and multiple Ethereum Foundation
+                hackathon winner. Designs secure, composable smart contracts.
               </p>
             </article>
           </li>
