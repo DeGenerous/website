@@ -1,8 +1,31 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
+  import observeElement from "@utils/observer";
+  import typeWrite from "@utils/typewriter";
+
+  let section = $state<HTMLElement>();
+  let tagline = $state<HTMLHeadingElement>();
+
+  const resetTitle = () => (tagline!.style.opacity = "0");
+
+  onMount(() => {
+    resetTitle();
+    observeElement(
+      section!,
+      "visible",
+      () => typeWrite(tagline!, "Bug bounty"),
+      resetTitle
+    );
+  });
 </script>
 
-<section id="bounties" class="flex full-height">
-  <h2 id="bug-bounty-title">Bug bounty</h2>
+<section
+  id="bounties"
+  class="flex full-height appear-left-observer"
+  bind:this={section}
+>
+  <h2 bind:this={tagline}>Bug bounty</h2>
 
   <article class="container">
     <p>
@@ -50,5 +73,11 @@
   article {
     align-items: flex-start;
     text-align: left;
+  }
+
+  :global(#bounties.visible .container) {
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 </style>

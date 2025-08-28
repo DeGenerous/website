@@ -1,8 +1,31 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
+  import observeElement from "@utils/observer";
+  import typeWrite from "@utils/typewriter";
+
+  let section = $state<HTMLElement>();
+  let tagline = $state<HTMLHeadingElement>();
+
+  const resetTitle = () => (tagline!.style.opacity = "0");
+
+  onMount(() => {
+    resetTitle();
+    observeElement(
+      section!,
+      "visible",
+      () => typeWrite(tagline!, "GenAI Film Studio"),
+      resetTitle
+    );
+  });
 </script>
 
-<section id="gen-ai" class="flex pad-inline">
-  <h2>GenAI Film Studio</h2>
+<section
+  id="gen-ai"
+  class="flex pad-inline appear-left-observer"
+  bind:this={section}
+>
+  <h2 bind:this={tagline}>GenAI Film Studio</h2>
   <div class="container">
     <img
       class="round-8"
@@ -57,5 +80,11 @@
         aspect-ratio: 1/1;
       }
     }
+  }
+
+  :global(#gen-ai.visible .container) {
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 </style>

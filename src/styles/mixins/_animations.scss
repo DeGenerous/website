@@ -320,6 +320,24 @@
   }
 }
 
+:global(.appear-left-observer) {
+  .container {
+    transition: all 0.6s ease-in-out;
+    opacity: 0;
+    transform: translateX(-100%);
+    filter: grayscale(100%);
+  }
+}
+
+:global(.appear-right-observer) {
+  .container {
+    transition: all 0.6s ease-in-out;
+    opacity: 0;
+    transform: translateX(100%);
+    filter: grayscale(100%);
+  }
+}
+
 :global(.fall-in) {
   transform: translateY(-120vh) rotate(-2deg) scale(0.98);
   opacity: 0;

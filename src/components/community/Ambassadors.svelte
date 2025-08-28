@@ -1,8 +1,31 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
+  import observeElement from "@utils/observer";
+  import typeWrite from "@utils/typewriter";
+
+  let section = $state<HTMLElement>();
+  let tagline = $state<HTMLHeadingElement>();
+
+  const resetTitle = () => (tagline!.style.opacity = "0");
+
+  onMount(() => {
+    resetTitle();
+    observeElement(
+      section!,
+      "visible",
+      () => typeWrite(tagline!, "Ambassador & Affiliate programs"),
+      resetTitle
+    );
+  });
 </script>
 
-<section id="ambassadors" class="flex full-height">
-  <h2>Ambassador &amp; Affiliate programs</h2>
+<section
+  id="ambassadors"
+  class="flex full-height appear-left-observer"
+  bind:this={section}
+>
+  <h2 bind:this={tagline}>Ambassador &amp; Affiliate programs</h2>
 
   <article class="container">
     <p>
@@ -39,5 +62,11 @@
     a {
       font-family: $font-sans;
     }
+  }
+
+  :global(#ambassadors.visible .container) {
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 </style>

@@ -1,8 +1,31 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
+  import observeElement from "@utils/observer";
+  import typeWrite from "@utils/typewriter";
+
+  let section = $state<HTMLElement>();
+  let tagline = $state<HTMLHeadingElement>();
+
+  const resetTitle = () => (tagline!.style.opacity = "0");
+
+  onMount(() => {
+    resetTitle();
+    observeElement(
+      section!,
+      "visible",
+      () => typeWrite(tagline!, "CoNexus API"),
+      resetTitle
+    );
+  });
 </script>
 
-<section id="conexus-api" class="flex pad-inline">
-  <h2>CoNexus API</h2>
+<section
+  id="conexus-api"
+  class="flex pad-inline appear-left-observer"
+  bind:this={section}
+>
+  <h2 bind:this={tagline}>CoNexus API</h2>
   <div class="container">
     <img class="round-8" src="/enterprise/conexus-api.webp" alt="CoNexus API" />
     <article class="flex">
@@ -72,5 +95,11 @@
         aspect-ratio: 1/1;
       }
     }
+  }
+
+  :global(#conexus-api.visible .container) {
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 </style>

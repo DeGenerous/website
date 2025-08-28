@@ -1,8 +1,31 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
+  import observeElement from "@utils/observer";
+  import typeWrite from "@utils/typewriter";
+
+  let section = $state<HTMLElement>();
+  let tagline = $state<HTMLHeadingElement>();
+
+  const resetTitle = () => (tagline!.style.opacity = "0");
+
+  onMount(() => {
+    resetTitle();
+    observeElement(
+      section!,
+      "visible",
+      () => typeWrite(tagline!, "CSR with Real Impact"),
+      resetTitle
+    );
+  });
 </script>
 
-<section id="csr" class="flex pad-inline">
-  <h2>CSR with Real Impact</h2>
+<section
+  id="csr"
+  class="flex pad-inline appear-left-observer"
+  bind:this={section}
+>
+  <h2 bind:this={tagline}>CSR with Real Impact</h2>
   <div class="container">
     <img class="round-8" src="/impact/ball.jpg" alt="CSR with Real Impact" />
     <article class="flex">
@@ -59,5 +82,11 @@
         aspect-ratio: 1/1;
       }
     }
+  }
+
+  :global(#csr.visible .container) {
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 </style>
