@@ -26,7 +26,8 @@
     email = "";
   };
 
-  const resetCookieConsent = () => {
+  const resetCookieConsent = (event: Event) => {
+    event.preventDefault();
     // This function would reset cookie consent preferences
   };
 </script>
@@ -66,18 +67,20 @@
       {/each}
     </ul>
 
-    <div class="controls flex-row flex-wrap">
-      <span class="flex-row">
-        <label for="lang">🌐 Language:</label>
-        <select id="lang" bind:value={lang}>
-          <option value="en" selected>English</option>
-        </select>
-      </span>
-
-      <button onclick={resetCookieConsent}>Cookie Policy</button>
+    <div class="lang flex-row gap-8 flex-wrap">
+      <label for="lang">🌐 Language:</label>
+      <select id="lang" bind:value={lang}>
+        <option value="en" selected>English</option>
+      </select>
     </div>
 
-    <a href="mailto:contact@dgrs.ink" target="_blank"> contact@dgrs.ink </a>
+    <div class="flex-row">
+      <a class="cookie-consent" href="/" onclick={resetCookieConsent}>
+        Cookie Policy
+      </a>
+      <span> • </span>
+      <a href="mailto:contact@dgrs.ink" target="_blank"> contact@dgrs.ink </a>
+    </div>
 
     <span class="flex gap-8">
       <p>© DGRS Labs Pte. Ltd.</p>
@@ -232,18 +235,6 @@
 
         span {
           align-items: flex-start;
-        }
-
-        .controls {
-          justify-content: flex-start;
-
-          span {
-            width: 100%;
-            flex-flow: row wrap;
-            align-items: center;
-            justify-content: flex-start;
-            // flex-direction: column;
-          }
         }
       }
 

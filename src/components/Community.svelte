@@ -110,12 +110,6 @@
 
 <Ambassadors />
 
-<article class="container">
-  Open communication, honesty, and on‑chain transparency guide all of the work
-  above, and we welcome anyone who shares our commitment to innovation,
-  empowerment, and measurable impact to help write the next chapter.
-</article>
-
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 

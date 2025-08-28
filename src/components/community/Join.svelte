@@ -19,6 +19,12 @@
 <section id="join" class="flex full-height">
   <h2>Join the Generous Degens</h2>
 
+  <p class="auto-width pc-narrow">
+    Open communication, honesty, and on‑chain transparency guide all of the
+    work, and we welcome anyone who shares our commitment to innovation,
+    empowerment, and measurable impact to help write the next chapter.
+  </p>
+
   <a
     class="discord button-anchor"
     href="https://degenerousdao.com/join"
@@ -375,6 +381,8 @@
   }
 
   .links {
+    margin-block: 2rem;
+
     li {
       width: 100%;
 
