@@ -288,6 +288,10 @@
     @include respond-up(small-desktop) {
       max-width: calc(100% - 200px);
     }
+
+    @include respond-up(large-desktop) {
+      max-width: 70rem;
+    }
   }
 
   :global(body.dark) {

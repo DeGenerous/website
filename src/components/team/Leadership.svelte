@@ -12,7 +12,13 @@
   <h1 bind:this={tagline}>Leadership</h1>
 
   <div class="container">
-    <img class="round-8" src="/team/pano.jpg" alt="Daniel “Pano” Elkins" />
+    <img
+      class="round-8"
+      height="1280"
+      width="853"
+      src="/team/pano.jpg"
+      alt="Daniel “Pano” Elkins"
+    />
     <article class="flex">
       <h4>Daniel “Pano” Elkins — Co-Founder</h4>
       <p>
@@ -25,7 +31,13 @@
   </div>
 
   <div class="container">
-    <img class="round-8" src="/team/maxi.jpg" alt="Uroš “Maxi” Trbović" />
+    <img
+      class="round-8"
+      height="1280"
+      width="853"
+      src="/team/maxi.jpg"
+      alt="Uroš “Maxi” Trbović"
+    />
     <article class="flex">
       <h4>Uroš “Maxi” Trbović — Co-Founder</h4>
       <p>
@@ -63,7 +75,8 @@
         margin-inline: 0;
 
         img {
-          max-width: 15rem;
+          width: 15rem;
+          height: 22.5rem;
         }
 
         article {
@@ -75,6 +88,7 @@
 
     @include respond-up(large-desktop) {
       flex-flow: row wrap;
+      align-items: stretch;
 
       div {
         width: min(calc(50% - 1rem), 50rem);
