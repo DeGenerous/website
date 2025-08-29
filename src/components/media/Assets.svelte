@@ -37,49 +37,64 @@
       Our logo should be used consistently across all touchpoints to maintain a
       cohesive brand image.
     </p>
-    <a class="button-anchor" href="/brand/dgrs-brand-assets.zip" download>
-      Download All Assets (PNG)
-    </a>
     <div class="logos flex-row flex-wrap">
-      <span class="flex">
-        <figure class="logo">
-          <LogoSVG />
-        </figure>
-        <a
-          class="button-anchor"
-          href="/brand/logo.svg"
-          download="dgrs-labs-logo"
-        >
-          Download SVG
-        </a>
-      </span>
+      <div class="flex">
+        <span class="flex">
+          <figure class="logo">
+            <LogoSVG />
+          </figure>
+        </span>
+        <span class="flex-row">
+          <p>.SVG</p>
+          <a
+            class="button-anchor"
+            href="/brand/logo.svg"
+            download="dgrs-labs-logo"
+          >
+            Download
+          </a>
+        </span>
+      </div>
 
-      <span class="flex">
-        <figure class="conexus">
-          <ConexusLogoSVG />
-        </figure>
-        <a
-          class="button-anchor"
-          href="/brand/conexus-logo.svg"
-          download="conexus-logo"
-        >
-          Download SVG
-        </a>
-      </span>
+      <div class="flex">
+        <span class="flex">
+          <figure class="conexus">
+            <ConexusLogoSVG />
+          </figure>
+        </span>
+        <span class="flex-row">
+          <p>.SVG</p>
+          <a
+            class="button-anchor"
+            href="/brand/conexus-logo.svg"
+            download="conexus-logo"
+          >
+            Download
+          </a>
+        </span>
+      </div>
 
-      <span class="flex">
-        <figure class="quill">
-          <QuillSVG />
-        </figure>
-        <a
-          class="button-anchor"
-          href="/brand/quill.svg"
-          download="conexus-quill"
-        >
-          Download SVG
-        </a>
-      </span>
+      <div class="flex">
+        <span class="flex">
+          <figure class="quill">
+            <QuillSVG />
+          </figure>
+        </span>
+        <span class="flex-row">
+          <p>.SVG</p>
+          <a
+            class="button-anchor"
+            href="/brand/quill.svg"
+            download="conexus-quill"
+          >
+            Download
+          </a>
+        </span>
+      </div>
     </div>
+    <a class="button-anchor" href="/brand/dgrs-brand-assets.zip" download>
+      Download All Assets (ZIP)
+    </a>
   </div>
 
   <div class="brand-fonts container">
@@ -207,11 +222,9 @@
     }
 
     .brand-logos {
-      div {
-        span {
-          padding: 2rem;
-          padding-bottom: 1rem;
-          gap: 2rem;
+      > div {
+        div {
+          gap: 0;
           border-radius: 0.5rem;
           fill: $dark-blue;
           @include light-blue(0.1);
@@ -227,6 +240,27 @@
             @include respond-up(tablet) {
               width: auto;
               height: 5rem;
+            }
+          }
+
+          span {
+            width: 100%;
+
+            &.flex {
+              padding: 2rem;
+            }
+
+            &.flex-row {
+              padding: 1rem;
+              justify-content: space-between;
+              border-bottom-left-radius: 0.5rem;
+              border-bottom-right-radius: 0.5rem;
+              @include gray(0.25);
+            }
+
+            p {
+              font-weight: bold;
+              font-family: $font-sans;
             }
           }
 
@@ -368,8 +402,8 @@
 
   :global(body.dark) {
     .brand-logos {
-      div {
-        span {
+      > div {
+        div {
           fill: $white;
           @include navy;
 
