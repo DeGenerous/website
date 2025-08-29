@@ -182,7 +182,7 @@
     @include respond-up(quad-hd) {
       flex-flow: row wrap;
       max-width: calc(100% - 200px);
-      align-items: stretch;
+      align-items: flex-start;
 
       h1 {
         width: 100%;

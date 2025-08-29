@@ -1,0 +1,11 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import SitemapSvelte from "@components/Sitemap.svelte";
+
+const title = "Sitemap";
+---
+
+<Layout {title}>
+  <SitemapSvelte client:load />
+</Layout>
