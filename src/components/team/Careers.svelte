@@ -3,15 +3,14 @@
 
   import typeWrite from "@utils/typewriter";
   import openModal from "@stores/modal.svelte";
+  import positions from "@constants/positions";
 
   let tagline = $state<HTMLHeadingElement>();
 
   onMount(() => typeWrite(tagline!, "Careers"));
 
-  const showPosition = () =>
-    openModal(
-      "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
-    );
+  const showPosition = (index: number) =>
+    openModal(positions[index] || positions[0]);
 </script>
 
 <section class="flex">
@@ -27,19 +26,25 @@
   <ul class="flex-row flex-wrap pad-inline">
     <li class="flex fall-in" style="--i:{0}">
       <h4>AI Engineer x2</h4>
-      <button class="read-more" onclick={showPosition}>Read more</button>
+      <button class="read-more" onclick={() => showPosition(0)}
+        >Read more</button
+      >
       <button> Attach CV </button>
     </li>
 
     <li class="flex fall-in" style="--i:{1}">
       <h4>Business Developer</h4>
-      <button class="read-more" onclick={showPosition}>Read more</button>
+      <button class="read-more" onclick={() => showPosition(1)}
+        >Read more</button
+      >
       <button> Attach CV </button>
     </li>
 
     <li class="flex fall-in" style="--i:{2}">
       <h4>Marketing Specialist</h4>
-      <button class="read-more" onclick={showPosition}>Read more</button>
+      <button class="read-more" onclick={() => showPosition(2)}
+        >Read more</button
+      >
       <button> Attach CV </button>
     </li>
   </ul>
