@@ -8,7 +8,7 @@
       <p>A new world of endless possibilities awaits you.</p>
       <ul class="flex-row flex-wrap">
         <a
-          class="menu-tile nohover-link"
+          class="menu-tile nohover-link blur"
           href="https://conexus.degenerousdao.com/sections/Community%20Picks"
           target="_blank"
         >

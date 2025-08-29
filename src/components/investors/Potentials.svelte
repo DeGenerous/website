@@ -17,7 +17,7 @@
       src="/investors/potentials.webp"
       alt="The Potentials"
     />
-    The heart of our ecosystem that reaps the most benefits:
+    <p>The heart of our ecosystem that reaps the most benefits:</p>
     <ul class="flex">
       <li class="flex">
         <span class="flex-row">
@@ -106,6 +106,10 @@
 
         span {
           gap: 0.5rem;
+          padding: 0.5rem;
+          border-radius: 1rem;
+          @include gray-border;
+          @include gray(0.1);
 
           img {
             width: 1.5rem;

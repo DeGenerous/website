@@ -29,6 +29,10 @@
           <ConexusDemo />
         {:else if name === "Galactic Governance Hub"}
           <GovernanceHubDemo />
+        {:else if name === "Loredex"}
+          <img src="/apps/loredex.webp" alt="Loredex" />
+        {:else if name === "OmniHub"}
+          <img src="/apps/omnihub.webp" alt="OmniHub" />
         {:else if name === "Sagaverse Gaming"}
           <SagaverseDemo />
         {/if}
@@ -51,5 +55,12 @@
 
   section {
     padding-top: 6rem;
+
+    .container {
+      img {
+        width: min(100%, 40rem);
+        border-radius: 0.5rem;
+      }
+    }
   }
 </style>
