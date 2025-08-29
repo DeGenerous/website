@@ -40,7 +40,7 @@
     </div>
 
     <div class="container">
-      <img src="/apps/sagaverse/AA.gif" alt="Ark Assassin" />
+      <img class="tall" src="/apps/sagaverse/AA.gif" alt="Ark Assassin" />
       <article class="flex">
         <h3>Ark Assassin</h3>
         <p>
@@ -136,6 +136,10 @@
           width: 100%;
           border-radius: 0.5rem;
           @include gray-border;
+
+          &.tall {
+            max-height: 80vh;
+          }
         }
 
         article {
@@ -151,6 +155,11 @@
           img {
             width: 40%;
             max-width: 30rem;
+
+            &.tall {
+              width: auto;
+              height: 30rem;
+            }
           }
 
           article {
