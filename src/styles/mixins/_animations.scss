@@ -234,13 +234,15 @@
 @keyframes bg-animation {
   0% {
     transform: scale(1) skew(15deg, -15deg);
+    filter: none;
   }
   50% {
     transform: scale(1.25) skew(-15deg, 15deg);
-    filter: contrast(200%);
+    filter: brightness(50%);
   }
   100% {
     transform: scale(1) skew(15deg, -15deg);
+    filter: none;
   }
 }
 

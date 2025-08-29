@@ -106,6 +106,13 @@
       </span>
     </article>
   </div>
+
+  <p class="auto-width">
+    <i>
+      Our mission is to unleash human creativity, democratize IP ownership, and
+      channel Web3 value toward real‑world good.
+    </i>
+  </p>
 </section>
 
 <style lang="scss">

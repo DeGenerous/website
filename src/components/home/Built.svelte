@@ -112,11 +112,6 @@
     <SwitchSVG onclick={() => scrollWrap(1)} right />
   </div>
 
-  <p class="auto-width pc-narrow">
-    Our mission is to unleash human creativity, democratize IP ownership, and
-    channel Web3 value toward real‑world good.
-  </p>
-
   <span class="flex gap-8">
     <h5>Have an idea?</h5>
     <a class="button-anchor" href="/"> Launch on DGRS </a>
@@ -132,10 +127,13 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      padding-inline: 0.5rem; /* visual breathing room around arrows */
       transition-duration: 0.6s;
       opacity: 0.5;
       // transform: scaleY(0.9);
+
+      @include respond-up("tablet") {
+        padding-inline: 0.5rem; /* visual breathing room around arrows */
+      }
     }
 
     /* Real scroll container — no horizontal padding here */
@@ -146,10 +144,16 @@
       gap: 1rem; /* measured for tileStep */
       overflow-x: auto;
       scroll-behavior: smooth;
-      // scroll-snap-type: x mandatory;
-      scroll-padding-inline: 0.5rem; /* where "start" should align visually */
+      scroll-snap-type: x proximity;
       flex: 1;
+      padding-inline: 1rem;
       // background-color: rgba(0, 0, 0, 0.25);
+
+      @include respond-up("tablet") {
+        scroll-snap-type: unset;
+        scroll-padding-inline: 0.5rem; /* where "start" should align visually */
+        padding-inline: 0;
+      }
 
       &::-webkit-scrollbar {
         display: none;
@@ -161,7 +165,7 @@
         max-width: 300px; /* max width for smaller screens */
         justify-content: space-between;
         flex: 0 0 auto;
-        scroll-snap-align: start;
+        scroll-snap-align: center;
         text-align: left;
         @include gray-border;
         @include light-blue(0.1);
@@ -169,6 +173,7 @@
         @include respond-up("tablet") {
           width: 360px; /* fixed width for larger screens */
           max-width: unset;
+          scroll-snap-align: start;
         }
 
         @include respond-up("quad-hd") {

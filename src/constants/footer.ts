@@ -20,9 +20,9 @@ export const socials: FooterSocial[] = [
     alt: "TikTok",
   },
   {
-    href: "https://farcaster.xyz/degenerousdao",
-    icon: "/icons/farcaster.png",
-    alt: "Farcaster",
+    href: "https://www.instagram.com/degenerousdao",
+    icon: "/icons/instagram.png",
+    alt: "Instagram",
   },
 ];
 

@@ -48,7 +48,7 @@
           <p>.SVG</p>
           <a
             class="button-anchor"
-            href="/brand/logo.svg"
+            href="/brand/dgrs-logo.svg"
             download="dgrs-labs-logo"
           >
             Download
@@ -84,7 +84,7 @@
           <p>.SVG</p>
           <a
             class="button-anchor"
-            href="/brand/quill.svg"
+            href="/brand/conexus-quill.svg"
             download="conexus-quill"
           >
             Download
@@ -154,7 +154,7 @@
         <figure class="cyan"></figure>
         <span class="flex-row">
           <code>#33E2E6</code>
-          <p>Cyan</p>
+          <p>Accent color</p>
         </span>
       </button>
 
@@ -162,7 +162,7 @@
         <figure class="light-blue"></figure>
         <span class="flex-row">
           <code>#3875FA</code>
-          <p>Light Blue</p>
+          <p>Accent color</p>
         </span>
       </button>
 
@@ -170,7 +170,7 @@
         <figure class="blue"></figure>
         <span class="flex-row">
           <code>#2440BD</code>
-          <p>Blue</p>
+          <p>Primary color</p>
         </span>
       </button>
 
@@ -178,7 +178,7 @@
         <figure class="navy"></figure>
         <span class="flex-row">
           <code>#161E5F</code>
-          <p>Navy</p>
+          <p>Primary color</p>
         </span>
       </button>
 
@@ -186,7 +186,7 @@
         <figure class="dark-blue"></figure>
         <span class="flex-row">
           <code>#010020</code>
-          <p>Dark Blue</p>
+          <p>Background color</p>
         </span>
       </button>
     </div>

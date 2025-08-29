@@ -74,10 +74,8 @@
       </select>
     </div>
 
-    <div class="flex-row flex-wrap">
+    <div class="flex-row">
       <a href="/" onclick={resetCookieConsent}> Cookie Policy </a>
-      <span> • </span>
-      <a href="/sitemap"> Sitemap </a>
       <span> • </span>
       <a href="mailto:contact@dgrs.ink" target="_blank"> contact@dgrs.ink </a>
     </div>
@@ -251,7 +249,14 @@
     }
 
     .footer-links a {
-      color: $cyan;
+      opacity: 1;
+      color: $gray;
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: $cyan;
+      }
     }
   }
 </style>

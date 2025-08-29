@@ -4,11 +4,13 @@
     disabled = false,
     right = false,
     absolute = null,
+    hideForMobiles = true,
   }: {
     onclick: () => void;
     disabled?: boolean;
     right?: boolean;
     absolute?: Nullable<"left" | "right">;
+    hideForMobiles?: boolean;
   } = $props();
 </script>
 
@@ -16,6 +18,7 @@
   class="void-btn flex {absolute}"
   class:right
   class:absolute
+  class:pc-only={hideForMobiles}
   {onclick}
   aria-label="Switch"
   {disabled}

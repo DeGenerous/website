@@ -34,7 +34,7 @@
   function pickSection(item: CTA) {
     if (activeSection?.name === item.name) return;
     activeSection = item;
-    animateTitle(); // type the section title
+    setTimeout(animateTitle); // type the section title
   }
 
   function resetToMenu() {

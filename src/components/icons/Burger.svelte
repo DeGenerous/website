@@ -69,6 +69,11 @@
   button {
     fill: transparent;
     stroke: $dark-blue;
+    width: 2.5rem;
+
+    svg {
+      width: inherit;
+    }
 
     &:hover,
     &:active,

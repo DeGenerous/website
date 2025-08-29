@@ -42,13 +42,16 @@
           class="void-btn flex-row"
           onclick={() => (showInstagram = !showInstagram)}
         >
-          Instagram
+          <span class="flex-row">
+            <img src="/icons/instagram.png" alt="Instagram" />
+            Instagram
+          </span>
           <VoidArrowSVG position={null} animation={false} inheritColor={true} />
         </button>
-        <span class="flex gap-8 transition" class:hidden={!showInstagram}>
+        <span class="hider flex gap-8 transition" class:hidden={!showInstagram}>
           <a
             class="nohover-link flex-row"
-            href="/community"
+            href="https://www.instagram.com/degenerousdao"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -57,7 +60,7 @@
           </a>
           <a
             class="nohover-link flex-row"
-            href="/community"
+            href="https://www.instagram.com/conexus_stories"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -73,13 +76,16 @@
           class="void-btn flex-row"
           onclick={() => (showTwitter = !showTwitter)}
         >
-          X (Twitter)
+          <span class="flex-row">
+            <img src="/icons/twitter.png" alt="Twitter" />
+            X (Twitter)
+          </span>
           <VoidArrowSVG position={null} animation={false} inheritColor={true} />
         </button>
-        <span class="flex gap-8 transition" class:hidden={!showTwitter}>
+        <span class="hider flex gap-8 transition" class:hidden={!showTwitter}>
           <a
             class="nohover-link flex-row"
-            href="/community"
+            href="https://x.com/degenerousdao"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -88,7 +94,7 @@
           </a>
           <a
             class="nohover-link flex-row"
-            href="/community"
+            href="https://x.com/DGRSLions"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -101,22 +107,28 @@
     <li>
       <a
         class="nohover-link flex-row"
-        href="/community"
+        href="https://www.tiktok.com/@degenerousdao"
         target="_blank"
         rel="noopener noreferrer"
       >
-        TikTok
+        <span class="flex-row">
+          <img src="/icons/tiktok.png" alt="TikTok" />
+          TikTok
+        </span>
         <OpenSVG />
       </a>
     </li>
     <li>
       <a
         class="nohover-link flex-row"
-        href="/community"
+        href="https://www.youtube.com/@degenerous"
         target="_blank"
         rel="noopener noreferrer"
       >
-        YouTube
+        <span class="flex-row">
+          <img src="/icons/youtube.png" alt="YouTube" />
+          YouTube
+        </span>
         <OpenSVG />
       </a>
     </li>
@@ -285,6 +297,10 @@
           @include light-blue(0.25);
           @include blue(1, text);
         }
+
+        img {
+          width: 1.5rem;
+        }
       }
 
       div {
@@ -302,7 +318,7 @@
           }
         }
 
-        span {
+        .hider {
           width: 100%;
           z-index: 1;
           position: absolute;
@@ -460,7 +476,7 @@
             }
           }
 
-          span {
+          .hider {
             @include navy;
           }
         }
