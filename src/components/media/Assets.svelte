@@ -37,6 +37,9 @@
       Our logo should be used consistently across all touchpoints to maintain a
       cohesive brand image.
     </p>
+    <a class="button-anchor" href="/brand/dgrs-brand-assets.zip" download>
+      Download All Assets (PNG)
+    </a>
     <div class="logos flex-row flex-wrap">
       <span class="flex">
         <figure class="logo">
