@@ -105,17 +105,22 @@
     <h5 class="fade-in" bind:this={loader}>Connecting with X...</h5>
   {/if}
 
-  <div
-    class="tweets flex-row horiz-scrollbar"
-    class:visible={!loading}
-    aria-live="polite"
+  <span
+    class="twitter-wrapper vert-scrollbar"
+    class:loading-animation={loading}
   >
-    {#each posts as id, i (id)}
-      <article class="tweet-card">
-        <div class="tweet-slot" use:assignSlot={i}></div>
-      </article>
-    {/each}
-  </div>
+    <div
+      class="tweets flex-row horiz-scrollbar"
+      class:visible={!loading}
+      aria-live="polite"
+    >
+      {#each posts as id, i (id)}
+        <article class="tweet-card">
+          <div class="tweet-slot" use:assignSlot={i}></div>
+        </article>
+      {/each}
+    </div>
+  </span>
 </section>
 
 <style lang="scss">
@@ -156,64 +161,64 @@
     $tweet-width: 550px;
 
     @include respond-up("small-desktop") {
-      .tweets {
-        width: auto;
-        display: block;
-        overflow: visible;
-        transform: none;
-        scroll-snap-type: unset;
-        margin-top: 0;
-        padding-left: 0;
-        max-width: calc(2 * $tweet-width - 200px);
-        column-count: 2; /* adjust for your width */
-        column-gap: 1rem;
+      .twitter-wrapper {
+        overflow-y: scroll;
+        max-height: 40rem;
         border-radius: 1rem;
-        padding-inline: 1rem;
         @include light-blue(0.1);
         @include gray-border;
 
-        &.visible {
+        .tweets {
+          width: auto;
+          display: block;
+          overflow: hidden;
           transform: none;
-        }
+          scroll-snap-type: unset;
+          margin-top: 0;
+          padding-left: 0;
+          max-width: calc(2 * $tweet-width - 200px);
+          column-count: 2; /* adjust for your width */
+          column-gap: 1rem;
+          border-radius: 1rem;
+          padding-inline: 1rem;
 
-        .tweet-card {
-          min-width: unset;
-          width: 100%;
-          transform: none;
-          scroll-snap-align: unset;
-          display: inline-block; /* required inside columns */
-          break-inside: avoid; /* don't split a card between columns */
-          -webkit-column-break-inside: avoid; /* safari */
+          &.visible {
+            transform: none;
+          }
 
-          .tweet-slot {
-            width: auto;
+          .tweet-card {
+            min-width: unset;
+            width: 100%;
+            transform: none;
+            scroll-snap-align: unset;
+            display: inline-block; /* required inside columns */
+            break-inside: avoid; /* don't split a card between columns */
+            -webkit-column-break-inside: avoid; /* safari */
+
+            .tweet-slot {
+              width: auto;
+            }
           }
         }
       }
     }
 
-    @include respond-up("large-desktop") {
-      .tweets {
-        max-width: calc(100% - 200px);
+    @include respond-up("full-hd") {
+      .twitter-wrapper .tweets {
+        max-width: calc(3 * $tweet-width - 200px);
         column-count: 3;
       }
     }
 
-    @include respond-up("full-hd") {
-      .tweets {
-        max-width: calc(3 * $tweet-width - 200px);
-      }
-    }
-
     @include respond-up("quad-hd") {
-      .tweets {
+      .twitter-wrapper .tweets {
         max-width: calc(4 * $tweet-width - 200px);
         column-count: 4;
       }
     }
   }
 
-  :global(body.dark .tweets) {
+  :global(body.dark .twitter-wrapper) {
     @include respond-up("small-desktop") {
       background: linear-gradient(
         to right,
