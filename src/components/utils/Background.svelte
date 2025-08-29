@@ -5,7 +5,11 @@
 
 <svelte:window bind:innerWidth={width} bind:scrollY={scroll} />
 
-<div id="background-image" style:top={`max(-${scroll / 100}vh, -100vh)`}></div>
+<div
+  id="background-image"
+  class="bg-animation"
+  style:top={`max(-${scroll / 100}vh, -100vh)`}
+></div>
 
 <style lang="scss">
   @use "/src/styles/mixins" as *;

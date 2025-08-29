@@ -231,6 +231,19 @@
   }
 }
 
+@keyframes bg-animation {
+  0% {
+    transform: scale(1) skew(15deg, -15deg);
+  }
+  50% {
+    transform: scale(1.25) skew(-15deg, 15deg);
+    filter: contrast(200%);
+  }
+  100% {
+    transform: scale(1) skew(15deg, -15deg);
+  }
+}
+
 // General definitions
 
 :global(.loading-animation) {
@@ -377,4 +390,8 @@
 
 :global(.pulse-animation) {
   animation: pulse-animation 6s ease-in-out infinite;
+}
+
+:global(.bg-animation) {
+  animation: bg-animation 60s ease-in-out infinite;
 }
