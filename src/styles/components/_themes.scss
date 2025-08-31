@@ -179,11 +179,11 @@ body {
     }
 
     h5,
-    label {
+    label:not(.standard-label) {
       color: black;
     }
 
-    input,
+    input:not(.standard-input),
     select {
       box-shadow: none;
       background-color: white;
@@ -317,7 +317,7 @@ body {
     }
 
     .standard-icon {
-      @include bright(500%);
+      filter: brightness(500%) grayscale(100%);
     }
   }
 }
