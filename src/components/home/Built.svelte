@@ -93,7 +93,7 @@
     <ul class="projects-list" bind:this={scroller}>
       {#each projects as project, i}
         <button
-          class="project void-btn flex pad-8 gap-8 round"
+          class="project void-btn flex pad-8 gap-8 round blur"
           class:expanded={expandedIndex.includes(i)}
           onclick={(event) => toggleExpand(event, i)}
           data-description={project.description}

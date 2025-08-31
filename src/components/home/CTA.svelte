@@ -53,7 +53,7 @@
 
       <ul class="cards flex-row flex-wrap is-live">
         {#each callToAction as item, i (item.name)}
-          <li style="--i:{i}">
+          <li class="round blur" style="--i:{i}">
             <button
               class="void-btn flex pad round"
               onclick={() => pickSection(item)}
@@ -122,6 +122,7 @@
 
   section {
     padding-block: 1rem;
+    z-index: 1;
 
     h3 {
       @include light-blue(1, text);

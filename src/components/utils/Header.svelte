@@ -3,6 +3,7 @@
 
   import tabs from "@constants/header";
   import { showScramble } from "@stores/scramble.svelte";
+  import { darkTheme } from "@stores/theme.svelte";
 
   import LogoSVG from "@components/icons/Logo.svelte";
   import ConexusLogoSVG from "@components/icons/ConexusLogo.svelte";
@@ -15,21 +16,20 @@
 
   let header: HTMLElement;
 
-  let isDark = $state<boolean>(false);
-  let activeTheme = $derived(isDark ? "dark" : "light");
+  let activeTheme = $derived($darkTheme ? "dark" : "light");
 
   let hiddenHeader = $state<boolean>(false);
   let hiddenTabs = $state<boolean>(true);
 
   onMount(() => {
     const saved = localStorage.getItem("theme");
-    isDark = saved === "dark";
+    $darkTheme = saved === "dark";
     document.body.classList.add(activeTheme);
   });
 
   $effect(() => {
-    document.body.classList.toggle("dark", isDark);
-    document.body.classList.toggle("light", !isDark);
+    document.body.classList.toggle("dark", $darkTheme);
+    document.body.classList.toggle("light", !$darkTheme);
     localStorage.setItem("theme", activeTheme);
   });
 
@@ -68,7 +68,7 @@
         {tab}
       </a>
     {/each}
-    <input class="theme-toggle" type="checkbox" bind:checked={isDark} />
+    <input class="theme-toggle" type="checkbox" bind:checked={$darkTheme} />
   </nav>
   <ConexusLogoSVG
     onclick={() => open("https://conexus.degenerousdao.com/", "_blank")}

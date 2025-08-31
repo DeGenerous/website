@@ -39,7 +39,7 @@
     <li>
       <div>
         <button
-          class="void-btn flex-row"
+          class="void-btn flex-row blur"
           onclick={() => (showInstagram = !showInstagram)}
         >
           <span class="flex-row">
@@ -73,7 +73,7 @@
     <li>
       <div>
         <button
-          class="void-btn flex-row"
+          class="void-btn flex-row blur"
           onclick={() => (showTwitter = !showTwitter)}
         >
           <span class="flex-row">
@@ -106,7 +106,7 @@
     </li>
     <li>
       <a
-        class="nohover-link flex-row"
+        class="nohover-link flex-row blur"
         href="https://www.tiktok.com/@degenerousdao"
         target="_blank"
         rel="noopener noreferrer"
@@ -120,7 +120,7 @@
     </li>
     <li>
       <a
-        class="nohover-link flex-row"
+        class="nohover-link flex-row blur"
         href="https://www.youtube.com/@degenerous"
         target="_blank"
         rel="noopener noreferrer"
@@ -147,7 +147,7 @@
   <ul class="links flex-row flex-wrap auto-width">
     <li>
       <a
-        class="nohover-link flex-row"
+        class="nohover-link flex-row blur"
         href="https://magiceden.io/collections/ethereum/potentials-eth"
         target="_blank"
         rel="noopener noreferrer"
@@ -161,7 +161,7 @@
     </li>
     <li>
       <a
-        class="nohover-link flex-row"
+        class="nohover-link flex-row blur"
         href="https://opensea.io/collection/potentials-eth"
         target="_blank"
         rel="noopener noreferrer"
@@ -175,7 +175,7 @@
     </li>
     <li>
       <a
-        class="nohover-link flex-row"
+        class="nohover-link flex-row blur"
         href="https://singular.app/collectibles/base/0x111e0861baa9d479cff55d542e5a9e4205012bbe"
         target="_blank"
         rel="noopener noreferrer"
@@ -189,7 +189,7 @@
     </li>
     <li>
       <a
-        class="nohover-link flex-row"
+        class="nohover-link flex-row blur"
         href="https://conexus.degenerousdao.com/dashboard"
         target="_blank"
         rel="noopener noreferrer"
@@ -203,7 +203,7 @@
     </li>
     <li>
       <a
-        class="nohover-link flex-row"
+        class="nohover-link flex-row blur"
         href="https://governance.degenerousdao.com/"
         target="_blank"
         rel="noopener noreferrer"
@@ -217,7 +217,7 @@
     </li>
     <li>
       <a
-        class="nohover-link flex-row"
+        class="nohover-link flex-row blur"
         href="https://conexus.degenerousdao.com/"
         target="_blank"
         rel="noopener noreferrer"

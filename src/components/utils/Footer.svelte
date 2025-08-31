@@ -32,7 +32,7 @@
   };
 </script>
 
-<div class="newsletter flex pad pc-narrow">
+<div class="newsletter flex pad pc-narrow blur">
   <h4>Join the Future of Storytelling</h4>
   <p>
     Get the latest updates on DGRS, exclusive access to new features, and
@@ -49,7 +49,7 @@
   </span>
 </div>
 
-<footer class="pad flex fade-in pc-narrow">
+<footer class="pad flex fade-in pc-narrow blur">
   <section class="flex gap">
     <LogoSVG big={true} branding={true} />
     <p>

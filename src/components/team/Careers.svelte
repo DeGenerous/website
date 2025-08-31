@@ -24,7 +24,7 @@
   <h3>Open positions</h3>
 
   <ul class="flex-row flex-wrap pad-inline">
-    <li class="flex fall-in" style="--i:{0}">
+    <li class="flex fall-in blur" style="--i:{0}">
       <h4>AI Engineer x2</h4>
       <button class="read-more" onclick={() => showPosition(0)}
         >Read more</button
@@ -32,7 +32,7 @@
       <button> Attach CV </button>
     </li>
 
-    <li class="flex fall-in" style="--i:{1}">
+    <li class="flex fall-in blur" style="--i:{1}">
       <h4>Business Developer</h4>
       <button class="read-more" onclick={() => showPosition(1)}
         >Read more</button
@@ -40,7 +40,7 @@
       <button> Attach CV </button>
     </li>
 
-    <li class="flex fall-in" style="--i:{2}">
+    <li class="flex fall-in blur" style="--i:{2}">
       <h4>Marketing Specialist</h4>
       <button class="read-more" onclick={() => showPosition(2)}
         >Read more</button

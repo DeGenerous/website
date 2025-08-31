@@ -9,7 +9,7 @@
   onMount(() => observeElement(videoSection!, "visible"));
 </script>
 
-<section class="conexus-video flex blur full-height" bind:this={videoSection}>
+<section class="conexus-video flex full-height" bind:this={videoSection}>
   <video class="transition" controls autoplay loop muted>
     <source src={`${trailerURL}/CoNexusTrailer.webm`} type="video/webm" />
     <source src={`${trailerURL}/CoNexusTrailer.mp4`} type="video/mp4" />

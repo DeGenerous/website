@@ -67,6 +67,8 @@
         rgba(56, 117, 250, 0.1),
         rgba(56, 117, 250, 0.025)
       );
+      -webkit-backdrop-filter: blur(1rem);
+      backdrop-filter: blur(1rem);
       @include gray-border;
     }
 
@@ -106,6 +108,8 @@
       // @include cyan(0.05);
       border: none;
       background: transparent;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
     }
   }
 </style>

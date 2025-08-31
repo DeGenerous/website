@@ -4,6 +4,7 @@
   import posts from "@constants/twitter"; // array of tweet IDs (strings)
   import observeElement from "@utils/observer";
   import typeWrite from "@utils/typewriter";
+  import { darkTheme } from "@stores/theme.svelte";
 
   let tagline = $state<HTMLHeadingElement>(); // for typewriter effect
   let loader = $state<HTMLHeadingElement>(); // loading message
@@ -77,7 +78,7 @@
         const host = slots[i];
         if (!host) continue;
         await twttr.widgets.createTweet(posts[i], host, {
-          theme: document.body.classList.contains("dark") ? "dark" : "light",
+          theme: $darkTheme ? "dark" : "light",
           dnt: true,
           align: "center",
         });
@@ -165,6 +166,8 @@
         overflow-y: scroll;
         max-height: 40rem;
         border-radius: 1rem;
+        -webkit-backdrop-filter: blur(1rem);
+        backdrop-filter: blur(1rem);
         @include light-blue(0.1);
         @include gray-border;
 

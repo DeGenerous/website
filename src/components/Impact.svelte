@@ -37,7 +37,10 @@
     <ul class="impact-data flex pad-inline">
       {#each data as { name, description, color, image }, i (name)}
         <li>
-          <button class="void-btn flex gap-8 pad round fall-in" style="--i:{i}">
+          <button
+            class="void-btn flex gap-8 pad round fall-in blur"
+            style="--i:{i}"
+          >
             <img src={image} alt={name + " " + description} />
             <h4 style:color={color()}>{name}</h4>
             <p>{description}</p>
