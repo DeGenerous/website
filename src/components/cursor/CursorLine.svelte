@@ -7,7 +7,7 @@
   let { cursor }: { cursor: Vector3 } = $props();
   let color = $darkTheme ? "#33e2e6" : "#3875fa";
 
-  const count = 25;
+  const count = 10;
   let front = $state<Vector3[]>(
     Array.from({ length: count }, () => new Vector3())
   );

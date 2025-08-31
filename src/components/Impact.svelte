@@ -55,24 +55,8 @@
 
 <Platform />
 
-<div class="impact-tagline container">
-  <h4>Join the Movement</h4>
-  <p>
-    The world doesn’t need more passive platforms. It needs engines of change.
-  </p>
-  <h4>Build. Fund. Teach. Create. Disrupt. Give.</h4>
-  <p>Whatever your skillset or story - you can make an impact here.</p>
-</div>
-
 <style lang="scss">
   @use "/src/styles/mixins" as *;
-
-  .impact-tagline h4 {
-    padding: 0.5rem;
-    border-radius: 1rem;
-    @include gray-border;
-    @include light-blue(0.1);
-  }
 
   section {
     padding-top: 6rem;
@@ -154,10 +138,6 @@
         box-shadow: none;
         @include navy;
       }
-    }
-
-    .impact-tagline h4 {
-      @include cyan(0.1);
     }
   }
 

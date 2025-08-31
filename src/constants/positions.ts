@@ -93,8 +93,8 @@ const positions: string[] = [
       </ul>
     </section>
 
-    <section aria-labelledby="senior-bdm-preferred">
-      <h4 id="senior-bdm-preferred">Preferred / Nice-to-Have</h4>
+    <section aria-labelledby="senior-bdm-bonus-points">
+      <h4 id="senior-bdm-bonus-points">Bonus Points</h4>
       <ul role="list">
         <li>Existing network within trade-book or academic publishers, film/TV studios, or ed-tech buyers.</li>
         <li>Experience with AI-powered or content-creation SaaS products.</li>
@@ -147,8 +147,8 @@ const positions: string[] = [
       </ul>
     </section>
 
-    <section aria-labelledby="growth-marketing-specialist-preferred">
-      <h4 id="growth-marketing-specialist-preferred">Preferred / Nice-to-Have</h4>
+    <section aria-labelledby="growth-marketing-specialist-bonus-points">
+      <h4 id="growth-marketing-specialist-bonus-points">Bonus Points</h4>
       <ul role="list">
         <li>Familiarity with UGC storytelling platforms, gaming communities, or fandom culture.</li>
         <li>Experience collaborating with influencers or creators on sponsored content.</li>

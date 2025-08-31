@@ -112,8 +112,9 @@
     <SwitchSVG onclick={() => scrollWrap(1)} right />
   </div>
 
-  <span class="flex gap-8">
+  <span class="flex auto-width">
     <h5>Have an idea?</h5>
+    <p>Your dream. Our engine. Infinite possibilities.</p>
     <a class="button-anchor" href="/"> Launch on DGRS </a>
   </span>
 </section>

@@ -33,12 +33,12 @@
         <h3>Gaming for Good</h3>
         <h5>Where fun and education collide.</h5>
         <p>
-          In 2024, CoNexus was deployed in a major gaming museum, where
-          <b>kids used CoNexus to build their own stories</b>, explore digital
-          literacy, and turn imagination into agency. We're building the future
-          of
-          <b>gamified learning</b> - where narratives empower the next generation
-          to think critically, speak their truth, and unlock new worlds.
+          CoNexus is deployed in a major gaming museum, where
+          <b>kids are using DGRS Labs' tools to build their own stories</b>,
+          explore digital literacy, and turn imagination into agency. We're
+          building the future of <b>gamified learning</b> - where narratives empower
+          the next generation to think critically, speak their truth, and unlock
+          new worlds.
         </p>
       </article>
     </span>

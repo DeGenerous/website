@@ -35,16 +35,18 @@
     />
     <article class="flex">
       <p>
-        If you have 1,000+ followers on any platform and want to help us grow
+        If you have <b>1,000+ followers</b> on any platform and want to help us grow
         CoNexus, you can apply to become an official Ambassador or Affiliate.
       </p>
 
       <p>
-        Ambassadors represent our brand long-term, collaborate on campaigns, get
-        early access to new features, and enjoy exclusive compensation, perks,
-        and visibility across our ecosystem. Affiliates receive personal
-        referral codes and earn guaranteed rewards when new users join CoNexus
-        using their link.
+        <b>Ambassadors</b> represent our brand long-term, collaborate on
+        campaigns, get early access to <b>new features</b>, and enjoy
+        <b>exclusive compensation</b>, <b>perks</b>, and <b>visibility</b>
+        across our ecosystem. <b>Affiliates</b> receive personal
+        <b>referral codes</b>
+        and earn guaranteed <b>rewards</b> when new users join CoNexus using their
+        link.
       </p>
 
       <a

@@ -179,8 +179,8 @@
 
   <p class="auto-width pc-narrow">
     We’re not alone. Every week, we draw on the expertise of contractors,
-    agencies, and advisors—from Web3 founders and legal counsel to branding
-    specialists, storytellers, and AI engineers—who share our vision of
+    agencies, and advisors — from Web3 founders and legal counsel to branding
+    specialists, storytellers, and AI engineers — who share our vision of
     community-owned storytelling.
   </p>
 </section>
