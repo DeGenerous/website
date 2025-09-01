@@ -29,14 +29,45 @@
 </script>
 
 <section class="flex full-height">
-  <h1 bind:this={tagline}>Brand Assets</h1>
+  <header class="flex">
+    <h1 bind:this={tagline}>Brand Assets</h1>
+
+    <ul class="flex gap-8">
+      <li>
+        <p>Always represent the brand with accuracy and respect.</p>
+      </li>
+      <li>
+        <p>
+          Do not imply endorsement by saying things like “Powered by DGRS”
+          without approval.
+        </p>
+      </li>
+      <li>
+        <p>Do not combine our logo with other logos or elements.</p>
+      </li>
+      <li>
+        <p>Only use assets from this page.</p>
+      </li>
+    </ul>
+  </header>
 
   <div class="brand-logos container">
     <h3>Logos</h3>
-    <p>
-      Our logo should be used consistently across all touchpoints to maintain a
-      cohesive brand image.
-    </p>
+    <ul class="flex gap-8">
+      <li>
+        <p>Use the official logos only as provided.</p>
+      </li>
+      <li>
+        <p>Do not alter, stretch, rotate, or apply effects.</p>
+      </li>
+      <li>
+        <p>Keep clear space equal to the height of the “D” around the logo.</p>
+      </li>
+      <li>
+        <p>Minimum size for digital use: 32px height.</p>
+      </li>
+    </ul>
+
     <div class="logos flex-row flex-wrap">
       <div class="flex">
         <span class="flex">
@@ -99,10 +130,19 @@
 
   <div class="brand-fonts container">
     <h3>Typography</h3>
-    <p>
-      Our brand typography plays a crucial role in establishing a cohesive,
-      professional look and feel.
-    </p>
+    <ul class="flex gap-8">
+      <li>
+        <p>Use provided weights and styles. Do not substitute fonts.</p>
+      </li>
+      <li>
+        <p><b>Hanken Grotesk</b> → Titles & Buttons</p>
+      </li>
+      <li>
+        <p>
+          <b>Source Serif 4</b> → Paragraphs, labels, and small headings (H5)
+        </p>
+      </li>
+    </ul>
     <div class="fonts flex-row flex-wrap">
       <div class="flex sans">
         <span class="flex-row">
@@ -144,11 +184,17 @@
 
   <div class="brand-colors container">
     <h3>Colors</h3>
-    <p>
-      Our brand color palette consists of a primary set and secondary accents.
-      These colors should be used thoughtfully and consistently to reinforce our
-      visual identity.
-    </p>
+    <ul class="flex gap-8">
+      <li>
+        <p>Use the exact brand palette provided in the color section.</p>
+      </li>
+      <li>
+        <p>Do not introduce unapproved colors.</p>
+      </li>
+      <li>
+        <p>Ensure sufficient contrast for accessibility.</p>
+      </li>
+    </ul>
     <div class="colors flex-row flex-wrap">
       <button class="flex void-btn" onclick={() => copyColor("#33E2E6")}>
         <figure class="cyan"></figure>
@@ -202,7 +248,7 @@
       max-width: calc(100% - 200px);
       align-items: flex-start;
 
-      h1 {
+      header {
         width: 100%;
       }
 

@@ -166,13 +166,8 @@ export const links: FooterLink[] = [
     title: "Media",
     anchors: [
       {
-        label: "Brand Assets",
-        href: "/brand-assets",
-        target: "_self",
-      },
-      {
-        label: "Brand Guidelines",
-        href: "/brand-guidelines",
+        label: "Brand Kit",
+        href: "/brand-kit",
         target: "_self",
       },
       {

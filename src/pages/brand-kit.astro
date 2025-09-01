@@ -1,0 +1,11 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import Brand from "@components/media/Brand.svelte";
+
+const title = "Brand Kit";
+---
+
+<Layout {title}>
+  <Brand client:load />
+</Layout>
