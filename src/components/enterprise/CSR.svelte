@@ -22,12 +22,12 @@
 
 <section
   id="csr"
-  class="flex pad-inline appear-left-observer"
+  class="flex pad-inline appear-left-observer full-height"
   bind:this={section}
 >
   <h2 bind:this={tagline}>CSR with Real Impact</h2>
   <div class="container">
-    <img class="round-8" src="/impact/ball.jpg" alt="CSR with Real Impact" />
+    <img class="round-8" src="/enterprise/csr.gif" alt="CSR with Real Impact" />
     <article class="flex">
       <p>
         Activate your company’s purpose through fully branded service missions
@@ -75,12 +75,13 @@
     }
 
     @include respond-up(small-desktop) {
-      flex-direction: row;
-
       img {
-        width: 20rem;
-        aspect-ratio: 1/1;
+        width: 30rem;
       }
+    }
+
+    @include respond-up(full-hd) {
+      flex-direction: row;
     }
   }
 

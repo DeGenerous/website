@@ -34,7 +34,8 @@ const callToAction: CTA[] = [
       },
       {
         name: "Pursue Collabs",
-        link: "/",
+        link: "https://form.typeform.com/to/dSABPU8A",
+        target: "_blank",
       },
     ],
   },

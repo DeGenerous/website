@@ -22,16 +22,12 @@
 
 <section
   id="gen-ai"
-  class="flex pad-inline appear-left-observer"
+  class="flex pad-inline appear-left-observer full-height"
   bind:this={section}
 >
   <h2 bind:this={tagline}>GenAI Film Studio</h2>
   <div class="container">
-    <img
-      class="round-8"
-      src="/enterprise/gen-ai.webp"
-      alt="GenAI Film Studio"
-    />
+    <img class="round-8" src="/enterprise/gen-ai.gif" alt="GenAI Film Studio" />
     <article class="flex">
       <p>
         Harness the power of AI alongside veteran directors and editors to
@@ -73,12 +69,13 @@
     }
 
     @include respond-up(small-desktop) {
-      flex-direction: row;
-
       img {
-        width: 20rem;
-        aspect-ratio: 1/1;
+        width: 30rem;
       }
+    }
+
+    @include respond-up(full-hd) {
+      flex-direction: row;
     }
   }
 

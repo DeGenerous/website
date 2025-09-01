@@ -30,7 +30,7 @@
   <div class="container">
     <img
       class="round-8"
-      src="/community/ambassadors.webp"
+      src="/community/ambassadors.gif"
       alt="Ambassadors & Affiliates"
     />
     <article class="flex">
@@ -51,7 +51,7 @@
 
       <a
         class="button-anchor mar-auto"
-        href="/"
+        href="https://form.typeform.com/to/FpVTWoC6"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -78,12 +78,14 @@
       }
     }
 
-    @include respond-up(tablet) {
-      flex-direction: row;
-
+    @include respond-up(small-desktop) {
       img {
-        width: 20rem;
+        width: 30rem;
       }
+    }
+
+    @include respond-up(full-hd) {
+      flex-direction: row;
     }
   }
 

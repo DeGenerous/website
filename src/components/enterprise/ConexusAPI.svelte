@@ -22,12 +22,12 @@
 
 <section
   id="conexus-api"
-  class="flex pad-inline appear-left-observer"
+  class="flex pad-inline appear-left-observer full-height"
   bind:this={section}
 >
   <h2 bind:this={tagline}>CoNexus API</h2>
   <div class="container">
-    <img class="round-8" src="/enterprise/conexus-api.webp" alt="CoNexus API" />
+    <img class="round-8" src="/enterprise/conexus-api.gif" alt="CoNexus API" />
     <article class="flex">
       <p>
         Embed a living, breathing GenAI story engine into your website, app,
@@ -88,12 +88,13 @@
     }
 
     @include respond-up(small-desktop) {
-      flex-direction: row;
-
       img {
-        width: 20rem;
-        aspect-ratio: 1/1;
+        width: 30rem;
       }
+    }
+
+    @include respond-up(full-hd) {
+      flex-direction: row;
     }
   }
 
