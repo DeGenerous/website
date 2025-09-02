@@ -8,7 +8,7 @@
   let color = $darkTheme ? "#33e2e6" : "#3875fa";
 
   // Higher resolution for smooth curves
-  const count = 50;
+  const count = 60;
 
   let front = $state<Vector3[]>(
     Array.from({ length: count }, () => new Vector3())
@@ -22,8 +22,8 @@
 
   // Tunables:
   // - Bigger = snappier; smaller = floatier
-  const K_HEAD = 200; // how fast the head follows the cursor
-  const K_TRAIL = 150; // how fast each segment follows the previous one
+  const K_HEAD = 240; // how fast the head follows the cursor
+  const K_TRAIL = 90; // how fast each segment follows the previous one
 
   useTask((dt) => {
     // frame-rate–independent smoothing: alpha in [0..1)
