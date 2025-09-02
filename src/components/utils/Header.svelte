@@ -68,13 +68,24 @@
         {tab}
       </a>
     {/each}
-    <input class="theme-toggle" type="checkbox" bind:checked={$darkTheme} />
+    <input
+      class="theme-toggle pc-only"
+      type="checkbox"
+      bind:checked={$darkTheme}
+    />
   </nav>
-  <ConexusLogoSVG
-    onclick={() => open("https://conexus.degenerousdao.com/", "_blank")}
-    hideForMobiles={true}
-  />
-  <BurgerSVG onclick={() => (hiddenTabs = !hiddenTabs)} />
+  <span class="flex-row">
+    <ConexusLogoSVG
+      onclick={() => open("https://conexus.degenerousdao.com/", "_blank")}
+      hideForMobiles={true}
+    />
+    <input
+      class="theme-toggle mobile-only"
+      type="checkbox"
+      bind:checked={$darkTheme}
+    />
+    <BurgerSVG onclick={() => (hiddenTabs = !hiddenTabs)} />
+  </span>
 </header>
 
 <style lang="scss">
@@ -150,12 +161,15 @@
           opacity: 1;
         }
       }
+    }
 
+    nav,
+    span {
       .theme-toggle {
         --size: 2rem;
         appearance: none;
         outline: none;
-        cursor: pointer;
+        cursor: pointer !important;
         width: var(--size);
         height: var(--size);
         box-shadow: inset calc(var(--size) * 0.33) calc(var(--size) * -0.25) 0;

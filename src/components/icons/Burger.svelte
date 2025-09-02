@@ -1,17 +1,14 @@
 <script lang="ts">
   let {
     onclick = () => {},
-    hideForPCs = true,
   }: {
     onclick: () => void;
-    hideForPCs?: boolean;
   } = $props();
   let svgFocus = $state<boolean>(false);
 </script>
 
 <button
   class="flex void-btn"
-  class:mobile-only={hideForPCs}
   onpointerover={() => (svgFocus = true)}
   onpointerout={() => (svgFocus = false)}
   {onclick}
@@ -70,6 +67,10 @@
     fill: transparent;
     stroke: $dark-blue;
     width: 2.5rem;
+
+    @include respond-up("tablet") {
+      display: none;
+    }
 
     svg {
       width: inherit;
