@@ -12,6 +12,7 @@ import Background from "@components/utils/Background.svelte";
 import Modal from "@components/utils/Modal.svelte";
 import ToastContainer from "@components/utils/ToastContainer.svelte";
 import Cursor from "@components/cursor/App.svelte";
+import CookieBanner from "@components/utils/CookieBanner.svelte";
 
 type LayoutProps = {
   nav?: string;
@@ -89,6 +90,7 @@ const {
     <Modal client:load />
     <ToastContainer client:load />
     <Cursor client:load />
+    <CookieBanner client:load />
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"
     ></script>
   </body>
