@@ -5,6 +5,7 @@ export default function typeWrite(
   text: string,
   delay = 50,
 ): TypewriterInstance & Promise<void> {
+  if (!el) return Promise.resolve() as TypewriterInstance & Promise<void>;
   // Abort any active typewriter on this element
   activeTypewriters.get(el)?.abort();
 

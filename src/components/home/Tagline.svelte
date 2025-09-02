@@ -1,8 +1,12 @@
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
+
   import typeWrite from "@utils/typewriter";
+  import observeElement from "@utils/observer";
+
   import VoidArrowSVG from "@components/icons/VoidArrow.svelte";
 
+  let taglineSection = $state<HTMLElement>();
   let tagline = $state<HTMLHeadingElement>();
   let typer: ReturnType<typeof typeWrite> | null = null;
 
@@ -18,6 +22,10 @@
 
   onMount(startTyping);
 
+  onMount(() =>
+    observeElement(taglineSection!, "viewable", () => {}, goToTheNextSection)
+  );
+
   onDestroy(() => {
     typer?.abort();
     typer = null;
@@ -26,9 +34,17 @@
   function scrollDown() {
     window.scrollTo({ top: window.innerHeight + 5 * 16, behavior: "smooth" });
   }
+
+  const goToTheNextSection = () => {
+    const sectionInView = Array.from(taglineSection!.classList).includes(
+      "viewable"
+    );
+    if (sectionInView) return;
+    scrollDown();
+  };
 </script>
 
-<section class="tagline flex mar-auto fade-in">
+<section class="tagline flex mar-auto fade-in" bind:this={taglineSection}>
   <!-- Keep real text in markup for SEO/no-JS, the script will overwrite it -->
   <h1 class="sr-only" bind:this={tagline}>
     The GenAI Ecosystem <br class="pc-only" /> for Storytelling

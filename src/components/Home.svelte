@@ -13,7 +13,7 @@
   }
 
   const onscroll = (event: Event) => {
-    console.log(event);
+    // console.log(event);
   };
 </script>
 

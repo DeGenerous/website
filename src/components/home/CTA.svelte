@@ -6,6 +6,7 @@
   import callToAction from "@constants/CTA";
 
   let ctaSection = $state<HTMLElement>();
+  let ctaContainer = $state<HTMLElement>();
   let tagline = $state<HTMLHeadingElement>();
   let sectionTitle = $state<HTMLHeadingElement>();
   let activeSection = $state<Nullable<CTA>>(null);
@@ -15,18 +16,33 @@
 
   // ---- flows ---------------------------------------------------------------
 
-  const resetTitle = () => (tagline!.style.opacity = "0");
+  const resetTitle = () => {
+    if (!tagline) return;
+    tagline.style.opacity = "0";
+  };
 
   const animateSection = async () => {
     finishedAnimation = false;
     await typeWrite(tagline!, "What brings you here today?");
     finishedAnimation = true; // triggers the cards to drop
+    setTimeout(() => {
+      const sectionInView = Array.from(ctaSection!.classList).includes(
+        "viewable"
+      );
+      if (!sectionInView) return;
+      ctaSection?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
   };
 
   const animateTitle = () => typeWrite(sectionTitle!, activeSection!.title);
 
   // Observe the section tagline once; start the initial sequence
-  onMount(() => observeElement(ctaSection!, null, animateSection, resetTitle));
+  onMount(() =>
+    observeElement(ctaSection!, "viewable", animateSection, resetTitle)
+  );
 
   onMount(resetTitle);
 
@@ -34,7 +50,13 @@
   function pickSection(item: CTA) {
     if (activeSection?.name === item.name) return;
     activeSection = item;
-    setTimeout(animateTitle); // type the section title
+    setTimeout(() => {
+      ctaContainer?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+      animateTitle(); // type the section title
+    });
   }
 
   function resetToMenu() {
@@ -67,52 +89,63 @@
       </ul>
     {/if}
   {:else}
-    <div class="container fade-in" style:background={activeSection.color(0.1)}>
+    <div
+      class="container fade-in"
+      style:background={activeSection.color(0.1)}
+      bind:this={ctaContainer}
+    >
       <h3 bind:this={sectionTitle} style:color={activeSection.color()}>
         {activeSection.title}
       </h3>
 
-      <p>{activeSection.description}</p>
+      <div class="flex">
+        <p>{activeSection.description}</p>
 
-      <span class="flex-row flex-wrap">
-        {#each activeSection.buttons as { name, link, target }, index (name)}
-          <a
-            class="button-anchor"
-            class:secondary={index !== 0}
-            style={index === 0
-              ? `background-color: ${activeSection.color()};`
-              : `color: ${activeSection.color()}; border: 1px solid ${activeSection.color()};`}
-            href={link}
-            {target}
-            rel="noopener noreferrer"
-          >
-            {name}
-          </a>
-        {/each}
-      </span>
-
-      <button class="void-btn caption" onclick={resetToMenu}>
-        Feel like trying something else? Pick another path:
-      </button>
-
-      <ul class="icons flex-row flex-wrap" aria-label="Quick section switcher">
-        {#each callToAction as item}
-          <li>
-            <button
-              class="void-btn flex pad-8 round"
-              class:active={activeSection.name === item.name}
-              style:background-color={item.color(
-                activeSection.name === item.name ? 0.75 : 0.1
-              )}
-              aria-pressed={activeSection.name === item.name}
-              onclick={() => pickSection(item)}
-              aria-label={item.name}
+        <span class="flex-row flex-wrap">
+          {#each activeSection.buttons as { name, link, target }, index (name)}
+            <a
+              class="button-anchor"
+              class:secondary={index !== 0}
+              style={index === 0
+                ? `background-color: ${activeSection.color()};`
+                : `color: ${activeSection.color()}; border: 1px solid ${activeSection.color()};`}
+              href={link}
+              {target}
+              rel="noopener noreferrer"
             >
-              <img src={item.image} alt="{item.name} icon" />
-            </button>
-          </li>
-        {/each}
-      </ul>
+              {name}
+            </a>
+          {/each}
+        </span>
+      </div>
+
+      <div class="flex">
+        <button class="void-btn caption" onclick={resetToMenu}>
+          Feel like trying something else? Pick another path:
+        </button>
+
+        <ul
+          class="icons flex-row flex-wrap"
+          aria-label="Quick section switcher"
+        >
+          {#each callToAction as item}
+            <li>
+              <button
+                class="void-btn flex pad-8 round"
+                class:active={activeSection.name === item.name}
+                style:background-color={item.color(
+                  activeSection.name === item.name ? 0.75 : 0.1
+                )}
+                aria-pressed={activeSection.name === item.name}
+                onclick={() => pickSection(item)}
+                aria-label={item.name}
+              >
+                <img src={item.image} alt="{item.name} icon" />
+              </button>
+            </li>
+          {/each}
+        </ul>
+      </div>
     </div>
   {/if}
 </section>
@@ -205,6 +238,17 @@
     }
 
     .container {
+      min-height: 38rem;
+      justify-content: space-between;
+
+      @include respond-up("tablet") {
+        min-height: 26rem;
+      }
+
+      @include respond-up("full-hd") {
+        min-height: 24rem;
+      }
+
       .caption {
         text-decoration: underline dotted;
         @include gray(1, text);
