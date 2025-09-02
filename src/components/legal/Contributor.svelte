@@ -18,7 +18,7 @@
   <h1 bind:this={tagline}>DGRS Labs Contributor's License Agreement</h1>
   <article class="auto-width">
     Thank you for your interest in providing one or more contributions to
-    CoNexus and other Software developed and owned by DeGenerous Society under a
+    CoNexus and other Software developed and owned by DGRS Labs Pte. Ltd under a
     copyright-protected commercial license (“We” or “Us”). We refer to the
     contributor as “You”.
     <br />
@@ -43,7 +43,7 @@
           </li>
           <li>
             “Copyright” shall mean all rights protecting works of authorship,
-            including copyright, moral, and neighboring rights, as appropriate,
+            including copyright, moral and neighboring rights, as appropriate,
             for the full term of their existence including any extensions owned
             or controlled by You.
           </li>
@@ -53,7 +53,7 @@
           </li>
           <li>
             “Media” shall mean any Contribution which is not software. Media may
-            include video, text, or images.
+            include video, text or images.
           </li>
           <li>
             "Patent Claims" shall mean any patent claim(s), now owned or
@@ -149,43 +149,44 @@
 
       <br />
       <li>
-        <b>Agreement You confirm that:</b>
+        <b>Agreement</b>
         <br />
-        (a) You have the legal authority to enter into this Agreement. (b) as provided
-        in the definitions, You re affirm that You own the Copyrights and the Patent
-        Claims covering the Contribution which are required to grant the rights under
-        Section 2. (c) The grant of rights under Section 2 does not violate any grant
-        of rights which You have made to third parties, including your employer.
-        If You are an employee, You have had your employer approve this Agreement.
-        If You are less than eighteen years old, please have your parents or guardian
-        sign the Agreement, if such approval is required. (d)You have followed the
-        instructions of the third party owner of copyright, if You do not own the
-        Copyright in the entire work of authorship Submitted.
+        You confirm that: (a) You have the legal authority to enter into this Agreement.
+        (b) as provided in the definitions, You affirm that You own the Copyrights
+        and the Patent Claims covering the Contribution which are required to grant
+        the rights under Section 2. (c) The grant of rights under Section 2 does
+        not violate any grant of rights which You have made to third parties, including
+        your employer. If You are an employee, You have had your employer approve
+        this Agreement. If You are less than eighteen years old, please have your
+        parents or guardian sign the Agreement, if such approval is required. (d)You
+        have followed the instructions of the third party owner of copyright, if
+        You do not own the Copyright in the entire work of authorship Submitted.
       </li>
 
       <br />
       <li>
-        <b>
-          DISCLAIMER EXCEPT FOR THE EXPRESS WARRANTIES IN ARTICLE 3, THE
-          CONTRIBUTION IS PROVIDED “AS IS”. MORE PARTICULARLY, ALL EXPRESS OR
-          IMPLIED WARRANTIES INCLUDING, WITHOUT LIMITATION, ANY IMPLIED WARRANTY
-          OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-          NON-INFRINGEMENT ARE EXPRESSLY DISCLAIMED BY YOU TO US TO THE EXTENT
-          THAT ANY SUCH WARRANTIES CANNOT BE DISCLAIMED, SUCH WARRANTY IS
-          LIMITED IN DURATION TO THE MINIMUM PERIOD PERMITTED BY LAW.
-        </b>
+        <b>DISCLAIMER:</b>
+        <br />
+        EXCEPT FOR THE EXPRESS WARRANTIES IN ARTICLE 3, THE CONTRIBUTION IS PROVIDED
+        “AS IS”. MORE PARTICULARLY, ALL EXPRESS OR IMPLIED WARRANTIES INCLUDING,
+        WITHOUT LIMITATION, ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR
+        A PARTICULAR PURPOSE AND NON-INFRINGEMENT ARE EXPRESSLY DISCLAIMED BY YOU
+        TO US TO THE EXTENT THAT ANY SUCH WARRANTIES CANNOT BE DISCLAIMED, SUCH WARRANTY
+        IS LIMITED IN DURATION TO THE MINIMUM PERIOD PERMITTED BY LAW.
       </li>
 
       <br />
       <li>
         <b>
           CONSEQUENTIAL DAMAGE WAIVER TO THE MAXIMUM EXTENT PERMITTED BY
-          APPLICABLE LAW, IN NO EVENT WILL YOU BE LIABLE FOR ANY LOSS OF
-          PROFITS, LOSS OF ANTICIPATED SAVINGS, LOSS OF DATA, INDIRECT, SPECIAL,
-          INCIDENTAL, CONSEQUENTIAL AND EXEMPLARY DAMAGES ARISING OUT OF THIS
-          AGREEMENT REGARDLESS OF THE LEGAL OR EQUITABLE THEORY (CONTRACT, TORT
-          (INCLUDING NEGLIGENCE) OR OTHERWISE) UPON WHICH THE CLAIM IS BASED.
+          APPLICABLE LAW:
         </b>
+        <br />
+        IN NO EVENT WILL YOU BE LIABLE FOR ANY LOSS OF PROFITS, LOSS OF ANTICIPATED
+        SAVINGS, LOSS OF DATA, INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL AND EXEMPLARY
+        DAMAGES ARISING OUT OF THIS AGREEMENT REGARDLESS OF THE LEGAL OR EQUITABLE
+        THEORY (CONTRACT, TORT (INCLUDING NEGLIGENCE) OR OTHERWISE) UPON WHICH THE
+        CLAIM IS BASED.
       </li>
 
       <br />

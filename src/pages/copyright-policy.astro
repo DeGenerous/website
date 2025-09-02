@@ -1,0 +1,11 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import Copyright from "@components/legal/Copyright.svelte";
+
+const title = "Copyright Policy";
+---
+
+<Layout {title}>
+  <Copyright client:load />
+</Layout>

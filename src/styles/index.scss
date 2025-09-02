@@ -47,7 +47,7 @@ button,
 [role="button"],
 svg,
 select {
-  cursor: pointer;
+  // cursor: pointer;
   transition: all 0.3s ease-in-out;
   outline: none;
 }
@@ -67,9 +67,9 @@ textarea:disabled {
   cursor: not-allowed;
 }
 
-label {
-  cursor: pointer;
-}
+// label {
+//   cursor: pointer;
+// }
 
 input:disabled,
 textarea:disabled {
@@ -133,7 +133,7 @@ ol.subordered {
 }
 
 :where(h1, h2, h3, h4, h5, p) {
-  cursor: default;
+  // cursor: default;
   transition: opacity 0.3s ease-in-out;
 }
 
@@ -202,6 +202,63 @@ a {
   a::after {
     transition: none !important;
     transform: none !important;
+  }
+}
+
+@media (pointer: fine) {
+  html body {
+    * {
+      cursor: url("/cursors/quill-blue.png"), auto;
+
+      a,
+      button,
+      [role="button"],
+      svg,
+      select,
+      video {
+        cursor: pointer !important;
+      }
+
+      a *,
+      button *,
+      [role="button"] *,
+      svg * {
+        cursor: inherit !important;
+      }
+
+      input,
+      textarea {
+        cursor: text !important;
+      }
+
+      .container,
+      footer,
+      .newsletter,
+      dialog,
+      .blur {
+        &,
+        * {
+          cursor: default;
+        }
+      }
+    }
+
+    &.dark {
+      * {
+        cursor: url("/cursors/quill-cyan.png"), auto;
+
+        .container,
+        footer,
+        .newsletter,
+        dialog,
+        .blur {
+          &,
+          * {
+            cursor: default;
+          }
+        }
+      }
+    }
   }
 }
 

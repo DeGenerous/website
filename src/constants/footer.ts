@@ -42,7 +42,12 @@ export const links: FooterLink[] = [
       },
       {
         label: "Copyright Policy",
-        href: "/contributors-licence-agreement",
+        href: "/copyright-policy",
+        target: "_self",
+      },
+      {
+        label: "Contributor's Licence Agreement",
+        href: "/contributors-license-agreement",
         target: "_self",
       },
     ],

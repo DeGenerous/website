@@ -43,7 +43,7 @@
           Portfolio URL (required)
         </label>
         <p class="transparent-white-txt">
-          Personal site, GitHub, Behance, Dribbble, Notion, or Google Drive
+          Personal site, GitHub, Behance, LinkedIn, Notion, or Google Drive
         </p>
         <input
           id="portfolio-link"

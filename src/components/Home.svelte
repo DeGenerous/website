@@ -7,7 +7,17 @@
   import Built from "@components/home/Built.svelte";
   import Shape from "@components/home/Shape.svelte";
   import Tweets from "@components/home/Tweets.svelte";
+
+  function scrollToVideo() {
+    window.scrollTo({ top: window.innerHeight + 5 * 16, behavior: "smooth" });
+  }
+
+  const onscroll = (event: Event) => {
+    console.log(event);
+  };
 </script>
+
+<svelte:window {onscroll} />
 
 <Tagline />
 

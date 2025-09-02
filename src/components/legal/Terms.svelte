@@ -18,13 +18,11 @@
   <h1 bind:this={tagline}>DGRS Labs General Terms of Service</h1>
 
   <article class="auto-width">
-    Effective date: 12 August 2024
+    Last updated: [Insert Date]
     <br />
     <br />
-    These Terms of Service and our
-    <a href="/legal/privacy-policy">Privacy Policy</a> describe who we are,
-    under what terms and circumstances you can interact with us through the
-    DeGenerous Society Service, and how we interact with you.
+    These Terms of Service and our Privacy Policy describe who we are, under what
+    terms and circumstances you can interact with us, and how we interact with you.
     <br />
     <br />
     <ol class="uppercase">
@@ -39,19 +37,21 @@
           </li>
           <li>
             The “Service” refers to the applications, software, products, and
-            services provided by DeGenerous Society, including the user
-            interface available at
-            <a href="https://degenerousdao.com/">https://degenerousdao.com/</a>,
-            with further documentation on the DeGenerous Society Website and in
-            the Wiki.
+            services provided by DGRS Labs Pte. Ltd, including the user
+            applications such as CoNexus and the user interfaces available at
+            <a href="/">https://dgrs.ink</a>,
+            <a href="https://conexus.degenerousdao.com/" target="_blank">
+              https://conexus.ink
+            </a> and others, with further documentation on the DGRS Labs Pte. Ltd.
+            Website and other relevant documentation channels.
           </li>
           <li>
-            “DeGenerous Society”, “We,” and “Us” refer to DeGenerous Society
-            (incorporated under the laws of Delaware, USA, registration number
-            92-3078807, whose principal office is situated at 8 The Green, STE
-            B, Dover County of Kent, Delaware, USA), including any and all
-            affiliates, directors, subsidiaries, contractors, licensors,
-            officers, agents, and employees.
+            “DGRS Labs Pte. Ltd.”, “DGRS Labs”, “We,” “Us” and “our” refer to
+            DGRS Labs Pte. Ltd. (incorporated under the laws of Singapore,
+            registration number 202534215D, whose principal office is situated
+            at 20 Collyer Quay, #11-07, Singapore 049319, Singapore), including
+            any and all affiliates, directors, subsidiaries, contractors,
+            licensors, officers, agents, and employees.
           </li>
           <li>
             “CoNexus” refers to a commercial, copyright-protected application
@@ -70,15 +70,14 @@
             or own.
           </li>
           <li>
-            An "Account" represents your legal relationship with DeGenerous
-            Society. A “User Account” represents an individual User’s
-            authorization to log in to and use the Service and serves as a
-            User’s identity, and in our Service we may also refer to it as
-            “Profile”.
+            An "Account" represents your legal relationship with DGRS Labs Pte.
+            Ltd.. A “User Account” represents an individual User’s authorization
+            to log in to and use the Service and serves as a User’s identity,
+            and in our Service we may also refer to it as “Profile”.
           </li>
           <li>
             “The User,” “You,” and “Your” refer to the individual person,
-            company, or organization that has visited or is using the Website or
+            company, organization that has visited or is using the Website or
             Service; that accesses or uses any part of the Account; or that
             directs the use of the Account in the performance of its functions.
             A User must be of legal age.
@@ -107,8 +106,8 @@
                 have multiple owners, but there must be at least one User
                 Account designated as an owner of an Organisation. We will
                 consider the first registered user from the Organisation as a
-                designated owner and legally responsible party for the
-                DeGenerous Society Services.
+                designated owner and legally responsible party for the DGRS Labs
+                Pte. Ltd.
               </li>
             </ul>
           </li>
@@ -122,8 +121,9 @@
           <li>
             <b>Account Requirements</b>
             <br />
-            There are the following requirements for DeGenerous Society User Accounts
-            (via https://degenerousdao.com/ domain):
+            There are the following requirements for our User Accounts (via
+            <a href="/">https://dgrs.ink</a>
+            domain):
             <ul class="default-ul">
               <li>
                 You must be a human to create an Account. Accounts registered by
@@ -143,12 +143,12 @@
                 organization must agree to these terms.
               </li>
               <li>
-                We reserve the right to limit the use of the DeGenerous Society
-                Service to a set number of accounts.
+                We reserve the right to limit the use of our Service to a set
+                number of accounts.
               </li>
               <li>
-                You may not use DeGenerous Society Service in violation of
-                export control or sanctions laws of any applicable jurisdiction.
+                You may not use our Service in violation of export control or
+                sanctions laws of any applicable jurisdiction.
               </li>
             </ul>
           </li>
@@ -165,28 +165,27 @@
               </li>
               <li>
                 You are responsible for maintaining the security of your Account
-                and password. DeGenerous Society cannot and will not be liable
-                for any loss or damage from your failure to comply with this
-                security obligation.
+                and password. We cannot and will not be liable for any loss or
+                damage from your failure to comply with this security
+                obligation.
               </li>
               <li>
-                You will promptly notify us at contact@degenerousdao.com if you
-                become aware of any legal breach or any unauthorized use of, or
-                access to, our Service through your Account, including any
-                unauthorized use of your password or Account.
+                You will promptly notify us at contact@dgrs.ink if you become
+                aware of any legal breach or any unauthorised use of, or access
+                to, our Service through your Account, including any unauthorised
+                use of your password or Account.
               </li>
             </ul>
           </li>
           <li>
             <b>Additional Terms</b>
             <br />
-            In some situations, third parties' terms may apply to your use of the
-            DeGenerous Society Service. For example, you may be a member of an organization
-            with its own terms or license agreements, or you may download an application
-            that integrates with the DeGenerous Society Service. Please be aware
-            that while these Terms, together with any commercial contracts, are our
-            full agreement with you, other parties' terms govern their relationships
-            with you.
+            In some situations, third parties' terms may apply to your use of our
+            Service. For example, you may be a member of an organization with its
+            own terms or license agreements or you may download an application that
+            integrates with our Service. Please be aware that while these Terms,
+            together with any commercial contracts, are our full agreement with you,
+            other parties' terms govern their relationships with you.
           </li>
         </ol>
       </li>
@@ -239,13 +238,12 @@
           <li>
             <b>Conduct Restrictions</b>
             <br />
-            While using DeGenerous Society Service, you agree that you will not under
-            any circumstances:
+            While using our Service, you agree that you will not under any circumstances:
             <ol class="lowercase">
               <li>
                 harass, abuse, threaten, or incite violence towards any
-                individual or group, including DeGenerous Society employees,
-                officers, agents, or other DeGenerous Society Users;
+                individual or group, including DGRS Labs Pte. Ltd. employees,
+                officers, and agents, or other Service Users;
               </li>
               <li>
                 use our servers for any form of excessive automated bulk
@@ -254,16 +252,15 @@
                 such as get-rich-quick schemes;
               </li>
               <li>
-                attempt to disrupt or tamper with DeGenerous Society's servers
-                in ways that could harm our Website or Service, to place undue
-                burden on DeGenerous Society's servers through automated means,
-                or to access DeGenerous Society's Service in ways that exceed
-                your authorization;
+                attempt to disrupt or tamper with DGRS Labs Pte. Ltd. servers in
+                ways that could harm our Website or Service, to place undue
+                burden on our servers through automated means, or to access our
+                Service in ways that exceed your authorization;
               </li>
               <li>
                 impersonate any person or entity, including any of our employees
                 or representatives, including through false association with
-                DeGenerous Society, or by fraudulently misrepresenting your
+                DGRS Labs Pte. Ltd., or by fraudulently misrepresenting your
                 identity or site's purpose; or
               </li>
               <li>
@@ -278,7 +275,7 @@
             <br />
             You agree not to reproduce, duplicate, copy, sell, resell or exploit
             any portion of the Service, use of the Service, or access to the Service
-            without DeGenerous Society's express written permission.
+            without DGRS Labs Pte. Ltd.'s express written permission.
             <br />
             You also agree to observe the following use restrictions:
             <ul class="default-ul">
@@ -305,7 +302,7 @@
                       </li>
                       <li>
                         Facilitating or encouraging users to commit any type of
-                        crime;
+                        crimes;
                       </li>
                       <li>
                         Promoting or generating violent extremism or terrorist
@@ -403,59 +400,58 @@
             <b>Scraping</b>
             <br />
             Scraping refers to extracting data from our Website via an automated
-            process, such as a bot or web crawler. It does not refer to the collection
-            of information through the DeGenerous Society's API. You may scrape the
-            website for the following reasons:
+            process, such as a bot or webcrawler. It does not refer to the collection
+            of information through the DGRS Labs API. You may scrape the website
+            for the following reasons:
             <ol class="lowercase">
               <li>
-                Researchers may scrape public, non-personal information from the
-                DeGenerous Society Service for research purposes, only if any
-                publications resulting from that research are open access.
+                Researchers may scrape public, non-personal information from our
+                Service for research purposes, only if any publications
+                resulting from that research are open access.
               </li>
               <li>
-                Archivists may scrape the DeGenerous Society Service for public
-                data for archival purposes.
+                Archivists may scrape our Service for public data for archival
+                purposes.
               </li>
               <li>
-                You may not scrape the DeGenerous Society Service for spamming
-                purposes, including for the purposes of selling DeGenerous
-                Society users' personal information, such as to recruiters,
-                headhunters, and job boards.
+                You may not scrape our Service for spamming purposes, including
+                for the purposes of selling DGRS Labs’ Users' personal
+                information, such as to recruiters, headhunters, and job boards.
               </li>
             </ol>
             All use of data gathered through Website scraping must comply with the
-            DeGenerous Society Privacy Policy and the European Union’s General Data
-            Protection Regulation<a
+            <a href="/privacy-policy">DGRS Labs Pte. Ltd. Privacy Policy</a> and
+            the European Union’s General Data Protection Regulation(<a
               href="https://eur-lex.europa.eu/eli/reg/2016/679/oj"
-              target="_blank">(GDPR)</a
-            >.
+              target="_blank">GDPR</a
+            >).
           </li>
 
           <li>
             <b>Privacy</b>
             <br />
-            Misuse of DeGenerous Society Users' Personal Information is prohibited.
-            <br />
-            Any person, entity, or service collecting data from DeGenerous Society
-            must comply with the DeGenerous Society Privacy Policy, particularly
-            in regard to the collection of our Users' Personal Information (as defined
-            in the DeGenerous Society Privacy Policy). If you collect any DeGenerous
-            Society User's Personal Information, you agree that you will only use
-            the Personal Information you gather for the purpose for which our User
-            has authorized it. You agree that you will reasonably secure any Personal
-            Information you have gathered from DeGenerous Society Service, and you
-            will respond promptly to complaints, removal requests, and "do not contact"
-            requests from DeGenerous Society Users.
+            Misuse of DGRS Labs Pte. Ltd. Users' Personal Information is prohibited.
+            Any person, entity, or service collecting data from DGRS Labs must comply
+            with our Privacy Policy, particularly in regard to the collection of
+            our Users' Personal Information (as defined in the
+            <a href="/privacy-policy">DGRS Labs Pte. Ltd. Privacy Policy</a>).
+            If you collect any DGRS Labs’ User’s Personal Information, you agree
+            that you will only use the Personal Information you gather for the
+            purpose for which our User has authorized it. You agree that you
+            will reasonably secure any Personal Information you have gathered
+            from DGRS Labs Service, and you will respond promptly to complaints,
+            removal requests, and "do not contact" requests from DGRS Labs’
+            Users.
           </li>
 
           <li>
             <b>Excessive Bandwidth Use</b>
             <br />
             If we determine your bandwidth usage to be significantly excessive in
-            relation to other DeGenerous Society users, we reserve the right to suspend
-            your Account, limit your ability to run Service, or otherwise take up
-            unreasonable proportions of DeGenerous Society user interface bandwidth
-            until you reduce your bandwidth consumption.
+            relation to other users, we reserve the right to suspend your Account
+            or limit your ability to run Service or otherwise take up unreasonable
+            proportions of DGRS Labs user interface bandwidth until you reduce your
+            bandwidth consumption.
           </li>
 
           <li>
@@ -470,9 +466,9 @@
             <br />
             <i>
               The Services may sometimes provide inaccurate or offensive content
-              that does not represent DeGenerous Society views. Use discretion
-              before relying on, publishing, or otherwise using content provided
-              by the Services. Do not rely on the Services for medical, legal,
+              that does not represent DGRS Labs views. Use discretion before
+              relying on, publishing, or otherwise using content provided by the
+              Services. Do not rely on the Services for medical, legal,
               financial, or other professional advice. Any content regarding
               those topics is provided for informational purposes only and is
               not a substitute for advice from a qualified professional.
@@ -490,18 +486,18 @@
             <br />
             You may create or upload User-Generated Content while using the Service.
             You are solely responsible for the content of, and for any harm resulting
-            from, any User-Generated Content that you post, upload, link to, or otherwise
+            from, any User-Generated Content that you post, upload, link to or otherwise
             make available via the Service, regardless of the form of that Content.
             We are not responsible for any public display or misuse of your User-Generated
             Content.
           </li>
 
           <li>
-            <b>DeGenerous Society May Remove Content</b>
+            <b>DGRS Labs Pte. Ltd. May Remove Content</b>
             <br />
             We have the right (though not the obligation) to refuse or remove any
-            User-Generated Content that, in our sole discretion, violates any DeGenerous
-            Society terms or policies.
+            User-Generated Content that, in our sole discretion, violates any DGRS
+            Labs Pte. Ltd. terms or policies.
           </li>
 
           <li>
@@ -515,13 +511,12 @@
             party licenses relating to Content you post.
             <br />
             Because you retain ownership of and responsibility for Your Content,
-            we need you to grant us — and other DeGenerous Society Service Users
-            — certain legal permissions, listed in Sections D.4 — D.7. These license
-            grants apply to Your Content. If you upload Content that already comes
-            with a license granting DeGenerous Society the permissions we need to
-            run our Service, no additional license is required.. You understand that
-            you will not receive any payment from Us for any of the rights granted
-            in Sections D.4 — D.7.
+            we need you to grant us — and other DGRS Labs Service Users — certain
+            legal permissions, listed in Sections D.4 — D.7. These license grants
+            apply to Your Content. If you upload Content that already comes with
+            a license granting Us the permissions we need to run our Service, no
+            additional license is required.. You understand that you will not receive
+            any payment from Us for any of the rights granted in Sections D.4 — D.7.
             <br />
             So long as you comply with these Terms, We give you a limited, personal,
             non-exclusive, and non-assignable license to access and use our Services.
@@ -544,8 +539,9 @@
             the Website and provide the Service. This includes the right to do things
             like copy it to our database and make backups; show it to you and parse
             it into a search index or otherwise analyze it on our servers, as well
-            as share it with other users in full compliance with DeGenerous Society’s
-            Privacy Policy. This license allows DeGenerous Society to:
+            as share it with other users in full compliance of
+            <a href="/privacy-policy">DGRS Labs Pte. Ltd.’s Privacy Policy</a>.
+            This license allows Us to:
             <ul class="default-ul">
               <li>
                 host, reproduce, distribute, communicate, and use your content —
@@ -599,7 +595,7 @@
             between you and Us will be treated as royalties. If required by law,
             We will withhold taxes from such payments. Monetization options for content
             creators will be further elaborated once additional functionalities are
-            enabled in future versions of the Service.
+            enabled in the future versions of the Service.
           </li>
 
           <li>
@@ -618,9 +614,9 @@
             in Section D.4 and D.5, but not otherwise.
             <br />
             To the extent this agreement is not enforceable by applicable law, you
-            grant the DeGenerous Society the rights we need to use Your Content without
-            attribution and to make reasonable adaptations of Your Content as necessary
-            to render the Website and provide the Service.
+            grant Us the rights we need to use Your Content without attribution and
+            to make reasonable adaptations of Your Content as necessary to render
+            the Website and provide the Service.
           </li>
         </ol>
       </li>
@@ -638,37 +634,37 @@
           <li>
             <b>Confidentiality of Private Libraries.</b>
             <br />
-            DeGenerous Society considers the contents of private libraries to be
-            confidential to you. DeGenerous Society will protect the contents of
-            private repositories from unauthorized use, access, or disclosure in
-            the same manner that we would use to protect our own confidential information
-            of a similar nature and in no event with less than a reasonable degree
-            of care. In compliance with GDPR, all DeGenerous Society servers are
-            hosted in the European Union.
+            DGRS Labs Pte. Ltd. considers the contents of private libraries to be
+            confidential to you. We will protect the contents of private repositories
+            from unauthorized use, access, or disclosure in the same manner that
+            we would use to protect our own confidential information of a similar
+            nature and in no event with less than a reasonable degree of care. In
+            compliance with GDPR, all DGRS Labs servers are hosted in the European
+            Union.
           </li>
           <li>
             <b>Access.</b>
             <br />
-            DeGenerous Society employees may only access the content of your private
+            DGRS Labs Pte. Ltd. employees may only access the content of your private
             libraries in the following situations:
             <ul class="default-ul">
               <li>
-                With your consent and knowledge, for support reasons. If
-                DeGenerous Society accesses a private library for support
-                reasons, we will only do so with the owner’s consent and
-                knowledge.
+                With your consent and knowledge, for support reasons. If DGRS
+                Labs accesses a private library for support reasons, we will
+                only do so with the owner’s consent and knowledge.
               </li>
               <li>
                 When access is required for security reasons, including when
                 access is required to maintain ongoing confidentiality,
-                integrity, availability and resilience of the DeGenerous
-                Society's systems and Service.
+                integrity, availability and resilience of our systems and
+                Service.
               </li>
               <li>
                 To analyze and use anonymized data uploaded by the user in order
-                to improve the DeGenerous Society Service, for instance by
-                building template libraries, pursuant to the DeGenerous Society
-                Privacy Policy.
+                to improve the DGRS Labs Service, for instance by building
+                template libraries, pursuant to the
+                <a href="/privacy-policy">DGRS Labs Pte. Ltd. Privacy Policy</a
+                >.
               </li>
             </ul>
           </li>
@@ -688,7 +684,7 @@
         <b>Copyright Infringement</b>
         <br />
         If you believe that content on our website violates your copyright, please
-        contact us by emailing contact@degenerousdao.com. There may be legal consequences
+        contact us by emailing contact@dgrs.ink. There may be legal consequences
         for sending a false or frivolous takedown notice. Before sending a takedown
         request, you must consider legal uses such as fair use and licensed uses.
         We will terminate the Accounts of repeat infringers of this policy.
@@ -699,42 +695,47 @@
         <b>Intellectual Property Notice</b>
         <ol class="subordered">
           <li>
-            <b>DeGenerous Society's Rights to Content</b>
+            <b>DGRS Labs Pte. Ltd.'s Rights to Content</b>
             <br />
-            DeGenerous Society and our licensors, vendors, agents, and/or our content
+            DGRS Labs Pte. Ltd. and our licensors, vendors, agents, and/or our content
             providers retain ownership of all intellectual property rights of any
             kind related to the Website and Service. We reserve all rights that are
             not expressly granted to you under this Agreement, or by law. The look
-            and feel of the Website and Service is copyright © DeGenerous Society.
+            and feel of the Website and Service is copyright © DGRS Labs Pte. Ltd.
             All rights reserved. You may not duplicate, copy, or reuse any portion
             of the HTML/CSS, Astro, Svelte, Javascript, or visual design elements
-            or concepts without express written permission from DeGenerous Society.
+            or concepts without express written permission from DGRS Labs Pte. Ltd.
           </li>
           <li>
-            <b>DeGenerous Society and specific Services Trademarks and Logos</b>
+            <b>DGRS Labs Pte. Ltd. and specific Services Trademarks and Logos</b
+            >
             <br />
-            If you’d like to use DeGenerous Society’s trademarks, including those
+            If you’d like to use DGRS Labs Pte. Ltd.’s trademarks, including those
             pertaining to specific Service like CoNexus, you must follow all of our
             trademark guidelines, defined as follows:
             <ul class="default-ul">
               <li>
-                You may use DeGenerous Society’s logo to link to the relevant
-                Website and/or to note that you are using the DeGenerous Society
-                Service.
+                You may use the DGRS Labs logo and/or the CoNexus logo to link
+                to the relevant Website and/or to note that you are using the
+                DGRS Labs Pte. Ltd. and/or the CoNexus Service.
               </li>
               <li>
-                You may not use DeGenerous Society and/or the CoNexus logo for
-                your own products and/or services. No adaptation or use of any
-                kind of any of our registered trademarks or copyrights, or any
-                other contents of this Website, is allowed without the express
-                written permission of DeGenerous Society.
+                You may not use the DGRS Labs and/or the CoNexus logo for your
+                own products and/or services. No adaptation or use of any kind
+                of any of our registered trademarks or copyrights, or any other
+                contents of this Website, is allowed without the express written
+                permission of DGRS Labs Pte. Ltd.
               </li>
             </ul>
           </li>
           <li>
             If and when publishing any results or other content derived from the
-            use of the DeGenerous Society Services you are obliged to note your
-            source.
+            use of the DGRS Services you are obliged to note your source.
+          </li>
+          <li>
+            You accept to fully comply with <a href="/copyright-policy"
+              >DGRS Labs Pte Ltd.'s CoNexus Copyright Infringement Policy</a
+            >.
           </li>
         </ol>
       </li>
@@ -745,24 +746,24 @@
         <br />
         No Abuse or Overuse of the application interface (API)
         <br />
-        Abuse or excessively frequent requests to DeGenerous Society team via the
+        Abuse or excessively frequent requests to DGRS Labs Pte. Ltd. team via the
         API or via email may result in the temporary or permanent suspension of your
-        Account's access to the API. DeGenerous Society, in our sole discretion,
+        Account's access to the API. DGRS Labs Pte. Ltd., in our sole discretion,
         will determine abuse or excessive usage of the API. We will make a reasonable
         attempt to warn you via email prior to suspension.
         <br />
-        You may not share API tokens to exceed DeGenerous Society's rate limitations.
+        You may not share API tokens to exceed our Service’s rate limitations.
         <br />
         You may not use the API to download data, including personal data such as
-        email addresses, or Content from DeGenerous Society for advertising or spamming
-        purposes, including for the purposes of selling DeGenerous Society users'
-        personal information, such as to recruiters, headhunters, and job boards.
-        All use of the DeGenerous Society API is subject to these Terms of Service
-        and the DeGenerous Society Privacy Policy.
+        email addresses, or Content from DGRS Labs Pte. Ltd. for advertising or spamming
+        purposes, including for the purposes of selling our users' personal information,
+        such as to recruiters, headhunters, and job boards. All use of the DGRS Labs
+        Pte. Ltd. API is subject to these Terms of Service and the
+        <a href="/privacy-policy">DGRS Labs Pte. Ltd. Privacy Policy</a>.
         <br />
-        DeGenerous Society may offer subscription-based access to our DeGenerous
-        Society API for those Users who require high-throughput access or access
-        that would result in resale of DeGenerous Society’s Service.
+        DGRS Labs Pte. Ltd. may offer subscription-based access to Our API for those
+        Users who require high-throughput access or access that would result in resale
+        of our Service.
         <br />
         APIs and support of API services are subject to change at any time without
         notice.
@@ -773,8 +774,8 @@
         <b>Payment</b>
         <br />
         Our pricing and payment terms will be defined for different versions of the
-        DeGenerous Society Service. You may write to us at contact@degenerousdao.com
-        to explore service offerings based on interest and availability of both parties.
+        DGRS Labs Pte. Ltd. Service. You may write to us at contact@dgrs.ink to explore
+        service offerings based on interest and availability of both parties.
       </li>
 
       <br />
@@ -784,9 +785,9 @@
           <li>
             <b>Account Cancellation</b>
             <br />
-            It is your responsibility to properly cancel your Account with DeGenerous
-            Society Service. You can cancel your Account at any time by sending an
-            email to contact@degenerousdao.com
+            It is your responsibility to properly cancel your Account with DGRS Labs
+            Service. You can cancel your Account at any time by sending an email
+            to contact@dgrs.ink
           </li>
           <li>
             <b>Upon Cancellation</b>
@@ -797,16 +798,19 @@
             Content of your repositories within 90 days of cancellation or termination
             (though some information may remain in encrypted backups). This information
             cannot be recovered once your Account is canceled. We will not delete
-            Content that you have contributed pursuant to Contributor’s License Agreement
+            Content that you have contributed pursuant to
+            <a href="/contributors-license-agreement">
+              Contributor’s Licence Agreement
+            </a>
             and these terms.
           </li>
           <li>
-            <b>Website and/or DeGenerous Society Service May Terminate</b>
+            <b>Website and/or DGRS Labs Service May Terminate</b>
             <br />
-            DeGenerous Society has the right to suspend or terminate your login-based
-            access to all or any part of the Website at any time, with or without
-            cause, with or without notice, effective immediately. DeGenerous Society
-            reserves the right to refuse service to anyone for any reason at any
+            DGRS Labs Pte. Ltd. has the right to suspend or terminate your login-based
+            access to all or any part of the Website(s)/User Interfaces at any time,
+            with or without cause, with or without notice, effective immediately.
+            We reserve the right to refuse service to anyone for any reason at any
             time.
           </li>
           <li>
@@ -822,7 +826,7 @@
 
       <br />
       <li>
-        <b>Communications with DeGenerous Society</b>
+        <b>Communications with DGRS Labs Pte. Ltd.</b>
         <ol class="subordered">
           <li>
             <b>Electronic Communication Required</b>
@@ -835,20 +839,21 @@
             were on paper. This section does not affect your non-waivable rights.
           </li>
           <li>
-            <b>Legal Notice to DeGenerous Society Must Be in Writing</b>
+            <b>Legal Notice to DGRS Labs Pte. Ltd. Must Be in Writing</b>
             <br />
-            Communications made through email or DeGenerous Society Support's messaging
-            system will not constitute legal notice to DeGenerous Society or any
-            of its officers, employees, agents, or representatives in any situation
-            where notice to DeGenerous Society is required by contract or any law
-            or regulation. Legal notice to DeGenerous Society must be in writing
-            and sent as a signed electronic document to contact@degenerousdao.com.
+            Communications made through email or DGRS Labs Pte. Ltd. Support's messaging
+            system will not constitute legal notice to DGRS Labs Pte. Ltd. or any
+            of its officers, employees, agents or representatives in any situation
+            where notice to DGRS Labs Pte. Ltd. is required by contract or any law
+            or regulation. Legal notice to DGRS Labs Pte. Ltd.must be in writing
+            and sent as a signed electronic document to contact@dgrs.ink.
           </li>
           <li>
             <b>No Phone Support</b>
             <br />
-            DeGenerous Society offers support via email and provides additional information
-            on the Whitepaper and Wiki. We do not offer telephone support.
+            We offer support via email and provide additional information on our
+            Website(s) and other relevant public channels. We do not offer telephone
+            support.
           </li>
         </ol>
       </li>
@@ -857,20 +862,21 @@
       <li>
         <b>Disclaimer of Warranties</b>
         <br />
-        DeGenerous Society provides the Website and the Service “as is” and “as available,”
-        without warranty of any kind. Without limiting this, we expressly disclaim
-        all warranties, whether express, implied, or statutory, regarding the Website
-        and the Service including without limitation any warranty of merchantability,
-        fitness for a particular purpose, title, security, accuracy, and non-infringement.
+        DGRS Labs Pte. Ltd. provides the Website and the Service “as is” and “as
+        available,” without warranty of any kind. Without limiting this, we expressly
+        disclaim all warranties, whether express, implied or statutory, regarding
+        the Website and the Service including without limitation any warranty of
+        merchantability, fitness for a particular purpose, title, security, accuracy
+        and non-infringement.
         <br />
-        DeGenerous Society does not warrant that the Service will meet your requirements;
-        that the Service will be uninterrupted, timely, secure, or error-free; that
-        the information provided through the Service is accurate, reliable, or correct;
-        that any defects or errors will be corrected; that the Service will be available
-        at any particular time or location; or that the Service is free of viruses
-        or other harmful components. You assume full responsibility and risk of loss
-        resulting from your downloading and/or use of files, information, content,
-        or other material obtained from the Service.
+        We do not warrant that the Service will meet your requirements; that the
+        Service will be uninterrupted, timely, secure, or error-free; that the information
+        provided through the Service is accurate, reliable or correct; that any defects
+        or errors will be corrected; that the Service will be available at any particular
+        time or location; or that the Service is free of viruses or other harmful
+        components. You assume full responsibility and risk of loss resulting from
+        your downloading and/or use of files, information, content or other material
+        obtained from the Service.
       </li>
 
       <br />
@@ -879,7 +885,7 @@
         <br />
         You understand and agree that we will not be liable to you or any third party
         for any loss of profits, use, goodwill, or data, or for any incidental, indirect,
-        special, consequential, or exemplary damages, however arising, that result
+        special, consequential or exemplary damages, however arising, that result
         from
         <ul class="default-ul">
           <li>
@@ -914,11 +920,11 @@
       <li>
         <b>Release and Indemnification</b>
         <br />
-        If you have a dispute with one or more Users, you agree to release DeGenerous
-        Society and its directors, officers, employees, and contractors from any
-        and all claims, demands, and damages (actual and consequential) of every
-        kind and nature, known and unknown, arising out of or in any way connected
-        with such disputes.
+        If you have a dispute with one or more Users, you agree to release DGRS Labs
+        Pte. Ltd. and its directors, officers, employees, and contractors from any
+        and all claims, demands and damages (actual and consequential) of every kind
+        and nature, known and unknown, arising out of or in any way connected with
+        such disputes.
         <br />
         You agree to indemnify us, defend us, and hold us harmless from and against
         any and all claims, liabilities, and expenses, including attorneys’ fees,
@@ -926,16 +932,16 @@
         limited to your violation of this Agreement.
         <br />
         This indemnity covers any liability or expense arising from claims, losses,
-        damages, judgments, fines, litigation costs, and legal fees.If you’re legally
+        damages, judgments, fines, litigation costs, and legal fees. If you’re legally
         exempt from certain responsibilities, including indemnification, then those
         responsibilities don’t apply to you under these terms. For example, the United
         Nations enjoys certain immunities from legal obligations and these terms
         don’t override those immunities.
         <br />
-        For full clarity, DeGenerous Society will not be responsible for the following
+        For full clarity, DGRS Labs Pte. Ltd. will not be responsible for the following
         liabilities: loss of profits, revenues, business opportunities, goodwill,
         or anticipated savings; indirect or consequential loss; punitive damages.
-        DeGenerous Society’s total liability arising out of or relating to these
+        DGRS Labs Pte. Ltd.’s total liability arising out of or relating to these
         terms is limited to the greater of (1) €500 or (2) 125% of the fees that
         you paid to use the relevant services in the 3 months before the breach.
       </li>
@@ -965,21 +971,20 @@
             <b>Governing Law</b>
             <br />
             Except to the extent applicable law provides otherwise, this Agreement
-            between you and DeGenerous Society and any access to or use of the Website
-            or the Service are governed by the laws of Delaware, USA, without regard
-            to conflict of law provisions. You and DeGenerous Society agree to submit
-            to the exclusive jurisdiction and venue of the courts located in Delaware,
-            USA.
+            between you and DGRS Labs Pte. Ltd. and any access to or use of the Website
+            or the Service are governed by the laws of Singapore, without regard
+            to conflict of law provisions. You and DGRS Labs Pte. Ltd. agree to submit
+            to the exclusive jurisdiction and venue of the courts located in Singapore.
           </li>
           <li>
             <b>Non-Assignability</b>
             <br />
-            DeGenerous Society may assign or delegate these Terms of Service and/or
-            the DeGenerous Society Privacy Policy, in whole or in part, to any person
-            or entity at any time with or without your consent, including the license
+            DGRS Labs Pte. Ltd. may assign or delegate these Terms of Service and/or
+            the DGRS Labs Pte. Ltd. Privacy Policy, in whole or in part, to any person
+            or entity at any time with or without your consent, including the licence
             grant in Section D.4. You may not assign or delegate any rights or obligations
-            under the DeGenerous Society Terms of Service or the DeGenerous Society
-            Privacy Policy without our prior written consent, and any unauthorized
+            under the DGRS Labs Pte. Ltd. Terms of Service or the DGRS Labs Pte.
+            Ltd. Privacy Policy without our prior written consent, and any unauthorised
             assignment and delegation by you is void.
           </li>
           <li>
@@ -995,7 +1000,7 @@
             If any part of this Agreement is held invalid or unenforceable, that
             portion of the Agreement will be construed to reflect the parties’ original
             intent. The remaining portions will remain in full force and effect.
-            Any failure on the part of DeGenerous Society to enforce any provision
+            Any failure on the part of DGRS Labs Pte. Ltd. to enforce any provision
             of this Agreement will not be considered a waiver of our right to enforce
             such provision. Our rights under this Agreement will survive any termination
             of this Agreement.
@@ -1004,10 +1009,19 @@
             <b>Amendments; Complete Agreement</b>
             <br />
             This Agreement may only be modified by a written amendment signed by
-            an authorized representative of DeGenerous Society, or by the posting
-            by DeGenerous Society of a revised version. These Terms of Service, together
-            with the DeGenerous Society Privacy Policy, represent the complete and
-            exclusive statement of the agreement between you and us.
+            an authorised representative of DGRS Labs Pte. Ltd., or by the posting
+            by DGRS Labs Pte. Ltd. of a revised version. These Terms of Service,
+            together with the
+            <a href="/privacy-policy">DGRS Labs Pte. Ltd. Privacy Policy</a>
+            and the
+            <a href="/copyright-policy">CoNexus Copyright Infringement Policy</a
+            >, represent the complete and exclusive statement of the agreement
+            between you and us.
+          </li>
+          <li>
+            <b>Questions</b>
+            <br />
+            For any questions about the Terms of Service, please email us at contact@dgrs.ink.
           </li>
         </ol>
       </li>

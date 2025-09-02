@@ -154,6 +154,7 @@
     opacity: 1;
     visibility: visible;
     background-color: $dark-blue;
+    cursor: default;
 
     .word {
       display: inline-flex;
@@ -168,6 +169,7 @@
         width: 0.7em;
         color: $cyan;
         font-weight: bold;
+        cursor: default;
       }
     }
   }

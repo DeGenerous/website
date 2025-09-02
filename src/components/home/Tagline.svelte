@@ -28,14 +28,6 @@
   }
 </script>
 
-<!-- <span class="hero flex">
-  <video autoplay loop muted>
-    <source src="/hero.webm" type="video/webm" />
-    <source src="/hero.mp4" type="video/mp4" />
-    <track kind="captions" />
-  </video>
-</span> -->
-
 <section class="tagline flex mar-auto fade-in">
   <!-- Keep real text in markup for SEO/no-JS, the script will overwrite it -->
   <h1 class="sr-only" bind:this={tagline}>
@@ -56,21 +48,6 @@
 
 <style lang="scss">
   @use "/src/styles/mixins/" as *;
-
-  // .hero {
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   max-height: 100vh;
-  //   width: 100vw;
-  //   z-index: -1;
-  //   overflow: hidden;
-
-  //   video {
-  //     height: 100%;
-  //     width: 100%;
-  //   }
-  // }
 
   .tagline {
     height: 100vh;
