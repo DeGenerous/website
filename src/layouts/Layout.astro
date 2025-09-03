@@ -44,10 +44,7 @@ const {
     <title>{title}</title>
     <meta charset="utf-8" />
     <meta name="description" content={description} />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta
       http-equiv="Content-Security-Policy"
@@ -80,17 +77,17 @@ const {
     />
   </head>
   <body>
-    <Scramble client:load />
+    <Scramble client:idle />
     <Header activeTab={nav} client:load />
     <main>
       <slot />
     </main>
-    <Footer client:load />
-    <Background client:load />
-    <Modal client:load />
-    <ToastContainer client:load />
-    <Cursor client:load />
-    <CookieBanner client:load />
+    <Footer client:visible />
+    <Background client:visible />
+    <Modal client:idle />
+    <ToastContainer client:idle />
+    <Cursor client:idle />
+    <CookieBanner client:idle />
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"
     ></script>
   </body>

@@ -1,23 +1,27 @@
 <script lang="ts">
   let {
-    onclick = () => {},
+    href = '#',
+    target = '_self',
     hideForMobiles = false,
     hideForPCs = false,
   }: {
-    onclick: () => void;
+    href?: string;
+    target?: string;
     hideForMobiles?: boolean;
     hideForPCs?: boolean;
   } = $props();
   let svgFocus = $state<boolean>(false);
 </script>
 
-<button
+<a
   class="flex void-btn"
   class:pc-only={hideForMobiles}
   class:mobile-only={hideForPCs}
   onpointerover={() => (svgFocus = true)}
   onpointerout={() => (svgFocus = false)}
-  {onclick}
+  href={href}
+  target={target}
+  rel={target === '_blank' ? 'noopener noreferrer' : undefined}
   aria-label="CoNexus"
 >
   <svg viewBox="0 0 2341 546" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,12 +57,12 @@
       d="M217.364 467.744C203.955 472.732 202.2 491.768 214.486 498.933C218.417 501.251 225.648 501.883 229.509 500.267C243.34 494.367 244.182 474.909 230.913 468.517C227.614 466.902 220.664 466.55 217.364 467.744Z"
     />
   </svg>
-</button>
+</a>
 
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
-  button {
+  a {
     height: 2.5rem;
     width: 10rem;
     border-radius: 0.5rem;
@@ -94,7 +98,7 @@
   }
 
   :global(body.dark) {
-    button {
+    a {
       fill: $cyan;
       @include cyan(0.1);
 

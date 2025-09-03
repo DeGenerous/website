@@ -1,9 +1,9 @@
 <script lang="ts">
   let {
-    onclick = () => {},
-  }: {
-    onclick: () => void;
-  } = $props();
+  onclick = () => {},
+}: {
+  onclick: () => void;
+} = $props();
   let svgFocus = $state<boolean>(false);
 </script>
 
@@ -12,7 +12,7 @@
   onpointerover={() => (svgFocus = true)}
   onpointerout={() => (svgFocus = false)}
   {onclick}
-  aria-label="CoNexus"
+  aria-label="Toggle navigation"
 >
   <svg
     xmlns="http://www.w3.org/2000/svg"

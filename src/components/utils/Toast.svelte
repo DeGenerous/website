@@ -37,8 +37,10 @@
   class:fading-right={fading >= 0.5}
   class:hide
   on:click={closeToast}
+  role="status"
+  aria-live="polite"
 >
-  <p>{@html message}</p>
+  <p>{message}</p>
 </button>
 
 <style lang="scss">

@@ -3,7 +3,7 @@
   import Toast from '@components/utils/Toast.svelte';
 </script>
 
-<div class="flex">
+<div class="flex" role="status" aria-live="polite">
   {#each $toastStore as { id, message, type, duration }}
     <Toast {message} {type} {duration} onClose={() => toastStore.close(id)} />
   {/each}

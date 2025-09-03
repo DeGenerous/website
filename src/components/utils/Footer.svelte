@@ -9,7 +9,8 @@
   let email = $state("");
   let lang = $state("en");
 
-  const subscribeToNewsletter = () => {
+  const subscribeToNewsletter = (event: Event) => {
+    event.preventDefault();
     if (!email || !regexpEmail.test(email)) {
       toastStore.show("Please enter a valid email address.", "error");
       return;
@@ -32,7 +33,10 @@
   };
 </script>
 
-<div class="newsletter flex pad pc-narrow blur">
+<form
+  class="newsletter flex pad pc-narrow blur"
+  onsubmit={subscribeToNewsletter}
+>
   <h4>Join the Future of Storytelling</h4>
   <p>
     Get the latest updates on DGRS, exclusive access to new features, and
@@ -44,14 +48,15 @@
       placeholder="Enter your email"
       aria-label="Subscribe to newsletter"
       bind:value={email}
+      required
     />
-    <button onclick={subscribeToNewsletter}> Subscribe </button>
+    <button type="submit"> Subscribe </button>
   </span>
-</div>
+</form>
 
 <footer class="pad flex fade-in pc-narrow blur">
   <section class="flex gap">
-    <LogoSVG big={true} branding={true} />
+    <LogoSVG href="/" big={true} branding={true} />
     <p>
       Building the GenAI ecosystem for storytelling. License, produce, consume,
       and monetize stories at scale with Text-To-Story & on-chain ownership.
@@ -60,7 +65,7 @@
     <ul class="socials flex-row">
       {#each socials as { icon, href, alt }}
         <li>
-          <a class="nohover-link" {href} target="_blank">
+          <a class="nohover-link" {href} target="_blank" rel="noopener noreferrer">
             <img src={icon} {alt} />
           </a>
         </li>

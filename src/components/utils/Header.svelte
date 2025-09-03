@@ -47,15 +47,11 @@
 <svelte:window {onscroll} bind:scrollY />
 
 <header class="flex-row blur" class:hide={hiddenHeader} bind:this={header}>
-  <LogoSVG
-    onclick={() => {
-      showScramble();
-      open("/", "_self");
-    }}
-  />
+  <LogoSVG href="/" onclick={showScramble} />
   <nav class="flex transition" class:hidden={hiddenTabs}>
     <ConexusLogoSVG
-      onclick={() => open("https://conexus.degenerousdao.com/", "_blank")}
+      href="https://conexus.degenerousdao.com/"
+      target="_blank"
       hideForPCs={true}
     />
     {#each tabs as tab}
@@ -76,7 +72,8 @@
   </nav>
   <span class="flex-row">
     <ConexusLogoSVG
-      onclick={() => open("https://conexus.degenerousdao.com/", "_blank")}
+      href="https://conexus.degenerousdao.com/"
+      target="_blank"
       hideForMobiles={true}
     />
     <input
