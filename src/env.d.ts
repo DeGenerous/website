@@ -11,6 +11,16 @@ type Roadmap = {
   }[];
 };
 
+type Goal = {
+  name: string;
+  description: string;
+};
+
+type Section = {
+  section: string;
+  goals: Goal[];
+};
+
 type TeamMember = {
   name: string;
   picture?: string;
