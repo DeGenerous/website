@@ -44,7 +44,27 @@ export default defineConfig({
       hasWarned: false,
     },
     build: {
+      // Avoid noisy 500kB warnings; we split vendors below as well
+      chunkSizeWarningLimit: 1500,
       rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (!id.includes("node_modules")) return;
+
+            if (
+              id.includes("three") ||
+              id.includes("@threlte/") ||
+              id.includes("troika-three-text") ||
+              id.includes("three-perf")
+            ) {
+              return "threlte-three";
+            }
+
+            if (id.includes("svelte")) {
+              return "svelte-vendor";
+            }
+          },
+        },
         onwarn(warning, handler) {
           const code = warning?.code;
           const id = warning?.id || "";
