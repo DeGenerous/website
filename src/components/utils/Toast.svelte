@@ -37,10 +37,10 @@
   class:fading-right={fading >= 0.5}
   class:hide
   on:click={closeToast}
-  role="status"
-  aria-live="polite"
 >
-  <p>{message}</p>
+  <p>
+    <span role="status" aria-live="polite" aria-atomic="true">{message}</span>
+  </p>
 </button>
 
 <style lang="scss">

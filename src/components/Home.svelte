@@ -24,14 +24,4 @@
 
 <Tweets />
 
-<style>
-  :global(main) {
-    padding-top: 0 !important;
-    padding-inline: 0 !important;
-    gap: 5rem !important;
-
-    :global(h5) {
-      font-weight: normal !important;
-    }
-  }
-</style>
+<!-- moved global styles to index.scss under body.home -->

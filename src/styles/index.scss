@@ -282,6 +282,19 @@ html {
     }
   }
 
+  // Home page specific global adjustments
+  body.home {
+    main {
+      padding-top: 0 !important;
+      padding-inline: 0 !important;
+      gap: 5rem !important;
+    }
+
+    h5 {
+      font-weight: normal !important;
+    }
+  }
+
   .flex-row {
     @extend .flex;
     flex-direction: row;

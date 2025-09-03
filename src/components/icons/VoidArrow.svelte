@@ -5,24 +5,29 @@
     animation = true,
     rotate = null,
     inheritColor = false,
+    as = "button",
   }: {
     onclick?: () => void;
     position?: Nullable<"top" | "bottom">;
     animation?: boolean;
     rotate?: Nullable<string>;
     inheritColor?: boolean;
+    as?: "button" | "span" | "div";
   } = $props();
   let svgFocus = $state<boolean>(false);
 </script>
 
-<button
+<svelte:element
+  this={as}
   class="flex void-btn {position}"
   class:floating={animation}
   class:inherit={inheritColor}
   onpointerover={() => (svgFocus = true)}
   onpointerout={() => (svgFocus = false)}
   {onclick}
-  aria-label="Arrow"
+  aria-label={as === "button" ? "Arrow" : undefined}
+  role={as !== "button" ? undefined : undefined}
+  tabindex={as !== "button" ? undefined : undefined}
 >
   <svg
     viewBox="0 0 24 24"
@@ -36,12 +41,12 @@
       stroke-linejoin="round"
     />
   </svg>
-</button>
+</svelte:element>
 
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
-  button {
+  .void-btn {
     fill: none;
     stroke: $blue;
 
@@ -67,7 +72,7 @@
   }
 
   :global(body.dark) {
-    button {
+    .void-btn {
       stroke: $cyan;
     }
   }

@@ -46,7 +46,7 @@
             <img src="/icons/instagram.png" alt="Instagram" />
             Instagram
           </span>
-          <VoidArrowSVG position={null} animation={false} inheritColor={true} />
+          <VoidArrowSVG as="span" position={null} animation={false} inheritColor={true} />
         </button>
         <span class="hider flex gap-8 transition" class:hidden={!showInstagram}>
           <a
@@ -80,7 +80,7 @@
             <img src="/icons/twitter.png" alt="Twitter" />
             X (Twitter)
           </span>
-          <VoidArrowSVG position={null} animation={false} inheritColor={true} />
+          <VoidArrowSVG as="span" position={null} animation={false} inheritColor={true} />
         </button>
         <span class="hider flex gap-8 transition" class:hidden={!showTwitter}>
           <a
