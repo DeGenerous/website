@@ -1,7 +1,7 @@
 <script lang="ts">
   let {
-    href = '#',
-    target = '_self',
+    href = "#",
+    target = "_self",
     hideForMobiles = false,
     hideForPCs = false,
   }: {
@@ -14,14 +14,14 @@
 </script>
 
 <a
-  class="flex void-btn"
+  class="flex nohover-link"
   class:pc-only={hideForMobiles}
   class:mobile-only={hideForPCs}
   onpointerover={() => (svgFocus = true)}
   onpointerout={() => (svgFocus = false)}
-  href={href}
-  target={target}
-  rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+  {href}
+  {target}
+  rel={target === "_blank" ? "noopener noreferrer" : undefined}
   aria-label="CoNexus"
 >
   <svg viewBox="0 0 2341 546" fill="none" xmlns="http://www.w3.org/2000/svg">

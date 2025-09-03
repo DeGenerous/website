@@ -135,6 +135,22 @@ ol.subordered {
   // @include gray(0.1);
 }
 
+/* Skip link for keyboard users */
+.skip-link {
+  position: absolute;
+  left: 0.5rem;
+  top: -3rem;
+  z-index: 1001;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  background: #000;
+  color: #fff;
+}
+
+.skip-link:focus {
+  top: 0.5rem;
+}
+
 /* GENERAL STYLING */
 
 a {

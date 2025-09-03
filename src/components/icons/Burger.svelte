@@ -1,9 +1,13 @@
 <script lang="ts">
   let {
-  onclick = () => {},
-}: {
-  onclick: () => void;
-} = $props();
+    onclick = () => {},
+    expanded = false,
+    controls = undefined,
+  }: {
+    onclick: () => void;
+    expanded?: boolean;
+    controls?: string | undefined;
+  } = $props();
   let svgFocus = $state<boolean>(false);
 </script>
 
@@ -13,6 +17,8 @@
   onpointerout={() => (svgFocus = false)}
   {onclick}
   aria-label="Toggle navigation"
+  aria-expanded={expanded}
+  aria-controls={controls}
 >
   <svg
     xmlns="http://www.w3.org/2000/svg"

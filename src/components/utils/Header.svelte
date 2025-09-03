@@ -48,7 +48,7 @@
 
 <header class="flex-row blur" class:hide={hiddenHeader} bind:this={header}>
   <LogoSVG href="/" onclick={showScramble} />
-  <nav class="flex transition" class:hidden={hiddenTabs}>
+  <nav id="site-nav" class="flex transition" class:hidden={hiddenTabs} aria-label="Primary">
     <ConexusLogoSVG
       href="https://conexus.degenerousdao.com/"
       target="_blank"
@@ -68,6 +68,7 @@
       class="theme-toggle pc-only"
       type="checkbox"
       bind:checked={$darkTheme}
+      aria-label="Toggle dark mode"
     />
   </nav>
   <span class="flex-row">
@@ -80,8 +81,13 @@
       class="theme-toggle mobile-only"
       type="checkbox"
       bind:checked={$darkTheme}
+      aria-label="Toggle dark mode"
     />
-    <BurgerSVG onclick={() => (hiddenTabs = !hiddenTabs)} />
+    <BurgerSVG
+      onclick={() => (hiddenTabs = !hiddenTabs)}
+      expanded={!hiddenTabs}
+      controls="site-nav"
+    />
   </span>
 </header>
 

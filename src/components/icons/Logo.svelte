@@ -1,6 +1,6 @@
 <script lang="ts">
   let {
-    href = '#',
+    href = "#",
     onclick = () => {},
     big = false,
     branding = false,
@@ -14,13 +14,13 @@
 </script>
 
 <a
-  class="flex void-btn"
+  class="flex nohover-link"
   class:big
   class:branding
   onpointerover={() => (svgFocus = true)}
   onpointerout={() => (svgFocus = false)}
-  href={href}
-  onclick={onclick}
+  {href}
+  {onclick}
   aria-label="DGRS LABS"
 >
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2610 349">

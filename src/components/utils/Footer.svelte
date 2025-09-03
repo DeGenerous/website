@@ -43,10 +43,14 @@
     insights into the AI storytelling revolution.
   </p>
   <span class="flex-row flex-wrap">
+    <label class="sr-only" for="newsletter-email">Email address</label>
     <input
+      id="newsletter-email"
+      name="email"
       type="email"
       placeholder="Enter your email"
-      aria-label="Subscribe to newsletter"
+      autocomplete="email"
+      aria-required="true"
       bind:value={email}
       required
     />

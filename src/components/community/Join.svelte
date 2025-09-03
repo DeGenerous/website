@@ -30,7 +30,6 @@
     href="https://degenerousdao.com/join"
     target="_blank"
     rel="noopener noreferrer"
-    role="button"
   >
     Join us on Discord
   </a>
@@ -41,6 +40,8 @@
         <button
           class="void-btn flex-row blur"
           onclick={() => (showInstagram = !showInstagram)}
+          aria-expanded={showInstagram}
+          aria-controls="instagram-links"
         >
           <span class="flex-row">
             <img src="/icons/instagram.png" alt="Instagram" />
@@ -48,7 +49,12 @@
           </span>
           <VoidArrowSVG as="span" position={null} animation={false} inheritColor={true} />
         </button>
-        <span class="hider flex gap-8 transition" class:hidden={!showInstagram}>
+        <span
+          id="instagram-links"
+          class="hider flex gap-8 transition"
+          class:hidden={!showInstagram}
+          aria-hidden={!showInstagram}
+        >
           <a
             class="nohover-link flex-row"
             href="https://www.instagram.com/degenerousdao"
@@ -75,6 +81,8 @@
         <button
           class="void-btn flex-row blur"
           onclick={() => (showTwitter = !showTwitter)}
+          aria-expanded={showTwitter}
+          aria-controls="twitter-links"
         >
           <span class="flex-row">
             <img src="/icons/twitter.png" alt="Twitter" />
@@ -82,7 +90,12 @@
           </span>
           <VoidArrowSVG as="span" position={null} animation={false} inheritColor={true} />
         </button>
-        <span class="hider flex gap-8 transition" class:hidden={!showTwitter}>
+        <span
+          id="twitter-links"
+          class="hider flex gap-8 transition"
+          class:hidden={!showTwitter}
+          aria-hidden={!showTwitter}
+        >
           <a
             class="nohover-link flex-row"
             href="https://x.com/degenerousdao"

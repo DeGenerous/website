@@ -77,9 +77,10 @@ const {
     />
   </head>
   <body class={nav}>
+    <a href="#content" class="skip-link">Skip to content</a>
     <Scramble client:idle />
     <Header activeTab={nav} client:load />
-    <main>
+    <main id="content">
       <slot />
     </main>
     <Footer client:visible />
