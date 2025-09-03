@@ -75,21 +75,6 @@ button:not(.void-btn),
 
 // COLORED STYLING
 
-// Green
-.green-btn:not(.void-btn) {
-  border-color: transparent !important;
-  @include dark-green(0.85, text);
-  @include green(0.75);
-
-  &:hover:not(&:disabled),
-  &:active:not(&:disabled),
-  &:focus:not(&:disabled) {
-    box-shadow: 0 0 0.5rem $green;
-    @include dark-green(1, text);
-    @include green;
-  }
-}
-
 // Red
 .red-btn:not(.void-btn) {
   border-color: transparent !important;
@@ -105,57 +90,7 @@ button:not(.void-btn),
   }
 }
 
-// Purple
-.purple-btn:not(.void-btn) {
-  border-color: transparent !important;
-  @include purple;
-
-  &:hover:not(&:disabled),
-  &:active:not(&:disabled),
-  &:focus:not(&:disabled) {
-    box-shadow: 0 0 0.5rem $purple;
-    @include purple(1, bg, bright);
-    @include dark-red(1, text);
-  }
-}
-
-// Orange
-.orange-btn:not(.void-btn) {
-  border-color: transparent !important;
-  @include dark-red(0.85, text);
-  @include orange;
-
-  &:hover:not(&:disabled),
-  &:active:not(&:disabled),
-  &:focus:not(&:disabled) {
-    box-shadow: 0 0 0.5rem $orange;
-    @include dark-red(1, text);
-    @include orange(1, bg, bright);
-  }
-}
-
-// Rose
-.rose-btn:not(.void-btn) {
-  border-color: transparent !important;
-  @include dark-red(0.85, text);
-  @include rose(0.85);
-
-  &:hover:not(&:disabled),
-  &:active:not(&:disabled),
-  &:focus:not(&:disabled) {
-    box-shadow: 0 0 0.5rem $rose;
-    @include dark-red(1, text);
-    @include rose(1, bg, bright);
-  }
-}
-
 // ADDITIONAL STYLING
-
-.active-btn:not(.void-btn) {
-  background-color: $deep-green !important;
-  color: $white !important;
-  border-color: $green !important;
-}
 
 :where(.void-btn) {
   background-color: transparent;
@@ -167,31 +102,6 @@ button:not(.void-btn),
   @include respond-up(small-desktop) {
     min-width: 2.25rem;
     min-height: 2.25rem;
-  }
-}
-
-.min-size-btn {
-  min-width: unset !important;
-  min-height: unset !important;
-  width: 2.75rem;
-  height: 2.75rem;
-
-  @include respond-up(small-desktop) {
-    width: 2.25rem;
-    height: 2.25rem;
-  }
-}
-
-.sign-button {
-  width: 15rem;
-  justify-content: space-between !important;
-
-  p {
-    width: 100%;
-  }
-
-  @include respond-up(tablet) {
-    width: 25rem;
   }
 }
 

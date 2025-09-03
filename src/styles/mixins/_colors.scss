@@ -210,67 +210,24 @@ $dark-gray: rgb(16, 16, 16);
 
 // Background colors
 
-:global(.soft-cyan-bg) {
-  @include cyan(0.75);
-}
+// Color helper classes (kept for future, currently unused)
+// :global(.soft-cyan-bg) { @include cyan(0.75); }
+// :global(.cyan-bg) { @include cyan; }
+// :global(.blue-bg) { @include blue; }
+// :global(.dark-blue-bg) { @include dark-blue; }
+// :global(.semi-transparent-dark-bg) { @include dark-blue(0.75); }
+// :global(.transparent-dark-bg) { @include dark-blue(0.5); }
+// :global(.gray-bg) { @include gray(0.75); }
+// :global(.transparent-gray-bg) { @include gray(0.25); }
 
-:global(.cyan-bg) {
-  @include cyan;
-}
-
-:global(.blue-bg) {
-  @include blue;
-}
-
-:global(.dark-blue-bg) {
-  @include dark-blue;
-}
-
-:global(.semi-transparent-dark-bg) {
-  @include dark-blue(0.75);
-}
-
-:global(.transparent-dark-bg) {
-  @include dark-blue(0.5);
-}
-
-:global(.gray-bg) {
-  @include gray(0.75);
-}
-
-:global(.transparent-gray-bg) {
-  @include gray(0.25);
-}
-
-// Text colors
-
-:global(.white-txt) {
-  @include white-txt;
-}
-
-:global(.soft-white-txt) {
-  @include white-txt(soft);
-}
-
-:global(.transparent-white-txt) {
-  @include white-txt(0.5);
-}
-
-:global(.cyan-txt) {
-  @include cyan(1, text);
-}
-
-:global(.green-txt) {
-  @include green(1, text);
-}
-
-:global(.red-txt) {
-  @include red(1, text);
-}
-
-:global(.dark-txt) {
-  @include dark-blue(1, text);
-}
+// // Text color helpers
+// :global(.white-txt) { @include white-txt; }
+// :global(.soft-white-txt) { @include white-txt(soft); }
+// :global(.transparent-white-txt) { @include white-txt(0.5); }
+// :global(.cyan-txt) { @include cyan(1, text); }
+// :global(.green-txt) { @include green(1, text); }
+// :global(.red-txt) { @include red(1, text); }
+// :global(.dark-txt) { @include dark-blue(1, text); }
 
 // General definitions
 

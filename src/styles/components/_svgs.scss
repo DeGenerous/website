@@ -14,19 +14,4 @@ button svg {
   stroke: inherit;
 }
 
-.copied {
-  p {
-    color: $green !important;
-  }
-
-  svg {
-    fill: $green !important;
-    stroke: $green !important;
-    filter: none !important;
-  }
-}
-
-.sorting {
-  fill: $cyan;
-  stroke: $cyan;
-}
+/* removed unused svg helper states: .copied, .sorting */

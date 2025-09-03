@@ -8,7 +8,8 @@
     "build": "astro build",
     "preview": "astro preview --host",
     "astro": "astro",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "audit:css": "node utils/css-audit.mjs"
   },
   "dependencies": {
     "@astrojs/svelte": "7.0.7",

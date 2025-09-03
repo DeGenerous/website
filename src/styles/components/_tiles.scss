@@ -7,7 +7,7 @@
 
 // STORY TILES CONTAINER
 
-.collection-header {
+/* removed unused .collection-header {
   position: relative;
   width: 100vw;
   display: flex;
@@ -41,9 +41,9 @@
       bottom: 0.5rem;
     }
   }
-}
+} */
 
-.tiles-collection {
+/* removed unused .tiles-collection {
   -webkit-backdrop-filter: blur(1rem);
   backdrop-filter: blur(1rem);
   width: 100vw;
@@ -97,7 +97,7 @@
   &::-webkit-scrollbar-thumb:active {
     background-color: rgba(51, 226, 230, 0.5);
   }
-}
+} */
 
 // MENU TILE
 
@@ -243,59 +243,9 @@
   @include respond-up(quad-hd) {
     width: 10vw;
   }
-
-  &.gated-story {
-    @include orange(0.85);
-
-    img {
-      @include dark-red(0.5);
-    }
-
-    &:hover,
-    &:active,
-    &:focus {
-      @include orange;
-      @include orange(1, text, bright);
-      @include bright(100%);
-
-      h5 {
-        @include dark-red(1, text);
-      }
-
-      .gatings {
-        @include orange(1, text, bright);
-
-        svg {
-          cursor: inherit;
-          fill: $bright-orange;
-        }
-      }
-    }
-  }
-
-  .gatings {
-    display: none;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem;
-    border-radius: 0.75rem;
-    @include dark-red(0.5);
-    @include white-txt(soft);
-    @include box-shadow(soft, inset);
-
-    svg {
-      fill: $soft-white;
-    }
-
-    @include respond-up(tablet) {
-      display: flex;
-    }
-  }
 }
 
-.loading-tile {
+/* removed unused .loading-tile {
   transition: all 0.3s ease-in-out;
   @extend .tile;
   cursor: progress;
@@ -323,75 +273,13 @@
     opacity: 0;
     transform: scale(0.9);
   }
-}
+} */
 
-.purple-tile {
-  @extend .tile;
-  @include purple;
-
-  &:hover:not(&:disabled),
-  &:active:not(&:disabled),
-  &:focus:not(&:disabled) {
-    @include purple(1, bg, bright);
-    @include dark-red(1, text);
-  }
-}
-
-.green-tile {
-  @extend .tile;
-  @include deep-green(0.85);
-
-  &:hover:not(&:disabled),
-  &:active:not(&:disabled),
-  &:focus:not(&:disabled) {
-    @include deep-green;
-    @include dark-green(1, text);
-  }
-}
-
-.rose-tile {
-  @extend .tile;
-  @include rose(0.85);
-
-  &:hover:not(&:disabled),
-  &:active:not(&:disabled),
-  &:focus:not(&:disabled) {
-    @include rose;
-    @include dark-red(1, text);
-  }
-}
-
-.gray-tile {
-  @extend .tile;
-  @include gray(0.25);
-
-  &:hover:not(&:disabled),
-  &:active:not(&:disabled),
-  &:focus:not(&:disabled) {
-    @include light-blue(0.5);
-    @include cyan(1, text);
-  }
-}
-
-.potential-tile {
-  @extend .tile;
-  @include purple(0.25);
-
-  img {
-    @include dark-border;
-  }
-
-  &:hover:not(&:disabled),
-  &:active:not(&:disabled),
-  &:focus:not(&:disabled) {
-    background-color: $royal-purple;
-    @include orange(1, text, bright);
-  }
-}
+/* Removed unused tile variants: purple/green/rose/gray/potential */
 
 // SMALL TILES
 
-.small-tile {
+/* removed unused .small-tile {
   width: 100%;
 
   display: flex;
@@ -446,104 +334,10 @@
     transform: scale(0.975) skew(1deg, -1deg);
     filter: brightness(125%) contrast(125%);
   }
-}
+} */
 
-.small-purple-tile {
-  @extend .small-tile;
-  @include purple;
-
-  &:hover:not(&:disabled),
-  &:active:not(&:disabled),
-  &:focus:not(:disabled) {
-    @include purple(1, bg, bright);
-  }
-}
-
-.small-orange-tile {
-  @extend .small-tile;
-  @include orange(0.85);
-
-  p {
-    @include dark-red(0.5);
-  }
-
-  &:hover:not(&:disabled),
-  &:active:not(&:disabled),
-  &:focus:not(:disabled) {
-    @include orange(1, bg, bright);
-  }
-}
-
-.small-rose-tile {
-  @extend .small-tile;
-  @include rose(0.85);
-
-  p {
-    @include dark-red(0.5);
-  }
-
-  &:hover:not(&:disabled),
-  &:active:not(&:disabled),
-  &:focus:not(:disabled) {
-    @include rose(1, bg, bright);
-  }
-}
-
-.small-green-tile {
-  @extend .small-tile;
-  @include deep-green;
-
-  p {
-    @include dark-green(0.5);
-  }
-
-  &:hover:not(&:disabled),
-  &:active:not(&:disabled),
-  &:focus:not(:disabled) {
-    @include bright;
-  }
-}
+/* Removed unused small tile color variants */
 
 // USAGE: &::after { content: 'Label'; }
 // ADDITIONAL CLASSES: &.selected / &.active
-.small-tile-addon {
-  position: relative;
-  margin-top: 0.5rem;
-
-  &.selected {
-    border-top-left-radius: 0;
-
-    p {
-      @include dark-green(0.5);
-    }
-  }
-
-  &.active {
-    border-top-left-radius: 0;
-    pointer-events: none;
-  }
-
-  &::after {
-    position: absolute;
-    top: -1rem;
-    left: 0;
-    padding-inline: 0.5rem;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-    color: $dark-blue;
-    background-color: inherit;
-
-    transition: all 0.3s ease-in-out;
-
-    // Fallback if no support
-    opacity: 1;
-    transform: none;
-
-    @include font(caption);
-
-    @starting-style {
-      opacity: 0;
-      transform: translate(-50%, 50%) scale(0);
-    }
-  }
-}
+/* Removed unused small-tile-addon helper */

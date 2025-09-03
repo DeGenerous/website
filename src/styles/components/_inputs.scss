@@ -92,7 +92,7 @@ input {
   }
 }
 
-.static-input-container {
+/* removed unused .static-input-container {
   @extend .input-container;
   flex-flow: column nowrap;
 
@@ -103,7 +103,7 @@ input {
       content: "";
     }
   }
-}
+} */
 
 input[type="checkbox"],
 input[type="range"],
@@ -177,14 +177,14 @@ input[type="number"]::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.void-input {
+/* removed unused .void-input {
   border: none !important;
   border-radius: 0;
   background-color: transparent !important;
   box-shadow: none;
-}
+} */
 
-.dropzone {
+/* removed unused .dropzone/.dragover {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -225,7 +225,7 @@ input[type="number"]::-webkit-inner-spin-button {
       cursor: inherit;
     }
   }
-}
+} */
 
 textarea {
   width: 100%;
