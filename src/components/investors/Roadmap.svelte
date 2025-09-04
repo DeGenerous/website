@@ -20,6 +20,7 @@
       trackerY: 0,
       inView: false,
       activeGoalIdx: null as number | null,
+      finished: false,
     }))
   );
 
@@ -47,6 +48,18 @@
         const y = bestCenter - wrapRect.top;
         // clamp to wrap bounds
         sec.trackerY = Math.max(0, Math.min(y, wrapRect.height));
+      }
+      // finished only after scrolling past last goal center (reversible)
+      const lastIdx = sec.goals.length - 1;
+      const lastRef = lastIdx >= 0 ? sec.goals[lastIdx]?.ref : null;
+      if (lastRef && bestCenter !== null) {
+        const lr = lastRef.getBoundingClientRect();
+        const lastCenter = lr.top + lr.height / 2;
+        sec.finished = !!(
+          bestIdx === lastIdx && viewportCenter > lastCenter + 4
+        );
+      } else {
+        sec.finished = false;
       }
       if (bestIdx !== sec.activeGoalIdx) {
         sec.activeGoalIdx = bestIdx;
@@ -100,8 +113,9 @@
             <li
               class="goal container"
               class:active={sec.activeGoalIdx === gi}
-              class:completed={sec.activeGoalIdx !== null &&
-                gi < sec.activeGoalIdx}
+              class:completed={(sec.activeGoalIdx !== null &&
+                gi < sec.activeGoalIdx) ||
+                sec.finished}
               bind:this={g.ref}
               id="goal-{g.id}"
             >
@@ -119,24 +133,31 @@
           <div
             class="tracker"
             class:hidden={!sec.inView}
-            style:transform="translateY({sec.trackerY}px)"
-            aria-hidden="true"
-          >
-            <span></span>
-          </div>
-          <div
-            class="trail"
-            class:hidden={!sec.inView}
             style:height="{Math.max(0, sec.trackerY)}px"
             aria-hidden="true"
-          ></div>
+          >
+            <div class="trail" aria-hidden="true"></div>
+            <div class="dot flex" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="3"
+              >
+                <path d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+          </div>
           <ul class="goals" class:right={si % 2 === 1}>
             {#each sec.goals as g, gi}
               <li
-                class="goal container"
+                class="goal container transition"
                 class:active={sec.activeGoalIdx === gi}
-                class:completed={sec.activeGoalIdx !== null &&
-                  gi < sec.activeGoalIdx}
+                class:completed={(sec.activeGoalIdx !== null &&
+                  gi < sec.activeGoalIdx) ||
+                  sec.finished}
                 bind:this={g.ref}
                 id="goal-{g.id}"
               >
@@ -162,65 +183,62 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 0.5rem;
+      max-width: 70rem;
 
       .goals-wrapper {
         position: relative;
-        padding-inline: 2rem 0;
+        padding-inline: 1rem 0;
 
         .tracker {
           position: absolute;
           top: 0;
-          left: 0.25rem;
-          width: 1.25rem;
-          height: 1.25rem;
-          border-radius: 50%;
-          display: grid;
-          place-items: center;
-          transition: transform 100ms linear;
-          box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.15);
-          pointer-events: none;
-          @include light-blue(0.25);
-
-          span {
-            display: block;
-            width: 0.5rem;
-            height: 0.5rem;
-            border-radius: 50%;
-            @include blue(1, bg, bright);
-          }
-        }
-
-        .trail {
-          position: absolute;
-          top: 0;
-          width: 4px;
+          left: 0.5rem;
+          width: 1rem;
           height: 0;
-          border-radius: 999px;
-          background: linear-gradient(
-            to bottom,
-            rgba(56, 117, 250, 0.5),
-            rgba(56, 117, 250, 0.2)
-          );
-          transition: height 120ms linear;
-          z-index: 0;
+          transition: height 0.3s linear;
           pointer-events: none;
 
-          left: 0.875rem;
-          transform: translateX(-50%);
+          .trail {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0.5rem;
+            height: 100%;
+            background: linear-gradient(
+              to bottom,
+              rgba(0, 185, 55, 0),
+              rgba(75, 112, 50, 1)
+            );
+          }
+
+          .dot {
+            position: absolute;
+            bottom: -0.5rem; // half of dot size
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            @include deep-green;
+
+            svg {
+              width: 75%;
+              height: 75%;
+              fill: none;
+              stroke: $white;
+            }
+          }
         }
 
         &.right {
-          padding-inline: 0 2rem;
+          padding-inline: 0 1rem;
 
           .tracker {
             left: auto;
-            right: 0.25rem;
-          }
-
-          .trail {
-            left: unset;
-            right: 0.875rem;
-            transform: translateX(50%);
+            right: 0.5rem;
           }
         }
       }
@@ -242,25 +260,87 @@
         }
 
         .goal {
+          width: 100%;
           padding: 0.75rem 1rem;
           border-radius: 0.5rem;
           @include gray-border;
 
           h4 {
             font-family: $font-sans;
+            transition: color 0.3s ease-in-out;
           }
 
           p {
             text-align: left;
             opacity: 0.9;
+            transition: color 0.3s ease-in-out;
+
+            @include respond-up("tablet") {
+              text-align: center;
+            }
           }
 
           &.active {
             @include light-blue(0.1);
           }
 
-          &.completed:not(.active) {
-            opacity: 0.5;
+          &.completed {
+            transform: scaleX(1.01);
+            @include green(0.25);
+
+            h4 {
+              @include deep-green(1, text);
+            }
+
+            p {
+              @include dark-green(1, text);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  :global(body.dark) {
+    .roadmap {
+      section {
+        .goals-wrapper {
+          .tracker {
+            .trail {
+              background: linear-gradient(
+                to bottom,
+                rgba(75, 112, 50, 0),
+                rgba(0, 185, 55, 1)
+              );
+            }
+
+            .dot {
+              @include green;
+
+              svg {
+                stroke: $dark-green;
+              }
+            }
+          }
+        }
+
+        .goals {
+          .goal {
+            &.active {
+              background-color: unset;
+            }
+
+            &.completed {
+              background: $dark-green;
+
+              h4 {
+                @include green(1, text);
+              }
+
+              p {
+                @include white-txt;
+              }
+            }
           }
         }
       }
