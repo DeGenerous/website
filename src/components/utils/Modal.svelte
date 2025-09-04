@@ -1,11 +1,6 @@
 <!-- LEGACY SVELTE 3/4 SYNTAX -->
 <script lang="ts">
-  import {
-    modal,
-    showModal,
-    resetModal,
-    portfolio,
-  } from "@stores/modal.svelte";
+  import { modal, showModal, resetModal, portfolio } from "@stores/modal.svelte";
 
   let dialog: HTMLDialogElement;
 
@@ -67,9 +62,7 @@
 
     <span class="flex">
       <!-- DEFAULT CLOSE BUTTON ON EVERY MODAL -->
-      <button class="red-btn" on:click={() => ($showModal = false)}>
-        Close
-      </button>
+      <button class="red-btn" on:click={() => ($showModal = false)}> Close </button>
 
       <!-- SECOND OPTIONAL BUTTON IF NEEDED -->
       {#if modal.button}

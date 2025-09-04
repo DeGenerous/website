@@ -18,8 +18,7 @@
 <section class="flex full-height">
   <h1 bind:this={tagline}>Apps</h1>
   <p class="auto-width">
-    Explore our ecosystem of innovative applications that power the next
-    generation of media.
+    Explore our ecosystem of innovative applications that power the next generation of media.
   </p>
   <ul class="flex">
     {#each apps as { name, description, href }}

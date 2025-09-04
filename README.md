@@ -1,47 +1,32 @@
-# Astro Starter Kit: Minimal
+## DGRS Website
 
-```sh
-npm create astro@latest -- --template minimal
-```
+This repository contains the DGRS website built with Astro and Svelte 5. It includes SSG pages, Svelte components, SCSS styling, and lightweight 3D cursor effects via Threlte.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+### Quick Start
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- Install: `npm install` (or `bun install`)
+- Dev: `npm run dev` (serves at `http://localhost:4321`)
+- Type check: `npm run check`
+- Format: `npm run format`
+- Build: `npm run build` (outputs to `dist/`)
 
-## 🚀 Project Structure
+### Tech
 
-Inside of your Astro project, you'll see the following folders and files:
+- Astro 5, Svelte 5 (runes), SCSS
+- Threlte + three.js (cursor effect)
+- Prettier + prettier-plugin-svelte
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+### Structure
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- `src/pages` — route pages (Astro)
+- `src/components` — Svelte components
+- `src/styles` — SCSS, mixins, themes
+- `public` — static assets
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+### Deployment
 
-Any static assets, like images, can be placed in the `public/` directory.
+`Dockerfile` builds with Bun and serves static output via `nginx:alpine`.
 
-## 🧞 Commands
+### SEO
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+`utils/seoConfig.ts` centralizes metadata. `src/layouts/Layout.astro` sets OpenGraph/Twitter tags and canonical URLs. `sitemap.xml` is maintained in the repo.

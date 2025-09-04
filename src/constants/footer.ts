@@ -147,7 +147,7 @@ export const links: FooterLink[] = [
     anchors: [
       {
         label: "Join Channels",
-        href: "/communnity#join",
+        href: "/community#join",
         target: "_self",
       },
       {
@@ -187,7 +187,7 @@ export const links: FooterLink[] = [
     anchors: [
       {
         label: "About Us",
-        href: "/team#about%20us",
+        href: "/team#about-us",
         target: "_self",
       },
       {
@@ -197,7 +197,7 @@ export const links: FooterLink[] = [
       },
       {
         label: "Core Team",
-        href: "/team#core%20team",
+        href: "/team#core-team",
         target: "_self",
       },
       {

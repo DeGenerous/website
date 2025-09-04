@@ -20,33 +20,24 @@
   });
 </script>
 
-<section
-  id="ambassadors"
-  class="flex full-height appear-left-observer"
-  bind:this={section}
->
+<section id="ambassadors" class="flex full-height appear-left-observer" bind:this={section}>
   <h2 bind:this={tagline}>Ambassador &amp; Affiliate programs</h2>
 
   <div class="container">
-    <img
-      class="round-8"
-      src="/community/ambassadors.gif"
-      alt="Ambassadors & Affiliates"
-    />
+    <img class="round-8" src="/community/ambassadors.gif" alt="Ambassadors & Affiliates" />
     <article class="flex">
       <p>
-        If you have <b>1,000+ followers</b> on any platform and want to help us grow
-        CoNexus, you can apply to become an official Ambassador or Affiliate.
+        If you have <b>1,000+ followers</b> on any platform and want to help us grow CoNexus, you can
+        apply to become an official Ambassador or Affiliate.
       </p>
 
       <p>
-        <b>Ambassadors</b> represent our brand long-term, collaborate on
-        campaigns, get early access to <b>new features</b>, and enjoy
+        <b>Ambassadors</b> represent our brand long-term, collaborate on campaigns, get early access
+        to <b>new features</b>, and enjoy
         <b>exclusive compensation</b>, <b>perks</b>, and <b>visibility</b>
         across our ecosystem. <b>Affiliates</b> receive personal
         <b>referral codes</b>
-        and earn guaranteed <b>rewards</b> when new users join CoNexus using their
-        link.
+        and earn guaranteed <b>rewards</b> when new users join CoNexus using their link.
       </p>
 
       <a

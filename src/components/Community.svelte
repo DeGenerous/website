@@ -9,8 +9,7 @@
   import Ambassadors from "@components/community/Ambassadors.svelte";
 
   let tagline = $state<HTMLHeadingElement>();
-  const startTyping = () =>
-    setTimeout(() => typeWrite(tagline!, "Community"), 1500);
+  const startTyping = () => setTimeout(() => typeWrite(tagline!, "Community"), 1500);
 
   // IDs must match <section id="..."> in each child component
   const ids = ["intro", "join", "links", "bounties", "ambassadors"];
@@ -23,9 +22,7 @@
   });
 
   function scrollToSection(id: string) {
-    document
-      .getElementById(id)
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   onMount(() => {
@@ -52,31 +49,25 @@
 <section class="flex full-height">
   <h1 bind:this={tagline}>Community</h1>
   <p class="auto-width">
-    Our community became official in February 2023 under the name of DeGenerous
-    DAO. It began with an NFT collection that raised $125k for charity. As an
-    on-chain DAO, we organized a global service mission and, in partnership with
-    Lions Clubs International Foundation, raised and donated much more over the
-    years. The collection eventually evolved into the Potentials, and with it,
-    our commitment deepened: building impactful products for a community defined
-    by purpose.
+    Our community became official in February 2023 under the name of DeGenerous DAO. It began with
+    an NFT collection that raised $125k for charity. As an on-chain DAO, we organized a global
+    service mission and, in partnership with Lions Clubs International Foundation, raised and
+    donated much more over the years. The collection eventually evolved into the Potentials, and
+    with it, our commitment deepened: building impactful products for a community defined by
+    purpose.
   </p>
   <article class="container">
-    We communicate through a few trusted channels. All official discussions take
-    place on our Discord server, via the @degenerousdao account on X, or through
-    verified emails ending in @degenerousdao.com. We also post on Instagram and
-    TikTok. If you see announcements or activity outside of the listed official
-    spaces, treat it with caution.
+    We communicate through a few trusted channels. All official discussions take place on our
+    Discord server, via the @degenerousdao account on X, or through verified emails ending in
+    @degenerousdao.com. We also post on Instagram and TikTok. If you see announcements or activity
+    outside of the listed official spaces, treat it with caution.
   </article>
 </section>
 
 <!-- style:opacity={active == "intro" ? "0" : "1"} -->
 
 <nav id="intro" class="link-tabs flex round-8">
-  <button
-    class="void-btn"
-    class:active={active === "join"}
-    onclick={() => scrollToSection("join")}
-  >
+  <button class="void-btn" class:active={active === "join"} onclick={() => scrollToSection("join")}>
     <p>Join Channels</p>
   </button>
 

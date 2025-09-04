@@ -37,15 +37,11 @@
   {/each}
   <span
     class="active-tab-mobile mobile-only round-8 transition"
-    style:top="{sections.findIndex(
-      (section) => section.toLowerCase() === activeSection
-    ) * 3}rem"
+    style:top="{sections.findIndex((section) => section.toLowerCase() === activeSection) * 3}rem"
   ></span>
   <span
     class="active-tab-pc pc-only round-8 transition"
-    style:left="{sections.findIndex(
-      (section) => section.toLowerCase() === activeSection
-    ) * 10}rem"
+    style:left="{sections.findIndex((section) => section.toLowerCase() === activeSection) * 10}rem"
   ></span>
 </nav>
 
@@ -64,21 +60,23 @@
   <div class="flex-row flex-wrap">
     <span>
       Join our
-      <a href="https://degenerousdao.com/join" target="_blank" rel="noopener noreferrer"> Discord </a>
+      <a href="https://degenerousdao.com/join" target="_blank" rel="noopener noreferrer">
+        Discord
+      </a>
     </span>
     <span>
       Message us at
-      <a href="mailto:contact@dgrs.ink" target="_blank" rel="noopener noreferrer"> contact@dgrs.ink </a>
+      <a href="mailto:contact@dgrs.ink" target="_blank" rel="noopener noreferrer">
+        contact@dgrs.ink
+      </a>
     </span>
   </div>
   <article>
-    <b>Disclaimer:</b> This material is for informational purposes only and does
-    not constitute an offer to sell, or the solicitation of an offer to buy, any
-    securities, tokens, or other financial instruments. Digital assets are speculative
-    and involve a high degree of risk, including potential loss of principal. Nothing
-    herein should be construed as legal, financial, or tax advice. Always conduct
-    your own due diligence and consult professional advisors before making investment
-    decisions.
+    <b>Disclaimer:</b> This material is for informational purposes only and does not constitute an offer
+    to sell, or the solicitation of an offer to buy, any securities, tokens, or other financial instruments.
+    Digital assets are speculative and involve a high degree of risk, including potential loss of principal.
+    Nothing herein should be construed as legal, financial, or tax advice. Always conduct your own due
+    diligence and consult professional advisors before making investment decisions.
   </article>
 </section>
 

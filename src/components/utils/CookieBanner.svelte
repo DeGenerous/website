@@ -3,6 +3,7 @@
 
   let showBanner = $state(false);
   let analyticsEnabled = false;
+  let bannerEl = $state(null);
 
   onMount(() => {
     const cachedConsent = localStorage.getItem("cookie_consent");
@@ -11,6 +12,12 @@
     } else {
       analyticsEnabled = cachedConsent === "full";
       if (analyticsEnabled) loadAnalytics();
+    }
+  });
+
+  $effect(() => {
+    if (showBanner && bannerEl) {
+      bannerEl.focus();
     }
   });
 
@@ -53,18 +60,24 @@
 </script>
 
 {#if showBanner}
-  <div class="container fade-in">
+  <div
+    class="container fade-in"
+    bind:this={bannerEl}
+    role="region"
+    aria-label="Cookie consent"
+    aria-live="polite"
+    tabindex="-1"
+  >
     <h4>We use cookies to provide you with a better service.</h4>
     <p>
-      By continuing to use this website, you consent to the use of cookies as
-      described in our
+      By continuing to use this website, you consent to the use of cookies as described in our
       <a href="/privacy-policy">Privacy Policy</a>.
     </p>
     <div class="flex-row">
-      <button class="primary" onclick={() => acceptCookies(true)}>
+      <button class="primary" type="button" onclick={() => acceptCookies(true)}>
         Accept all
       </button>
-      <button class="secondary" onclick={() => acceptCookies(false)}>
+      <button class="secondary" type="button" onclick={() => acceptCookies(false)}>
         Essential only
       </button>
     </div>

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/prettierrc",
+  "plugins": ["prettier-plugin-svelte"],
+  "semi": true,
+  "singleQuote": false,
+  "trailingComma": "es5",
+  "printWidth": 100,
+  "overrides": [
+    {
+      "files": "*.svelte",
+      "options": {
+        "parser": "svelte"
+      }
+    },
+    {
+      "files": "*.scss",
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
+}

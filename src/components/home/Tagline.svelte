@@ -22,9 +22,7 @@
 
   onMount(startTyping);
 
-  onMount(() =>
-    observeElement(taglineSection!, "viewable", () => {}, goToTheNextSection)
-  );
+  onMount(() => observeElement(taglineSection!, "viewable", () => {}, goToTheNextSection));
 
   onDestroy(() => {
     typer?.abort();
@@ -36,9 +34,7 @@
   }
 
   const goToTheNextSection = () => {
-    const sectionInView = Array.from(taglineSection!.classList).includes(
-      "viewable"
-    );
+    const sectionInView = Array.from(taglineSection!.classList).includes("viewable");
     if (sectionInView) return;
     scrollDown();
   };
@@ -51,13 +47,10 @@
   </h1>
 
   <h5>
-    License, produce, consume, and monetize stories at scale with Text-To-Story
-    & on-chain ownership
+    License, produce, consume, and monetize stories at scale with Text-To-Story & on-chain ownership
   </h5>
 
-  <button class="pad-inline" onclick={scrollDown}>
-    Explore the Future of Entertainment
-  </button>
+  <button class="pad-inline" onclick={scrollDown}> Explore the Future of Entertainment </button>
 
   <VoidArrowSVG onclick={scrollDown} />
 </section>

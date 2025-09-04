@@ -41,11 +41,7 @@ $deep-shadow-plus-inset-glow:
   }
 }
 
-@mixin box-shadow(
-  $depth: "soft",
-  $type: "outset",
-  $color: rgba(0, 0, 0, 0.75)
-) {
+@mixin box-shadow($depth: "soft", $type: "outset", $color: rgba(0, 0, 0, 0.75)) {
   $shadow: null;
 
   @if $depth == "soft" {

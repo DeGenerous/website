@@ -26,9 +26,7 @@
     await typeWrite(tagline!, "What brings you here today?");
     finishedAnimation = true; // triggers the cards to drop
     setTimeout(() => {
-      const sectionInView = Array.from(ctaSection!.classList).includes(
-        "viewable"
-      );
+      const sectionInView = Array.from(ctaSection!.classList).includes("viewable");
       if (!sectionInView) return;
       ctaSection?.scrollIntoView({
         behavior: "smooth",
@@ -40,9 +38,7 @@
   const animateTitle = () => typeWrite(sectionTitle!, activeSection!.title);
 
   // Observe the section tagline once; start the initial sequence
-  onMount(() =>
-    observeElement(ctaSection!, "viewable", animateSection, resetTitle)
-  );
+  onMount(() => observeElement(ctaSection!, "viewable", animateSection, resetTitle));
 
   onMount(resetTitle);
 
@@ -124,18 +120,13 @@
           Feel like trying something else? Pick another path:
         </button>
 
-        <ul
-          class="icons flex-row flex-wrap"
-          aria-label="Quick section switcher"
-        >
+        <ul class="icons flex-row flex-wrap" aria-label="Quick section switcher">
           {#each callToAction as item}
             <li>
               <button
                 class="void-btn flex pad-8 round"
                 class:active={activeSection.name === item.name}
-                style:background-color={item.color(
-                  activeSection.name === item.name ? 0.75 : 0.1
-                )}
+                style:background-color={item.color(activeSection.name === item.name ? 0.75 : 0.1)}
                 aria-pressed={activeSection.name === item.name}
                 onclick={() => pickSection(item)}
                 aria-label={item.name}

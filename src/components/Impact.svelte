@@ -24,23 +24,19 @@
 <section class="flex fade-in full-height">
   <h1 bind:this={tagline}>Digital Tools. Real-World Change.</h1>
   <p class="auto-width">
-    We don’t just build products - we build impact engines. The DGRS ecosystem
-    has helped raise
+    We don’t just build products - we build impact engines. The DGRS ecosystem has helped raise
     <b>millions of dollars for global causes</b>, supported
     <b>thousands of creators</b>, and powered
-    <b>storytelling enjoyed by millions across the world</b>. Whether through
-    NFTs that fund clean water access or APIs that power interactive learning
-    for kids, every line of code we ship is designed to do good.
+    <b>storytelling enjoyed by millions across the world</b>. Whether through NFTs that fund clean
+    water access or APIs that power interactive learning for kids, every line of code we ship is
+    designed to do good.
   </p>
 
   {#if finishedAnimation}
     <ul class="impact-data flex pad-inline">
       {#each data as { name, description, color, image }, i (name)}
         <li>
-          <button
-            class="void-btn flex gap-8 pad round fall-in blur"
-            style="--i:{i}"
-          >
+          <button class="void-btn flex gap-8 pad round fall-in blur" style="--i:{i}">
             <img src={image} alt={name + " " + description} />
             <h4 style:color={color()}>{name}</h4>
             <p>{description}</p>

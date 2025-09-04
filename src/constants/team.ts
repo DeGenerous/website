@@ -46,9 +46,7 @@ const team: Member[] = [
     picture: "dimon",
     position: "Software Developer",
     twitter: "https://twitter.com/windickated",
-    description: [
-      "Years of experience as a freelance graphics designer and front-end developer.",
-    ],
+    description: ["Years of experience as a freelance graphics designer and front-end developer."],
   },
   {
     name: "Cryptok",

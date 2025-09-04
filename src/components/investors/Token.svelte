@@ -12,12 +12,11 @@
   <h1 bind:this={tagline}>Main Ecosystem Token</h1>
   <article class="container appear-bottom">
     <h3>(Coming Soon)</h3>
-    A single utility-and-governance token will ultimately power everything across
-    our ecosystem, and its value will be backed by the real-world usage of CoNexus.
-    Details on economics and the launch schedule will be released soon.
+    A single utility-and-governance token will ultimately power everything across our ecosystem, and
+    its value will be backed by the real-world usage of CoNexus. Details on economics and the launch
+    schedule will be released soon.
     <strong>
-      ⚠️ Be wary of scammers and fake tokens - ignore DMs and check official
-      channels.
+      ⚠️ Be wary of scammers and fake tokens - ignore DMs and check official channels.
     </strong>
   </article>
 </section>

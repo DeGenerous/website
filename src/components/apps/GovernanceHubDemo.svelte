@@ -2,10 +2,7 @@
 </script>
 
 <section class="round">
-  <iframe
-    src="https://www.youtube.com/embed/isK6VuGAbs4"
-    title="Dischordian Saga"
-    allowfullscreen
+  <iframe src="https://www.youtube.com/embed/isK6VuGAbs4" title="Dischordian Saga" allowfullscreen
   ></iframe>
   <img src="/apps/governance-hub.webp" alt="Galactic Governance Hub" />
 </section>

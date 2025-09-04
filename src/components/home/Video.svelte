@@ -10,17 +10,10 @@
 </script>
 
 <section class="conexus-video flex full-height" bind:this={videoSection}>
-  <video
-    class="pc-only transition"
-    controls
-    autoplay
-    loop
-    muted
-    aria-label="CoNexus trailer video"
-  >
+  <video class="pc-only transition" controls autoplay loop muted aria-label="CoNexus trailer video">
     <source src={`${trailerURL}/CoNexusTrailer.webm`} type="video/webm" />
     <source src={`${trailerURL}/CoNexusTrailer.mp4`} type="video/mp4" />
-    <!-- Add real captions via <track src="..." srclang="en" label="English"> when available -->
+    <track kind="captions" />
   </video>
 
   <video
@@ -33,7 +26,7 @@
   >
     <source src="/CoNexusTrailer-mobile.webm" type="video/webm" />
     <source src="/CoNexusTrailer.mp4" type="video/mp4" />
-    <!-- Add real captions via <track src="..." srclang="en" label="English"> when available -->
+    <track kind="captions" />
   </video>
 </section>
 

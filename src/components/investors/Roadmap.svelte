@@ -20,8 +20,7 @@
       })),
       titleEl: null as HTMLHeadingElement | null,
       typed: false,
-      side:
-        si === totalSections - 1 ? "center" : si % 2 === 0 ? "right" : "left",
+      side: si === totalSections - 1 ? "center" : si % 2 === 0 ? "right" : "left",
       upcomingEl: null as HTMLElement | null,
       upcomingAnimated: false,
       wrap: null as HTMLElement | null,
@@ -63,23 +62,12 @@
       if (lastRef && bestCenter !== null) {
         const lr = lastRef.getBoundingClientRect();
         const lastCenter = lr.top + lr.height / 2;
-        sec.finished = !!(
-          bestIdx === lastIdx && viewportCenter > lastCenter + 4
-        );
+        sec.finished = !!(bestIdx === lastIdx && viewportCenter > lastCenter + 4);
       } else {
         sec.finished = false;
       }
       if (bestIdx !== sec.activeGoalIdx) {
         sec.activeGoalIdx = bestIdx;
-        if (bestIdx !== null) {
-          const g = sec.goals[bestIdx];
-          console.log("Roadmap active:", {
-            section: sec.title,
-            index: sec.index,
-            goalIndex: bestIdx,
-            goal: g?.name,
-          });
-        }
       }
     });
   }
@@ -163,8 +151,7 @@
             <li
               class="goal container transition"
               class:active={sec.activeGoalIdx === gi}
-              class:completed={(sec.activeGoalIdx !== null &&
-                gi < sec.activeGoalIdx) ||
+              class:completed={(sec.activeGoalIdx !== null && gi < sec.activeGoalIdx) ||
                 sec.finished}
               bind:this={g.ref}
               id="goal-{g.id}"
@@ -175,11 +162,7 @@
           {/each}
         </ul>
       {:else}
-        <div
-          class="goals-wrapper"
-          class:right={si % 2 === 0}
-          bind:this={sec.wrap}
-        >
+        <div class="goals-wrapper" class:right={si % 2 === 0} bind:this={sec.wrap}>
           <div
             class="tracker"
             class:hidden={!sec.inView}
@@ -205,8 +188,7 @@
               <li
                 class="goal container transition"
                 class:active={sec.activeGoalIdx === gi}
-                class:completed={(sec.activeGoalIdx !== null &&
-                  gi < sec.activeGoalIdx) ||
+                class:completed={(sec.activeGoalIdx !== null && gi < sec.activeGoalIdx) ||
                   sec.finished}
                 bind:this={g.ref}
                 id="goal-{g.id}"
@@ -261,11 +243,7 @@
             width: 0.5rem;
             height: 100%;
             border-radius: 0.25rem;
-            background: linear-gradient(
-              to bottom,
-              rgba(0, 185, 55, 0.25),
-              rgba(75, 112, 50, 1)
-            );
+            background: linear-gradient(to bottom, rgba(0, 185, 55, 0.25), rgba(75, 112, 50, 1));
           }
 
           .dot {
@@ -390,11 +368,7 @@
         .goals-wrapper {
           .tracker {
             .trail {
-              background: linear-gradient(
-                to bottom,
-                rgba(75, 112, 50, 0),
-                rgba(0, 185, 55, 1)
-              );
+              background: linear-gradient(to bottom, rgba(75, 112, 50, 0), rgba(0, 185, 55, 1));
             }
 
             .dot {

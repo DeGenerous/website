@@ -16,16 +16,15 @@
   <article class="container appear-bottom">
     <h3>Program and Control</h3>
     <p>
-      PAC is a community-led experimental token and system built on top of DGRS
-      to power The Meme, the first AI Story Agent on X. It fuels viral,
-      on-demand multimedia narratives that start on social media and continue on
-      CoNexus. This project bridges pop culture, crypto, entertainment, and
-      social virality. PAC combined our creative & agentic frameworks with its
-      social engagement system.
+      PAC is a community-led experimental token and system built on top of DGRS to power The Meme,
+      the first AI Story Agent on X. It fuels viral, on-demand multimedia narratives that start on
+      social media and continue on CoNexus. This project bridges pop culture, crypto, entertainment,
+      and social virality. PAC combined our creative & agentic frameworks with its social engagement
+      system.
     </p>
     <p>
-      The agent uses text2story, img2story, and video engines to transform
-      everyday static content into dynamic, shareable, and hilarious storylines.
+      The agent uses text2story, img2story, and video engines to transform everyday static content
+      into dynamic, shareable, and hilarious storylines.
     </p>
     <span class="flex-row gap-8">
       <a class="button-anchor" href="/investors"> Buy </a>

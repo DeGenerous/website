@@ -5,8 +5,7 @@
 
   let tagline = $state<HTMLHeadingElement>();
 
-  const startTyping = () =>
-    setTimeout(() => typeWrite(tagline!, "Sitemap"), 1500);
+  const startTyping = () => setTimeout(() => typeWrite(tagline!, "Sitemap"), 1500);
 
   onMount(startTyping);
 </script>

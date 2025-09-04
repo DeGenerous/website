@@ -19,12 +19,7 @@
   const resetTitle = () => (tagline!.style.opacity = "0");
 
   onMount(() => {
-    observeElement(
-      viewport!,
-      "visible",
-      () => typeWrite(tagline!, "Built on DGRS"),
-      resetTitle
-    );
+    observeElement(viewport!, "visible", () => typeWrite(tagline!, "Built on DGRS"), resetTitle);
   });
 
   onMount(resetTitle);
@@ -79,11 +74,10 @@
   <h3 bind:this={tagline}>Built on DGRS</h3>
 
   <p class="auto-width pc-narrow">
-    Our composable AI infrastructure underpins everything from multimedia agents
-    to games, films, and apps - all within a single, unified ecosystem. From
-    authors and brands to filmmakers, four entertainment &amp; management apps,
-    three video games, a sci-fi franchise, and a social media AI agent, DGRS’s
-    modular building blocks power real-world innovation.
+    Our composable AI infrastructure underpins everything from multimedia agents to games, films,
+    and apps - all within a single, unified ecosystem. From authors and brands to filmmakers, four
+    entertainment &amp; management apps, three video games, a sci-fi franchise, and a social media
+    AI agent, DGRS’s modular building blocks power real-world innovation.
   </p>
 
   <div class="carousel mar-auto mar-block transition" bind:this={viewport}>
@@ -115,11 +109,7 @@
   <span class="flex auto-width">
     <h5>Have an idea?</h5>
     <p>Your dream. Our engine. Infinite possibilities.</p>
-    <a
-      class="button-anchor"
-      href="https://form.typeform.com/to/kh9chgAR"
-      target="_blank"
-    >
+    <a class="button-anchor" href="https://form.typeform.com/to/kh9chgAR" target="_blank">
       Launch on DGRS
     </a>
   </span>

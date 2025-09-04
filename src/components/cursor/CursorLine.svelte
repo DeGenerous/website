@@ -10,12 +10,8 @@
   // Higher resolution for smooth curves
   const count = 50;
 
-  let front = $state<Vector3[]>(
-    Array.from({ length: count }, () => new Vector3())
-  );
-  let back = $state<Vector3[]>(
-    Array.from({ length: count }, () => new Vector3())
-  );
+  let front = $state<Vector3[]>(Array.from({ length: count }, () => new Vector3()));
+  let back = $state<Vector3[]>(Array.from({ length: count }, () => new Vector3()));
 
   // Head filter to avoid hard jumps when the mouse moves fast
   const head = new Vector3();

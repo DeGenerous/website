@@ -3,52 +3,20 @@
 
 <section class="flex-row flex-wrap">
   <div>
-    <img
-      class="first"
-      src="/apps/sagaverse/BattleForNexon1.webp"
-      alt="Ark Assassin"
-    />
-    <img
-      class="second"
-      src="/apps/sagaverse/BattleForNexon2.webp"
-      alt="Ark Assassin"
-    />
+    <img class="first" src="/apps/sagaverse/BattleForNexon1.webp" alt="Ark Assassin" />
+    <img class="second" src="/apps/sagaverse/BattleForNexon2.webp" alt="Ark Assassin" />
   </div>
   <div>
-    <img
-      class="first"
-      src="/apps/sagaverse/ArkAssassin1.webp"
-      alt="Ark Assassin"
-    />
-    <img
-      class="second"
-      src="/apps/sagaverse/ArkAssassin2.webp"
-      alt="Ark Assassin"
-    />
+    <img class="first" src="/apps/sagaverse/ArkAssassin1.webp" alt="Ark Assassin" />
+    <img class="second" src="/apps/sagaverse/ArkAssassin2.webp" alt="Ark Assassin" />
   </div>
   <div>
-    <img
-      class="first"
-      src="/apps/sagaverse/LastStand1.webp"
-      alt="Ark Assassin"
-    />
-    <img
-      class="second"
-      src="/apps/sagaverse/LastStand2.webp"
-      alt="Ark Assassin"
-    />
+    <img class="first" src="/apps/sagaverse/LastStand1.webp" alt="Ark Assassin" />
+    <img class="second" src="/apps/sagaverse/LastStand2.webp" alt="Ark Assassin" />
   </div>
   <div>
-    <img
-      class="first"
-      src="/apps/sagaverse/TheDarkZoo1.webp"
-      alt="Ark Assassin"
-    />
-    <img
-      class="second"
-      src="/apps/sagaverse/TheDarkZoo2.webp"
-      alt="Ark Assassin"
-    />
+    <img class="first" src="/apps/sagaverse/TheDarkZoo1.webp" alt="Ark Assassin" />
+    <img class="second" src="/apps/sagaverse/TheDarkZoo2.webp" alt="Ark Assassin" />
   </div>
 </section>
 

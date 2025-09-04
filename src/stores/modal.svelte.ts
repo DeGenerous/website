@@ -23,7 +23,7 @@ const openModal = (
   content: string,
   btn: string = "",
   btnFunc = () => {},
-  btnClass: string = "",
+  btnClass: string = ""
 ) => {
   modal.content = content;
 

@@ -9,6 +9,7 @@
     "preview": "astro preview --host",
     "astro": "astro",
     "format": "prettier --write .",
+    "check": "astro check",
     "audit:css": "node utils/css-audit.mjs"
   },
   "dependencies": {

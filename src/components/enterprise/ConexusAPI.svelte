@@ -11,12 +11,7 @@
 
   onMount(() => {
     resetTitle();
-    observeElement(
-      section!,
-      "visible",
-      () => typeWrite(tagline!, "CoNexus API"),
-      resetTitle
-    );
+    observeElement(section!, "visible", () => typeWrite(tagline!, "CoNexus API"), resetTitle);
   });
 </script>
 
@@ -30,22 +25,20 @@
     <img class="round-8" src="/enterprise/conexus-api.gif" alt="CoNexus API" />
     <article class="flex">
       <p>
-        Embed a living, breathing GenAI story engine into your website, app,
-        game, brand portal, or learning platform - no server upgrades or AI
-        expertise required.
+        Embed a living, breathing GenAI story engine into your website, app, game, brand portal, or
+        learning platform - no server upgrades or AI expertise required.
       </p>
       <p>With a single line of code, you can:</p>
       <ul class="default-ul flex">
         <li>
-          <b>Launch interactive gamified narratives</b> that adapt to each user’s
-          choices
+          <b>Launch interactive gamified narratives</b> that adapt to each user’s choices
         </li>
         <li>
           <b>Auto‑generate custom art, narration & music</b> on demand
         </li>
         <li>
-          <b>Tokengate chapters</b> or unlock reward sequences for loyalty programs,
-          course modules, or in‑game achievements
+          <b>Tokengate chapters</b> or unlock reward sequences for loyalty programs, course modules,
+          or in‑game achievements
         </li>
         <li>
           <b>Measure engagement</b> with built‑in analytics
@@ -54,15 +47,16 @@
       <p>
         Our clients see
         <b>70 min avg session time</b>
-        and spikes in community activation. Popular use cases include gamified education,
-        character evaluation, and social engagement tools.
+        and spikes in community activation. Popular use cases include gamified education, character evaluation,
+        and social engagement tools.
       </p>
       <p>
-        Prefer zero‑code? We’ll build, market, and host your interactive stories
-        on CoNexus for you.
+        Prefer zero‑code? We’ll build, market, and host your interactive stories on CoNexus for you.
       </p>
       <p>
-        <a href="mailto:biz@degenerousdao.com" target="_blank" rel="noopener noreferrer"> Contact us </a>
+        <a href="mailto:biz@degenerousdao.com" target="_blank" rel="noopener noreferrer">
+          Contact us
+        </a>
         to get your API key or discuss an in‑platform collaboration.
       </p>
     </article>

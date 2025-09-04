@@ -6,11 +6,7 @@
   let tagline = $state<HTMLHeadingElement>();
 
   const startTyping = () =>
-    setTimeout(
-      () =>
-        typeWrite(tagline!, "DGRS Labs CoNexus Copyright Infringement Policy"),
-      1500
-    );
+    setTimeout(() => typeWrite(tagline!, "DGRS Labs CoNexus Copyright Infringement Policy"), 1500);
 
   onMount(startTyping);
 </script>
@@ -23,17 +19,15 @@
     <br />
     This Copyright Infringement Policy (“Policy”) applies to the <b>CoNexus</b>
     platform, operated by
-    <b>DGRS Labs Pte. Ltd.</b>, a company incorporated in Singapore (“DGRS
-    Labs,” “we,” “our,” or “us”). It sets out how copyright complaints, takedown
-    requests, and repeat infringement are handled on CoNexus or on another
-    Website and/or User Interface belonging to a DGRS Labs Pte Ltd Service, as a
-    supplement to the DGRS Labs Terms of Service and the related Privacy Policy.
+    <b>DGRS Labs Pte. Ltd.</b>, a company incorporated in Singapore (“DGRS Labs,” “we,” “our,” or
+    “us”). It sets out how copyright complaints, takedown requests, and repeat infringement are
+    handled on CoNexus or on another Website and/or User Interface belonging to a DGRS Labs Pte Ltd
+    Service, as a supplement to the DGRS Labs Terms of Service and the related Privacy Policy.
     <br />
     <br />
-    CoNexus enables users to create and share original works — including stories,
-    media, and other creative content — using our proprietary technology and integrated
-    open-source/API tools. We respect the intellectual property rights of creators
-    and expect all users to do the same.
+    CoNexus enables users to create and share original works — including stories, media, and other creative
+    content — using our proprietary technology and integrated open-source/API tools. We respect the intellectual
+    property rights of creators and expect all users to do the same.
     <br />
     <br />
     <h4>1. Designated Copyright Contacts</h4>
@@ -41,9 +35,8 @@
       <li>
         <b>U.S. DMCA Designated Agent</b>
         <br />
-        For users or rights holders in the United States, and for purposes of the
-        Digital Millennium Copyright Act (DMCA, 17 U.S.C. §512), our Designated Agent’s
-        contact information is:
+        For users or rights holders in the United States, and for purposes of the Digital Millennium
+        Copyright Act (DMCA, 17 U.S.C. §512), our Designated Agent’s contact information is:
         <br />
         <br />
         <ul>
@@ -57,17 +50,15 @@
           <li>New Orleans, LA 70122</li>
           <li>Phone: 1-504-356-4555</li>
           <li>
-            Email: <a href="mailto:dgrs-dmca@copybyte.com">
-              dgrs-dmca@copybyte.com
-            </a>
+            Email: <a href="mailto:dgrs-dmca@copybyte.com"> dgrs-dmca@copybyte.com </a>
           </li>
         </ul>
         <br />
       </li>
       <li>
         <b>General Copyright Contact (Non-U.S.)</b>
-        For EU, Singapore, and all other jurisdictions outside the U.S., please send
-        copyright complaints to:
+        For EU, Singapore, and all other jurisdictions outside the U.S., please send copyright complaints
+        to:
         <br />
         <br />
         <ul>
@@ -86,55 +77,50 @@
     <h4>2. Submitting a Complaint</h4>
     We accept both<b>&nbsp;DMCA</b> notices (for U.S.) and
     <b>general copyright complaints</b>
-    (for all other jurisdictions).We will respond expeditiously to claims of copyright
-    infringement if submitted to our Copyright Agent and/or Copyright Contact as
-    described below. Upon receipt of a notice alleging copyright infringement, We
-    will take whatever action deemed appropriate, including removal of the allegedly
-    infringing materials and termination of access for repeat infringers of copyright-protected
+    (for all other jurisdictions).We will respond expeditiously to claims of copyright infringement if
+    submitted to our Copyright Agent and/or Copyright Contact as described below. Upon receipt of a notice
+    alleging copyright infringement, We will take whatever action deemed appropriate, including removal
+    of the allegedly infringing materials and termination of access for repeat infringers of copyright-protected
     content.
     <br />
-    If you believe that your intellectual property rights have been violated by us
-    or by a third party who has uploaded materials to our website, please provide
-    the following information to the designated Copyright Agent and/or Copyright
-    Contact listed above:
+    If you believe that your intellectual property rights have been violated by us or by a third party
+    who has uploaded materials to our website, please provide the following information to the designated
+    Copyright Agent and/or Copyright Contact listed above:
     <br />
     <br />
     All notices must include the following:
     <ol class="default-ol">
       <li>Your full legal name, address, phone number, and email.</li>
       <li>
-        A description of the copyrighted work or other intellectual property
-        that you claim has been infringed;
+        A description of the copyrighted work or other intellectual property that you claim has been
+        infringed;
       </li>
       <li>
-        A description of where the allegedly infringing content is located on
-        CoNexus (URL or unique ID or on another Website and/or User Interface
-        belonging to a DGRS Labs Pte Ltd Service).
+        A description of where the allegedly infringing content is located on CoNexus (URL or unique
+        ID or on another Website and/or User Interface belonging to a DGRS Labs Pte Ltd Service).
       </li>
       <li>
-        A statement that you have a good-faith belief the use is not authorized
-        by the copyright owner, by its agent, or by the law.
+        A statement that you have a good-faith belief the use is not authorized by the copyright
+        owner, by its agent, or by the law.
       </li>
       <li>
-        A statement, under penalty of perjury, that the information you provide
-        is accurate and that you are the copyright owner or authorized to act on
-        their behalf.
+        A statement, under penalty of perjury, that the information you provide is accurate and that
+        you are the copyright owner or authorized to act on their behalf.
       </li>
       <li>Your physical or electronic signature.</li>
     </ol>
     <br />
     Incomplete notices may be rejected.
     <br />
-    DGRS Labs may request additional information before removing any allegedly infringing
-    material. In the event we remove the allegedly infringing material, we will immediately
-    notify the person responsible for posting such material that we removed or disabled
-    access to the material. We may also provide the responsible person with your
-    email address so that the person may respond to your allegations.
+    DGRS Labs may request additional information before removing any allegedly infringing material. In
+    the event we remove the allegedly infringing material, we will immediately notify the person responsible
+    for posting such material that we removed or disabled access to the material. We may also provide
+    the responsible person with your email address so that the person may respond to your allegations.
     <br />
     <br />
     <h4>3. Counter-Notice Procedure</h4>
-    If your content is removed due to a copyright complaint and you believe it was
-    removed in error or due to misidentification, you may submit a
+    If your content is removed due to a copyright complaint and you believe it was removed in error or
+    due to misidentification, you may submit a
     <b>counter-notice</b>.
     <br />
     <br />
@@ -142,79 +128,69 @@
     <ol class="default-ol">
       <li>Your full legal name, address, phone number, and email.</li>
       <li>
-        A description of the copyrighted work or other intellectual property
-        that you claim has been infringed and its original location on CoNexus
-        or on another Website and/or User Interface belonging to a DGRS Labs Pte
-        Ltd Service.
+        A description of the copyrighted work or other intellectual property that you claim has been
+        infringed and its original location on CoNexus or on another Website and/or User Interface
+        belonging to a DGRS Labs Pte Ltd Service.
       </li>
       <li>
-        A statement, under penalty of perjury, that you have a good-faith belief
-        the content was removed or disabled as a result of mistake or
-        misidentification.
+        A statement, under penalty of perjury, that you have a good-faith belief the content was
+        removed or disabled as a result of mistake or misidentification.
       </li>
       <li>
         <b>Jurisdiction Consent:</b>
         <ul class="default-ul">
           <li>
-            If you are in the U.S., you consent to the jurisdiction of the U.S.
-            federal district court for your address.
+            If you are in the U.S., you consent to the jurisdiction of the U.S. federal district
+            court for your address.
           </li>
           <li>
-            If you are outside the U.S., you consent to the jurisdiction of the
-            courts in Singapore, unless otherwise required by applicable law.
+            If you are outside the U.S., you consent to the jurisdiction of the courts in Singapore,
+            unless otherwise required by applicable law.
           </li>
         </ul>
       </li>
       <li>
-        A statement that you will accept service of process from the complainant
-        or their authorized agent.
+        A statement that you will accept service of process from the complainant or their authorized
+        agent.
       </li>
       <li>Your physical or electronic signature.</li>
     </ol>
     <br />
-    Upon receiving a valid counter-notice, we will notify the complainant. Unless
-    the complainant files legal action within the time period required by law (e.g.,
-    10–14 business days for DMCA cases), we may restore the content.
+    Upon receiving a valid counter-notice, we will notify the complainant. Unless the complainant files
+    legal action within the time period required by law (e.g., 10–14 business days for DMCA cases), we
+    may restore the content.
     <br />
     <br />
     <h4>4. Repeat Infringer Policy</h4>
-    CoNexus enforces a strict repeat infringer policy in line with global safe harbor
-    standards:
+    CoNexus enforces a strict repeat infringer policy in line with global safe harbor standards:
     <ul class="default-ul">
       <li>
-        A <b>“strike”</b> is issued when content is removed due to a valid copyright
-        complaint.
+        A <b>“strike”</b> is issued when content is removed due to a valid copyright complaint.
       </li>
       <li>
-        Users receiving <b
-          >three (3) strikes within any rolling six-month period</b
-        > may have their accounts suspended or permanently terminated.
+        Users receiving <b>three (3) strikes within any rolling six-month period</b> may have their accounts
+        suspended or permanently terminated.
       </li>
       <li>
-        We may, at our discretion, issue warnings or provide educational
-        resources before termination.
+        We may, at our discretion, issue warnings or provide educational resources before
+        termination.
       </li>
-      <li>
-        We track strikes across all user accounts and associated identifiers.
-      </li>
+      <li>We track strikes across all user accounts and associated identifiers.</li>
     </ul>
     <br />
     <h4>5. Misuse of the Complaint Process</h4>
-    Submitting false or misleading notices or counter-notices may result in account
-    suspension or legal consequences under applicable laws (including potential liability
-    for damages under the DMCA in the U.S.).
+    Submitting false or misleading notices or counter-notices may result in account suspension or legal
+    consequences under applicable laws (including potential liability for damages under the DMCA in the
+    U.S.).
     <br />
     <br />
     <h4>6. Governing Law</h4>
     <ul class="default-ul">
+      <li>For DMCA matters, applicable U.S. copyright law and jurisdiction rules apply.</li>
       <li>
-        For DMCA matters, applicable U.S. copyright law and jurisdiction rules
-        apply.
-      </li>
-      <li>
-        For all other matters, unless otherwise required by applicable law, this
-        Policy and any disputes will be governed by the laws of Singapore, with
-        jurisdiction in the courts of Singapore.
+        For all other matters, unless otherwise required by applicable law, this Policy and any
+        disputes will be governed by the laws of Singapore, with jurisdiction in the courts of
+        Singapore.
       </li>
     </ul>
     <br />
@@ -222,17 +198,16 @@
     We reserve the right to:
     <ul class="default-ul">
       <li>
-        Remove or disable access to any content alleged to be infringing,
-        without prior notice, in our sole discretion.
+        Remove or disable access to any content alleged to be infringing, without prior notice, in
+        our sole discretion.
       </li>
       <li>
-        Terminate or suspend accounts at any time for repeat infringement or
-        other violations of the DGRS Labs Pte. Ltd. Terms of Service and the
-        related Privacy Policy.
+        Terminate or suspend accounts at any time for repeat infringement or other violations of the
+        DGRS Labs Pte. Ltd. Terms of Service and the related Privacy Policy.
       </li>
       <li>
-        Update this Policy at any time. The updated version will be posted on
-        the CoNexus platform operated by DGRS Labs Pte. Ltd..
+        Update this Policy at any time. The updated version will be posted on the CoNexus platform
+        operated by DGRS Labs Pte. Ltd..
       </li>
     </ul>
   </article>

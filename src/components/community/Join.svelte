@@ -10,9 +10,7 @@
 
   const copyContract = (contract: string) => {
     navigator.clipboard.writeText(contract);
-    toastStore.show(
-      `Copied contract address: ${contract.slice(0, 6)}...${contract.slice(-4)}`
-    );
+    toastStore.show(`Copied contract address: ${contract.slice(0, 6)}...${contract.slice(-4)}`);
   };
 </script>
 
@@ -20,9 +18,9 @@
   <h2>Join the Generous Degens</h2>
 
   <p class="auto-width pc-narrow">
-    Open communication, honesty, and on‑chain transparency guide all of the
-    work, and we welcome anyone who shares our commitment to innovation,
-    empowerment, and measurable impact to help write the next chapter.
+    Open communication, honesty, and on‑chain transparency guide all of the work, and we welcome
+    anyone who shares our commitment to innovation, empowerment, and measurable impact to help write
+    the next chapter.
   </p>
 
   <a
@@ -149,12 +147,10 @@
 </section>
 
 <section id="links" class="flex full-height">
-  <h3 class="auto-width">
-    You’ll also find us across key platforms and protocols
-  </h3>
+  <h3 class="auto-width">You’ll also find us across key platforms and protocols</h3>
   <p class="auto-width">
-    Below are verified links to key DGRS and non-DGRS locations, as well as the
-    official contract addresses and supported chains relevant to your Potential:
+    Below are verified links to key DGRS and non-DGRS locations, as well as the official contract
+    addresses and supported chains relevant to your Potential:
   </p>
 
   <ul class="links flex-row flex-wrap auto-width">
@@ -263,10 +259,9 @@
       <CopySVG inheritColor={true} />
     </button>
     <article>
-      Avoid completing any transactions on unsupported chains or apps. For
-      example, a known scam Potentials collection is circulating on Polygon.
-      Only interact with the links and addresses listed above &mdash;
-      we&rsquo;ll never contact you to interact with contracts elsewhere.
+      Avoid completing any transactions on unsupported chains or apps. For example, a known scam
+      Potentials collection is circulating on Polygon. Only interact with the links and addresses
+      listed above &mdash; we&rsquo;ll never contact you to interact with contracts elsewhere.
     </article>
   </div>
 </section>

@@ -35,9 +35,7 @@
   function scrollWrap(opts: { index?: number; dir?: 1 | -1 }) {
     if (opts.index !== undefined) return pageTo(opts.index);
 
-    const next =
-      (currentIndex + (opts.dir === 1 ? 1 : -1) + titles.length) %
-      titles.length;
+    const next = (currentIndex + (opts.dir === 1 ? 1 : -1) + titles.length) % titles.length;
 
     pageTo(next);
   }
@@ -57,18 +55,10 @@
     <nav class="pad">
       <SwitchSVG onclick={() => scrollWrap({ dir: -1 })} absolute="left" />
       <h3 bind:this={sectionHeader}>Engineering</h3>
-      <SwitchSVG
-        onclick={() => scrollWrap({ dir: 1 })}
-        right
-        absolute="right"
-      />
+      <SwitchSVG onclick={() => scrollWrap({ dir: 1 })} right absolute="right" />
     </nav>
 
-    <ul
-      class="team flex-row pad horiz-scrollbar"
-      bind:this={scroller}
-      onscroll={onScroll}
-    >
+    <ul class="team flex-row pad horiz-scrollbar" bind:this={scroller} onscroll={onScroll}>
       <li class="flex">
         <ul class="flex">
           <li class="flex">
@@ -78,9 +68,8 @@
                 Anusiem&nbsp;John-Franklin <span>Lead Full-Stack Engineer</span>
               </h4>
               <p>
-                Built high-throughput services in Rust, Go, and Python. Scaled
-                fintech systems to 16M users; deep Azure, Kubernetes, and AI
-                expertise.
+                Built high-throughput services in Rust, Go, and Python. Scaled fintech systems to
+                16M users; deep Azure, Kubernetes, and AI expertise.
               </p>
             </article>
           </li>
@@ -89,8 +78,8 @@
             <article class="flex">
               <h4>Vani <span>Web3 Engineer</span></h4>
               <p>
-                Hardware-to-Solidity polymath and multiple Ethereum Foundation
-                hackathon winner. Designs secure, composable smart contracts.
+                Hardware-to-Solidity polymath and multiple Ethereum Foundation hackathon winner.
+                Designs secure, composable smart contracts.
               </p>
             </article>
           </li>
@@ -98,13 +87,11 @@
             <img src="/team/dimon.jpg" alt="Dmytro Bryla" />
             <article class="flex">
               <h4>
-                Dmytro&nbsp;Bryla <span>Senior Front-End &amp; UX Engineer</span
-                >
+                Dmytro&nbsp;Bryla <span>Senior Front-End &amp; UX Engineer</span>
               </h4>
               <p>
-                Fluent in Astro, Svelte, React, NodeJS, and Solidity. Designs
-                and builds pixel-perfect interfaces with thoughtful interactions
-                and performance at the core.
+                Fluent in Astro, Svelte, React, NodeJS, and Solidity. Designs and builds
+                pixel-perfect interfaces with thoughtful interactions and performance at the core.
               </p>
             </article>
           </li>
@@ -117,14 +104,12 @@
             <img src="/team/cryptok.jpg" alt="Sean 'Cryptok' Dugan" />
             <article class="flex">
               <h4>
-                Sean “Cryptok”&nbsp;Dugan <span
-                  >Cinematics Director &amp; Producer</span
-                >
+                Sean “Cryptok”&nbsp;Dugan <span>Cinematics Director &amp; Producer</span>
               </h4>
               <p>
-                Traditional and AI-film veteran. Produces and edits work from
-                short ads to feature-length films viewed tens of millions of
-                times, and has raised multi-million-dollar funding.
+                Traditional and AI-film veteran. Produces and edits work from short ads to
+                feature-length films viewed tens of millions of times, and has raised
+                multi-million-dollar funding.
               </p>
             </article>
           </li>
@@ -133,9 +118,8 @@
             <article class="flex">
               <h4>Kit <span>Art Director</span></h4>
               <p>
-                Global illustrator with more than ten years of professional
-                craft, officially backed by top Web3 orgs, marketplaces, and
-                curators.
+                Global illustrator with more than ten years of professional craft, officially backed
+                by top Web3 orgs, marketplaces, and curators.
               </p>
             </article>
           </li>
@@ -149,8 +133,8 @@
             <article class="flex">
               <h4>Kyt <span>Lead Ambassador</span></h4>
               <p>
-                Twenty years in community building, content production, and
-                strategy. Forges partnerships and empowers new voices on-chain.
+                Twenty years in community building, content production, and strategy. Forges
+                partnerships and empowers new voices on-chain.
               </p>
             </article>
           </li>
@@ -172,16 +156,15 @@
 
   <p class="auto-width pc-narrow">
     <i>
-      Two contributors work under verified pseudonyms for security and
-      competitive edge. Details are available to investors under NDA.
+      Two contributors work under verified pseudonyms for security and competitive edge. Details are
+      available to investors under NDA.
     </i>
   </p>
 
   <p class="auto-width pc-narrow">
-    We’re not alone. Every week, we draw on the expertise of contractors,
-    agencies, and advisors — from Web3 founders and legal counsel to branding
-    specialists, storytellers, and AI engineers — who share our vision of
-    community-owned storytelling.
+    We’re not alone. Every week, we draw on the expertise of contractors, agencies, and advisors —
+    from Web3 founders and legal counsel to branding specialists, storytellers, and AI engineers —
+    who share our vision of community-owned storytelling.
   </p>
 </section>
 

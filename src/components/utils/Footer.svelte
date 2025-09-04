@@ -33,14 +33,11 @@
   };
 </script>
 
-<form
-  class="newsletter flex pad pc-narrow blur"
-  onsubmit={subscribeToNewsletter}
->
+<form class="newsletter flex pad pc-narrow blur" onsubmit={subscribeToNewsletter}>
   <h4>Join the Future of Storytelling</h4>
   <p>
-    Get the latest updates on DGRS, exclusive access to new features, and
-    insights into the AI storytelling revolution.
+    Get the latest updates on DGRS, exclusive access to new features, and insights into the AI
+    storytelling revolution.
   </p>
   <span class="flex-row flex-wrap">
     <label class="sr-only" for="newsletter-email">Email address</label>
@@ -62,8 +59,8 @@
   <section class="flex gap">
     <LogoSVG href="/" big={true} branding={true} />
     <p>
-      Building the GenAI ecosystem for storytelling. License, produce, consume,
-      and monetize stories at scale with Text-To-Story & on-chain ownership.
+      Building the GenAI ecosystem for storytelling. License, produce, consume, and monetize stories
+      at scale with Text-To-Story & on-chain ownership.
     </p>
 
     <ul class="socials flex-row">

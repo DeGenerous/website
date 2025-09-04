@@ -49,17 +49,13 @@
 <header class="flex-row blur" class:hide={hiddenHeader} bind:this={header}>
   <LogoSVG href="/" onclick={showScramble} />
   <nav id="site-nav" class="flex transition" class:hidden={hiddenTabs} aria-label="Primary">
-    <ConexusLogoSVG
-      href="https://conexus.degenerousdao.com/"
-      target="_blank"
-      hideForPCs={true}
-    />
+    <ConexusLogoSVG href="https://conexus.degenerousdao.com/" target="_blank" hideForPCs={true} />
     {#each tabs as tab}
       <a
         class="nohover-link"
         class:active={activeTab === tab}
         href="/{tab}"
-        aria-current={activeTab === tab ? 'page' : undefined}
+        aria-current={activeTab === tab ? "page" : undefined}
         onclick={showScramble}
       >
         {tab}
@@ -197,13 +193,10 @@
             var(--offset-orthogonal) 0 0 var(--ray-size),
             0 calc(var(--offset-orthogonal) * -1) 0 var(--ray-size),
             0 var(--offset-orthogonal) 0 var(--ray-size),
-            calc(var(--offset-diagonal) * -1) calc(var(--offset-diagonal) * -1)
-              0 var(--ray-size),
+            calc(var(--offset-diagonal) * -1) calc(var(--offset-diagonal) * -1) 0 var(--ray-size),
             var(--offset-diagonal) var(--offset-diagonal) 0 var(--ray-size),
-            calc(var(--offset-diagonal) * -1) var(--offset-diagonal) 0
-              var(--ray-size),
-            var(--offset-diagonal) calc(var(--offset-diagonal) * -1) 0
-              var(--ray-size);
+            calc(var(--offset-diagonal) * -1) var(--offset-diagonal) 0 var(--ray-size),
+            var(--offset-diagonal) calc(var(--offset-diagonal) * -1) 0 var(--ray-size);
 
           @include scale(0.5);
           @include cyan(1, text);
@@ -221,7 +214,9 @@
     header {
       transition: none;
       transform: none !important;
-      &.hide { transform: none !important; }
+      &.hide {
+        transform: none !important;
+      }
     }
   }
 

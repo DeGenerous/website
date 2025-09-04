@@ -40,9 +40,7 @@
     if (w.twttr?.widgets) return Promise.resolve(w.twttr);
 
     return new Promise((resolve, reject) => {
-      const existing = document.getElementById(
-        "twitter-wjs"
-      ) as HTMLScriptElement | null;
+      const existing = document.getElementById("twitter-wjs") as HTMLScriptElement | null;
       if (existing) {
         existing.addEventListener("load", () => resolve(w.twttr), {
           once: true,
@@ -106,15 +104,8 @@
     <h5 class="fade-in" bind:this={loader}>Connecting with X...</h5>
   {/if}
 
-  <span
-    class="twitter-wrapper vert-scrollbar"
-    class:loading-animation={loading}
-  >
-    <div
-      class="tweets flex-row horiz-scrollbar"
-      class:visible={!loading}
-      aria-live="polite"
-    >
+  <span class="twitter-wrapper vert-scrollbar" class:loading-animation={loading}>
+    <div class="tweets flex-row horiz-scrollbar" class:visible={!loading} aria-live="polite">
       {#each posts as id, i (id)}
         <article class="tweet-card">
           <div class="tweet-slot" use:assignSlot={i}></div>
@@ -223,11 +214,7 @@
 
   :global(body.dark .twitter-wrapper) {
     @include respond-up("small-desktop") {
-      background: linear-gradient(
-        to right,
-        rgba(1, 0, 32, 1),
-        rgba(1, 0, 32, 0.75)
-      );
+      background: linear-gradient(to right, rgba(1, 0, 32, 1), rgba(1, 0, 32, 0.75));
     }
   }
 </style>

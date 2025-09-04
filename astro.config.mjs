@@ -71,9 +71,7 @@ export default defineConfig({
 
           const isLib = /node_modules\//.test(id);
           const isThrelteOrThreeRelated =
-            /node_modules\/(@threlte|three-perf|troika-three-text|three\/examples)\//.test(
-              id
-            );
+            /node_modules\/(@threlte|three-perf|troika-three-text|three\/examples)\//.test(id);
 
           // Ignore only library-side unused external import warnings
           if (code === "UNUSED_EXTERNAL_IMPORT" && (isThrelteOrThreeRelated || isLib)) {

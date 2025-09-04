@@ -31,8 +31,7 @@
   let elapsed = 0;
 
   const randChar = () => CHARSET[Math.floor(Math.random() * CHARSET.length)];
-  const randInt = (min: number, max: number) =>
-    Math.floor(Math.random() * (max - min + 1)) + min;
+  const randInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
   // Edge-trigger on store
   let lastSeen: boolean | null = null;

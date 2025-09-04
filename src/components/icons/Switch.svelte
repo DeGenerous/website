@@ -39,10 +39,7 @@
       </mask>
     </defs>
 
-    <circle
-      r="100"
-      mask="url(#back-step-arrow-svg-mask{right ? '-right' : ''})"
-    />
+    <circle r="100" mask="url(#back-step-arrow-svg-mask{right ? '-right' : ''})" />
   </svg>
 </button>
 

@@ -21,6 +21,11 @@ type Section = {
   goals: Goal[];
 };
 
+type SectionTab = {
+  label: string;
+  id: string;
+};
+
 type TeamMember = {
   name: string;
   picture?: string;

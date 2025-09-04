@@ -1,24 +1,21 @@
-FROM node:23-alpine AS builder
+## Build stage: use Bun for fast installs and build
+FROM docker.io/oven/bun:1 as build
 
-# Install dependencies required for `node-gyp`
-RUN apk add --no-cache python3 make g++
-
-ENV PUBLIC_BACKEND=/api
-
-# Set the working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+ENV NODE_ENV=production
 
-# Install dependencies
-RUN npm install
+COPY package.json bun.lockb ./
+RUN bun install --frozen-lockfile
 
-# copy public files
-COPY public ./app/public
-
-# Copy the rest of the application code to the working directory
 COPY . .
+RUN bun run build
 
-# Build the Next.js application
-RUN npm run build
+## Serve stage: static files via nginx
+FROM nginx:alpine
+
+COPY --from=build /app/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

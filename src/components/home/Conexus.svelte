@@ -13,11 +13,7 @@
     observeElement(
       section!,
       null,
-      () =>
-        typeWrite(
-          tagline!,
-          "Dream to Screen: Unlock Your Storytelling Potential"
-        ),
+      () => typeWrite(tagline!, "Dream to Screen: Unlock Your Storytelling Potential"),
       resetTitle
     );
   });
@@ -28,14 +24,11 @@
 </script>
 
 <section class="container fade-in" bind:this={section}>
-  <h3 bind:this={tagline}>
-    Dream to Screen: Unlock Your Storytelling Potential
-  </h3>
+  <h3 bind:this={tagline}>Dream to Screen: Unlock Your Storytelling Potential</h3>
   <p class="pc-narrow">
-    CoNexus, DGRS Labs’ flagship app, transforms how content is made, shared,
-    and owned. Our text-to-story engine is the most efficient way for anyone to
-    create or star in high‑quality, visually immersive stories spanning novels,
-    films, and story games.
+    CoNexus, DGRS Labs’ flagship app, transforms how content is made, shared, and owned. Our
+    text-to-story engine is the most efficient way for anyone to create or star in high‑quality,
+    visually immersive stories spanning novels, films, and story games.
   </p>
 
   <div class="stories" aria-label="Featured CoNexus stories">
@@ -43,29 +36,19 @@
     <ul class="reel" style="--count:{images.length}">
       {#each [...images, ...images] as src, i}
         <li>
-          <img
-            class="transition"
-            {src}
-            alt={`Story ${(i % images.length) + 1}`}
-            loading="lazy"
-          />
+          <img class="transition" {src} alt={`Story ${(i % images.length) + 1}`} loading="lazy" />
         </li>
       {/each}
     </ul>
   </div>
 
   <p class="pc-narrow">
-    Leveraging Generative AI and blockchain-backed ownership, we’re turning
-    imagination into reality - giving creators and communities the tools to
-    power tomorrow’s digital economy. Whether you want to play, create, or
-    innovate, now is the moment to step into the next era of entertainment.
+    Leveraging Generative AI and blockchain-backed ownership, we’re turning imagination into reality
+    - giving creators and communities the tools to power tomorrow’s digital economy. Whether you
+    want to play, create, or innovate, now is the moment to step into the next era of entertainment.
   </p>
 
-  <a
-    class="button-anchor"
-    href="https://conexus.degenerousdao.com/"
-    target="_blank"
-  >
+  <a class="button-anchor" href="https://conexus.degenerousdao.com/" target="_blank">
     Launch CoNexus
   </a>
 </section>

@@ -12,11 +12,7 @@
   <h1 bind:this={tagline}>The Potentials</h1>
   <article class="container appear-bottom">
     <h3>1,000 Evolutionary NFTs</h3>
-    <img
-      class="round-8"
-      src="/investors/potentials.webp"
-      alt="The Potentials"
-    />
+    <img class="round-8" src="/investors/potentials.webp" alt="The Potentials" />
     <p>The heart of our ecosystem that reaps the most benefits:</p>
     <ul class="flex">
       <li class="flex">
@@ -24,10 +20,7 @@
           <img class="standard-icon" src="/icons/growth.svg" alt="Evolution" />
           <h5>On‑chain evolution</h5>
         </span>
-        <p>
-          The avatars’ artwork, traits, and rarity transform with the decisions
-          the owners make
-        </p>
+        <p>The avatars’ artwork, traits, and rarity transform with the decisions the owners make</p>
       </li>
       <li class="flex">
         <span class="flex-row">
@@ -35,8 +28,8 @@
           <h5>Governance power</h5>
         </span>
         <p>
-          Potentials holders vote on which stories and platform features are
-          admitted to CoNexus - shaping the product in real time
+          Potentials holders vote on which stories and platform features are admitted to CoNexus -
+          shaping the product in real time
         </p>
       </li>
       <li class="flex">
@@ -45,10 +38,9 @@
           <h5>Premium utility</h5>
         </span>
         <p>
-          Holders receive prioritized free access to all betas and live
-          platforms, exclusive CoNexus storylines, custom video games,
-          preferential pricing & rewards. They also star as characters in our
-          franchise’s series (watched by millions) and govern its storyline.
+          Holders receive prioritized free access to all betas and live platforms, exclusive CoNexus
+          storylines, custom video games, preferential pricing & rewards. They also star as
+          characters in our franchise’s series (watched by millions) and govern its storyline.
         </p>
       </li>
       <li class="flex">
@@ -57,16 +49,13 @@
           <h5>Proven rewards</h5>
         </span>
         <p>
-          Multiple partner-project airdrops have been delivered to the NFT
-          holders, and our upcoming token will be distributed to Potentials
-          first. Staking rewards are coming soon as well
+          Multiple partner-project airdrops have been delivered to the NFT holders, and our upcoming
+          token will be distributed to Potentials first. Staking rewards are coming soon as well
         </p>
       </li>
     </ul>
 
-    <i>
-      Owning a Potential places you at the center of our growth and direction.
-    </i>
+    <i> Owning a Potential places you at the center of our growth and direction. </i>
     <span class="flex-row">
       <a
         class="icon-link flex void-btn nohover-link"

@@ -10,18 +10,13 @@
 
   onMount(() => typeWrite(tagline!, "Careers"));
 
-  const showPosition = (index: number) =>
-    openModal(positions[index] || positions[0]);
+  const showPosition = (index: number) => openModal(positions[index] || positions[0]);
 
   const sendPortfolio = () => {
-    const linkInput = document.getElementById(
-      "portfolio-link"
-    ) as HTMLInputElement;
+    const linkInput = document.getElementById("portfolio-link") as HTMLInputElement;
     const link = linkInput?.value.trim();
 
-    const contextInput = document.getElementById(
-      "portfolio-context"
-    ) as HTMLTextAreaElement;
+    const contextInput = document.getElementById("portfolio-context") as HTMLTextAreaElement;
     const context = contextInput?.value.trim();
 
     if (!link) {
@@ -53,8 +48,8 @@
   <h1 bind:this={tagline}>Careers</h1>
 
   <p class="auto-width">
-    If you're passionate about building category-defining technology and joining
-    a visionary team early, this is your moment.
+    If you're passionate about building category-defining technology and joining a visionary team
+    early, this is your moment.
   </p>
 
   <h3>Open positions</h3>
@@ -62,25 +57,19 @@
   <ul class="flex-row flex-wrap pad-inline">
     <li class="flex fall-in blur" style="--i:{0}">
       <h4>AI Engineer x2</h4>
-      <button class="read-more" onclick={() => showPosition(0)}>
-        Read more
-      </button>
+      <button class="read-more" onclick={() => showPosition(0)}> Read more </button>
       <button onclick={linkPortfolio}> Link Portfolio </button>
     </li>
 
     <li class="flex fall-in blur" style="--i:{1}">
       <h4>Business Developer</h4>
-      <button class="read-more" onclick={() => showPosition(1)}>
-        Read more
-      </button>
+      <button class="read-more" onclick={() => showPosition(1)}> Read more </button>
       <button onclick={linkPortfolio}> Link Portfolio </button>
     </li>
 
     <li class="flex fall-in blur" style="--i:{2}">
       <h4>Marketing Specialist</h4>
-      <button class="read-more" onclick={() => showPosition(2)}>
-        Read more
-      </button>
+      <button class="read-more" onclick={() => showPosition(2)}> Read more </button>
       <button onclick={linkPortfolio}> Link Portfolio </button>
     </li>
   </ul>

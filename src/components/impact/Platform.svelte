@@ -15,18 +15,16 @@
         Helped <b>startups prototype gamified platforms</b> in weeks, not years
       </li>
       <li>
-        Provided <b>enterprises with storytelling tools</b> that connects brand,
-        culture, and education
+        Provided <b>enterprises with storytelling tools</b> that connects brand, culture, and education
       </li>
       <li>
-        Proven that <b>interactive AI media</b> can be a bridge between creativity
-        and commerce
+        Proven that <b>interactive AI media</b> can be a bridge between creativity and commerce
       </li>
     </ul>
     <p>
-      We’re not just building products - we’re pioneering new markets. From
-      education to entertainment, publishing to philanthropy, our open
-      storytelling engine is reshaping entire industries.
+      We’re not just building products - we’re pioneering new markets. From education to
+      entertainment, publishing to philanthropy, our open storytelling engine is reshaping entire
+      industries.
     </p>
   </article>
 </section>

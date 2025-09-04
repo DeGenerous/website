@@ -4,8 +4,7 @@
 
 <section class="flex pc-narrow">
   <h5 class="auto-width">
-    We’re working with industry pioneers, from Web3 leaders to award-winning
-    filmmakers.
+    We’re working with industry pioneers, from Web3 leaders to award-winning filmmakers.
   </h5>
 
   <ul class="container flex-row flex-wrap">

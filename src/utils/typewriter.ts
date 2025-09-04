@@ -3,7 +3,7 @@ const activeTypewriters = new WeakMap<HTMLElement, TypewriterInstance>();
 export default function typeWrite(
   el: HTMLElement,
   text: string,
-  delay = 50,
+  delay = 50
 ): TypewriterInstance & Promise<void> {
   if (!el) return Promise.resolve() as TypewriterInstance & Promise<void>;
   // Abort any active typewriter on this element

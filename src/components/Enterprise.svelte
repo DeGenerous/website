@@ -9,8 +9,7 @@
   import CSR from "./enterprise/CSR.svelte";
 
   let tagline = $state<HTMLHeadingElement>();
-  const startTyping = () =>
-    setTimeout(() => typeWrite(tagline!, "Enterprise"), 1500);
+  const startTyping = () => setTimeout(() => typeWrite(tagline!, "Enterprise"), 1500);
 
   // IDs must match <section id="..."> in each child component
   const ids = ["intro", "conexus-api", "gen-ai", "csr"];
@@ -23,9 +22,7 @@
   });
 
   function scrollToSection(id: string) {
-    document
-      .getElementById(id)
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   onMount(() => {
@@ -52,10 +49,9 @@
 <section class="flex full-height">
   <h1 bind:this={tagline}>Enterprise</h1>
   <p class="auto-width">
-    Elevate your company with our enterprise solutions. Whether you’re a product
-    team, a marketing department, CSR leader, or ed-tech innovator, our turnkey
-    offerings deliver measurable engagement, cost savings, and real-world
-    impact.
+    Elevate your company with our enterprise solutions. Whether you’re a product team, a marketing
+    department, CSR leader, or ed-tech innovator, our turnkey offerings deliver measurable
+    engagement, cost savings, and real-world impact.
   </p>
 </section>
 
@@ -76,11 +72,7 @@
     <p>GenAI Film Studio</p>
   </button>
 
-  <button
-    class="void-btn"
-    class:active={active === "csr"}
-    onclick={() => scrollToSection("csr")}
-  >
+  <button class="void-btn" class:active={active === "csr"} onclick={() => scrollToSection("csr")}>
     <p>CSR with Real Impact</p>
   </button>
 </nav>

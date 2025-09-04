@@ -11,8 +11,7 @@
 
   let tagline = $state<HTMLHeadingElement>();
 
-  const startTyping = () =>
-    setTimeout(() => typeWrite(tagline!, "Brand Assets"), 1500);
+  const startTyping = () => setTimeout(() => typeWrite(tagline!, "Brand Assets"), 1500);
 
   onMount(startTyping);
 
@@ -37,10 +36,7 @@
         <p>Always represent the brand with accuracy and respect.</p>
       </li>
       <li>
-        <p>
-          Do not imply endorsement by saying things like “Powered by DGRS”
-          without approval.
-        </p>
+        <p>Do not imply endorsement by saying things like “Powered by DGRS” without approval.</p>
       </li>
       <li>
         <p>Do not combine our logo with other logos or elements.</p>
@@ -77,11 +73,7 @@
         </span>
         <span class="flex-row">
           <p>.SVG</p>
-          <a
-            class="button-anchor"
-            href="/brand/dgrs-logo.svg"
-            download="dgrs-labs-logo"
-          >
+          <a class="button-anchor" href="/brand/dgrs-logo.svg" download="dgrs-labs-logo">
             Download
           </a>
         </span>
@@ -95,11 +87,7 @@
         </span>
         <span class="flex-row">
           <p>.SVG</p>
-          <a
-            class="button-anchor"
-            href="/brand/conexus-logo.svg"
-            download="conexus-logo"
-          >
+          <a class="button-anchor" href="/brand/conexus-logo.svg" download="conexus-logo">
             Download
           </a>
         </span>
@@ -113,11 +101,7 @@
         </span>
         <span class="flex-row">
           <p>.SVG</p>
-          <a
-            class="button-anchor"
-            href="/brand/conexus-quill.svg"
-            download="conexus-quill"
-          >
+          <a class="button-anchor" href="/brand/conexus-quill.svg" download="conexus-quill">
             Download
           </a>
         </span>

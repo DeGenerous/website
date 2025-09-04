@@ -13,10 +13,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img
-            src="{mediaURL}/conexus-sections/communitypicks.avif"
-            alt="Community Picks"
-          />
+          <img src="{mediaURL}/conexus-sections/communitypicks.avif" alt="Community Picks" />
           <h4>Community Picks</h4>
         </a>
         <a
@@ -34,10 +31,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img
-            src="{mediaURL}/conexus-sections/dischordiansaga.avif"
-            alt="Dischordian Saga"
-          />
+          <img src="{mediaURL}/conexus-sections/dischordiansaga.avif" alt="Dischordian Saga" />
           <h4>Dischordian Saga</h4>
         </a>
       </ul>

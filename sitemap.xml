@@ -1,82 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://test.degenerousdao.com/</loc>
-  <lastmod>2025-08-29T11:14:15+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://test.degenerousdao.com/investors</loc>
-  <lastmod>2025-08-29T11:14:15+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://test.degenerousdao.com/enterprise</loc>
-  <lastmod>2025-08-29T11:14:15+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://test.degenerousdao.com/apps</loc>
-  <lastmod>2025-08-29T11:14:15+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://test.degenerousdao.com/impact</loc>
-  <lastmod>2025-08-29T11:14:15+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://test.degenerousdao.com/community</loc>
-  <lastmod>2025-08-29T11:14:15+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://test.degenerousdao.com/team</loc>
-  <lastmod>2025-08-29T11:14:15+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://test.degenerousdao.com/sitemap</loc>
-  <lastmod>2025-08-29T11:14:15+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://test.degenerousdao.com/terms-of-service</loc>
-  <lastmod>2025-08-29T11:14:15+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://test.degenerousdao.com/privacy-policy</loc>
-  <lastmod>2025-08-29T11:14:15+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://test.degenerousdao.com/contributors-licence-agreement</loc>
-  <lastmod>2025-08-29T11:14:15+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://test.degenerousdao.com/brand-assets</loc>
-  <lastmod>2025-08-29T11:14:15+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://test.degenerousdao.com/brand-guidelines</loc>
-  <lastmod>2025-08-29T11:14:15+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://test.degenerousdao.com/apps/sagaverse</loc>
-  <lastmod>2025-08-29T11:14:15+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://degenerousdao.com/</loc>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://degenerousdao.com/investors</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://degenerousdao.com/enterprise</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://degenerousdao.com/apps</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://degenerousdao.com/impact</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://degenerousdao.com/community</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://degenerousdao.com/team</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://degenerousdao.com/sitemap</loc>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://degenerousdao.com/terms-of-service</loc>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://degenerousdao.com/privacy-policy</loc>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://degenerousdao.com/copyright-policy</loc>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://degenerousdao.com/contributors-license-agreement</loc>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://degenerousdao.com/brand-kit</loc>
+    <priority>0.64</priority>
+  </url>
+  <url>
+    <loc>https://degenerousdao.com/apps/sagaverse</loc>
+    <priority>0.50</priority>
+  </url>
 </urlset>

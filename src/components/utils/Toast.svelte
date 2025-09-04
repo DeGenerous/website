@@ -1,9 +1,9 @@
 <!-- LEGACY SVELTE 3/4 SYNTAX -->
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onMount } from "svelte";
 
-  export let message: string = '';
-  export let type: 'info' | 'error' = 'info';
+  export let message: string = "";
+  export let type: "info" | "error" = "info";
   export let duration: number = 10000;
   export let onClose = () => {};
 
@@ -31,8 +31,8 @@
 
 <button
   class="void-btn flex-row pad round blur"
-  class:info={type === 'info'}
-  class:error={type !== 'info'}
+  class:info={type === "info"}
+  class:error={type !== "info"}
   class:fading-left={fading < 0.5}
   class:fading-right={fading >= 0.5}
   class:hide
@@ -44,7 +44,7 @@
 </button>
 
 <style lang="scss">
-  @use '/src/styles/mixins' as *;
+  @use "/src/styles/mixins" as *;
 
   button {
     pointer-events: auto;

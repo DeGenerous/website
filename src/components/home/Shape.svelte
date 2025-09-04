@@ -27,24 +27,28 @@
   <h3 bind:this={tagline}>Shape The World You Dream Of</h3>
 
   <p class="pc-narrow">
-    Step into a playground of endless possibility, where your wildest visions
-    come to life on a foundation built for boundless creativity.
+    Step into a playground of endless possibility, where your wildest visions come to life on a
+    foundation built for boundless creativity.
   </p>
 
   <video class="round transition" controls aria-label="CoNexus showcase video">
     <!-- <source src={`${trailerURL}/CoNexusTrailer.webm`} type="video/webm" /> -->
     <source src="CoNexus.mp4" type="video/mp4" />
-    <!-- Add real captions via <track src="..." srclang="en" label="English"> when available -->
+    <track kind="captions" />
   </video>
 
   <p class="pc-narrow">
-    Whether you’re weaving epic tales, crafting unforgettable games, or
-    launching the next breakthrough app, DGRS hands you the keys to build,
-    iterate, and amaze - no limits attached. Join a community of dreamers and
-    doers and watch your ideas reshape reality.
+    Whether you’re weaving epic tales, crafting unforgettable games, or launching the next
+    breakthrough app, DGRS hands you the keys to build, iterate, and amaze - no limits attached.
+    Join a community of dreamers and doers and watch your ideas reshape reality.
   </p>
 
-  <a class="button-anchor" href="http://degenerousdao.com/join" target="_blank" rel="noopener noreferrer">
+  <a
+    class="button-anchor"
+    href="http://degenerousdao.com/join"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     Join the Community
   </a>
 </section>
@@ -62,11 +66,7 @@
       padding-block: 1rem;
       border-left: none !important;
       border-right: none !important;
-      background: linear-gradient(
-        to right,
-        rgba(56, 117, 250, 0.1),
-        rgba(56, 117, 250, 0.025)
-      );
+      background: linear-gradient(to right, rgba(56, 117, 250, 0.1), rgba(56, 117, 250, 0.025));
       -webkit-backdrop-filter: blur(1rem);
       backdrop-filter: blur(1rem);
       @include gray-border;
