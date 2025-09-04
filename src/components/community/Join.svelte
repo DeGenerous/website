@@ -269,6 +269,12 @@
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
+  @include respond-up(full-hd) {
+    section {
+      min-height: 50vh;
+    }
+  }
+
   .discord {
     @include font(h5);
   }
