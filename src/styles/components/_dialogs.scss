@@ -85,6 +85,27 @@ dialog {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  dialog {
+    transition: none !important;
+    transform: none !important;
+    @starting-style {
+      opacity: 1;
+      transform: none;
+    }
+
+    &[open] {
+      animation: none !important;
+    }
+
+    &::backdrop {
+      transition: none !important;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+  }
+}
+
 .dialog-fade-out {
   opacity: 0;
   transform: scale(1.5) skew(-45deg, 45deg);

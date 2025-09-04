@@ -433,9 +433,15 @@
   @media (prefers-reduced-motion: reduce) {
     .tracker {
       transition: none;
+      display: none !important;
     }
     .trail {
       transition: none;
+    }
+    // Upcoming tiles should be visible immediately without animation
+    .goals.upcoming li {
+      opacity: 1 !important;
+      pointer-events: auto !important;
     }
   }
 </style>

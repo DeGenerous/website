@@ -216,6 +216,14 @@
     }
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    header {
+      transition: none;
+      transform: none !important;
+      &.hide { transform: none !important; }
+    }
+  }
+
   :global(body.dark) {
     header {
       @include dark-blue;

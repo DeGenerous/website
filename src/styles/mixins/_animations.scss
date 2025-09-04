@@ -397,3 +397,37 @@
 :global(.bg-animation) {
   animation: bg-animation 60s ease-in-out infinite;
 }
+
+// Respect user motion preferences site‑wide
+@media (prefers-reduced-motion: reduce) {
+  // Disable non-essential animations
+  :global(.loading-animation),
+  :global(.shimmer),
+  :global(.loading-logo),
+  :global(.waving),
+  :global(.floating),
+  :global(.button-glowing),
+  :global(.text-glowing),
+  :global(.dark-glowing),
+  :global(.dark-glowing-opaque),
+  :global(.transparent-glowing),
+  :global(.rotate-animation),
+  :global(.pulse-animation),
+  :global(.bg-animation),
+  :global(.reel) {
+    animation: none !important;
+  }
+
+  // Bring appear/fade utilities to a stable state without motion
+  :global(.fade-in),
+  :global(.appear-left),
+  :global(.appear-right),
+  :global(.appear-bottom),
+  :global(.from-left),
+  :global(.from-right),
+  :global(.from-bottom) {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
