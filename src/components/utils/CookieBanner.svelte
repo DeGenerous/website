@@ -88,9 +88,9 @@
   @use "/src/styles/mixins" as *;
 
   .container {
-    width: 90%;
+    width: calc(100% - 2rem);
     position: fixed;
-    bottom: 5rem;
+    bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1000;
