@@ -73,6 +73,10 @@
       width: 85%;
     }
 
+    &.mobile-only {
+      margin-bottom: 0.5rem;
+    }
+
     &:hover:not(&:disabled),
     &:active:not(&:disabled),
     &:focus:not(&:disabled) {
