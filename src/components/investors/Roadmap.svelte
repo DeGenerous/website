@@ -3,10 +3,12 @@
 
   import roadmap from "@constants/roadmap";
   import typeWrite from "@utils/typewriter";
+  import observeElement from "@utils/observer";
 
   let tagline = $state<HTMLHeadingElement>();
 
   // Local interactive model with per-section tracker
+  const totalSections = (roadmap as Section[]).length;
   let sections = $state(
     (roadmap as Section[]).map((s, si) => ({
       index: si,
@@ -16,6 +18,12 @@
         id: `${si}-${gi}`,
         ref: null as HTMLElement | null,
       })),
+      titleEl: null as HTMLHeadingElement | null,
+      typed: false,
+      side:
+        si === totalSections - 1 ? "center" : si % 2 === 0 ? "right" : "left",
+      upcomingEl: null as HTMLElement | null,
+      upcomingAnimated: false,
       wrap: null as HTMLElement | null,
       trackerY: 0,
       inView: false,
@@ -91,9 +99,51 @@
     window.addEventListener("resize", onScroll);
     // first paint
     onScroll();
+    // Observe section titles (type only) and goals wrapper (directional appear)
+    const disposers: Array<() => void> = [];
+    sections.forEach((sec) => {
+      // Title: type only
+      if (sec.titleEl) {
+        sec.titleEl.style.opacity = "0"; // reset so it types only when visible
+        const disposeTitle = observeElement(sec.titleEl, null, () => {
+          if (!sec.typed && sec.titleEl) {
+            typeWrite(sec.titleEl, sec.title);
+            sec.typed = true;
+          }
+        });
+        disposers.push(disposeTitle);
+      }
+
+      // Upcoming tiles (last section): fall-in once via observer on the list
+      if (sec.upcomingEl) {
+        const disposeUpcoming = observeElement(
+          sec.upcomingEl,
+          null,
+          () => {
+            if (!sec.upcomingAnimated) {
+              const items = Array.from(sec.upcomingEl!.querySelectorAll("li"));
+              items.forEach((li, i) => {
+                li.classList.add("fall-in");
+                (li as HTMLElement).style.setProperty("--i", String(i));
+              });
+              sec.upcomingAnimated = true;
+            }
+          },
+          () => {},
+          {
+            root: null,
+            rootMargin: "-35% 0px -35% 0px",
+            threshold: [0, 0.5, 1],
+          }
+        );
+        disposers.push(disposeUpcoming);
+      }
+    });
+
     return () => {
       window.removeEventListener("scroll", onScroll as any);
       window.removeEventListener("resize", onScroll as any);
+      disposers.forEach((d) => d());
     };
   });
 
@@ -104,14 +154,14 @@
   <h1 bind:this={tagline}>Roadmap</h1>
 
   {#each sections as sec, si}
-    <section>
-      <h2>{sec.title}</h2>
+    <section class="flex" class:appear-bottom={si === 0}>
+      <h3 bind:this={sec.titleEl}>{sec.title}</h3>
       {#if si === sections.length - 1}
-        <!-- Last section: centered goals, no tracker/wrap -->
-        <ul class="goals upcoming">
+        <!-- Last section: centered goals, no tracker -->
+        <ul class="goals upcoming flex" bind:this={sec.upcomingEl}>
           {#each sec.goals as g, gi}
             <li
-              class="goal container"
+              class="goal container transition"
               class:active={sec.activeGoalIdx === gi}
               class:completed={(sec.activeGoalIdx !== null &&
                 gi < sec.activeGoalIdx) ||
@@ -119,8 +169,8 @@
               bind:this={g.ref}
               id="goal-{g.id}"
             >
-              <h4>{g.name}</h4>
-              <p>{g.description}</p>
+              <h4 class="transition">{g.name}</h4>
+              <p class="transition">{g.description}</p>
             </li>
           {/each}
         </ul>
@@ -150,7 +200,7 @@
               </svg>
             </div>
           </div>
-          <ul class="goals" class:right={si % 2 === 1}>
+          <ul class="goals flex" class:right={si % 2 === 1}>
             {#each sec.goals as g, gi}
               <li
                 class="goal container transition"
@@ -161,8 +211,8 @@
                 bind:this={g.ref}
                 id="goal-{g.id}"
               >
-                <h4>{g.name}</h4>
-                <p>{g.description}</p>
+                <h4 class="transition">{g.name}</h4>
+                <p class="transition">{g.description}</p>
               </li>
             {/each}
           </ul>
@@ -177,26 +227,31 @@
 
   .roadmap {
     align-items: stretch;
-    gap: 3rem;
 
     section {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.5rem;
       max-width: 70rem;
+
+      h3 {
+        @include auto-width;
+      }
 
       .goals-wrapper {
         position: relative;
-        padding-inline: 1rem 0;
+        padding-inline: 1rem;
 
         .tracker {
+          display: none;
           position: absolute;
           top: 0;
-          left: 0.5rem;
+          left: -1rem;
           width: 1rem;
           height: 0;
           transition: height 0.3s linear;
           pointer-events: none;
+
+          @include respond-up(small-desktop) {
+            display: block;
+          }
 
           .trail {
             position: absolute;
@@ -205,20 +260,21 @@
             transform: translateX(-50%);
             width: 0.5rem;
             height: 100%;
+            border-radius: 0.25rem;
             background: linear-gradient(
               to bottom,
-              rgba(0, 185, 55, 0),
+              rgba(0, 185, 55, 0.25),
               rgba(75, 112, 50, 1)
             );
           }
 
           .dot {
             position: absolute;
-            bottom: -0.5rem; // half of dot size
+            bottom: -0.75rem; // half of dot size
             left: 50%;
             transform: translateX(-50%);
-            width: 1rem;
-            height: 1rem;
+            width: 1.5rem;
+            height: 1.5rem;
             border-radius: 50%;
             display: grid;
             place-items: center;
@@ -234,50 +290,28 @@
         }
 
         &.right {
-          padding-inline: 0 1rem;
-
           .tracker {
             left: auto;
-            right: 0.5rem;
+            right: -1rem;
           }
         }
       }
 
       .goals {
-        display: flex;
-        flex-direction: column;
         align-items: stretch;
-        gap: 1rem;
 
         &.right {
           align-items: flex-end;
-          text-align: right;
-        }
-
-        &.upcoming {
-          align-items: center;
-          text-align: center;
         }
 
         .goal {
           width: 100%;
-          padding: 0.75rem 1rem;
+          max-width: unset;
           border-radius: 0.5rem;
           @include gray-border;
 
-          h4 {
-            font-family: $font-sans;
-            transition: color 0.3s ease-in-out;
-          }
-
           p {
-            text-align: left;
             opacity: 0.9;
-            transition: color 0.3s ease-in-out;
-
-            @include respond-up("tablet") {
-              text-align: center;
-            }
           }
 
           &.active {
@@ -294,6 +328,55 @@
 
             p {
               @include dark-green(1, text);
+            }
+          }
+        }
+
+        &.upcoming {
+          align-items: stretch;
+          padding-inline: 1rem;
+
+          // Hidden by default; visible when fall-in class is applied
+          li {
+            opacity: 0;
+          }
+
+          .goal {
+            width: 100%;
+            justify-content: space-between;
+            @include gray-border;
+            @include light-blue(0.1);
+
+            p {
+              height: 100%;
+              font-family: $font-sans;
+            }
+
+            &:hover,
+            &:active,
+            &:focus {
+              background-color: transparent;
+              @include box-shadow;
+
+              * {
+                @include scale;
+              }
+            }
+          }
+
+          @include respond-up(tablet) {
+            flex-flow: row wrap;
+
+            .goal {
+              max-width: calc(50% - 0.5rem);
+            }
+          }
+
+          @include respond-up(large-desktop) {
+            flex-wrap: nowrap;
+
+            .goal {
+              max-width: unset;
             }
           }
         }
