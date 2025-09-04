@@ -61,7 +61,7 @@
 
 {#if showBanner}
   <div
-    class="container fade-in"
+    class="container fade-in blur"
     bind:this={bannerEl}
     role="region"
     aria-label="Cookie consent"
@@ -93,6 +93,8 @@
     bottom: 5rem;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 1000;
+    outline: none;
 
     @include respond-up(small-desktop) {
       bottom: 1rem;
