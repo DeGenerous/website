@@ -59,6 +59,7 @@
         class="nohover-link"
         class:active={activeTab === tab}
         href="/{tab}"
+        aria-current={activeTab === tab ? 'page' : undefined}
         onclick={showScramble}
       >
         {tab}

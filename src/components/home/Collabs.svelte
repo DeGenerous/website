@@ -11,7 +11,7 @@
   <ul class="container flex-row flex-wrap">
     {#each collabs as { href, src, alt }}
       <li class="transition">
-        <a class="nohover-link" {href} target="_blank" rel="noopener">
+        <a class="nohover-link" {href} target="_blank" rel="noopener noreferrer">
           <img class="transition" {src} {alt} />
         </a>
       </li>

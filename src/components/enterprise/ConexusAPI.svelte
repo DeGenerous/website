@@ -62,7 +62,7 @@
         on CoNexus for you.
       </p>
       <p>
-        <a href="mailto:biz@degenerousdao.com" target="_blank"> Contact us </a>
+        <a href="mailto:biz@degenerousdao.com" target="_blank" rel="noopener noreferrer"> Contact us </a>
         to get your API key or discuss an in‑platform collaboration.
       </p>
     </article>

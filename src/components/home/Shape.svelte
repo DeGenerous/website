@@ -31,10 +31,10 @@
     come to life on a foundation built for boundless creativity.
   </p>
 
-  <video class="round transition" controls>
+  <video class="round transition" controls aria-label="CoNexus showcase video">
     <!-- <source src={`${trailerURL}/CoNexusTrailer.webm`} type="video/webm" /> -->
     <source src="CoNexus.mp4" type="video/mp4" />
-    <track kind="captions" />
+    <!-- Add real captions via <track src="..." srclang="en" label="English"> when available -->
   </video>
 
   <p class="pc-narrow">
@@ -44,7 +44,7 @@
     doers and watch your ideas reshape reality.
   </p>
 
-  <a class="button-anchor" href="http://degenerousdao.com/join" target="_blank">
+  <a class="button-anchor" href="http://degenerousdao.com/join" target="_blank" rel="noopener noreferrer">
     Join the Community
   </a>
 </section>

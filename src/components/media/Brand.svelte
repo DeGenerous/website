@@ -156,6 +156,7 @@
           class="button-anchor"
           href="https://fonts.google.com/specimen/Hanken+Grotesk"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Download Typeface
           <OpenSVG />
@@ -174,6 +175,7 @@
           class="button-anchor"
           href="https://fonts.google.com/specimen/Source+Serif+4"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Download Typeface
           <OpenSVG />

@@ -64,11 +64,11 @@
   <div class="flex-row flex-wrap">
     <span>
       Join our
-      <a href="https://degenerousdao.com/join" target="_blank"> Discord </a>
+      <a href="https://degenerousdao.com/join" target="_blank" rel="noopener noreferrer"> Discord </a>
     </span>
     <span>
       Message us at
-      <a href="mailto:contact@dgrs.ink" target="_blank"> contact@dgrs.ink </a>
+      <a href="mailto:contact@dgrs.ink" target="_blank" rel="noopener noreferrer"> contact@dgrs.ink </a>
     </span>
   </div>
   <article>

@@ -20,7 +20,7 @@
   >
     <source src={`${trailerURL}/CoNexusTrailer.webm`} type="video/webm" />
     <source src={`${trailerURL}/CoNexusTrailer.mp4`} type="video/mp4" />
-    <track kind="captions" />
+    <!-- Add real captions via <track src="..." srclang="en" label="English"> when available -->
   </video>
 
   <video
@@ -33,7 +33,7 @@
   >
     <source src="/CoNexusTrailer-mobile.webm" type="video/webm" />
     <source src="/CoNexusTrailer.mp4" type="video/mp4" />
-    <track kind="captions" />
+    <!-- Add real captions via <track src="..." srclang="en" label="English"> when available -->
   </video>
 </section>
 

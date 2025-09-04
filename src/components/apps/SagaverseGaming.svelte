@@ -33,6 +33,7 @@
           class="button-anchor"
           href="https://arcade.degenerousdao.com/Battle-for-Nexon/"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Play Now
         </a>
@@ -53,6 +54,7 @@
           class="button-anchor"
           href="https://arcade.degenerousdao.com/Ark-Assassin/"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Play Now
         </a>
@@ -73,6 +75,7 @@
           class="button-anchor"
           href="https://arcade.degenerousdao.com/Iron-Lion-Last-Stand/"
           target="_blank"
+          rel="noopener noreferrer"
         >
           Play Now
         </a>
@@ -95,6 +98,7 @@
             class="button-anchor"
             href="https://playtge.com/dgrs"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Play Now
           </a>
@@ -117,8 +121,8 @@
         </a>.
       </p>
       <span class="flex-row">
-        <a href="https://www.glmrapes.com/" target="_blank"> GLMR Apes </a>
-        <a href="https://www.playtge.com/" target="_blank">
+        <a href="https://www.glmrapes.com/" target="_blank" rel="noopener noreferrer"> GLMR Apes </a>
+        <a href="https://www.playtge.com/" target="_blank" rel="noopener noreferrer">
           The Great Escape
         </a>
       </span>

@@ -11,6 +11,7 @@
           class="menu-tile nohover-link blur"
           href="https://conexus.degenerousdao.com/sections/Community%20Picks"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <img
             src="{mediaURL}/conexus-sections/communitypicks.avif"
@@ -22,6 +23,7 @@
           class="menu-tile nohover-link pc-only"
           href="https://conexus.degenerousdao.com/sections/Collabs"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <img src="{mediaURL}/conexus-sections/collabs.avif" alt="Collabs" />
           <h4>Collabs</h4>
@@ -30,6 +32,7 @@
           class="menu-tile nohover-link pc-only"
           href="https://conexus.degenerousdao.com/sections/Dischordian%20Saga"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <img
             src="{mediaURL}/conexus-sections/dischordiansaga.avif"

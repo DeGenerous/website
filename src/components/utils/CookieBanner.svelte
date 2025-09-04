@@ -58,7 +58,7 @@
     <p>
       By continuing to use this website, you consent to the use of cookies as
       described in our
-      <a href="/privacy-policy" target="_blank">Privacy Policy</a>.
+      <a href="/privacy-policy">Privacy Policy</a>.
     </p>
     <div class="flex-row">
       <button class="primary" onclick={() => acceptCookies(true)}>
