@@ -216,7 +216,7 @@ textarea:focus-visible {
 @media (pointer: fine) {
   html body {
     * {
-      cursor: url("/cursors/quill-blue.png"), auto;
+      cursor: url("/cursors/quill-blue.png") 0 32, auto;
 
       a,
       button,
@@ -253,7 +253,7 @@ textarea:focus-visible {
 
     &.dark {
       * {
-        cursor: url("/cursors/quill-cyan.png"), auto;
+        cursor: url("/cursors/quill-cyan.png") 0 31, auto;
 
         .container,
         footer,
