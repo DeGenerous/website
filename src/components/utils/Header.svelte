@@ -11,7 +11,6 @@
 
   let { activeTab = "" }: { activeTab?: string } = $props();
 
-  let scrollY = $state<number>(0);
   const clamp = 64; // px after which hiding can kick in
 
   let header: HTMLElement;
@@ -33,18 +32,23 @@
     localStorage.setItem("theme", activeTheme);
   });
 
+  // Throttle scroll work to animation frames to avoid layout thrash
+  let lastY = 0;
+  let ticking = false;
   const onscroll = () => {
     const y = window.scrollY;
-
-    if (y > scrollY && y > clamp) {
-      header.classList.add("hide");
-    } else if (y < scrollY) {
-      header.classList.remove("hide");
-    }
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      if (y > lastY && y > clamp) header.classList.add("hide");
+      else if (y < lastY) header.classList.remove("hide");
+      lastY = y;
+      ticking = false;
+    });
   };
 </script>
 
-<svelte:window {onscroll} bind:scrollY />
+<svelte:window {onscroll} />
 
 <header class="flex-row blur" class:hide={hiddenHeader} bind:this={header}>
   <LogoSVG href="/" onclick={showScramble} />

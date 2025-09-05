@@ -36,7 +36,7 @@
     <ul class="reel" style="--count:{images.length}">
       {#each [...images, ...images] as src, i}
         <li>
-          <img class="transition" {src} alt={`Story ${(i % images.length) + 1}`} loading="lazy" />
+          <img class="transition" {src} alt={`Story ${(i % images.length) + 1}`} />
         </li>
       {/each}
     </ul>

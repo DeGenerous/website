@@ -46,6 +46,7 @@ const {
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://media.degenerousdao.com" crossorigin />
     <meta
       http-equiv="Content-Security-Policy"
       content="upgrade-insecure-requests"
@@ -80,7 +81,7 @@ const {
   <body class={nav}>
     <a href="#content" class="skip-link">Skip to content</a>
     <Scramble client:idle />
-    <Header activeTab={nav} client:load />
+    <Header activeTab={nav} client:idle />
     <main id="content">
       <slot />
     </main>
