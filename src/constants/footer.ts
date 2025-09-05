@@ -31,7 +31,7 @@ export const links: FooterLink[] = [
     title: "Legal",
     anchors: [
       {
-        label: "Terms of Use",
+        label: "Terms of Service",
         href: "/terms-of-service",
         target: "_self",
       },
@@ -43,11 +43,6 @@ export const links: FooterLink[] = [
       {
         label: "Copyright Policy",
         href: "/copyright-policy",
-        target: "_self",
-      },
-      {
-        label: "Contributor's Licence Agreement",
-        href: "/contributors-license-agreement",
         target: "_self",
       },
     ],
