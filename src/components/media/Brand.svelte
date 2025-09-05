@@ -27,7 +27,7 @@
   };
 </script>
 
-<section class="flex full-height">
+<section class="flex">
   <header class="flex">
     <h1 bind:this={tagline}>Brand Assets</h1>
 
@@ -229,6 +229,8 @@
   @use "/src/styles/mixins" as *;
 
   section {
+    margin-top: 5rem;
+
     @include respond-up(quad-hd) {
       flex-flow: row wrap;
       max-width: calc(100% - 200px);
