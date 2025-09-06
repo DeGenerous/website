@@ -3,9 +3,9 @@ const roadmap: Roadmap[] = [
     section: "2023 - Establishing the foundation",
     goals: [
       {
-        name: "February 2023",
+        name: "February 2023 - DeGenerous DAO Genesis",
         description:
-          "The birth of DeGenerous DAO - setting a mission of tech‑enabled social impact.",
+          "The birth of DeGenerous DAO in Delaware - setting a mission of tech‑enabled social impact.",
       },
       {
         name: "April 2023 - Inception Ark mint",
