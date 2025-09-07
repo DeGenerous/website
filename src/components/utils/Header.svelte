@@ -116,6 +116,7 @@
     select {
       width: 4rem;
       padding: 0;
+      min-height: 2.5rem;
 
       @media (max-width: 400px) {
         display: none;
@@ -163,7 +164,7 @@
         }
       }
 
-      @include respond-up("tablet") {
+      @include respond-up("small-desktop") {
         position: static;
         flex-direction: row;
         padding: 0;

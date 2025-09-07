@@ -74,7 +74,7 @@
     stroke: $dark-blue;
     width: 2.5rem;
 
-    @include respond-up("tablet") {
+    @include respond-up("small-desktop") {
       display: none;
     }
 

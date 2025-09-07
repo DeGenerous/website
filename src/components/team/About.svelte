@@ -11,127 +11,144 @@
 <section class="flex">
   <h1 bind:this={tagline}>About&nbsp;Us</h1>
 
-  <div class="container flex-row flex-wrap appear-bottom">
-    <article class="flex">
-      <span class="flex">
-        <h4>Who we are</h4>
-        <p>
-          DGRS Labs is a team of builders, storytellers, and technologists disrupting industries for
-          social good.
-        </p>
-      </span>
+  <div class="flex-row flex-wrap appear-bottom">
+    <span class="question container flex">
+      <h4>Who we are</h4>
+      <p>
+        DGRS Labs is a team of builders, storytellers, and technologists disrupting industries for
+        social good.
+      </p>
+    </span>
 
-      <span class="flex">
-        <h4>Why we exist</h4>
-        <p>
-          Stories shape culture. By returning creative power to everyday people, we unlock voices
-          and value that traditional media ignores.
-        </p>
-      </span>
+    <span class="question container flex">
+      <h4>Why we exist</h4>
+      <p>
+        Stories shape culture. By returning creative power to everyday people, we unlock voices and
+        value that traditional media ignores.
+      </p>
+    </span>
 
-      <span class="flex">
-        <h4>What we do</h4>
-        <p>We reinvent IP creation through AI‑powered, community‑owned storytelling.</p>
-      </span>
-    </article>
+    <span class="question container flex">
+      <h4>What we do</h4>
+      <p>We reinvent IP creation through AI‑powered, community‑owned storytelling.</p>
+    </span>
 
-    <article class="flex">
-      <span class="flex">
-        <h4>How we operate</h4>
-        <ul class="default-ul flex">
-          <li>Iterate relentlessly – weekly releases</li>
-          <li>Tiny strike teams with clear ownership</li>
-          <li>Community input guides every sprint</li>
-          <li>Data over opinions, rapid experiments, ruthless focus</li>
-        </ul>
-      </span>
+    <span class="how-to container flex">
+      <h4>How we operate</h4>
+      <ul class="flex">
+        <li>
+          <p>Iterate relentlessly – weekly releases</p>
+        </li>
+        <li>
+          <p>Tiny strike teams with clear ownership</p>
+        </li>
+        <li>
+          <p>Community input guides every sprint</p>
+        </li>
+        <li>
+          <p>Data over opinions, rapid experiments, ruthless focus</p>
+        </li>
+      </ul>
+    </span>
 
+    <h4 class="mobile-only">We live by five values:</h4>
+
+    <span class="value container">
       <span class="flex">
-        <h4>We live by five values:</h4>
-        <ul class="flex">
-          <li class="flex-row">
-            <img class="standard-icon" src="/icons/bulb.svg" alt="Innovation" />
-            <p>
-              <b>Innovation</b> – breakthrough tech and bold ideas drive meaningful change
-            </p>
-          </li>
-          <li class="flex-row">
-            <img class="standard-icon" src="/icons/people.svg" alt="Innovation" />
-            <p>
-              <b>Community</b> – members steer everything we build
-            </p>
-          </li>
-          <li class="flex-row">
-            <img class="standard-icon" src="/icons/target.svg" alt="Innovation" />
-            <p>
-              <b>Empowerment</b> – tools and ownership let anyone shape stories and earn
-            </p>
-          </li>
-          <li class="flex-row">
-            <img class="standard-icon" src="/icons/shield.svg" alt="Innovation" />
-            <p>
-              <b>Transparency</b> – clear goals, open dialogue, visible on‑chain activity
-            </p>
-          </li>
-          <li class="flex-row">
-            <img class="standard-icon" src="/icons/heart.svg" alt="Innovation" />
-            <p>
-              <b>Impact</b> – every launch targets measurable social and humanitarian good
-            </p>
-          </li>
-        </ul>
+        <img class="standard-icon" src="/icons/bulb.svg" alt="Innovation" />
+        <h5>Innovation</h5>
       </span>
-    </article>
+      <p>Breakthrough tech and bold ideas drive meaningful change</p>
+    </span>
+    <span class="value container">
+      <span class="flex">
+        <img class="standard-icon" src="/icons/people.svg" alt="Community" />
+        <h5>Community</h5>
+      </span>
+      <p>Members steer everything we build</p>
+    </span>
+    <span class="value container">
+      <span class="flex">
+        <img class="standard-icon" src="/icons/target.svg" alt="Empowerment" />
+        <h5>Empowerment</h5>
+      </span>
+      <p>Tools and ownership let anyone shape stories and earn</p>
+    </span>
+    <span class="value container">
+      <span class="flex">
+        <img class="standard-icon" src="/icons/shield.svg" alt="Transparency" />
+        <h5>Transparency</h5>
+      </span>
+      <p>Clear goals, open dialogue, visible on‑chain activity</p>
+    </span>
+    <span class="value container">
+      <span class="flex">
+        <img class="standard-icon" src="/icons/heart.svg" alt="Impact" />
+        <h5>Impact</h5>
+      </span>
+      <p>Every launch targets measurable social and humanitarian good</p>
+    </span>
+
+    <p>
+      <i>
+        Our mission is to unleash human creativity, democratize IP ownership, and channel Web3 value
+        toward real‑world good.
+      </i>
+    </p>
   </div>
-
-  <p class="auto-width">
-    <i>
-      Our mission is to unleash human creativity, democratize IP ownership, and channel Web3 value
-      toward real‑world good.
-    </i>
-  </p>
 </section>
 
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
   div {
-    align-items: flex-start;
-    justify-content: space-between;
-  }
+    align-items: stretch;
+    max-width: 1500px;
 
-  article {
-    width: 100%;
-
-    &,
-    span {
-      align-items: flex-start;
-      text-align: left;
+    > p,
+    > h4 {
+      width: 100%;
     }
 
-    h4 {
-      font-family: $font-sans;
+    .container {
+      width: 100%;
     }
 
-    span {
-      gap: 0.5rem;
+    .question,
+    .value {
+      justify-content: flex-start;
     }
 
-    ul {
-      align-items: flex-start;
+    .value img {
+      width: 2rem;
+    }
 
-      li {
-        align-items: flex-start;
-        gap: 0.5rem;
+    @include respond-up(small-desktop) {
+      .container {
+        max-width: unset;
+      }
 
-        img {
-          width: 1.5rem;
-        }
+      .question {
+        width: calc(33% - 1rem);
+      }
+
+      .value {
+        width: calc(20% - 1rem);
       }
     }
 
-    @include respond-up(tablet) {
-      width: calc(50% - 1rem);
+    @include respond-up(large-desktop) {
+      .question {
+        width: calc(20% - 1rem);
+      }
+
+      .how-to {
+        width: calc(40% - 1rem);
+      }
+
+      .value span {
+        flex-direction: row;
+      }
     }
   }
 </style>
