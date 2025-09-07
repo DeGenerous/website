@@ -11,7 +11,14 @@
 
   onMount(() => {
     resetTitle();
-    observeElement(section!, "visible", () => typeWrite(tagline!, "Bug bounty"), resetTitle);
+    observeElement(
+      section!,
+      "visible",
+      () => typeWrite(tagline!, "Bug bounty"),
+      resetTitle,
+      undefined,
+      true // animate once and keep visible
+    );
   });
 </script>
 

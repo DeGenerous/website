@@ -11,7 +11,14 @@
 
   onMount(() => {
     resetTitle();
-    observeElement(section!, "visible", () => typeWrite(tagline!, "CoNexus API"), resetTitle);
+    observeElement(
+      section!,
+      "visible",
+      () => typeWrite(tagline!, "CoNexus API"),
+      resetTitle,
+      undefined,
+      true // animate once and keep visible
+    );
   });
 </script>
 

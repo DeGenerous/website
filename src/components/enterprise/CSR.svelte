@@ -15,7 +15,9 @@
       section!,
       "visible",
       () => typeWrite(tagline!, "CSR with Real Impact"),
-      resetTitle
+      resetTitle,
+      undefined,
+      true // animate once and keep visible
     );
   });
 </script>

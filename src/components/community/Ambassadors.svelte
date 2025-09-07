@@ -15,7 +15,9 @@
       section!,
       "visible",
       () => typeWrite(tagline!, "Ambassador & Affiliate programs"),
-      resetTitle
+      resetTitle,
+      undefined,
+      true // animate once and keep visible
     );
   });
 </script>

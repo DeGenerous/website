@@ -16,7 +16,9 @@
       section!,
       "visible",
       () => typeWrite(tagline!, "Shape The World You Dream Of"),
-      resetTitle
+      () => {}, // no reset
+      undefined,
+      true // animate once and keep visible
     );
   });
 </script>
@@ -61,7 +63,7 @@
   .shape-world {
     margin-block: 4rem;
 
-    div {
+    .container {
       video {
         width: 100%;
         height: auto;

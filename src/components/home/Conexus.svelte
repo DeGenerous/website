@@ -14,7 +14,9 @@
       section!,
       null,
       () => typeWrite(tagline!, "Dream to Screen: Unlock Your Storytelling Potential"),
-      resetTitle
+      () => {}, // no reset
+      undefined,
+      true // animate once and keep visible
     );
   });
 

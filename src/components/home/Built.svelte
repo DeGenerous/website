@@ -19,7 +19,14 @@
   const resetTitle = () => (tagline!.style.opacity = "0");
 
   onMount(() => {
-    observeElement(viewport!, "visible", () => typeWrite(tagline!, "Built on DGRS"), resetTitle);
+    observeElement(
+      viewport!,
+      "visible",
+      () => typeWrite(tagline!, "Built on DGRS"),
+      () => {}, // no reset
+      undefined,
+      true // animate once and keep visible
+    );
   });
 
   onMount(resetTitle);

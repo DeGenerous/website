@@ -11,7 +11,14 @@
 
   onMount(() => {
     resetTitle();
-    observeElement(section!, "visible", () => typeWrite(tagline!, "GenAI Film Studio"), resetTitle);
+    observeElement(
+      section!,
+      "visible",
+      () => typeWrite(tagline!, "GenAI Film Studio"),
+      resetTitle,
+      undefined,
+      true // animate once and keep visible
+    );
   });
 </script>
 

@@ -1,8 +1,24 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
+  import observeElement from "@utils/observer";
+
+  let section = $state<HTMLElement>();
+
+  onMount(() => {
+    observeElement(
+      section!,
+      "visible",
+      () => {},
+      () => {},
+      undefined,
+      true // animate once and keep visible
+    );
+  });
 </script>
 
-<section class="flex">
-  <div class="container">
+<section class="charity flex" bind:this={section}>
+  <div class="container transition">
     <span class="flex">
       <img class="round-8" src="/impact/ball.jpg" alt="Football in Kenya" />
       <article class="flex">
@@ -25,7 +41,7 @@
     </span>
   </div>
 
-  <div class="container">
+  <div class="container transition">
     <span class="flex">
       <img class="round-8" src="/impact/museum.jpg" alt="Gaming Museum" />
       <article class="flex">
@@ -53,9 +69,19 @@
   @use "/src/styles/mixins" as *;
 
   section {
-    margin-block: 5rem;
-
     .container {
+      transition-duration: 0.6s;
+
+      &:first-of-type {
+        opacity: 0;
+        transform: translateX(-100%);
+      }
+
+      &:last-of-type {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+
       span {
         img {
           width: 100%;
@@ -110,5 +136,10 @@
         }
       }
     }
+  }
+
+  :global(.charity.visible .container) {
+    opacity: 1 !important;
+    transform: none !important;
   }
 </style>

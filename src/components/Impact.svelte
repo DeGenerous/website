@@ -21,7 +21,7 @@
   onMount(startTyping);
 </script>
 
-<section class="flex fade-in full-height">
+<section class="flex fade-in">
   <h1 bind:this={tagline}>Digital Tools. Real-World Change.</h1>
   <p class="auto-width">
     We don’t just build products - we build impact engines. The DGRS ecosystem has helped raise
@@ -55,10 +55,8 @@
   @use "/src/styles/mixins" as *;
 
   section {
-    padding-top: 6rem;
-
     @include respond-up(small-desktop) {
-      padding-top: 0;
+      min-height: 100vh;
     }
 
     .impact-data {
@@ -138,6 +136,8 @@
   }
 
   :global(main) {
-    padding-block: 0 1rem !important;
+    @include respond-up(small-desktop) {
+      padding-block: 0 1rem !important;
+    }
   }
 </style>

@@ -7,16 +7,21 @@ function observeElement(
     root: null,
     rootMargin: "-40% 0px -40% 0px", // middle band
     threshold: [0, 0.25, 0.5, 0.75, 1],
-  }
+  },
+  once: boolean = false
 ) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         if (toggleClass) entry.target.classList.add(toggleClass);
         customFunction();
+        if (once) observer.unobserve(entry.target);
       } else {
-        if (toggleClass) entry.target.classList.remove(toggleClass);
-        resetFunction();
+        // Only toggle off and call reset when not in "once" mode
+        if (!once) {
+          if (toggleClass) entry.target.classList.remove(toggleClass);
+          resetFunction();
+        }
       }
     });
   }, options);

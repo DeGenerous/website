@@ -90,9 +90,14 @@
   }
 
   onMount(() => {
-    observeElement(root!, null, () => {
-      typeWrite(tagline!, "Highlighted Tweets");
-    });
+    observeElement(
+      root!,
+      null,
+      () => typeWrite(tagline!, "Highlighted Tweets"),
+      () => {}, // no reset
+      undefined,
+      true // animate once and keep visible
+    );
     hydrateTweets();
   });
 </script>
