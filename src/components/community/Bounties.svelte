@@ -15,7 +15,7 @@
   });
 </script>
 
-<section id="bounties" class="flex full-height appear-left-observer" bind:this={section}>
+<section id="bounties" class="flex appear-left-observer" bind:this={section}>
   <h2 bind:this={tagline}>Bug bounty</h2>
 
   <article class="container">
@@ -41,7 +41,7 @@
 
     <p>
       To submit a report, email
-      <a href="mailto:security@dgrs.ink"> security@dgrs.ink </a> with a reproducible proof-of-concept.
+      <a href="mailto:security@dgrs.ink"> our security team </a> with a reproducible proof-of-concept.
       Please allow us 30 days to patch the issue before disclosing it publicly.
     </p>
 

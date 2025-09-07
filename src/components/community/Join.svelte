@@ -14,7 +14,7 @@
   };
 </script>
 
-<section id="join" class="flex full-height">
+<section id="join" class="flex">
   <h2>Join the Generous Degens</h2>
 
   <p class="auto-width pc-narrow">
@@ -273,6 +273,10 @@
     section {
       min-height: 50vh;
     }
+  }
+
+  #join {
+    margin-bottom: 4rem;
   }
 
   .discord {

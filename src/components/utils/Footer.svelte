@@ -6,8 +6,8 @@
 
   import LogoSVG from "@components/icons/Logo.svelte";
 
-  let email = $state("");
-  let lang = $state("en");
+  let email = $state<string>("");
+  let lang = $state<string>("en");
 
   const subscribeToNewsletter = (event: Event) => {
     event.preventDefault();

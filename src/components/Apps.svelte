@@ -53,8 +53,6 @@
   @use "/src/styles/mixins" as *;
 
   section {
-    padding-top: 6rem;
-
     .container {
       img {
         width: min(100%, 40rem);

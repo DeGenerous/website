@@ -7,6 +7,7 @@
   import ConexusAPI from "./enterprise/ConexusAPI.svelte";
   import GenAI from "./enterprise/GenAI.svelte";
   import CSR from "./enterprise/CSR.svelte";
+  import VoidArrowSVG from "@components/icons/VoidArrow.svelte";
 
   let tagline = $state<HTMLHeadingElement>();
   const startTyping = () => setTimeout(() => typeWrite(tagline!, "Enterprise"), 1500);
@@ -44,6 +45,10 @@
     const hash = location.hash.slice(1);
     if (hash && ids.includes(hash as any)) active = hash;
   });
+
+  function scrollDown() {
+    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+  }
 </script>
 
 <section class="flex full-height">
@@ -53,6 +58,7 @@
     department, CSR leader, or ed-tech innovator, our turnkey offerings deliver measurable
     engagement, cost savings, and real-world impact.
   </p>
+  <VoidArrowSVG onclick={scrollDown} />
 </section>
 
 <nav id="intro" class="link-tabs flex round-8">

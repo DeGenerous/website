@@ -30,7 +30,8 @@
   });
 
   function scrollDown() {
-    window.scrollTo({ top: window.innerHeight + 6 * 16, behavior: "smooth" });
+    const trailer = document.getElementById("trailer") as HTMLVideoElement | null;
+    trailer!.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
   const goToTheNextSection = () => {

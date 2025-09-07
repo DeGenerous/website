@@ -7,6 +7,7 @@
   import Join from "@components/community/Join.svelte";
   import Bounties from "@components/community/Bounties.svelte";
   import Ambassadors from "@components/community/Ambassadors.svelte";
+  import VoidArrowSVG from "@components/icons/VoidArrow.svelte";
 
   let tagline = $state<HTMLHeadingElement>();
   const startTyping = () => setTimeout(() => typeWrite(tagline!, "Community"), 1500);
@@ -44,6 +45,10 @@
     const hash = location.hash.slice(1);
     if (hash && ids.includes(hash as any)) active = hash;
   });
+
+  function scrollDown() {
+    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+  }
 </script>
 
 <section class="flex full-height">
@@ -62,6 +67,8 @@
     @degenerousdao.com. We also post on Instagram and TikTok. If you see announcements or activity
     outside of the listed official spaces, treat it with caution.
   </article>
+
+  <VoidArrowSVG onclick={scrollDown} />
 </section>
 
 <!-- style:opacity={active == "intro" ? "0" : "1"} -->
@@ -107,6 +114,10 @@
   section {
     width: 100%;
     gap: 2rem;
+
+    @media (max-height: 700px) {
+      padding-top: 6rem;
+    }
 
     article {
       opacity: 0.5;

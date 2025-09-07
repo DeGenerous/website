@@ -21,6 +21,8 @@
   let hiddenHeader = $state<boolean>(false);
   let hiddenTabs = $state<boolean>(true);
 
+  let lang = $state<string>("en");
+
   onMount(() => {
     const saved = localStorage.getItem("theme");
     $darkTheme = saved === "dark";
@@ -52,7 +54,12 @@
 <svelte:window {onscroll} />
 
 <header class="flex-row blur" class:hide={hiddenHeader} bind:this={header}>
-  <LogoSVG href="/" onclick={showScramble} />
+  <span class="flex-row">
+    <LogoSVG href="/" onclick={showScramble} />
+    <select id="lang" bind:value={lang}>
+      <option value="en" selected>EN</option>
+    </select>
+  </span>
   <nav id="site-nav" class="flex transition" class:hidden={hiddenTabs} aria-label="Primary">
     <ConexusLogoSVG href="https://conexus.degenerousdao.com/" target="_blank" hideForPCs={true} />
     {#each tabs as tab}
@@ -104,6 +111,15 @@
 
     &.hide {
       transform: translateY(-100%);
+    }
+
+    select {
+      width: 4rem;
+      padding: 0;
+
+      @media (max-width: 400px) {
+        display: none;
+      }
     }
 
     nav {

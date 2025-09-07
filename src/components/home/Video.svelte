@@ -9,7 +9,7 @@
   onMount(() => observeElement(videoSection!, "visible"));
 </script>
 
-<section class="conexus-video flex full-height" bind:this={videoSection}>
+<section id="trailer" class="conexus-video flex full-height" bind:this={videoSection}>
   <video
     class="pc-only transition"
     controls

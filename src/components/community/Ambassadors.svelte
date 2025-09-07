@@ -20,7 +20,7 @@
   });
 </script>
 
-<section id="ambassadors" class="flex full-height appear-left-observer" bind:this={section}>
+<section id="ambassadors" class="flex appear-left-observer" bind:this={section}>
   <h2 bind:this={tagline}>Ambassador &amp; Affiliate programs</h2>
 
   <div class="container">
