@@ -15,7 +15,7 @@
   onMount(startTyping);
 </script>
 
-<section class="flex full-height">
+<section class="flex full-height pc-narrow">
   <h1 bind:this={tagline}>Apps</h1>
   <p class="auto-width">
     Explore our ecosystem of innovative applications that power the next generation of media.
@@ -65,9 +65,16 @@
     @include respond-up(full-hd) {
       ul {
         flex-flow: row wrap;
+        align-items: stretch;
 
         .container {
           width: calc(50% - 1rem);
+          justify-content: flex-start;
+
+          &:last-of-type {
+            width: 100%;
+            max-width: unset;
+          }
         }
       }
     }

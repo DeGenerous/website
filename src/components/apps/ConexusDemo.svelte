@@ -94,7 +94,7 @@
     }
 
     @include respond-up(tablet) {
-      height: min(45.25vw, 20rem);
+      height: min(45.25vw, 25rem);
 
       div {
         position: absolute;

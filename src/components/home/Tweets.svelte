@@ -89,12 +89,12 @@
     }
   }
 
-  // onMount(() => {
-  //   observeElement(root!, null, () => {
-  //     typeWrite(tagline!, "Highlighted Tweets");
-  //   });
-  //   hydrateTweets();
-  // });
+  onMount(() => {
+    observeElement(root!, null, () => {
+      typeWrite(tagline!, "Highlighted Tweets");
+    });
+    hydrateTweets();
+  });
 </script>
 
 <section class="flex" bind:this={root}>
