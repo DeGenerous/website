@@ -61,5 +61,15 @@
         border-radius: 0.5rem;
       }
     }
+
+    @include respond-up(full-hd) {
+      ul {
+        flex-flow: row wrap;
+
+        .container {
+          width: calc(50% - 1rem);
+        }
+      }
+    }
   }
 </style>

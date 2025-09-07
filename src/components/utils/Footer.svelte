@@ -59,8 +59,9 @@
   <section class="flex gap">
     <LogoSVG href="/" big={true} branding={true} />
     <p>
-      Building the GenAI ecosystem for storytelling. License, produce, consume, and monetize stories
-      at scale with Text-To-Story & on-chain ownership.
+      Building the GenAI ecosystem for storytelling.
+      <br />
+      License, produce, consume, and monetize stories at scale with Text-To-Story & on-chain ownership.
     </p>
 
     <ul class="socials flex-row">
@@ -73,6 +74,8 @@
       {/each}
     </ul>
 
+    <a href="mailto:contact@dgrs.ink" target="_blank">✉️ Contact Us</a>
+
     <div class="lang flex-row gap-8 flex-wrap">
       <label for="lang">🌐 Language:</label>
       <select id="lang" bind:value={lang}>
@@ -80,11 +83,7 @@
       </select>
     </div>
 
-    <div class="flex-row">
-      <a href="/" onclick={resetCookieConsent}> Cookie Policy </a>
-      <span> • </span>
-      <a href="mailto:contact@dgrs.ink" target="_blank"> contact@dgrs.ink </a>
-    </div>
+    <a href="/" onclick={resetCookieConsent}>🛠️ Cookie Policy</a>
 
     <span class="flex gap-8">
       <p>© DGRS Labs Pte. Ltd.</p>
@@ -131,6 +130,10 @@
   .newsletter {
     border-top: 1px solid rgba(150, 150, 150, 0.25);
     @include light-blue(0.1);
+
+    @include respond-up("full-hd") {
+      padding-bottom: 2rem;
+    }
   }
 
   footer {
@@ -222,28 +225,47 @@
           width: calc((100% - 2rem * 8) / 8);
         }
       }
+
+      @include respond-up("quad-hd") {
+        width: 1500px;
+      }
     }
 
     @include respond-up("full-hd") {
       flex-direction: row;
-      justify-content: space-around;
       align-items: flex-start;
+      padding-block: 2rem;
 
       section {
-        width: 30%;
+        width: 360px;
         align-items: flex-start;
 
         p {
           text-align: left;
+          max-width: 280px;
         }
 
         span {
           align-items: flex-start;
         }
+
+        .lang select {
+          max-width: 230px;
+        }
       }
 
       hr {
         display: none;
+      }
+    }
+
+    @include respond-up("quad-hd") {
+      section {
+        width: 420px;
+
+        p {
+          max-width: 300px;
+        }
       }
     }
   }

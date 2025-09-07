@@ -30,7 +30,7 @@
   });
 
   function scrollDown() {
-    window.scrollTo({ top: window.innerHeight + 5 * 16, behavior: "smooth" });
+    window.scrollTo({ top: window.innerHeight + 6 * 16, behavior: "smooth" });
   }
 
   const goToTheNextSection = () => {

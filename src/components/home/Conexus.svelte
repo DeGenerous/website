@@ -61,10 +61,9 @@
   $card-h: 10rem;
   $space: 1rem; // spacing between cards (use margin, not gap)
   $edge-fade: 5%;
-  $dur-per-card: 1s; // speed: total duration = count * dur-per-card
+  $dur-per-card: 2s; // speed: total duration = count * dur-per-card
 
   section {
-    margin-block: 4rem;
     padding-inline: 0;
     max-width: 100vw;
     border-radius: 0;
@@ -73,6 +72,8 @@
 
     @include respond-up("small-desktop") {
       margin-block: 0 4rem;
+      gap: 1.5rem;
+      padding-block: 1.5rem;
     }
 
     h3,
@@ -85,21 +86,6 @@
   .stories {
     width: 100%;
     overflow: hidden;
-
-    // -webkit-mask-image: linear-gradient(
-    //   90deg,
-    //   transparent 0,
-    //   #000 #{$edge-fade},
-    //   #000 calc(100% - #{$edge-fade}),
-    //   transparent 100%
-    // );
-    // mask-image: linear-gradient(
-    //   90deg,
-    //   transparent 0,
-    //   #000 #{$edge-fade},
-    //   #000 calc(100% - #{$edge-fade}),
-    //   transparent 100%
-    // );
   }
 
   /* The moving track */

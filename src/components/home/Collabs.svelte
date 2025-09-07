@@ -22,6 +22,8 @@
   @use "/src/styles/mixins" as *;
 
   section {
+    margin-block: 4rem;
+
     ul {
       li {
         width: calc(50% - 0.5rem);

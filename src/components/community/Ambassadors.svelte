@@ -83,6 +83,12 @@
 
     @include respond-up(full-hd) {
       flex-direction: row;
+
+      article {
+        a {
+          margin-inline: 0;
+        }
+      }
     }
   }
 

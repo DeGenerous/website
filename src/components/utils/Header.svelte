@@ -98,6 +98,10 @@
     @include box-shadow;
     @include light-blue(0.1);
 
+    @include respond-up("tablet") {
+      padding: 1rem;
+    }
+
     &.hide {
       transform: translateY(-100%);
     }

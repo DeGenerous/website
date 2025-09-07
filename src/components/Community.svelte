@@ -106,6 +106,7 @@
 
   section {
     width: 100%;
+    gap: 2rem;
 
     article {
       opacity: 0.5;

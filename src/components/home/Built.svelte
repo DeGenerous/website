@@ -70,7 +70,7 @@
   }
 </script>
 
-<section class="flex full-height">
+<section class="flex">
   <h3 bind:this={tagline}>Built on DGRS</h3>
 
   <p class="auto-width pc-narrow">
@@ -121,6 +121,7 @@
   section {
     .carousel {
       width: 100vw;
+      max-width: 1450px;
       display: flex;
       align-items: center;
       gap: 0.75rem;
@@ -130,6 +131,10 @@
 
       @include respond-up("tablet") {
         padding-inline: 0.5rem; /* visual breathing room around arrows */
+      }
+
+      @include respond-up(quad-hd) {
+        max-width: 2000px;
       }
     }
 
@@ -173,9 +178,12 @@
           scroll-snap-align: start;
         }
 
-        @include respond-up("quad-hd") {
-          height: 15vw;
-          width: 12.5vw; /* fixed width for wide desktop */
+        @include respond-up(large-desktop) {
+          width: 318px;
+        }
+
+        @include respond-up(quad-hd) {
+          width: 356px;
         }
 
         * {

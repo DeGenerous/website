@@ -26,10 +26,7 @@
       </g>
     </svg>
     <svg class="icon moon" viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
-        fill="currentColor"
-      />
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" />
     </svg>
     <span class="thumb shad-behind"></span>
   </span>
@@ -59,27 +56,29 @@
       transition: background-color 0.3s ease;
       @include light-blue(0.25);
       // @include box-shadow(soft, inset);
-  
+
       .icon {
         position: absolute;
         top: 50%;
         width: calc($h * 0.75);
         height: calc($h * 0.75);
         transform: translateY(-50%);
-        transition: opacity 0.3s ease, color 0.3s ease;
+        transition:
+          opacity 0.3s ease,
+          color 0.3s ease;
         pointer-events: none;
       }
-  
+
       .sun {
         left: calc($pad + 0.25rem);
         @include cyan(0.75, text);
       }
-  
+
       .moon {
         right: calc($pad + 0.25rem);
         @include light-blue(0.75, text);
       }
-  
+
       .thumb {
         position: absolute;
         top: $pad;
@@ -114,4 +113,3 @@
     }
   }
 </style>
-

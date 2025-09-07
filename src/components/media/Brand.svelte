@@ -229,7 +229,7 @@
   @use "/src/styles/mixins" as *;
 
   section {
-    margin-top: 5rem;
+    margin-top: 6rem;
 
     @include respond-up(quad-hd) {
       flex-flow: row wrap;
