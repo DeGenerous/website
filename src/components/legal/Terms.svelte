@@ -15,7 +15,7 @@
   <h1 bind:this={tagline}>DGRS Labs General Terms of Service</h1>
 
   <article class="auto-width">
-    Last updated: [Insert Date]
+    Last updated: 12 September 2025
     <br />
     <br />
     These Terms of Service and our Privacy Policy describe who we are, under what terms and circumstances

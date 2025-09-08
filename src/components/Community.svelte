@@ -63,8 +63,8 @@
   </p>
   <article class="container">
     We communicate through a few trusted channels. All official discussions take place on our
-    Discord server, via the @degenerousdao account on X, or through verified emails ending in
-    @degenerousdao.com. We also post on Instagram and TikTok. If you see announcements or activity
+    Discord server, via the @dgrs_labs account on X, or through verified emails ending in
+    @dgrslabs.ink. We also post on Instagram and TikTok. If you see announcements or activity
     outside of the listed official spaces, treat it with caution.
   </article>
 

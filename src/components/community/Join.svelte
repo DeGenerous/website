@@ -55,11 +55,11 @@
         >
           <a
             class="nohover-link flex-row"
-            href="https://www.instagram.com/degenerousdao"
+            href="https://www.instagram.com/dgrs_labs"
             target="_blank"
             rel="noopener noreferrer"
           >
-            @degenerousdao
+            @dgrs_labs
             <OpenSVG />
           </a>
           <a
@@ -96,11 +96,11 @@
         >
           <a
             class="nohover-link flex-row"
-            href="https://x.com/degenerousdao"
+            href="https://x.com/dgrs_labs"
             target="_blank"
             rel="noopener noreferrer"
           >
-            @degenerousdao
+            @dgrs_labs
             <OpenSVG />
           </a>
           <a
@@ -118,7 +118,7 @@
     <li>
       <a
         class="nohover-link flex-row blur"
-        href="https://www.tiktok.com/@degenerousdao"
+        href="https://www.tiktok.com/@conexus_stories"
         target="_blank"
         rel="noopener noreferrer"
       >

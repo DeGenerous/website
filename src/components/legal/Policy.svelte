@@ -13,7 +13,7 @@
 <section class="flex">
   <h1 bind:this={tagline}>DGRS Labs Privacy Policy</h1>
   <article>
-    Effective Date: [Insert Date]
+    Effective Date: 12 September 2025
     <br />
     <br />
     DGRS Labs Pte. Ltd, respects your right to privacy. This Privacy Policy describes who we are, what

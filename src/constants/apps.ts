@@ -14,7 +14,7 @@ const apps: App[] = [
   {
     name: "Loredex",
     description:
-      "Loredex auto‑builds interactive mindmaps for franchises - connecting IP assets such as characters, locations, and eOur text-to-story engine is the most efficient way for anyone to create or star in high‑quality, visually immersive stories, spanning story games, novels, and films.pisodes across time. Users can filter and search through 150,000 years of the Dischordian Saga—or any franchise—seeing alliances, rivalries, and key moments animate in real time. The tool converts complex universes into intuitive, living, and evolving knowledge bases, making fan exploration effortless.",
+      "Loredex auto‑builds interactive mindmaps for franchises - connecting IP assets such as characters, locations, and episodes across time. Users can filter and search through 150,000 years of the Dischordian Saga—or any franchise—seeing alliances, rivalries, and key moments animate in real time. The tool converts complex universes into intuitive, living, and evolving knowledge bases, making fan exploration effortless.",
     href: "https://loredex.degenerousdao.com/",
   },
   {

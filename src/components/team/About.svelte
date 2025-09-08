@@ -37,16 +37,16 @@
       <h4>How we operate</h4>
       <ul class="flex">
         <li>
-          <p>Iterate relentlessly – weekly releases</p>
+          <p><b>Relentless iteration</b> — weekly releases, compounding progress</p>
         </li>
         <li>
-          <p>Tiny strike teams with clear ownership</p>
+          <p><b>Lean teams</b> — small groups, clear ownership, accountability</p>
         </li>
         <li>
-          <p>Community input guides every sprint</p>
+          <p><b>Community-driven</b> — user feedback shapes priorities and sprints</p>
         </li>
         <li>
-          <p>Data over opinions, rapid experiments, ruthless focus</p>
+          <p><b>Evidence-based</b> — data and experiments drive decisions</p>
         </li>
       </ul>
     </span>
@@ -144,6 +144,11 @@
 
       .how-to {
         width: calc(40% - 1rem);
+        text-align: left;
+
+        li {
+          width: 100%;
+        }
       }
 
       .value span {

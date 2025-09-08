@@ -77,7 +77,7 @@
   
   <span class="flex-row">
     <a class="contact-us nohover-link pc-only" href="mailto:contact@dgrs.ink">
-      Contact Sales
+      Contact Sales <!-- ➜ -->
     </a>
     <ThemeToggle />
     <select id="lang" bind:value={lang}>
