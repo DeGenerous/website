@@ -28,8 +28,7 @@
 
   <div class="container">
     <video class="round transition" controls aria-label="CoNexus showcase video">
-      <!-- <source src={`${trailerURL}/CoNexusTrailer.webm`} type="video/webm" /> -->
-      <source src="CoNexus.mp4" type="video/mp4" />
+      <source src="/conexus.mp4" type="video/mp4" />
       <track kind="captions" />
     </video>
 

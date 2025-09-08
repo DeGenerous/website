@@ -21,8 +21,8 @@
     poster="/apps/conexusBG.webp"
     aria-label="CoNexus trailer video"
   >
-    <source src={`${trailerURL}/CoNexusTrailer.webm`} type="video/webm" />
-    <source src={`${trailerURL}/CoNexusTrailer.mp4`} type="video/mp4" />
+    <source src="/hero.webm" type="video/webm" />
+    <source src="/hero.mp4" type="video/mp4" />
     <track kind="captions" />
   </video>
 
@@ -37,8 +37,8 @@
     poster="/apps/conexusBG.webp"
     aria-label="CoNexus trailer video"
   >
-    <source src="/CoNexusTrailer-mobile.webm" type="video/webm" />
-    <source src="/CoNexusTrailer.mp4" type="video/mp4" />
+    <source src="/hero-mobile.webm" type="video/webm" />
+    <source src="/hero-mobile.mp4" type="video/mp4" />
     <track kind="captions" />
   </video>
 </section>
