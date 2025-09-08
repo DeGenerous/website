@@ -96,7 +96,7 @@
             </article>
           </li>
           <li class="flex">
-            <img src="/team/chang.jpeg" alt="Lyndon Chang" />
+            <img src="/team/lyndon.jpeg" alt="Lyndon Chang" />
             <article class="flex">
               <h4>
                 Lyndon&nbsp;Chang <span>AI Solutions Engineer</span>
@@ -112,7 +112,7 @@
       <li class="flex">
         <ul class="flex">
           <li class="flex">
-            <img src="/team/cryptok.jpg" alt="Sean 'Cryptok' Dugan" />
+            <img src="/team/cryptok.jpeg" alt="Sean 'Cryptok' Dugan" />
             <article class="flex">
               <h4>
                 Sean “Cryptok”&nbsp;Dugan <span>Cinematics Director &amp; Producer</span>
