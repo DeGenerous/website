@@ -3,6 +3,7 @@
 
   import observeElement from "@utils/observer";
   import typeWrite from "@utils/typewriter";
+  import { enterpriseURL } from "@constants/media";
 
   let section = $state<HTMLElement>();
   let tagline = $state<HTMLHeadingElement>();
@@ -29,7 +30,7 @@
 >
   <h2 bind:this={tagline}>CoNexus API</h2>
   <div class="container">
-    <img class="round-8" src="/enterprise/conexus-api.gif" alt="CoNexus API" />
+    <img class="round-8" src={enterpriseURL + "/conexus-api.gif"} alt="CoNexus API" loading="lazy" decoding="async" />
     <article class="flex">
       <p>
         Embed a living, breathing GenAI story engine into your website, app, game, brand portal, or

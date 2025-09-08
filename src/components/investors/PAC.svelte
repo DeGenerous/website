@@ -10,7 +10,7 @@
 
 <section class="flex">
   <span class="flex-row">
-    <img width="400" height="400" src="/investors/pac.webp" alt="PAC" />
+    <img width="400" height="400" src="/investors/pac.webp" alt="PAC" loading="lazy" decoding="async" />
     <h1 bind:this={tagline}>$PAC</h1>
   </span>
   <article class="container appear-bottom">

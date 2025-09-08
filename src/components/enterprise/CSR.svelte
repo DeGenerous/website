@@ -3,6 +3,7 @@
 
   import observeElement from "@utils/observer";
   import typeWrite from "@utils/typewriter";
+  import { enterpriseURL } from "@constants/media";
 
   let section = $state<HTMLElement>();
   let tagline = $state<HTMLHeadingElement>();
@@ -25,7 +26,7 @@
 <section id="csr" class="flex pad-inline appear-left-observer full-height" bind:this={section}>
   <h2 bind:this={tagline}>CSR with Real Impact</h2>
   <div class="container">
-    <img class="round-8" src="/enterprise/csr.gif" alt="CSR with Real Impact" />
+    <img class="round-8" src={enterpriseURL + "/csr.gif"} alt="CSR with Real Impact" loading="lazy" decoding="async" />
     <article class="flex">
       <p>
         Activate your company’s purpose through fully branded service missions in partnership with

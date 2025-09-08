@@ -11,7 +11,7 @@
     {#each collabs as { href, src, alt }}
       <li class="transition">
         <a class="nohover-link" {href} target="_blank" rel="noopener noreferrer">
-          <img class="transition" {src} {alt} />
+          <img class="transition" {src} {alt} loading="lazy" decoding="async" />
         </a>
       </li>
     {/each}

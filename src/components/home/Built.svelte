@@ -101,7 +101,7 @@
         >
           <span class="pad-8">
             <p>{project.description}</p>
-            <img src={project.image} alt={project.title} />
+            <img src={project.image} alt={project.title} loading="lazy" decoding="async" />
             <h5 class="fade-in">Click to learn more...</h5>
           </span>
           <h4>{project.title}</h4>

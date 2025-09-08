@@ -13,7 +13,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="{mediaURL}/conexus-sections/communitypicks.avif" alt="Community Picks" />
+          <img src="{mediaURL}/conexus-sections/communitypicks.avif" alt="Community Picks" loading="lazy" decoding="async" />
           <h4>Community Picks</h4>
         </a>
         <a
@@ -22,7 +22,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="{mediaURL}/conexus-sections/collabs.avif" alt="Collabs" />
+          <img src="{mediaURL}/conexus-sections/collabs.avif" alt="Collabs" loading="lazy" decoding="async" />
           <h4>Collabs</h4>
         </a>
         <a
@@ -31,14 +31,14 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src="{mediaURL}/conexus-sections/dischordiansaga.avif" alt="Dischordian Saga" />
+          <img src="{mediaURL}/conexus-sections/dischordiansaga.avif" alt="Dischordian Saga" loading="lazy" decoding="async" />
           <h4>Dischordian Saga</h4>
         </a>
       </ul>
       <p>Infinitely unique. Never repeatable.</p>
     </span>
   </div>
-  <img src="/apps/conexusBG.webp" alt="CoNexus" />
+  <img src="/apps/conexusBG.webp" alt="CoNexus" loading="lazy" decoding="async" />
 </section>
 
 <style lang="scss">

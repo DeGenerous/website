@@ -3,6 +3,7 @@
 
   import observeElement from "@utils/observer";
   import typeWrite from "@utils/typewriter";
+  import { communityURL } from "@constants/media";
 
   let section = $state<HTMLElement>();
   let tagline = $state<HTMLHeadingElement>();
@@ -26,7 +27,7 @@
   <h2 bind:this={tagline}>Ambassador &amp; Affiliate programs</h2>
 
   <div class="container">
-    <img class="round-8" src="/community/ambassadors.gif" alt="Ambassadors & Affiliates" />
+    <img class="round-8" src={`${communityURL}/ambassadors.gif`} alt="Ambassadors & Affiliates" loading="lazy" decoding="async" />
     <article class="flex">
       <p>
         If you have <b>1,000+ followers</b> on any platform and want to help us grow CoNexus, you can

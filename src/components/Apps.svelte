@@ -29,9 +29,9 @@
         {:else if name === "Galactic Governance Hub"}
           <GovernanceHubDemo />
         {:else if name === "Loredex"}
-          <img src="/apps/loredex.gif" alt="Loredex" />
+          <img src="/apps/loredex.gif" alt="Loredex" loading="lazy" decoding="async" />
         {:else if name === "OmniHub"}
-          <img src="/apps/omnihub.gif" alt="OmniHub" />
+          <img src="/apps/omnihub.gif" alt="OmniHub" loading="lazy" decoding="async" />
         {:else if name === "Sagaverse Gaming"}
           <SagaverseDemo />
         {/if}

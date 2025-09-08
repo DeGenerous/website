@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
 
   import typeWrite from "@utils/typewriter";
+  import { sagaverseURL } from "@constants/media";
 
   let tagline = $state<HTMLHeadingElement>();
 
@@ -18,7 +19,7 @@
   </p>
   <div class="flex">
     <div class="container">
-      <img src="/apps/sagaverse/B4N.gif" alt="Battle for Nexon" />
+      <img src={`${sagaverseURL}/B4N.gif`} alt="Battle for Nexon" loading="lazy" decoding="async" />
       <article class="flex">
         <h3>Battle for Nexon</h3>
         <p>
@@ -39,7 +40,7 @@
     </div>
 
     <div class="container">
-      <img class="tall" src="/apps/sagaverse/AA.gif" alt="Ark Assassin" />
+      <img class="tall" src={`${sagaverseURL}/AA.gif`} alt="Ark Assassin" loading="lazy" decoding="async" />
       <article class="flex">
         <h3>Ark Assassin</h3>
         <p>
@@ -59,7 +60,7 @@
     </div>
 
     <div class="container">
-      <img src="/apps/sagaverse/LS.gif" alt="Last Stand" />
+      <img src={`${sagaverseURL}/LS.gif`} alt="Last Stand" loading="lazy" decoding="async" />
       <article class="flex">
         <h3>Last Stand</h3>
         <p>
@@ -80,7 +81,7 @@
 
     <div class="collab container">
       <span class="flex">
-        <img src="/apps/sagaverse/TDZ.gif" alt="The Dark Zoo" />
+        <img src={`${sagaverseURL}/TDZ.gif`} alt="The Dark Zoo" loading="lazy" decoding="async" />
         <article class="flex">
           <h3>GLMR Apes: The Dark Zoo</h3>
           <p>

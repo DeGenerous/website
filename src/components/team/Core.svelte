@@ -62,7 +62,7 @@
       <li class="flex">
         <ul class="flex">
           <li class="flex">
-            <img src="/team/anusiem.jpg" alt="Anusiem John-Franklin" />
+            <img src="/team/anusiem.jpg" alt="Anusiem John-Franklin" loading="lazy" decoding="async" />
             <article class="flex">
               <h4>
                 Anusiem&nbsp;John-Franklin <span>Lead Full-Stack Engineer</span>
@@ -74,7 +74,7 @@
             </article>
           </li>
           <li class="flex">
-            <img src="/team/vani.jpg" alt="Vani" />
+            <img src="/team/vani.jpg" alt="Vani" loading="lazy" decoding="async" />
             <article class="flex">
               <h4>Vani <span>Web3 Engineer</span></h4>
               <p>
@@ -84,7 +84,7 @@
             </article>
           </li>
           <li class="flex">
-            <img src="/team/dimon.jpg" alt="Dmytro Bryla" />
+            <img src="/team/dimon.jpg" alt="Dmytro Bryla" loading="lazy" decoding="async" />
             <article class="flex">
               <h4>
                 Dmytro&nbsp;Bryla <span>Senior Front-End &amp; UX Engineer</span>
@@ -96,7 +96,7 @@
             </article>
           </li>
           <li class="flex">
-            <img src="/team/lyndon.jpeg" alt="Lyndon Chang" />
+            <img src="/team/lyndon.jpeg" alt="Lyndon Chang" loading="lazy" decoding="async" />
             <article class="flex">
               <h4>
                 Lyndon&nbsp;Chang <span>AI Solutions Engineer</span>
@@ -113,7 +113,7 @@
       <li class="flex">
         <ul class="flex">
           <li class="flex">
-            <img src="/team/cryptok.jpeg" alt="Sean 'Cryptok' Dugan" />
+            <img src="/team/cryptok.jpeg" alt="Sean 'Cryptok' Dugan" loading="lazy" decoding="async" />
             <article class="flex">
               <h4>
                 Sean “Cryptok”&nbsp;Dugan <span>Cinematics Director &amp; Producer</span>
@@ -126,7 +126,7 @@
             </article>
           </li>
           <li class="flex">
-            <img src="/team/kit.jpg" alt="Kit" />
+            <img src="/team/kit.jpg" alt="Kit" loading="lazy" decoding="async" />
             <article class="flex">
               <h4>Kit <span>Art Director</span></h4>
               <p>
@@ -141,7 +141,7 @@
       <li class="flex">
         <ul class="flex">
           <li class="flex">
-            <img src="/team/kyt.jpg" alt="Kyt" />
+            <img src="/team/kyt.jpg" alt="Kyt" loading="lazy" decoding="async" />
             <article class="flex">
               <h4>Kyt <span>Community Strategist</span></h4>
               <p>
@@ -151,7 +151,7 @@
             </article>
           </li>
           <li class="flex">
-            <img src="/team/alexander.jpeg" alt="Alexander Mar" />
+            <img src="/team/alexander.jpeg" alt="Alexander Mar" loading="lazy" decoding="async" />
             <article class="flex">
               <h4>Alexander&nbsp;Mar <span>Lead Ambassador</span></h4>
               <p>

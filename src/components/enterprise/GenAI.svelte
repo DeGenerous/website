@@ -3,6 +3,7 @@
 
   import observeElement from "@utils/observer";
   import typeWrite from "@utils/typewriter";
+  import { enterpriseURL } from "@constants/media";
 
   let section = $state<HTMLElement>();
   let tagline = $state<HTMLHeadingElement>();
@@ -25,7 +26,7 @@
 <section id="gen-ai" class="flex pad-inline appear-left-observer full-height" bind:this={section}>
   <h2 bind:this={tagline}>GenAI Film Studio</h2>
   <div class="container">
-    <img class="round-8" src="/enterprise/gen-ai.gif" alt="GenAI Film Studio" />
+    <img class="round-8" src={enterpriseURL + "/gen-ai.gif"} alt="GenAI Film Studio" loading="lazy" decoding="async" />
     <article class="flex">
       <p>
         Harness the power of AI alongside veteran directors and editors to produce everything from

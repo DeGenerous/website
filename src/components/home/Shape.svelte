@@ -28,8 +28,8 @@
 
   <div class="container">
     <video class="round transition" controls aria-label="CoNexus showcase video">
-      <source src="/conexus.mp4" type="video/mp4" />
-      <track kind="captions" />
+      <source src={trailerURL + "/conexus.mp4"} type="video/mp4" />
+      <track kind="captions" />``
     </video>
 
     <article class="flex">
