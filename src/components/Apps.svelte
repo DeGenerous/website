@@ -29,13 +29,13 @@
         {:else if name === "Galactic Governance Hub"}
           <GovernanceHubDemo />
         {:else if name === "Loredex"}
-          <img src="/apps/loredex.webp" alt="Loredex" />
+          <img src="/apps/loredex.gif" alt="Loredex" />
         {:else if name === "OmniHub"}
-          <img src="/apps/omnihub.webp" alt="OmniHub" />
+          <img src="/apps/omnihub.gif" alt="OmniHub" />
         {:else if name === "Sagaverse Gaming"}
           <SagaverseDemo />
         {/if}
-        <p>{description}</p>
+        <p class="auto-width">{description}</p>
         <a
           class="button-anchor"
           {href}
@@ -71,7 +71,7 @@
 
           &:last-of-type {
             width: 100%;
-            max-width: unset;
+            max-width: 90rem;
           }
         }
       }
