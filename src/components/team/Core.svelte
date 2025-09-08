@@ -95,6 +95,17 @@
               </p>
             </article>
           </li>
+          <li class="flex">
+            <img src="/team/chang.jpeg" alt="Lyndon Chang" />
+            <article class="flex">
+              <h4>
+                Lyndon&nbsp;Chang <span>AI Solutions Engineer</span>
+              </h4>
+              <p>
+                Builds custom AI software and end‑to‑end automations that orchestrate systems at scale. Strong computer science foundation with blockchain expertise.
+              </p>
+            </article>
+          </li>
         </ul>
       </li>
 
@@ -131,10 +142,19 @@
           <li class="flex">
             <img src="/team/kyt.jpg" alt="Kyt" />
             <article class="flex">
-              <h4>Kyt <span>Lead Ambassador</span></h4>
+              <h4>Kyt <span>Community Strategist</span></h4>
               <p>
                 Twenty years in community building, content production, and strategy. Forges
                 partnerships and empowers new voices on-chain.
+              </p>
+            </article>
+          </li>
+          <li class="flex">
+            <img src="/team/alexander.jpeg" alt="Alexander Mar" />
+            <article class="flex">
+              <h4>Alexander&nbsp;Mar <span>Lead Ambassador</span></h4>
+              <p>
+                Prominent fantasy author whose novels resonate with thousands of readers worldwide. Cultural ambassador uniting fantasy communities through immersive worldbuilding, events, and frequent TV appearances.
               </p>
             </article>
           </li>
