@@ -56,26 +56,33 @@
 <header class="flex-row blur" class:hide={hiddenHeader} bind:this={header}>
   <span class="flex-row">
     <LogoSVG href="/" onclick={showScramble} />
+    <nav id="site-nav" class="flex transition" class:hidden={hiddenTabs} aria-label="Primary">
+      <ConexusLogoSVG href="https://conexus.degenerousdao.com/" target="_blank" hideForPCs={true} />
+      {#each tabs as tab}
+        <a
+          class="nohover-link"
+          class:active={activeTab === tab}
+          href="/{tab}"
+          aria-current={activeTab === tab ? "page" : undefined}
+          onclick={showScramble}
+        >
+          {tab}
+        </a>
+      {/each}
+      <a class="contact-us nohover-link" href="mailto:contact@dgrs.ink">
+        Contact Sales
+      </a>
+    </nav>
+  </span>
+  
+  <span class="flex-row">
+    <a class="contact-us nohover-link pc-only" href="mailto:contact@dgrs.ink">
+      Contact Sales
+    </a>
+    <ThemeToggle />
     <select id="lang" bind:value={lang}>
       <option value="en" selected>EN</option>
     </select>
-  </span>
-  <nav id="site-nav" class="flex transition" class:hidden={hiddenTabs} aria-label="Primary">
-    <ConexusLogoSVG href="https://conexus.degenerousdao.com/" target="_blank" hideForPCs={true} />
-    {#each tabs as tab}
-      <a
-        class="nohover-link"
-        class:active={activeTab === tab}
-        href="/{tab}"
-        aria-current={activeTab === tab ? "page" : undefined}
-        onclick={showScramble}
-      >
-        {tab}
-      </a>
-    {/each}
-  </nav>
-  <span class="flex-row">
-    <ThemeToggle />
     <ConexusLogoSVG
       href="https://conexus.degenerousdao.com/"
       target="_blank"
@@ -120,6 +127,16 @@
 
       @media (max-width: 400px) {
         display: none;
+      }
+    }
+
+    .contact-us {
+      @include dark-blue(1, text);
+
+      &:hover,
+      &:active,
+      &:focus {
+        @include light-blue(1, text);
       }
     }
 
@@ -175,6 +192,10 @@
         &.hidden {
           opacity: 1;
         }
+
+        a.contact-us {
+          display: none;
+        }
       }
     }
   }
@@ -192,6 +213,16 @@
   :global(body.dark) {
     header {
       @include dark-blue;
+
+      .contact-us {
+        @include white-txt;
+
+        &:hover,
+        &:active,
+        &:focus {
+          @include cyan(1, text);
+        }
+      }
 
       nav {
         @include dark-blue;
