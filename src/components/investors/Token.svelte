@@ -13,10 +13,9 @@
   <article class="container appear-bottom">
     <h3>(Coming Soon)</h3>
     <p>
-      A single utility-and-governance token will ultimately power everything across our ecosystem, and
-      its value will be backed by the real-world usage of CoNexus. Details on economics and the launch
-      schedule will be released soon.
-      You can read our <a
+      A single utility-and-governance token will ultimately power everything across our ecosystem,
+      and its value will be backed by the real-world usage of CoNexus. Details on economics and the
+      launch schedule will be released soon. You can read our <a
         href="https://medium.com/@uros_52593/text-to-story-a-manifesto-for-the-narrative-engine-age-6de9718e6df4"
         target="_blank"
         rel="noopener noreferrer"

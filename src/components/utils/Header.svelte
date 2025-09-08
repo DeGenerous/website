@@ -58,23 +58,32 @@
     <LogoSVG href="/" onclick={showScramble} />
     <nav id="site-nav" class="flex transition" class:hidden={hiddenTabs} aria-label="Primary">
       <ConexusLogoSVG href="https://conexus.degenerousdao.com/" target="_blank" hideForPCs={true} />
-      {#each tabs as tab}
-        <a
-          class="nohover-link"
-          class:active={activeTab === tab}
-          href="/{tab}"
-          aria-current={activeTab === tab ? "page" : undefined}
-          onclick={showScramble}
-        >
-          {tab}
-        </a>
+      {#each tabs as { name, links }}
+        <div class="nav-item flex" class:active={activeTab === name}>
+          <a
+            class="tab nohover-link"
+            href="/{name}"
+            aria-current={activeTab === name ? "page" : undefined}
+            onclick={showScramble}
+          >
+            {name}
+            {#if links}
+              <span class="arrow" aria-hidden="true"></span>
+            {/if}
+          </a>
+          {#if links}
+            <div class="dropdown flex round-8 fade-in" role="menu">
+              {#each links as { name, href }}
+                <a class="nohover-link" {href} role="menuitem">{name}</a>
+              {/each}
+            </div>
+          {/if}
+        </div>
       {/each}
-      <a class="contact-us nohover-link" href="mailto:contact@dgrs.ink">
-        Contact Sales
-      </a>
+      <a class="contact-us nohover-link" href="mailto:contact@dgrs.ink"> Contact Sales </a>
     </nav>
   </span>
-  
+
   <span class="flex-row">
     <a class="contact-us nohover-link pc-only" href="mailto:contact@dgrs.ink">
       Contact Sales <!-- ➜ -->
@@ -151,34 +160,99 @@
       background-color: white;
       @include box-shadow;
 
-      &.hidden {
-        right: -100%;
-        opacity: 0;
-      }
-
-      a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      .nav-item {
+        position: relative;
         width: 100%;
-        height: 2.5rem;
-        padding-inline: 0.5rem;
-        border-radius: 0.5rem;
-        font-weight: 500;
-        text-transform: capitalize;
-        @include dark-blue(1, text);
 
-        &:hover,
-        &:active,
-        &:focus {
-          text-decoration: none;
-          @include light-blue(1, text);
+        .tab {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 2.5rem;
+          padding-inline: 0.5rem;
+          border-radius: 0.5rem;
+          font-weight: 500;
+          text-transform: capitalize;
+          @include dark-blue(1, text);
+
+          &:hover,
+          &:active,
+          &:focus {
+            text-decoration: none;
+            @include light-blue(1, text);
+          }
+
+          .arrow {
+            display: inline-block;
+            width: 0.5rem;
+            height: 0.5rem;
+            margin-left: 0.35rem;
+            border-right: 2px solid currentColor;
+            border-bottom: 2px solid currentColor;
+            transform: rotate(-45deg);
+            transition: transform 0.2s ease;
+            display: none;
+
+            @include respond-up("small-desktop") {
+              display: inline-block;
+            }
+          }
         }
 
-        &.active {
+        &.active .tab {
           @include blue(1, text);
           @include light-blue(0.25);
         }
+
+        .dropdown {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          align-items: flex-start;
+          gap: 0;
+          background: white;
+          @include box-shadow;
+          z-index: 10;
+
+          a {
+            width: 100%;
+            padding-inline: 1rem;
+            text-align: left;
+            white-space: nowrap;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1.5rem;
+            @include dark-blue(1, text);
+
+            &:hover,
+            &:active,
+            &:focus {
+              @include light-blue(0.25);
+              @include blue(1, text);
+            }
+          }
+        }
+
+        @include respond-up("small-desktop") {
+          &:hover,
+          &:focus-within {
+            &:not(.active) {
+              .arrow {
+                transform: rotate(45deg);
+              }
+
+              .dropdown {
+                display: flex;
+              }
+            }
+          }
+        }
+      }
+
+      &.hidden {
+        right: -100%;
+        opacity: 0;
       }
 
       @include respond-up("small-desktop") {
@@ -227,18 +301,35 @@
       nav {
         @include dark-blue;
 
-        a {
-          @include white-txt;
+        .nav-item {
+          .tab {
+            @include white-txt;
 
-          &:hover,
-          &:active,
-          &:focus {
-            @include cyan(1, text);
+            &:hover,
+            &:active,
+            &:focus {
+              @include cyan(1, text);
+            }
           }
 
-          &.active {
+          &.active .tab {
             @include dark-blue(1, text);
             @include cyan;
+          }
+
+          .dropdown {
+            @include dark-blue;
+
+            a {
+              @include white-txt;
+
+              &:hover,
+              &:active,
+              &:focus {
+                @include navy;
+                @include cyan(1, text);
+              }
+            }
           }
         }
       }

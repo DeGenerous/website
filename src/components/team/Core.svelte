@@ -102,7 +102,8 @@
                 Lyndon&nbsp;Chang <span>AI Solutions Engineer</span>
               </h4>
               <p>
-                Builds custom AI software and end‑to‑end automations that orchestrate systems at scale. Strong computer science foundation with blockchain expertise.
+                Builds custom AI software and end‑to‑end automations that orchestrate systems at
+                scale. Strong computer science foundation with blockchain expertise.
               </p>
             </article>
           </li>
@@ -154,7 +155,9 @@
             <article class="flex">
               <h4>Alexander&nbsp;Mar <span>Lead Ambassador</span></h4>
               <p>
-                Prominent fantasy author whose novels resonate with thousands of readers worldwide. Cultural ambassador uniting fantasy communities through immersive worldbuilding, events, and frequent TV appearances.
+                Prominent fantasy author whose novels resonate with thousands of readers worldwide.
+                Cultural ambassador uniting fantasy communities through immersive worldbuilding,
+                events, and frequent TV appearances.
               </p>
             </article>
           </li>

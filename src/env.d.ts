@@ -3,6 +3,15 @@
 
 type Nullable<T> = null | T;
 
+type HeaderTab = {
+  name: string;
+  links?: {
+    name: string;
+    href: string;
+    target: string;
+  }[];
+};
+
 type Roadmap = {
   section: string;
   goals: {

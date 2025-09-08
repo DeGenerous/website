@@ -10,7 +10,7 @@
   onMount(startTyping);
 </script>
 
-<section class="flex full-height">
+<section class="flex pc-narrow">
   <h1 bind:this={tagline}>Sagaverse Gaming</h1>
   <p class="auto-width">
     Sagaverse Gaming consists of custom games and events that seamlessly integrate with the
@@ -130,6 +130,8 @@
   @use "/src/styles/mixins" as *;
 
   section {
+    padding-top: 6rem;
+
     > div {
       .container {
         img {
