@@ -24,7 +24,7 @@
 
 <section
   id="conexus-api"
-  class="flex appear-left-observer full-height"
+  class="flex appear-left-observer"
   bind:this={section}
 >
   <h2 bind:this={tagline}>CoNexus API</h2>
@@ -72,12 +72,6 @@
 
 <style lang="scss">
   @use "/src/styles/mixins" as *;
-
-  @include respond-up(full-hd) {
-    section {
-      min-height: 50vh;
-    }
-  }
 
   .container {
     img {

@@ -22,8 +22,8 @@
   @use "/src/styles/mixins" as *;
 
   section {
-    margin-block: 4rem;
-
+    margin-block: 5rem;
+    ;
     ul {
       width: 100%;
       

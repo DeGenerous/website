@@ -19,7 +19,7 @@
 
 <svelte:element
   this={as}
-  class="flex void-btn {position}"
+  class="flex void-btn {position} fade-in"
   class:floating={animation}
   class:inherit={inheritColor}
   onpointerover={() => (svgFocus = true)}

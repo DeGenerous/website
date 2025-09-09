@@ -309,8 +309,9 @@ html {
   }
 
   main {
-    padding-block: 6rem;
-    gap: 2rem;
+    padding-block: 5rem;
+    padding-top: 6rem;
+    gap: 5rem;
     overflow-x: hidden;
 
     @include respond-up(small-desktop) {
@@ -322,8 +323,8 @@ html {
   body.home {
     main {
       padding-top: 0 !important;
+      padding-bottom: 10rem;
       padding-inline: 0 !important;
-      gap: 5rem !important;
     }
 
     h5 {

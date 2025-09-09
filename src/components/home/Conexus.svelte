@@ -74,10 +74,6 @@
     border-left: none;
     border-right: none;
 
-    @include respond-up("small-desktop") {
-      margin-block: 0 4rem;
-    }
-
     p {
       @include auto-width;
     }

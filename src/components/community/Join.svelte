@@ -146,7 +146,7 @@
   </ul>
 </section>
 
-<section id="links" class="flex full-height">
+<section id="links" class="flex">
   <h3 class="auto-width">You’ll also find us across key platforms and protocols</h3>
   <p class="auto-width">
     Below are verified links to key DGRS and non-DGRS locations, as well as the official contract
@@ -268,16 +268,6 @@
 
 <style lang="scss">
   @use "/src/styles/mixins" as *;
-
-  @include respond-up(full-hd) {
-    section {
-      min-height: 50vh;
-    }
-  }
-
-  #join {
-    margin-bottom: 4rem;
-  }
 
   .discord {
     @include font(h5);

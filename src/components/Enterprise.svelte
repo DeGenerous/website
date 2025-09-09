@@ -9,7 +9,9 @@
   import CSR from "./enterprise/CSR.svelte";
   import VoidArrowSVG from "@components/icons/VoidArrow.svelte";
 
+  let section = $state<HTMLElement>();
   let tagline = $state<HTMLHeadingElement>();
+  let showArrow = $state<boolean>(true);
   const startTyping = () => setTimeout(() => typeWrite(tagline!, "Enterprise"), 1500);
 
   // IDs must match <section id="..."> in each child component
@@ -41,24 +43,30 @@
       );
     });
 
+    observeElement(section!, null, () => {showArrow = true}, scrollDown);
+
     // if page loads with a hash, honor it
     const hash = location.hash.slice(1);
     if (hash && ids.includes(hash as any)) active = hash;
   });
-
+  
   function scrollDown() {
-    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+    const conexusAPI = document.getElementById("conexus-api") as HTMLVideoElement | null;
+    conexusAPI!.scrollIntoView({ behavior: "smooth", block: "center" });
+    showArrow = false;
   }
 </script>
 
-<section class="flex full-height">
+<section class="flex full-height" bind:this={section}>
   <h1 bind:this={tagline}>Enterprise</h1>
   <p class="auto-width">
     Elevate your company with our enterprise solutions. Whether you’re a product team, a marketing
     department, CSR leader, or ed-tech innovator, our turnkey offerings deliver measurable
     engagement, cost savings, and real-world impact.
   </p>
-  <VoidArrowSVG onclick={scrollDown} />
+  {#if showArrow}
+    <VoidArrowSVG onclick={scrollDown} />
+  {/if}
 </section>
 
 <nav id="intro" class="link-tabs flex round-8">

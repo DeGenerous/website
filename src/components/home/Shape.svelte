@@ -24,7 +24,7 @@
 </script>
 
 <section class="shape-world flex" bind:this={section}>
-  <h3 bind:this={tagline}>Shape The World You Dream Of</h3>
+  <h3 class="auto-width" bind:this={tagline}>Shape The World You Dream Of</h3>
 
   <div class="container">
     <video class="round transition" controls aria-label="CoNexus showcase video">
@@ -63,7 +63,7 @@
   @use "/src/styles/mixins" as *;
 
   .shape-world {
-    margin-block: 4rem;
+    margin-block: 5rem;
 
     @include respond-up("small-desktop") {
       padding-inline: 100px;

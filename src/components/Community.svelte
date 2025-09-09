@@ -9,7 +9,9 @@
   import Ambassadors from "@components/community/Ambassadors.svelte";
   import VoidArrowSVG from "@components/icons/VoidArrow.svelte";
 
+  let section = $state<HTMLElement>();
   let tagline = $state<HTMLHeadingElement>();
+  let showArrow = $state<boolean>(true);
   const startTyping = () => setTimeout(() => typeWrite(tagline!, "Community"), 1500);
 
   // IDs must match <section id="..."> in each child component
@@ -41,17 +43,21 @@
       );
     });
 
+    observeElement(section!, null, () => {showArrow = true}, scrollDown);
+
     // if page loads with a hash, honor it
     const hash = location.hash.slice(1);
     if (hash && ids.includes(hash as any)) active = hash;
   });
 
   function scrollDown() {
-    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+    const join = document.getElementById("join") as HTMLElement | null;
+    join!.scrollIntoView({ behavior: "smooth", block: "center" });
+    showArrow = false;
   }
 </script>
 
-<section class="flex full-height">
+<section class="flex full-height" bind:this={section}>
   <h1 bind:this={tagline}>Community</h1>
   <p class="auto-width">
     Our community became official in February 2023 under the name of DeGenerous DAO. It began with
@@ -68,7 +74,9 @@
     outside of the listed official spaces, treat it with caution.
   </article>
 
-  <VoidArrowSVG onclick={scrollDown} />
+  {#if showArrow}
+    <VoidArrowSVG onclick={scrollDown} />
+  {/if}
 </section>
 
 <!-- style:opacity={active == "intro" ? "0" : "1"} -->

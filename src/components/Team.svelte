@@ -60,4 +60,8 @@
 
 <style lang="scss">
   @use "/src/styles/mixins" as *;
+
+  nav {
+    margin-bottom: -3.5rem;
+  }
 </style>

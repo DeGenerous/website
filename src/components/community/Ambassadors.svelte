@@ -58,12 +58,6 @@
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
-  @include respond-up(full-hd) {
-    section {
-      min-height: 50vh;
-    }
-  }
-
   .container {
     img {
       @include gray-border;

@@ -83,9 +83,11 @@
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
-  .learn-more {
-    margin-top: 1rem;
+  nav {
+    margin-bottom: -3.5rem;
+  }
 
+  .learn-more {
     span {
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;

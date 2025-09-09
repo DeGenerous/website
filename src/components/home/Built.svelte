@@ -96,7 +96,7 @@
       }
 
       .project {
-        height: 360px; /* fixed height for tiles */
+        height: 380px; /* fixed height for tiles */
         width: 100%;
         justify-content: space-between;
         flex: 0 0 auto;
@@ -200,7 +200,12 @@
         }
 
         @include respond-up(large-desktop) {
-          width: calc(25% - 1.5rem); /* 4 columns on PC */
+          height: 380px;
+          width: calc(25% - 1.25rem);
+        }
+
+        @include respond-up(full-hd) {
+          height: max(440px, 35vh);
         }
       }
     }
