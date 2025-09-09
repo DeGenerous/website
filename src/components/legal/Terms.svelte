@@ -632,7 +632,7 @@
             Services you are obliged to note your source.
           </li>
           <li>
-            You accept to fully comply with <a href="/copyright-policy"
+            You accept to fully comply with <a href="/copyright-policy" style:white-space="wrap"
               >DGRS Labs Pte Ltd.'s CoNexus Copyright Infringement Policy</a
             >.
           </li>
