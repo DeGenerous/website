@@ -40,7 +40,13 @@
     </div>
 
     <div class="container">
-      <img class="tall" src={`${sagaverseURL}/AA.gif`} alt="Ark Assassin" loading="lazy" decoding="async" />
+      <img
+        class="tall"
+        src={`${sagaverseURL}/AA.gif`}
+        alt="Ark Assassin"
+        loading="lazy"
+        decoding="async"
+      />
       <article class="flex">
         <h3>Ark Assassin</h3>
         <p>

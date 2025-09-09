@@ -43,13 +43,20 @@
       );
     });
 
-    observeElement(section!, null, () => {showArrow = true}, scrollDown);
+    observeElement(
+      section!,
+      null,
+      () => {
+        showArrow = true;
+      },
+      scrollDown
+    );
 
     // if page loads with a hash, honor it
     const hash = location.hash.slice(1);
     if (hash && ids.includes(hash as any)) active = hash;
   });
-  
+
   function scrollDown() {
     const conexusAPI = document.getElementById("conexus-api") as HTMLVideoElement | null;
     conexusAPI!.scrollIntoView({ behavior: "smooth", block: "center" });

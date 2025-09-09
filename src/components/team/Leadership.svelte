@@ -30,7 +30,15 @@
   </div>
 
   <div class="container appear-right">
-    <img class="round-8" height="1280" width="853" src="/team/maxi.jpg" alt="Uroš “Maxi” Trbović" loading="lazy" decoding="async" />
+    <img
+      class="round-8"
+      height="1280"
+      width="853"
+      src="/team/maxi.jpg"
+      alt="Uroš “Maxi” Trbović"
+      loading="lazy"
+      decoding="async"
+    />
     <article class="flex">
       <h4>Uroš “Maxi” Trbović — Co-Founder</h4>
       <p>

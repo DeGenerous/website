@@ -62,7 +62,12 @@
       <li class="flex">
         <ul class="flex">
           <li class="flex">
-            <img src="/team/anusiem.jpg" alt="Anusiem John-Franklin" loading="lazy" decoding="async" />
+            <img
+              src="/team/anusiem.jpg"
+              alt="Anusiem John-Franklin"
+              loading="lazy"
+              decoding="async"
+            />
             <article class="flex">
               <h4>
                 Anusiem&nbsp;John-Franklin <span>Lead Full-Stack Engineer</span>
@@ -113,7 +118,12 @@
       <li class="flex">
         <ul class="flex">
           <li class="flex">
-            <img src="/team/cryptok.jpeg" alt="Sean 'Cryptok' Dugan" loading="lazy" decoding="async" />
+            <img
+              src="/team/cryptok.jpeg"
+              alt="Sean 'Cryptok' Dugan"
+              loading="lazy"
+              decoding="async"
+            />
             <article class="flex">
               <h4>
                 Sean “Cryptok”&nbsp;Dugan <span>Cinematics Director &amp; Producer</span>

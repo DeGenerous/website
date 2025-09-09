@@ -26,7 +26,9 @@
 </script>
 
 <section class="flex" bind:this={section}>
-  <h3 class="auto-width" bind:this={tagline}>Dream to Screen: Unlock Your Storytelling Potential</h3>
+  <h3 class="auto-width" bind:this={tagline}>
+    Dream to Screen: Unlock Your Storytelling Potential
+  </h3>
   <div class="container fade-in">
     <p class="pc-narrow">
       CoNexus, DGRS Labs’ flagship app, transforms how content is made, shared, and owned. Our
@@ -46,9 +48,10 @@
     </div>
 
     <p class="pc-narrow">
-      Leveraging Generative AI and blockchain-backed ownership, we’re turning imagination into reality
-      - giving creators and communities the tools to power tomorrow’s digital economy. Whether you
-      want to play, create, or innovate, now is the moment to step into the next era of entertainment.
+      Leveraging Generative AI and blockchain-backed ownership, we’re turning imagination into
+      reality - giving creators and communities the tools to power tomorrow’s digital economy.
+      Whether you want to play, create, or innovate, now is the moment to step into the next era of
+      entertainment.
     </p>
 
     <a class="button-anchor" href="https://conexus.degenerousdao.com/" target="_blank">

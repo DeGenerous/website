@@ -27,13 +27,13 @@
     @include respond-up(small-desktop) {
       padding-inline: 100px;
     }
-    
+
     .container {
       width: 100%;
     }
     ul {
       width: 100%;
-      
+
       li {
         width: calc(50% - 0.5rem);
         border-radius: 1rem;

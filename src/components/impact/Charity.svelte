@@ -20,7 +20,13 @@
 <section class="charity flex" bind:this={section}>
   <div class="container transition">
     <span class="flex">
-      <img class="round-8" src="/impact/ball.jpg" alt="Football in Kenya" loading="lazy" decoding="async" />
+      <img
+        class="round-8"
+        src="/impact/ball.jpg"
+        alt="Football in Kenya"
+        loading="lazy"
+        decoding="async"
+      />
       <article class="flex">
         <h3>Supercharging Giving</h3>
         <h5>Proof-of-Impact: Philanthropy meets digital gamification.</h5>
@@ -43,7 +49,13 @@
 
   <div class="container transition">
     <span class="flex">
-      <img class="round-8" src="/impact/museum.jpg" alt="Gaming Museum" loading="lazy" decoding="async" />
+      <img
+        class="round-8"
+        src="/impact/museum.jpg"
+        alt="Gaming Museum"
+        loading="lazy"
+        decoding="async"
+      />
       <article class="flex">
         <h3>Gaming for Good</h3>
         <h5>Where fun and education collide.</h5>

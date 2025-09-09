@@ -26,7 +26,13 @@
 <section id="csr" class="flex appear-left-observer" bind:this={section}>
   <h2 bind:this={tagline}>CSR with Real Impact</h2>
   <div class="container">
-    <img class="round-8" src={enterpriseURL + "/csr.gif"} alt="CSR with Real Impact" loading="lazy" decoding="async" />
+    <img
+      class="round-8"
+      src={enterpriseURL + "/csr.gif"}
+      alt="CSR with Real Impact"
+      loading="lazy"
+      decoding="async"
+    />
     <article class="flex">
       <p>
         Activate your company’s purpose through fully branded service missions in partnership with

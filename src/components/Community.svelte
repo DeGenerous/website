@@ -43,7 +43,14 @@
       );
     });
 
-    observeElement(section!, null, () => {showArrow = true}, scrollDown);
+    observeElement(
+      section!,
+      null,
+      () => {
+        showArrow = true;
+      },
+      scrollDown
+    );
 
     // if page loads with a hash, honor it
     const hash = location.hash.slice(1);

@@ -22,14 +22,16 @@
   });
 </script>
 
-<section
-  id="conexus-api"
-  class="flex appear-left-observer"
-  bind:this={section}
->
+<section id="conexus-api" class="flex appear-left-observer" bind:this={section}>
   <h2 bind:this={tagline}>CoNexus API</h2>
   <div class="container">
-    <img class="round-8" src="/enterprise/conexus-api.gif" alt="CoNexus API" loading="lazy" decoding="async" />
+    <img
+      class="round-8"
+      src="/enterprise/conexus-api.gif"
+      alt="CoNexus API"
+      loading="lazy"
+      decoding="async"
+    />
     <article class="flex">
       <p>
         Embed a living, breathing GenAI story engine into your website, app, game, brand portal, or

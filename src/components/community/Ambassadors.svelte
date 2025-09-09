@@ -27,7 +27,13 @@
   <h2 bind:this={tagline}>Ambassador &amp; Affiliate programs</h2>
 
   <div class="container">
-    <img class="round-8" src={`${communityURL}/ambassadors.gif`} alt="Ambassadors & Affiliates" loading="lazy" decoding="async" />
+    <img
+      class="round-8"
+      src={`${communityURL}/ambassadors.gif`}
+      alt="Ambassadors & Affiliates"
+      loading="lazy"
+      decoding="async"
+    />
     <article class="flex">
       <p>
         If you have <b>1,000+ followers</b> on any platform and want to help us grow CoNexus, you can
@@ -79,7 +85,7 @@
 
       article {
         gap: 2rem;
-        
+
         a {
           margin-inline: 0;
         }

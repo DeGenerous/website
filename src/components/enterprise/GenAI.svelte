@@ -26,7 +26,13 @@
 <section id="gen-ai" class="flex appear-left-observer" bind:this={section}>
   <h2 bind:this={tagline}>GenAI Film Studio</h2>
   <div class="container">
-    <img class="round-8" src={enterpriseURL + "/gen-ai.gif"} alt="GenAI Film Studio" loading="lazy" decoding="async" />
+    <img
+      class="round-8"
+      src={enterpriseURL + "/gen-ai.gif"}
+      alt="GenAI Film Studio"
+      loading="lazy"
+      decoding="async"
+    />
     <article class="flex">
       <p>
         Harness the power of AI alongside veteran directors and editors to produce everything from

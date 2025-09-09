@@ -43,9 +43,7 @@
         breakthrough app, DGRS hands you the keys to build, iterate, and amaze - no limits attached.
       </p>
 
-      <p>
-        Join a community of dreamers and doers and watch your ideas reshape reality.
-      </p>
+      <p>Join a community of dreamers and doers and watch your ideas reshape reality.</p>
 
       <a
         class="button-anchor"
