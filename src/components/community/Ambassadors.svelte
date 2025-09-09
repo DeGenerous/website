@@ -84,6 +84,8 @@
       flex-direction: row;
 
       article {
+        gap: 2rem;
+        
         a {
           margin-inline: 0;
         }

@@ -98,7 +98,7 @@
       undefined,
       true // animate once and keep visible
     );
-    hydrateTweets();
+    // hydrateTweets();
   });
 </script>
 
@@ -177,9 +177,10 @@
           padding-left: 0;
           max-width: calc(2 * $tweet-width - 200px);
           column-count: 2; /* adjust for your width */
-          column-gap: 1rem;
+          column-gap: 2rem;
           border-radius: 1rem;
-          padding-inline: 1rem;
+          padding-inline: 2rem;
+          padding-block: 1rem;
 
           &.visible {
             transform: none;
@@ -188,6 +189,7 @@
           .tweet-card {
             min-width: unset;
             width: 100%;
+            padding-block: 0.5rem;
             transform: none;
             scroll-snap-align: unset;
             display: inline-block; /* required inside columns */

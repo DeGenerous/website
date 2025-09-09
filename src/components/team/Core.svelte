@@ -51,7 +51,7 @@
 <section class="flex">
   <h1 bind:this={tagline}>Core&nbsp;Team</h1>
 
-  <div class="team-wrapper container appear-bottom">
+  <div class="team-wrapper container gap-24 appear-bottom">
     <nav class="pad">
       <SwitchSVG onclick={() => scrollWrap({ dir: -1 })} absolute="left" />
       <h3 bind:this={sectionHeader}>Engineering</h3>
@@ -74,12 +74,14 @@
             </article>
           </li>
           <li class="flex">
-            <img src="/team/vani.jpg" alt="Vani" loading="lazy" decoding="async" />
+            <img src="/team/lyndon.jpeg" alt="Lyndon Chang" loading="lazy" decoding="async" />
             <article class="flex">
-              <h4>Vani <span>Web3 Engineer</span></h4>
+              <h4>
+                Lyndon&nbsp;Chang <span>AI Solutions Engineer</span>
+              </h4>
               <p>
-                Hardware-to-Solidity polymath and multiple Ethereum Foundation hackathon winner.
-                Designs secure, composable smart contracts.
+                Builds custom AI software and end‑to‑end automations that orchestrate systems at
+                scale. Strong computer science foundation with blockchain expertise.
               </p>
             </article>
           </li>
@@ -96,14 +98,12 @@
             </article>
           </li>
           <li class="flex">
-            <img src="/team/lyndon.jpeg" alt="Lyndon Chang" loading="lazy" decoding="async" />
+            <img src="/team/vani.jpg" alt="Vani" loading="lazy" decoding="async" />
             <article class="flex">
-              <h4>
-                Lyndon&nbsp;Chang <span>AI Solutions Engineer</span>
-              </h4>
+              <h4>Vani <span>Web3 Engineer</span></h4>
               <p>
-                Builds custom AI software and end‑to‑end automations that orchestrate systems at
-                scale. Strong computer science foundation with blockchain expertise.
+                Hardware-to-Solidity polymath and multiple Ethereum Foundation hackathon winner.
+                Designs secure, composable smart contracts.
               </p>
             </article>
           </li>
@@ -225,7 +225,7 @@
           li {
             width: 100%;
             justify-content: flex-start;
-            padding: 1rem;
+            padding: 1.5rem;
             border-radius: 1rem;
             background-color: $white;
             @include gray-border;

@@ -25,34 +25,36 @@
   const images = Array.from({ length: 16 }, (_, i) => `/conexus/${i + 1}.webp`);
 </script>
 
-<section class="container fade-in" bind:this={section}>
-  <h3 bind:this={tagline}>Dream to Screen: Unlock Your Storytelling Potential</h3>
-  <p class="pc-narrow">
-    CoNexus, DGRS Labs’ flagship app, transforms how content is made, shared, and owned. Our
-    text-to-story engine is the most efficient way for anyone to create or star in high‑quality,
-    visually immersive stories spanning novels, films, and story games.
-  </p>
+<section class="flex" bind:this={section}>
+  <h3 class="auto-width" bind:this={tagline}>Dream to Screen: Unlock Your Storytelling Potential</h3>
+  <div class="container fade-in">
+    <p class="pc-narrow">
+      CoNexus, DGRS Labs’ flagship app, transforms how content is made, shared, and owned. Our
+      text-to-story engine is the most efficient way for anyone to create or star in high‑quality,
+      visually immersive stories spanning novels, films, and story games.
+    </p>
 
-  <div class="stories" aria-label="Featured CoNexus stories">
-    <!-- duplicate once -->
-    <ul class="reel" style="--count:{images.length}">
-      {#each [...images, ...images] as src, i}
-        <li>
-          <img class="transition" {src} alt={`Story ${(i % images.length) + 1}`} />
-        </li>
-      {/each}
-    </ul>
+    <div class="stories" aria-label="Featured CoNexus stories">
+      <!-- duplicate once -->
+      <ul class="reel" style="--count:{images.length}">
+        {#each [...images, ...images] as src, i}
+          <li>
+            <img class="transition" {src} alt={`Story ${(i % images.length) + 1}`} />
+          </li>
+        {/each}
+      </ul>
+    </div>
+
+    <p class="pc-narrow">
+      Leveraging Generative AI and blockchain-backed ownership, we’re turning imagination into reality
+      - giving creators and communities the tools to power tomorrow’s digital economy. Whether you
+      want to play, create, or innovate, now is the moment to step into the next era of entertainment.
+    </p>
+
+    <a class="button-anchor" href="https://conexus.degenerousdao.com/" target="_blank">
+      Launch CoNexus
+    </a>
   </div>
-
-  <p class="pc-narrow">
-    Leveraging Generative AI and blockchain-backed ownership, we’re turning imagination into reality
-    - giving creators and communities the tools to power tomorrow’s digital economy. Whether you
-    want to play, create, or innovate, now is the moment to step into the next era of entertainment.
-  </p>
-
-  <a class="button-anchor" href="https://conexus.degenerousdao.com/" target="_blank">
-    Launch CoNexus
-  </a>
 </section>
 
 <style lang="scss">
@@ -65,7 +67,7 @@
   $edge-fade: 5%;
   $dur-per-card: 2s; // speed: total duration = count * dur-per-card
 
-  section {
+  .container {
     padding-inline: 0;
     max-width: 100vw;
     border-radius: 0;
@@ -74,11 +76,8 @@
 
     @include respond-up("small-desktop") {
       margin-block: 0 4rem;
-      gap: 1.5rem;
-      padding-block: 1.5rem;
     }
 
-    h3,
     p {
       @include auto-width;
     }

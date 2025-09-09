@@ -41,6 +41,9 @@
       <p>
         Whether you’re weaving epic tales, crafting unforgettable games, or launching the next
         breakthrough app, DGRS hands you the keys to build, iterate, and amaze - no limits attached.
+      </p>
+
+      <p>
         Join a community of dreamers and doers and watch your ideas reshape reality.
       </p>
 
@@ -89,7 +92,11 @@
 
       @include respond-up("large-desktop") {
         video {
-          width: 40rem;
+          width: 35rem;
+        }
+
+        article {
+          gap: 2rem;
         }
       }
     }

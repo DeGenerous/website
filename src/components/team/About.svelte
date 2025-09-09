@@ -112,6 +112,7 @@
 
     .container {
       width: 100%;
+      gap: 1rem;
     }
 
     .question,
@@ -129,21 +130,21 @@
       }
 
       .question {
-        width: calc(33% - 1rem);
+        width: calc(33% - 1.5rem);
       }
 
       .value {
-        width: calc(20% - 1rem);
+        width: calc(20% - 1.5rem);
       }
     }
 
     @include respond-up(large-desktop) {
       .question {
-        width: calc(20% - 1rem);
+        width: calc(20% - 1.5rem);
       }
 
       .how-to {
-        width: calc(40% - 1rem);
+        width: calc(40% - 1.5rem);
         text-align: left;
 
         li {

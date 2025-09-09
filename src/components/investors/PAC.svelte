@@ -26,7 +26,7 @@
       The agent uses text2story, img2story, and video engines to transform everyday static content
       into dynamic, shareable, and hilarious storylines.
     </p>
-    <span class="flex-row gap-8">
+    <span class="flex-row">
       <a class="button-anchor" href="/investors"> Buy </a>
       <a class="button-anchor" href="/investors"> Read More </a>
     </span>
@@ -45,6 +45,10 @@
 
     article {
       text-align: left;
+
+      p {
+        width: 100%;
+      }
     }
   }
 

@@ -286,6 +286,7 @@
           width: 100%;
           max-width: unset;
           border-radius: 0.5rem;
+          gap: 1rem;
           @include gray-border;
 
           p {

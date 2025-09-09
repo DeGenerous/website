@@ -14,7 +14,7 @@
     <h3>1,000 Evolutionary NFTs</h3>
     <img class="round-8" src="/investors/potentials.webp" alt="The Potentials" />
     <p>The heart of our ecosystem that reaps the most benefits:</p>
-    <ul class="flex">
+    <ul class="flex gap-32">
       <li class="flex">
         <span class="flex-row">
           <img class="standard-icon" src="/icons/growth.svg" alt="Evolution" />
@@ -87,8 +87,6 @@
   article {
     ul {
       li {
-        gap: 0.5rem;
-
         span {
           gap: 0.5rem;
           padding: 0.5rem;

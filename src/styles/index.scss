@@ -302,6 +302,10 @@ html {
     justify-content: center;
     align-items: center;
     gap: 1rem;
+
+    @include respond-up(tablet) {
+      gap: 1.5rem;
+    }
   }
 
   main {
@@ -338,6 +342,14 @@ html {
 
   .gap-8 {
     gap: 0.5rem;
+  }
+
+  .gap-24 {
+    gap: 1.5rem;
+  }
+
+  .gap-32 {
+    gap: 2rem;
   }
 
   .blur {
@@ -495,6 +507,11 @@ html {
     @include gray-border;
     // @include light-blue(0.1);
     margin-inline: auto;
+
+    @include respond-up(tablet) {
+      padding: 2rem;
+      gap: 2rem;
+    }
   }
 
   .transparent-container {

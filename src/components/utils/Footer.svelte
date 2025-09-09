@@ -74,16 +74,16 @@
       {/each}
     </ul>
 
-    <a href="mailto:contact@dgrs.ink" target="_blank">✉️ Contact Us</a>
+    <a href="mailto:contact@dgrs.ink" target="_blank">Contact Us</a>
 
     <div class="lang flex-row gap-8 flex-wrap">
-      <label for="lang">🌐 Language:</label>
+      <label for="lang">Language:</label>
       <select id="lang" bind:value={lang}>
         <option value="en" selected>English</option>
       </select>
     </div>
 
-    <a href="/" onclick={resetCookieConsent}>🛠️ Cookie Policy</a>
+    <a href="/" onclick={resetCookieConsent}>Cookie Policy</a>
 
     <span class="flex gap-8">
       <p>© DGRS Labs Pte. Ltd.</p>
@@ -129,11 +129,8 @@
 
   .newsletter {
     border-top: 1px solid rgba(150, 150, 150, 0.25);
+    padding-block: 2rem;
     @include light-blue(0.1);
-
-    @include respond-up("full-hd") {
-      padding-bottom: 2rem;
-    }
   }
 
   footer {
@@ -225,7 +222,7 @@
       }
 
       @include respond-up("quad-hd") {
-        width: 1500px;
+        min-width: 1500px;
       }
     }
 
@@ -260,6 +257,7 @@
     @include respond-up("quad-hd") {
       section {
         width: 420px;
+        min-width: 15%;
 
         p {
           max-width: 300px;
