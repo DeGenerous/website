@@ -405,8 +405,6 @@
   }
 
   .links {
-    margin-block: 2rem;
-
     li {
       width: 100%;
 

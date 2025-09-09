@@ -219,17 +219,12 @@
 
       .goals-wrapper {
         position: relative;
-        padding-inline: 1rem;
-
-        // @include respond-up(small-desktop) {
-        //   padding: 0;
-        // }
 
         .tracker {
           display: none;
           position: absolute;
           top: 0;
-          left: -1rem;
+          left: -2rem;
           width: 1rem;
           height: 0;
           transition: height 0.3s linear;
@@ -274,7 +269,7 @@
         &.right {
           .tracker {
             left: auto;
-            right: -1rem;
+            right: -2rem;
           }
         }
       }
@@ -317,7 +312,6 @@
 
         &.upcoming {
           align-items: stretch;
-          padding-inline: 1rem;
 
           // Hidden by default; visible when fall-in class is applied
           li {
@@ -350,7 +344,7 @@
             flex-flow: row wrap;
 
             .goal {
-              max-width: calc(50% - 0.5rem);
+              max-width: calc(50% - 1rem);
             }
           }
 

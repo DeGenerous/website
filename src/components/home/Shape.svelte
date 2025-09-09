@@ -23,7 +23,7 @@
   });
 </script>
 
-<section class="shape-world flex" bind:this={section}>
+<section class="shape-world flex pad-inline" bind:this={section}>
   <h3 class="auto-width" bind:this={tagline}>Shape The World You Dream Of</h3>
 
   <div class="container">

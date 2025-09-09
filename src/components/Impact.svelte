@@ -33,7 +33,7 @@
   </p>
 
   {#if finishedAnimation}
-    <ul class="impact-data flex pad-inline">
+    <ul class="impact-data flex">
       {#each data as { name, description, color, image }, i (name)}
         <li>
           <button class="void-btn flex gap-8 pad round fall-in blur" style="--i:{i}">
@@ -62,29 +62,33 @@
     .impact-data {
       align-items: stretch;
 
-      button {
+      li {
         width: 100%;
-        height: 100%;
-        justify-content: space-between;
-        @include gray-border;
-        @include light-blue(0.1);
 
-        img {
-          width: 3rem;
-        }
-
-        p {
+        button {
+          width: 100%;
           height: 100%;
-        }
+          justify-content: space-between;
+          @include gray-border;
+          @include light-blue(0.1);
 
-        &:hover,
-        &:active,
-        &:focus {
-          background-color: transparent;
-          @include box-shadow;
+          img {
+            width: 3rem;
+          }
 
-          * {
-            @include scale;
+          p {
+            height: 100%;
+          }
+
+          &:hover,
+          &:active,
+          &:focus {
+            background-color: transparent;
+            @include box-shadow;
+
+            * {
+              @include scale;
+            }
           }
         }
       }
@@ -92,8 +96,8 @@
       @include respond-up(tablet) {
         flex-flow: row wrap;
 
-        button {
-          max-width: 17.5vw;
+        li {
+          width: calc(50% - 0.75rem);
 
           p {
             @include font(caption);
@@ -102,20 +106,14 @@
       }
 
       @include respond-up(small-desktop) {
-        button {
-          max-width: 14vw;
+        li {
+          width: calc(33.33% - 1rem);
         }
       }
 
       @include respond-up(large-desktop) {
-        button {
-          max-width: 13rem;
-        }
-      }
-
-      @include respond-up(full-hd) {
-        button {
-          max-width: 18rem;
+        li {
+          width: calc(20% - 1.2rem);
         }
       }
     }

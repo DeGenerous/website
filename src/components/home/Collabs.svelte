@@ -2,7 +2,7 @@
   import collabs from "@constants/collabs";
 </script>
 
-<section class="flex pc-narrow">
+<section class="flex pad-inline">
   <h5 class="auto-width">
     We’re working with industry pioneers, from Web3 leaders to award-winning filmmakers.
   </h5>
@@ -23,7 +23,14 @@
 
   section {
     margin-block: 5rem;
-    ;
+
+    @include respond-up(small-desktop) {
+      padding-inline: 100px;
+    }
+    
+    .container {
+      width: 100%;
+    }
     ul {
       width: 100%;
       

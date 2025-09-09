@@ -54,7 +54,7 @@
 
   <h3>Open positions</h3>
 
-  <ul class="flex-row flex-wrap pad-inline">
+  <ul class="flex-row flex-wrap">
     <li class="flex fall-in blur" style="--i:{0}">
       <h4>AI Engineer x2</h4>
       <button class="read-more" onclick={() => showPosition(0)}> Read more </button>
@@ -83,7 +83,7 @@
 
     li {
       width: 100%;
-      padding: 1rem;
+      padding: 1.5rem;
       border-radius: 0.5rem;
 
       @include gray-border;

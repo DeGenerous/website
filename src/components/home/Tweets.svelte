@@ -98,7 +98,7 @@
       undefined,
       true // animate once and keep visible
     );
-    // hydrateTweets();
+    hydrateTweets();
   });
 </script>
 

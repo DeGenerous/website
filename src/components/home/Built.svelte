@@ -9,7 +9,6 @@
 
   let tagline = $state<HTMLHeadingElement>();
   let viewport = $state<HTMLElement>(); // padded wrapper (not the scroller)
-  let scroller = $state<HTMLUListElement>(); // list container
   let tileRefs = $state<HTMLElement[]>([]);
 
   const resetTitle = () => (tagline!.style.opacity = "0");
@@ -21,11 +20,39 @@
       () => typeWrite(tagline!, "Built on DGRS"),
       () => {}, // no reset
       undefined,
-      true // animate once and keep visible
+      false // animate multiple times
     );
   });
 
   onMount(resetTitle);
+
+  // Observe each tile for visibility (animate once and keep class)
+  onMount(() => {
+    const cleanups: Array<() => void> = [];
+
+    const setup = () => {
+      tileRefs.forEach((el) => {
+        if (!el) return;
+        const dispose = observeElement(
+          el,
+          "visible",
+          () => {},
+          () => {},
+          undefined,
+          false // animate multiple times
+        );
+        cleanups.push(dispose);
+      });
+    };
+
+    // Defer once to ensure refs are bound
+    if (!tileRefs || tileRefs.length === 0) requestAnimationFrame(setup);
+    else setup();
+
+    return () => {
+      cleanups.forEach((fn) => fn?.());
+    };
+  });
 
   function toggleExpand(event: Event, i: number) {
     if (expandedIndex.includes(i)) {
@@ -44,7 +71,7 @@
   }
 </script>
 
-<section class="flex pc-narrow">
+<section class="built-on-dgrs flex pc-narrow">
   <h3 bind:this={tagline}>Built on DGRS</h3>
 
   <p class="auto-width pc-narrow">
@@ -57,7 +84,7 @@
   <div class="projects-list flex-row flex-wrap pad-inline" bind:this={viewport}>
     {#each projects as project, i}
       <button
-        class="project void-btn flex pad-8 gap-8 round blur"
+        class="project void-btn flex pad-8 gap-8 round"
         class:expanded={expandedIndex.includes(i)}
         onclick={(event) => toggleExpand(event, i)}
         data-description={project.description}
@@ -103,6 +130,10 @@
         text-align: left;
         @include gray-border;
         @include light-blue(0.1);
+
+        @media (max-width: 768px) {
+          transform: scale(0.95);
+        }
 
         * {
           pointer-events: none;
@@ -192,16 +223,16 @@
         }
 
         @include respond-up("tablet") {
-          width: calc(50% - 1.5rem);
+          width: calc(50% - 0.75rem);
         }
 
         @include respond-up(small-desktop) {
-          width: calc(33.33% - 1.5rem);
+          width: calc(33.33% - 1rem);
         }
 
         @include respond-up(large-desktop) {
           height: 380px;
-          width: calc(25% - 1.25rem);
+          width: calc(25% - 1.125rem);
         }
 
         @include respond-up(full-hd) {
@@ -239,6 +270,13 @@
           }
         }
       }
+    }
+  }
+
+  :global(.built-on-dgrs .projects-list .project.visible) {
+    @media (max-width: 768px) {
+      opacity: 1;
+      transform: none;
     }
   }
 </style>

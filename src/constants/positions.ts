@@ -1,6 +1,6 @@
 const positions: string[] = [
   `
-  <article class="job-description" >
+  <article class="job-description flex" >
     <header aria-labelledby="senior-ai-engineer-title">
       <h3 id="senior-ai-engineer-title">Senior AI Engineer</h3>
     </header>
@@ -52,7 +52,7 @@ const positions: string[] = [
   </article>
   `,
   `
-  <article class="job-description" aria-labelledby="senior-bdm-title">
+  <article class="job-description flex" aria-labelledby="senior-bdm-title">
     <header>
       <h3 id="senior-bdm-title">Senior Business Development Manager</h3>
     </header>
@@ -104,7 +104,7 @@ const positions: string[] = [
   </article>
   `,
   `
-  <article class="job-description" aria-labelledby="growth-marketing-specialist-title">
+  <article class="job-description flex" aria-labelledby="growth-marketing-specialist-title">
     <header>
       <h3 id="growth-marketing-specialist-title">Growth Marketing Specialist</h3>
     </header>
