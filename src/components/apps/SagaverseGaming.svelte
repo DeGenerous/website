@@ -19,7 +19,7 @@
   </p>
   <div class="flex">
     <div class="container">
-      <img src={`${sagaverseURL}/B4N.gif`} alt="Battle for Nexon" loading="lazy" decoding="async" />
+      <img src="/apps/sagaverse/B4N.gif" alt="Battle for Nexon" loading="lazy" decoding="async" />
       <article class="flex">
         <h3>Battle for Nexon</h3>
         <p>

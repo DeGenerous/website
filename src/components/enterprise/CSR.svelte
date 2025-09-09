@@ -31,7 +31,7 @@
       <p>
         Activate your company’s purpose through fully branded service missions in partnership with
         <a href="https://www.lionsclubs.org" target="_blank"> Lions Clubs International </a>
-        (1.4M members) and enterprises like Johnson&Johnson.
+        (1.4M members) and enterprises like Johnson & Johnson.
       </p>
       <p>
         We help Lions manage logistics, partnerships, and both Web2 and blockchain donation flows,

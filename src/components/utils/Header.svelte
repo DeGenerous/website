@@ -61,7 +61,7 @@
       {#each tabs as { name, links }}
         <div class="nav-item flex" class:active={activeTab === name}>
           <a
-            class="tab nohover-link"
+            class="tab nohover-link flex-row"
             href="/{name}"
             aria-current={activeTab === name ? "page" : undefined}
             onclick={showScramble}
@@ -165,9 +165,7 @@
         width: 100%;
 
         .tab {
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          gap: 0.25rem;
           width: 100%;
           height: 2.5rem;
           padding-inline: 0.5rem;
@@ -190,7 +188,7 @@
             margin-left: 0.35rem;
             border-right: 2px solid currentColor;
             border-bottom: 2px solid currentColor;
-            transform: rotate(-45deg);
+            transform: rotate(45deg);
             transition: transform 0.2s ease;
             display: none;
 
@@ -239,7 +237,7 @@
           &:focus-within {
             &:not(.active) {
               .arrow {
-                transform: rotate(45deg);
+                transform: scaleY(1.1) translateY(10%) rotate(45deg);
               }
 
               .dropdown {
