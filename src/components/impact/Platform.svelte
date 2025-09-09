@@ -51,8 +51,6 @@
   @use "/src/styles/mixins" as *;
 
   section {
-    margin-block: 4rem;
-
     .container {
       opacity: 0;
       transform: translateX(-100%);

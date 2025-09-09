@@ -145,6 +145,36 @@
             }
           }
         }
+
+        @include respond-up(quad-hd) {
+          span {
+            flex-direction: row;
+            
+            article {
+              align-items: flex-start;
+              text-align: left;
+
+              h3 {
+                text-align: left;
+              }
+            }
+          }
+
+          &:first-of-type {
+            span {
+              flex-direction: row-reverse;
+
+              article {
+                align-items: flex-end;
+                text-align: right;
+
+                h3 {
+                  text-align: right;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

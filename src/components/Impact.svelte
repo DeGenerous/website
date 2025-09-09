@@ -47,18 +47,16 @@
   {/if}
 </section>
 
-<Charity />
-
-<Platform />
+{#await new Promise(resolve => setTimeout(resolve, 1500)) then}
+  <Charity />
+  
+  <Platform />
+{/await}
 
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
   section {
-    @include respond-up(small-desktop) {
-      min-height: 100vh;
-    }
-
     .impact-data {
       align-items: stretch;
 
@@ -129,12 +127,6 @@
         box-shadow: none;
         @include navy;
       }
-    }
-  }
-
-  :global(main) {
-    @include respond-up(small-desktop) {
-      padding-block: 0 1rem !important;
     }
   }
 </style>
