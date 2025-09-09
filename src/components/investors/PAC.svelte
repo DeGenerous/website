@@ -45,11 +45,6 @@
 
     article {
       text-align: left;
-
-      h3,
-      a {
-        font-family: $font-sans;
-      }
     }
   }
 

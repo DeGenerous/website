@@ -85,10 +85,6 @@
   @use "/src/styles/mixins" as *;
 
   article {
-    h3 {
-      font-family: $font-sans;
-    }
-
     ul {
       li {
         gap: 0.5rem;
@@ -109,8 +105,6 @@
 
     span {
       a {
-        font-family: $font-sans;
-
         &.icon-link {
           width: 2.5rem;
 

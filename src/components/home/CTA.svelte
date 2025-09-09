@@ -186,7 +186,6 @@
 
         h4 {
           text-transform: uppercase;
-          font-family: $font-sans;
         }
 
         &:hover,

@@ -294,7 +294,6 @@
 
             p {
               font-weight: bold;
-              font-family: $font-sans;
             }
           }
 
@@ -325,20 +324,11 @@
           @include dark-blue(1, text);
           @include gray-border;
 
-          &.sans {
-            font-family: $font-sans;
-          }
-
-          &.serif {
-            font-family: $font-serif;
-          }
-
           @include respond-up(tablet) {
             width: auto;
           }
 
           a {
-            font-family: $font-sans;
             stroke: $white;
           }
 

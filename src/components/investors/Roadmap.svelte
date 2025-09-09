@@ -327,7 +327,6 @@
 
             p {
               height: 100%;
-              font-family: $font-sans;
             }
 
             &:hover,

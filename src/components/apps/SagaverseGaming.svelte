@@ -145,13 +145,6 @@
           }
         }
 
-        article {
-          h3,
-          a {
-            font-family: $font-sans;
-          }
-        }
-
         @include respond-up(small-desktop) {
           flex-direction: row;
 

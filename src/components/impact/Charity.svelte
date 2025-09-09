@@ -95,7 +95,6 @@
           h3 {
             width: 100%;
             text-align: center;
-            font-family: $font-sans;
           }
         }
 

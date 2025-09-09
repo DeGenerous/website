@@ -230,7 +230,6 @@
 
         h4 {
           text-align: center;
-          font-family: $font-sans;
           @include blue(1, text);
         }
 

@@ -72,10 +72,6 @@
     article {
       align-items: flex-start;
       text-align: left;
-
-      a {
-        font-family: $font-sans;
-      }
     }
 
     @include respond-up(small-desktop) {

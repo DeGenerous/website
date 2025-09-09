@@ -221,10 +221,6 @@
 
     article {
       text-align: left;
-
-      h4 {
-        font-family: $font-sans;
-      }
     }
   }
 </style>

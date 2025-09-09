@@ -159,7 +159,6 @@
       display: inline-flex;
       gap: 0;
       line-height: 1;
-      font-family: $font-sans;
 
       span {
         text-transform: uppercase;

@@ -35,10 +35,6 @@
   article {
     text-align: left;
 
-    h3 {
-      font-family: $font-sans;
-    }
-
     strong {
       font-weight: normal;
       @include red(1, text);

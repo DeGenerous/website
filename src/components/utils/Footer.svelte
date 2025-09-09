@@ -186,7 +186,6 @@
     }
 
     .footer-links {
-      font-family: $font-serif;
       align-items: flex-start;
       gap: 2rem;
 
@@ -200,7 +199,6 @@
         gap: 0.5rem;
 
         h5 {
-          font-family: $font-sans;
           @include font(body);
         }
 

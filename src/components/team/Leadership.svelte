@@ -51,10 +51,6 @@
         aspect-ratio: 2 / 3;
         width: min(100%, 25rem);
       }
-
-      article h4 {
-        font-family: $font-sans;
-      }
     }
 
     @include respond-up(small-desktop) {

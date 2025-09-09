@@ -20,7 +20,6 @@ button:not(.void-btn),
   outline: none;
   text-transform: uppercase;
   font-weight: bold;
-  font-family: $font-sans;
   letter-spacing: 1px;
   @include white-txt(0.9);
   @include blue(0.75);

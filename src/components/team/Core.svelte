@@ -238,8 +238,6 @@
 
             article {
               h4 {
-                font-family: $font-sans;
-
                 span {
                   display: block;
                   @include font(body);

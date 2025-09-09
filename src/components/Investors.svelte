@@ -89,7 +89,6 @@
     span {
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
-      font-family: $font-serif;
       background-color: white;
       @include gray-border;
     }
