@@ -25,8 +25,11 @@
       upcomingAnimated: false,
       wrap: null as HTMLElement | null,
       trackerY: 0,
+      goalCenters: [] as number[],
       inView: false,
       activeGoalIdx: null as number | null,
+      completedCount: 0,
+      trailHeight: 0,
       finished: false,
     }))
   );
@@ -37,38 +40,41 @@
       if (!sec.wrap) return;
       const wrapRect = sec.wrap.getBoundingClientRect();
       sec.inView = wrapRect.bottom > 0 && wrapRect.top < window.innerHeight;
-      let bestCenter: number | null = null;
+      // compute centers for each goal relative to wrap
+      sec.goalCenters = sec.goals.map((g) => {
+        if (!g.ref) return 0;
+        const r = g.ref.getBoundingClientRect();
+        return r.top - wrapRect.top + r.height / 2;
+      });
+      // continuous progress of the tracker along the wrapper based on viewport center
+      const progress = Math.max(0, Math.min(viewportCenter - wrapRect.top, wrapRect.height));
+      sec.trackerY = progress;
+      // compute nearest goal index for highlighting
       let bestDist = Infinity;
       let bestIdx: number | null = null;
-      sec.goals.forEach((g, gi) => {
-        if (!g.ref) return;
-        const r = g.ref.getBoundingClientRect();
-        const cy = r.top + r.height / 2;
-        const d = Math.abs(cy - viewportCenter);
+      sec.goalCenters.forEach((cy, gi) => {
+        const d = Math.abs(cy - progress);
         if (d < bestDist) {
           bestDist = d;
-          bestCenter = cy;
           bestIdx = gi;
         }
       });
-      if (bestCenter !== null) {
-        const y = bestCenter - wrapRect.top;
-        // clamp to wrap bounds
-        sec.trackerY = Math.max(0, Math.min(y, wrapRect.height));
-      }
       // finished only after scrolling past last goal center (reversible)
       const lastIdx = sec.goals.length - 1;
-      const lastRef = lastIdx >= 0 ? sec.goals[lastIdx]?.ref : null;
-      if (lastRef && bestCenter !== null) {
-        const lr = lastRef.getBoundingClientRect();
-        const lastCenter = lr.top + lr.height / 2;
-        sec.finished = !!(bestIdx === lastIdx && viewportCenter > lastCenter + 4);
-      } else {
-        sec.finished = false;
-      }
+      const lastCenter = lastIdx >= 0 ? sec.goalCenters[lastIdx] : null;
+      sec.finished = lastCenter !== null ? progress > (lastCenter + 4) : false;
       if (bestIdx !== sec.activeGoalIdx) {
         sec.activeGoalIdx = bestIdx;
       }
+      // number of completed goals = goals whose center is at or above progress
+      const stuck = sec.goalCenters.filter((cy) => cy <= progress).length;
+      sec.completedCount = Math.min(sec.goals.length, stuck);
+      // trail height should end at the farthest dot position
+      const farthestY =
+        sec.completedCount < sec.goals.length
+          ? sec.trackerY
+          : lastCenter ?? sec.trackerY;
+      sec.trailHeight = Math.max(0, Math.min(farthestY, wrapRect.height));
     });
   }
 
@@ -166,30 +172,45 @@
           <div
             class="tracker"
             class:hidden={!sec.inView}
-            style:height="{Math.max(0, sec.trackerY)}px"
+            class:started={sec.completedCount > 0}
             aria-hidden="true"
           >
-            <div class="trail" aria-hidden="true"></div>
-            <div class="dot flex" aria-hidden="true">
-              <svg
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="3"
-              >
-                <path d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
+            <div
+              class="trail"
+              aria-hidden="true"
+              style:height="{Math.max(0, sec.trailHeight)}px"
+            ></div>
+            {#each sec.goals as _g, di}
+              {#key di}
+                <div
+                  class="dot flex"
+                  aria-hidden="true"
+                  style:top="{
+                    (di < sec.completedCount
+                      ? sec.goalCenters[di] ?? 0
+                      : sec.trackerY) + 'px'
+                  }"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                  >
+                    <path d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+              {/key}
+            {/each}
           </div>
           <ul class="goals flex" class:right={si % 2 === 1}>
             {#each sec.goals as g, gi}
               <li
                 class="goal container transition"
                 class:active={sec.activeGoalIdx === gi}
-                class:completed={(sec.activeGoalIdx !== null && gi < sec.activeGoalIdx) ||
-                  sec.finished}
+                class:completed={gi < sec.completedCount || sec.finished}
                 bind:this={g.ref}
                 id="goal-{g.id}"
               >
@@ -226,8 +247,7 @@
           top: 0;
           left: -2rem;
           width: 1rem;
-          height: 0;
-          transition: height 0.3s linear;
+          height: 100%;
           pointer-events: none;
 
           @include respond-up(small-desktop) {
@@ -243,25 +263,34 @@
             height: 100%;
             border-radius: 0.25rem;
             background: linear-gradient(to bottom, rgba(0, 185, 55, 0.25), rgba(75, 112, 50, 1));
+            transition: height 0.3s linear;
           }
 
           .dot {
             position: absolute;
-            bottom: -0.75rem; // half of dot size
+            top: 0;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
             width: 1.5rem;
             height: 1.5rem;
             border-radius: 50%;
             display: grid;
             place-items: center;
             @include deep-green;
+            transition: top 0.3s linear, opacity 0.3s ease;
+            opacity: 1;
 
             svg {
               width: 75%;
               height: 75%;
               fill: none;
               stroke: $white;
+            }
+          }
+
+          &:not(.started) {
+            .dot {
+              opacity: 0;
             }
           }
         }
