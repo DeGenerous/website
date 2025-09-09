@@ -503,6 +503,7 @@ html {
     // width: clamp(250px, 90%, 50rem);
     // box-shadow: $shadow-plus-inset-glow;
     // animation: dark-glowing 10s ease-in-out infinite;
+    max-width: 90rem;
     background: linear-gradient(to right, rgba(56, 117, 250, 0.1), rgba(56, 117, 250, 0.025));
     @include gray-border;
     // @include light-blue(0.1);

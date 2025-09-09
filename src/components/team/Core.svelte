@@ -194,8 +194,12 @@
 <style lang="scss">
   @use "/src/styles/mixins" as *;
 
+  section {
+    width: 100%;
+  }
+
   .team-wrapper {
-    max-width: 95vw;
+    width: 100%;
     padding: 0;
 
     nav {
@@ -287,14 +291,6 @@
           @include light-blue(0.5);
         }
       }
-    }
-
-    @include respond-up(small-desktop) {
-      max-width: calc(100% - 200px);
-    }
-
-    @include respond-up(large-desktop) {
-      max-width: 70rem;
     }
   }
 

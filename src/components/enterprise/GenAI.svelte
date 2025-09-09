@@ -23,7 +23,7 @@
   });
 </script>
 
-<section id="gen-ai" class="flex pad-inline appear-left-observer full-height" bind:this={section}>
+<section id="gen-ai" class="flex appear-left-observer full-height" bind:this={section}>
   <h2 bind:this={tagline}>GenAI Film Studio</h2>
   <div class="container">
     <img class="round-8" src={enterpriseURL + "/gen-ai.gif"} alt="GenAI Film Studio" loading="lazy" decoding="async" />

@@ -25,6 +25,8 @@
     margin-block: 4rem;
 
     ul {
+      width: 100%;
+      
       li {
         width: calc(50% - 0.5rem);
         border-radius: 1rem;

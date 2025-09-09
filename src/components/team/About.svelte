@@ -103,7 +103,7 @@
 
   div {
     align-items: stretch;
-    max-width: 1500px;
+    max-width: 90rem;
 
     > p,
     > h4 {

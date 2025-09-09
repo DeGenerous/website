@@ -54,8 +54,16 @@
       height: 100%;
       border-radius: inherit;
       transition: background-color 0.3s ease;
+      opacity: 0.75;
+      transition: opacity 0.3s ease;
       @include light-blue(0.25);
       // @include box-shadow(soft, inset);
+
+      &:hover,
+      &:active,
+      &:focus {
+        opacity: 1;
+      }
 
       .icon {
         position: absolute;

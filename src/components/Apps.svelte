@@ -15,7 +15,7 @@
   onMount(startTyping);
 </script>
 
-<section class="flex full-height pc-narrow">
+<section class="flex">
   <h1 bind:this={tagline}>Apps</h1>
   <p class="auto-width">
     Explore our ecosystem of innovative applications that power the next generation of media.
@@ -67,6 +67,8 @@
 
         .container {
           width: calc(50% - 1rem);
+          max-width: 50rem;
+          margin: 0;
           justify-content: flex-start;
 
           &:last-of-type {

@@ -23,7 +23,7 @@
   });
 </script>
 
-<section class="shape-world flex pc-narow" bind:this={section}>
+<section class="shape-world flex" bind:this={section}>
   <h3 bind:this={tagline}>Shape The World You Dream Of</h3>
 
   <div class="container">
@@ -64,6 +64,10 @@
 
   .shape-world {
     margin-block: 4rem;
+
+    @include respond-up("small-desktop") {
+      padding-inline: 100px;
+    }
 
     .container {
       video {

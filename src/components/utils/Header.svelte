@@ -133,6 +133,15 @@
       width: 4rem;
       padding: 0;
       min-height: 2.5rem;
+      opacity: 0.75;
+
+      &:hover,
+      &:active,
+      &:focus {
+        opacity: 1;
+        transform: none !important;
+        outline: none;
+      }
 
       @media (max-width: 400px) {
         display: none;

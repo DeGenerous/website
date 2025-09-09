@@ -211,7 +211,7 @@
     align-items: stretch;
 
     section {
-      max-width: 70rem;
+      max-width: 90rem;
 
       h3 {
         @include auto-width;
@@ -220,6 +220,10 @@
       .goals-wrapper {
         position: relative;
         padding-inline: 1rem;
+
+        // @include respond-up(small-desktop) {
+        //   padding: 0;
+        // }
 
         .tracker {
           display: none;

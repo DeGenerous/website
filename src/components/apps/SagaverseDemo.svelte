@@ -56,7 +56,7 @@
       }
 
       @include respond-up(tablet) {
-        width: calc(25% - 0.75rem);
+        width: calc(25% - 1.5rem);
       }
     }
   }

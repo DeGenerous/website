@@ -24,7 +24,7 @@
 
 <section
   id="conexus-api"
-  class="flex pad-inline appear-left-observer full-height"
+  class="flex appear-left-observer full-height"
   bind:this={section}
 >
   <h2 bind:this={tagline}>CoNexus API</h2>

@@ -23,7 +23,7 @@
   });
 </script>
 
-<section id="csr" class="flex pad-inline appear-left-observer full-height" bind:this={section}>
+<section id="csr" class="flex appear-left-observer full-height" bind:this={section}>
   <h2 bind:this={tagline}>CSR with Real Impact</h2>
   <div class="container">
     <img class="round-8" src={enterpriseURL + "/csr.gif"} alt="CSR with Real Impact" loading="lazy" decoding="async" />
