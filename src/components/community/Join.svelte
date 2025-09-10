@@ -405,6 +405,8 @@
   }
 
   .links {
+    max-width: 90rem;
+
     li {
       width: 100%;
 

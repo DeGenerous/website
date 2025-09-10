@@ -4,7 +4,7 @@
     disabled = false,
     right = false,
     absolute = null,
-    hideForMobiles = true,
+    hideForMobiles = false,
   }: {
     onclick: () => void;
     disabled?: boolean;

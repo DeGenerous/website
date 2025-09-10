@@ -80,13 +80,15 @@
           {/if}
         </div>
       {/each}
-      <a class="contact-us nohover-link" href="mailto:contact@dgrs.ink"> Contact Sales </a>
+      <div class="nav-item flex">
+        <a class="contact-us tab nohover-link flex-row" href="mailto:contact@dgrs.ink"> Contact Sales </a>
+      </div>
     </nav>
   </span>
 
   <span class="flex-row">
     <a class="contact-us nohover-link pc-only" href="mailto:contact@dgrs.ink">
-      Contact Sales <!-- ➜ -->
+      Contact Sales
     </a>
     <ThemeToggle />
     <select id="lang" bind:value={lang}>

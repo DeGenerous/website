@@ -230,9 +230,14 @@
     .container {
       min-height: 38rem;
       justify-content: space-between;
+      margin-inline: 1rem;
 
       @include respond-up("tablet") {
         min-height: 26rem;
+      }
+
+      @include respond-up("small-desktop") {
+        margin-inline: 0;
       }
 
       @include respond-up("full-hd") {

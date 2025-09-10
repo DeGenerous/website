@@ -62,7 +62,7 @@
       // finished only after scrolling past last goal center (reversible)
       const lastIdx = sec.goals.length - 1;
       const lastCenter = lastIdx >= 0 ? sec.goalCenters[lastIdx] : null;
-      sec.finished = lastCenter !== null ? progress > (lastCenter + 4) : false;
+      sec.finished = lastCenter !== null ? progress > lastCenter + 4 : false;
       if (bestIdx !== sec.activeGoalIdx) {
         sec.activeGoalIdx = bestIdx;
       }
@@ -71,9 +71,7 @@
       sec.completedCount = Math.min(sec.goals.length, stuck);
       // trail height should end at the farthest dot position
       const farthestY =
-        sec.completedCount < sec.goals.length
-          ? sec.trackerY
-          : lastCenter ?? sec.trackerY;
+        sec.completedCount < sec.goals.length ? sec.trackerY : (lastCenter ?? sec.trackerY);
       sec.trailHeight = Math.max(0, Math.min(farthestY, wrapRect.height));
     });
   }
@@ -185,11 +183,8 @@
                 <div
                   class="dot flex"
                   aria-hidden="true"
-                  style:top="{
-                    (di < sec.completedCount
-                      ? sec.goalCenters[di] ?? 0
-                      : sec.trackerY) + 'px'
-                  }"
+                  style:top={(di < sec.completedCount ? (sec.goalCenters[di] ?? 0) : sec.trackerY) +
+                    "px"}
                 >
                   <svg
                     viewBox="0 0 24 24"
@@ -239,13 +234,14 @@
       }
 
       .goals-wrapper {
+        width: 100%;
         position: relative;
 
         .tracker {
           display: none;
           position: absolute;
           top: 0;
-          left: -2rem;
+          left: -3rem;
           width: 1rem;
           height: 100%;
           pointer-events: none;
@@ -277,7 +273,9 @@
             display: grid;
             place-items: center;
             @include deep-green;
-            transition: top 0.3s linear, opacity 0.3s ease;
+            transition:
+              top 0.3s linear,
+              opacity 0.3s ease;
             opacity: 1;
 
             svg {
@@ -298,7 +296,7 @@
         &.right {
           .tracker {
             left: auto;
-            right: -2rem;
+            right: -3rem;
           }
         }
       }

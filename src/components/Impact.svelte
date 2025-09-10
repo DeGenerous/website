@@ -47,9 +47,9 @@
   {/if}
 </section>
 
-{#await new Promise(resolve => setTimeout(resolve, 1500)) then}
+{#await new Promise((resolve) => setTimeout(resolve, 1500)) then}
   <Charity />
-  
+
   <Platform />
 {/await}
 

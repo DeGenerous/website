@@ -11,8 +11,8 @@
 <section class="flex">
   <h1 bind:this={tagline}>About&nbsp;Us</h1>
 
-  <div class="flex-row flex-wrap appear-bottom">
-    <span class="question container flex">
+  <div class="flex-row flex-wrap">
+    <span class="question container appear-top">
       <h4>Who we are</h4>
       <p>
         DGRS Labs is a team of builders, storytellers, and technologists disrupting industries for
@@ -20,7 +20,7 @@
       </p>
     </span>
 
-    <span class="question container flex">
+    <span class="question container appear-top">
       <h4>Why we exist</h4>
       <p>
         Stories shape culture. By returning creative power to everyday people, we unlock voices and
@@ -28,12 +28,12 @@
       </p>
     </span>
 
-    <span class="question container flex">
+    <span class="question container appear-top">
       <h4>What we do</h4>
       <p>We reinvent IP creation through AI‑powered, community‑owned storytelling.</p>
     </span>
 
-    <span class="how-to container flex">
+    <span class="how-to container appear-right">
       <h4>How we operate</h4>
       <ul class="flex">
         <li>
@@ -53,35 +53,35 @@
 
     <h4 class="mobile-only">We live by five values:</h4>
 
-    <span class="value container">
+    <span class="value container appear-bottom">
       <span class="flex">
         <img class="standard-icon" src="/icons/bulb.svg" alt="Innovation" />
         <h5>Innovation</h5>
       </span>
       <p>Breakthrough tech and bold ideas drive meaningful change</p>
     </span>
-    <span class="value container">
+    <span class="value container appear-bottom">
       <span class="flex">
         <img class="standard-icon" src="/icons/people.svg" alt="Community" />
         <h5>Community</h5>
       </span>
       <p>Members steer everything we build</p>
     </span>
-    <span class="value container">
+    <span class="value container appear-bottom">
       <span class="flex">
         <img class="standard-icon" src="/icons/target.svg" alt="Empowerment" />
         <h5>Empowerment</h5>
       </span>
       <p>Tools and ownership let anyone shape stories and earn</p>
     </span>
-    <span class="value container">
+    <span class="value container appear-bottom">
       <span class="flex">
         <img class="standard-icon" src="/icons/shield.svg" alt="Transparency" />
         <h5>Transparency</h5>
       </span>
       <p>Clear goals, open dialogue, visible on‑chain activity</p>
     </span>
-    <span class="value container">
+    <span class="value container appear-bottom">
       <span class="flex">
         <img class="standard-icon" src="/icons/heart.svg" alt="Impact" />
         <h5>Impact</h5>

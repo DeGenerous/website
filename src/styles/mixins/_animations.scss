@@ -290,6 +290,21 @@
   }
 }
 
+:global(.appear-top) {
+  transition: all 0.6s ease-in-out;
+
+  // Fallback if no support
+  opacity: 1;
+  transform: none;
+  filter: none;
+
+  @starting-style {
+    opacity: 0;
+    transform: translateY(-100%);
+    filter: grayscale(100%);
+  }
+}
+
 :global(.appear-bottom) {
   transition: all 0.6s ease-in-out;
 

@@ -149,7 +149,7 @@
         @include respond-up(quad-hd) {
           span {
             flex-direction: row;
-            
+
             article {
               align-items: flex-start;
               text-align: left;
