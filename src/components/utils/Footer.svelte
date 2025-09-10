@@ -5,9 +5,9 @@
   import { regexpEmail } from "@constants/regexp";
 
   import LogoSVG from "@components/icons/Logo.svelte";
+  import Language from "@components/utils/Language.svelte";
 
   let email = $state<string>("");
-  let lang = $state<string>("en");
 
   const subscribeToNewsletter = (event: Event) => {
     event.preventDefault();
@@ -75,6 +75,8 @@
     </ul>
 
     <a href="mailto:contact@dgrs.ink" target="_blank">Contact Us</a>
+
+    <Language />
 
     <a href="/" onclick={resetCookieConsent}>Cookie Policy</a>
 
