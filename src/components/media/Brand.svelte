@@ -65,7 +65,7 @@
     </ul>
 
     <div class="logos flex-row flex-wrap">
-      <div class="flex">
+      <div class="main-logo flex">
         <span class="flex">
           <figure class="logo">
             <LogoSVG />
@@ -112,62 +112,6 @@
     </a>
   </div>
 
-  <div class="brand-fonts container">
-    <h3>Typography</h3>
-    <ul class="flex gap-8">
-      <li>
-        <p>Use provided weights and styles. Do not substitute fonts.</p>
-      </li>
-      <li>
-        <p><b>Hanken Grotesk</b> → Titles & Buttons</p>
-      </li>
-      <li>
-        <p>
-          <b>Source Serif 4</b> → Paragraphs, labels, and small headings (H5)
-        </p>
-      </li>
-    </ul>
-    <div class="fonts flex-row flex-wrap">
-      <div class="flex sans">
-        <span class="flex-row">
-          <p class="example">Aa</p>
-          <span class="flex">
-            <p class="name">Hanken Grotesk</p>
-            <p class="caption">from Google fonts</p>
-          </span>
-        </span>
-        <a
-          class="button-anchor"
-          href="https://fonts.google.com/specimen/Hanken+Grotesk"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Download Typeface
-          <OpenSVG />
-        </a>
-      </div>
-
-      <div class="flex serif">
-        <span class="flex-row">
-          <p class="example">Aa</p>
-          <span class="flex">
-            <p class="name">Source Serif 4</p>
-            <p class="caption">from Google fonts</p>
-          </span>
-        </span>
-        <a
-          class="button-anchor"
-          href="https://fonts.google.com/specimen/Source+Serif+4"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Download Typeface
-          <OpenSVG />
-        </a>
-      </div>
-    </div>
-  </div>
-
   <div class="brand-colors container">
     <h3>Colors</h3>
     <ul class="flex gap-8">
@@ -186,7 +130,7 @@
         <figure class="cyan"></figure>
         <span class="flex-row">
           <code>#33E2E6</code>
-          <p>Accent color</p>
+          <p>Accent</p>
         </span>
       </button>
 
@@ -194,7 +138,7 @@
         <figure class="light-blue"></figure>
         <span class="flex-row">
           <code>#3875FA</code>
-          <p>Accent color</p>
+          <p>Accent</p>
         </span>
       </button>
 
@@ -202,7 +146,7 @@
         <figure class="blue"></figure>
         <span class="flex-row">
           <code>#2440BD</code>
-          <p>Primary color</p>
+          <p>Primary</p>
         </span>
       </button>
 
@@ -210,7 +154,7 @@
         <figure class="navy"></figure>
         <span class="flex-row">
           <code>#161E5F</code>
-          <p>Primary color</p>
+          <p>Primary</p>
         </span>
       </button>
 
@@ -218,9 +162,32 @@
         <figure class="dark-blue"></figure>
         <span class="flex-row">
           <code>#010020</code>
-          <p>Background color</p>
+          <p>Background</p>
         </span>
       </button>
+    </div>
+  </div>
+
+  <div class="brand-fonts container">
+    <h3>Typography</h3>
+    <p>Use provided weights and styles.</p>
+    <div class="flex sans">
+      <span class="flex-row">
+        <p class="example">Aa</p>
+        <span class="flex">
+          <p class="name">Hanken Grotesk</p>
+          <p class="caption">from Google fonts</p>
+        </span>
+      </span>
+      <a
+        class="button-anchor"
+        href="https://fonts.google.com/specimen/Hanken+Grotesk"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Download Typeface
+        <OpenSVG />
+      </a>
     </div>
   </div>
 </section>
@@ -230,32 +197,15 @@
 
   section {
     margin-top: 6rem;
+    padding-inline: 1rem;
 
-    @include respond-up(quad-hd) {
-      flex-flow: row wrap;
-      max-width: calc(100% - 200px);
-      align-items: flex-start;
-
-      header {
-        width: 100%;
-      }
-
-      div {
-        margin-inline: 0;
-
-        &.brand-fonts {
-          > div {
-            flex-direction: column;
-
-            div {
-              width: 100%;
-            }
-          }
-        }
-      }
+    @include respond-up(small-desktop) {
+      padding-inline: 100px;
     }
 
     .brand-logos {
+      width: 100%;
+
       > div {
         div {
           gap: 0;
@@ -263,6 +213,16 @@
           fill: $dark-blue;
           @include light-blue(0.1);
           @include gray-border;
+
+          &.main-logo {
+            @include respond-up(small-desktop) {
+              margin-inline: 10rem;
+            }
+
+            @include respond-up(full-hd) {
+              margin-inline: 0;
+            }
+          }
 
           figure {
             width: 100%;
@@ -301,71 +261,15 @@
             fill: $light-blue;
           }
         }
-
-        @include respond-up(small-desktop) {
-          max-width: 50rem;
-        }
-      }
-    }
-
-    .brand-fonts {
-      > div {
-        p {
-          font-family: inherit;
-          transition: color 0.3s ease-in-out;
-        }
-
-        div {
-          width: 100%;
-          padding: 1rem;
-          border-radius: 0.5rem;
-          text-align: left;
-          @include light-blue(0.1);
-          @include dark-blue(1, text);
-          @include gray-border;
-
-          @include respond-up(tablet) {
-            width: auto;
-          }
-
-          a {
-            stroke: $white;
-          }
-
-          span {
-            .example {
-              font-size: 5rem;
-              font-weight: bold;
-            }
-
-            span {
-              align-items: flex-start;
-              gap: 0;
-
-              .name {
-                font-size: 1.5rem;
-                font-weight: 600;
-              }
-
-              .caption {
-                opacity: 0.5;
-              }
-            }
-          }
-
-          &:hover {
-            @include light-blue(1, text);
-          }
-        }
       }
     }
 
     .brand-colors {
-      @include respond-up(full-hd) {
-        max-width: calc(100% - 200px);
-      }
+      width: 100%;
 
       div {
+        width: 100%;
+
         p,
         code {
           transition: color 0.3s ease-in-out;
@@ -381,6 +285,10 @@
 
           @include respond-up(tablet) {
             width: 20rem;
+          }
+
+          @include respond-up(large-desktop) {
+            width: calc(20% - 1.2rem);
           }
 
           &:hover {
@@ -422,6 +330,56 @@
         }
       }
     }
+
+    .brand-fonts {
+      p {
+        font-family: inherit;
+        transition: color 0.3s ease-in-out;
+      }
+
+      div {
+        width: 100%;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        text-align: left;
+        @include light-blue(0.1);
+        @include dark-blue(1, text);
+        @include gray-border;
+
+        @include respond-up(tablet) {
+          width: auto;
+        }
+
+        a {
+          stroke: $white;
+        }
+
+        span {
+          .example {
+            font-size: 5rem;
+            font-weight: bold;
+          }
+
+          span {
+            align-items: flex-start;
+            gap: 0;
+
+            .name {
+              font-size: 1.5rem;
+              font-weight: 600;
+            }
+
+            .caption {
+              opacity: 0.5;
+            }
+          }
+        }
+
+        &:hover {
+          @include light-blue(1, text);
+        }
+      }
+    }
   }
 
   :global(body.dark) {
@@ -439,18 +397,16 @@
     }
 
     .brand-fonts {
-      > div {
-        div {
-          @include white-txt;
-          @include navy;
+      div {
+        @include white-txt;
+        @include navy;
 
-          a {
-            stroke: $dark-blue;
-          }
+        a {
+          stroke: $dark-blue;
+        }
 
-          &:hover {
-            @include cyan(1, text);
-          }
+        &:hover {
+          @include cyan(1, text);
         }
       }
     }
