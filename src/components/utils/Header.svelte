@@ -20,6 +20,7 @@
 
   let hiddenHeader = $state<boolean>(false);
   let hiddenTabs = $state<boolean>(true);
+  let expandedDropdown = $state<string | null>(null);
 
   let lang = $state<string>("en");
 
@@ -60,19 +61,21 @@
       <ConexusLogoSVG href="https://conexus.degenerousdao.com/" target="_blank" hideForPCs={true} />
       {#each tabs as { name, links }}
         <div class="nav-item flex" class:active={activeTab === name}>
-          <a
-            class="tab nohover-link flex-row"
-            href="/{name}"
-            aria-current={activeTab === name ? "page" : undefined}
-            onclick={showScramble}
-          >
-            {name}
-            {#if links}
-              <span class="arrow" aria-hidden="true"></span>
-            {/if}
-          </a>
+          <span class="flex-row">
+            <a
+              class="tab nohover-link flex"
+              href="/{name}"
+              aria-current={activeTab === name ? "page" : undefined}
+              onclick={showScramble}
+            >
+              {name}
+            </a>
           {#if links}
-            <div class="dropdown flex round-8 fade-in" role="menu">
+            <button class="arrow void-btn" class:expanded={expandedDropdown === name} aria-hidden="true" aria-label="Toggle dropdown" onclick={() => (expandedDropdown = expandedDropdown === name ? null : name)}></button>
+          {/if}
+          </span>
+          {#if links}
+            <div class="dropdown flex round-8 fade-in" class:expanded={expandedDropdown === name} role="menu">
               {#each links as { name, href }}
                 <a class="nohover-link" {href} role="menuitem">{name}</a>
               {/each}
@@ -81,15 +84,15 @@
         </div>
       {/each}
       <div class="nav-item flex">
-        <a class="contact-us tab nohover-link flex-row" href="mailto:contact@dgrs.ink"> Contact Sales </a>
+        <a class="contact-us tab nohover-link flex" href="mailto:contact@dgrs.ink">
+          Contact Sales
+        </a>
       </div>
     </nav>
   </span>
 
   <span class="flex-row">
-    <a class="contact-us nohover-link pc-only" href="mailto:contact@dgrs.ink">
-      Contact Sales
-    </a>
+    <a class="contact-us nohover-link pc-only" href="mailto:contact@dgrs.ink"> Contact Sales </a>
     <ThemeToggle />
     <select id="lang" bind:value={lang}>
       <option value="en" selected>EN</option>
@@ -174,61 +177,74 @@
       .nav-item {
         position: relative;
         width: 100%;
+        gap: 0.5rem;
 
-        .tab {
-          gap: 0.25rem;
+        > span {
+          position: relative;
           width: 100%;
           height: 2.5rem;
-          padding-inline: 0.5rem;
+          gap: 0.25rem;
           border-radius: 0.5rem;
-          font-weight: 500;
-          text-transform: capitalize;
           @include dark-blue(1, text);
 
           &:hover,
           &:active,
           &:focus {
-            text-decoration: none;
             @include light-blue(1, text);
-          }
-
-          .arrow {
-            display: inline-block;
-            width: 0.5rem;
-            height: 0.5rem;
-            margin-left: 0.35rem;
-            border-right: 2px solid currentColor;
-            border-bottom: 2px solid currentColor;
-            transform: rotate(45deg);
-            transition: transform 0.2s ease;
-            display: none;
-
-            @include respond-up("small-desktop") {
-              display: inline-block;
-            }
           }
         }
 
-        &.active .tab {
+        .tab {
+          width: 100%;
+          height: 100%;
+          font-weight: 500;
+          text-transform: capitalize;
+          color: inherit;
+        }
+
+        .arrow {
+          position: absolute;
+          top: 0;
+          right: 0;
+          display: inline-block;
+          width: 0.5rem;
+          aspect-ratio: 1 / 1;
+          flex: none;
+          min-width: unset;
+          min-height: unset;
+          margin: 1rem;
+          border-right: 2px solid currentColor;
+          border-bottom: 2px solid currentColor;
+          transform: rotate(45deg);
+          transition: transform 0.2s ease;
+          z-index: 1;
+
+          &.expanded {
+            transform: scaleY(1.1) translateY(10%) rotate(45deg);
+          }
+
+          @include respond-up("small-desktop") {
+            display: inline-block;
+          }
+        }
+
+        &.active > span {
           @include blue(1, text);
           @include light-blue(0.25);
         }
 
         .dropdown {
           display: none;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          align-items: flex-start;
-          gap: 0;
-          background: white;
-          @include box-shadow;
-          z-index: 10;
+          width: 100%;
+          margin-bottom: 0.5rem;
+          @include light-blue(0.1);
+
+          &.expanded {
+            display: flex;
+          }
 
           a {
             width: 100%;
-            padding-inline: 1rem;
-            text-align: left;
             white-space: nowrap;
             border-radius: 0.5rem;
             padding: 0.5rem 1.5rem;
@@ -244,6 +260,36 @@
         }
 
         @include respond-up("small-desktop") {
+          > span {
+            padding-inline: 0.5rem;
+            gap: 0.5rem;
+            cursor: pointer;
+
+            .arrow {
+              position: static;
+              margin: 0;
+              pointer-events: none;
+            }
+          }
+
+          .dropdown {
+            display: none;
+            position: absolute;
+            width: auto;
+            top: 100%;
+            left: 0;
+            align-items: flex-start;
+            gap: 0;
+            z-index: 10;
+            background: white;
+            @include box-shadow;
+
+            a {
+              padding-inline: 1rem;
+              text-align: left;
+            }
+          }
+
           &:hover,
           &:focus-within {
             &:not(.active) {
