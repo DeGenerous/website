@@ -20,7 +20,7 @@
       () => typeWrite(tagline!, "Built on DGRS"),
       () => {}, // no reset
       undefined,
-      false // animate multiple times
+      true // animate once
     );
   });
 

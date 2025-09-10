@@ -89,7 +89,15 @@
     }
   }
 
+  let initialized = false;
+
   onMount(() => {
+    if (!initialized) {
+      initialized = true;
+      tagline!.textContent = "";
+      setTimeout(hydrateTweets, 1500); // slight delay to avoid jank on page load
+    }
+
     observeElement(
       root!,
       null,
@@ -98,7 +106,6 @@
       undefined,
       true // animate once and keep visible
     );
-    hydrateTweets();
   });
 </script>
 

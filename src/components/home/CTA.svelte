@@ -208,9 +208,10 @@
       margin: 0;
       gap: 0.75rem;
 
+      /* Keep list semantics: avoid display: contents on <li> */
       li {
-        display: contents;
-      } /* keep buttons in flow grid/flex gaps */
+        display: inline-flex; /* shrink-wrap to button while remaining a list item */
+      }
 
       button {
         img {

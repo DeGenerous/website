@@ -2,8 +2,8 @@ import { defineConfig } from "astro/config";
 
 import svelte from "@astrojs/svelte";
 
-// https://astro.build/config
-export default defineConfig({
+  // https://astro.build/config
+  export default defineConfig({
   integrations: [svelte()],
   devToolbar: {
     enabled: false,
@@ -44,6 +44,8 @@ export default defineConfig({
       hasWarned: false,
     },
     build: {
+      // Generate production source maps for JS and CSS
+      sourcemap: true,
       // Avoid noisy 500kB warnings; we split vendors below as well
       chunkSizeWarningLimit: 1500,
       rollupOptions: {
@@ -82,5 +84,9 @@ export default defineConfig({
         },
       },
     },
+  },
+  // Inline stylesheets into HTML to avoid render‑blocking CSS
+  build: {
+    inlineStylesheets: 'always',
   },
 });

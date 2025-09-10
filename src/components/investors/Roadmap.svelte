@@ -260,6 +260,7 @@
             border-radius: 0.25rem;
             background: linear-gradient(to bottom, rgba(0, 185, 55, 0.25), rgba(75, 112, 50, 1));
             transition: height 0.3s linear;
+            will-change: height;
           }
 
           .dot {
@@ -277,6 +278,7 @@
               top 0.3s linear,
               opacity 0.3s ease;
             opacity: 1;
+            will-change: top, transform;
 
             svg {
               width: 75%;
