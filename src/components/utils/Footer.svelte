@@ -76,8 +76,6 @@
 
     <a href="mailto:contact@dgrs.ink" target="_blank">Contact Us</a>
 
-    <div class="gtranslate_wrapper"></div>
-
     <a href="/" onclick={resetCookieConsent}>Cookie Policy</a>
 
     <span class="flex gap-8">
