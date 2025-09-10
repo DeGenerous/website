@@ -54,16 +54,7 @@
       height: 100%;
       border-radius: inherit;
       transition: background-color 0.3s ease;
-      opacity: 0.75;
-      transition: opacity 0.3s ease;
       @include light-blue(0.25);
-      // @include box-shadow(soft, inset);
-
-      &:hover,
-      &:active,
-      &:focus {
-        opacity: 1;
-      }
 
       .icon {
         position: absolute;
@@ -94,7 +85,7 @@
         width: $thumb-size;
         height: $thumb-size;
         border-radius: 50%;
-        background: white;
+        background: #f0f0f0;
         transition: transform 0.3s ease;
         will-change: transform;
       }

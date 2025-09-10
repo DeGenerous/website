@@ -9,6 +9,7 @@
   import ConexusLogoSVG from "@components/icons/ConexusLogo.svelte";
   import BurgerSVG from "@components/icons/Burger.svelte";
   import ThemeToggle from "@components/icons/ThemeToggle.svelte";
+  import Language from "@components/utils/Language.svelte";
 
   let { activeTab = "" }: { activeTab?: string } = $props();
 
@@ -70,12 +71,22 @@
             >
               {name}
             </a>
-          {#if links}
-            <button class="arrow void-btn" class:expanded={expandedDropdown === name} aria-hidden="true" aria-label="Toggle dropdown" onclick={() => (expandedDropdown = expandedDropdown === name ? null : name)}></button>
-          {/if}
+            {#if links}
+              <button
+                class="arrow void-btn"
+                class:expanded={expandedDropdown === name}
+                aria-hidden="true"
+                aria-label="Toggle dropdown"
+                onclick={() => (expandedDropdown = expandedDropdown === name ? null : name)}
+              ></button>
+            {/if}
           </span>
           {#if links}
-            <div class="dropdown flex round-8 fade-in" class:expanded={expandedDropdown === name} role="menu">
+            <div
+              class="dropdown flex round-8 fade-in"
+              class:expanded={expandedDropdown === name}
+              role="menu"
+            >
               {#each links as { name, href }}
                 <a class="nohover-link" {href} role="menuitem">{name}</a>
               {/each}
@@ -94,9 +105,10 @@
   <span class="flex-row">
     <a class="contact-us nohover-link pc-only" href="mailto:contact@dgrs.ink"> Contact Sales </a>
     <ThemeToggle />
-    <select id="lang" bind:value={lang}>
+    <!-- <select id="lang" bind:value={lang}>
       <option value="en" selected>EN</option>
-    </select>
+    </select> -->
+    <Language />
     <ConexusLogoSVG
       href="https://conexus.degenerousdao.com/"
       target="_blank"
@@ -132,25 +144,6 @@
 
     &.hide {
       transform: translateY(-100%);
-    }
-
-    select {
-      width: 4rem;
-      padding: 0;
-      min-height: 2.5rem;
-      opacity: 0.75;
-
-      &:hover,
-      &:active,
-      &:focus {
-        opacity: 1;
-        transform: none !important;
-        outline: none;
-      }
-
-      @media (max-width: 400px) {
-        display: none;
-      }
     }
 
     .contact-us {

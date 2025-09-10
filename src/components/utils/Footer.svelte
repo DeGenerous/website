@@ -76,13 +76,6 @@
 
     <a href="mailto:contact@dgrs.ink" target="_blank">Contact Us</a>
 
-    <div class="lang flex-row gap-8 flex-wrap">
-      <label for="lang">Language:</label>
-      <select id="lang" bind:value={lang}>
-        <option value="en" selected>English</option>
-      </select>
-    </div>
-
     <a href="/" onclick={resetCookieConsent}>Cookie Policy</a>
 
     <span class="flex gap-8">
@@ -242,10 +235,6 @@
 
         span {
           align-items: flex-start;
-        }
-
-        .lang select {
-          max-width: 230px;
         }
       }
 

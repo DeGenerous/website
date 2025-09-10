@@ -47,10 +47,7 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://media.degenerousdao.com" crossorigin />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="upgrade-insecure-requests"
-    />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <SEO
       title={title}
       description={seoConfig.description || description}
@@ -76,8 +73,12 @@ const {
         card: "summary_large_image",
       }}
     />
-    <link rel="canonical" href={(seoConfig.baseURL?.replace(/\/$/, "") || "") + (Astro.url?.pathname || "/")} />
+    <link
+      rel="canonical"
+      href={(seoConfig.baseURL?.replace(/\/$/, "") || "") + (Astro.url?.pathname || "/")}
+    />
   </head>
+
   <body class={nav}>
     <a href="#content" class="skip-link">Skip to content</a>
     <Scramble client:idle />

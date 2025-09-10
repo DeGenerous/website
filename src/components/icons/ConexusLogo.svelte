@@ -87,7 +87,7 @@
     &.mobile-only {
       display: flex;
 
-      @include respond-up("tablet") {
+      @include respond-up("small-desktop") {
         display: none;
       }
     }
@@ -95,7 +95,7 @@
     &.pc-only {
       display: none;
 
-      @include respond-up("tablet") {
+      @include respond-up("large-desktop") {
         display: flex;
       }
     }

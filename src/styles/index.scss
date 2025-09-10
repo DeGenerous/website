@@ -8,6 +8,59 @@
 @use "mixins" as *;
 @use "components";
 
+/* hide Google banner if it appears */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+/* GTranslate widget: neutralize our global <a> underline/hover inside widget */
+.gt_float_switcher a,
+.gtranslate_wrapper a,
+.goog-te-gadget a {
+  white-space: normal !important;
+}
+.gt_float_switcher a::after,
+.gtranslate_wrapper a::after,
+.goog-te-gadget a::after {
+  content: none !important;
+}
+
+/* GTranslate globe: show hand cursor */
+.gt_float_switcher,
+.gtranslate_wrapper,
+.gt_float_switcher *,
+.gtranslate_wrapper *,
+.goog-te-gadget,
+.goog-te-gadget * {
+  cursor: pointer !important;
+}
+
+/* GTranslate globe/menu: remove click/focus shadows */
+.gt_float_switcher,
+.gtranslate_wrapper,
+.goog-te-gadget,
+.gt_float_switcher *,
+.gtranslate_wrapper *,
+.goog-te-gadget * {
+  box-shadow: none !important;
+}
+.gt_float_switcher .gt_selected,
+.gt_float_switcher .gt_options,
+.gtranslate_wrapper .gt_selected,
+.gtranslate_wrapper .gt_options {
+  box-shadow: none !important;
+}
+.gt_float_switcher a:focus,
+.gt_float_switcher a:active,
+.gtranslate_wrapper a:focus,
+.gtranslate_wrapper a:active,
+.goog-te-gadget a:focus,
+.goog-te-gadget a:active,
+.gt_float_switcher button:focus,
+.gt_float_switcher button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 /* RESET */
 
 *,
