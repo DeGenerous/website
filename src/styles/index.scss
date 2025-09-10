@@ -17,6 +17,9 @@
 .gtranslate_wrapper a,
 .goog-te-gadget a {
   white-space: normal !important;
+  border: 1px solid black !important;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 0.25rem black);
 }
 .gt_float_switcher a::after,
 .gtranslate_wrapper a::after,
@@ -33,6 +36,10 @@
 .goog-te-gadget * {
   cursor: pointer !important;
 }
+
+/* Ensure widget renders above our overlay */
+.gtranslate_wrapper { position: relative; z-index: 1001; }
+.gt_float_switcher { z-index: 1001 !important; }
 
 /* GTranslate globe/menu: remove click/focus shadows */
 .gt_float_switcher,
