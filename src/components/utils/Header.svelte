@@ -357,7 +357,7 @@
         @include dark-blue;
 
         .nav-item {
-          .tab {
+          > span {
             @include white-txt;
 
             &:hover,
@@ -367,7 +367,7 @@
             }
           }
 
-          &.active .tab {
+          &.active > span {
             @include dark-blue(1, text);
             @include cyan;
           }
