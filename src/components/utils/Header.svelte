@@ -9,7 +9,6 @@
   import ConexusLogoSVG from "@components/icons/ConexusLogo.svelte";
   import BurgerSVG from "@components/icons/Burger.svelte";
   import ThemeToggle from "@components/icons/ThemeToggle.svelte";
-  import Language from "@components/utils/Language.svelte";
 
   let { activeTab = "" }: { activeTab?: string } = $props();
 
@@ -22,8 +21,6 @@
   let hiddenHeader = $state<boolean>(false);
   let hiddenTabs = $state<boolean>(true);
   let expandedDropdown = $state<string | null>(null);
-
-  let lang = $state<string>("en");
 
   onMount(() => {
     const saved = localStorage.getItem("theme");
@@ -105,10 +102,7 @@
   <span class="flex-row">
     <a class="contact-us nohover-link pc-only" href="mailto:contact@dgrs.ink"> Contact Sales </a>
     <ThemeToggle />
-    <!-- <select id="lang" bind:value={lang}>
-      <option value="en" selected>EN</option>
-    </select> -->
-    <Language />
+    <div class="gtranslate_wrapper"></div>
     <ConexusLogoSVG
       href="https://conexus.degenerousdao.com/"
       target="_blank"

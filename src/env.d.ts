@@ -110,3 +110,9 @@ type Modal = {
   buttonFunc: () => void;
   buttonClass: string;
 };
+
+// Globals for GTranslate widget
+interface Window {
+  gtranslateSettings?: any;
+  doGTranslate?: (langPair: string) => void;
+}
