@@ -104,7 +104,6 @@
   <span class="flex-row">
     <a class="contact-us nohover-link pc-only" href="mailto:contact@dgrs.ink"> Contact Sales </a>
     <ThemeToggle />
-    <div class="gtranslate_wrapper"></div>
     <ConexusLogoSVG
       href="https://conexus.degenerousdao.com/"
       target="_blank"
