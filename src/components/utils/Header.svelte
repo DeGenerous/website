@@ -92,9 +92,11 @@
         </div>
       {/each}
       <div class="nav-item flex">
-        <a class="contact-us tab nohover-link flex" href="mailto:contact@dgrs.ink">
-          Contact Sales
-        </a>
+        <span class="contact-us flex-row">
+          <a class="tab nohover-link flex" href="mailto:contact@dgrs.ink">
+            Contact Sales
+          </a>
+        </span>
       </div>
     </nav>
   </span>
@@ -309,7 +311,7 @@
           opacity: 1;
         }
 
-        a.contact-us {
+        span.contact-us {
           display: none;
         }
       }
