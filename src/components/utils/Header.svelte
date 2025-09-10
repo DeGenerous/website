@@ -205,7 +205,7 @@
           border-right: 2px solid currentColor;
           border-bottom: 2px solid currentColor;
           transform: rotate(45deg);
-          transition: transform 0.2s ease;
+          transition: all 0.3s ease-in-out;
           z-index: 1;
 
           &.expanded {
