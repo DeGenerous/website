@@ -22,9 +22,9 @@ const collabs = [
   },
   { href: "https://twigg.xyz/", src: "/collabs/twigg.png", alt: "Twigg" },
   {
-    href: "https://highclasscrypto.io/",
-    src: "/collabs/hcc.png",
-    alt: "High Class Crypto",
+    href: "https://debros.io/",
+    src: "/collabs/debros.png",
+    alt: "DeBros",
   },
   {
     href: "https://www.glmrapes.com/",
