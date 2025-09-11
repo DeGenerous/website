@@ -90,6 +90,7 @@ const pageLd = {
     <SEO
       title={title}
       description={seoConfig.description || description}
+      canonical={canonical}
       noindex={disableIndexing}
       nofollow={disableIndexing}
       openGraph={{
@@ -111,10 +112,6 @@ const pageLd = {
       twitter={{
         card: "summary_large_image",
       }}
-    />
-    <link
-      rel="canonical"
-      href={(seoConfig.baseURL?.replace(/\/$/, "") || "") + (Astro.url?.pathname || "/")}
     />
     <script type="application/ld+json">{JSON.stringify(orgLd)}</script>
     <script type="application/ld+json">{JSON.stringify(siteLd)}</script>
