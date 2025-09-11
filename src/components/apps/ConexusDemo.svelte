@@ -7,12 +7,13 @@
     <span class="container">
       <p>A new world of endless possibilities awaits you.</p>
       <ul class="flex-row flex-wrap">
-        <a
+        <li>
+          <a
           class="menu-tile nohover-link blur"
           href="https://conexus.degenerousdao.com/sections/Community%20Picks"
           target="_blank"
           rel="noopener noreferrer"
-        >
+          >
           <img
             src="{mediaURL}/conexus-sections/communitypicks.avif"
             alt="Community Picks"
@@ -20,13 +21,15 @@
             decoding="async"
           />
           <h4>Community Picks</h4>
-        </a>
-        <a
+          </a>
+        </li>
+        <li>
+          <a
           class="menu-tile nohover-link pc-only"
           href="https://conexus.degenerousdao.com/sections/Collabs"
           target="_blank"
           rel="noopener noreferrer"
-        >
+          >
           <img
             src="{mediaURL}/conexus-sections/collabs.avif"
             alt="Collabs"
@@ -34,13 +37,15 @@
             decoding="async"
           />
           <h4>Collabs</h4>
-        </a>
-        <a
+          </a>
+        </li>
+        <li>
+          <a
           class="menu-tile nohover-link pc-only"
           href="https://conexus.degenerousdao.com/sections/Dischordian%20Saga"
           target="_blank"
           rel="noopener noreferrer"
-        >
+          >
           <img
             src="{mediaURL}/conexus-sections/dischordiansaga.avif"
             alt="Dischordian Saga"
@@ -48,7 +53,8 @@
             decoding="async"
           />
           <h4>Dischordian Saga</h4>
-        </a>
+          </a>
+        </li>
       </ul>
       <p>Infinitely unique. Never repeatable.</p>
     </span>
@@ -77,6 +83,14 @@
 
         p {
           @include white-txt;
+        }
+
+        ul li {
+          width: 100%;
+
+          @include respond-up(tablet) {
+            width: auto;
+          }
         }
 
         .menu-tile {

@@ -177,12 +177,14 @@
 
     <ul class="tabs flex-row pad-inline">
       {#each titles as title, i (title)}
-        <button
-          class="void-btn"
-          class:active={i === currentIndex}
-          onclick={() => scrollWrap({ index: i })}
-          aria-label={"Scroll to " + title + " team section"}
-        ></button>
+        <li>
+          <button
+            class="void-btn"
+            class:active={i === currentIndex}
+            onclick={() => scrollWrap({ index: i })}
+            aria-label={"Scroll to " + title + " team section"}
+          ></button>
+        </li>
       {/each}
     </ul>
   </div>
@@ -287,14 +289,18 @@
       }
     }
 
-    .tabs {
-      width: 100%;
+  .tabs {
+    width: 100%;
 
-      button {
-        height: 0.25rem;
-        min-height: unset;
-        width: 100%;
-        border-radius: 0.5rem;
+    li {
+      flex: 1;
+    }
+
+    button {
+      height: 0.25rem;
+      min-height: unset;
+      width: 100%;
+      border-radius: 0.5rem;
         @include light-blue(0.1);
 
         &.active {
