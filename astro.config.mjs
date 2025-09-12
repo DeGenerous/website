@@ -13,10 +13,6 @@ import svelte from "@astrojs/svelte";
   // that are not always used after tree-shaking, which triggers UNUSED_EXTERNAL_IMPORT.
   // We filter those specifically for node_modules to avoid hiding real issues in src/.
   vite: {
-    // Ensure Svelte/TS source from Threlte is compiled in SSR
-    ssr: {
-      noExternal: ["@threlte/core", "@threlte/extras"],
-    },
     logLevel: process.env.NODE_ENV === "production" ? "error" : "info",
     // Additional filter for dev-time Vite warnings not routed through Rollup onwarn
     customLogger: {
