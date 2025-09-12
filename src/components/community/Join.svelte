@@ -242,22 +242,40 @@
 
   <div class="contracts container">
     <h4>Verified Contract Addresses</h4>
-    <button
-      class="void-btn flex-row flex-wrap"
-      onclick={() => copyContract("0xFA511D5c4CCe10321e6E86793cC083213c36278E")}
-    >
-      <h5>Ethereum:</h5>
-      <code>0xFA511D5c4CCe10321e6E86793cC083213c36278E</code>
-      <CopySVG inheritColor={true} />
-    </button>
-    <button
-      class="void-btn flex-row flex-wrap"
-      onclick={() => copyContract("0x111e0861BaA9D479cff55D542E5A9e4205012bBe")}
-    >
-      <h5>Base:</h5>
-      <code>0x111e0861BaA9D479cff55D542E5A9e4205012bBe</code>
-      <CopySVG inheritColor={true} />
-    </button>
+    <span class="flex-row">
+      <button
+        class="void-btn flex-row flex-wrap"
+        onclick={() => copyContract("0xFA511D5c4CCe10321e6E86793cC083213c36278E")}
+      >
+        <h5>Ethereum:</h5>
+        <code>0xFA511D5c4CCe10321e6E86793cC083213c36278E</code>
+        <CopySVG inheritColor={true} />
+      </button>
+      <a
+        class="flex nohover-link"
+        href="https://etherscan.io/address/0xFA511D5c4CCe10321e6E86793cC083213c36278E"
+        target="_blank"
+      >
+        <OpenSVG />
+      </a>
+      </span>
+    <span class="flex-row">
+      <button
+        class="void-btn flex-row flex-wrap"
+        onclick={() => copyContract("0x111e0861BaA9D479cff55D542E5A9e4205012bBe")}
+      >
+        <h5>Base:</h5>
+        <code>0x111e0861BaA9D479cff55D542E5A9e4205012bBe</code>
+        <CopySVG inheritColor={true} />
+      </button>
+      <a
+        class="flex nohover-link"
+        href="https://etherscan.io/address/0x111e0861BaA9D479cff55D542E5A9e4205012bBe"
+        target="_blank"
+      >
+        <OpenSVG />
+      </a>
+    </span>
     <article>
       Avoid completing any transactions on unsupported chains or apps. For example, a known scam
       Potentials collection is circulating on Polygon. Only interact with the links and addresses
@@ -362,15 +380,23 @@
   }
 
   .contracts {
+    stroke: $dark-blue;
+
     @include respond-up(tablet) {
       align-items: flex-start;
     }
 
+    span {
+      gap: 1rem;
+      width: 100%;
+    }
+
     button {
+      width: 100%;
+      justify-content: flex-start;
       padding: 0.5rem 1rem;
       border-radius: 0.5rem;
       background-color: white;
-      stroke: $dark-blue;
       @include gray-border;
 
       h5 {
@@ -378,7 +404,7 @@
       }
 
       code {
-        max-width: 75vw;
+        max-width: 22vw;
         overflow: hidden;
         text-overflow: ellipsis;
       }
@@ -388,7 +414,10 @@
         transition: all 0.3s ease-in-out;
         cursor: pointer;
       }
+    }
 
+    a,
+    button {
       &:hover,
       &:active,
       &:focus {
@@ -509,10 +538,14 @@
     }
 
     .contracts {
+      stroke: $white;
+
       button {
         background-color: transparent;
-        stroke: $white;
+      }
 
+      a,
+      button {
         &:hover,
         &:active,
         &:focus {
