@@ -22,9 +22,7 @@
     <article class="flex">
       <h4>Daniel “Pano” Elkins — Co-Founder</h4>
       <p>
-        Lions Clubs International board appointee, book publisher, and veteran game designer. Led
-        Dragon Age Dark Times and Star Wars Rise of the Silent Council, attracting millions of
-        players and inspiring thriving mod ecosystems.
+       Creative specialist and community builder. Lions Clubs International Board appointee, author, filmmaker, music producer, and veteran game designer. Led Dragon Age: Dark Times and Star Wars: Rise of the Silent Council, reaching millions of players. Advises Web3 ventures (2019–present).
       </p>
     </article>
   </div>
@@ -42,9 +40,7 @@
     <article class="flex">
       <h4>Uroš “Maxi” Trbović — Co-Founder</h4>
       <p>
-        Growth strategist who built a media platform with more than one million users and ran social
-        channels topping 900k followers. Combines data-driven experimentation with sharp
-        storytelling instincts to scale creator economies from zero to breakout.
+       Growth and marketing specialist. Built a media platform to 1M+ users and grew social channels to 900K+ followers. Blends data‑driven analysis with sharp campaigns to scale creator economies from zero to breakout. Advises Web3 ventures (2019–present).
       </p>
     </article>
   </div>
