@@ -60,7 +60,7 @@
   <div class="flex-row flex-wrap">
     <span>
       Join our
-      <a href="https://degenerousdao.com/join" target="_blank" rel="noopener noreferrer">
+      <a href="https://dgrslabs.ink/join" target="_blank" rel="noopener noreferrer">
         Discord
       </a>
     </span>

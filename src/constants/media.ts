@@ -1,4 +1,4 @@
-export const mediaURL = "https://media.degenerousdao.com";
+export const mediaURL = "https://media.dgrslabs.ink";
 
 export const assetsURL = `${mediaURL}/assets`;
 

@@ -51,7 +51,7 @@
         and ensure every detail reflects your brand values.
       </p>
       <p>
-        <a href="mailto:charity@degenerousdao.com" target="_blank"> Join our mission </a>
+        <a href="mailto:charity@dgrslabs.ink" target="_blank"> Join our mission </a>
         and make a measurable difference.
       </p>
     </article>

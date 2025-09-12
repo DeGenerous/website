@@ -25,7 +25,7 @@
 
   <a
     class="discord button-anchor"
-    href="https://degenerousdao.com/join"
+    href="https://dgrslabs.ink/join"
     target="_blank"
     rel="noopener noreferrer"
   >
@@ -199,7 +199,7 @@
     <li>
       <a
         class="nohover-link flex-row blur"
-        href="https://conexus.degenerousdao.com/dashboard"
+        href="https://conexus.ink/dashboard"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -213,7 +213,7 @@
     <li>
       <a
         class="nohover-link flex-row blur"
-        href="https://governance.degenerousdao.com/"
+        href="https://governance.dgrslabs.ink/"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -227,7 +227,7 @@
     <li>
       <a
         class="nohover-link flex-row blur"
-        href="https://conexus.degenerousdao.com/"
+        href="https://conexus.ink/"
         target="_blank"
         rel="noopener noreferrer"
       >

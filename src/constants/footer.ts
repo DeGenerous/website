@@ -1,6 +1,6 @@
 export const socials: FooterSocial[] = [
   {
-    href: "https://degenerousdao.com/join",
+    href: "https://dgrslabs.ink/join",
     icon: "/icons/discord.png",
     alt: "Discord",
   },

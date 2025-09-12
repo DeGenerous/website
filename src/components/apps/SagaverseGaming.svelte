@@ -30,7 +30,7 @@
         </p>
         <a
           class="button-anchor"
-          href="https://arcade.degenerousdao.com/Battle-for-Nexon/"
+          href="https://arcade.dgrslabs.ink/Battle-for-Nexon/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -55,7 +55,7 @@
         </p>
         <a
           class="button-anchor"
-          href="https://arcade.degenerousdao.com/Ark-Assassin/"
+          href="https://arcade.dgrslabs.ink/Ark-Assassin/"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -75,7 +75,7 @@
         </p>
         <a
           class="button-anchor"
-          href="https://arcade.degenerousdao.com/Iron-Lion-Last-Stand/"
+          href="https://arcade.dgrslabs.ink/Iron-Lion-Last-Stand/"
           target="_blank"
           rel="noopener noreferrer"
         >

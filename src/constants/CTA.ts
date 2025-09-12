@@ -9,12 +9,12 @@ const callToAction: CTA[] = [
     buttons: [
       {
         name: "Launch CoNexus",
-        link: "https://conexus.degenerousdao.com/",
+        link: "https://conexus.ink/",
         target: "_blank",
       },
       {
         name: "Join Discord",
-        link: "http://degenerousdao.com/join",
+        link: "http://dgrslabs.ink/join",
         target: "_blank",
       },
     ],
@@ -29,7 +29,7 @@ const callToAction: CTA[] = [
     buttons: [
       {
         name: "Launch CoNexus",
-        link: "https://conexus.degenerousdao.com/",
+        link: "https://conexus.ink/",
         target: "_blank",
       },
       {
@@ -49,7 +49,7 @@ const callToAction: CTA[] = [
     buttons: [
       {
         name: "Contact us",
-        link: "mailto:biz@degenerousdao.com",
+        link: "mailto:biz@dgrslabs.ink",
       },
       {
         name: "See more",
@@ -86,7 +86,7 @@ const callToAction: CTA[] = [
     buttons: [
       {
         name: "Contact us",
-        link: "mailto:charity@degenerousdao.com",
+        link: "mailto:charity@dgrslabs.ink",
       },
       {
         name: "See more",

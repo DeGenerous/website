@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://test.degenerousdao.com/sitemap.xml
+Sitemap: https://test.dgrslabs.ink/sitemap.xml
 
 # GEO: AI crawler directives
 # Allow browsing/answer-engine bots

@@ -47,7 +47,7 @@
 
       <a
         class="button-anchor"
-        href="http://degenerousdao.com/join"
+        href="http://dgrslabs.ink/join"
         target="_blank"
         rel="noopener noreferrer"
       >

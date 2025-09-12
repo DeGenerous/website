@@ -32,22 +32,22 @@ const tabs: HeaderTab[] = [
     links: [
       {
         name: "CoNexus",
-        href: "https://conexus.degenerousdao.com/",
+        href: "https://conexus.ink/",
         target: "_blank",
       },
       {
         name: "Governance Hub",
-        href: "https://governance.degenerousdao.com/",
+        href: "https://governance.dgrslabs.ink/",
         target: "_blank",
       },
       {
         name: "Loredex",
-        href: "https://loredex.degenerousdao.com/",
+        href: "https://loredex.dgrslabs.ink/",
         target: "_blank",
       },
       {
         name: "OmniHub",
-        href: "https://conexus.degenerousdao.com/dashboard",
+        href: "https://conexus.ink/dashboard",
         target: "_blank",
       },
       {

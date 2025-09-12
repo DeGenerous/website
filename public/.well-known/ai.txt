@@ -1,7 +1,7 @@
 # ai.txt — Generative Engine Optimization policy for DGRS LABS
 # Reference: emerging community convention for AI crawler policy
 
-Site: https://degenerousdao.com
+Site: https://dgrslabs.ink
 Owner: DGRS LABS
 Contact: contact@dgrslabs.ink
 Updated: 2025-09-10
@@ -29,7 +29,7 @@ Agent: Meta-ExternalAgent
 Agent: Amazonbot
 Agent: Applebot-Extended
 
-Sitemap: https://test.degenerousdao.com/sitemap.xml
+Sitemap: https://test.dgrslabs.ink/sitemap.xml
 
 # Notes
 # This file expresses preferences for AI usage. Where supported, crawlers should

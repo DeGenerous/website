@@ -62,7 +62,7 @@
         Prefer zero‑code? We’ll build, market, and host your interactive stories on CoNexus for you.
       </p>
       <p>
-        <a href="mailto:biz@degenerousdao.com" target="_blank" rel="noopener noreferrer">
+        <a href="mailto:biz@dgrslabs.ink" target="_blank" rel="noopener noreferrer">
           Contact us
         </a>
         to get your API key or discuss an in‑platform collaboration.

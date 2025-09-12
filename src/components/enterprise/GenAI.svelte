@@ -47,7 +47,7 @@
         millions of views.
       </p>
       <p>
-        <a href="mailto:biz@degenerousdao.com" target="_blank" rel="noopener noreferrer">
+        <a href="mailto:biz@dgrslabs.ink" target="_blank" rel="noopener noreferrer">
           Schedule a creative call
         </a>
         to bring your project to life.
