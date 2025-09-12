@@ -76,8 +76,7 @@
 
   <p class="auto-width pc-narrow">
     Our composable AI infrastructure underpins everything from multimedia agents to games, films,
-    and apps - all within a single, unified ecosystem. Not just our products: independent teams,
-    creators, brands, franchises, and filmmakers build on DGRS's modular building blocks.
+    and apps - all within a single, unified ecosystem. Independent teams, creators, brands, franchises, and filmmakers harness DGRS's modular building blocks to innovate and excel.
   </p>
 
   <!-- Projects list: mobile stacked sticky; desktop flex grid -->
