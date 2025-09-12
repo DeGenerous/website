@@ -92,10 +92,11 @@
       >
         <span class="pad-8">
           <p>{project.description}</p>
-          <img src={project.image} alt={project.title} loading="lazy" decoding="async" />
+          <img class="thumbnail" src={project.image} alt={project.title} loading="lazy" decoding="async" />
           <h5 class="fade-in">Click to learn more...</h5>
         </span>
         <h4>{project.title}</h4>
+        <img class="icon fade-in" src="/icons/flip.svg" alt="FLip tile" />
       </button>
     {/each}
   </div>
@@ -123,6 +124,7 @@
       }
 
       .project {
+        position: relative;
         height: 380px; /* fixed height for tiles */
         width: 100%;
         justify-content: space-between;
@@ -139,11 +141,19 @@
           pointer-events: none;
         }
 
+        .icon {
+          display: none;
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          width: 1.5rem;
+        }
+
         span {
           position: relative;
           height: 100%;
 
-          img {
+          .thumbnail {
             position: absolute;
             top: 0;
             left: 0;
@@ -180,7 +190,7 @@
           @include dark-blue(0.9);
 
           span {
-            img {
+            .thumbnail {
               // opacity: 0.5;
               z-index: -1;
               filter: blur(0.1rem) brightness(25%);
@@ -194,6 +204,10 @@
 
           h4 {
             @include white-txt(1);
+          }
+
+          .icon {
+            display: none !important;
           }
         }
 
@@ -218,6 +232,10 @@
               h5 {
                 display: block;
               }
+            }
+
+            .icon {
+              display: block;
             }
           }
         }
@@ -277,6 +295,14 @@
     @media (max-width: 768px) {
       opacity: 1;
       transform: none;
+    }
+  }
+
+  :global(.project.visible) {
+    .icon {
+      @media (max-width: 768px) {
+        display: block !important;
+      }
     }
   }
 </style>
