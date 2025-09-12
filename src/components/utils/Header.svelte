@@ -93,7 +93,7 @@
       {/each}
       <div class="nav-item flex">
         <span class="contact-us flex-row">
-          <a class="tab nohover-link flex" href="mailto:biz@dgrs.ink">
+          <a class="tab nohover-link flex" href="mailto:biz@dgrslabs.ink">
             Contact Sales
           </a>
         </span>
@@ -102,7 +102,7 @@
   </span>
 
   <span class="flex-row">
-    <a class="contact-us nohover-link pc-only" href="mailto:biz@dgrs.ink"> Contact Sales </a>
+    <a class="contact-us nohover-link pc-only" href="mailto:biz@dgrslabs.ink"> Contact Sales </a>
     <ThemeToggle />
     <div class="gtranslate_wrapper"></div>
     <ConexusLogoSVG

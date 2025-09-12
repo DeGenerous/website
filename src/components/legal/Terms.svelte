@@ -35,7 +35,7 @@
             The “Service” refers to the applications, software, products, and services provided by
             DGRS Labs Pte. Ltd, including the user applications such as CoNexus and the user
             interfaces available at
-            <a href="/">https://dgrs.ink</a>,
+            <a href="/">https://dgrslabs.ink</a>,
             <a href="https://conexus.degenerousdao.com/" target="_blank"> https://conexus.ink </a> and
             others, with further documentation on the DGRS Labs Pte. Ltd. Website and other relevant
             documentation channels.
@@ -107,7 +107,7 @@
             <b>Account Requirements</b>
             <br />
             There are the following requirements for our User Accounts (via
-            <a href="/">https://dgrs.ink</a>
+            <a href="/">https://dgrslabs.ink</a>
             domain):
             <ul class="default-ul">
               <li>
@@ -148,7 +148,7 @@
                 with this security obligation.
               </li>
               <li>
-                You will promptly notify us at contact@dgrs.ink if you become aware of any legal
+                You will promptly notify us at contact@dgrslabs.ink if you become aware of any legal
                 breach or any unauthorised use of, or access to, our Service through your Account,
                 including any unauthorised use of your password or Account.
               </li>
@@ -588,7 +588,7 @@
         <b>Copyright Infringement</b>
         <br />
         If you believe that content on our website violates your copyright, please contact us by emailing
-        contact@dgrs.ink. There may be legal consequences for sending a false or frivolous takedown notice.
+        contact@dgrslabs.ink. There may be legal consequences for sending a false or frivolous takedown notice.
         Before sending a takedown request, you must consider legal uses such as fair use and licensed
         uses. We will terminate the Accounts of repeat infringers of this policy.
       </li>
@@ -669,7 +669,7 @@
         <b>Payment</b>
         <br />
         Our pricing and payment terms will be defined for different versions of the DGRS Labs Pte. Ltd.
-        Service. You may write to us at contact@dgrs.ink to explore service offerings based on interest
+        Service. You may write to us at contact@dgrslabs.ink to explore service offerings based on interest
         and availability of both parties.
       </li>
 
@@ -681,7 +681,7 @@
             <b>Account Cancellation</b>
             <br />
             It is your responsibility to properly cancel your Account with DGRS Labs Service. You can
-            cancel your Account at any time by sending an email to contact@dgrs.ink
+            cancel your Account at any time by sending an email to contact@dgrslabs.ink
           </li>
           <li>
             <b>Upon Cancellation</b>
@@ -733,7 +733,7 @@
             not constitute legal notice to DGRS Labs Pte. Ltd. or any of its officers, employees, agents
             or representatives in any situation where notice to DGRS Labs Pte. Ltd. is required by contract
             or any law or regulation. Legal notice to DGRS Labs Pte. Ltd.must be in writing and sent
-            as a signed electronic document to contact@dgrs.ink.
+            as a signed electronic document to contact@dgrslabs.ink.
           </li>
           <li>
             <b>No Phone Support</b>
@@ -878,7 +878,7 @@
           <li>
             <b>Questions</b>
             <br />
-            For any questions about the Terms of Service, please email us at contact@dgrs.ink.
+            For any questions about the Terms of Service, please email us at contact@dgrslabs.ink.
           </li>
         </ol>
       </li>

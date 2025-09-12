@@ -68,7 +68,7 @@
           <li>DGRS Labs Pte. Ltd. – CoNexus Platform</li>
           <li>20 Collyer Quay, #11-07, Singapore 049319, Singapore</li>
           <li>
-            Email: <a href="mailto:contact@dgrs.ink">contact@dgrs.ink</a>
+            Email: <a href="mailto:contact@dgrslabs.ink">contact@dgrslabs.ink</a>
           </li>
         </ul>
         <br />

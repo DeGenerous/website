@@ -38,7 +38,7 @@
     products, creating shared and personalised experiences, and fostering charity.
     <br />
     <br />
-    If you have questions about this Privacy Policy, please email us at contact@dgrs.ink.
+    If you have questions about this Privacy Policy, please email us at contact@dgrslabs.ink.
   </article>
 
   <h4>B. PERSONAL DATA WE COLLECT</h4>

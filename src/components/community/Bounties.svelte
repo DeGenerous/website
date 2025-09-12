@@ -48,7 +48,7 @@
 
     <p>
       To submit a report, email
-      <a href="mailto:security@dgrs.ink"> our security team </a> with a reproducible proof-of-concept.
+      <a href="mailto:security@dgrslabs.ink"> our security team </a> with a reproducible proof-of-concept.
       Please allow us 30 days to patch the issue before disclosing it publicly.
     </p>
 

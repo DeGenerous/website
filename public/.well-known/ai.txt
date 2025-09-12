@@ -3,7 +3,7 @@
 
 Site: https://degenerousdao.com
 Owner: DGRS LABS
-Contact: contact@dgrs.ink
+Contact: contact@dgrslabs.ink
 Updated: 2025-09-10
 
 # Purpose

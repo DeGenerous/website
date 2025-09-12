@@ -74,7 +74,7 @@
       {/each}
     </ul>
 
-    <a href="mailto:contact@dgrs.ink" target="_blank">Contact Us</a>
+    <a href="mailto:contact@dgrslabs.ink" target="_blank">Contact Us</a>
 
     <a href="/" onclick={resetCookieConsent}>Cookie Policy</a>
 
