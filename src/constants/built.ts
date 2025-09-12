@@ -1,6 +1,6 @@
 const projects: BuiltProject[] = [
   {
-    title: "PAC",
+    title: "Social Memetic Agent",
     category: "Social",
     image: "/projects/pac.webp",
     description:

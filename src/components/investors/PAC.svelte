@@ -1,11 +1,13 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
+  import { tippy } from 'svelte-tippy';
+
   import typeWrite from "@utils/typewriter";
 
   let tagline = $state<HTMLHeadingElement>();
 
-  onMount(() => typeWrite(tagline!, "$PAC"));
+  onMount(() => typeWrite(tagline!, "Agent"));
 </script>
 
 <section class="flex">
@@ -14,28 +16,23 @@
       width="400"
       height="400"
       src="/investors/pac.webp"
-      alt="PAC"
+      alt="Agent"
       loading="lazy"
       decoding="async"
     />
-    <h1 bind:this={tagline}>$PAC</h1>
+    <h1 bind:this={tagline}>Agent</h1>
   </span>
   <article class="container appear-bottom">
-    <h3>Program and Control</h3>
+    <h3>Social Memetic Agent</h3>
     <p>
-      PAC is a community-led experimental token and system built on top of DGRS to power The Meme,
-      the first AI Story Agent on X. It fuels viral, on-demand multimedia narratives that start on
-      social media and continue on CoNexus. This project bridges pop culture, crypto, entertainment,
-      and social virality. PAC combined our creative & agentic frameworks with its social engagement
-      system.
+      A community-led experimental token and system built on top of DGRS to power The Meme, the first AI Story Agent on X. It fuels viral, on-demand multimedia narratives that start on social media and continue on CoNexus. This project bridges pop culture, crypto, entertainment, and social virality. This project combined our creative & agentic frameworks with its social engagement system.
     </p>
     <p>
-      The agent uses text2story, img2story, and video engines to transform everyday static content
-      into dynamic, shareable, and hilarious storylines.
+     The agent uses txt2story, img2story, and video engines to transform everyday static content into dynamic, shareable, and hilarious storylines.
     </p>
     <span class="flex-row">
-      <a class="button-anchor" href="/investors"> Buy </a>
-      <a class="button-anchor" href="/investors"> Read More </a>
+      <button use:tippy={{ content: 'Coming Soon', animation: 'scale' }}> Buy </button>
+      <button use:tippy={{ content: 'Coming Soon', animation: 'scale' }}> Read More </button>
     </span>
   </article>
 </section>

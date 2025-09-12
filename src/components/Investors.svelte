@@ -8,7 +8,7 @@
 
   let activeSection = $state<string>("potentials");
 
-  const sections = ["Potentials", "PAC", "Token", "Roadmap"];
+  const sections = ["Potentials", "Agent", "Token", "Roadmap"];
 
   const lookForSectionInURL = () => {
     const urlHash = decodeURI(window.location.hash.slice(1));
@@ -47,7 +47,7 @@
 
 {#if activeSection === "potentials"}
   <Potentials />
-{:else if activeSection === "pac"}
+{:else if activeSection === "agent"}
   <PAC />
 {:else if activeSection === "token"}
   <Token />

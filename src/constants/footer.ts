@@ -56,8 +56,8 @@ export const links: FooterLink[] = [
         target: "_self",
       },
       {
-        label: "PAC",
-        href: "/investors#pac",
+        label: "Agent",
+        href: "/investors#agent",
         target: "_self",
       },
       {

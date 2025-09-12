@@ -8,8 +8,8 @@ const tabs: HeaderTab[] = [
         target: "_self",
       },
       {
-        name: "$PAC",
-        href: "/investors#pac",
+        name: "Agent",
+        href: "/investors#agent",
         target: "_self",
       },
       {
