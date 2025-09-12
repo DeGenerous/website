@@ -15,7 +15,17 @@ import svelte from "@astrojs/svelte";
   vite: {
     // Ensure Svelte/TS source from Threlte is compiled in SSR
     ssr: {
+      // Force-bundle Threlte to apply Svelte plugin in SSR
+      external: [],
       noExternal: ["@threlte/core", "@threlte/extras"],
+      resolve: {
+        conditions: ["svelte", "module", "import", "default"],
+      },
+    },
+    resolve: {
+      // Prefer Svelte-aware entrypoints from dependencies
+      conditions: ["svelte", "module", "import", "default"],
+      extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json", ".svelte"],
     },
     logLevel: process.env.NODE_ENV === "production" ? "error" : "info",
     // Additional filter for dev-time Vite warnings not routed through Rollup onwarn
