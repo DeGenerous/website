@@ -1,8 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  import { tippy } from 'svelte-tippy';
-
   import typeWrite from "@utils/typewriter";
 
   let tagline = $state<HTMLHeadingElement>();
@@ -24,16 +22,13 @@
   </span>
   <article class="container appear-bottom">
     <h3>Social Memetic Agent</h3>
+    <h3>(Coming Soon)</h3>
     <p>
       A community-led experimental token and system built on top of DGRS to power The Meme, the first AI Story Agent on X. It fuels viral, on-demand multimedia narratives that start on social media and continue on CoNexus. This project bridges pop culture, crypto, entertainment, and social virality. This project combined our creative & agentic frameworks with its social engagement system.
     </p>
     <p>
      The agent uses txt2story, img2story, and video engines to transform everyday static content into dynamic, shareable, and hilarious storylines.
     </p>
-    <span class="flex-row">
-      <button use:tippy={{ content: 'Coming Soon', animation: 'scale' }}> Buy </button>
-      <button use:tippy={{ content: 'Coming Soon', animation: 'scale' }}> Read More </button>
-    </span>
   </article>
 </section>
 
