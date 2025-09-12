@@ -58,6 +58,7 @@
 
   section {
     .impact-data {
+      max-width: 90rem;
       align-items: stretch;
 
       li {

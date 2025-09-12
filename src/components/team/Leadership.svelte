@@ -16,7 +16,7 @@
       class="round-8"
       height="1280"
       width="853"
-      src="/team/pano.jpg"
+      src="/team/pano.jpeg"
       alt="Daniel “Pano” Elkins"
     />
     <article class="flex">
@@ -34,7 +34,7 @@
       class="round-8"
       height="1280"
       width="853"
-      src="/team/maxi.jpg"
+      src="/team/maxi.jpeg"
       alt="Uroš “Maxi” Trbović"
       loading="lazy"
       decoding="async"

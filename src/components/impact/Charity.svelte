@@ -28,7 +28,7 @@
         decoding="async"
       />
       <article class="flex">
-        <h3>Supercharging Giving</h3>
+        <h4>Supercharging Giving</h4>
         <h5>Proof-of-Impact: Philanthropy meets digital gamification.</h5>
         <p>
           We've funded multiple <b>$100k+ humanitarian missions</b>, improving the lives of over
@@ -57,7 +57,7 @@
         decoding="async"
       />
       <article class="flex">
-        <h3>Gaming for Good</h3>
+        <h4>Gaming for Good</h4>
         <h5>Where fun and education collide.</h5>
         <p>
           CoNexus is deployed in a major gaming museum, where
@@ -104,7 +104,7 @@
           align-items: flex-start;
           text-align: left;
 
-          h3 {
+          h4 {
             width: 100%;
             text-align: center;
           }
@@ -114,65 +114,12 @@
           flex-direction: row;
 
           img {
-            width: 20rem;
+            width: 15rem;
             aspect-ratio: 1/1;
           }
 
-          article h3 {
+          article h4 {
             text-align: left;
-          }
-        }
-      }
-    }
-
-    @include respond-up(small-desktop) {
-      flex-flow: row wrap;
-      align-items: stretch;
-
-      .container {
-        width: calc(50% - 1rem);
-        justify-content: flex-start;
-
-        span {
-          flex-direction: column;
-
-          article {
-            align-items: center;
-            text-align: center;
-
-            h3 {
-              text-align: center;
-            }
-          }
-        }
-
-        @include respond-up(quad-hd) {
-          span {
-            flex-direction: row;
-
-            article {
-              align-items: flex-start;
-              text-align: left;
-
-              h3 {
-                text-align: left;
-              }
-            }
-          }
-
-          &:first-of-type {
-            span {
-              flex-direction: row-reverse;
-
-              article {
-                align-items: flex-end;
-                text-align: right;
-
-                h3 {
-                  text-align: right;
-                }
-              }
-            }
           }
         }
       }
