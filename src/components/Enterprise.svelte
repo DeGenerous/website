@@ -49,7 +49,12 @@
       () => {
         showArrow = true;
       },
-      scrollDown
+      scrollDown,
+      {
+        root: null,
+        rootMargin: "-45% 0px -45% 0px", // middle band
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+      },
     );
 
     // if page loads with a hash, honor it
@@ -59,7 +64,7 @@
 
   function scrollDown() {
     const conexusAPI = document.getElementById("conexus-api") as HTMLVideoElement | null;
-    conexusAPI!.scrollIntoView({ behavior: "smooth", block: "center" });
+    conexusAPI!.scrollIntoView({ behavior: "smooth", block: "start" });
     showArrow = false;
   }
 </script>

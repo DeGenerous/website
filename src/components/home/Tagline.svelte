@@ -22,7 +22,19 @@
 
   onMount(startTyping);
 
-  onMount(() => observeElement(taglineSection!, "viewable", () => {}, goToTheNextSection));
+  onMount(() =>
+    observeElement(
+      taglineSection!,
+      "viewable",
+      () => {},
+      goToTheNextSection,
+      {
+        root: null,
+        rootMargin: "-45% 0px -45% 0px", // middle band
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+      },
+    )
+  );
 
   onDestroy(() => {
     typer?.abort();

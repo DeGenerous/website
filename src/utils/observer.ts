@@ -5,7 +5,7 @@ function observeElement(
   resetFunction: () => void = () => {},
   options: IntersectionObserverInit = {
     root: null,
-    rootMargin: "-40% 0px -40% 0px", // middle band
+    rootMargin: "-15% 0px -15% 0px", // middle band
     threshold: [0, 0.25, 0.5, 0.75, 1],
   },
   once: boolean = false
