@@ -2,8 +2,6 @@ import { writable } from "svelte/store";
 
 export const showModal = writable<boolean>(false);
 
-export const portfolio = writable<boolean>(false);
-
 export const modal = $state<Modal>({
   content: "",
   button: "",

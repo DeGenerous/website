@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
 
   import typeWrite from "@utils/typewriter";
-  import openModal, { portfolio } from "@stores/modal.svelte";
+  import openModal from "@stores/modal.svelte";
   import { toastStore } from "@stores/toast.svelte";
   import positions from "@constants/positions";
 
@@ -10,7 +10,7 @@
 
   onMount(() => typeWrite(tagline!, "Careers"));
 
-  const showPosition = (index: number) => openModal(positions[index] || positions[0]);
+  const showPosition = (index: number) => openModal(positions[index] || positions[0], "Submit", sendPortfolio);
 
   const sendPortfolio = () => {
     const linkInput = document.getElementById("portfolio-link") as HTMLInputElement;
@@ -38,10 +38,7 @@
     );
   };
 
-  const linkPortfolio = () => {
-    openModal("", "Submit", sendPortfolio);
-    $portfolio = true;
-  };
+  const linkPortfolio = () => openModal("", "Submit", sendPortfolio);
 </script>
 
 <section class="flex">

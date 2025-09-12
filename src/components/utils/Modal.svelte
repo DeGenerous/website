@@ -1,6 +1,6 @@
 <!-- LEGACY SVELTE 3/4 SYNTAX -->
 <script lang="ts">
-  import { modal, showModal, resetModal, portfolio } from "@stores/modal.svelte";
+  import { modal, showModal, resetModal } from "@stores/modal.svelte";
 
   let dialog: HTMLDialogElement;
 
@@ -32,33 +32,31 @@
     <!-- DYNAMIC CONTENT PROVIDED BY openModal() FUNCTION -->
     {@html modal.content}
 
-    {#if $portfolio}
-      <h3>Link Portfolio</h3>
-      <div class="flex gap-8">
-        <label for="portfolio-link" class="standard-label white-txt">
-          Portfolio URL (required)
-        </label>
-        <p class="transparent-white-txt">
-          Personal site, GitHub, Behance, LinkedIn, Notion, or Google Drive
-        </p>
-        <input
-          id="portfolio-link"
-          class="standard-input"
-          type="url"
-          placeholder="https://yourportfolio.com"
-        />
-      </div>
-      <div class="flex gap-8">
-        <label for="portfolio-context" class="standard-label white-txt">
-          Additional context (optional)
-        </label>
-        <textarea
-          id="portfolio-context"
-          placeholder="What should we look at first? Add passwords, timecodes, or quick notes. (Max 500 characters)"
-          maxlength="500"
-        ></textarea>
-      </div>
-    {/if}
+    <h3>Link Portfolio</h3>
+    <div class="flex gap-8">
+      <label for="portfolio-link" class="standard-label white-txt">
+        Portfolio URL (required)
+      </label>
+      <p class="transparent-white-txt">
+        Personal site, GitHub, Behance, LinkedIn, Notion, or Google Drive
+      </p>
+      <input
+        id="portfolio-link"
+        class="standard-input"
+        type="url"
+        placeholder="https://yourportfolio.com"
+      />
+    </div>
+    <div class="flex gap-8">
+      <label for="portfolio-context" class="standard-label white-txt">
+        Additional context (optional)
+      </label>
+      <textarea
+        id="portfolio-context"
+        placeholder="What should we look at first? Add passwords, timecodes, or quick notes. (Max 500 characters)"
+        maxlength="500"
+      ></textarea>
+    </div>
 
     <span class="flex">
       <!-- DEFAULT CLOSE BUTTON ON EVERY MODAL -->
