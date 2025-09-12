@@ -30,7 +30,6 @@
       class="round-8"
       src={enterpriseURL + "/csr.gif"}
       alt="CSR with Real Impact"
-      loading="lazy"
       decoding="async"
     />
     <article class="flex">

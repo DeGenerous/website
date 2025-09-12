@@ -31,7 +31,6 @@
       class="round-8"
       src={`${communityURL}/ambassadors.gif`}
       alt="Ambassadors & Affiliates"
-      loading="lazy"
       decoding="async"
     />
     <article class="flex">

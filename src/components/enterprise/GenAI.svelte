@@ -30,7 +30,6 @@
       class="round-8"
       src={enterpriseURL + "/gen-ai.gif"}
       alt="GenAI Film Studio"
-      loading="lazy"
       decoding="async"
     />
     <article class="flex">

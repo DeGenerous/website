@@ -19,7 +19,7 @@
   </p>
   <div class="flex">
     <div class="container">
-      <img src="/apps/sagaverse/B4N.gif" alt="Battle for Nexon" loading="lazy" decoding="async" />
+      <img src="/apps/sagaverse/B4N.gif" alt="Battle for Nexon" decoding="async" />
       <article class="flex">
         <h3>Battle for Nexon</h3>
         <p>
@@ -44,7 +44,6 @@
         class="tall"
         src={`${sagaverseURL}/AA.gif`}
         alt="Ark Assassin"
-        loading="lazy"
         decoding="async"
       />
       <article class="flex">
@@ -66,7 +65,7 @@
     </div>
 
     <div class="container">
-      <img src={`${sagaverseURL}/LS.gif`} alt="Last Stand" loading="lazy" decoding="async" />
+      <img src={`${sagaverseURL}/LS.gif`} alt="Last Stand" decoding="async" />
       <article class="flex">
         <h3>Last Stand</h3>
         <p>
@@ -87,7 +86,7 @@
 
     <div class="collab container">
       <span class="flex">
-        <img src={`${sagaverseURL}/TDZ.gif`} alt="The Dark Zoo" loading="lazy" decoding="async" />
+        <img src={`${sagaverseURL}/TDZ.gif`} alt="The Dark Zoo" decoding="async" />
         <article class="flex">
           <h3>GLMR Apes: The Dark Zoo</h3>
           <p>

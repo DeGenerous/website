@@ -29,7 +29,6 @@
       class="round-8"
       src="/enterprise/conexus-api.gif"
       alt="CoNexus API"
-      loading="lazy"
       decoding="async"
     />
     <article class="flex">
