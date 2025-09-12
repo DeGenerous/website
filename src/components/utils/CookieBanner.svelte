@@ -95,6 +95,12 @@
     transform: translateX(-50%);
     z-index: 1000;
     outline: none;
+    padding: 1rem;
+    gap: 1rem;
+
+    div {
+      gap: 1rem;
+    }
 
     @include respond-up(small-desktop) {
       bottom: 1rem;
