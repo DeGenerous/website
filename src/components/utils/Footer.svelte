@@ -7,7 +7,6 @@
   import LogoSVG from "@components/icons/Logo.svelte";
 
   let email = $state<string>("");
-  let lang = $state<string>("en");
 
   const subscribeToNewsletter = (event: Event) => {
     event.preventDefault();
@@ -33,7 +32,7 @@
   };
 </script>
 
-<form class="newsletter flex pad pc-narrow blur" onsubmit={subscribeToNewsletter}>
+<!-- <form class="newsletter flex pad pc-narrow blur" onsubmit={subscribeToNewsletter}>
   <h4>Join the Future of Storytelling</h4>
   <p>
     Get the latest updates on DGRS, exclusive access to new features, and insights into the AI
@@ -53,7 +52,7 @@
     />
     <button type="submit"> Subscribe </button>
   </span>
-</form>
+</form> -->
 
 <footer class="pad flex fade-in pc-narrow blur">
   <section class="flex gap">
@@ -120,11 +119,11 @@
 <style lang="scss">
   @use "/src/styles/mixins/" as *;
 
-  .newsletter {
-    border-top: 1px solid rgba(150, 150, 150, 0.25);
-    padding-block: 2rem;
-    @include light-blue(0.1);
-  }
+  // .newsletter {
+  //   border-top: 1px solid rgba(150, 150, 150, 0.25);
+  //   padding-block: 2rem;
+  //   @include light-blue(0.1);
+  // }
 
   footer {
     gap: 2rem;
@@ -256,8 +255,9 @@
   }
 
   :global(body.dark) {
-    footer,
-    .newsletter {
+    footer
+    //, .newsletter
+    {
       @include dark-blue;
     }
 
