@@ -122,11 +122,11 @@
 <style lang="scss">
   @use "/src/styles/mixins/" as *;
 
-  // .newsletter {
-  //   border-top: 1px solid rgba(150, 150, 150, 0.25);
-  //   padding-block: 2rem;
-  //   @include light-blue(0.1);
-  // }
+  .newsletter {
+    border-top: 1px solid rgba(150, 150, 150, 0.25);
+    padding-block: 2rem;
+    @include light-blue(0.1);
+  }
 
   footer {
     gap: 2rem;
@@ -258,9 +258,8 @@
   }
 
   :global(body.dark) {
-    footer
-    //, .newsletter
-    {
+    footer,
+    .newsletter {
       @include dark-blue;
     }
 
