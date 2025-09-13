@@ -9,7 +9,7 @@ const callToAction: CTA[] = [
     buttons: [
       {
         name: "Launch CoNexus",
-        link: "https://conexus.ink/",
+        link: "https://conexus.degenerousdao.com/",
         target: "_blank",
       },
       {
@@ -29,7 +29,7 @@ const callToAction: CTA[] = [
     buttons: [
       {
         name: "Launch CoNexus",
-        link: "https://conexus.ink/",
+        link: "https://conexus.degenerousdao.com/",
         target: "_blank",
       },
       {

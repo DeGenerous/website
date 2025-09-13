@@ -32,7 +32,7 @@ const tabs: HeaderTab[] = [
     links: [
       {
         name: "CoNexus",
-        href: "https://conexus.ink/",
+        href: "https://conexus.degenerousdao.com/",
         target: "_blank",
       },
       {
@@ -47,7 +47,7 @@ const tabs: HeaderTab[] = [
       },
       {
         name: "OmniHub",
-        href: "https://conexus.ink/dashboard",
+        href: "https://conexus.degenerousdao.com/dashboard",
         target: "_blank",
       },
       {

@@ -29,7 +29,7 @@ Agent: Meta-ExternalAgent
 Agent: Amazonbot
 Agent: Applebot-Extended
 
-Sitemap: https://test.dgrslabs.ink/sitemap.xml
+Sitemap: https://dgrslabs.ink/sitemap.xml
 
 # Notes
 # This file expresses preferences for AI usage. Where supported, crawlers should

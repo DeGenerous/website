@@ -199,7 +199,7 @@
     <li>
       <a
         class="nohover-link flex-row blur"
-        href="https://conexus.ink/dashboard"
+        href="https://conexus.degenerousdao.com/dashboard"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -227,7 +227,7 @@
     <li>
       <a
         class="nohover-link flex-row blur"
-        href="https://conexus.ink/"
+        href="https://conexus.degenerousdao.com/"
         target="_blank"
         rel="noopener noreferrer"
       >

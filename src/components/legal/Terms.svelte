@@ -36,7 +36,7 @@
             DGRS Labs Pte. Ltd, including the user applications such as CoNexus and the user
             interfaces available at
             <a href="/">https://dgrslabs.ink</a>,
-            <a href="https://conexus.ink/" target="_blank"> https://conexus.ink </a> and
+            <a href="https://conexus.degenerousdao.com/" target="_blank"> https://conexus.degenerousdao.com </a> and
             others, with further documentation on the DGRS Labs Pte. Ltd. Website and other relevant
             documentation channels.
           </li>

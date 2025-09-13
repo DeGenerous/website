@@ -56,7 +56,7 @@
   <span class="flex-row">
     <LogoSVG href="/" onclick={showScramble} />
     <nav id="site-nav" class="flex transition" class:hidden={hiddenTabs} aria-label="Primary">
-      <ConexusLogoSVG href="https://conexus.ink/" target="_blank" hideForPCs={true} />
+      <ConexusLogoSVG href="https://conexus.degenerousdao.com/" target="_blank" hideForPCs={true} />
       {#each tabs as { name, links }}
         <div class="nav-item flex" class:active={activeTab === name}>
           <span class="flex-row">
@@ -106,7 +106,7 @@
     <ThemeToggle />
     <div class="gtranslate_wrapper"></div>
     <ConexusLogoSVG
-      href="https://conexus.ink/"
+      href="https://conexus.degenerousdao.com/"
       target="_blank"
       hideForMobiles={true}
     />

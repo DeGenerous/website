@@ -3,7 +3,7 @@ const apps: App[] = [
     name: "CoNexus",
     description:
       "CoNexus is the centerpiece of the DGRS ecosystem, an AI‑powered social storytelling app where anyone can create, consume, and own high-quality, visually-immersive content. Simple text prompts instantly place users inside richly rendered narratives, as our text-to-story engine handles visuals, narration, music, and writing. It's currently focused on interactive stories but is scaling to support text-to-novel, text-to-film, and more.",
-    href: "https://conexus.ink/",
+    href: "https://conexus.degenerousdao.com/",
   },
   {
     name: "Galactic Governance Hub",
@@ -21,7 +21,7 @@ const apps: App[] = [
     name: "OmniHub",
     description:
       "OmniHub serves as your personal asset management assistant, tracking your journeys across various apps and wallets. Its dashboard includes cross-wallet view, NFT customization, and deep insights into on-chain assets, voting history, storytelling impact, character sheets, and attributes. Rollouts ahead include staking both NFTs and tokens, tracking & claiming incoming rewards, IP-value management, and more.",
-    href: "https://conexus.ink/dashboard",
+    href: "https://conexus.degenerousdao.com/dashboard",
   },
   {
     name: "Sagaverse Gaming",
