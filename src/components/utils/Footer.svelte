@@ -8,16 +8,19 @@
 
   let email = $state<string>("");
 
-  const subscribeToNewsletter = (event: Event) => {
+  const subscribeToNewsletter = async (event: Event) => {
     event.preventDefault();
     if (!email || !regexpEmail.test(email)) {
       toastStore.show("Please enter a valid email address.", "error");
       return;
     }
 
-    // Here you would typically send the email to your backend or a service
-    // For demonstration, we'll just log it
-    console.log("Subscribed email:", email);
+    const response = await fetch(`https://dgrslabs.ink/api/account/subscribe-newsletter-open?email=${email}`);
+    const data = await response.json();
+    if (!response.ok) {
+      toastStore.show(data.message || "Subscription failed. Please try again later.", "error");
+      return;
+    }
 
     // Show a success message
     toastStore.show("Thank you for subscribing to our newsletter!");
@@ -32,7 +35,7 @@
   };
 </script>
 
-<!-- <form class="newsletter flex pad pc-narrow blur" onsubmit={subscribeToNewsletter}>
+<form class="newsletter flex pad pc-narrow blur" onsubmit={subscribeToNewsletter}>
   <h4>Join the Future of Storytelling</h4>
   <p>
     Get the latest updates on DGRS, exclusive access to new features, and insights into the AI
@@ -52,7 +55,7 @@
     />
     <button type="submit"> Subscribe </button>
   </span>
-</form> -->
+</form>
 
 <footer class="pad flex fade-in pc-narrow blur">
   <section class="flex gap">
