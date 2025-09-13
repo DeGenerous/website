@@ -5,22 +5,22 @@ export const socials: FooterSocial[] = [
     alt: "Discord",
   },
   {
-    href: "https://twitter.com/degenerousdao",
+    href: "https://x.com/dgrs_labs",
     icon: "/icons/twitter.png",
     alt: "X / Twitter",
   },
   {
-    href: "https://www.youtube.com/@degenerous",
+    href: "https://www.youtube.com/@conexus_stories",
     icon: "/icons/youtube.png",
     alt: "YouTube",
   },
   {
-    href: "https://www.tiktok.com/@degenerousdao",
+    href: "https://www.tiktok.com/@conexus_stories?_t=ZM-8zgLAppeuVJ&_r=1",
     icon: "/icons/tiktok.png",
     alt: "TikTok",
   },
   {
-    href: "https://www.instagram.com/degenerousdao",
+    href: "https://www.instagram.com/dgrs_labs?igsh=MTgzdzI0b2Vtem94NA==",
     icon: "/icons/instagram.png",
     alt: "Instagram",
   },

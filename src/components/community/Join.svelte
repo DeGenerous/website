@@ -55,7 +55,7 @@
         >
           <a
             class="nohover-link flex-row"
-            href="https://www.instagram.com/dgrs_labs"
+            href="https://www.instagram.com/dgrs_labs?igsh=MTgzdzI0b2Vtem94NA=="
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -64,7 +64,7 @@
           </a>
           <a
             class="nohover-link flex-row"
-            href="https://www.instagram.com/conexus_stories"
+            href="https://www.instagram.com/conexus_stories?igsh=b21wMGowajRxM2ht"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -118,7 +118,7 @@
     <li>
       <a
         class="nohover-link flex-row blur"
-        href="https://www.tiktok.com/@conexus_stories"
+        href="https://www.tiktok.com/@conexus_stories?_t=ZM-8zgLAppeuVJ&_r=1"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -132,7 +132,7 @@
     <li>
       <a
         class="nohover-link flex-row blur"
-        href="https://www.youtube.com/@degenerous"
+        href="https://www.youtube.com/@conexus_stories"
         target="_blank"
         rel="noopener noreferrer"
       >
