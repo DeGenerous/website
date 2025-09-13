@@ -28,13 +28,13 @@
     }
 
     // Functionality to send portfolio
-    console.log("Portfolio link:", link);
+    // console.log("Portfolio link:", link);
     if (context) {
-      console.log("Additional context:", context);
+      // console.log("Additional context:", context);
     }
 
     toastStore.show(
-      "Your portfolio was submitted! We’ll review your work and reach out if there’s a fit"
+      "Sorry something went wrong. Please try again later.", "error"
     );
   };
 
