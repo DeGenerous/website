@@ -380,6 +380,34 @@
         }
       }
     }
+
+    @include respond-up(full-hd) {
+      flex-flow: row wrap;
+      align-items: flex-start;
+
+      header {
+        width: 100%;
+      }
+
+      .brand-logos {
+        margin-inline: auto;
+      }
+
+      .brand-colors {
+        width: 60%;
+        margin-inline: 0;
+
+        button span {
+          flex-direction: column-reverse;
+          justify-content: center;
+          gap: 0.5rem;
+        }
+      }
+
+      .brand-fonts {
+        margin-inline: 0;
+      }
+    }
   }
 
   :global(body.dark) {
