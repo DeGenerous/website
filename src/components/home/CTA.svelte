@@ -25,14 +25,14 @@
     finishedAnimation = false;
     await typeWrite(tagline!, "What brings you here today?");
     finishedAnimation = true; // triggers the cards to drop
-    setTimeout(() => {
-      const sectionInView = Array.from(ctaSection!.classList).includes("viewable");
-      if (!sectionInView || activeSection) return;
-      ctaSection?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    });
+    // setTimeout(() => {
+    //   const sectionInView = Array.from(ctaSection!.classList).includes("viewable");
+    //   if (!sectionInView || activeSection) return;
+    //   ctaSection?.scrollIntoView({
+    //     behavior: "smooth",
+    //     block: "start",
+    //   });
+    // });
   };
 
   const animateTitle = () => typeWrite(sectionTitle!, activeSection!.title);
