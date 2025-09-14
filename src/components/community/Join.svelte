@@ -270,7 +270,7 @@
       </button>
       <a
         class="flex nohover-link"
-        href="https://etherscan.io/address/0x111e0861BaA9D479cff55D542E5A9e4205012bBe"
+        href="https://basescan.org/address/0x111e0861BaA9D479cff55D542E5A9e4205012bBe"
         target="_blank"
       >
         <OpenSVG />
@@ -389,6 +389,10 @@
     span {
       gap: 1rem;
       width: 100%;
+
+      @include respond-up(tablet) {
+        width: auto;
+      }
     }
 
     button {
@@ -407,6 +411,10 @@
         max-width: 22vw;
         overflow: hidden;
         text-overflow: ellipsis;
+
+        @include respond-up(tablet) {
+          max-width: unset;
+        }
       }
 
       &,

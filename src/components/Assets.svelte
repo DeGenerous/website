@@ -65,9 +65,9 @@
       </a>
     </span>
     <span>
-      Message us at
+      Message us by
       <a href="mailto:contact@dgrslabs.ink" target="_blank" rel="noopener noreferrer">
-        contact@dgrslabs.ink
+        email
       </a>
     </span>
   </div>

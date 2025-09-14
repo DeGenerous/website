@@ -27,7 +27,7 @@
       A community-led experimental token and system built on top of DGRS to power The Meme, the first AI Story Agent on X. It fuels viral, on-demand multimedia narratives that start on social media and continue on CoNexus. This project bridges pop culture, crypto, entertainment, and social virality. This project combined our creative & agentic frameworks with its social engagement system.
     </p>
     <p>
-     The agent uses txt2story, img2story, and video engines to transform everyday static content into dynamic, shareable, and hilarious storylines.
+     The agent uses text2story, img2story, and video engines to transform everyday static content into dynamic, shareable, and hilarious storylines.
     </p>
   </article>
 </section>

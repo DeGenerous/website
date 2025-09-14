@@ -129,9 +129,7 @@
                 Sean “Cryptok”&nbsp;Dugan <span>Cinematics Director &amp; Producer</span>
               </h4>
               <p>
-                Traditional and AI-film veteran. Produces and edits work from short ads to
-                feature-length films viewed tens of millions of times, and has raised
-                multi-million-dollar funding.
+                Traditional and AI-film veteran. Produces and edits work from short ads to feature-length films viewed tens of millions of times, helping raise multi-million-dollar funding.
               </p>
             </article>
           </li>

@@ -49,8 +49,7 @@
           <h5>Proven rewards</h5>
         </span>
         <p>
-          Multiple partner-project airdrops have been delivered to the NFT holders, and our upcoming
-          token will be distributed to Potentials first. Staking rewards are coming soon as well
+          Multiple partner-project airdrops have been delivered to the NFT holders, and our upcoming utility token will be distributed to Potentials first. Staking is coming soon as well.
         </p>
       </li>
     </ul>
