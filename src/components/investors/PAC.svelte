@@ -13,7 +13,7 @@
     <img
       width="400"
       height="400"
-      src="/investors/pac.webp"
+      src="/assets/pac.webp"
       alt="Agent"
       loading="lazy"
       decoding="async"

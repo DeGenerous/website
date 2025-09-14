@@ -12,7 +12,7 @@
   <h1 bind:this={tagline}>The Potentials</h1>
   <article class="container appear-bottom">
     <h3>1,000 Evolutionary NFTs</h3>
-    <img class="round-8" src="/investors/potentials.webp" alt="The Potentials" />
+    <img class="round-8" src="/assets/potentials.webp" alt="The Potentials" />
     <p>The heart of our ecosystem that reaps the most benefits:</p>
     <ul class="flex gap-32">
       <li class="flex">

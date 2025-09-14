@@ -1,25 +1,25 @@
 const tabs: HeaderTab[] = [
   {
-    name: "investors",
+    name: "assets",
     links: [
       {
         name: "Potentials",
-        href: "/investors#potentials",
+        href: "/assets#potentials",
         target: "_self",
       },
       {
         name: "Agent",
-        href: "/investors#agent",
+        href: "/assets#agent",
         target: "_self",
       },
       {
         name: "Token",
-        href: "/investors#token",
+        href: "/assets#token",
         target: "_self",
       },
       {
         name: "Roadmap",
-        href: "/investors#roadmap",
+        href: "/assets#roadmap",
         target: "_self",
       },
     ],

@@ -48,26 +48,26 @@ export const links: FooterLink[] = [
     ],
   },
   {
-    title: "Investors",
+    title: "Assets",
     anchors: [
       {
         label: "Potentials",
-        href: "/investors#potentials",
+        href: "/assets#potentials",
         target: "_self",
       },
       {
         label: "Agent",
-        href: "/investors#agent",
+        href: "/assets#agent",
         target: "_self",
       },
       {
         label: "Token",
-        href: "/investors#token",
+        href: "/assets#token",
         target: "_self",
       },
       {
         label: "Roadmap",
-        href: "/investors#roadmap",
+        href: "/assets#roadmap",
         target: "_self",
       },
     ],

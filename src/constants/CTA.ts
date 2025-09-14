@@ -72,7 +72,7 @@ const callToAction: CTA[] = [
       },
       {
         name: "See more",
-        link: "/investors",
+        link: "/assets",
       },
     ],
   },
