@@ -15,10 +15,14 @@
       return;
     }
 
-    const response = await fetch(`https://dgrslabs.ink/api/account/subscribe-newsletter-open?email=${email}`);
-    const data = await response.json();
-    if (!response.ok) {
-      toastStore.show(data.message || "Subscription failed. Please try again later.", "error");
+    try {
+      const response = await fetch(`https://dgrslabs.ink/api/account/subscribe-newsletter-open?email=${email}`);
+      const data = await response.json();
+      if (!response.ok) {
+        toastStore.show(data.message || "Subscription failed. Please try again later.", "error");
+      }
+    } catch (error) {
+      toastStore.show("An error occurred. Please try again later.", "error");
       return;
     }
 
