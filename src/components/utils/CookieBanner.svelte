@@ -36,11 +36,12 @@
   }
 
   function loadAnalytics() {
+    // Google Analytics 4
     if (!document.getElementById("google-analytics")) {
-      let script = document.createElement("script");
+      const script = document.createElement("script");
       script.id = "google-analytics";
       script.async = true;
-      script.src = "https://www.googletagmanager.com/gtag/js?id=G-YSHBY9F7FY";
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-W57SFSPDH5";
       document.head.appendChild(script);
 
       script.onload = function () {
@@ -49,13 +50,29 @@
           dataLayer.push(arguments);
         }
         gtag("js", new Date());
-        gtag("config", "G-YSHBY9F7FY", { anonymize_ip: true });
+        gtag("config", "G-W57SFSPDH5", { anonymize_ip: true });
       };
+    }
+
+    // Microsoft Clarity
+    if (!document.getElementById("ms-clarity")) {
+      (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () {
+          (c[a].q = c[a].q || []).push(arguments);
+        };
+        t = l.createElement(r);
+        t.async = 1;
+        t.id = "ms-clarity";
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "tafopbvzwy");
     }
   }
 
   function disableAnalytics() {
-    window["ga-disable-G-YSHBY9F7FY"] = true;
+    // Disable GA for this property
+    window["ga-disable-G-W57SFSPDH5"] = true;
   }
 </script>
 
