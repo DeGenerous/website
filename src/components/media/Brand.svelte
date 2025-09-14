@@ -36,7 +36,7 @@
         <p>Always represent the brand with accuracy and respect.</p>
       </li>
       <li>
-        <p>Do not imply endorsement by saying things like “Powered by DGRS” without approval.</p>
+        <p>Do not imply endorsement using phrases such as “Powered by DGRS” without approval.</p>
       </li>
       <li>
         <p>Do not combine our logo with other logos or elements.</p>
