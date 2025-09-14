@@ -5,7 +5,7 @@ const roadmap: Roadmap[] = [
       {
         name: "February 2023 - DeGenerous DAO Genesis",
         description:
-          "The birth of DeGenerous DAO as a decentralised community - setting a mission of tech-enabled impact by storytelling",
+          "The birth of DeGenerous DAO as a decentralised community - setting a mission of tech-enabled impact.",
       },
       {
         name: "April 2023 - Inception Ark mint",
@@ -78,7 +78,7 @@ const roadmap: Roadmap[] = [
           "A mini-app integrated into CoNexus to manage assets, rewards, and IP rights from a single login.",
       },
       {
-        name: "August - DGRS Labs Rebrand",
+        name: "August - DGRS Labs Pte. Ltd.",
         description:
           "DGRS Labs is incorporated in Singapore to develop the DGRS enterprise service stack and leverage its impact, introducing APIs and diverse partnership programs.",
       },

@@ -58,7 +58,7 @@ const callToAction: CTA[] = [
     ],
   },
   {
-    name: "invest",
+    name: "Allocate",
     color: (opacity: number = 1) => `rgba(160, 120, 255, ${opacity})`, // purple
     image: "/icons/growth.svg",
     title: "Bridging vision with capital",
