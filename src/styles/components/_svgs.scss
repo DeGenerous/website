@@ -1,0 +1,17 @@
+@use "/src/styles/mixins" as *;
+
+svg {
+  min-width: 1.5rem;
+  width: 2rem;
+  fill: $soft-white;
+  stroke: $soft-white;
+}
+
+a svg,
+button svg {
+  width: inherit;
+  fill: inherit;
+  stroke: inherit;
+}
+
+/* removed unused svg helper states: .copied, .sorting */

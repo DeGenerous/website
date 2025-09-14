@@ -1,19 +1,9 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Header from "@components/Header.svelte";
-import Content from "@components/content/base.svelte";
-import Footer from "@components/Footer.svelte";
-import Modal from "@components/Modal.svelte";
+
+import Home from "@components/Home.svelte";
 ---
 
-<main>
-  <Layout>
-    <Header client:load />
-
-    <Content client:load />
-
-    <Footer />
-
-    <Modal client:load />
-  </Layout>
-</main>
+<Layout>
+  <Home client:idle />
+</Layout>

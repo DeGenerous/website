@@ -1,0 +1,37 @@
+# ai.txt — Generative Engine Optimization policy for DGRS LABS
+# Reference: emerging community convention for AI crawler policy
+
+Site: https://dgrslabs.ink
+Owner: DGRS LABS
+Contact: contact@dgrslabs.ink
+Updated: 2025-09-10
+
+# Purpose
+# We welcome AI assistants that help end users discover or summarize our content.
+# We do NOT grant permission to use our content for model training or dataset creation without explicit consent.
+
+Allow: ai-assistants
+Disallow: training, dataset-mining, bulk-scraping
+
+# Crawler Guidance (non-exhaustive)
+# Browsing/answer engines allowed
+Agent: ChatGPT-User
+Agent: PerplexityBot
+Agent: Claude-Web
+Agent: ClaudeBot
+
+# Training-focused or bulk crawlers disallowed
+Agent: GPTBot        # OpenAI training crawler
+Agent: Google-Extended
+Agent: CCBot         # Common Crawl
+Agent: Bytespider
+Agent: Meta-ExternalAgent
+Agent: Amazonbot
+Agent: Applebot-Extended
+
+Sitemap: https://dgrslabs.ink/sitemap.xml
+
+# Notes
+# This file expresses preferences for AI usage. Where supported, crawlers should
+# align with this policy in addition to robots.txt directives.
+

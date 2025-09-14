@@ -1,0 +1,11 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import CommunityPage from "@components/Community.svelte";
+
+const title = "Community";
+---
+
+<Layout {title} nav="community">
+  <CommunityPage client:idle />
+</Layout>

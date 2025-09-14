@@ -1,0 +1,153 @@
+// UTILITY CLASSES:
+// green, red, purple
+// button-anchor: apply button styling to <a></a> element
+// void-btn: no button styling
+
+@use "/src/styles/mixins" as *;
+
+button:not(.void-btn),
+.button-anchor {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  flex: none;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  @include white-txt(0.9);
+  @include blue(0.75);
+  @include cyan-border(0.5);
+
+  @include respond-up(small-desktop) {
+    min-width: 2.25rem;
+    min-height: 2.25rem;
+  }
+
+  &:hover:not(&:disabled),
+  &:active:not(&:disabled),
+  &:focus:not(&:disabled) {
+    @include cyan(1, text);
+    @include blue(0.9, bg, bright);
+    @include box-glow;
+    @include scale;
+    @include cyan-border;
+  }
+
+  &:disabled {
+    @include gray(0.25);
+    @include dark-blue(1, text);
+    @include dark-border;
+  }
+
+  img,
+  svg {
+    width: clamp(1.5rem, 2.5vw, 1.75rem);
+  }
+
+  img {
+    border-radius: 10%;
+  }
+
+  span {
+    white-space: nowrap;
+  }
+}
+
+.button-anchor {
+  text-decoration: none !important;
+}
+
+[role="button"] {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+
+  @include respond-up(small-desktop) {
+    min-width: 2.25rem;
+    min-height: 2.25rem;
+  }
+}
+
+// COLORED STYLING
+
+// Red
+.red-btn:not(.void-btn) {
+  border-color: transparent !important;
+  @include dark-red(0.85, text);
+  @include red(0.75);
+
+  &:hover:not(&:disabled),
+  &:active:not(&:disabled),
+  &:focus:not(&:disabled) {
+    box-shadow: 0 0 0.5rem $red;
+    @include dark-red(1, text);
+    @include red;
+  }
+}
+
+// ADDITIONAL STYLING
+
+:where(.void-btn) {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+
+  @include respond-up(small-desktop) {
+    min-width: 2.25rem;
+    min-height: 2.25rem;
+  }
+}
+
+// LIGHT MODE
+
+body {
+  button:not(.void-btn),
+  .button-anchor {
+    box-shadow: none !important;
+    border: none;
+
+    &:hover:not(&:disabled),
+    &:active:not(&:disabled),
+    &:focus:not(&:disabled) {
+      border: none;
+      @include bright;
+      @include white-txt(1);
+    }
+  }
+
+  &.light {
+    button:not(.void-btn, .red-btn),
+    .button-anchor {
+      @include blue(1, bg, bright);
+
+      &:hover:not(&:disabled),
+      &:active:not(&:disabled),
+      &:focus:not(&:disabled) {
+        @include white-txt(1);
+      }
+    }
+  }
+
+  &.dark {
+    button:not(.void-btn),
+    .button-anchor {
+      @include cyan(0.85);
+      @include dark-blue(1, text);
+
+      &:hover:not(&:disabled),
+      &:active:not(&:disabled),
+      &:focus:not(&:disabled) {
+        @include cyan;
+        @include dark-blue(1, text);
+      }
+    }
+  }
+}

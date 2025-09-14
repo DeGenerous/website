@@ -1,0 +1,309 @@
+@use "/src/styles/mixins" as *;
+
+// LIGHT AND DARK THEMES STYLING
+
+body {
+  transition: all 0.3s ease-in-out;
+
+  h5 {
+    font-weight: 600;
+  }
+
+  b {
+    text-shadow: none;
+  }
+
+  .container {
+    @include auto-width;
+  }
+
+  .blue-gradient {
+    background: linear-gradient(to right, rgba(56, 117, 250, 0.1), rgba(56, 117, 250, 0.025));
+  }
+
+  // Page navigation: section-switcher
+  .sections-tabs {
+    position: relative;
+    width: 95vw;
+    margin-inline: auto;
+    gap: 0;
+    -webkit-backdrop-filter: blur(1rem);
+    backdrop-filter: blur(1rem);
+    @include gray-border;
+    @include light-blue(0.1);
+
+    button {
+      width: 100%;
+      height: 3rem;
+      padding: 0.5rem 1rem;
+      z-index: 1;
+      @include font(h5);
+
+      &:hover,
+      &:active,
+      &:focus {
+        @include light-blue(1, text);
+      }
+
+      &.active {
+        @include blue(1, text);
+      }
+    }
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include light-blue(0.25);
+
+      &.active-tab-mobile {
+        width: 100%;
+        height: 3rem;
+      }
+
+      &.active-tab-pc {
+        width: 10rem;
+        height: 100%;
+      }
+    }
+
+    @include respond-up(tablet) {
+      flex-direction: row;
+      max-width: 40rem;
+
+      button {
+        width: 10rem;
+        height: 100%;
+      }
+    }
+  }
+
+  // Page navigation: #links-scroller
+  .link-tabs {
+    width: 95vw;
+    gap: 0;
+    @include gray-border;
+    @include light-blue(0.1);
+
+    button {
+      width: 100%;
+      height: 3rem;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      @include font(h5);
+
+      p {
+        font: inherit;
+      }
+
+      &:hover,
+      &:active {
+        @include light-blue(1, text);
+      }
+    }
+
+    @include respond-up(small-desktop) {
+      position: fixed;
+      top: 50%;
+      right: 1rem;
+      transform: translate(0, -50%);
+      width: auto;
+      border: none;
+      background-color: unset;
+      gap: 2rem;
+      z-index: 100;
+
+      button {
+        position: relative;
+        width: 1rem;
+        height: 1rem;
+        min-height: unset;
+        min-width: unset;
+        padding: 0;
+        z-index: 1;
+        @include light-blue(0.1);
+        @include font(caption);
+
+        p {
+          display: none;
+        }
+
+        &:hover,
+        &:active,
+        &.active {
+          @include light-blue;
+
+          @include respond-up(full-hd) {
+            p {
+              display: block;
+              position: absolute;
+              top: 0;
+              right: calc(100% + 0.5rem);
+              transform: translate(0 -50%);
+              line-height: 1;
+              white-space: nowrap;
+              max-width: 5.75rem;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              font-weight: 600;
+              opacity: 1;
+              transition: opacity 0.3s ease-in-out;
+              @include light-blue(0.75, text);
+
+              @starting-style {
+                opacity: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.light {
+    background-color: white;
+    color: black;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    a:not(.button-anchor, .nohover-link) {
+      @include light-blue(1, text);
+    }
+
+    h5,
+    label:not(.standard-label) {
+      color: black;
+    }
+
+    input:not(.standard-input),
+    select {
+      box-shadow: none;
+      background-color: white;
+      @include dark-blue(1, text);
+      @include gray-border;
+
+      &::placeholder {
+        @include gray(1, text);
+      }
+    }
+
+    select {
+      &:hover:not(&:disabled),
+      &:active:not(&:disabled),
+      &:focus:not(&:disabled) {
+        box-shadow: none;
+        @include dark-blue(1, text);
+        @include gray-border;
+        @include bright;
+        @include scale(1.01, x);
+      }
+    }
+
+    .standard-icon {
+      @include bright(0);
+    }
+
+    .loading-animation {
+      background-image: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0)
+      );
+    }
+  }
+
+  &.dark {
+    background-color: black;
+    @include white-txt;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    a:not(.button-anchor, .nohover-link) {
+      @include cyan(1, text);
+    }
+
+    h5 {
+      color: white;
+    }
+
+    label {
+      @include white-txt;
+    }
+
+    b {
+      @include white-txt(1);
+    }
+
+    .container {
+      background: linear-gradient(to right, rgba(1, 0, 32, 1), rgba(1, 0, 32, 0.75));
+    }
+
+    .blue-gradient {
+      background: linear-gradient(to right, rgba(1, 0, 32, 1), rgba(1, 0, 32, 0.85));
+    }
+
+    .sections-tabs {
+      @include dark-blue;
+
+      button {
+        &:hover,
+        &:active,
+        &:focus {
+          @include cyan(1, text);
+        }
+
+        &.active {
+          @include dark-blue(1, text);
+        }
+      }
+
+      span {
+        @include cyan;
+      }
+    }
+
+    .link-tabs {
+      @include dark-blue;
+
+      button {
+        &.active {
+          @include dark-blue(1, text);
+        }
+
+        &:hover,
+        &:active {
+          @include cyan(1, text);
+        }
+
+        @include respond-up(small-desktop) {
+          @include cyan(0.25);
+
+          &:hover,
+          &:active,
+          &.active {
+            @include cyan;
+
+            p {
+              @include cyan(1, text);
+            }
+          }
+        }
+      }
+
+      span {
+        @include cyan;
+      }
+    }
+
+    .standard-icon {
+      filter: brightness(500%) grayscale(100%);
+    }
+  }
+}

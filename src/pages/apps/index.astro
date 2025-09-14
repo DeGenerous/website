@@ -1,0 +1,11 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import AppsPage from "@components/Apps.svelte";
+
+const title = "Apps";
+---
+
+<Layout {title} nav="apps">
+  <AppsPage client:idle />
+</Layout>

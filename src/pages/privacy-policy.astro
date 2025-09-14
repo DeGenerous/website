@@ -1,0 +1,11 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import Policy from "@components/legal/Policy.svelte";
+
+const title = "Privacy Policy";
+---
+
+<Layout {title}>
+  <Policy client:idle />
+</Layout>

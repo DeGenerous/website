@@ -1,0 +1,11 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import EnterprisePage from "@components/Enterprise.svelte";
+
+const title = "Enterprise";
+---
+
+<Layout {title} nav="enterprise">
+  <EnterprisePage client:idle />
+</Layout>

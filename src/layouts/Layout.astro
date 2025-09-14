@@ -1,18 +1,21 @@
 ---
-import "../styles/reset.css";
-import "../styles/global.css";
-import "../styles/icons.css";
-import "../styles/animations.css";
-
 import { SEO } from "astro-seo";
 import { seoConfig } from "../../utils/seoConfig";
 
+import "/src/styles/index.scss";
+
+import Header from "@components/utils/Header.svelte";
+import Footer from "@components/utils/Footer.svelte";
+
+import Scramble from "@components/utils/Scramble.svelte";
+import Background from "@components/utils/Background.svelte";
+import Modal from "@components/utils/Modal.svelte";
+import ToastContainer from "@components/utils/ToastContainer.svelte";
+import Cursor from "@components/cursor/App.svelte";
+import CookieBanner from "@components/utils/CookieBanner.svelte";
+
 type LayoutProps = {
-  header?: string;
-  subheading?: string;
   nav?: string;
-  arrow?: boolean;
-  story?: string;
   title?: string;
   ogTitle?: string;
   description?: string;
@@ -21,36 +24,72 @@ type LayoutProps = {
   url?: string;
   type?: string;
   disableIndexing?: boolean;
+  narrow?: boolean;
 };
 
 const {
-  title = "DeGenerous DAO | AI Storytelling",
+  title = "DGRS | AI Storytelling",
   description = "We're building a decentralized entertainment platform for the GenAI era. Play interactive story games or create your own visual novel with branching choices.",
   image = "/favicon.ico",
-  url = "https://degenerousdao.com/",
+  nav = "home",
+  url = "https://dgrslabs.ink/",
   type = "website",
   ogTitle,
   disableIndexing = false,
 } = Astro.props as LayoutProps;
+
+// GEO: Structured data for AI answer engines
+const canonical = (seoConfig.baseURL?.replace(/\/$/, "") || "") + (Astro.url?.pathname || "/");
+const orgLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  url: seoConfig.baseURL,
+  name: seoConfig.siteName || title,
+  logo: seoConfig.image?.url,
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      email: "contact@dgrslabs.ink",
+      contactType: "sales",
+    },
+  ],
+};
+
+const siteLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  url: seoConfig.baseURL,
+  name: seoConfig.title || title,
+  inLanguage: (seoConfig.locale || "en_US").split("_")[0],
+};
+
+const pageLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  url: canonical,
+  name: title,
+  description: seoConfig.description || description,
+};
 ---
 
 <html lang="en">
   <head>
     <title>{title}</title>
     <meta charset="utf-8" />
-    <meta name="description" content={description} />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="upgrade-insecure-requests"
-    />
+    <link rel="preconnect" href="https://media.dgrslabs.ink" crossorigin />
+    <!-- Performance hints: preconnect to third-parties used lazily -->
+    <link rel="preconnect" href="https://platform.twitter.com" crossorigin />
+    <link rel="preconnect" href="https://ton.twimg.com" crossorigin />
+    <!-- Preload critical font weights to shorten font request chains -->
+    <link rel="preload" as="font" href="/fonts/HankenGrotesk-Regular.woff2" type="font/woff2" crossorigin />
+    <link rel="preload" as="font" href="/fonts/HankenGrotesk-SemiBold.woff2" type="font/woff2" crossorigin />
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <SEO
       title={title}
       description={seoConfig.description || description}
+      canonical={canonical}
       noindex={disableIndexing}
       nofollow={disableIndexing}
       openGraph={{
@@ -73,13 +112,41 @@ const {
         card: "summary_large_image",
       }}
     />
+    <script type="application/ld+json">{JSON.stringify(orgLd)}</script>
+    <script type="application/ld+json">{JSON.stringify(siteLd)}</script>
+    <script type="application/ld+json">{JSON.stringify(pageLd)}</script>
+
+    <script>
+      window.gtranslateSettings = {
+        "default_language":"en",
+        "native_language_names":true,
+        "detect_browser_language":true,
+        "globe_color":"#3875fa",
+        "wrapper_selector":".gtranslate_wrapper",
+        "flag_size":24,
+        "globe_size":40
+      }
+    </script>
+    <script src="https://cdn.gtranslate.net/widgets/latest/globe.js" defer></script>
   </head>
-  <body>
-    <slot />
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"
-    ></script>
-  </body><!-- Copyright DeGenerous
-Society - All Rights Reserved
+
+  <body class={nav}>
+    <a href="#content" class="skip-link">Skip to content</a>
+    <Scramble client:idle />
+    <Header activeTab={nav} client:idle />
+    <main id="content">
+      <slot />
+    </main>
+    <Footer client:visible />
+    <Background client:visible />
+    <Modal client:idle />
+    <ToastContainer client:idle />
+    <!-- Defer heavy 3D cursor until visible to shorten critical chains -->
+    <Cursor client:visible />
+    <CookieBanner client:idle />
+  </body>
+</html>
+
+<!-- Copyright DGRS Labs Pte. Ltd. - All Rights Reserved
 Unauthorized copying of this file, via any medium is strictly prohibited
 Proprietary and confidential -->
-</html>

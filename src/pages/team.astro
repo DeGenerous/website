@@ -1,0 +1,11 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import TeamPage from "@components/Team.svelte";
+
+const title = "Team";
+---
+
+<Layout {title} nav="team">
+  <TeamPage client:idle />
+</Layout>

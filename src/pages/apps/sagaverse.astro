@@ -1,0 +1,11 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import SagaverseGaming from "@components/apps/SagaverseGaming.svelte";
+
+const title = "Sagaverse";
+---
+
+<Layout {title}>
+  <SagaverseGaming client:idle />
+</Layout>

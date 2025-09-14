@@ -1,118 +1,113 @@
-const roadmap: Goal[] = [
+const roadmap: Roadmap[] = [
   {
-    name: "Inception Arks",
-    description:
-      "Raise funds with the Inception Arks sale and distribute the NFTs on Exosama Network - a leading NFT chain on Polkadot",
-    done: true,
+    section: "2023 - Establishing the foundation",
+    goals: [
+      {
+        name: "February 2023 - DeGenerous DAO Genesis",
+        description:
+          "The birth of DeGenerous DAO as a decentralised community - setting a mission of tech-enabled impact by storytelling",
+      },
+      {
+        name: "April 2023 - Inception Ark mint",
+        description:
+          "Inception Ark NFTs mint out, raising $175k, with $125k redirected to humanitarian services, demonstrating Proof-of-Impact.",
+      },
+      {
+        name: "May 2023 - The Dischordian Saga",
+        description:
+          "We debut a community‑governed, AI‑generated media franchise that delivers multi‑hour video content with branching plots.",
+      },
+      {
+        name: "May 2023 - CoNexus Beta",
+        description:
+          "CoNexus Beta opens, giving holders first access to the AI story engine which began with text only.",
+      },
+      {
+        name: "August 2023 - Battle for Nexon",
+        description:
+          "A live space‑combat game ties gameplay data directly into ongoing narrative arcs. This real‑time loop bridges entertainment and adaptive content generation.",
+      },
+      {
+        name: "September 2023 - Ark Assassin",
+        description:
+          "A lore‑driven mobile archery game showcases our agile content pipeline for cross‑platform deployment.",
+      },
+      {
+        name: "December 2023 - Last Stand",
+        description:
+          "A multiplayer top‑down shooter with dynamic story modes. The title stress‑tests cloud scale and unlocks new engagement metrics.",
+      },
+    ],
   },
   {
-    name: "Charity Donation",
-    description:
-      "Donate $125,000 to start organizing the service trips in partnership with Lions Club and based on our DAO’s votes",
-    done: true,
+    section: "2024 - Expanding the ecosystem",
+    goals: [
+      {
+        name: "February 2024 - Potentials",
+        description:
+          "Inception Arks evolve into the Potentials - programmable avatars on Ethereum and Base. Expanded our reach to larger markets and showcased innovative identity use cases.",
+      },
+      {
+        name: "April 2024 - Galactic Governance Hub",
+        description:
+          "Our decentralized voting portal enables weekly, AI‑generated story decisions under full transparency for communities. It is an on-chain example of consensus‑driven plot evolution.",
+      },
+      {
+        name: "November 2024 - Galactic Governance Hub v2",
+        description:
+          "Role‑based access, delegated voting, and cancellation controls reduce decision latency and improve participation. The refinement prepares the system for enterprise-grade governance pilots.",
+      },
+      {
+        name: "December 2024 - Loredex",
+        description:
+          "An auto-building knowledge graph for media franchises links every character, place, and event as discoverable IP assets within an evolving knowledgebase. It turns intricate storytelling into a seamless experience newbies can understand.",
+      },
+    ],
   },
   {
-    name: "CoNexus Beta",
-    description: "Launch the first Web3 AI interactive storytelling platform",
-    done: true,
+    section: "2025 - Unifying the experience",
+    goals: [
+      {
+        name: "April 2025 - CoNexus v1",
+        description:
+          "Public release (with added functionalities for narration, music, visuals) letting any Web2 user sign up with a referral code and confirming product-market-fit beyond Web3 circles.",
+      },
+      {
+        name: "July 2025 - OmniHub",
+        description:
+          "A mini-app integrated into CoNexus to manage assets, rewards, and IP rights from a single login.",
+      },
+      {
+        name: "August - DGRS Labs Rebrand",
+        description:
+          "DGRS Labs is incorporated in Singapore to develop the DGRS enterprise service stack and leverage its impact, introducing APIs and diverse partnership programs.",
+      },
+    ],
   },
   {
-    name: "Battle for Nexon",
-    description:
-      "Launch the first lore-based game, fitting into Discord Episode 2",
-    done: true,
-  },
-  {
-    name: "Ark Assassin",
-    description: "Launch a lore-based mobile game",
-    done: true,
-  },
-  {
-    name: "Service Trip",
-    description:
-      "Hold the first global service trip fully funded, organized, and attended by DeGenerous DAO - in Turkey and India in February 2024",
-    done: true,
-  },
-  {
-    name: "Last Stand",
-    description:
-      "Launch v1 and v2 of a top-down shooter game, fitting into the Iron Lion storyline",
-    done: true,
-  },
-  {
-    name: "Potentials",
-    description:
-      "As the DAO votes - once Arks surpassed Exosama Network - go multi-chain and unlock the Potentials out of Arks, doing the reveal of the dynamic evolvable avatars on Ethereum & Base",
-    done: true,
-  },
-  {
-    name: "Governance Hub",
-    description:
-      "Launch a dApp on Base, supporting weekly AI-powered story nodes that allow Potentials to shape the Dischordian Saga and their NFT traits",
-    done: true,
-  },
-  {
-    name: "Sagaverse Gaming",
-    description:
-      "Roll out a page that supports all our games and acts as a bridge to our partners' metaverses and games",
-    done: true,
-  },
-  {
-    name: "Governance Hub v2",
-    description:
-      "Update the hub at the start of Season 2 of The Dischordian Saga to include functionalities such as class-gated voting, delegation, and vote cancellations alongside an improved UI/UX",
-    done: true,
-  },
-  {
-    name: "Loredex",
-    description:
-      "Launch a dynamic lore-tracking map that makes IP assets easily searchable and discoverable. It turns intricate storytelling into a seamless experience via the visualization of character connections, histories, and appearances.",
-    done: true,
-  },
-  {
-    name: "CoNexus v1",
-    description:
-      "Launch the first version of CoNexus available to the wider public",
-    done: false,
-  },
-  {
-    name: "CoNexus v1.5",
-    description:
-      "Merge all apps into CoNexus and support user customization of languages, length, visuals, and more for all stories",
-    done: false,
-  },
-  {
-    name: "OmniHub",
-    description:
-      "Launch a singular platform allowing holders to manage their assets in one place. It can be used for connecting multiple addresses to one account, customizing & staking NFTs, token burning, managing incoming rewards, etc.",
-    done: false,
-  },
-  {
-    name: "Token",
-    description: "Launch an ERC20 utility token",
-    done: false,
-  },
-  {
-    name: "Decentralized Charity",
-    description: "Create a multi-sig charity wallet that anyone can donate to",
-    done: false,
-  },
-  {
-    name: "CoNexus v2",
-    description:
-      "Launch a self-publishing tool with an infrastructure to integrate user-generated stories, programmable IP rights, and fair revenue",
-    done: false,
-  },
-  {
-    name: "CoNexus v3",
-    description: "Have automated high-end videos and multiplayer possibilities",
-    done: false,
-  },
-  {
-    name: "Philanthropic Platform",
-    description:
-      "Form the first decentralized charity fundraising platform with the help of NFT (Potentials) governance and Lions volunteers to allow crypto holders to easily donate to a verifiable cause (that anybody can create) and be able to showcase it through NFTs",
-    done: false,
+    section: "Upcoming - Scaling into an entertainment powerhouse",
+    goals: [
+      {
+        name: "CoNexus v1.5",
+        description:
+          "Removing referral gates will open the platform to all and add self‑publishing, remix, and multilingual tools. These and many other upgrades that come with v1.5 position CoNexus as the best platform for interactive storytelling.",
+      },
+      {
+        name: "CoNexus v2",
+        description:
+          "All companion apps merge into a single platform featuring programmable IP rights and revenue sharing. Support extends from interactive stories to full novels and films, as we mass market to the mainstream.",
+      },
+      {
+        name: "CoNexus v3",
+        description:
+          "Real‑time video generation and multiplayer gaming integrations. The release aims to redefine content production as the market will then be ready for it - losing interest in passive consumption.",
+      },
+      {
+        name: "Token",
+        description:
+          "A forthcoming ERC‑20 utility token will underpin governance, staking, and value exchange across the ecosystem. Launch timing will be disclosed in due time.",
+      },
+    ],
   },
 ];
 

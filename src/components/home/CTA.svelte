@@ -1,0 +1,324 @@
+<script lang="ts">
+  import { onMount } from "svelte";
+
+  import typeWrite from "@utils/typewriter";
+  import observeElement from "@utils/observer";
+  import callToAction from "@constants/CTA";
+
+  let ctaSection = $state<HTMLElement>();
+  let ctaContainer = $state<HTMLElement>();
+  let tagline = $state<HTMLHeadingElement>();
+  let sectionTitle = $state<HTMLHeadingElement>();
+  let activeSection = $state<Nullable<CTA>>(null);
+
+  // This will be used to trigger the cards to drop after the tagline animation
+  let finishedAnimation = $state(false);
+
+  // ---- flows ---------------------------------------------------------------
+
+  const resetTitle = () => {
+    if (!tagline) return;
+    tagline.style.opacity = "0";
+  };
+
+  const animateSection = async () => {
+    finishedAnimation = false;
+    await typeWrite(tagline!, "What brings you here today?");
+    finishedAnimation = true; // triggers the cards to drop
+    setTimeout(() => {
+      const sectionInView = Array.from(ctaSection!.classList).includes("viewable");
+      if (!sectionInView || activeSection) return;
+      ctaSection?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  };
+
+  const animateTitle = () => typeWrite(sectionTitle!, activeSection!.title);
+
+  // Observe the section tagline once; start the initial sequence
+  onMount(() =>
+    observeElement(
+      ctaSection!,
+      "viewable",
+      animateSection,
+      resetTitle,
+      {
+        root: null,
+        rootMargin: "90% 0px 90% 0px", // middle band
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+      },
+  ));
+
+  onMount(resetTitle);
+
+  // UI actions
+  function pickSection(item: CTA) {
+    if (activeSection?.name === item.name) return;
+    activeSection = item;
+    setTimeout(() => {
+      ctaContainer?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+      animateTitle(); // type the section title
+    });
+  }
+
+  function resetToMenu() {
+    activeSection = null;
+    resetTitle();
+    animateSection();
+  }
+</script>
+
+<section class="flex full-height pc-narrow" bind:this={ctaSection}>
+  {#if !activeSection}
+    <h3 bind:this={tagline}>What brings you here today?</h3>
+
+    {#if finishedAnimation}
+      <h5 class="fade-in">I want to...</h5>
+
+      <ul class="cards flex-row flex-wrap is-live">
+        {#each callToAction as item, i (item.name)}
+          <li class="round blur" style="--i:{i}">
+            <button
+              class="void-btn flex pad round"
+              onclick={() => pickSection(item)}
+              aria-label={item.name}
+            >
+              <img src={item.image} alt="{item.name} icon" />
+              <h4 style:color={item.color()}>{item.name}</h4>
+            </button>
+          </li>
+        {/each}
+      </ul>
+    {/if}
+  {:else}
+    <div
+      class="container fade-in"
+      style:background={activeSection.color(0.1)}
+      bind:this={ctaContainer}
+    >
+      <h3 bind:this={sectionTitle} style:color={activeSection.color()}>
+        {activeSection.title}
+      </h3>
+
+      <div class="flex">
+        <p>{activeSection.description}</p>
+
+        <span class="flex-row flex-wrap">
+          {#each activeSection.buttons as { name, link, target }, index (name)}
+            <a
+              class="button-anchor"
+              class:secondary={index !== 0}
+              style={index === 0
+                ? `background-color: ${activeSection.color()};`
+                : `color: ${activeSection.color()}; border: 1px solid ${activeSection.color()};`}
+              href={link}
+              {target}
+              rel="noopener noreferrer"
+            >
+              {name}
+            </a>
+          {/each}
+        </span>
+      </div>
+
+      <div class="flex">
+        <button class="void-btn caption" onclick={resetToMenu}>
+          Feel like trying something else? Pick another path:
+        </button>
+
+        <ul class="icons flex-row flex-wrap" aria-label="Quick section switcher">
+          {#each callToAction as item}
+            <li>
+              <button
+                class="void-btn flex pad-8 round"
+                class:active={activeSection.name === item.name}
+                style:background-color={item.color(activeSection.name === item.name ? 0.75 : 0.1)}
+                aria-pressed={activeSection.name === item.name}
+                onclick={() => pickSection(item)}
+                aria-label={item.name}
+              >
+                <img src={item.image} alt="{item.name} icon" />
+              </button>
+            </li>
+          {/each}
+        </ul>
+      </div>
+    </div>
+  {/if}
+</section>
+
+<style lang="scss">
+  @use "/src/styles/mixins" as *;
+
+  section {
+    padding-block: 1rem;
+    z-index: 1;
+
+    h3 {
+      @include light-blue(1, text);
+    }
+
+    /* Cards (menu) */
+    .cards {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      gap: 1.5rem;
+
+      li {
+        width: 95%;
+        transform: translateY(-120vh) rotate(-2deg) scale(0.98);
+        opacity: 0;
+        will-change: transform, opacity;
+
+        @include respond-up("tablet") {
+          width: 10rem;
+        }
+      }
+
+      &.is-live li {
+        animation: card-fall 0.72s cubic-bezier(0.2, 0.8, 0.25, 1) both;
+        animation-delay: calc(var(--i) * 120ms);
+      }
+
+      button {
+        width: 100%;
+        @include gray-border;
+        @include light-blue(0.1);
+
+        img {
+          width: 3rem;
+        }
+
+        h4 {
+          text-transform: uppercase;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+          background-color: transparent;
+          @include box-shadow;
+
+          * {
+            @include scale;
+          }
+        }
+      }
+    }
+
+    /* Icon switcher in the detail view */
+    .icons {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      gap: 0.75rem;
+
+      /* Keep list semantics: avoid display: contents on <li> */
+      li {
+        display: inline-flex; /* shrink-wrap to button while remaining a list item */
+      }
+
+      button {
+        img {
+          width: 2rem;
+        }
+        &:hover img,
+        &:active img {
+          @include scale;
+          @include bright;
+        }
+        &.active img {
+          @include bright(25%);
+        }
+      }
+    }
+
+    .container {
+      min-height: 38rem;
+      justify-content: space-between;
+      margin-inline: 1rem;
+
+      @include respond-up("tablet") {
+        min-height: 26rem;
+      }
+
+      @include respond-up("small-desktop") {
+        margin-inline: 0;
+      }
+
+      @include respond-up("full-hd") {
+        min-height: 24rem;
+      }
+
+      .caption {
+        text-decoration: underline dotted;
+        @include gray(1, text);
+        @include font(caption);
+
+        &:hover,
+        &:active,
+        &:focus {
+          text-decoration: underline;
+          color: black;
+        }
+      }
+
+      span {
+        margin-block: 0.5rem;
+
+        a.secondary {
+          background-color: white;
+
+          &:hover:not(&:disabled),
+          &:active:not(&:disabled),
+          &:focus:not(&:disabled) {
+            background-color: white;
+          }
+        }
+      }
+    }
+  }
+
+  /* Dark mode */
+  :global(body.dark) {
+    section {
+      h3 {
+        @include cyan(1, text);
+      }
+
+      .cards button {
+        @include dark-blue;
+
+        &:hover,
+        &:active,
+        &:focus {
+          box-shadow: none;
+          @include navy;
+        }
+      }
+
+      .container .caption {
+        &:hover,
+        &:active,
+        &:focus {
+          color: white;
+        }
+      }
+    }
+  }
+
+  /* Motion safety */
+  @media (prefers-reduced-motion: reduce) {
+    .cards li {
+      animation: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+    }
+  }
+</style>

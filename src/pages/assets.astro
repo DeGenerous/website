@@ -1,0 +1,11 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import AssetsPage from "@components/Assets.svelte";
+
+const title = "Assets";
+---
+
+<Layout {title} nav="assets">
+  <AssetsPage client:idle />
+</Layout>

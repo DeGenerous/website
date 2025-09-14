@@ -1,0 +1,11 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import ImpactPage from "@components/Impact.svelte";
+
+const title = "Impact";
+---
+
+<Layout {title} nav="impact">
+  <ImpactPage client:idle />
+</Layout>

@@ -8,17 +8,23 @@
     "build": "astro build",
     "preview": "astro preview --host",
     "astro": "astro",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "check": "astro check",
+    "audit:css": "node utils/css-audit.mjs"
   },
   "dependencies": {
     "@astrojs/svelte": "7.0.7",
-    "astro": "5.5.4",
+    "@threlte/core": "8.1.5",
+    "@threlte/extras": "9.5.3",
+    "astro": "^5.13.5",
     "astro-seo": "^0.8.4",
+    "prettier": "3.5.3",
+    "prettier-plugin-svelte": "3.3.3",
     "sass": "^1.69.3",
-    "svelte": "5.25.3"
+    "svelte": "5.25.3",
+    "three": "^0.180.0"
   },
   "devDependencies": {
-    "prettier": "^3.0.3",
-    "prettier-plugin-astro": "0.14.1"
+    "sass-embedded": "^1.89.2"
   }
 }
