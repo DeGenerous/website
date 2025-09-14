@@ -44,7 +44,6 @@
       // Initialize dataLayer and gtag globally before loading the library
       window.dataLayer = window.dataLayer || [];
       window.gtag = function () {
-        // @ts-ignore - dataLayer is injected globally
         dataLayer.push(arguments);
       };
       window.gtag("js", new Date());
