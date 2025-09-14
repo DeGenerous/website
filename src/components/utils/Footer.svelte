@@ -31,7 +31,8 @@
 
   const resetCookieConsent = (event: Event) => {
     event.preventDefault();
-    // This function would reset cookie consent preferences
+    localStorage.removeItem("cookie_consent");
+    window.location.reload();
   };
 </script>
 
@@ -78,7 +79,7 @@
 
     <a href="mailto:contact@dgrslabs.ink" target="_blank">Contact Us</a>
 
-    <a href="/" onclick={resetCookieConsent}>Cookie Policy</a>
+    <a href="/" onclick={resetCookieConsent}>Cookie Settings</a>
 
     <span class="flex gap-8">
       <p>©2025 DGRS Labs Pte. Ltd.</p>

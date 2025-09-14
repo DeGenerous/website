@@ -14,7 +14,7 @@
 <section class="flex">
   <h1 bind:this={tagline}>DGRS Labs CoNexus Copyright Infringement Policy</h1>
   <article class="auto-width">
-    <b>Effective Date:</b> 13 September 2025
+    <b>Effective Date:</b> 14 September 2025
     <br />
     <br />
     This Copyright Infringement Policy (“Policy”) applies to the <b>CoNexus</b>
