@@ -18,8 +18,8 @@ const tabs: HeaderTab[] = [
         target: "_self",
       },
       {
-        name: "Roadmap",
-        href: "/assets#roadmap",
+        name: "Development",
+        href: "/assets#development",
         target: "_self",
       },
     ],

@@ -66,8 +66,8 @@ export const links: FooterLink[] = [
         target: "_self",
       },
       {
-        label: "Roadmap",
-        href: "/assets#roadmap",
+        label: "Development",
+        href: "/assets#development",
         target: "_self",
       },
     ],

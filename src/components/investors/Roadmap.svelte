@@ -139,11 +139,11 @@
     };
   });
 
-  onMount(() => typeWrite(tagline!, "Roadmap"));
+  onMount(() => typeWrite(tagline!, "Development"));
 </script>
 
 <section class="roadmap flex">
-  <h1 bind:this={tagline}>Roadmap</h1>
+  <h1 bind:this={tagline}>Development</h1>
 
   {#each sections as sec, si}
     <section class="flex" class:appear-bottom={si === 0}>
