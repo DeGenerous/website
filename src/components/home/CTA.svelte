@@ -27,7 +27,7 @@
     finishedAnimation = true; // triggers the cards to drop
     setTimeout(() => {
       const sectionInView = Array.from(ctaSection!.classList).includes("viewable");
-      if (!sectionInView) return;
+      if (!sectionInView || activeSection) return;
       ctaSection?.scrollIntoView({
         behavior: "smooth",
         block: "start",
@@ -46,7 +46,7 @@
       resetTitle,
       {
         root: null,
-        rootMargin: "100% 0px 100% 0px", // middle band
+        rootMargin: "90% 0px 90% 0px", // middle band
         threshold: [0, 0.25, 0.5, 0.75, 1],
       },
   ));
