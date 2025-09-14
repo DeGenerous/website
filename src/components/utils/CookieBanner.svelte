@@ -38,20 +38,23 @@
   function loadAnalytics() {
     // Google Analytics 4
     if (!document.getElementById("google-analytics")) {
+      // Ensure GA isn't force-disabled from a prior essential-only choice
+      window["ga-disable-G-W57SFSPDH5"] = false;
+
+      // Initialize dataLayer and gtag globally before loading the library
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () {
+        // @ts-ignore - dataLayer is injected globally
+        dataLayer.push(arguments);
+      };
+      window.gtag("js", new Date());
+      window.gtag("config", "G-W57SFSPDH5", { anonymize_ip: true });
+
       const script = document.createElement("script");
       script.id = "google-analytics";
       script.async = true;
       script.src = "https://www.googletagmanager.com/gtag/js?id=G-W57SFSPDH5";
       document.head.appendChild(script);
-
-      script.onload = function () {
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          dataLayer.push(arguments);
-        }
-        gtag("js", new Date());
-        gtag("config", "G-W57SFSPDH5", { anonymize_ip: true });
-      };
     }
 
     // Microsoft Clarity
