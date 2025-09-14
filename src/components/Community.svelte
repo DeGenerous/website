@@ -72,12 +72,7 @@
 <section class="flex full-height" bind:this={section}>
   <h1 bind:this={tagline}>Community</h1>
   <p class="auto-width">
-    Our community became official in February 2023 under the name of DeGenerous DAO. It began with
-    an NFT collection that raised $125k for charity. As an on-chain DAO, we organized a global
-    service mission and, in partnership with Lions Clubs International Foundation, raised and
-    donated much more over the years. The collection eventually evolved into the Potentials, and
-    with it, our commitment deepened: building impactful products for a community defined by
-    purpose.
+    In early 2023, a decentralised community convened under the name of DeGenerous DAO to launch an NFT collection that raised $125k for charity. A global service mission was organised, and in partnership with the Lions Clubs International Foundation, the DAO continued to donate to global humanitarian causes over the years. The collection eventually evolved into the Potentials, and with it, the commitment deepened: building impactful products for a community defined by purpose.
   </p>
   <article class="container">
     We communicate through a few trusted channels. All official discussions take place on our
