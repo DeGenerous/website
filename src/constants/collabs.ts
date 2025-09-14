@@ -16,7 +16,7 @@ const collabs = [
     alt: "ANyONe",
   },
   {
-    href: "https://nonos-tech.xyz/",
+    href: "https://nonos.systems/",
     src: "/collabs/nonos.png",
     alt: "NONOS",
   },
