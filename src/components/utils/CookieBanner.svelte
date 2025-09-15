@@ -39,7 +39,7 @@
     // Google Analytics 4
     if (!document.getElementById("google-analytics")) {
       // Ensure GA isn't force-disabled from a prior essential-only choice
-      window["ga-disable-G-W57SFSPDH5"] = false;
+      window["ga-disable-G-4ZKSMYW3BG"] = false;
 
       // Initialize dataLayer and gtag globally before loading the library
       window.dataLayer = window.dataLayer || [];
@@ -47,12 +47,12 @@
         dataLayer.push(arguments);
       };
       window.gtag("js", new Date());
-      window.gtag("config", "G-W57SFSPDH5", { anonymize_ip: true });
+      window.gtag("config", "G-4ZKSMYW3BG", { anonymize_ip: true });
 
       const script = document.createElement("script");
       script.id = "google-analytics";
       script.async = true;
-      script.src = "https://www.googletagmanager.com/gtag/js?id=G-W57SFSPDH5";
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-4ZKSMYW3BG";
       document.head.appendChild(script);
     }
 
@@ -74,7 +74,7 @@
 
   function disableAnalytics() {
     // Disable GA for this property
-    window["ga-disable-G-W57SFSPDH5"] = true;
+    window["ga-disable-G-4ZKSMYW3BG"] = true;
   }
 </script>
 
