@@ -115,4 +115,5 @@ type Modal = {
 interface Window {
   gtranslateSettings?: any;
   doGTranslate?: (langPair: string) => void;
+  gtranslateInit?: () => void;
 }
