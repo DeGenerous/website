@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, tick } from "svelte";
 
   import tabs from "@constants/header";
   import { showScramble } from "@stores/scramble.svelte";
@@ -21,11 +21,46 @@
   let hiddenHeader = $state<boolean>(false);
   let hiddenTabs = $state<boolean>(true);
   let expandedDropdown = $state<string | null>(null);
+  let showTranslator = $state(false);
+
+  function ensureGTranslate() {
+    if (typeof window === "undefined") return;
+
+    window.gtranslateSettings = {
+      default_language: "en",
+      native_language_names: true,
+      detect_browser_language: true,
+      globe_color: "#3875fa",
+      wrapper_selector: ".gtranslate_wrapper",
+      flag_size: 24,
+      globe_size: 40,
+    };
+
+    const existing = document.querySelector<HTMLScriptElement>('script[data-gtranslate="true"]');
+    if (!existing) {
+      const script = document.createElement("script");
+      script.src = "https://cdn.gtranslate.net/widgets/latest/globe.js";
+      script.defer = true;
+      script.dataset.gtranslate = "true";
+      document.head.appendChild(script);
+      script.addEventListener("load", () => {
+        if (typeof window.gtranslateInit === "function") window.gtranslateInit();
+      });
+    } else if (typeof window.gtranslateInit === "function") {
+      window.gtranslateInit();
+    }
+  }
 
   onMount(() => {
     const saved = localStorage.getItem("theme");
     $darkTheme = saved === "dark";
     document.body.classList.add(activeTheme);
+  });
+
+  onMount(async () => {
+    showTranslator = true;
+    await tick();
+    ensureGTranslate();
   });
 
   $effect(() => {
@@ -104,7 +139,9 @@
   <span class="flex-row">
     <a class="contact-us nohover-link pc-only" href="mailto:biz@dgrslabs.ink"> Contact Sales </a>
     <ThemeToggle />
-    <div class="gtranslate_wrapper"></div>
+    {#if showTranslator}
+      <div class="gtranslate_wrapper" data-external="true"></div>
+    {/if}
     <ConexusLogoSVG
       href="https://conexus.degenerousdao.com/"
       target="_blank"

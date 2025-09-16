@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
   import { scrambleVisible, transitionVisible } from "@stores/scramble.svelte";
 
   // config
@@ -34,8 +36,16 @@
   const randInt = (min: number, max: number) => Math.floor(Math.random() * (max - min + 1)) + min;
 
   // Edge-trigger on store
+  let mounted = false;
+
+  onMount(() => {
+    mounted = true;
+    if ($scrambleVisible) start();
+  });
+
   let lastSeen: boolean | null = null;
   $effect(() => {
+    if (!mounted) return;
     const curr = $scrambleVisible;
     if (curr === lastSeen) return;
     lastSeen = curr;
