@@ -36,7 +36,7 @@
       globe_size: 40,
     };
 
-    const existing = document.querySelector<HTMLScriptElement>("script[data-gtranslate]");
+    const existing = document.querySelector<HTMLScriptElement>('script[data-gtranslate="true"]');
     if (!existing) {
       const script = document.createElement("script");
       script.src = "https://cdn.gtranslate.net/widgets/latest/globe.js";
