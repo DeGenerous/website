@@ -1,0 +1,6 @@
+# security.txt for dgrslabs.ink
+Contact: mailto:security@dgrslabs.ink
+Policy: https://dgrslabs.ink/community#bounties
+Canonical: https://dgrslabs.ink/.well-known/security.txt
+Preferred-Languages: en
+Expires: 2026-09-24T23:59:59Z
