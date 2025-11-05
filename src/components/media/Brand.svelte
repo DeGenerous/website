@@ -73,7 +73,7 @@
         </span>
         <span class="flex-row">
           <p>.SVG</p>
-          <a class="button-anchor" href="/brand/dgrs-logo.svg" download="dgrs-labs-logo">
+          <a class="button-anchor" href="/brand/dgrslabs-logo.svg" download="dgrslabs-logo">
             Download
           </a>
         </span>
