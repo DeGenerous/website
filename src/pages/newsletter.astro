@@ -1,0 +1,11 @@
+---
+import Layout from "@layouts/Layout.astro";
+
+import NewsletterPage from "@components/Newsletter.svelte";
+
+const title = "Newsletter";
+---
+
+<Layout {title} disableIndexing={true}>
+  <NewsletterPage client:idle />
+</Layout>

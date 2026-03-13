@@ -1,39 +1,8 @@
 <script lang="ts">
   import { showScramble, hideScramble } from "@stores/scramble.svelte";
   import { socials, links } from "@constants/footer";
-  import { toastStore } from "@stores/toast.svelte";
-  import { regexpEmail } from "@constants/regexp";
 
   import LogoSVG from "@components/icons/Logo.svelte";
-
-  let email = $state<string>("");
-
-  const subscribeToNewsletter = async (event: Event) => {
-    event.preventDefault();
-    if (!email || !regexpEmail.test(email)) {
-      toastStore.show("Please enter a valid email address.", "error");
-      return;
-    }
-
-    try {
-      const response = await fetch(
-        `https://dgrslabs.ink/api/account/subscribe-newsletter-open?email=${email}`
-      );
-      const data = await response.json();
-      if (!response.ok) {
-        toastStore.show(data.message || "Subscription failed. Please try again later.", "error");
-      }
-    } catch (error) {
-      toastStore.show("An error occurred. Please try again later.", "error");
-      return;
-    }
-
-    // Show a success message
-    toastStore.show("Thank you for subscribing to our newsletter!");
-
-    // Reset the input field after subscription
-    email = "";
-  };
 
   const resetCookieConsent = (event: Event) => {
     event.preventDefault();
@@ -41,28 +10,6 @@
     window.location.reload();
   };
 </script>
-
-<form class="newsletter flex pad pc-narrow blur" onsubmit={subscribeToNewsletter}>
-  <h4>Join the Future of Storytelling</h4>
-  <p>
-    Get the latest updates on DGRS, exclusive access to new features, and insights into the AI
-    storytelling revolution.
-  </p>
-  <span class="flex-row flex-wrap">
-    <label class="sr-only" for="newsletter-email">Email address</label>
-    <input
-      id="newsletter-email"
-      name="email"
-      type="email"
-      placeholder="Enter your email"
-      autocomplete="email"
-      aria-required="true"
-      bind:value={email}
-      required
-    />
-    <button type="submit"> Subscribe </button>
-  </span>
-</form>
 
 <footer class="pad flex fade-in pc-narrow blur">
   <section class="flex gap">
@@ -128,12 +75,6 @@
 
 <style lang="scss">
   @use "/src/styles/mixins/" as *;
-
-  .newsletter {
-    border-top: 1px solid rgba(150, 150, 150, 0.25);
-    padding-block: 2rem;
-    @include light-blue(0.1);
-  }
 
   footer {
     gap: 2rem;
@@ -265,8 +206,7 @@
   }
 
   :global(body.dark) {
-    footer,
-    .newsletter {
+    footer {
       @include dark-blue;
     }
 
