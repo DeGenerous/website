@@ -128,9 +128,7 @@
       {/each}
       <div class="nav-item flex">
         <span class="contact-us flex-row">
-          <a class="tab nohover-link flex" href="mailto:biz@dgrslabs.ink">
-            Contact Sales
-          </a>
+          <a class="tab nohover-link flex" href="mailto:biz@dgrslabs.ink"> Contact Sales </a>
         </span>
       </div>
     </nav>
@@ -142,11 +140,7 @@
     {#if showTranslator}
       <div class="gtranslate_wrapper" data-external="true"></div>
     {/if}
-    <ConexusLogoSVG
-      href="https://conexus.ink/"
-      target="_blank"
-      hideForMobiles={true}
-    />
+    <ConexusLogoSVG href="https://conexus.ink/" target="_blank" hideForMobiles={true} />
     <BurgerSVG
       onclick={() => (hiddenTabs = !hiddenTabs)}
       expanded={!hiddenTabs}

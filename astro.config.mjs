@@ -2,8 +2,8 @@ import { defineConfig } from "astro/config";
 
 import svelte from "@astrojs/svelte";
 
-  // https://astro.build/config
-  export default defineConfig({
+// https://astro.build/config
+export default defineConfig({
   integrations: [svelte()],
   devToolbar: {
     enabled: false,
@@ -87,6 +87,6 @@ import svelte from "@astrojs/svelte";
   },
   // Inline stylesheets into HTML to avoid render‑blocking CSS
   build: {
-    inlineStylesheets: 'always',
+    inlineStylesheets: "always",
   },
 });

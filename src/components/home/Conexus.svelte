@@ -54,9 +54,7 @@
       entertainment.
     </p>
 
-    <a class="button-anchor" href="https://conexus.ink/" target="_blank">
-      Launch CoNexus
-    </a>
+    <a class="button-anchor" href="https://conexus.ink/" target="_blank"> Launch CoNexus </a>
   </div>
 </section>
 

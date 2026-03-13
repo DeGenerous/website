@@ -34,11 +34,17 @@
     />
     <article class="flex">
       <p>
-        Create full albums, singles, and soundtracks powered by AI artists — from composition and vocals to final master. Our pipeline blends generative music models with real-world recordings and professional mixing to produce release-ready tracks across any genre.
+        Create full albums, singles, and soundtracks powered by AI artists — from composition and
+        vocals to final master. Our pipeline blends generative music models with real-world
+        recordings and professional mixing to produce release-ready tracks across any genre.
       </p>
       <p>
         One of our artists, Malkia Ukweli, has amassed over 20 000 monthly listeners on
-        <a href="https://open.spotify.com/artist/5ZgBJTjuyrAvwyybBt1Eww" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://open.spotify.com/artist/5ZgBJTjuyrAvwyybBt1Eww"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Spotify
         </a>, proving that AI-generated music can build real, organic audiences at scale.
       </p>

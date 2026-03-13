@@ -9,50 +9,50 @@
       <ul class="flex-row flex-wrap">
         <li>
           <a
-          class="menu-tile nohover-link blur"
-          href="https://conexus.ink/sections/Community%20Picks"
-          target="_blank"
-          rel="noopener noreferrer"
+            class="menu-tile nohover-link blur"
+            href="https://conexus.ink/sections/Community%20Picks"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-          <img
-            src="{mediaURL}/conexus-sections/communitypicks.avif"
-            alt="Community Picks"
-            loading="lazy"
-            decoding="async"
-          />
-          <h4>Community Picks</h4>
+            <img
+              src="{mediaURL}/conexus-sections/communitypicks.avif"
+              alt="Community Picks"
+              loading="lazy"
+              decoding="async"
+            />
+            <h4>Community Picks</h4>
           </a>
         </li>
         <li>
           <a
-          class="menu-tile nohover-link pc-only"
-          href="https://conexus.ink/sections/Collabs"
-          target="_blank"
-          rel="noopener noreferrer"
+            class="menu-tile nohover-link pc-only"
+            href="https://conexus.ink/sections/Collabs"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-          <img
-            src="{mediaURL}/conexus-sections/collabs.avif"
-            alt="Collabs"
-            loading="lazy"
-            decoding="async"
-          />
-          <h4>Collabs</h4>
+            <img
+              src="{mediaURL}/conexus-sections/collabs.avif"
+              alt="Collabs"
+              loading="lazy"
+              decoding="async"
+            />
+            <h4>Collabs</h4>
           </a>
         </li>
         <li>
           <a
-          class="menu-tile nohover-link pc-only"
-          href="https://conexus.ink/sections/Dischordian%20Saga"
-          target="_blank"
-          rel="noopener noreferrer"
+            class="menu-tile nohover-link pc-only"
+            href="https://conexus.ink/sections/Dischordian%20Saga"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-          <img
-            src="{mediaURL}/conexus-sections/dischordiansaga.avif"
-            alt="Dischordian Saga"
-            loading="lazy"
-            decoding="async"
-          />
-          <h4>Dischordian Saga</h4>
+            <img
+              src="{mediaURL}/conexus-sections/dischordiansaga.avif"
+              alt="Dischordian Saga"
+              loading="lazy"
+              decoding="async"
+            />
+            <h4>Dischordian Saga</h4>
           </a>
         </li>
       </ul>

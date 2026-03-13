@@ -25,12 +25,7 @@
 <section id="conexus-api" class="flex appear-left-observer" bind:this={section}>
   <h2 bind:this={tagline}>CoNexus API</h2>
   <div class="container">
-    <img
-      class="round-8"
-      src="/enterprise/conexus-api.gif"
-      alt="CoNexus API"
-      decoding="async"
-    />
+    <img class="round-8" src="/enterprise/conexus-api.gif" alt="CoNexus API" decoding="async" />
     <article class="flex">
       <p>
         Embed a living, breathing GenAI story engine into your website, app, game, brand portal, or
@@ -55,15 +50,14 @@
       <p>
         Our clients see
         <b>70 min avg session time</b>
-        and spikes in community activation. Popular use cases include gamified education, marketing, branding, community activation, social engagement, and character evaluation.
+        and spikes in community activation. Popular use cases include gamified education, marketing,
+        branding, community activation, social engagement, and character evaluation.
       </p>
       <p>
         Prefer zero‑code? We’ll build, market, and host your interactive stories on CoNexus for you.
       </p>
       <p>
-        <a href="mailto:biz@dgrslabs.ink" target="_blank" rel="noopener noreferrer">
-          Contact us
-        </a>
+        <a href="mailto:biz@dgrslabs.ink" target="_blank" rel="noopener noreferrer"> Contact us </a>
         to get your API key or discuss an in‑platform collaboration.
       </p>
     </article>

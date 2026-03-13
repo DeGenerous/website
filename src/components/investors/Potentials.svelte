@@ -49,17 +49,15 @@
           <h5>Proven rewards</h5>
         </span>
         <p>
-          Multiple partner-project airdrops have been delivered to the NFT holders, and our upcoming utility token will be distributed to Potentials first. Staking is coming soon as well.
+          Multiple partner-project airdrops have been delivered to the NFT holders, and our upcoming
+          utility token will be distributed to Potentials first. Staking is coming soon as well.
         </p>
       </li>
     </ul>
 
     <i> Owning a Potential places you at the center of our growth and direction. </i>
     <span class="flex-row">
-      <a
-        class="button-anchor"
-        href="https://opensea.io/collection/potentials-eth"
-      >
+      <a class="button-anchor" href="https://opensea.io/collection/potentials-eth">
         Unlock Your Potential
       </a>
     </span>

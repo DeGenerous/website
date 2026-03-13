@@ -109,7 +109,9 @@
                 Ivan&nbsp;Ursulovic <span>Senior Backend &amp; Cloud Systems Engineer</span>
               </h4>
               <p>
-                Builds high-throughput backend platforms and real-time data services powering enterprise ecosystems. Skilled in ASP.NET Core, Spring, Node.js, Go, Solidity, Docker & Kubernetes.
+                Builds high-throughput backend platforms and real-time data services powering
+                enterprise ecosystems. Skilled in ASP.NET Core, Spring, Node.js, Go, Solidity,
+                Docker & Kubernetes.
               </p>
             </article>
           </li>
@@ -140,7 +142,9 @@
                 Sean “Cryptok”&nbsp;Dugan <span>Cinematics Director &amp; Producer</span>
               </h4>
               <p>
-                Traditional and AI-film veteran. Produces and edits work from short ads to feature-length films viewed tens of millions of times, helping raise multi-million-dollar funding.
+                Traditional and AI-film veteran. Produces and edits work from short ads to
+                feature-length films viewed tens of millions of times, helping raise
+                multi-million-dollar funding.
               </p>
             </article>
           </li>
@@ -216,7 +220,9 @@
     <a href="https://www.ericjordan.com/" target="_blank" rel="noopener noreferrer">
       Eric Jordan
     </a>
-    - a digital design pioneer with 26 years of creative direction for Tesla, SpaceX, Nintendo, and Marvel, with FWA Hall of Fame Status and Web Design Museum feature for the most influential interactive site of the decade.
+    - a digital design pioneer with 26 years of creative direction for Tesla, SpaceX, Nintendo, and Marvel,
+    with FWA Hall of Fame Status and Web Design Museum feature for the most influential interactive site
+    of the decade.
   </p>
 </section>
 
@@ -306,18 +312,18 @@
       }
     }
 
-  .tabs {
-    width: 100%;
-
-    li {
-      flex: 1;
-    }
-
-    button {
-      height: 0.25rem;
-      min-height: unset;
+    .tabs {
       width: 100%;
-      border-radius: 0.5rem;
+
+      li {
+        flex: 1;
+      }
+
+      button {
+        height: 0.25rem;
+        min-height: unset;
+        width: 100%;
+        border-radius: 0.5rem;
         @include light-blue(0.1);
 
         &.active {

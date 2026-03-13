@@ -24,10 +24,15 @@
     <h3>Social Memetic Agent</h3>
     <h3>(Coming Soon)</h3>
     <p>
-      A community-led experimental token and system built on top of DGRS to power The Meme, the first AI Story Agent native to socials. It fuels viral, on-demand multimedia narratives that start on social media and continue on CoNexus. This project bridges pop culture, crypto, entertainment, and social virality. This project combined our creative & agentic frameworks with its social engagement system.
+      A community-led experimental token and system built on top of DGRS to power The Meme, the
+      first AI Story Agent native to socials. It fuels viral, on-demand multimedia narratives that
+      start on social media and continue on CoNexus. This project bridges pop culture, crypto,
+      entertainment, and social virality. This project combined our creative & agentic frameworks
+      with its social engagement system.
     </p>
     <p>
-     The agent uses text2story, img2story, and video engines to transform everyday static content into dynamic, shareable, and hilarious storylines.
+      The agent uses text2story, img2story, and video engines to transform everyday static content
+      into dynamic, shareable, and hilarious storylines.
     </p>
   </article>
 </section>

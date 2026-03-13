@@ -39,17 +39,12 @@
 
   // Observe the section tagline once; start the initial sequence
   onMount(() =>
-    observeElement(
-      ctaSection!,
-      "viewable",
-      animateSection,
-      resetTitle,
-      {
-        root: null,
-        rootMargin: "90% 0px 90% 0px", // middle band
-        threshold: [0, 0.25, 0.5, 0.75, 1],
-      },
-  ));
+    observeElement(ctaSection!, "viewable", animateSection, resetTitle, {
+      root: null,
+      rootMargin: "90% 0px 90% 0px", // middle band
+      threshold: [0, 0.25, 0.5, 0.75, 1],
+    })
+  );
 
   onMount(resetTitle);
 

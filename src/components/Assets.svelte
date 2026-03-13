@@ -60,15 +60,11 @@
   <div class="flex-row flex-wrap">
     <span>
       Join our
-      <a href="https://dgrslabs.ink/join" target="_blank" rel="noopener noreferrer">
-        Discord
-      </a>
+      <a href="https://dgrslabs.ink/join" target="_blank" rel="noopener noreferrer"> Discord </a>
     </span>
     <span>
       Message us by
-      <a href="mailto:contact@dgrslabs.ink" target="_blank" rel="noopener noreferrer">
-        email
-      </a>
+      <a href="mailto:contact@dgrslabs.ink" target="_blank" rel="noopener noreferrer"> email </a>
     </span>
   </div>
   <article>

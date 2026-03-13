@@ -36,9 +36,9 @@
             DGRS Labs Pte. Ltd, including the user applications such as CoNexus and the user
             interfaces available at
             <a href="/">https://dgrslabs.ink</a>,
-            <a href="https://conexus.ink/" target="_blank"> https://conexus.ink </a> and
-            others, with further documentation on the DGRS Labs Pte. Ltd. Website and other relevant
-            documentation channels.
+            <a href="https://conexus.ink/" target="_blank"> https://conexus.ink </a> and others, with
+            further documentation on the DGRS Labs Pte. Ltd. Website and other relevant documentation
+            channels.
           </li>
           <li>
             “DGRS Labs Pte. Ltd.”, “DGRS Labs”, “We,” “Us” and “our” refer to DGRS Labs Pte. Ltd.
@@ -588,9 +588,9 @@
         <b>Copyright Infringement</b>
         <br />
         If you believe that content on our website violates your copyright, please contact us by emailing
-        contact@dgrslabs.ink. There may be legal consequences for sending a false or frivolous takedown notice.
-        Before sending a takedown request, you must consider legal uses such as fair use and licensed
-        uses. We will terminate the Accounts of repeat infringers of this policy.
+        contact@dgrslabs.ink. There may be legal consequences for sending a false or frivolous takedown
+        notice. Before sending a takedown request, you must consider legal uses such as fair use and
+        licensed uses. We will terminate the Accounts of repeat infringers of this policy.
       </li>
 
       <br />

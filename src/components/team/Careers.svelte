@@ -10,7 +10,8 @@
 
   onMount(() => typeWrite(tagline!, "Careers"));
 
-  const showPosition = (index: number) => openModal(positions[index] || positions[0], "Submit", sendPortfolio);
+  const showPosition = (index: number) =>
+    openModal(positions[index] || positions[0], "Submit", sendPortfolio);
 
   const sendPortfolio = () => {
     const linkInput = document.getElementById("portfolio-link") as HTMLInputElement;
@@ -33,9 +34,7 @@
       // console.log("Additional context:", context);
     }
 
-    toastStore.show(
-      "Sorry something went wrong. Please try again later.", "error"
-    );
+    toastStore.show("Sorry something went wrong. Please try again later.", "error");
   };
 
   const linkPortfolio = () => openModal("", "Submit", sendPortfolio);

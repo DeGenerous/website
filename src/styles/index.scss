@@ -50,8 +50,13 @@
 }
 
 /* Ensure widget renders above our overlay */
-.gtranslate_wrapper { position: relative; z-index: 1001; }
-.gt_float_switcher { z-index: 1001 !important; }
+.gtranslate_wrapper {
+  position: relative;
+  z-index: 1001;
+}
+.gt_float_switcher {
+  z-index: 1001 !important;
+}
 
 /* GTranslate globe/menu: remove click/focus shadows */
 .gt_float_switcher,

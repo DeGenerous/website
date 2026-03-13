@@ -6,12 +6,7 @@
 
   let videoSection = $state<HTMLElement>();
 
-  onMount(() =>
-    observeElement(
-      videoSection!,
-      "visible",
-    )
-  );
+  onMount(() => observeElement(videoSection!, "visible"));
 </script>
 
 <section id="trailer" class="conexus-video flex full-height" bind:this={videoSection}>

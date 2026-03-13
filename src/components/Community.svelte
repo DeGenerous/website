@@ -54,7 +54,7 @@
         root: null,
         rootMargin: "-45% 0px -45% 0px", // middle band
         threshold: [0, 0.25, 0.5, 0.75, 1],
-      },
+      }
     );
 
     // if page loads with a hash, honor it
@@ -72,7 +72,12 @@
 <section class="flex full-height" bind:this={section}>
   <h1 bind:this={tagline}>Community</h1>
   <p class="auto-width">
-    In early 2023, a decentralised community convened under the name of DeGenerous DAO to launch an NFT collection that raised $125k for charity. A global service mission was organised, and in partnership with the Lions Clubs International Foundation, the DAO continued to donate to global humanitarian causes over the years. The collection eventually evolved into the Potentials, and with it, the commitment deepened: building impactful products for a community defined by purpose.
+    In early 2023, a decentralised community convened under the name of DeGenerous DAO to launch an
+    NFT collection that raised $125k for charity. A global service mission was organised, and in
+    partnership with the Lions Clubs International Foundation, the DAO continued to donate to global
+    humanitarian causes over the years. The collection eventually evolved into the Potentials, and
+    with it, the commitment deepened: building impactful products for a community defined by
+    purpose.
   </p>
   <article class="container">
     We communicate through a few trusted channels. All official discussions take place on our
