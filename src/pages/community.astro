@@ -4,8 +4,11 @@ import Layout from "@layouts/Layout.astro";
 import CommunityPage from "@components/Community.svelte";
 
 const title = "Community";
+const description =
+  "Learn how DGRS Labs grew out of the decentralised community that convened in early 2023 under the name DeGenerous DAO, and how that mission now powers CoNexus.";
+const keywords = ["DGRS Labs community", "DeGenerous DAO", "CoNexus community", "DGRS Labs"];
 ---
 
-<Layout {title} nav="community">
+<Layout {title} {description} {keywords} nav="community" pageType="AboutPage">
   <CommunityPage client:idle />
 </Layout>

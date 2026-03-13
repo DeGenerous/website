@@ -19,37 +19,79 @@ type LayoutProps = {
   title?: string;
   ogTitle?: string;
   description?: string;
+  keywords?: string[];
   image?: string;
   imageType?: string;
-  url?: string;
   type?: string;
+  pageType?: string;
+  structuredData?: Record<string, unknown>[];
   disableIndexing?: boolean;
   narrow?: boolean;
 };
 
 const {
-  title = "DGRS | AI Storytelling",
-  description = "We're building a decentralized entertainment platform for the GenAI era. Play interactive story games or create your own visual novel with branching choices.",
-  image = "/favicon.ico",
+  title,
+  description,
+  keywords,
+  image = seoConfig.image.url,
   nav = "home",
-  url = "https://dgrslabs.ink/",
   type = "website",
+  pageType = "WebPage",
+  structuredData = [],
   ogTitle,
   disableIndexing = false,
 } = Astro.props as LayoutProps;
 
-// GEO: Structured data for AI answer engines
-const canonical = (seoConfig.baseURL?.replace(/\/$/, "") || "") + (Astro.url?.pathname || "/");
+const defaultTitle = seoConfig.title;
+const pageTitle = title?.trim();
+const resolvedTitle = pageTitle
+  ? pageTitle.includes("DGRS Labs")
+    ? pageTitle
+    : `${pageTitle} | DGRS Labs`
+  : defaultTitle;
+const resolvedOgTitle = ogTitle || resolvedTitle;
+const resolvedDescription = description || seoConfig.description;
+const resolvedImage = image.startsWith("http")
+  ? image
+  : new URL(image, `${seoConfig.baseURL}/`).toString();
+const resolvedKeywords = keywords?.length ? keywords : seoConfig.keywords;
+
+// Structured data for search engines and answer engines
+const canonical = new URL(Astro.url?.pathname || "/", `${seoConfig.baseURL}/`).toString();
+const orgId = `${seoConfig.baseURL}/#organization`;
+const siteId = `${seoConfig.baseURL}/#website`;
 const orgLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": orgId,
   url: seoConfig.baseURL,
-  name: seoConfig.siteName || title,
-  logo: seoConfig.image?.url,
+  name: seoConfig.siteName,
+  legalName: seoConfig.legalName,
+  description: seoConfig.description,
+  email: seoConfig.contactEmail,
+  foundingDate: seoConfig.foundingDate,
+  foundingLocation: {
+    "@type": "Place",
+    name: seoConfig.foundingLocation,
+  },
+  sameAs: seoConfig.sameAs,
+  logo: {
+    "@type": "ImageObject",
+    url: seoConfig.image.url,
+    width: seoConfig.image.width,
+    height: seoConfig.image.height,
+  },
+  knowsAbout: [
+    "AI storytelling",
+    "interactive entertainment",
+    "community-owned storytelling",
+    "blockchain-backed IP",
+    "creative tooling",
+  ],
   contactPoint: [
     {
       "@type": "ContactPoint",
-      email: "contact@dgrslabs.ink",
+      email: seoConfig.contactEmail,
       contactType: "sales",
     },
   ],
@@ -58,23 +100,36 @@ const orgLd = {
 const siteLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": siteId,
   url: seoConfig.baseURL,
-  name: seoConfig.title || title,
+  name: seoConfig.siteName,
+  description: seoConfig.description,
   inLanguage: (seoConfig.locale || "en_US").split("_")[0],
+  publisher: {
+    "@id": orgId,
+  },
 };
 
 const pageLd = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
+  "@type": pageType,
   url: canonical,
-  name: title,
-  description: seoConfig.description || description,
+  name: resolvedTitle,
+  description: resolvedDescription,
+  isPartOf: {
+    "@id": siteId,
+  },
+  about: {
+    "@id": orgId,
+  },
 };
+const jsonLdScripts = [orgLd, siteLd, pageLd, ...structuredData].map((item) =>
+  JSON.stringify(item)
+);
 ---
 
 <html lang="en">
   <head>
-    <title>{title}</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -86,36 +141,38 @@ const pageLd = {
     <link rel="preload" as="font" href="/fonts/HankenGrotesk-Regular.woff2" type="font/woff2" crossorigin />
     <link rel="preload" as="font" href="/fonts/HankenGrotesk-SemiBold.woff2" type="font/woff2" crossorigin />
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <meta name="author" content={seoConfig.legalName} />
+    <meta name="keywords" content={resolvedKeywords.join(", ")} />
     <SEO
-      title={title}
-      description={seoConfig.description || description}
+      title={resolvedTitle}
+      description={resolvedDescription}
       canonical={canonical}
       noindex={disableIndexing}
       nofollow={disableIndexing}
       openGraph={{
         basic: {
-          title: ogTitle || title,
-          type: "website",
-          image: seoConfig.image.url || image,
+          title: resolvedOgTitle,
+          type,
+          image: resolvedImage,
+          url: canonical,
         },
         image: {
           width: seoConfig.image.width,
           height: seoConfig.image.height,
-          alt: seoConfig.image.alt || title,
+          alt: seoConfig.image.alt || resolvedTitle,
         },
         optional: {
           siteName: seoConfig.siteName,
-          description: seoConfig.description || description,
+          description: resolvedDescription,
         },
       }}
       twitter={{
         card: "summary_large_image",
       }}
     />
-    <script type="application/ld+json">{JSON.stringify(orgLd)}</script>
-    <script type="application/ld+json">{JSON.stringify(siteLd)}</script>
-    <script type="application/ld+json">{JSON.stringify(pageLd)}</script>
-
+    {jsonLdScripts.map((content) => (
+      <script is:inline type="application/ld+json" set:html={content} />
+    ))}
   </head>
 
   <body class={nav}>

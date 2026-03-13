@@ -2,8 +2,38 @@
 import Layout from "@layouts/Layout.astro";
 
 import Home from "@components/Home.svelte";
+
+const title = "DGRS Labs | AI Storytelling";
+const description =
+  "DGRS Labs is the company behind CoNexus, an AI storytelling platform for creating, sharing, and monetizing interactive stories. DGRS Labs grew out of the decentralised community that convened in early 2023 as DeGenerous DAO.";
+const keywords = [
+  "DGRS Labs",
+  "CoNexus",
+  "DeGenerous DAO",
+  "AI storytelling company",
+  "interactive story platform",
+];
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "@id": "https://conexus.ink/#software",
+    name: "CoNexus",
+    applicationCategory: "EntertainmentApplication",
+    operatingSystem: "Web",
+    url: "https://conexus.ink/",
+    description:
+      "CoNexus is DGRS Labs' flagship AI storytelling platform for interactive stories, games, and community-owned entertainment experiences.",
+    creator: {
+      "@id": "https://dgrslabs.ink/#organization",
+    },
+    publisher: {
+      "@id": "https://dgrslabs.ink/#organization",
+    },
+  },
+];
 ---
 
-<Layout>
+<Layout {title} {description} {keywords} {structuredData}>
   <Home client:idle />
 </Layout>

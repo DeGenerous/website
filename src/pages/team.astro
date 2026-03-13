@@ -4,8 +4,11 @@ import Layout from "@layouts/Layout.astro";
 import TeamPage from "@components/Team.svelte";
 
 const title = "Team";
+const description =
+  "Meet the DGRS Labs team, the AI storytelling platform behind CoNexus that grew out of the DeGenerous DAO community formed in early 2023.";
+const keywords = ["DGRS Labs team", "CoNexus team", "DGRS Labs founders", "DGRS Labs"];
 ---
 
-<Layout {title} nav="team">
+<Layout {title} {description} {keywords} nav="team" pageType="AboutPage">
   <TeamPage client:idle />
 </Layout>
