@@ -4,7 +4,7 @@ const projects: BuiltProject[] = [
     category: "Social",
     image: "/projects/pac.webp",
     description:
-      "A token and engagement system on DGRS that powers the first AI Story Agent on X, enabling viral multimedia narratives via text2story, img2story, and video engines.",
+      "A token and engagement system on DGRS that powers the first AI Story Agent on social media, enabling viral multimedia narratives via text2story, img2story, and video engines.",
   },
   {
     title: "Servant Heroes",

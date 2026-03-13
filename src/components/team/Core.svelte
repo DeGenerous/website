@@ -103,6 +103,17 @@
             </article>
           </li>
           <li class="flex">
+            <img src="/team/ivan.jpg" alt="Ivan Ursulovic" loading="lazy" decoding="async" />
+            <article class="flex">
+              <h4>
+                Ivan&nbsp;Ursulovic <span>Senior Backend &amp; Cloud Systems Engineer</span>
+              </h4>
+              <p>
+                Builds high-throughput backend platforms and real-time data services powering enterprise ecosystems. Skilled in ASP.NET Core, Spring, Node.js, Go, Solidity, Docker & Kubernetes.
+              </p>
+            </article>
+          </li>
+          <li class="flex">
             <img src="/team/vani.jpg" alt="Vani" loading="lazy" decoding="async" />
             <article class="flex">
               <h4>Vani <span>Web3 Engineer</span></h4>
@@ -198,6 +209,14 @@
     We’re not alone. Every week, we draw on the expertise of contractors, agencies, and advisors —
     from Web3 founders and legal counsel to branding specialists, storytellers, and AI engineers —
     who share our vision of community-owned storytelling.
+  </p>
+
+  <p class="auto-width pc-narrow">
+    Our flagship app design is shaped by
+    <a href="https://www.ericjordan.com/" target="_blank" rel="noopener noreferrer">
+      Eric Jordan
+    </a>
+    - a digital design pioneer with 26 years of creative direction for Tesla, SpaceX, Nintendo, and Marvel, with FWA Hall of Fame Status and Web Design Museum feature for the most influential interactive site of the decade.
   </p>
 </section>
 

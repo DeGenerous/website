@@ -9,7 +9,7 @@ const callToAction: CTA[] = [
     buttons: [
       {
         name: "Launch CoNexus",
-        link: "https://conexus.degenerousdao.com/",
+        link: "https://conexus.ink/",
         target: "_blank",
       },
       {
@@ -29,7 +29,7 @@ const callToAction: CTA[] = [
     buttons: [
       {
         name: "Launch CoNexus",
-        link: "https://conexus.degenerousdao.com/",
+        link: "https://conexus.ink/",
         target: "_blank",
       },
       {
@@ -67,7 +67,7 @@ const callToAction: CTA[] = [
     buttons: [
       {
         name: "Unlock Your Potential",
-        link: "https://magiceden.io/collections/ethereum/potentials-eth",
+        link: "https://opensea.io/collection/potentials-eth",
         target: "_blank",
       },
       {

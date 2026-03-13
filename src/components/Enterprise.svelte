@@ -6,6 +6,7 @@
 
   import ConexusAPI from "./enterprise/ConexusAPI.svelte";
   import GenAI from "./enterprise/GenAI.svelte";
+  import MusicStudio from "./enterprise/MusicStudio.svelte";
   import CSR from "./enterprise/CSR.svelte";
   import VoidArrowSVG from "@components/icons/VoidArrow.svelte";
 
@@ -15,7 +16,7 @@
   const startTyping = () => setTimeout(() => typeWrite(tagline!, "Enterprise"), 1500);
 
   // IDs must match <section id="..."> in each child component
-  const ids = ["intro", "conexus-api", "gen-ai", "csr"];
+  const ids = ["intro", "conexus-api", "gen-ai", "music-studio", "csr"];
   let active = $state<string>(ids[0]);
 
   $effect(() => {
@@ -98,6 +99,14 @@
     <p>GenAI Film Studio</p>
   </button>
 
+  <button
+    class="void-btn"
+    class:active={active === "gen-ai"}
+    onclick={() => scrollToSection("gen-ai")}
+  >
+    <p>GenAI Music Studio</p>
+  </button>
+
   <button class="void-btn" class:active={active === "csr"} onclick={() => scrollToSection("csr")}>
     <p>CSR with Real Impact</p>
   </button>
@@ -106,6 +115,8 @@
 <ConexusAPI />
 
 <GenAI />
+
+<MusicStudio />
 
 <CSR />
 

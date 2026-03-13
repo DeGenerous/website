@@ -86,7 +86,7 @@
     <a href="/" onclick={resetCookieConsent}>Cookie Settings</a>
 
     <span class="flex gap-8">
-      <p>©2025 DGRS Labs Pte. Ltd.</p>
+      <p>©{new Date().getFullYear()} DGRS Labs Pte. Ltd.</p>
       <p>Registered in Singapore - UEN: 202534215D</p>
       <p>20 Collyer Quay, #11-07, Singapore 049319</p>
       <span class="flex-row gap-8">

@@ -157,20 +157,6 @@
     <li>
       <a
         class="nohover-link flex-row blur"
-        href="https://magiceden.io/collections/ethereum/potentials-eth"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <span class="flex">
-          <h5>Magic Eden</h5>
-          <p>(Ethereum &ndash; trading)</p>
-        </span>
-        <OpenSVG />
-      </a>
-    </li>
-    <li>
-      <a
-        class="nohover-link flex-row blur"
         href="https://opensea.io/collection/potentials-eth"
         target="_blank"
         rel="noopener noreferrer"
@@ -199,7 +185,21 @@
     <li>
       <a
         class="nohover-link flex-row blur"
-        href="https://conexus.degenerousdao.com/dashboard"
+        href="https://staking.dgrslabs.ink/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="flex">
+          <h5>Staking</h5>
+          <p>(Ethereum)</p>
+        </span>
+        <OpenSVG />
+      </a>
+    </li>
+    <li>
+      <a
+        class="nohover-link flex-row blur"
+        href="https://conexus.ink/console/omnihub"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -227,7 +227,7 @@
     <li>
       <a
         class="nohover-link flex-row blur"
-        href="https://conexus.degenerousdao.com/"
+        href="https://conexus.ink/"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -258,7 +258,7 @@
       >
         <OpenSVG />
       </a>
-      </span>
+    </span>
     <span class="flex-row">
       <button
         class="void-btn flex-row flex-wrap"
@@ -271,6 +271,23 @@
       <a
         class="flex nohover-link"
         href="https://basescan.org/address/0x111e0861BaA9D479cff55D542E5A9e4205012bBe"
+        target="_blank"
+      >
+        <OpenSVG />
+      </a>
+    </span>
+    <span class="flex-row">
+      <button
+        class="void-btn flex-row flex-wrap"
+        onclick={() => copyContract("0xC3fA554B7DaB0B2C919F6F6AE8d07b9655aa30A6")}
+      >
+        <h5>Staking:</h5>
+        <code>0xC3fA554B7DaB0B2C919F6F6AE8d07b9655aa30A6</code>
+        <CopySVG inheritColor={true} />
+      </button>
+      <a
+        class="flex nohover-link"
+        href="https://etherscan.io/address/0xc3fa554b7dab0b2c919f6f6ae8d07b9655aa30a6"
         target="_blank"
       >
         <OpenSVG />

@@ -55,8 +55,7 @@
       <p>
         Our clients see
         <b>70 min avg session time</b>
-        and spikes in community activation. Popular use cases include gamified education, character evaluation,
-        and social engagement tools.
+        and spikes in community activation. Popular use cases include gamified education, marketing, branding, community activation, social engagement, and character evaluation.
       </p>
       <p>
         Prefer zero‑code? We’ll build, market, and host your interactive stories on CoNexus for you.

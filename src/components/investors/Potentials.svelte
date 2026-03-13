@@ -57,24 +57,10 @@
     <i> Owning a Potential places you at the center of our growth and direction. </i>
     <span class="flex-row">
       <a
-        class="icon-link flex void-btn nohover-link"
-        href="https://opensea.io/collection/potentials-eth"
-        aria-label="OpenSea"
-      >
-        <img src="/icons/opensea.png" alt="OpenSea" />
-      </a>
-      <a
         class="button-anchor"
-        href="https://magiceden.io/collections/ethereum/0xfa511d5c4cce10321e6e86793cc083213c36278e"
+        href="https://opensea.io/collection/potentials-eth"
       >
         Unlock Your Potential
-      </a>
-      <a
-        class="icon-link flex void-btn nohover-link"
-        href="https://magiceden.io/collections/ethereum/potentials-eth"
-        aria-label="Magic Eden"
-      >
-        <img src="/icons/magiceden.png" alt="Magic Eden" />
       </a>
     </span>
   </article>
@@ -95,25 +81,6 @@
 
           img {
             width: 1.5rem;
-          }
-        }
-      }
-    }
-
-    span {
-      a {
-        &.icon-link {
-          width: 2.5rem;
-
-          img {
-            width: inherit;
-          }
-
-          &:hover,
-          &:focus,
-          &:active {
-            @include scale;
-            @include bright;
           }
         }
       }
