@@ -1,11 +1,13 @@
 #!/usr/bin/env sh
 
+set -eu
+
 
 echo "Creating container"
-id=$(podman create $1)
+id=$(docker create "$1")
 
 echo "Copying files"
-podman cp $id:$2 $3
+docker cp "$id:$2" "$3"
 
 echo "Removing container"
-podman rm -v $id
+docker rm -v "$id"
